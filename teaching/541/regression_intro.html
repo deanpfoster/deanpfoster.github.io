@@ -1,0 +1,93 @@
+<html>
+<header>
+<title>  STAT 541: Regression intro</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Regression introduction </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Return notes to student
+  <li> Anyone figure out how to get JMP to do a trimmed mean?
+  <li> Read chapter 1 of Myers Read sections 2.1-3, 2.9
+</ul>
+
+<h2>Regression introduction</h2>
+
+Basic structure and goals (chapter 1)
+<ul>
+  <li> Y = beta<sub>0</sub> + beta<sub>1</sub> X<sub>1</sub> + ... + beta<sub>p</sub> X<sub>p</sub> + epsilon
+  <li> Goals
+       <ul>
+	 <li> prediction 
+	 <li> Causation (see talk this afternoon: 4:30 Paul Holland
+	      111 Annenburg.  A "big gun.")
+	 <li> The betas might actually be interesting themselves
+       </ul>
+  <li> We will focus on how to tell if your regression is statistically legitimate
+  <li> Leave you to decide if it makes any sceintific sense
+</ul>
+
+<h2>Simple linear regression (Chapter 2 from Myers)</h2>
+<p>
+Basic structure
+<ul>
+  <li> Simple means only 1 x variable (called independent variables,
+       but I rarely use that termonology.)
+  <li> slope and intercept/centercept
+</ul>
+Least squares
+<ul>
+  <li> minimize sum (y - y-hat)<sup>2</sup>
+       <p>
+       minimize sum (y - b<sub>0</sub> + b<sub>1</sub> X)<sup>2</sup>
+       <p>
+       Now define c = b<sub>0</sub> + Y-bar - b<sub>1</sub>
+       X-bar is the deviation from the centercept.  
+  <li> b<sub>1</sub> = S<sub>xy</sub>/S<sub>xx</sub>
+  <li> c = 0
+  <li> b<sub>0</sub> = Y-bar - b<sub>1</sub> X-bar
+</ul>
+Don't leave anything on the table approach:
+<ul>
+  <li> residuals =  (y - y-hat) shouldn't be predicatable from X
+  <li> Residuals should have zero mean
+  <li> So residuals should be uncorrelated with X
+  <li> E(Y -  b<sub>0</sub> - b<sub>1</sub>) = 0
+  <li> Cov(Y -  b<sub>0</sub> - b<sub>1</sub> X,X) = 0
+</ul>
+See book for how to derive standard errors
+<ul>
+  <li> E(estimate) = true paramenter (unbiased)
+  <li> Var(slope) = sigma<sup>2</sup>/S<sub>xx</sub>
+  <li> Var(centercept) = sigma<sup>2</sup>/n
+  <li> Var(intercept) = sigma<sup>2</sup>(1/n + x-bar<sup>2</sup>//S<sub>xx</sub>)
+</ul>
+Estimate the error by MSE
+<h2>Using JMP and bluging rule</h2>
+<ul>
+  <li> <a href="display.jmp">Display</a> (A lage chain of liquor
+       stores would like to konw how much display space in its stores
+       to devote to a new wine.  Management believes that most
+       products generate about $50 in sales per linear shelf-foot per
+       month.)
+  <li> Tukey's bulging rule by hand and by picture
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Jan 25 08:31:40 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

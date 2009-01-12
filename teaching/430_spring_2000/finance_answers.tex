@@ -1,0 +1,92 @@
+\documentclass{article}
+\renewcommand{\baselinestretch}{1.3}
+
+\begin{document}
+\section*{Answers to finance homework (Homework 7)}
+
+\subsection*{Helping grandma}
+
+Method 1: Using ``real dollars,'' we change the growth rate of the
+market from .07 to .04.  This is the inflation adjusted growth rate.
+Now we compute our optimal $\alpha$ by $.04/(.2)^2$.  So she should
+put 100\% of her money in the stock market.
+
+Method 2:  Her VCGR is as follows (where R = return on the market):
+\begin{eqnarray*}
+\hbox{VCGR} & = & \alpha E(R) + (1-\alpha) 1.03 -
+\hbox{var}(\alpha R + (1-alpha)1.03)/2 \\
+& = & \alpha 1.07 + (1-\alpha) 1.03 - \alpha^2 \hbox{var}(R)/2 \\
+& = & 1 + \alpha .04 - \alpha^2 * .04/2 
+\end{eqnarray*}
+Which is optimized at $\alpha = 1$.
+
+\subsection*{Red, Green, White}
+
+We are assuming that white is cash, so its return is always exactly 1
+(or zero depending on which return you are using).  Let $R_r$ be the
+random variable describing the return on red, and $R_g$ be the random
+variable describing the return on green:
+\begin{eqnarray*}
+\hbox{VCGR} & = & \alpha_r E(R_r) + \alpha_g E(R_g) + (1-\alpha_r
+- \alpha_g) 1 - \hbox{var}(\alpha_r R_r + \alpha_g R_g + (1-\alpha_r - \alpha_g)1)/2 \\
+& = & \alpha_r 1.71 + \alpha_g 1.07 + (1-\alpha_r
+- \alpha_g) 1 - \alpha_r^2 \hbox{var}(R_r)/2 - \alpha_g^2 \hbox{var}(R_g)/2 \\
+& = & 1 + \alpha_r .71 + \alpha_g .075 - \alpha_r^2 1.30^2/2 - \alpha_g^2 .20^2/2 \\
+& = & 1 + \left(\alpha_r .71 - \alpha_r^2 1.30^2/2\right) + \left(\alpha_g .075 - \alpha_g^2 .20^2/2 \right)
+\end{eqnarray*}
+Now each of the two pieces can be seperately optimized.
+$\alpha_{r,\hbox{optimum}} = .71/1.69 = .42$ and
+$\alpha_{g,\hbox{optimum}} = .075/.04 = 1.875$, so the fraction put in
+cash must be -1.295.  By plugging these back in to the equation we can
+get the VCGR.
+
+\subsection*{Ford: ``Any color you want as long as its black.''}
+
+I'll just give the answers here.  See the handout for some idea of
+what is going on.  The $\beta$ is $.03/.04 = .75$.  So the $Z$ we want
+is: $Z = \hbox{Ford} - .75 \hbox{Market}$.  The $E(Z) = .09 - .75 *
+.07 = .0375$ (notice this is the ``little r'' returns).  The variance
+of $Z$ is: 
+
+$$\hbox{var}{Z} = \hbox{Var}(R_f) - \frac{(\hbox{Cov}(R_f,R_m))^2}{\hbox{Var}(R_m)} $$
+$$  = .06 - .03^2/.04 $$
+$$  = .06 - .03^2/.04 = .0375$$
+(How's that for an amazing coincidence!)  So the optimal amount to put
+into $Z$ is 100\%. The amount we put in the market is .07/.04 = 1.75 =
+175\%. 
+
+Unfortunately, this has solved the wrong problem.  We want to invest
+in ford and the market not $Z$ and the market.  Since  $Z =
+\hbox{Ford} - .75 \hbox{Market}$ if we want $(Z = 1, M = 1.75)$ we can
+generate this using $(F = 1, M = 1)$.  So we put 100\% into both.
+This leads to -100\% in cash.
+
+The easiest way to comput the VCGR is to use the Z,M decomposition.
+Then: 
+$$\hbox{VCGR} = 1 E(Z) + 1 E(R_m) -1 - .0375/2 - .04/2$$
+$$\hbox{VCGR} = 1.0375 + 1.07 -1 - .0375/2 - .04/2$$
+$$\hbox{VCGR} = 1.068$$
+so our best growth rate is about 6.8\%.  
+
+\hbox{amazon}
+
+The key problem here is that you don't have any values to work with.
+So you have to guess.  One guess for beta from Yahoo is 2.87.  Other
+people have found beta's of about 1.6.  YMMV.  Using the last 250 days
+you can create an annual variance estimate of .945.  Or you can
+eye-ball it off the graph and get anything from .5 up to 2.  If you
+are outside this range, you might need new glasses.
+
+The most difficult one to find out is the growth rate.  If you used
+the growth rate since amazon was created you'll have a very large
+number.  If you used the last year, you might get 5 percent growth, or
+possibly -5\% growth--depending on when your year begins and ends.
+If you believe in the efficent market hypothesis, then Z should have
+neither a positive return nor a negative return.  So $E(Z) = 0$.  This
+means that $E(R_{\hbox{Amazon}} = \beta R_M$.  The idea is that both
+the beta and the return on the market are more accurately estimated
+than the return on Amazon is.  The nice thing about using this return
+is that the amount you put into $Z$ is exactly zero!  So it boils down
+to just finding the correct amount to put in the market.
+
+\end{document}

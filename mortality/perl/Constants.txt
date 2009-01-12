@@ -1,0 +1,18 @@
+Constants	
+Mean_Height_Male	1.765
+Mean_Height_Female	1.638
+Male_Condom_Use	0.625
+Female_Condom_Use	0.508
+Condom_Effectiveness	0.69
+Male_Mean_Sexual_Partner_in_past_Year	1.354
+Female_Mean_Sexual_Partner_in_past_Year	0.848
+Mean_AIDS_survival_time	2.25
+Given_AIDS____die_of_AIDS	0.97
+Mean_Income	34076
+Men_s_BMI_Quartile_1___2_Divider	23
+Men_s_BMI_Quartile_2___3_Divider	25.2
+Men_s_BMI_Quartile_3___4_Divider	27.5
+Women_s_BMI_Quartile_1___2_Divider	21.5
+Women_s_BMI_Quartile_2___3_Divider	23.8
+Women_s_BMI_Quartile_3___4_Divider	27.1
+Occupation_Class	2

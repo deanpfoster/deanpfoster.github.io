@@ -1,0 +1,148 @@
+\documentclass{article}
+\renewcommand{\baselinestretch}{1.3}
+
+\begin{document}
+\section*{Notes on covariance and finance}
+
+\subsection*{Long run growth rates}
+
+Here are some of the equations that we have been talking about over
+the past few days.
+
+Let $R_t$ be the return on a stock at time $t$.  We will take it to be
+a number bigger than or equal to zero.  Typically, $R_t \approx 1$
+since you have about the same amount at the end of the time period as
+at the beginning.  We want to study returns based on two properties,
+E$(R)$ and Var$(R)$.  To motivate this, let's look at the long run
+proformance of series of returns.
+
+Consider the sequence of independent and identically distributed
+random variables, $R_1, R_2, \ldots, R_t$.  If you put some money in
+the investment at the begining of the time period and let it ride
+until the end, then the final wealth divided by your orginal wealth
+is 
+$$R_1 \times R_2 \times \cdots \times R_t.$$
+We know a lot about how to add up random variables (montra =
+``expectation is linear'') so let's convert this to a sum.
+$$R_1 \times R_2 \times \cdots \times R_t = e^{\ln R_1 + \ln R_2 +
+\cdots + \ln R_t}$$
+But the sum will be approximately $t E(\ln R)$ by the weak law of
+large numbers.  So,
+$$R_1 \times R_2 \times \cdots \times R_t \approx e^{t E(\ln R)}$$
+
+Rather than compute $E(\ln R)$ we will approximate it by a Taylor
+series: 
+\begin{eqnarray*}
+E(\ln R) &= &E\left((R-1) - (R-1)^2/2 + (R-1)^3/3 - \cdots \right)\\
+&\approx& E(1 + (R-1) - (R-1)^2/2) =\\
+&& = 1 + E(R-1) - E(R-1)^2/2 \\
+&& = E(R) - E(R- E(R) + E(R) - 1)^2/2 \\
+&& = E(R) - E(R- E(R))^2/2  + (E(R) - 1)^2/2 \\
+&& = E(R) - \hbox{Var}(R)/2  + (E(R) - 1)^2/2 \\
+&& \approx E(R) - 1  - \hbox{Var}(R)/2
+\end{eqnarray*}
+Where the first approximation comes from throwing away the ``small''
+terms in the taylor series, and the last approximation comes from
+throwing away the $ (E(R) - 1)^2$ term which should hopefully be small
+since $E(R) \approx 1$.  So our key equation now becomes:
+$$R_1 \times R_2 \times \cdots \times R_t \approx e^{t E(R) -1 -
+\hbox{\scriptsize Var}(R)/2}$$ 
+Note that $E(R) - 1$ is what is usually quoted as the return
+rate--namely a number like 7\%, or 10\%.
+
+Thus to evaluate the growth rate of a stock we can use 
+$$\hbox{VCGR = volitility corrected growth rate} = E(R) - 1  - \hbox{Var}(R)/2$$
+The nice thing about this equation is that it is in terms of only
+means and variances, so we can use all that we are studying about
+mean, variances and covariances.
+
+\section*{Optimization}
+
+Once we can measure the long run growth rate, the obvious question is
+how to maximize it.  To do that we need to compute the long run growth
+rate of a combination of returns.  Suppose we have two investments,
+$a$ and $m$.  Let the returns on these investments be $R_{a,t}$ and
+$R_{m,t}$.  We will assume that the returns are independent over time,
+so we can drop the dependence on $t$ and just write $R_a$ and $R_m$.
+
+Suppose that we put a fraction of $\alpha$ in $a$ and the rest ($1 -
+\alpha$) in $m$.  Then our VCGR is:
+$$\hbox{VCGR} = E(\alpha R_a + (1 - \alpha)R_m) - \hbox{Var}(\alpha
+R_a + (1 - \alpha)R_m)/2$$
+In general this works out to be:
+$$\hbox{VCGR} = \alpha E(R_a) + (1 - \alpha)E(R_m) - \alpha^2
+\hbox{Var}(R_a)/2  + (1 - \alpha)^2\hbox{Var}(R_m)/2 + \alpha(1-\alpha)\hbox{Cov}(R_a,R_m)$$
+This equation is a lot easier to work with if we assume that
+Var$(R_m)$ is zero.  Then the covariance also has to be zero. (Why?)
+So the equation reduces to:
+$$\hbox{VCGR} = \alpha E(R_a) + (1 - \alpha)E(R_m) - \alpha^2\hbox{Var}(R_a)/2$$
+$$\hbox{VCGR} = E(R_m) + \alpha (E(R_a) - E(R_m)) - \alpha^2\hbox{Var}(R_a)/2$$
+This is optimized at:
+$$\alpha_{\hbox{\scriptsize optimum}} = \frac{E(R_a) - E(R_m)}{\hbox{Var}(R_a)}$$
+
+But how can we deal with it if $m$ doesn't have zero variance?  If $m$
+doesn't have zero variance, then lets assume that we have ``cash''
+which does have zero variance!  Then our problem is to put $\alpha_a$
+in $a$, and $\alpha_m$ in $m$ and the remaining amount $1 - \alpha_a -
+\alpha_m$ in a risk free investment which has zero variance.  For
+simplicity we will assume that the risk free rate returns zero percent
+per year.  This is fairly accurate if we use inflation corrected
+dollars.  We want to optimize the following then:
+$$\hbox{VCGR} = E(\alpha_a R_a + \alpha_m R_m + 1 - \alpha_a - \alpha_m) - \hbox{Var}(\alpha_a
+R_a + \alpha_mR_m + 1 - \alpha_a - \alpha_m)/2$$
+$$\hbox{VCGR} = E(1 + \alpha_a (R_a - 1) + \alpha_m (R_m - 1)) - \hbox{Var}(\alpha_a
+R_a + \alpha_m R_m)/2$$
+If we try to optimize this, we still have the troublesome covariance
+term.  So Let's find a $Z$ such that Cov$(Z,R_m)$ = 0, and $Z = R_a -
+\beta R_m$.  Then we will invest in $Z$ and $m$ instead of investing
+in $a$ and $m$.  But, if we are supposed to invest 5 in $Z$ and 8 in
+$m$, this is equivalent to investing 5 in $a$ and $8 - 5\beta$ in
+$m$.  So once we know how to invest in $Z$ we can figure out how to
+invest in $m$.
+
+\subsection*{Regression}
+
+Let's find a $Z$ such that Cov$(Z,R_m)$ = 0, and $Z = R_a - \beta R_m$:
+\begin{eqnarray*}
+\hbox{Cov}(Z,R_m) &=& \hbox{Cov}(R_a - \beta R_m,R_m)  \\
+                  &=& \hbox{Cov}(R_a,R_m)  - \beta \hbox{Cov}(R_m,R_m) \\
+                  &=& \hbox{Cov}(R_a,R_m)  - \beta \hbox{Var}(R_m) 
+\end{eqnarray*}
+If we then set $\hbox{Cov}(Z,R_m)$ to be zero, we must have 
+$$\beta = \frac{\hbox{Cov}(R_a,R_m)}{\hbox{Var}(R_m)}.$$
+We can easilly compute the mean and variance of $Z$ by linearity of
+expectation.  In particular:
+\begin{eqnarray*}
+E(Z) &=& E(R_a - \beta R_m) \\
+     &=& E(R_a) - \frac{\hbox{Cov}(R_a,R_m)E(R_m)}{\hbox{Var}(R_m)}
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+\hbox{Var}(Z) &=& \hbox{Var}(R_a - \beta R_m) \\
+     &=& \hbox{Var}(R_a) - 2 \beta \hbox{Cov}(R_a,R_m) + \beta^2 \hbox{Var}(R_m)\\
+     &=& \hbox{Var}(R_a) - 2
+\left(\frac{\hbox{Cov}(R_a,R_m)}{\hbox{Var}(R_m)}\right) \hbox{cov}(R_a,R_m) +
+\left(\frac{\hbox{Cov}(R_a,R_m)}{\hbox{Var}(R_m)}\right)^2 \hbox{var}(R_m)\\
+     &=& \hbox{Var}(R_a) - \frac{(\hbox{Cov}(R_a,R_m))^2}{\hbox{Var}(R_m)} 
+\end{eqnarray*}
+\subsection*{Optimzation with a covariance of zero}
+
+Our problem is now to optmize
+$$\hbox{VCGR} = E(1 + \alpha_z (Z - 1) + \alpha_m (R_m - 1)) - \hbox{Var}(\alpha_z
+Z + \alpha_m R_m)/2$$
+But we know that $Z$ and $R_m$ have zero covariance.  So
+$$\hbox{VCGR} = 1 + \alpha_z E(Z - 1) + \alpha_m E(R_m - 1)) -
+\alpha_z^2\hbox{Var}(Z)/2 -\alpha_m^2 \hbox{Var}(R_m)/2$$
+But we can rewrite this as:
+$$\hbox{VCGR} = 1 + \left(\alpha_z E(Z - 1) -
+\alpha_z^2\hbox{Var}(Z)/2\right)  + \left(\alpha_m E(R_m - 1)) -\alpha_m^2 \hbox{Var}(R_m)/2\right)$$
+Now we can optimize $\alpha_z$ and $\alpha_m$ seperately.  So the
+optimum is at:
+\begin{eqnarray*}
+\alpha_{z,\hbox{\scriptsize optimum}} &=& \displaystyle \frac{E(Z)}{\hbox{Var}(Z)} \\
+\alpha_{m,\hbox{\scriptsize optimum}} &=& \displaystyle
+\frac{E(R_m)}{\hbox{Var}(R_m)}
+\end{eqnarray*}
+
+\end{document}
+

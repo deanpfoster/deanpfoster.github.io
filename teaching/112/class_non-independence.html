@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Dealing with non-independence </title>
+</head>
+
+<body>
+<center><h1> Dealing with non-independence</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li>  Final: May 4th 1:30 - 3:30 in 10 Leidy labs
+	 <li> Extra office hours by Nuria: 10 - 1 April 26 and 27th.
+	 <li> things to include in your writeup:
+	      <ul>
+		<li> predicion for a sample person (or posibly 2 or 3
+		     people).  Give a prediction interval (i.e. +/- 2
+		     RMSE)
+		<li> interpret slopes.  Like: "greeks drink on average
+		     2 more drinks a week than non-greeks."
+		<li> Give confidence intervals for your slopes.  for
+		     example, "greeks drink between 1.5 and 5.5 drinks
+		     more than non-greeks."
+		<li> give at least one confidence for a variable not
+		     in your model (for example say, "there was no
+		     significant difference between the college and engineering in
+		     the number of drinks they drink.  More precisely,
+		     the college students drink from  1 drink fewer
+		     per week to 2 drinks more per week.")
+	      </uL>
+       </ul>
+       </p>
+</ul>
+
+<h2>Non independence </h2>
+<ul>
+  <li> Definition: two observations are related through more than
+       their X's
+  <li> techinical definition: the RESIDUALS are correlated
+  <li> Example: "How much opera do you listen to?"
+       <ul>
+	 <li> Ask everyone on a dorm floor
+	 <li> think: two people per room
+	 <li> ab, cd, ef, gh are all room-mate pairs
+	 <li> the amount a listens to opera is highly related to the
+	      amount b does
+       </ul>
+  <li> Response: Ignore it
+       <ul>
+	 <li> a&b are correlated
+	 <li> do plot of opera vs year has a&b show up in pairs
+	 <li> basically doubling the data
+	 <li> t are wrong, CI are wrong, prediction intervals are
+	      wrong, p-values are wrong, plots are mis-leading
+	 <li> BAD IDEA!
+       </ul>
+  <li> Response: remove 1/2 of the data
+       <ul>
+	 <li> only look at a, c, e, g, etc
+	 <li> gets rid of dependence problems
+	 <li> unfortuantely not as much data
+	 <li> Works fine in practice (used in sample surveys often
+	      times) 
+       </ul>
+  <li> Response: regress a on b, c on d, e on f, g on h
+       <ul>
+	 <li> use room mate to predict listening habits
+	 <li> uses all the data--1/2 converted to X 1/2 stays as Y
+	 <li> Of course, you must be willing use the roommate as a
+	      predictor (you might not want to do this if you were
+	      interested in year vs opera effects.)
+       </ul>
+  <li> Regress both ways
+       <ul>
+	 <li> a on b AND b on a
+	 <li> draw picture.  once you see that a on b is positive, you
+	      know b on a is negative
+	 <li> so residuals are correlated
+	 <li> t are wrong, CI are wrong, prediction intervals are
+	      wrong, p-values are wrong, plots are mis-leading
+	 <li> BAD IDEA!
+       </ul>
+</ul>
+
+<h2> Time series </h2>
+<ul>
+  <li> example Y = calories/person/day, X = year
+  <li> regress Y on X has correlated errors (draw picture)
+  <li> regress Y<sub>t</sub> on Y<sub>t-1</sub>
+  <li> other example: seasonal adjustment
+</ul>
+       
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Apr 25 13:15:30 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

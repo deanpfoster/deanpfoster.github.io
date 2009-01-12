@@ -1,0 +1,60 @@
+<html>
+<header>
+<title> Statistics 102H: Predictions and CI</title>
+</header>
+<body>
+<center>
+<h1>Statistics 102H: Predictions and CI</h1>
+</center>
+<p>
+
+
+<h2>Basic "theory"</h2>
+<ul>
+  <li> Y = fit + noise
+  <li> If everything goes well: relatively speaking fit has smaller variability
+  <li> Prediction interval is based on SD of noise
+  <li> Empirical rule:
+       <ul>
+	 <li> +/- 1 = 2/3s of data
+	 <li> +/- 2 = 95% of data
+	 <li> +/- 3 = 99.8% (ivory soap) of the data
+       </ul>
+  <li> What can go wrong?
+       <ul>
+	 <li> curvature
+	 <li> non-independence
+	 <li> hetroskadasticity
+	 <li> non-normality
+       </ul>
+  <li> Hence checking assumptions is necessary to believe intervals
+</ul>
+
+<h2>Ignore fit inacuracy</h2>
+<ul>
+  <li> start by assuming alpha, beta, sigma are perfictly estimated
+  <li> What is the guess for y for a new observation? (Y-hat = alpha-hat + beta-hat X.) 
+  <li> Works if there is a lot of data
+  <li> prediction intervals are basically flat
+  <li> Try it with idealized regression? (Or use <a href="diamond.dat">diamond data</a>)
+</ul>
+
+       <h2>Homework</h2>
+       <ul>
+	 <li> Compute the solution to the least squares equation I
+	      presented in class today.  In other words, find the
+	      alpha and beta that minimize: <p>
+Sum(Y<sub>i</sub> - alpha - beta X<sub>i</sub>)<sup>2</sup>
+	 <li> You can start looking at the <a href="homework_1.html">first short assignment.</a> 
+       </ul>
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Jan 27 13:35:48 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

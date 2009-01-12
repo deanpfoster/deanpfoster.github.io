@@ -1,0 +1,116 @@
+<html>
+<header>
+<title> Statistics 102H: FPP (or FPPA) Freedman's book on Statistics</title>
+</header>
+<body>
+<center>
+<h1>Statistics 102H: FPP (or FPPA) Freedman's book on Statistics</h1>
+</center>
+<p>
+
+<h2>Administrivia</h2>
+
+<ul>
+  <li> Turn in first part of your project (if you didn't email it).
+  <li> be sure to include an email address on it!
+  <li> I'm covering philosophy of testing.  Read book for details!  (You ARE responsible for details.) 
+</ul>
+
+<h2>Chapter 26: Tests of significance</h2>
+
+<h3>Review:</h3>
+<ul>
+  <li> Box model for where our data comes from.
+  <li> Average of sample is property of interest
+  <li> Sample average (called X-bar) is close to population average (called mu)
+  <li> How close? SE = SD/Sqrt(n) close.
+  <li> In particular: (X-bar - mu)/SE has approximately a normal distribution
+  <li> Here is where typical classes start looking stuff up in tables.  Instead, I'll have you memorize the table:
+       <ul>
+	 <li> P(Z <-3) = 1/1000
+	 <li> P(Z <-2) = 1/40
+	 <li> P(Z <-1) = 1/6
+	 <li> P(Z < 0) = .5
+	 <li> P(Z < 1) = 5/6
+	 <li> P(Z < 2) = 39/40
+	 <li> P(Z < 3) = .999
+       </ul>
+Lucky you!  (2/3, 19/20, 99.8 are the way I remimber them)
+</ul>
+
+
+<h3>Story time</h3>
+Consider the following story of two opinions about an upcoming tax cut:
+<ul>
+  <li> New taxes: "revinue neutral" or not?
+  <li> Draw 100 returns from previous years.  Recompute their tax payment.
+  <li> X-bar = -$219.  SD = $725.
+  <li> First conversation: SD vs SE.
+  <li> Second conversation: test statistic: (mean - target)/SE = -3. corresponds to a 1/1000 chance of seeing a mean that far away from 0.  Yikes!
+</ul>
+Finally, we will be able to define:
+<ul>
+  <li> null hypothesis
+  <li> alternative hypothesis
+  <li> test statistic
+  <li> p-value
+</ul>
+
+<h3>Null and alternative</h3>
+Here the null was: the average in the box = $0.  The alternative the tresury worried about was that the average was less than zero.  (Tax payers might worry about another alternative.)
+<p>
+<em>Null claims that the observed difference are due to chance alone.  The alternative says the differences are real.
+</em>
+<h3>Test statistic</h3>
+A test statistic measures the difference between the data and what is expected under then Null.
+<p>
+Typically: test statistic is normalized to look approximately normal.
+<p>
+P-value = observed significance level.
+<p>
+<em>P-value is chance of getting a test statistic this strange under then Null.  NOT, the chance of the null being correct!
+</em>  (This difference should now be obvious to you.  If it isn't read the chapter carefully!)
+
+<h3>Proofs and language</h3>
+You can disprove the null
+<ul>
+  <li> Suppose p-value = 1/Million
+  <li> Suppose you do another test and it is again 1/Million
+  <li> Overall p-value = 1/Trillion
+  <li> Do you think the null is still true?
+</ul>
+So we agree, you CAN disprove a null.
+<p>
+Can you prove a null true?
+<ul>
+  <li> you do a test and the p-value = .6
+  <li> you do a test and the p-value = .2
+  <li> you do a test and the p-value = .8
+  <li> you do a test and the p-value = .5
+  <li> you do a test and the p-value = .9
+  <li> You combine all the data and the p-value = .3
+  <li> Is the null true?  Suppose the total amount of data was small?
+</ul>
+All you can say is "I've failed to disprove the null."  This is very different than saying you have proven the null.  It could be a personal flaw, or it could be the null is true.  You will never know.
+<h3>Example of putting it all together</h3>
+Think, share, pair: Problem 11 on page 489.
+       
+
+
+<hr>
+
+<h2><a href="homework.html">Homework</a></h2>
+<ul>
+  <li> Read chapter 26.  In particular, read sections 5 - 8.  I didn't cover them, but you are responsable for them.
+  <li> What will your test statistic be in your project?  (You might not be able to answer this yet if your project involves a regression)
+</ul>
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Apr  7 08:18:19 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

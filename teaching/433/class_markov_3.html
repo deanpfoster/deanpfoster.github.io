@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<title>Stat 433: Chapter III.4: Markov</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Readings: Chapter 3 up to page 126
+  <li> Questions from the homework?
+</ul>
+
+<h1>Chapter III.4: First step analysis</h1>
+
+Consider the matrix: (with indices of 0,1,2)
+<table border>
+<tr>   <td>   1    <td>    0    <td>    0   </tr>
+<tr>   <td>   a    <td>    b    <td>    c   </tr>
+<tr>   <td>   0    <td>    0    <td>    1   </tr>
+</table>
+
+<ul>
+<li>Suppose we start in state 0.  What is probability of ever leaving?
+<li>Suppose we start in state 2.  What is probability of ever leaving?
+<li> Called <em>absorbing</em>.
+<li>Suppose we start in state 1.  What is probability of entering
+state 0 or state 2?
+</ul>
+<h2>Where do we go?</h2>
+<ul>
+<li> T = stopping time (absorbtion time)
+<li> u = P(X<sub>T</sub>= 0|X<sub>0</sub> = 1)
+<li> (Martingale approach:)
+<ul>
+<li> u = P(X<sub>infinity</sub>= 0|X<sub>0</sub> = 1)
+<li> E(I(X<sub>infinity</sub>)X<sub>0</sub>)) =
+E(E(I(X<sub>infinity</sub>)|X<sub>1</sub>,X<sub>0</sub>)))) = ...
+<li> Called first step analysis
+</ul>
+<li> Induction: Suppose we knew it from time 1 on. Concrete first step analsyis.
+</ul>
+<h2>When do we get there?</h2>
+<ul>
+<li> T = stopping time (absorbtion time)
+<li> v = E(T|X<sub>0</sub> = 1)
+<li> same methodology
+</ul>
+
+<h2>Harder: 4 states</h2>
+<ul>
+<li> What if there are two transiant states?
+<li> There are now two probabilities of absorbing in state 0
+<li> There are now two waiting times
+<li> Same recursion:
+
+<table border>
+<tr>   <td>   1    <td>    0    <td>    0   <td>   0 </tr>
+<tr>   <td>   .1   <td>    .8   <td>    .1  <td>   0 </tr>
+<tr>   <td>   0    <td>    .3    <td>   .6  <td>   .1 </tr>
+<tr>   <td>   0    <td>    0    <td>    0   <td>   1 </tr>
+</table>
+</ul>
+<h3>Which do we come to first?</h3>
+the mouse example from the book
+
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Thu Feb  7 12:50:24 EST 2008
+<!-- hhmts end -->
+</body> </html>

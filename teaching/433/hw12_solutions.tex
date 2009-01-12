@@ -1,0 +1,178 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 11 Solution}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class or are of particular interest.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+
+\begin{flushleft}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 2.4}
+
+a.
+\begin{eqnarray*}
+\mu_k&=& \lim_{h \rightarrow \infty} \frac{P(X(t+h)=k-1|X(t)=k)}{h}\\
+&=& \lim_{h \rightarrow \infty}\frac{ \left ( \begin{array}{c}
+k\\
+ 1 \end{array} \right ) \left [ \left ( \begin{array}{c}
+M-(N-k)\\
+ 1 \end{array} \right ) (\theta + o(h)) \right ] \cdot \left [ 1-\left(\left ( \begin{array}{c}
+M-(N-k)\\
+ 1 \end{array} \right ) (\theta + o(h))\right) \right
+ ]^{k-1}}{h}\\
+\end{eqnarray*}
+
+Now you need to work out the algebra and some limits (which all go
+to zero) and you are left with the result $\mu_k=\theta k
+(M-(N-k))$. Some students reached the same result using their
+intuition and got full marks.
+
+b.
+
+\begin{eqnarray*}
+E(T)&=& E(\sum_{i=1}^N S_i) \\
+&=& \sum_{i=1}^N E(S_i) \\
+&=& \sum_{i=1}^N \frac{1}{\theta i(M-(N-i))} \\
+&=& \frac{1}{\theta} \frac{1}{(M-N)} \sum_{i=1}^{N} (\frac{1}{i}
+-\frac{1}{M-N+i}))\\
+&=& \frac{1}{\theta} \frac{1}{(M-N)} (\sum_{i=1}^{N} \frac{1}{i}
+- \sum_{j=M-N+1}^{M} \frac{1}{j})\\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+
+\textbf{Question 3.2}\\
+We can model this process by $\lambda_k=\frac{1}{2m_k}$ and
+$\mu_k=\frac{1}{2m_k}$. The boundaries assumptions are
+\begin{eqnarray*}
+\lambda_0=\frac{1}{m_0} \quad \mu_0=0\\
+\lambda_N=0 \quad \mu_N=\frac{1}{m_N}\\
+\end{eqnarray*}
+
+Please notice that $\mu$ and $\lambda$ are rates. Some students
+wrote $\lambda_0=\mu_N=1$ probably thinking of probabilities (like
+in discrete Markov Chain) however this may not be the case ($m_0$
+might equal some other number, for example).
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 1.2}\\
+
+$B(t)$ follows the normal distribution with mean zero and variance
+$t$. Hence,
+\begin{eqnarray*}
+E(e^{\lambda B(t)})&=& \int_{-\infty}^{\infty} e^{\lambda z}
+\frac{1}{\sqrt{2 \pi t}} e^{-\frac{z^2}{2t}} dz\\
+&=& e^{\frac{\lambda^2 t}{2}} \int_{-\infty}^{\infty}
+\frac{1}{\sqrt{2 \pi t}} e^{-\frac{(z-\lambda t)^2}{2t}} dz\\
+&=& e^{\frac{\lambda^2 t}{2}}
+\end{eqnarray*}
+
+The last step is true since the expression written inside the
+integral is the normal density of a variable with mean $\lambda t$
+and variance $t$. As a result the integral is just one. Some
+students use the result of the moment generating function of the
+normal distribution which was also a good way of solving this
+problem. Another good way was to use the mean value of the
+log-normal distribution.
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 1.5}\\
+
+a.$M_\tau=0$ implies that the random walk maximum value is zero.
+This is the same as saying that the random walk reaches $-a$
+before it reaches 1 (so it can hit zero multiple times but never
+go above it). Using the formula on page 480 we know that $P(S_n
+\textrm{ reaches } -a  \textrm{ before } 1
+|S_0=0)=\frac{1}{1+a}=P(M_\tau=0)$.
+
+b. \begin{eqnarray*}
+P(M_\tau \geq 1)&=&1-P(M_\tau=0)\\
+&=& \frac{a}{1+a}
+\end{eqnarray*}
+
+Now lets examine the $P(M_\tau \geq 2)$.We know that the following
+equation is true:
+
+\begin{eqnarray*}
+P(M_\tau \geq 2)&=& P(M_\tau \geq 2|M_\tau \geq 1)\cdot P(M_\tau
+\geq 1)
+\end{eqnarray*}
+
+Saying that we know that $M_\tau \geq 1$,  is like shifting the
+starting point to 1 (instead of zero) and starting the process
+from there. Or in other words, $P(M_\tau \geq 2|M_\tau \geq 1)$
+has the same probability as $P(M_\tau \geq 1|S_0=0)$.Hence,
+
+
+\begin{eqnarray*}
+P(M_\tau \geq 2)&=& \frac{a}{1+a} \cdot \frac{a}{1+a}
+\end{eqnarray*}
+
+
+Using the same logic it is clear why $P(M_\tau \geq
+k)=(\frac{a}{1+a})^k$.
+
+This implies that $M_\tau$ follows the geometric distribution.
+
+c.
+
+\begin{eqnarray*}
+P(M_\tau \geq k)&=&(\frac{a\sqrt{n}}{1+a\sqrt{n}})^{k\sqrt{n}}\\
+&=&((1-\frac{1}{1+a\sqrt{n}})^{a\sqrt{n}})^{\frac{k}{a}}\\
+&\rightarrow& \lim_{n\rightarrow \infty}
+((1-\frac{1}{1+a\sqrt{n}})^{a\sqrt{n}})^{\frac{k}{a}}\\
+&=& (e^{-1})^{\frac{k}{a}}\\
+&=& e^{-\frac{k}{a}}\\
+\end{eqnarray*}
+
+
+Since $P(M_\tau \geq k)=e^{-\frac{k}{a}}$ this implies that
+$M_\tau$ follows the exponential distribution with parameter
+$\frac{1}{a}$ (if you don't see this just take the first
+derivative of this function to get the well-known density of the
+exponential distribution).
+\end{flushleft}
+\end{document}

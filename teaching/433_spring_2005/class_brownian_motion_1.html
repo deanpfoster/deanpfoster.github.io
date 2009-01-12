@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter VIII: Brownian motion</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Optional: read 6.6
+  <li> Read section 8.1
+</ul>
+
+<h1>Brownian motion</h1>
+
+<h2>History</h2>
+1827: Robert Brown watch grains of pollen
+<p>
+1905: Einstein described why--its due to atoms.
+<p>
+1927: Norbert Wiener gave mathematical model
+<p>
+Aside: 1900, Louis Bachelier used brownian motion to describe the
+stock market.  Resoundingly ignored!  Shows--don't be too far ahead of
+your friends if you want recgonization.
+
+<h2>Constructing a Brownian motion stochastic process</h2>
+Two good examples of infinitely divisable processes:
+<ul>
+  <li> Poisson
+  <li> Normal
+</ul>
+Lets use this to create a Brownian motion process
+<ul>
+  <li> Discrete time Normal process is easy: t = 0,1,2,3,4,...
+  <li> Want to create more refined process for t = 0,.5,1,1.5,2,...
+  <li> A = (X<sub>t + .5</sub> - X<sub>t</sub>) is independent of  B =
+(X<sub>t
++ 1</sub> - X<sub>t+.5</sub>)
+  <li> C = A + B = (X<sub>t + 1</sub> - X<sub>t</sub>), so we "know" it
+  <li> Define D = A - B
+  <li> Key fact: C and D are independent (check!)
+  <li> E(C|C) = C, E(D|C) = 0, Var(C|C) = 0, Var(D|C) = 1
+  <li> Thus: E(A|C) = C/2 and Var(A|C) = 1/2.
+  <li> Can simulate as accurately as we like
+</ul>
+<h2>Details: involving PDEs!</h2>
+
+Define: p(y,t|x) = density of B(s+t)=y given B(s) = x.
+<ul>
+  <li> P(y,t|x)&ge zero.  (Duh!)
+  <li> intergral = 1.
+  <li> limit t --> 0 is zero if  y &ne 0.
+  <li> Einstien: dp/dt = 1/2 sigma<sup>2</sup>
+d<sup>2</sup>p/dx<sup>2</sup>.
+  <li> Solution: p(y,t|x) = Normal(mean = x, var = t).
+  <li> It solves equations and is the only solution (difficult pdf
+result)
+</ul>
+
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Apr 14 10:43:18 EDT 2004
+<!-- hhmts end -->
+</body> </html>

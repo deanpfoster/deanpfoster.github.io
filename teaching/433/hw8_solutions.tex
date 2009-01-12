@@ -1,0 +1,156 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 8 Solution}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class or are of particular interest.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+
+\begin{flushleft}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Page 231 Question 2.2}
+
+a.Let $X$ count the number of operating components and $Y$ an
+indicator which takes on a value one when a component is repaired
+for 1 day. The markov chain states are as follows:
+\begin{enumerate}
+    \item  State 1: $X=2,Y=0$
+    \item  State 2: $X=1,Y=0$
+    \item  State 3: $X=1,Y=1$
+    \item  State 4: $X=0,Y=1$
+    \item  State 5: $X=0,Y=0$
+\end{enumerate}
+
+The appropriate transition matrix is:
+\[ P =   \left ( \begin{array}{ccccc}
+ (1-\alpha)^2 & 2\alpha(1-\alpha) & 0 & 0 & \alpha^2 \\
+ 0 & 0 & 1-\beta & \beta & 0  \\
+  1-\beta &  \beta& 0 & 0 & 0 \\
+ 0 & 0 & 1 & 0 & 0  \\
+ 0 & 0 & 0 & 1 & 0  \\
+\end{array} \right) \]
+
+b. Solve the following equations:
+\begin{eqnarray*}
+(1-\alpha)^2 \pi_0+ (1-\beta) \pi_2&=&\pi_0\\
+2\alpha(1-\alpha) \pi_0+\beta \pi_2 + \pi_3 &=& \pi_1\\
+(1-\beta) \pi_1 &=& \pi_2\\
+\beta \pi_1+\pi_4&=&\pi_3\\
+\alpha^2 \pi_0 &=& \pi_4 \\
+\pi_0 + \pi_1 + \pi_2 + \pi_3 + \pi_4 &=&1
+\end{eqnarray*}
+
+The fraction of time the system is operating is
+$\pi_0+\pi_1+\pi_2\approx0.95$.
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+
+\textbf{Page 233 Question 2.6}\\
+We begin by proving the $X_n$ defines a Markov chain.
+
+Consider the following 4 situations:
+\begin{itemize}
+    \item $P(X_{n+1}=0|X_0,\ldots,X_n=1)=P(X_{n+1}=0|X_n=1)=p$ from the
+problem definition (''on a given day the computer fails with
+probability p")
+    \item $P(X_{n+1}=1|X_0,\ldots,X_n=1)=P(X_{n+1}=1|X_n=1)=q$
+    using the same logic as before.
+    \item $P(X_{n+1}=0|X_0,\ldots,X_n=0)=P(N>k+1|N>k)$ for some time k . Since N
+    has a geometric distribution we know that
+    $P(N>k+1|N>k)=P(N>1)=(1-\beta)=\alpha$. Since this is
+    independent of k we arrive to the conclusion that
+    $P(X_{n+1}=0|X_0,\ldots,X_n=0)=P(X_{n+1}=0|X_n=0)=\alpha$.
+    \item
+    $P(X_{n+1}=1|X_0,\ldots,X_n=0)=P(X_{n+1}=1|X_n=0)=\beta$ using the
+    same logic as before.
+\end{itemize}
+
+Therefore, $X_n$ is a Markov Chain with $P$, the transition
+matrix, which is indicated in the question. Since $\beta\in(0,1)$
+$P$ must be regular and thus by solving $\pi P= \pi$ we can obtain
+the limit distribution
+$\pi=[\frac{p}{p+\beta},\frac{\beta}{p+\beta}]^{'}$.
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 243 Question 3.3}\\
+
+a. The classes are:
+\begin{enumerate}
+    \item $\{0,2\}$ since $p_{0,2}>0$ and $p_{2,0}>0$ .
+    \item $\{4,5\}$ since $p_{4,5}>0$ and $p_{5,4}>0$.
+    \item $\{1,3\}$ since $p_{1,3}>0$ and $p_{3,1}>0$.
+\end{enumerate}
+
+b.The classes are:
+\begin{enumerate}
+    \item $\{1,2\}$ since $p_{1,2}>0$ and $p_{2,1}>0$ .
+    \item $\{4,3\}$ since $p_{4,3}>0$ and $p_{3,4}>0$.
+    \item $\{0\}$ and $\{5\}$ since they are both absorbing states.
+\end{enumerate}
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Page 245 Question 3.1}\\
+
+a.  \begin{eqnarray*}
+f_{00}^{(0)}&=&0\\
+f_{00}^{(1)}&=&1-a\\
+f_{00}^{(n)}&=&a(1-b)^{n-2}b \textrm{ for $n>1$}\\
+\end{eqnarray*}
+
+b. \begin{eqnarray*} \sum_{k=1}^n f_{00}^{(k)} p_{00}^{(n-k)} &=&
+(1-a) \frac{b+a(1-a-b)^{n-1}}{a+b} + \sum_{k=2}^n a(1-b)^{k-2}b
+\cdot \frac{b+a(1-a-b)^{n-k}}{a+b}\\
+&=& \frac{b}{a+b} + \frac{a(1-a-b)^{n}}{a+b}
+\end{eqnarray*}
+
+The last transition requires tedious algebra operations (using
+definition of geometric sums) but you were expected to perform
+them and get the last result.
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\end{flushleft}
+\end{document}

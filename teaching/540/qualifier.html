@@ -1,0 +1,88 @@
+<html>
+<header>
+<title>  Qualifier question: Computing</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Computing qualifier question</h1></center>
+
+<p>
+
+This question will have you:
+<ol>
+<li> write a perl script that will gather data from the web,
+<li> display this data on the web,
+<li> and finally put the two steps together to create a dynamic
+web page.
+</ol>
+     When you are done, you will have written a matching game
+that is like the children's game called "concentration."  It could be
+used as a memory aid to help students learn the faces of the faculty
+members at Wharton.
+
+<p>
+
+<ol>
+  <li>
+       The first step will be to extract the data from a file.
+       Download a copy of  
+       <p>
+       http://www.wharton.upenn.edu/faculty/fac_name.html
+       <p>
+       Write a regular expression that will match on the lines that
+       describe each faculty member.  Describe why you believe this
+       will match correctly without matching too many things it
+       shouldn't.  If you follow the link from each person, you will
+       also find a picture of that faculty member.  
+       <p>
+       Now write a perl script that will convert the file you
+       downloaded into a csv file.  So the first line of output
+       should be:
+       <p>
+       "Abel, Andrew B.","http://www.wharton.upenn.edu/faculty/abel.html", "http://www.wharton.upenn.edu/faculty/abel.gif"
+       <p>
+       What sorts of changes might Wharton make to the data that would
+       make your program generate incorrect results?  You don't have
+       to program to avoid these issues, simply you have to note that
+       they exist.  This documentation will probably take more time to
+       figure out and write than the program itself will.
+  <li>
+       Write a html form/perl script that will read in the file
+       generated in the 
+       first problem and randomly select 5 pictures to display.  Under
+       each picture have 5 buttons that can be selected.  Each button
+       should be labelled with the names of the faculty shown (in
+       random order).
+       <p>
+       The user then picks one name from list and hits the submit
+       button.  If all of the answers are correct, congratulate the
+       user.  If there are any errors, tell the user the correct
+       answer and provide a link to the faculty member's homepage.
+<li>
+     Now to put it all together.  Suppose a new faculty member joins
+     Wharton.  The above setup won't include these new people
+     in the game because it relies on static data.  So your problem
+     is to figure out some way that they will be automatically
+     included.  Implement
+     this procedure.  (Feel free to write it from scratch in perl. Or
+     you can use perl code downloaded from the web.  Or if you like
+     you could use a cron job and something like wget.  The idea here
+     is to complete the talk while writing as few lots of lines of
+     code as possible.) 
+  </ol>
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Jun 27 13:23:31 2002
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

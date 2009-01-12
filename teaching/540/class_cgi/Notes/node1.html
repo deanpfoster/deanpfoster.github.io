@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Random number generators</TITLE>
+<META NAME="description" CONTENT="Random number generators">
+<META NAME="keywords" CONTENT="class03">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class03.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00010000000000000000">Random number generators</A></H1>
+<P>
+<UL><LI> Linear congruential.<LI> Multiplicative congruential.<LI> Linear feedback shift registers.<LI> Really, really random.
+</UL>
+<P>
+Most random number generators (RNG) aren't. They are completely deterministic.
+<P>
+They produce a stream of numbers, each new number being calculated
+deterministically from it's predecessor. We hope that this deterministic
+stream provides similar characteristics to a truly random stream.
+<P>
+<H3><A NAME="SECTION00010100000000000000">Linear congruential</A></H3>
+<P>
+
+Call the new number <IMG WIDTH=17 HEIGHT=23 ALIGN=MIDDLE
+ALT="tex2html_wrap_inline63" SRC="./img1.gif" > , then it is produced
+from <IMG WIDTH=33 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline65"
+SRC="img2.gif" > using the relationship:
+<P> <IMG WIDTH=340 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath67" SRC="img3.gif"  > <P>
+For example, if <I>a</I> = 1, <I>b</I> = 3 and <I>c</I> = 7 with  <IMG WIDTH=49 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline73" SRC="img4.gif"  >  we get the 
+stream: {3,6,2,5,1,4,0,3,6,2,  ...}.
+Notice that it starts repeating (the period) after 7 values. The maximal period for one of these generators will be <I>c</I> - I lucked out, there is no reason why the period has to equal <I>c</I>.
+<P>
+Here's  what you get if you do a <TT>man drand48</TT> on our system:
+<PRE>DESCRIPTION
+     This family of  functions  generates  pseudo-random  numbers
+     using  the  well-known linear congruential algorithm and 48-
+     bit integer arithmetic.</PRE>
+By default drand48 uses c = 2**48, a = 5DEECE66D base 16, and
+b = B base 16.
+<P>
+There is a well known and classic LC-RNG that's implemented in ANSI C.
+It uses <I>a</I> = 1103515245, <I>b</I> = 12345 and <I>c</I> = 32768. There's obviously
+something not too good about this! But really, when asking the question 
+of whether or not a RNG is any good, you need to know the context in
+which the thing will be used. For the Mastermind game, this would be fine.
+Used as a method for making pseudo random keys for encryption
+algorithms would be another matter.
+<P>
+<H3><A NAME="SECTION00010200000000000000">Multiplicative congruential</A></H3>
+<P>
+These are a specialization of the LC-RNG in which <I>b</I> is set equal to zero, so we have
+<P> <IMG WIDTH=327 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath85" SRC="img5.gif"  > <P>
+These are faster and can do just as well as the linear generator. Check out the
+man page for <TT>rand</TT>
+<P>
+<PRE> rand() uses a multiplicative congruential random-number gen-
+     erator  with  period  2^32  that  returns successive pseudo-
+     random numbers in the range from 0 to (2^15)-1.</PRE>
+<P>
+<H3><A NAME="SECTION00010300000000000000">Linear feedback shift registers</A></H3>
+<P>
+These deterministic methods generate a stream of pseudo random bits, (0/1).
+Bits can be combined to produce integers of course.
+<P>
+Start with a seed , say 7, write it in base 2, <TT>{1,1,1,1}</TT>.<BR> 
+Shift everything to the right by 1 bit <TT>{?, 1,1,1}</TT>.<BR> 
+Define a rule for filling in the question mark - say XOR (exclusive or), 
+the second and third bits, to get <TT>{0,1,1,1}</TT>.<BR> 
+Repeat.
+<P>
+<H3><A NAME="SECTION00010400000000000000">Really, really random</A></H3>
+<P>
+One method of getting at really random integers is to use the time between
+key strokes on the keyboard. Another is to use  a chaotic source within the
+computer itself, airflow, heat etc can serve as bases for these.
+<P>
+Perl has a <B>module</B> called <TT>Math-TrulyRandom</TT> to implement the
+key stroke timing approach - it would be useful for encryption programs
+for example.
+<P>
+Reference: Jon Orwant, (1996)  <EM>Randomness.</EM> The Perl Journal, 
+<B>1</B>.(4) p.10-12.
+<P>
+<HR><A NAME="tex2html16" HREF="node2.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="../../icons/next_motif.gif"></A> <A NAME="tex2html14" HREF="class03.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="../../icons/up_motif.gif"></A> <A NAME="tex2html8" HREF="class03.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="../../icons/previous_motif.gif"></A>   <BR>
+<B> Next:</B> <A NAME="tex2html17" HREF="node2.html">Reading fromand writing </A>
+<B>Up:</B> <A NAME="tex2html15" HREF="class03.html">Class 3 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html9" HREF="class03.html">Class 3 Stat 540 </A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Jan 29 06:45:16 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

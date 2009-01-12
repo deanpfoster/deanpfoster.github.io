@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: What does data look like in high
+dimensional spaces?</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Sep 27 12:16:53 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: High dimensions</h1>
+
+<h2>First intuition: Always think p > n</h2>
+
+Classical statistics has p finite, and n close to infinite.
+<p>
+Short and fat data has p bigger than n.  Natural limit is either n
+fixed and p goes to infinity.  Or both go to infinity.
+
+<h2>How bad is our intuition about large dimensions?</h2>
+
+<ul>
+  <li> Mike Steele's example of the square and the circle.
+  <li> Theorem: All random vectors are approximately orthoganal.
+    <ul>
+      <li> consider X<sub>i</sub> a d-dimensional normal
+      <li> if we have d of them, we span the d-dimensional space
+      <li> But the d+1'st variable we add is still almost orthagonal
+to the d variables.
+      <li> Holds true up to exponentially many (Bonus homework: prove
+	   this!)
+    </ul>
+  <li> Above theorem is used in quick proof of shrinkage.  (Draw
+picture to confuse students.  Use Pythagoras's proof: Behold.)
+</ul>
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

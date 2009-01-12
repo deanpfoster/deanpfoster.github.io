@@ -1,0 +1,44 @@
+<HTML>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1> Homework 5. Stat 540.</H1>
+
+<P>
+<b>Task</b>. Perl and Splus task?  Clean up master-mind to look pretty and save information.
+
+<P>
+<b>Task</b>. Familiarize yourself with R.
+
+How?  
+<UL>
+<LI>Identify online resources related to R.  Add to your web page.
+
+<LI> Read a set of commands from an input file and have R excecute them (use the <tt> source</tt> command).
+
+<LI> Write output from R to a file (use the <tt>sink</tt> command).
+
+<LI> Make sure you fire up R from a Perl script and read in an input file of R commands.
+
+<LI> Consider how you might make your output from R more
+"WEB" readable.
+<BR>
+Essentially, most R objects have a "print" method. 
+For each object we care about returning to the user we will need to write
+a print.html method, which will output in a format suitable for reading
+over the WEB.
+</UL>
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+

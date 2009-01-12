@@ -1,0 +1,52 @@
+#!/bin/sh
+
+# stolen (GPLed) from: http://quorum.tamu.edu/jon/gnu/imgwacker
+
+#
+# imgwacker: take a list of images, and create JavaScript to scroll
+# through them in a HTML page
+#
+
+if [ $# = 0 ]
+then
+   echo "This script takes a list of image file names, and creates"
+   echo "JavaScript to scroll through them on a web page as you"
+   echo "move the mouse over the links."
+   echo
+   echo "usage: $0 image [image ... ]"
+   exit
+fi
+
+echo '<HTML>'
+echo '<script language="JavaScript"><!--'
+echo '// hide contents'
+echo 'function img_act(imgName) {'
+echo '    imgOn = eval(imgName + ".src");'
+echo '    document.main.src = imgOn;'
+echo '}'
+
+for each in $*
+do
+    img=`echo img_$each | sed 's;/;_;g' | sed 's;\.;_;g' | sed 's;-;_;g'`
+    echo "${img} = new Image(1, 1); ${img}.src="'"'${each}'";'
+done
+echo '// --></script>'
+
+echo '<body>'
+
+for each in $*
+do
+    img=`echo img_$each | sed 's;/;_;g' | sed 's;\.;_;g' | sed 's;-;_;g'`
+    echo '<a href="#here" onMouseOver=img_act("'${img}'")>'${each}'</a>&nbsp;&nbsp;'
+done
+echo '<a #here><img src="'$1'" border="0" name="main"></a>'
+
+
+
+echo '</body>'
+echo '</html>'
+
+
+
+
+

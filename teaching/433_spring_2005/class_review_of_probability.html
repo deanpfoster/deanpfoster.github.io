@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Review of probability</title>
+</head>
+
+<body>
+<h1>Review of probability</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+<li> Class web page:
+   <ul>
+    <li> Often has my lecture notes on it.  If there is too much math,
+         I don't put it on line though.
+    <li> Homeworks (due about once per week) and schedule.
+    <li> Readings (I won't announce them in class since I forget).
+   </ul>
+<li> Pass out copy of main page.
+<li> If you haven't seen probability in a while, read chapters 1 and 2
+carefully.  Stop by and see me (or the TA) with anything you don't
+understand.  This "review" will be kinda fast if it is new.
+<li> I expect to spend 10 minutes a day on HW problems IF you ask me
+questions--otherwise I'll just ignore the homework.
+</ul>
+
+<h2>Intro: What is a stochastic process anyway?</h2>
+<ul>
+<li> Example: google page rank and random web surfing
+  <ul>
+  <li> Pick a page at random.  Call it X<sub>0</sub>.  (Note: even
+this step is hard.  Mathematically it requires numbering all the web
+pages.)
+  <li> Follow a link at random.  This is X<sub>1</sub>.
+  <li> Follow a link at random.  This is X<sub>2</sub>.
+  <li> Repeat.
+  <li> Typical question: If X<sub>0</sub> = www.gosset.upenn.edu, what
+is the chance that X<sub>1</sub> = www.library.upenn.edu?
+  <li> Typical question: If X<sub>0</sub> = www.gosset.upenn.edu, what
+is the chance that X<sub>2</sub> = www.library.upenn.edu?
+  <li> What is the distribution of X<sub>1</sub>? X<sub>2</sub>?
+X<sub>infinity</sub>?   (Called your page rank on google)
+  <li> Let A = set of all pornography.  P(X<sub>4</sub> in
+A|X<sub>0</sub> in wharton)?
+</ul>
+</ul>
+
+<h2>Technical defiintion of stochastic process</h2>
+<ul>
+<li> What is a random variable? (map from sample space to real line)
+<li> Definition is unimportant for only one RV, but if you have many
+of them the definition matters.
+<li> Example: X<sub>1</sub>,X<sub>2</sub>,...,X<sub>T</sub>.
+<li> What is a stochastic process?
+<ul>
+    <Li> Just a indexed set of random variables!
+    <li> Typically the index is time
+    <li> examples: stock market, store purchase behavior, physics,
+chemistry. 
+</ul>
+</ul>
+
+<h2>Chapter 1: Review of probability</h2>
+<ul>
+<li> Expectation: E(g(X)).  Will contrast soon with conditional
+expectation
+<li> Poisson distribution: Start with Taylor series for expectation.
+<ul>
+<li> Note: expecation is a sum
+</ul>
+<li> Exponential distribution: Same parameter as poisson?!?
+<ul>
+<li> Note: expecation is now an integral
+</ul>
+</ul>
+<h2>More details of conditional expectation and probability</h2>
+<ul>
+<li> P(A|B) basic definition
+<li> Our usage will be like example page 58: work it out if time
+<li> Simple definition of conditional expectation:
+<ul>
+<li> E(X|A) = E(XI<sub>A</sub>)/E(I<sub>A</sub>)
+<li> Ok, that should make your head spin!
+<li> Deconstruct it
+<li> E(X|A) = E(XI<sub>A</sub>)/P(A)
+</ul>
+<li> Problem II.E.1.5 puts all this together
+</ul>
+<h2>Conditional expectation as a random variable</h2>
+<ul>
+<li> Conditional expectation as a random variable
+<li> Smoothing lemma: E(g(X)) = E(E(g(X)|Y))
+</ul>
+
+<h2>Chapter 2: Conditional expectation and probability</h2>
+<ul>
+<li> P(A|B) basic definition
+<li> Our usage will be like example page 58: work it out if time
+<li> Simple definition of conditional expectation:
+<ul>
+<li> E(X|A) = E(XI<sub>A</sub>)/E(I<sub>A</sub>)
+<li> Ok, that should make your head spin!
+<li> Deconstruct it
+<li> E(X|A) = E(XI<sub>A</sub>)/P(A)
+</ul>
+<li> Definition: E(g(X)|Y) 
+<li> Smoothing lemma: E(g(X)h(Y)) = E[h(Y)E(g(X)|Y)]
+<ul>
+  <li> Very cool lemma!
+  <li> Proof: 
+  
+</ul>
+</ul>
+
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Jan 12 13:02:25 EST 2005
+<!-- hhmts end -->
+</body> </html>

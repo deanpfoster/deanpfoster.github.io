@@ -1,0 +1,15 @@
+The data for problems in Myers' "Classical and Modern Regression with
+Applications" are given according to chapter number in the filename's
+first extention and question number in the second extention.
+For example, Chapter 2, problem 7 is given the name PROB2.7.  Each
+file has column headings for the variable name and variable values are
+organized accordingly.  Any of these files may be viewed with the
+DOS TYPE command (for example, TYPE A:PROB2.7).
+ 
+In order to use the file, you will typically need to use a text
+editor such as EDLIN in DOS (or one of many word processors) to
+delete the variable names so that the data may be read correctly.
+Check the documentation to the statistics software you are using for
+relevant details.
+ 
+Copyright 1990 by PWS-KENT Publishing Company

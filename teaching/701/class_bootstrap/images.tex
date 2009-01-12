@@ -1,0 +1,20 @@
+\batchmode
+\documentclass[12pt]{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$r = 1/\beta_y$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline24: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

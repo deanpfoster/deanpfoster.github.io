@@ -1,0 +1,77 @@
+<html>
+<header>
+<title>  STAT 541: Robust Regression</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Robust Regression </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> Read section 7.7
+</ul>
+
+<h2> Robust Regression</h2>
+
+<h3>What we normally do</h3>
+<ul>
+  <li> look at the residuals and delete the outliers!
+  <li> Alternative theory: use weighted least squares, and put zero weight on them
+</ul>
+
+<h3>Rank regression</h3>
+<ul>
+  <li> Let newY = rank of (Y)
+  <li> Regress on newY
+       <ul>
+	 <li> Oops non-normal errors
+	 <li> for large sample not a problem--if homoskadastic
+       </ul>
+  <li> Improved method: regress on normal score of newY
+       <ul>
+	 <li> Cool! works as well as orginal 
+	 <li> Lots of wonderful math (see Hajak and Zedek)
+	 <li> Non-standard
+       </ul>
+  <li> Works well if not much signal.  In other words, when testing null a hypothesis. 
+</ul>
+
+<h3>M estimators</h3>
+<ul>
+  <li> Recall influence function phi(x) (phi = pitchfork)
+  <li> M-estimators normal equation: sum phi(error/sigma) x = 0
+  <li> Huber example: phi(x) = x truncated at r
+  <li> Identical to what we do by hand
+</ul>
+
+<h3>Iteratively reweighted least squares</h3>
+<ul>
+  <li> Instead of solving optimization, solve least squares
+  <li> sum phi(error/sigma) x = 0 is close to  sum w e x = 0 where w = phi(error/sigma)/e.
+  <li> Totally silly!
+  <li> But it works.
+  <li> Example: L1 regression phi(x) = sign(x).  But it is better to do LP.
+</ul>
+<h3>Different than weighted least squares</h3>
+<ul>
+  <li> Weighted least squares depends only on X matrix
+  <li> Score functions depend on the outcomes Y
+  <li> Both correct for large residuals
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Mar  6 08:10:16 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

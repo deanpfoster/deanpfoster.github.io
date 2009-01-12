@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>Financial simulation</TITLE>
+</HEAD>
+<BODY>
+
+<center><h1>Problem set 3: A finance simulation</h1></center>
+
+
+<P> For Krieger's and Greenshtein's sections, this assignment will be
+passed out on Tuesday (Oct 12) and due Thursday (Oct 14).  For
+Foster's sections, it will be passed out on Wednesday (Oct 13) and due
+the following Wednesday (Oct 20).  So if you missed class when it is
+passed out, try to find someone else in the class and join their
+group--or find a 6 sided dice and do it on your own.  You will have
+trouble following class if you haven't done the assignment before
+coming to class.
+
+</p>
+<p>For this assignment, it will be best if you work together in groups
+of 2 or 3.  You have the option of doing this assignment alone, but I
+think it's best if you do it as a group.  Each group with more than
+one person gets THREE dice.  If you are doing it alone, you get one
+and will have to pretend.  Please type up a one or two page summary of
+what you find.  Print a copy to turn in and print a copy for yourself.
+You will need to bring your copy to class for discussion purposes.
+</P>
+
+<P>
+For this homework exercise, you will use three dice to simulate the
+uncertainty in financial markets.  There are three basic instruments
+in this simplified market, each associated with a single die.
+</P>
+
+<P>
+<center>
+<table border>
+<tr> <th>Color Die <th> Annual Return <th>Variability (SD) </tr>
+<tr> <td>green     <td> 7.5%          <td>20%              </tr>
+<tr> <td>Red       <td> 71%           <td>130%             </tr>
+<tr> <td>White     <td> 0%            <td>5%               </tr>
+</table>
+</center>
+</p>
+<ol>
+
+<LI>Before starting the simulation, which of the three investments
+looks most appealing to you?  Does the group agree (have a consensus)
+or is it not so clear?  Explain your choice briefly.</LI>
+</p>
+<LI>The rest of this assignment deals with a small simulation of these
+three financial instruments represented by the dice described above.
+For each &quot;year&quot; of the game, you will roll all three dice,
+and use the outcomes to determine what has happened to the value of
+each investment.  Each of the three investments starts off with an
+initial value of $1000.  Run the game out for 25 years.  Which
+investment wins?  Is it the same one that you picked in Question 1?
+Try to explain any differences or surprises.
+</LI>
+
+<P>The following table shows how the rolls of the dice affect the values of the three investments.</P>
+<center>
+<TABLE BORDER>
+<TR><TD>
+<P ALIGN="CENTER">Roll</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">Green</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">Red</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">White</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">0.8</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">0.06</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">0.9</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">2</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">0.9</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">0.2</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1.05</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">4</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1.1</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">5</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1.2</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">6</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1.4</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="CENTER">1.1</TD>
+</TR>
+</TABLE>
+</center>
+
+<P>For example, suppose that on the first roll of all three dice, you obtain
+</p>
+<center> (Green 2)           (Red 5)             (White 3)
+</center>
+</p>
+<p>
+Then the values of the investments after the first year become
+</p>
+<center>
+<table border=0>
+<tr><td align=right> Green: <td align=right> $1000 * 0.9 <td>= $900</tr>
+<tr><td align=right> Red: <td align=right>  $1000 * 3 <td>= $3000</tr>
+<tr><td align=right> White: <td align=right>  $1000 * 1<td> = $1000</tr>
+</table>
+</center>
+</p>
+<P>
+For the next roll, the values are compounded from these. Suppose that
+on the second roll of all three dice,&#9; you obtain<BR>
+
+<center>(Green 4)  (Red 2) (White 6)<BR></center>
+<p>
+then the values of the three investments after two years are<BR>
+</p>
+</p>
+<center>
+<table border=0>
+<tr><td align=right> Green: <td align=right> $900 * 1.1 <td>= $990</tr>
+<tr><td align=right> Red: <td align=right>  $3000 * .2 <td>= $600</tr>
+<tr><td align=right> White: <td align=right>  $1000 * 1.1<td> = $1100</tr>
+</table>
+</center>
+</p>
+
+<LI>The final part of this assignment considers the performance of a
+hybrid investment, one which mixes the outcomes of "Red"; and
+"White".  To compute the value of this investment, roll both
+the red and white dice for each round.  It&#146;s easiest to describe
+what to do with an example.  Before doing any simulating, what do you
+think of this hybrid?
+</p>
+<LI>Again, simulate the hybrid.  What happens?  How does it compare to
+the previous instruments?
+</LI>
+</OL>
+
+<P>For the first round, using the same dice rolls as above (Green 2),
+(Red 5) and (White 3), the value of this "Pink"; investment is <BR>
+</p>
+</p>
+<center>
+<table border=0>
+<tr><td align=right> Pink: <td align=right> $1000 * (3 + 1)/2 <td>= $2000</tr>
+</table>
+</center>
+</p>
+and compounded in the second round which had (Green 4), (Red 2), and (White 6)<BR>
+<center>
+<table border=0>
+<tr><td align=right> Pink: <td align=right> $2000 * (0.2 + 1.1)/2 <td>= $1300</tr>
+</table>
+</center>
+</HTML>
+
+

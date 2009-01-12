@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 101 final answer key</title>
+</head>
+
+<body>
+<center><h2> Answer key for Stat 101 final exam</h2></center>
+<ol>
+
+
+<li>
+<ol type = A>
+<li> F(x) = 1 - e<sup>-x/10</sup>.  We want P(X > 15) = 1 - F(15) = 1
+- (1 -  e<sup>-15/10</sup>) =  e<sup>-1.5</sup> = .22.
+</p>
+<li> Note: E(X) = 10, SD(X) = 10
+<p>
+<ol type = i>
+<li> E(Y) = 10,000 x 10 = 100,000 KWH
+<li> SD(Y) = sqrt(10,000) x SD(X) = 1000 KWH
+<li> P(Y > 102000 KWH) =  P((Y-100000)/100 > (102000-100000)/1000) = P(Z >
+2) = .025 or more accurately .0228
+</ol>
+</p>
+<li> P(Y > y) = P(Z > (y - 100000)/1000).  But we can figure out that
+P(Z > 2.33) = .01.  So, (y - 100000)/1000 = 2.33.  Y = 102330
+KWH.
+</ol>
+
+
+
+
+<li>
+<ol type = A>
+	<li> (a) increasing the confidence would make the interval
+wider.  Thus to keep it from getting wider, more data must be
+collected.
+</p>
+	<li> (b) The estimate will be biased downward because the
+previous months are lower than the current month.
+</p>
+	<li> (b)
+</p>
+	<li> (c) .1 +/- 1.96 sqrt(.1 x .9/100) = .1 +/- .0588
+</p>
+	<li> (c) SE = .01.  And SE < sqrt(.15 x .85/n).  So n =
+.15 x .85/(.1)<sup>2</sup> = 1275.  If you use 1.96 instead of 2, you
+get the exact answer (i.e. start with SE = .02/1.96 instead of SE = .01).
+</ol>
+</p>
+
+
+
+<li>
+<ol type = A>
+<li> With a sample of 100, we can use either the normal distribution
+or the t-distribution.  The SE = 2/sqrt(100) = .2 minutes.  Thus, the
+confidence interval is 10.5 +/- (1.96) x .2 = [10.1,10.9].  since 10 is
+not in the confidence interval, it doesn't seem resonable that the
+mean equals 10.
+</p>
+<li> We want SE = 1/10 minute.  But, SE = 2/sqrt(n).  So, 1/10 =
+2/sqrt(n), so n should be 400.  (Again, more accuracy is generate by
+1.96<sup>2</sup>  2<sup>2</sup> / (1/5)<sup>2</sup>
+</p>
+<li> P(X > 12) = P((X - 10)/2 > (12 - 10)/2) = P(Z > 1).  From the
+empirical rule we guess that this probability should be about 1/6.
+Using H&O's tables, we get an exact answer of .5 - .3413 = .1587.
+<p>
+Let N be the number that are greater than 12 out of the 100 sampled
+items.  Then N is a binomial with pi = .1587 and n = 100.  Using H&O
+page 797 we can approximate this by the pi = .15 column which give an
+answer of .0402 + .0270 + .0171 + .0103 + ... = .09.
+<p>
+Or we can use the fact that N is approximately a normal with a mean of
+15.87 ( = n x pi) and a standard deviation of 3.65 = sqrt(n x pi x (1-pi)).
+So, P(N >= 20) = P(Z >= 1.15) = .5 - .3749 = .1251.  Unfortunately, we
+also could do the calculation as P(N >= 20) = P(N > 19) = P(Z > .85) =
+.5 - .3023 = .2977.
+</p>
+<li> Control limits are 9 to 11.  (10 +/- 2 x 2/sqrt(16))
+</p>
+<li> About 50%.
+</ol>
+<li>
+<ol type = A>
+<li>
+<ol type = i>
+<li> Let X be the first estimator.  P(X = 11) = P(X = 13) = P(X = 17)
+= P(X = 19) = 1/4.
+<li> by symetry it is unbiased.
+<li> SD  = 4<sup>2</sup> x .25 + 2<sup>2</sup> x .25 + 2<sup>2</sup> x .25 + 4<sup>2</sup> x .25 = 10
+</ol>
+<li> 
+<ol type = i>
+<li> Let Y be the second estimator.  P(Y = 12) = 1/4, P(Y = 15) = 1/2,
+P(Y = 18) = 1/4.
+<li> by symmetry it is unbiased.
+<li> SD = 3<sup>2</sup> x .25 + 0<sup>2</sup> x .25 + 0<sup>2</sup> x .25 + 3<sup>2</sup> x .25  = 4.5
+
+</ol>
+</p>
+<li> the second estimator has a lower standard deviation.  
+</ul>
+
+
+
+<li>
+<ol type = A>
+<li> Y-bar is very skewed.  The tail is much longer in the "large
+values" direction than in the small values direction.
+<p>
+<li> Y-bar: Yes, a CI for its mean owuld be 100 +/- 3.6.  So 100 is quite
+likely the correct mean.  <p>
+Complex: Yes. Similar story.
+<p>
+<li> The "complex" estimator has a much smaller standard deviation
+than Y-bar has.  So it is the better estimator.
+</ol>
+
+<li> <ol type = A> <li> The average is about 57 degrees.  The standard
+deviation is about .2 degrees.  <p> <li> The temperature has been
+increasing.  It starts out significantly smaller than the average and
+ends up significantly larger than the average.  It doesn't appear that
+the process is in control.
+</ol>
+
+
+<hr>
+<address></address>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Dec 22 14:57:39 EST 1999
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+
+--------------------------------------------------------------------------------
+
+5A) Most got the right. A few said yes, but also emphasised that it 
+was skewed in which case they lost 1 or 3 points depending on their argument.
+
+5B) above
+
+5C) Most argued better sd.  If they also argued complex "more normal 
+looking" I took off a point since the test states the distribution is 
+lognormal and so using a normal appearance is an incorrect criterion.
+
+6A) Everyone had the mean correct.  I accepted .189 or .194 for the sd.  
+If they got the sd wrong, I subtracted two (+2 for the mean and +1 
+partial credit for the sd).
+
+6B) I graded this pretty easy.   I gave full credit if they had temp 
+increased significantly and/or out of control.

@@ -1,0 +1,85 @@
+<html>
+<header>
+<checking>  STAT 541: Checking assumptions</checking>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Checking assumptions </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Data from Myers is on web page.  Like most data, it needs editing before use. 
+</ul>
+
+<h2> Checking assumptions</h2>
+
+<ul>
+  <li> <a href="http://www-stat.wharton.upenn.edu/~bob/stat621/demoOLS.jsl">some fun moving points around</a>
+  <li> VO2 max (<a href="vo2.orig">Orginal version</a>, <a href="vo2.dat">ascii</a>, <a href="vo2.csv">CSV</a>)
+       <p>
+       <ul>
+	 <li> parameters and standard errors
+	 <li> Which should be X and which should be Y?
+       </ul>
+       <p>
+  <li> Tukey: peeling the onion
+       <p>
+       <ul>
+	 <li> Can look at Y vs X plot
+	 <li> Creating residuals: Y - Y-hat
+	 <li> residuals provide better microscope
+	 <li> Easier to see curvature with residuals
+	 <li> Easier to see hetroskadasticity with residuals
+	 <li> Saving residuals allows checking for normality
+	 <li> After removing a problem--look again for even more detailed problems
+       </ul>
+       <p>
+  <li> Normal probability/quantile plot (M: p 60 - 66)
+       <p>
+       <ul>
+	 <li> Sorted guess of true value plotted vs sorted data
+	 <li> Can work for any distribution
+	 <li> straightness easier to detect than correct curvedness
+	 <li> Shapes to consider:
+	      <p>
+	      <ul>
+		<li> curved = skewedness
+		<li> s-shaped = tail thickness problems (mostlikely
+		     too many outliers)
+		<li> stairsteps = binomial/integer data
+	      </ul>
+       </ul>
+       <p>
+  <li> Kolmogorov-Smirinov test
+       <p>
+       <ul>
+	 <li> Differences in CDF
+	 <li> Sensitive for skewedness and binomial data :-)
+	 <li> Arbitarilly large outlier is permitted.  Hence it is
+	      resistant to change.  Is this a good thing?
+	 <li> Other tests could be done
+       </ul>
+       <p>
+  <li> Revisit data
+       <p>
+       <ul>
+	 <li> <a href="http://www-stat.wharton.upenn.edu/~bob/scripts/quantileplot.jsl">Other distributions</a>
+</ul>
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Feb  1 08:56:13 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

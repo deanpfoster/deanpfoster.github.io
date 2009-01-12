@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl
+
+### A debugging device
+$DEBUG = 0;
+
+print "Content-type: text/html\r\n";
+print "\r\n";
+
+
+print "Hello\n";
+print "Debug is on\n"   if ($DEBUG);  
+print "Debug is off\n"  if (!$DEBUG);  
+

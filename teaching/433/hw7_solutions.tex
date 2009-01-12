@@ -1,0 +1,145 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 7 Solution}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+
+\begin{flushleft}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Page 211 Question 1}
+
+Let $X$ indicate the number of balls in A.
+
+The appropriate transition matrix is:
+\[ P = \left ( \begin{array}{cccccc}
+ 0.5 & 0.5 & 0 & 0 & 0 & 0 \\
+ 0.5 & 0 & 0.5 & 0 & 0 & 0  \\
+ 0 & 0.5 & 0 & 0.5 & 0 & 0  \\
+ 0 & 0 & 0.5 & 0 & 0.5 & 0  \\
+ 0 & 0 & 0 & 0.5 & 0 & 0.5  \\
+ 0 & 0 & 0 & 0 & 0.5 & 0.5  \\
+\end{array} \right) \]
+
+First check and see that $P$ is regular (i.e., $P^8$ is a matrix
+where all the entries are positive). Since the rows and columns of
+$P$ both add up to 1 it means that $P$ is doubly stochastic.
+Hence, the limit distribution is
+$\pi=(\frac{1}{6},\ldots,\frac{1}{6})^{'}$. This means that the
+markov chain spends $\frac{1}{6}$ of its time in state 0 (or any
+other state).
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+
+\textbf{Page 211 Question 6}\\
+\begin{enumerate}
+    \item $lim_{n\longrightarrow\infty}P(X_{n+1}=j|X_0=i)=\pi_j$
+    \item $lim_{n\longrightarrow\infty}P(X_{n}=k,X_{n+1}=j|X_0=i)=\pi_k \cdot p_{kj}$
+    \item $lim_{n\longrightarrow\infty}P(X_{n-1}=k,X_{n}=j|X_0=i)=\pi_k \cdot p_{kj}$
+\end{enumerate}
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 211 Question 10}\\
+$P$ is regular and has $N+1$ states (from 0 to $N$). $P$ is also
+doubly stochastic and hence its limit distribution is
+$\pi=(\frac{1}{N+1},\ldots,\frac{1}{N+1})^{'}$
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 211 Question 12}\\
+
+a.Since $\Pi$ is the stationary distribution matrix and $P =
+Q+\Pi$ we know that:
+\begin{itemize}
+    \item $\Pi P = \Pi $
+    \item $ \Pi^2= \Pi $
+    \item $\Pi Q = \Pi P -\Pi^2 = 0$
+\end{itemize}
+
+Hence since $\Pi Q = 0$ and $\Pi^n=Pi$
+\begin{eqnarray*}
+P^n &=& (Q+\Pi)^n\\
+ &=& Q^n+\Pi^n\\
+ &=& Q^n+\Pi
+\end{eqnarray*}
+
+b. First check and see that $P$ is regular (since $P^2$ has
+positive entries). Hence by solving $\pi P = \pi$ we get the limit
+distribution which is $\pi = (0.25,0.5,0.25)$.
+
+Which means that
+
+\[ \Pi = \left ( \begin{array}{ccc}
+ 0.25 & 0.5 & 0.25 \\
+ 0.25 & 0.5 & 0.25 \\
+ 0.25 & 0.5 & 0.25 \\
+\end{array} \right) \]
+
+
+\[ Q = \left ( \begin{array}{ccc}
+ 0.25 & 0 & -0.25 \\
+ 0 & 0 & 0 \\
+ -0.25 & 0 & 0.25 \\
+\end{array} \right) \]
+
+Hence,
+\[ Q^n = \frac{1}{2^{n+1}}\left ( \begin{array}{ccc}
+ 1 & 0 & -1 \\
+ 0 & 0 & 0 \\
+ -1 & 0 & 1 \\
+\end{array} \right) \]
+
+\[ P^n = \left ( \begin{array}{ccc}
+ 0.25+\frac{1}{2^{n+1}} & 0.5 & 0.25-\frac{1}{2^{n+1}} \\
+ 0.25 & 0.5 & 0.25 \\
+ -\frac{1}{2^{n+1}}+0.25 & 0.5 & \frac{1}{2^{n+1}}+0.25 \\
+\end{array} \right) \]
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\end{flushleft}
+\end{document}

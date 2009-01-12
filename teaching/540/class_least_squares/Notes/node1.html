@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Solving least squares equations - the QR decomposition.</TITLE>
+<META NAME="description" CONTENT="Solving least squares equations - the QR decomposition.">
+<META NAME="keywords" CONTENT="class04">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class04.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00010000000000000000">Solving least squares equations - the QR decomposition.</A></H1>
+<P>
+Preliminaries.
+<P>
+Write the squared length of a vector <I>x</I> as  <IMG WIDTH=85 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline23" SRC="img1.gif"  > .
+<P>
+The least squares estimator  <IMG WIDTH=9 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline25" SRC="img2.gif"  >  solves the problem:
+<P> <IMG WIDTH=349 HEIGHT=28 ALIGN=BOTTOM ALT="displaymath27" SRC="img3.gif"  > <P>
+<P>
+Which linear combination of the covariates is ``closest'' to the observed data,
+<I>Y</I>?
+<P>
+Define the  squared length of the residual vector as the
+<I>residual sum of squares </I>(RSS), and  <IMG WIDTH=12 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline31" SRC="img4.gif"  >   as <I>RSS</I>/(<I>n</I>-<I>p</I>).
+<P>
+Define an  <IMG WIDTH=38 HEIGHT=14 ALIGN=MIDDLE ALT="tex2html_wrap_inline35" SRC="img5.gif"  >  matrix to be orthogonal if Q satisfies (for any vector)
+<P> <IMG WIDTH=286 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath37" SRC="img6.gif"  > <P> 
+Orthogonal transformations preserve length.
+<P>
+We can do a transformation on a regression problem:
+<P> <IMG WIDTH=292 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath39" SRC="img7.gif"  > <P> 
+becomes
+<P> <IMG WIDTH=316 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath41" SRC="img8.gif"  > <P>
+<P>
+Due to the length preservation of <I>Q</I> and the fact that we are doing 
+a least squares problem means that a solution to one is a solution to the
+other.
+<P>
+Can we choose Q to make the problem simpler and more stable?
+<P>
+Choose Q so that the upper  <IMG WIDTH=36 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline45" SRC="img9.gif"  >  block of  <IMG WIDTH=70 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline47" SRC="img10.gif"  >  
+is upper triangular and the lower  <IMG WIDTH=76 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline49" SRC="img11.gif"  >  block is all zeroes.
+<P>
+Now 
+<P> <IMG WIDTH=429 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath51" SRC="img12.gif"  > <P>
+and only the first part depends on  <IMG WIDTH=9 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline53" SRC="img13.gif"  > , giving
+<P> <IMG WIDTH=303 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath55" SRC="img14.gif"  > <P>
+which can be solved recursively without inversion.
+<P>
+<HR><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/next_motif_gr.gif"> <A NAME="tex2html8" HREF="class04.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/up_motif.gif"></A> <A NAME="tex2html4" HREF="class04.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/previous_motif.gif"></A>   <BR>
+<B>Up:</B> <A NAME="tex2html9" HREF="class04.html">Class 4 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html5" HREF="class04.html">Class 4 Stat 540 </A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Feb  5 08:18:39 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

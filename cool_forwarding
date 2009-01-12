@@ -1,0 +1,40 @@
+
+        Dean,
+
+             Both names are now working.  It fixed itself.  Here is
+        the code to do it;
+
+
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" CONTENT="3; URL=http://www-stat.wharton.upenn.edu">
+<TITLE>Web Page Redirect</TITLE>
+</HEAD>
+<BODY>
+
+<BR><BR><BR><BR>
+
+<CENTER>
+
+<P>
+<FONT SIZE="4"><B>Please wait a few seconds. . .</B></FONT>
+</P>
+
+<P>
+<FONT SIZE="4"><B>Moving to web page:</B></FONT>
+</P>
+
+<UL>
+<FONT SIZE="4"><A HREF="http://www-stat.wharton.upenn.edu"><TT><B>http://www-stat.wharton.upenn.edu</B></TT></A></FONT>
+</UL>
+
+<P>
+<I>Click the link above
+if this page fails to automatically advance to the web page.</I>
+</P>
+
+</CENTER>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,369 @@
+This is TeX, Version 3.1415 (C version 6.1) (format=latex 99.2.20)  5 OCT 1999 23:53
+**./images.tex
+(images.tex
+LaTeX2e <1998/06/01>
+
+(/home/mao/tex-macro/base/article.cls
+Document Class: article 1998/05/05 v1.3y Standard LaTeX document class
+(/home/mao/tex-macro/base/size10.clo
+File: size10.clo 1998/05/05 v1.3y Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/opt/tex/lib/texmf/tex/latex2e/packages/graphics/graphicx.sty
+Package: graphicx 1995/09/07 v0.6c Enhanced LaTeX Graphics (DPC,SPQR)
+(/opt/tex/lib/texmf/tex/latex2e/packages/graphics/keyval.sty
+Package: keyval 1994/09/12 v1.08 key=value parser (DPC)
+) (/opt/tex/lib/texmf/tex/latex2e/packages/graphics/graphics.sty
+Package: graphics 1995/09/07 v0.7c Standard LaTeX Graphics (DPC,SPQR)
+(/opt/tex/lib/texmf/tex/latex2e/packages/graphics/trig.sty
+Package: trig 1994/10/16 v1.08 sin cos tan (DPC)
+) (/opt/tex/lib/texmf/tex/latex2e/packages/graphics/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 88.
+(/opt/tex/lib/texmf/tex/latex2e/packages/graphics/dvips.def
+File: dvips.def 1995/09/18 v2.11 Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+) (/opt/tex/lib/texmf/tex/latex2e/packages/graphics/color.sty
+Package: color 1995/09/07 v0.3k Standard LaTeX Color (DPC)
+(/opt/tex/lib/texmf/tex/latex2e/packages/graphics/color.cfg)
+Package color Info: Driver file: dvips.def on input line 138.
+(/opt/tex/lib/texmf/tex/latex2e/packages/graphics/dvipsnam.def
+File: dvipsnam.def 1995/09/18 v2.11 Driver-dependant file (DPC,SPQR)
+))
+\sizebox=\box26
+\lthtmlwrite=\write3
+No file images.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+latex2htmlLength hsize=349.0pt
+latex2htmlLength vsize=644.29497pt
+latex2htmlLength hoffset=0.0pt
+latex2htmlLength voffset=0.0pt
+latex2htmlLength topmargin=0.0pt
+latex2htmlLength topskip=0.00003pt
+latex2htmlLength headheight=0.0pt
+latex2htmlLength headsep=0.0pt
+latex2htmlLength parskip=0.0pt plus 1.0pt
+latex2htmlLength oddsidemargin=0.0pt
+latex2htmlLength evensidemargin=0.0pt
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 100.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 100.
+l2hSize :displaymath313:20.5pt::0.0pt::349.0pt.
+[1
+
+
+]
+l2hSize :displaymath323:20.5pt::0.0pt::349.0pt.
+[2
+
+
+]
+l2hSize :tex2html_wrap_inline325:8.0pt::8.0pt::71.06238pt.
+[3
+
+
+]
+l2hSize :tex2html_wrap_inline327:8.0pt::8.0pt::88.8402pt.
+[4
+
+
+]
+l2hSize :tex2html_wrap_inline329:8.0pt::8.0pt::99.118pt.
+[5
+
+
+]
+l2hSize :displaymath331:20.5pt::0.0pt::349.0pt.
+[6
+
+
+]
+l2hSize :displaymath337:20.5pt::0.0pt::349.0pt.
+[7
+
+
+]
+l2hSize :displaymath339:20.5pt::0.0pt::349.0pt.
+[8
+
+
+]
+l2hSize :displaymath341:20.5pt::0.0pt::349.0pt.
+[9
+
+
+]
+l2hSize :displaymath343:20.5pt::0.0pt::349.0pt.
+[10
+
+
+]
+l2hSize :displaymath345:20.5pt::0.0pt::349.0pt.
+[11
+
+
+]
+l2hSize :displaymath347:20.5pt::0.0pt::349.0pt.
+[12
+
+
+]
+Overfull \hbox (50.29205pt too wide) detected at line 175
+[]
+ []
+
+l2hSize :displaymath349:37.0pt::0.0pt::349.0pt.
+[13
+
+
+]
+Overfull \hbox (50.87885pt too wide) detected at line 184
+[]
+ []
+
+l2hSize :displaymath351:37.0pt::0.0pt::349.0pt.
+[14
+
+
+]
+l2hSize :tex2html_wrap_inline353:8.0pt::8.0pt::88.58319pt.
+[15
+
+
+]
+l2hSize :tex2html_wrap_inline357:8.0pt::8.0pt::53.73605pt.
+[16
+
+
+]
+l2hSize :displaymath359:20.5pt::0.0pt::349.0pt.
+[17
+
+
+]
+l2hSize :tex2html_wrap_inline24:6.45831pt::0.0pt::5.00002pt.
+[18
+
+
+]
+Overfull \hbox (8.05583pt too wide) detected at line 219
+[]
+ []
+
+l2hSize :displaymath361:73.0pt::0.0pt::349.0pt.
+[19
+
+
+]
+l2hSize :tex2html_wrap_inline363:8.0pt::8.0pt::74.27777pt.
+[20
+
+
+]
+l2hSize :tex2html_wrap_inline367:8.0pt::8.0pt::95.41672pt.
+[21
+
+
+]
+l2hSize :displaymath369:20.5pt::0.0pt::349.0pt.
+[22
+
+
+]
+l2hSize :displaymath371:27.35951pt::0.0pt::349.0pt.
+[23
+
+
+]
+l2hSize :tex2html_wrap_inline373:8.0pt::8.0pt::115.41676pt.
+[24
+
+
+]
+l2hSize :tex2html_wrap_inline375:8.0pt::8.0pt::35.66672pt.
+[25
+
+
+]
+l2hSize :tex2html_wrap_inline377:8.0pt::8.0pt::147.88873pt.
+[26
+
+
+]
+l2hSize :displaymath379:20.5pt::0.0pt::349.0pt.
+[27
+
+
+]
+l2hSize :tex2html_wrap_inline104:6.45831pt::0.0pt::5.00002pt.
+[28
+
+
+]
+Overfull \hbox (43.5194pt too wide) detected at line 286
+[]
+ []
+
+l2hSize :displaymath395:109.0pt::0.0pt::349.0pt.
+[29
+
+
+]
+l2hSize :displaymath401:20.5pt::0.0pt::349.0pt.
+[30
+
+
+]
+l2hSize :displaymath407:20.5pt::0.0pt::349.0pt.
+[31
+
+
+]
+l2hSize :displaymath409:20.5pt::0.0pt::349.0pt.
+[32
+
+
+]
+l2hSize :tex2html_wrap_inline417:8.0pt::8.0pt::72.08328pt.
+[33
+
+
+]
+l2hSize :tex2html_wrap_inline419:8.0pt::8.0pt::82.6701pt.
+[34
+
+
+]
+l2hSize :tex2html_wrap_inline421:8.0pt::8.0pt::77.44577pt.
+[35
+
+
+]
+l2hSize :displaymath425:25.69284pt::0.0pt::349.0pt.
+[36
+
+
+]
+l2hSize :tex2html_wrap_inline433:6.45831pt::0.0pt::42.18398pt.
+[37
+
+
+]
+l2hSize :tex2html_wrap_inline437:8.0pt::8.0pt::8.33336pt.
+[38
+
+
+]
+l2hSize :tex2html_wrap_inline439:6.95831pt::6.95831pt::22.17123pt.
+[39
+
+
+]
+l2hSize :displaymath443:20.5pt::0.0pt::349.0pt.
+[40
+
+
+]
+l2hSize :displaymath445:27.35951pt::0.0pt::349.0pt.
+[41
+
+
+]
+l2hSize :displaymath447:24.85951pt::0.0pt::349.0pt.
+[42
+
+
+]
+l2hSize :tex2html_wrap_inline451:6.95831pt::6.95831pt::67.51146pt.
+[43
+
+
+]
+l2hSize :displaymath455:20.5pt::0.0pt::349.0pt.
+[44
+
+
+]
+l2hSize :displaymath457:20.5pt::0.0pt::349.0pt.
+[45
+
+
+]
+Overfull \hbox (54.91692pt too wide) detected at line 388
+\OT1/cmr/bx/n/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y \OT1/cmr/m/n/10 = 1) = \O
+T1/cmr/bx/n/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 WLL\OT1/cmr/m/n/10 ) + \OT1/c
+mr/bx/n/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 LWL\OT1/cmr/m/n/10 ) + \OT1/cmr/b
+x/n/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 LLW\OT1/cmr/m/n/10 ) = 0\OML/cmm/m/it
+/10 :\OT1/cmr/m/n/10 3 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :
+\OT1/cmr/m/n/10 7 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/
+cmr/m/n/10 7 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7 \OMS/cmsy/m/n/10 ^^C \OT1/c
+mr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/
+n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 
+7 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7 \OM
+S/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3 = 0\OML/
+cmm/m/it/10 :\OT1/cmr/m/n/10 441\OML/cmm/m/it/10 :
+ []
+
+l2hSize :displaymath461:20.5pt::0.0pt::349.0pt.
+[46
+
+
+]
+l2hSize :displaymath463:20.5pt::0.0pt::349.0pt.
+[47
+
+
+]
+l2hSize :displaymath465:20.5pt::0.0pt::349.0pt.
+[48
+
+
+]
+l2hSize :displaymath467:20.5pt::0.0pt::349.0pt.
+[49
+
+
+]
+l2hSize :tex2html_wrap_inline481:6.86111pt::0.0pt::7.86107pt.
+[50
+
+
+]
+l2hSize :tex2html_wrap_inline489:8.0pt::8.0pt::5.00002pt.
+[51
+
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 721 strings out of 10927
+ 8463 string characters out of 72793
+ 52567 words of memory out of 262141
+ 3606 multiletter control sequences out of 9500
+ 4567 words of font info for 17 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 25i,8n,21p,213b,215s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on images.dvi (51 pages, 15248 bytes).

@@ -1,0 +1,187 @@
+<HTML>
+<TITLE = nerlov.q></TITLE>
+<BODY>
+<FONT Face=Courier>
+## Reading in the dataset for question 3, Chapter 3 of Berndt.
+ <P>
+<FONT COLOR="0000EE">  
+  </FONT>
+<P><FONT COLOR="0000EE"> Nerlov <- read.table("C:/public/nerlov.txt",header=T)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Or you can perform the above step via the gui.
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P>## To make sure that SPLus can see the data you attach it
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> attach(Nerlov)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Now you can fit the regression through the gui or use the following
+ <P>
+## command line syntax.
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P>## The command to do regression is lm (for linear model).
+ <P>
+## the " <- " says to assign the output from the lm command
+ <P>
+## to an object called nerlov.lm
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> nerlov.lm <- lm(LNCP3~LNP13+LNP23+LNKWH) 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## To get a summary the command is summary
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> summary(nerlov.lm)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## You can get just the coefficients (useful for bootstrapping by ) coef
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> coef(nerlov.lm)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## To get a specific coefficient, like the fourth, type in
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> coef(nerlov.lm)[4]
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Recall from (3.21) in Berndt, that you get r from 1/beta_y, so
+ <P>
+## the estimate of r comes from 1/coef(lm(LNCP3~LNP13+LNP23+LNKWH))[4]
+ <P>
+## so we get it from typing in
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 1/coef(lm(LNCP3~LNP13+LNP23+LNKWH))[4]
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Now let's bootstrap this estimate, to get a standard error
+ <P>
+## and a bootstrap confidence interval.
+ <P>
+## we'll save the bootstrap object in nerlov.boot
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> nerlov.boot <- bootstrap(Nerlov,1/coef(lm(LNCP3~LNP13+LNP23+LNKWH))[4],B=1000)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Now we can plot the object or summarize it.
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> summary(nerlov.boot)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## This sets up a graphics device, ie a screen to graph on.
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> win.graph()  
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> plot(nerlov.boot)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## It's possible to bootstrap just about anything, for example
+ <P>
+## R-squared for the ibm market returns dataset.
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## First read in the dataset
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> markibm <- read.table("C:/public/ibm.txt",header=T)  
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Now attach it.
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> attach(markibm)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Run the regression
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> ibm.lm <- lm(IBM ~ Market)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Summarize it
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> summary(ibm.lm)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Check out what is in the summary
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> names(summary(ibm.lm))
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Rip off r-squared
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> summary(ibm.lm)$r.squared
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P>## Now we know how to bootstrap r-squared
+ <P>
+<FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> ibm.boot <- bootstrap(markibm, summary(lm(IBM ~ Market))$r.squared,B=1000)
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P><FONT COLOR="0000EE"> 
+  </FONT>
+<P></FONT></BODY></HTML>

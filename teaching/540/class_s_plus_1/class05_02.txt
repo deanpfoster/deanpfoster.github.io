@@ -1,0 +1,8 @@
+#!/usr/local/bin/perl
+
+### Run R from Perl
+
+
+system("R --vanilla < input.q > out.txt");
+
+

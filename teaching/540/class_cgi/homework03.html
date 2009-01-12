@@ -1,0 +1,75 @@
+<HTML>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1> Homework 3. Stat 540</H1>
+
+<ol>
+<li> Homepage development. Explore the WEB to identify a set of core
+Perl links. Add these links to your homepage. Spend about 30 minutes
+on this.
+</p>
+     
+<li> Write a subroutine that takes the random sample of colors and
+displays them as a row in an HTML table.  It should look similar to
+the table you made for the last homework.  (Don't forget to output the
+HTTP header as well).
+
+<li> Write a subroutine that compares 2 lists; a code list and a guess
+at the code. Your subroutine should return 2 numbers, the number of
+exact matches and the number of colors that are correct but in the
+wrong place.  The code list should be of length 4 and composed of the
+6 possible colors, as should the "guess list". Include this subroutine
+in a file called "compare.pl" in your cgi-bin directory. Make sure
+that this script is both readable and executable by the world.  <P> It
+will be a really good idea to write out your algorithm before
+programming it.  <P> As test cases the following codes and guesses
+should return the following 2 numbers.
+
+<PRE>
+                          Correct color and      Correct color but
+CODE       GUESS          in the right place.    wrong place.
+
+R G Y L    R R R R        1                      0
+
+R R Y L    L Y R L        1                      2
+
+G Y L L    L L G Y        0                      4
+</PRE>
+<p>
+
+<li> Pretty up your home page.  Exactly what this means is subject
+to personal interpretation.  
+</p>
+<li> 
+<p>Write a form and perl script that asks the user their name,
+age, favorite color, favorite type of music, sex, continents the
+person has been to, and a 5 other questions of your choice.  The name
+should be done as a text field, the music should be done from a list
+of choices, the continents should be done with radial buttons.  The
+other you can do what ever makes sense.
+
+<p> You should then print out the information they entered so they can
+check that they did it correctly.  Add a suggestion that they use
+"back" if they made an error.
+     <p>
+
+<li> Run "cvs log" on each of your files. Read the messages and see if
+they make any sense to you now.  Print out your longest log.
+(Obviously there isn't any hurry on that since it has dates inbedded
+in the log.  So by definition, it can't be late.)  </ol>
+
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+

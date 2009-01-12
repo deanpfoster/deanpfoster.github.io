@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: So your Y-variable is categorical? </title>
+</head>
+
+<body>
+<center><h1> What if your Y-variable is categorical?</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Discussion of writting up project 
+	 <li> Extra office hours by Nuria: 10 - 1 April 26 and 27th.
+       </ul>
+       </p>
+</ul>
+
+<h2> Examples</h2>
+<ul>
+  <li> medical: live/die (cured or not)
+  <li> psychological: clasification of mental health (but could be on a scale)
+  <li> in class: Fake-IDs (yes, or no -- maybe doesn't make sense)
+  <li> economics: buy/don't buy
+</ul>
+<h2> How to deal with it</h2>
+<ul>
+  <li> Ignore it (code zeros and ones)
+       <ul>
+	 <li> Advantage: just like regular regression
+	 <li> Advantage: graphs, leverage plots, usual intepretations
+	 <li> Disadvantage: Oops, negative probabilities (and great than 1)
+	 <li> Disadvantage: Inefficient, and incorrect SE's so incorrect t's
+       </ul>
+  <li> Logistic solution (call it "nominal"--code with letters)
+       <ul>
+	 <li> Advantage: moral high ground
+	 <li> disadvantage: bad graphics
+       </ul>
+  <li> Logistic regression details
+       <ul>
+	 <li> Curve instead of straight line
+	 <li> P(y) = exp(x)/(1 + exp(x))
+	 <li> P(y)/(1-P(y)) = exp(x)  (odds ratio)
+	 <li> log(P(y)/(1-P(y))) = x  (log-odds ratio == logit for short)
+       </ul>
+</ul>
+<h2> JMP example</h2>
+<ul>
+  <li> <a href="Orings.jmp">Challenger data</a>
+</ul>
+	    
+	      
+       
+
+</ul>
+  
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Apr 20 12:21:01 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

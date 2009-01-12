@@ -1,0 +1,77 @@
+<html>
+<header>
+<title>  STAT 541: Centers and transformations</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Centers and transformations </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> Pass out handout
+</ul>
+
+<h2> Centers</h2>
+
+What is a center?
+<ul>
+  <li> distribution of Y = f(y;theta,lambda) = f(Y-theta;0,lamdba)
+  <li> symetry
+  <li> center is "obvious" center of density
+</ul>
+Measures of center?
+<ul>
+  <li> Average
+       <ul>
+	 <li> best for normal
+	 <li> also for many other exponential families (does this make it robust?)
+	 <li> Not resistant
+       </ul>
+  <li> trimmed mean (used in Olympic diving)
+  <li> 25% trimmed mean is midmean (50% data tossed!)
+  <li> median
+  <li> trimean = 25% + 50% + 75%
+</ul>
+Example (see page 10.)
+<p>
+data: 1,2,3,4,5,6,7,8,9, oops, 20
+</p>
+Efficiency (see page 11)
+<p>
+<h2>Scales</h2>
+Scale is measure of spread
+<ul>
+  <li> standard deviation is most common (extreamly sensitive to outliers)
+  <li> MSE = s<sup>2</sup>
+  <li> E|X - EX| = (uncommon)
+  <li> E|X - median| = nicer theory
+  <li> MAD = median of distance to median (similar to IQR)
+  <li> IQR
+</ul>
+<h2>Transformations</h2>
+Centers only make sense if symetric.  If not symetric, maybe a small
+change in the data will make it symetric.  
+<ul>
+  <li> ay<sup>alpha</sup> + b    (alpha not equal to zero)
+  <li>  c log(y) + d  (taking limit as alpha goes to zero)
+  <li> see page 15 for graphs
+  <li> Goal: after transformation data is symetric
+  <li> Goal: keep it natural! Logs, 1/Y, Y^2 are about all I use.
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Jan 18 08:43:09 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

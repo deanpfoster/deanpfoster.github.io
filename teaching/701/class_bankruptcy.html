@@ -1,0 +1,114 @@
+<html>
+<header>
+<title>  Statistics 701: Bankruptcy</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 701: Bankruptcy</h1></center>
+
+
+<h2>Announcement</h2>
+
+<ul>
+  <li> pass out homework 2a and discuss it a bit
+  <li> Don't forget to email me your group memberships and which day you want to talk on
+</ul>
+
+<H2>Automatic forecasting</h2>
+
+<ul>
+  <li> Existing methods:
+       <ul>
+	 <li> Neural nets
+	 <li> C 4.5 / decision trees
+	 <li> Boosting
+       </ul>
+  <li> All called "data mining."
+  <li> Difference between data mining and statistics: If you are doing
+       datamining, you can charge millions, if you are doing
+       statistics, you can charge thousands.
+  <li> Done by database experts and computer scientists
+</ul>
+<H2>Can regression compete?</h2>
+
+<ul>
+  <li> Can standard regression compete with data mining?
+  <li> In its current form, it requires lots of hands on control
+  <li> Certainly for small data sets of importance, this is fine, but
+       what of meaningless but large datasets?
+  <li> Everything must be handled:
+       <ul>
+	 <li> hetroskadasticity
+	 <li> outliers
+	 <li> leverage points 
+	 <li> influential points
+	 <li> curvature
+	 <li> synergies (i.e. interactions
+	 <li> Independence? (NOPE!  No statistical method can deal
+	      with this)
+	 <li> missing data
+       </ul>
+  <li> We think yes.
+</ul>
+
+<h2>Bankruptcy example</h2>
+<ul>
+  <li> The problem
+       <p>
+       <ul>
+	 <li> a million people
+	 <li> several thousand bankruptcies
+	 <li> lots of useless variables (350 before interactions)
+	 <li> interested only in prediction
+       </ul>
+       <p>
+  <li> The methodology
+       <p>
+       <ul>
+	 <li> sandwich estimator (deals with hetroskadasticity)
+	      <ul>
+		<li> also called the White estimate
+		<li> We modify it by using fit from previous round for
+		     SD estimates instead of fit from this round
+	      </ul>
+	 <li> Use indicators for missing values
+	 <li> use Bonferroni for significance
+       </ul>
+       <p>
+  <li> Nickel summary: page 7, the lift chart.  (estimated on 20%
+       predicted remaining 80%.)
+  <li> Bonferroni approximate: sqrt(2 log p)
+  <li> We actually used what I call a better Bonferroni (but it
+       doesn't matter.  It improves the out of sample fit by .03
+       percent.  Note, I already multiplied by 100!)
+</ul>
+<h2> Why use Bonferroni</h2>
+<ul>
+  <li> Do I really need to discuss this???  You alls understand it
+       really well.
+  <li> Sure, beat the dead horse
+  <li> page 31 is in-sample errors as we add variables.
+  <li> Should we stop at 20? 40? 100? 200?
+  <li> Answer on page 32.  Usual bonferroni is 12, better bonferroni
+       is 39.  Yes the better is better, but not by much!
+</ul>
+<h2>Calibration</h2>
+<ul>
+  <li> I've studied this theoretically in 3 papers, so I had to
+       discuss it here
+  <li> Draw picture of calibrated curves and uncalibrated curves.
+  <li> look at page 34
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Nov 27 13:18:42 2001
+<!-- hhmts end -->
+</em>
+</body>
+
+</html>
+

@@ -1,0 +1,43 @@
+<HEAD><TITLE>R: Generates Class Indicator Matrix from a Factor</TITLE></HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000F0" VLINK="#660066" ALINK="#FF0000" BACKGROUND="white">
+
+<h2 align=center><FONT FACE="Courier New,Courier" COLOR="#999999">Generates Class Indicator Matrix from a Factor</FONT></h2>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Usage</FONT></h2>
+
+<PRE>
+class.ind(cl)
+</PRE>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Arguments</FONT></h2>
+
+<TABLE>
+<TR VALIGN=TOP><TD><CODE>cl</CODE>
+<TD>
+factor or vector of classes for cases.
+
+</TABLE>
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Description</FONT></h2>
+
+Generates a class indicator function from a given factor.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Value</FONT></h2>
+
+a matrix which is zero except for the column corresponding to the class.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Examples</FONT></h2>
+
+<PRE>
+# The function is currently defined as
+function(cl)
+{
+  n &lt;- length(cl)
+  cl &lt;- as.factor(cl)
+  x &lt;- matrix(0, n, length(levels(cl)))
+  x[(1:n) + n * (codes(cl) - 1)] &lt;- 1
+  dimnames(x) &lt;- list(row.names(cl), levels(cl))
+  x
+}
+</PRE>
+
+
+
+<p align=center><hr><div align=center><a href="00Index.html">[Package Contents]</a>
+
+</BODY></HTML>

@@ -1,0 +1,166 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf Solution Homework 2}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+\begin{flushleft}
+Comments regarding this assignment: The definition of a martingale
+consists of two parts (see page 87 in the text book). Most of you
+did not prove the first part, i.e. $E|X_n|<\infty$. If you did not
+prove this throughout the assignment you lost 1 point.
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 94 Question 1}
+\begin{itemize}
+    \item Let $X=X_{n+2}$, $Y=X_{n+1}$ and $Z={X_0,\ldots,X_n}$.
+    From these definitions the first identity is proven.
+    \item Hence if $X_n$ is a martingale then:
+    \begin{eqnarray*}
+    E[X_{n+2}|X_0,\ldots,X_n]\\
+    &=&E[E[X_{n+2}|X_0,\ldots,X_{n+1}]|X_0,\ldots,X_n]\\
+    &=&E[X_{n+1}|X_0,\ldots,X_n]= X_n
+    \end{eqnarray*}
+
+    \end{itemize}
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 94 Question 2} We need to verify that
+\begin{enumerate}
+    \item $E|X_n|<\infty$
+    \item $E[X_{n+1}|X_0,\ldots,X_n]=X_n$.
+
+\end{enumerate}
+For the first part notice that $X_n$ has non-negative values.
+Hence, $E|X_n|=E(X_n)$.
+
+\begin{eqnarray*}
+E|X_n|&=&E[X_n]\\
+&=& E[2^{n}U_1\ldots U_{n}]\\
+&=& 2^n \prod_{i=1}^n E[U_i]\\
+&=& 1<\infty
+\end{eqnarray*}
+
+The second part prove is as follows:
+\begin{eqnarray*}
+E[X_{n+1}|X_0,\ldots,X_n]&=& E[2^{n+1}U_1\ldots
+U_{n+1}|1,2U_1,\ldots,2^n U_1 \ldots U_n]\\
+&=& E[2^{n+1}U_1\ldots
+U_{n+1}|2^n U_1 \ldots U_n]\\
+&=& 2^{n}U_1 \ldots U_n \cdot E[2U_{n+1}|2^n U_1 \ldots U_n]\\
+&=& 2^{n} U_1 \ldots U_n \cdot E[2U_{n+1}] = 2^n U_1 \ldots U_n =
+X_n
+\end{eqnarray*}
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 94 Question 4} Again we need to prove the two parts
+of the martingale definition:
+\begin{itemize}
+    \item First $E[|X_n|]=E[X_n]$ since $X_n$ can only have
+    non-negative values. Hence,
+    \begin{eqnarray*}
+    E[X_n]&=&E[p^{-n} \cdot \xi_1 \cdots \xi_n]\\
+    &=& p^{-n} \cdot \prod_{i=1}^n E[\xi_i]\\
+    &=& p^{-n} \cdot p^n \\
+    &=& 1 < \infty
+    \end{eqnarray*}
+    \item The following is the proof for the second part of the
+    martingale definition:
+    \begin{eqnarray*}
+    E[X_{n+1}|X_0,\ldots,X_n]\\
+    &=&E[p^{-(n+1)} \cdot \xi_1 \cdots \xi_{n+1}|X_0,\ldots,X_n]\\
+    &=&E[p^{-1} \cdot X_n \cdot \xi_{n+1}|X_0,\ldots,X_n]\\
+    &=& p^{-1} \cdot X_n \cdot p \\
+    &=& X_n
+    \end{eqnarray*}
+\end{itemize}
+
+A lot of the students ignored the second part of this question
+about the convergence of $X_n$ (and lost points as a result).
+Notice that for any $\epsilon>0$ the following holds:
+\begin{eqnarray*}
+P(|X_n-0|>\epsilon)&=&P(X_n>\epsilon)\\
+&=&P(\xi_1 \cdots \xi_{n}\neq 0 )\\
+&=&P(\xi_1 \cdots \xi_{n}= 1 )\\
+&=& p^{-n}
+\end{eqnarray*}
+
+By letting $n$ go to infinity we know that
+$P(|X_n-0|>\epsilon)\rightarrow 0$ for any $\epsilon>0$. This
+means that $X_n$ converges in probability to 0.
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 99 Question 1} The matrix has the following
+structure:
+\[ \left( \begin{array}{cccccc}
+1 & 0 & 0 & 0 & 0 & 0  \\
+0 & * & * & 0 & 0 & 0  \\
+0 & 0 & * & * & 0 & 0  \\
+0 & 0 & 0 & * & * & 0  \\
+0 & 0 & 0 & 0 & * & *  \\
+0 & 0 & 0 & 0 & 0 & 1  \\
+\end{array} \right)\]
+
+Consider the second row probabilities.  Given that the current
+period has a single diseased person, the probability that there
+are 2 diseased people in the next period is $P(X_{n+1}=2|X_n=1) =
+\alpha \cdot P(\textrm{the diseased person interacts})$. Which
+means $P(X_{n+1}=2|X_n=1) = 0.1 \cdot (1-0.6) = 0.04$. Hence the
+complimentary probability is 0.96. Following the same logic yields
+the following matrix:
+\[ \left( \begin{array}{cccccc}
+1 & 0 & 0 & 0 & 0 & 0  \\
+0 & 0.96 &  0.04 & 0 & 0 & 0  \\
+0 & 0 & 0.96  & 0.04 & 0 & 0  \\
+0 & 0 & 0 & 0.96 & 0.04 & 0  \\
+0 & 0 & 0 & 0 & 0.96 & 0.04  \\
+0 & 0 & 0 & 0 & 0 & 1  \\
+\end{array} \right)\]
+\end{flushleft}
+
+\end{document}

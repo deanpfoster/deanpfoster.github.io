@@ -1,0 +1,332 @@
+<HTML>
+<HEAD>
+<TITLE>Confidential working draft. Intended solely for use in USPS Data Quality Study</TITLE>
+</HEAD>
+
+<BODY  bgcolor="#99ccee">
+<FONT FACE="Arial,Helvetica,Sans Serif">
+<CENTER>
+<H2> UVVC Calculator </H2>
+</CENTER>
+
+<Form method = get action = "http://127.0.0.1/cgi-bin/postal.exe" target="outout">
+<TABLE cellpadding=6>
+<TR ALIGN="CENTER" VALIGN="BOTTOM" BGCOLOR="#ffffff">
+<TD> <B>Costpools</B> <TD> <B>Products</B> <TD> <B>Mail processing options</B>
+</TR>
+<TR ALIGN="RIGHT" VALIGN="TOP"><TD> <SELECT MULTIPLE NAME="costpools">
+               <OPTION SELECTED>
+                         1.0_Postmasters
+               <OPTION > 2.1_Sup_Mail_Proc
+               <OPTION > 3.0_CMH_Overhead
+               <OPTION > 3.1_CMH_Direct
+               <OPTION > 3.2_WS_MSS
+               <OPTION > 3.2_WS_ST
+               <OPTION > 3.2_WS_ME
+               <OPTION > 3.2_WS_WT
+               <OPTION > 3.2_WS_OV
+               <OPTION > 6.1_City_Carriers_DL
+               <OPTION > 7.1_City_Carriers_ROUTE
+               <OPTION > 7.2_City_Carriers_SDR
+               <OPTION > 7.2_City_Carriers_MAB
+               <OPTION > 7.3_City_Carriers_EL_SDR_L
+               <OPTION > 7.3_City_Carriers_EL_SDR_F
+               <OPTION > 7.3_City_Carriers_EL_SDR_P
+               <OPTION > 7.3_City_Carriers_EL_SDR_A
+               <OPTION > 7.3_City_Carriers_EL_COLLECT
+               <OPTION > 7.3_City_Carriers_EL_MDR_L
+               <OPTION > 7.3_City_Carriers_EL_MDR_F
+               <OPTION > 7.3_City_Carriers_EL_MDR_P
+               <OPTION > 7.3_City_Carriers_EL_MDR_A
+               <OPTION > 7.3_City_Carriers_EL_MAB_L
+               <OPTION > 7.3_City_Carriers_EL_MAB_F
+               <OPTION > 7.3_City_Carriers_EL_MAB_P
+               <OPTION > 7.3_City_Carriers_EL_MAB_A
+               <OPTION > 14_Intra_BMC
+               <OPTION > 14_Inter_SCF
+               <OPTION > 14_LSC
+               </SELECT>
+<TD>  <SELECT MULTIPLE NAME="products">
+               <OPTION SELECTED> First 
+               <OPTION > Second_W/C 
+               <OPTION > Second_Reg.
+               <OPTION > Third_BCP
+               <OPTION > Third_BRO
+               <OPTION > Third_BNPO
+               <OPTION > Fourth_Parcel
+               <OPTION > Fourth_LR
+               </SELECT> </TD>
+<TD> 
+<TABLE cellpadding=2 cellspacing=2>
+<TR>
+    <TD><BR></TD>
+    <TD COLSPAN=2 ALIGN="CENTER"> <B> SEP</B> </TD>
+</TR>
+<TR>
+    <TD> <B>Assumed</B> </TD>
+    <TD> 96 </TD> 
+    <TD> 96+</TD>
+</TR>
+<TR>
+    <TD>96</TD>
+    <TD> <INPUT TYPE="RADIO" NAME="MailProcOption" VALUE="96/96" CHECKED ></TD>
+    <TD> <INPUT TYPE="RADIO" NAME="MailProcOption" VALUE="96/96+"></TD>
+</TR>
+<TR>
+    <TD>96+</TD>
+    <TD> <INPUT TYPE="RADIO" NAME="MailProcOption" VALUE="96+/96"></TD>
+    <TD> <INPUT TYPE="RADIO" NAME="MailProcOption" VALUE="96+/96+"></TD>
+</TR>
+<TR>
+    <TD>Peak load</TD> 
+    <TD> <INPUT TYPE="RADIO" NAME="MailProcOption" VALUE="PEAK/96"> <TD></TD> 
+    <TD> <BR> </TD>
+</TR>
+<TR>
+    <TD>ATK dks</TD> 
+    <TD> <INPUT TYPE="RADIO" NAME="MailProcOption" VALUE="ATK/96"> <TD></TD> 
+    <TD> <BR> </TD>
+</TR>
+
+
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+
+<HR>
+<P>
+
+<TABLE cellpadding=6>
+<TR>
+      <TH COLSPAN=3 BGCOLOR="#ffffff">  Statistical variability assumptions </TH> 
+</TR>
+<TR VALIGN="TOP">
+<TD>
+<TABLE cellpadding=6>
+<TR> 
+     <TH COLSPAN=2 BGCOLOR="#ffffff">  Global  
+</TR>
+<TR ALIGN="RIGHT">
+     <TD  ALIGN="RIGHT">Assumed world</TD>
+     <TD> <INPUT TYPE="CHECKBOX" NAME="assworldvar"> </TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD  ALIGN="RIGHT">SEP (all systems) </TD>
+     <TD> <INPUT TYPE="CHECKBOX" NAME="sampvar" CHECKED></TD>
+</TR>
+</TABLE>
+</TD>
+<TD>
+<TABLE cellpadding=6>
+<TR> 
+    <TH COLSPAN=2 BGCOLOR="#ffffff">  System specific </TD>
+</TR>
+<TR ALIGN="RIGHT">
+    <TD> IOCS  <INPUT TYPE="CHECKBOX" NAME="iocsobsworldvar" CHECKED></TD>
+    <TD> CV factor: <INPUT NAME="iocscvfactor" Value="1.000" size=5,1 maxlength=5> </TD> 
+</TR>
+<TR ALIGN="RIGHT">
+    <TD>RPW   <INPUT TYPE="CHECKBOX" NAME="rpwobsworldvar" CHECKED></TD>
+    <TD>CV factor: <INPUT NAME="rpwcvfactor" Value="1.000" size=5,1 maxlength=5> </TD>
+</TR>
+<TR ALIGN="RIGHT">
+    <TD>TRACS <INPUT TYPE="CHECKBOX" NAME="tracsobsworldvar" CHECKED></TD>
+    <TD>CV factor: <INPUT NAME="tracscvfactor" Value="1.000" size=5,1 maxlength=5> </TD>
+</TR>
+<TR ALIGN="RIGHT">
+    <TD>CCS   <INPUT TYPE="CHECKBOX" NAME="ccsobsworldvar" CHECKED> </TD>
+    <TD>CV factor: <INPUT NAME="ccscvfactor" Value="1.000" size=5,1 maxlength=5> </TD>
+</TR>
+<TR ALIGN="RIGHT">
+    <TD>SS    <INPUT TYPE="CHECKBOX" NAME="ssobsworldvar" CHECKED></TD>
+    <TD>CV factor: <INPUT NAME="sscvfactor" Value="1.000" size=5,1 maxlength=5></TD>
+</TR>
+<TR>
+    <TD> Elasticity <INPUT TYPE="CHECKBOX" NAME="elasobsworldvar" CHECKED></TD>
+    <TD>CV factor: <INPUT NAME="elascvfactor" Value="1.000" size=5,1 maxlength=5> </TD>
+</TR>
+</TABLE>
+</TD>
+<TD>
+<TABLE cellpadding=6>
+<TR> 
+    <TH COLSPAN=2 BGCOLOR="#ffffff">  Special studies</TD>
+</TR>
+<TR>
+     <TD> STS </TD>
+     <TD> <INPUT TYPE="CHECKBOX" NAME="stsobsworldvar" CHECKED> </TD>
+</TR>
+<TR>
+     <TD> CAT/FAT </TD>
+     <TD> <INPUT TYPE="CHECKBOX" NAME="catfatobsworldvar" CHECKED> </TD>
+<TR>
+     <TD> LTV </TD>
+     <TD> <INPUT TYPE="CHECKBOX" NAME="ltvobsworldvar" CHECKED> </TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+
+
+<TABLE cellpadding=6>
+<TR VALIGN="TOP">
+<TD>
+<TABLE cellpadding=6>
+<TR> 
+    <TH COLSPAN=1 BGCOLOR="#ffffff">  Scenario biases</TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD>Sampling Bias<INPUT TYPE="CHECKBOX" NAME="sampbias" ></TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD>CAT/FAT adjustment<INPUT TYPE="CHECKBOX" NAME="CATFATadjust" ></TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD ALIGN="RIGHT">Intra-BMC driver combination <INPUT TYPE="CHECKBOX" NAME="TracsComboChoice" > <BR>Weight factor: <INPUT NAME="TRACSIBmcComboFactor" Value="0.6422" size=6,1 maxlength=6> </TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD>TRACS High utilization<INPUT TYPE="CHECKBOX" NAME="TracsHigh"></TD>
+</TD>
+</TR>
+</TABLE>
+</TD>
+<TD>
+<TABLE cellpadding=6>
+<TR> 
+    <TH COLSPAN=4 BGCOLOR="#ffffff">  Product biases</TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TH ALIGN=LEFT> Product</TD> 
+     <TH> TRACS </TD> 
+     <TH> RPW   </TD> 
+     <TH> MODS  </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TH ALIGN=LEFT> <BR></TD> 
+     <TH> Intra-BMC</TD> 
+     <TH> volume</TD> 
+     <TH> container/empty</TD>
+</TR>
+
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> FCLPP  </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="First"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="First"> </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="First"> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD  ALIGN=LEFT> SCWC   </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="Second_W/C"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="Second_W/C"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="Second_W/C"> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> SCRR   </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="Second_Reg."> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="Second_Reg."> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="Second_Reg."> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> TCBCP  </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="Third_BCP"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="Third_BCP"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="Third_BCP"> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> TCBRO  </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="Third_BRO"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="Third_BRO"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="Third_BRO"> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> TCBNPO </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="Third_BNPO"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="Third_BNPO"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="Third_BNPO"> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> FOCP   </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="Fourth_Parcel"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="Fourth_Parcel"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="Fourth_Parcel"> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> FOCLR  </TD> 
+     <TD> <INPUT TYPE="RADIO" NAME="TracsDriverBias" VALUE="Fourth_LR"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="RPWVolumeBias" VALUE="Fourth_LR"> </TD>
+     <TD> <INPUT TYPE="RADIO" NAME="MODSDKSBias" VALUE="Fourth_LR"> </TD>
+</TR>
+<TR ALIGN=CENTER> 
+     <TD ALIGN=LEFT> Factor </TD> 
+     <TD> <INPUT NAME="TracsDriverBiasFactor" VALUE="1.0"
+size=3,1 maxlength=3 > </TD>
+     <TD> <INPUT NAME="RPWVolumeBiasFactor" VALUE="1.0"
+size=3,1 maxlength=3 > </TD>
+     <TD> <INPUT NAME="MODSDKSBiasFactor" VALUE="1.0"
+size=3,1 maxlength=3 > </TD>
+</TR>
+</TABLE>
+</TD>
+</T>
+</TABLE>
+
+
+<TABLE>
+<TR VALIGN=TOP>
+<TD>
+<TABLE cellpadding=6>
+<TR> 
+    <TH COLSPAN=2 BGCOLOR="#ffffff" ALIGN=CENTER>  Simulation options</TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD>Runs </TD>
+     <TD> <INPUT NAME="its" Value="1000" size=4,1 maxlength=4></TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD>Seed1</TD>
+     <TD>  <INPUT NAME="seed1" Value="12345678" size=8,1 maxlength=8></TD>
+</TR>
+<TR ALIGN="RIGHT">
+     <TD>Seed2</TD>
+     <TD><INPUT NAME="seed2" Value="87654321" size=8,1 maxlength=8></TD>
+</TR>
+</TABLE>
+</TD>
+
+<TD>
+<TABLE cellpadding=6>
+<TR ALIGN=CENTER> 
+    <TH COLSPAN=2 BGCOLOR="#ffffff" ALIGN=CENTER>  Output options</TD>
+</TR>
+<TR ALIGN=RIGHT>
+     <TD>Show each cost pool</TD>
+     <TD> <INPUT TYPE="CHECKBOX" NAME="showcostpools" CHECKED> </TD>
+</TR>
+<TR ALIGN=RIGHT>
+     <TD> Decimal places</TD>
+     <TD> <INPUT NAME="decimals" Value="2" size=1,1 maxlength=1>
+</TD>
+</TR>
+<TR ALIGN=RIGHT>
+     <TD>Graphics </TD>
+     <TD> <INPUT TYPE="CHECKBOX" NAME="graphics" ></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+
+<HR>
+<CENTER>
+<INPUT TYPE="submit" value = "SIMULATE">
+<INPUT TYPE="reset" value = "CLEAR">
+</CENTER>
+<HR>
+</Form>
+<P>
+</FONT>
+</BODY>
+</HTML>
+

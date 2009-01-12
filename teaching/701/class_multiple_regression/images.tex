@@ -1,0 +1,75 @@
+\batchmode
+\documentclass{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(1 + \epsilon) \sim \epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline168: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline170: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(y) = \beta_0 + \beta_1 ln(x).$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline172: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(y^\ast) = \beta_0 + \beta_1 ln(x\times(1 + \epsilon)).$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline178: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(y^\ast) = \beta_0 + \beta_1 ln(x) + \beta_1 ln(1 + \epsilon).$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline180: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(y^\ast) \sim \beta_0 + \beta_1 ln(x) + \beta_1\epsilon.$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline182: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(y^\ast) - ln(y) \sim \beta_1\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline186: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(y^\ast/y) \sim \beta_1\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline188: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(y/y + (y^\ast-y)/y) \sim \beta_1\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline190: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ln(1 + (y^\ast-y)/y) \sim \beta_1\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline192: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(y^\ast-y)/y \sim \beta_1\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline194: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_1\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline196: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

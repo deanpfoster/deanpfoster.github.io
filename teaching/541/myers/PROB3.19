@@ -1,0 +1,12 @@
+GRAIN          POWDER              EXTRUSION           DIE                      
+RADIUS      TEMPERATURE (X1)       RATE (X2)       TEMPERATURE (X3)             
+                                                                                
+                                                                                
+   82           150                    12                220                    
+   93           190                    12                220                    
+  114           150                    24                220                    
+  124           150                    12                250                    
+  111           190                    24                220                    
+  129           190                    12                250                    
+  157           150                    24                250                    
+  164           190                    24                250                    

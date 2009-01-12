@@ -1,0 +1,38 @@
+\batchmode
+\documentclass[12pt]{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|r||c|c|c|}\hline
+           & \multicolumn{3}{c|}{Properties} \\  \hline 
+Technique  & Unbiased&Accurate estimate of s.e. & Efficient \\  \hline\hline
+OLS with plain s.e.      & Yes   & No   & No \\ 
+OLS with bootstrap s.e.  & Yes   & Yes   & No \\ 
+WLS with plain s.e.      & Yes   & Yes   & Yes \\  \hline
+\end{tabular}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{tabular}{|c||c|c|c|} \hline
+           & \multicolumn{3}{c|}{Properties} \\  \hline
+Technique  & $Av(\hat\beta_1)$ & Estimated $Var(\hat\beta_1)$ 
+& ``True''  $Var(\hat\beta_1)$ \\  \hline\hline
+OLS with plain s.e.      & 1.9947   & 0.01382   & 0.01583 \\ 
+OLS with bootstrap s.e.  & 1.9974   & 0.01542   & 0.01583 \\ 
+WLS with plain s.e.      & 1.9965   & 0.00749   & 0.00747 \\  \hline
+\end{tabular}
+}
+
+
+\end{document}

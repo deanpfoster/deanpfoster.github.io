@@ -1,0 +1,72 @@
+<html>
+<header>
+<title>  Homework on multisets</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Homework on multisets </h1></center>
+
+This is really a test of how well you wrote your last program and not
+something completely new.  A multiset is a "set" of items for which
+the key to the item is not necessarilly unique.  For example, consider
+a set of people which you have sorted on age.  It is possible to have
+two people in the set such that both of them have age 29.  In fact,
+you might have 100s of people all of whom have age 29.  This is called
+a multiset.
+<p>
+Obviously, this isn't very interesting if you are only saving the age
+of the person.  Then if someone asks you to delete a 29 from your set,
+you can delete anyone of them--they are all the same.  This isn't true
+if say you also have names attached to the people.
+<p>
+So how should something be deleted?  The user can ask for a list of
+all possible people who are of a certain age.  This returns a list of
+references to people.  Now the user can say, "delete the 3rd person
+on the list you gave me who is of age 29."  
+<ol>
+  <li> Define a person as a vector consisting of an age and a name.
+<p>
+  <li> Change your tree program to sort person objects by age.  You
+       shouldn't look at the name field, since that would require your
+       tree program to know exactly what your object looks like. 
+       <p>
+  <li>  You should have functions that will
+       <p>
+       <ol type=a>
+       <li> print the tree (in a pretty fashion showing the tree
+       structure)
+       <li> insert nodes into the tree
+       <li> find all people of a given age
+       <li> delete a node from the tree
+       <p>
+     </ol>
+  <li> Run your code on some data of your own creation.  Provide some
+       discussion of what is happening as you do it.  Make sure that
+       you test your code sufficiently enough to convince me that it
+       runs correctly.
+       <p>
+       (Basically what this means, is that you will need to tell a
+       story similar to the following: First we print the empty tree
+       (show output).  Now we insert some unique names and ages (show
+       output).  How about two people of the same age (show output).
+       Can we still find both unique people and multiple people (show
+       output of finding some ages).  Now lets delete a person (show
+       output).  Now change the name of one of the people in the
+       tree.  (Show that the tree is still the same, but the name is
+       changed.)  Make sure we can still find the person.  (show
+       output) etc)
+       <p>
+  <li> Print out your CVS log.
+       <p>
+</ol>
+
+Read chapters 10, 11 and 12.  Make sure that you can create objects,
+and manipulate them.  You don't have to use objects in the above
+homework, but you might want to.  
+
+</body>
+
+</html>
+

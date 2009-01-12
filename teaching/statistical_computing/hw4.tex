@@ -1,0 +1,78 @@
+\documentstyle[12pt]{article}
+\renewcommand{\baselinestretch}{1.2}
+\begin{document}
+\centerline{\bf Statistical computing: Homework 4}
+
+\vspace{2ex}
+
+This fourth homework is due Wednesday, Feb 11th.  As usual, these
+should be programmed using a functional programming style and written
+up carefully.
+
+In preparation for following week's homework, Check with the systems
+administrator of your department and see what you have to do to create
+a home page.  (In statistics that person is Barry Kirzner,
+kirzner@stat.  You have to ask him for an account on enkido.)  
+
+\begin{enumerate}
+\item There are many possible modes objects can take on in Splus.
+Your goal in this problem is to return something of each of the
+following modes (or say why it is impossible): 
+\begin{enumerate}
+\begin{enumerate}
+\item  ``numeric'', 
+\item ``logical'',
+\item ``complex'',
+\item  ``character'', 
+\item ``null''
+\item ``list'', 
+\item  ``function'', 
+\item ``expression'',
+\item  ``comment.expression'',
+\item ``name'',
+\item  ``call'',
+\item  ``$<-$''.
+\end{enumerate}
+\end{enumerate}
+This really is a question of creativity.  In other words, I want you
+to come up with a {\em useful} function that returns something of the
+desired mode (if it is possible).  So for the first few, you only need
+mention code you wrote in previous exercises.  But for some of the
+rest, you will have to work at thinking of a reason for doing it!
+
+\item Write up a function {\tt MLE} that takes a density generating
+function and a vector and finds the value maximum likelihood
+estimator.  Test it on the {\tt car.gals} data using both a normal and
+an exponential distribution.  Does it do the right thing?
+
+\item Suppose you have a function {\tt sin} and a grid of points.  You
+can evaluate the {\tt sin} on the grid of points and then run a
+polynomial fit to the result.  This will generate a polynomial fit to
+the {\tt sin} function.  We will think of the resulting polynomial as
+a function, {\em not} a set of coefficients.
+\begin{enumerate}
+\item Write a function {\tt fit(f,lower,upper,k)} which takes an
+input function {\tt f} and fits a polynomial of degree {\tt k} to it
+over the interval {\tt lower} to {\tt upper}.  Of course it should
+return a function which represents the fit.  Test it on various sample
+functions.  Find situations where it works well and situations where
+it fails.  (Show at least one graph each of fitting well and failing
+to fit well.)
+\item Write a different function {\tt d.fit(f,lower,upper,k)} which
+takes an input function {\tt f} and fits a polynomial of degree {\tt
+k} to it over the interval {\tt lower} to {\tt upper}.  It should then
+return the derivative of this polynomial as a function.  Test it on
+some examples.
+\item Why is the above better than merely doing {\tt
+d(fit(f,lower,upper,k))}?
+\item You now have two ways of computing a derivative, you can use
+{\tt d} which you defined in previous classes and {\tt d.fit}.  To
+contrast {\tt fit(d(f),lower,upper,k-1)} which returns a polynomial fit
+to the derivative and {\tt d.fit(f,lower,upper,k)} which also returns
+a polynomial which is the derivative of the fit.  Are these always the
+same?  If so prove it, if not, find an example where they differ.  If
+they differ, which is more accurate?  Why?
+\end{enumerate}
+\end{enumerate}
+\end{document}
+

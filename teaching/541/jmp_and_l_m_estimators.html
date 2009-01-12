@@ -1,0 +1,99 @@
+<html>
+<header>
+<title>  STAT 541: JMP and L and M estimators</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: JMP and L and M estimators </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> 1st homework:
+     <ul>
+       <li> Find a data set with between 5 and 20 columns of
+	    comparable information.
+       <li> Read the data into JMP and compute the statistics computed
+	    on page 10 of the handout.  Look at comparison box plots
+	    for all your data.  Be sure to put them on the same scale!
+       <li> Read the data into Splus and compute the statistics for
+	    all the columns in your dataset.  (See Splus code on the
+	    pages between 17 and 18.)  The idea is to do this somewhat
+	    automatically.  Either by creating a function.  Or by
+	    using your editor to make a command list.  You should be
+	    able to re-generate your output after a small change is
+	    made in the data without having to click lots and lots of
+	    buttons. 
+       <li> Comment on what you found out scientifically.  (I.e. which
+	    column has the highest data, and why is this of interest?)
+     </ul>
+ </ul>
+
+<h2> JMP</h2>
+
+Look at <a href="repairs.jmp">repairs.jmp</a>.
+
+<h2>Mathematics of robustness</h2>  
+
+Goal is to provide framework to discuss properties of estimators.
+<p>
+  <h3>L estimators</h3>
+<ul>
+  <li> Ranking the data (called Y<sub>(1)</sub>, ...
+  <li> L estimator is sum of weights of ranked data
+  <li> easy example: sample average is an L estimator
+  <li> harder example: trimmed mean is a L estimator (trim everything
+       and you have the median)
+  <li> IQR is an L estimate of scale
+</ul>
+<h3>M estimators</h3>
+<ul>
+  <li> objective function = sum rho(y<sub>i</sub>)
+  <li> phi is derivative of rho
+  <li> Newton says the solution is: sum phi = 0
+  <li> Example: rho = x<sup>2</sup>, phi = 2x, solution is average
+  <li> Example: rho = |x| phi = sign(x), solution is median
+</ul>
+<h3>Invariance</h3>
+
+Shift invariance: T(y + c) = T(y) + c
+<p>
+scale invariance: T(ay) = aT(y)
+<p>
+Obvious for L esitimators.  Not always true for M estimators.
+<h3>Clasic m-estimator</h3>
+The clasic m-estimator is the biweight;
+<p>
+phi(u) = u(1 - u<sup>2</sup>)<sup>2</sup>  (for |u| < 1)
+<p> 
+<h3> Sensitivity and influence</h3>
+sensitivity is the effect of adding one observation to a small
+dataset.
+<p>
+Influence curve is n times the effect of adding one observation to a
+large number of observations.
+<p>
+Claim: The influence curve is proportional to the phi-function
+<p>
+Properties of estimators
+<ul>
+  <li> efficiency
+  <li> breakdown (how much bad data can be included without
+       arbitarilly blowing up the estimator)
+  <li> gross error sensitivity (max of influence curve)
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Jan 23 08:50:00 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>One world vs. Many worlds</title>
+</head>
+
+<body>
+<center><h1>One world vs. Many worlds</h1></center>
+
+This story is to help me understand what a many worlds universe would
+look like.  The idea is to slowly modify the "standard model" of
+reality until it looks like a quantum mechnical parrelel universe.
+<p>
+Most peoples personal model of reality is similar to John Conway's
+game of Life.  (cite?)  In other words, each small piece of reality
+acts like a very small computer that talks to is neighbors and then
+computes its next state.  The whole of reality consists of many
+replicates of this computer in a masive grid.  There isn't any
+ethernet that one piece of reality can use to communicate with a
+distant piece of reality.  The only way information can flow great
+distances is to get there one step at a time.
+<p>
+If you use great imagination, you can actually get a general
+relativity model to look something like the "standard model."
+Einstien believed in the standard model so much, that he was unwilling
+to believe quantum mechanics could actually be a correct description
+of the world.  Let's now beat on the standard model and see if we can
+get it to look more quantum mechinical.
+<p>
+Physics is reversible.  So instead of using standard logic for our
+nodes of reality, let's replace them with reversible logic.  Standard
+logic uses things equations like (A and B), but in reversible logic,
+we have to be able to recover the inputs from the outputs, so we can't
+compute (A and B).  So what can we compute in a reversible fashion?
+The identity is reversable.  (Duh!)  So is negation.  In fact,
+negagion is its own inverse.  The function f(A,B) -> (A, A xor B) is
+also reversable and its own inverse.  A general class of reversable
+functions is
+<center>
+f(A,B,C,...,Z) = (A,B,C,..., Z xor g(A,B,C,...))
+</center>
+This provides us with a large arsinal of functions.  So instead of
+Conway's rules for life, we need to use some other rules made out of
+these reversible rules.
+<p>
+<h3>The "Game of Ghosts"</h3>
+Suppose that at each node of our the game of life we put some extra
+bits of information.  The first bit tells us whether the node is
+"alive" or "dead."  The extra bits are there to allow the whole thing
+to be reversible.  It isn't easy to see how one could build a
+reversible game of life.  Consider what happens when two gliders
+destroy each other at time <em>t</em>.  At time <em>t+1</em> there is
+nothing left on the board.  But we have to be able to compute
+backwards to generate the gliders that existed at time <em>t</em>.
+Further we have to be able to compute the state <em>t+1</em> from the
+information we have at time <em>t+2</em>.  Thus the gliders will have
+to have some of their essesense last forever after they are gone.
+This essence is called their ghost.  The ghost preceeds them before
+they are called into existance and their ghost lives on after they are
+gone. 
+<p>
+<quote>
+Technical note: It is unfortunately impossible to construct the game of
+ghost.  No reversible grid can simulate the game of life in real
+time.  
+</quote>
+<p>
+So it isn't a great step to believe in a reversable world over
+believing in the standard model of the world.  In fact, Newton believe
+that one could predict forward in time or backward in time equally
+well.  If one had perfect knowledge of the current state of the world,
+forward and backwards predictions can be computed from Newton's three
+laws of mechanics.  (Chaos requires us to have perfect knowledge
+instead of merely really good knowledge.)
+
+<h3>A string of pearls</h3>
+
+Once we assume reversibility, we can figure out all the future and all
+the past from a snap shot of time.  Thus we can think of this as been
+a long string of pearls--each pearl being a single snapshot of the 
+world.  There aren't any decisions to be made or branches to
+consider.  Everything goes merilly along in either direction.  Any
+feeling of the passage of time is simply an illusion.  It might
+actually be that time runs backwards--we just feel that it is running
+forwards.  There wouldn't be any difference between these two 
+approaches. 
+<p>
+<h3>Weaving the strings together</h3>
+
+How can we make branches but still maintain our reversibility?
+What we want to see is a single string of pearls before the branch
+point, and then two strands of pearls after the branch point.  It
+would be trivial to identify which way time was flowing if we allowed
+this sort of structure.  But we want branches.  
+<p>
+If we have two strands of pearls after the branch point, we then have
+to have two stands before the branch point.  So our picture now looks
+like two strings running along, that then cross at the branch point.
+Using ascii art, it looks something like
+<center>
+======<sub><sup><sup>x</sup></sup></sub>=======. 
+</center>
+<p>
+The way to think about this is to use the fact that our system is
+reversable.  Suppose that the branch point is a randomization done at
+the point (3,7) on the board.  Then before the randomization we have
+two possible starting position that differ only in the value at the
+location (3,7).  Afterwards, we also have two different positions that
+differ at the point (3,7).  Now propogate all four ends sticking out
+of this cross to generate two whole worlds.  Each of these two worlds
+appears to have a branch in it.  But this branch works both in a time
+forward and a time reversed fashion.  Hence we have satisfied our
+reversibility AND allowed for a branch.
+<p>
+Things start getting uglier when you want two branch points. Each
+world line is attached to its neighbor either at the first branch or
+at the second branch.  Likewise its neighbor is attached to another
+neighbor and so on.  This generates a zig-zag pattern.  If we are
+lucky, we might be able to reuse one of the previous worlds to link
+the whole think up into a ring.  
+<p>
+Allowing for three branch points generates an even more complex
+picture.  Assuming that we don't get to reuse our world lines, we
+rapidly get an exponential number of necessary worlds.  In other
+words, the number of worlds that are within <em>n</em> links of our
+world is <em>2<sup>n</sup></em>.  If we don't close them back on
+themselves we rapidly get more than can be drawn easilly in a
+picture. 
+<p>
+Luckilly things don't get all that much worse if you have <em>k</em>
+decision points.  There are <em>(k-1)<sup>n</sup></em> worlds that are
+within <em>n</em> steps, which isn't all that much larger than the 3
+decision case.
+
+<h3>Markov chains</h3>
+
+
+
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Oct 26 16:28:52 EDT 1999
+<!-- hhmts end -->
+</p>
+
+</body> </html>

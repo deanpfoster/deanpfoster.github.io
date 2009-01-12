@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Worst case modeling</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Dec  6 14:22:01 EST 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> I'll write a homework 5 by thursday, if you all's promiss
+to turn in HW 3 and 4 by thursday.  Deal?
+   <li> If so, then no project, and no final.
+</ul>
+
+<h1>Worst case modeling</h1>
+<h2>Alternative models for data</h2>
+<ul>
+   <li> Standard model
+     <ul>
+     <li> data = signal + noise
+     <li> noise is random
+     <li> goal: recover true signal
+     </ul>
+   <li> Function recovery
+     <ul>
+     <li> data = signal + noise
+     <li> sum(noise<sup>2</sup>) is bounded
+     <li> goal: recover true signal
+     </ul>
+   <li> PAC (Probably Approximately Correct) learning
+     <ul>
+     <li> data = f(X)
+     <li> X is noisy
+     <li> goal: recover f
+     </ul>
+   <li> Worst case / individual sequence
+     <ul>
+     <li> data comes in a sequence
+     <li> alternative models
+     <li> goal: fit future as well as any possible model
+     </ul>
+</ul>
+<h2>Comments on models</h2>
+<ul>
+   <li> PAC motivates Boosting, but not much else
+   <li> Function recovery framework and hi-d normal are identical
+   <li> Doesn't worst sound cool?
+   <li> worst case is motivation for LZ algorithm 
+</ul>
+<h2>Attraction for data mining</h2>
+<ul>
+   <li> Given our search through millions of variables, we don't
+believe we have the true model.
+   <li> So why not get rid of the idea altogether?
+   <li> If it worked for all data wouldn't that be cool?
+</ul>
+<h2>General theorem</h2>
+<ul>
+   <li> consider known set of forecasts F.
+   <li> goal: sum loss(Y - yhat) = min loss(Y - f) 
+   <li> Problem:  Oops, might do too well.  
+   <li> better goal: sum loss(Y - yhat) <= min loss(Y - f)
+   <li> Theorem: if loss is bounded and F is compact, then such a yhat
+exists. 
+</ul>  
+<h2>Examples</h2>
+<ul>
+   <li> Least squares
+   <li> L1 (used in classification)
+   <li> log loss (used in information theory)
+   <li> guaranteed calibration (used in game theory)
+</ul>
+
+<h2>Whats to like</h2>
+<ul>
+   <li> Dispense with all those nasty independence assumptions
+   <li> No distributional assumptions
+   <li> Nada!
+</ul>
+
+<h2>Whats to dislike</h2>
+<ul>
+   <li> Doesn't do robust statistics
+   <li> I.e. one outlier kills the comparison class and y-hat, so
+what's the biggee???
+   <li> Doesn't guarentee a smart fit
+   <li> I.e. Suppose all comparison class experts are linear, you
+still can have curvature in the residuals
+</ul>
+
+
+ <hr>
+<address>dean@foster.net</address>
+</body> </html>

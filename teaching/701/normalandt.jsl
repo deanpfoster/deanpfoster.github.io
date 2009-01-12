@@ -1,0 +1,18 @@
+df=30;
+normalArea = NormalDistribution(1) - 0.5;
+
+NewWindow(
+	"t-distribution",
+	VListBox(
+	   gr=Graph(Framesize(300,300),Xscale(-3.5,3.5),Yscale(0,0.5), 
+		Double Buffer,
+		scl = normalArea/(tDistribution(1,df)-0.5);
+		YFunction(scl * tDensity(x*scl,df),x);
+		Text({0.5, 0.02},"df = ",char(df,3,1));
+		// Handle(0,df/40,df=floor(40*y)+1);
+		Pen color("red");
+		YFunction(Normal Density(x),x);
+		),
+	   HListBox(SliderBox(1,32,df,gr<<reshow),
+				TextBox("Degrees of Freedom Slider")))
+);

@@ -1,0 +1,163 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 4 Solution}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+
+\begin{flushleft}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Page 130 Question 4.1}
+
+Our Markov Chain consists of 4 states:
+\begin{enumerate}
+    \item State 0: All the flips up till now cannot possibly lead to the pattern
+    HHT. If the next coin flip is a H we progress to state 1 else
+    we stay in this state.
+    \item State 1: The current flip is H. If the next flip is H we
+    continue to state 2. If the next flip is T we go back to state
+    0.
+    \item State 2: The current flip is H and the flip before was
+    H. If the next flip is T we continue to state 2. If the next flip
+    is H we stay in this state.
+    \item State 3: The current flip is T and the last two flips
+    were H. Once it reaches state 3 the Markov Chain remains in this state.
+\end{enumerate}
+The appropriate transition matrix is:
+\[ P = \left ( \begin{array}{cccc}
+ 0.5 & 0.5 & 0 & 0  \\
+ 0.5 & 0 & 0.5 & 0  \\
+ 0 & 0 & 0.5 & 0.5  \\
+ 0.5 & 0.5 & 0 & 1  \\
+\end{array} \right) \]
+
+Let $T=min\{n \geq 0 ; X_n=3\}$ and $u_i=E(T|X_0=i)$. The first
+step analysis yields the following equations:
+
+\begin{eqnarray*}
+v_0=1+0.5v_0+0.5v_1 \\
+v_1=1+0.5v_0+0.5v_2 \\
+v_2=1+0.5v_2+0.5v_3 \\
+\end{eqnarray*}
+
+If we start at state 3 then the mean time until we first get these
+is 0, hence $v_3=0$. Solving the above system of equations reveals
+that $v_0=8$.
+
+
+A similar Markov Chain can be defined for the second part of the
+question in the following manner.
+
+\begin{enumerate}
+    \item State 0: All the flips up till now cannot possibly lead to the pattern
+    HTH. If the next coin flip is a H we progress to state 1 else
+    we stay in this state.
+    \item State 1: The current flip is H. If the next flip is T we
+    continue to state 2. If the next flip is H we stay in state
+    1.
+    \item State 2: The current flip is T and the flip before was
+    H. If the next flip is H we continue to state 2. If the next flip
+    is T we go back to state 0.
+    \item State 3: The current flip is H and the last two flips
+    were HT. Once it reaches state 3 the Markov Chain remains in this state.
+\end{enumerate}
+The appropriate transition matrix is:
+\[ P = \left ( \begin{array}{cccc}
+ 0.5 & 0.5 & 0 & 0  \\
+ 0 & 0.5 & 0.5 & 0  \\
+ 0.5 & 0 & 0 & 0.5  \\
+ 0.5 & 0.5 & 0 & 1  \\
+\end{array} \right) \]
+
+Let $T=min\{n \geq 0 ; X_n=3\}$ and $u_i=E(T|X_0=i)$. The first
+step analysis yields the following equations:
+
+\begin{eqnarray*}
+v_0=1+0.5v_0+0.5v_1 \\
+v_1=1+0.5v_1+0.5v_2 \\
+v_2=1+0.5v_0+0.5v_3 \\
+\end{eqnarray*}
+
+If we start at state 3 then the mean time until we first get these
+is 0, hence $v_3=0$. Solving the above system of equations reveals
+that $v_0=10$.
+
+From this analysis one can see that the average time till we get a
+pattern of HHT is shorter than the average time till we reach HTH.
+This makes sense because once the first Markov Chain reaches state
+2 it either stays there or advances while the second Markov Chain
+can return to state 0 even when it reaches state 2.
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 132 Question 4.7}\\
+ \begin{eqnarray*}
+h_i &=& \sum_{n=0}^{\infty} E[\beta^n c(X_n) |X_0=i]\\
+&=& c(i) + \sum_{n=1}^{\infty} E[\beta^n c(X_n) |X_0=i]\\
+&=& c(i) + \sum_{n=1}^{\infty} \sum_j E[\beta^n c(X_n) |X_0=i, X_1=j] P(X_1=j|X_0=i)\\
+&=& c(i) + \sum_{n=1}^{\infty} \sum_j E[\beta^n c(X_n) |X_1=j] P_{ij}\\
+&=& c(i) + \sum_j  \beta \sum_{n=1}^{\infty}  E[\beta^{n-1} c(X_n) |X_1=j] p_{ij}\\
+&=& c(i) + \sum_j  \beta \sum_{m=0}^{\infty}  E[\beta^{m} c(X_m) |X_0=j] p_{ij}\\
+&=& c(i) + \sum_j  \beta \sum_{m=0}^{\infty}  h_j p_{ij}\\
+ \end{eqnarray*}
+
+where $m=n-1$ and we just use $m$ as a dummy index.
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 134 Question 4.17}\\
+Define $u_i=E(s^T|X_0=i)$ then we need to find $u_0$. Using first
+step analysis we have the following equations:
+\begin{eqnarray*}
+u_0 &=& 0.7 s u_0 + 0.3 s u_1\\
+u_1 &=& 0.6 s u_1 + 0.4 s u_2\\
+\end{eqnarray*}
+
+Notice that $u_2=1$ since $E(s^T|X_0=2)=s^0=1$.
+
+By solving the above set of equations we can conclude that
+\begin{eqnarray*}
+u_0 = \frac{0.12 s^2}{(1-0.7s)(1-0.6s)}
+\end{eqnarray*}
+
+Some students wrote that $E(g(X))=g(E(X))$ but this is not
+generally true unless the function $g(X)$ is a linear function. In
+our case $g(X)=s^X$ which is not a linear function.
+
+\end{flushleft}
+\end{document}

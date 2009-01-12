@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+
+### Program to illustrate the use of subroutines.
+### Roll an n sided die m times.
+
+print &dieroll (3,7), "\n";
+
+@_ = (9,3);
+print &dieroll , "\n"; #notice that by default the subroutine will
+                       # use what is in @_ 
+
+sub dieroll {
+                           # my makes the variable $sides local. 
+                           # if not local then global -- not desirable.
+    my $sides = shift(@_); # shift rips off the first value of an array. 
+    my $times = shift(@_); # number of times to roll.
+    my @rolls;
+
+    while ($times > 0){
+    push @rolls, int(rand $sides) + 1;
+    $times--;
+}
+
+    return( @rolls);
+}

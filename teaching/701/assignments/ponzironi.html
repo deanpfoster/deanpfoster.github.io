@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE>Assignment on Ponzironi</TITLE>
+<BODY>
+<P>
+<CENTER><H1> Assignment on Ponzironi. (Individual) </H1></CENTER>
+<P>
+
+<p>
+Write up the discussion question carefully.  The other questions can
+be answered in as minimal a fashion as you can.  You don't have to
+clean up graphs and output for any of the questions but the discussion
+question.
+
+<ol>
+  <li> This problem will have you reanalyze Dent's data.  I will walk
+       you through a series of precise questions. You should have a
+handout which has
+       the Business Week article on Dent (<a
+href="http://www.businessweek.com/2000/00_13/b3674175.htm">on line
+link</a>).  The data can be downloaded
+       from the class web page.
+       </p>
+       <ol type=a>
+	 <li> Generate a plot that matches the business week plot as
+	      well as possible.  (i.e. use as close to the same years
+	      as he uses.)  Use the VW (which is included in the
+dataset) instead of the DOW.  You will need to multiply the VW returns
+together to generate the VW series itself.  Then take the log of the
+VW you just created.  Now generate a plots of the whole time
+	      series.  Does his model seem to do well in the first
+	      part of the century?  Can you think of a reason why
+	      things might have been different then?
+	      </p>
+	 <li> To check his claim that population predicts the DOW, run
+	      a regression of the ln(DOW) on age45.  (Actually, you have
+	      the market value weighted and not the DOW.  It is hard
+	      to come by silly indices like the DOW for long time
+	      series.)  What is the R-sqrd?   Impressive or not?
+	      </p>
+	 <li> Get both your time series plot and your regression up on
+	      screen at the same time.  Now use a brush to brush the
+	      points on the time series graph and watch what is
+	      happening on the regression graph.  Does it appear
+	      random?  To see this as a static graph, plot the
+	      residuals vs. time.  Do they appear as a shot-gun
+	      pattern?
+	      </p>
+	 <li> Create a column of last years residuals.  (This is
+	      called lagging a variable.  You can do it in JMP by
+	      using a subscript of row-1.)  Plot last years residuals (X)
+	      vs. this years residuals (Y).  If they were independent you
+	      would not see any pattern at all.  Describe what you
+	      see.
+	      </p>
+	 <li> To fix this problem with the residuals, compute the
+	      difference of the log(VW).  (This generates a log
+	      return.)  Now compute the difference of the age45
+	      variable.  Notice that if age45 predicts log(VW) then
+	      difference of age45 should predict difference of
+	      log(VW).  (This means you have to compute age45<sub>t</sub>-age45<sub>t-1</sub>.) 
+ Run this regression.  Check if the residuals
+	      have the problems discussed above.  Finally we now have
+	      a model where we can believe the p-values.  Does age45
+	      seem significant?
+	      </p>
+       </ol>
+  <li> (Bonferroni concepts.)  In this problem we will try to predict
+       the VW returns by looking at population. From the last problem we see
+	      that differences are statistically much better to
+	      analyze than the raw index itself.  So we need to
+	      generate a table that has differences in the log(VW) and
+	      differences in each of the age variables.  In about 30
+	      minutes you could do this in JMP by creating 80 new
+	      columns like dif(Age0,1), dif(Age1,1), etc.  Or you can
+	      do it much more "efficiently" by dumping it into a
+	      spread sheet, and doing it all at one time.  (Estimate
+	      time 45 minutes, but some have done it in less than 5 minutes.)
+       </p>
+
+       <ol type = a>
+	 <li> First let's see if age 45 is the best age when trying to
+	      predict the VW returns.  Run a stepwise regression of
+	      the VW returns on dif(age0), up to dif(age80).  Have it
+	      do one step and it will add a single variable.  Did
+	      dif(age45) do the best?  What is
+	      the p-value for this variable?  Is it significant?
+	      </p>
+	 <li> Now let stepwise regression run to completion.  What is
+	      the best R-squared you can find?  You might as well use
+	      both the dif(age) variables, and the age
+	      variables themselves.
+	      </p>
+	 <li> Possible it isn't just he population itself that
+	      matters, but interactions between different ages.  So
+	      generate a model that has all of the ages in it and all
+	      of the products between different ages in it.  (One way,
+	      to do this is to highlight all the ages and then use the
+	      macro button for "response surface".)  Change the
+	      p-value to enter to a small value and also change
+	      the p-value to leave.  Now run the model.  How high an
+	      R-squared do you get?  Your final model should look
+	      pretty impressive in terms of t-statistics.  Is this the
+	      case?  But, are your p-values impressive from a
+	      Bonferroni perspective?  (Use .05/number of variables to
+	      check the Bonferroni level of significance.)
+	      </p>
+	 <li> Save your predictions of your best fitting model to a
+	      column.  Now use a formula to
+	      invest in the market whenever your prediction is for
+	      the market to outperform cash that year and invest in cash
+	      otherwise.  (Assume cash grows at 3% per year.)  Compute
+	      your average returns of using this policy.  These
+	      returns are Ponzironi!
+	      </p>
+       </ol>
+
+  <li> (Discussion)  Discuss your analysis of Dent.  Pretend you were
+       writing an article to be put up on Business Weeks' web page.
+       Communicate your point with punch, and have any geeky stuff
+       in an appendix.  You will probably want to have a graph or two
+       to communicate your main point in the body of your story.  Make
+       the graph self-contained.  Ideally someone should be able to
+       cut out your graph and use it in class to communicate much of
+       the point of your story.  You may want to put other graphs and
+       discussions in an appendix.  Aim for less than 2 pages of
+       text.  The editor might decide to use only the first few
+       paragraphs of your story, so make sure you put your key points
+       early! 
+       </p>
+
+
+  <li> For each of the following situations estimate an appropiate n
+       to use for a Bonferonni correction.  (You should read the
+       Dawkins paper to get an idea of how to think about these.)
+       Provide the number and a sentence describing your justification. 
+       <ol>
+       </p>
+	 <li> You are looking at the returns over the past year for
+	      the 3000 stocks trades on the NYSE.  You find one that
+	      appears to be a winner.
+       </p>
+	 <li> You download 100 economic variables to use to predict
+	      the SP500's returns.  You compute all the interaction
+	      terms: (I.e. X1 * X3, X17 * X99, X12 * x12).  One of
+	      these seems to predict the SP500 returns.
+       </p>
+	 <li> You are wondering what IBM's has excess returns.  You
+	      look at their return over the past month, over the past
+	      2 months, over the past quarter, the 1/2 
+	      year, the past year, the past 2 years, the past 5 years,
+	      the past 10 years, the past 20 years, and the past 50
+	      years.  In each case you test if IBM has excess
+	      returns.  You appear to find a time period which has
+	      excess returns.
+       </p>
+	 <li> A friend suggests that you look at stock XYZ (which is
+	      traded on the NYSE).  She says that it has excess
+	      returns over the past 5 years.
+       </p>
+	 <li> You are reading a on-line investment advisory which
+	      suggests that you should use the GNP/capita times the 5
+	      year Eurodollar futures price to generate a leading
+	      indicator for the DOW.  Looking at the track record, it
+	      seems to predict well.
+       </ol>
+       </p>
+
+</ol>      
+
+<P>
+</BODY>
+</HTML>

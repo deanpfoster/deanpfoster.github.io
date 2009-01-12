@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 19 Stat701 Fall 1997</TITLE>
+<META NAME="description" CONTENT="Class 19">
+<META NAME="keywords" CONTENT="class19">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class19.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <HR>
+<P>
+<P CENTER>
+<CENTER><H1> Class 19 Stat701 Fall 1997</H1></CENTER>
+<P>
+<CENTER> <H2>Introduction to Neural Networks</H2></CENTER>
+<P>
+Todays class.
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>
+<A HREF="c19ssc.html#logitmodel">
+Classification </A>in the internet demographics dataset.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>
+Introduction to Neural Nets.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Discussion points from the Lo paper on Neural Nets.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Installing the <TT>nnet library</TT>. <BR> 
+key SPlus command <TT>library(nnet,first=T,lib.loc=''C:/public'')</TT>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>
+<A HREF="c19ssc.html#nnetintro">
+Neural nets</A> in action for classification - an example for which the
+true classification probabilities are known
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>
+<A HREF="c19ssc.html#nnetdemograph">
+NNet classification</A> example on the internet demographics data set.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>
+<A HREF="c19ssc.html#nnetgold">
+Adding gold</A> to the data - does the net find it?
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>
+<A HREF="graphs.html">
+A pre-prepared page of graphics</A> - just in case we bomb in class
+<P>
+ </DL>
+<P>
+<B>Classification in the internet demographics dataset. </B>
+<P>
+Building classification models.<BR>
+ Judging models on out of sample prediction.
+<P>
+
+<B>Introduction to Neural Nets.</B>
+<P>
+We will consider the Feedforward Perceptron with a Single Hidden Layer.
+<P>
+It's objective is to <B>output</B> probabilities of group membership based
+on a set of <B>inputs</B>.
+<P>
+Figure 1 is a diagram of a single hidden layer network. 
+Essentially  it
+links inputs to outputs through a set of weights and activation functions.
+In class we will only use the ``logistic'' activation function though others
+are available. In the displayed network there are two inputs and three 
+units in the hidden layer.
+<P>
+Therefore between the input layer and the hidden layer we are looking for  the 
+following weights
+<PRE>Link X1 and X2 to H1. Weights g11 and g12.
+Link X1 and X2 to H2. Weights g21 and g22.
+Link X1 and X2 to H3. Weights g31 and g32.</PRE>
+Now apply the activation function T (logistic) to each hidden unit to get
+<PRE>T(g11 X1 + g12 X2)
+T(g21 X1 + g22 X2)
+T(g31 X1 + g32 X2)</PRE>
+The procedure also looks for weights d1, d2 and d3 to form
+<PRE>d1 T(g11 X1 + g12 X2) + d2 T(g21 X1 + g22 X2) + T(g31 X1 + g32 X2),</PRE>
+and finally the output is given by
+<PRE>T(d1 T(g11 X1 + g12 X2) + d2 T(g21 X1 + g22 X2) + T(g31 X1 + g32 X2))</PRE>
+<P>
+
+Figure 1.
+<IMG SRC="ffnet.gif">
+<P>
+Fitting a given net involves finding the set of weights that best
+matches observed and predicted outputs.
+<P>
+It is the inclusion of the hidden layer that makes the network a very flexible
+fitting tool.
+<P>
+
+<P>
+Compare the neural network diagram to the previous 
+<A HREF="../class18/nnet.gif">
+logistic regression diagram.</A>
+
+<P>
+<HR><P>
+<B>Discussion points from the Lo paper on Neural Nets.</B>
+
+<UL>
+<LI>It is a non-parametric technique. Does not assume an explicit functional
+form for the relationship between inputs and outputs.
+<LI>This is useful for capturing possible non-linearities in the relationship.
+<LI>The nets relate inputs to outputs through weights and activation functions<LI>A hidden layer enables them to be extremely flexible - universal 
+approximators
+<LI>Downside - if the network can fit anything - it can fit the
+noise as well as the signal
+<LI>Do they learn? What does ``learn'' mean anyway. Weights change if data is
+updated.
+<LI>Standard statistical inference on the model parameters (weights)
+is not readily available.
+<LI>But inference is not such a big deal if sole objective is prediction
+and out of sample validation is followed.
+<LI>Models are not generally well defined, small changes in the data
+can lead to large changes in weights
+<LI>Weights are not interpretable in the sense that regression weights
+(partial slopes) are.
+<LI>The objective function (the object that is maximized to choose the 
+weights) may have local maxima. Practical solution - set algorithm off at 
+different starting values.
+<LI>It is one of many non-parametric techniques - similar in this sense to 
+splines and kernel methods.
+<LI>Practically, may need much human supervision if they are to 
+produce coherent results - as with many technologies, 
+they do new things but require more work.
+<LI>A useful additional member of the quantitative tool box - 
+but no panacea, probably more dangerous than regression in the wrong hands!
+</UL></P></P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Mon Nov 10 22:31:10 EST 1997</I>
+</ADDRESS>
+</FONT>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistics 101 lecture outline: Covariance (finacial examples)</title>
+</head>
+
+<body>
+<center><h1>Stat 101: Finance and covariance</h1></center>
+
+<ul>
+  <li> Admistrivia:
+       <p>
+       <ul>
+	 <li> Read sections 4.6 and 4.7 tonight!
+	 <li> Homework problem from book page 177, 4.104 doesn't
+	      sum to 1.  change last entry from .01 to .02
+       </ul>
+</p>
+  <li> Mean and variance of a portfolio of two real stocks
+       <p>
+       <ul>
+	 <li> E(Sears) = .0016, SD(Sears) = .0745, Var(Sears) = .0055
+	 <li> E(Penney) = .0018, SD(Penney) = .0714, Var(Penney) = .0051
+	 <li> porfolio = (Sears + Penney)/2
+	 <li> E(portfolio) = .0017, SD(portfolio) = .0658, Var(portfolio) = .0043
+       </ul>
+       </p>
+  <li> Correction factor is called covariance
+       <p>
+       <ul>
+	 <li> formula: Var(aX + bY) = a<sup>2</sup> Var(X) + b<sup>2</sup> Var(Y) + 2 ab Cov(X,Y)
+	 <li> Cov(X,Y) = SD(X) * SD(Y) * corr(X,Y)
+	 <li> Draw some pictures
+	 <li> Corr(Sears,Penney) = .63, check formula
+	 <li> Notice: portfolio is still an advantage
+       </ul>
+       </p>
+  <li> What is the worst for a portfolio?  Could Variance be larger
+       than either one?  Answer = no.
+       </p>
+  <li> Derive covariance from var(X+Y)
+       <p>
+       <ul>
+	 <li> Z = X - E(X)
+	 <li> W = Y - E(Y)
+	 <li> Var(X+Y) = Var(Z + W)
+	 <li> Var(Z + W) = E(Z + W - 0)<sup>2</sup>
+	 <li> Var(Z + W) = E(Z<sup>2</sup>) + 2 E(ZW) + E(W<sup>2</sup>)	      
+	 <li> Var(X + Y) = Var(X) + Var(Y) + 2 E(ZW)
+	 <li> Var(X + Y) = Var(X) + Var(Y) + 2 E(ZW)
+       </ul>
+       </p>
+  <li> Full normalization
+       <p>
+       <ul>
+	 <li> Z = (X - E(X))/SD(X)
+	 <li> Correlation is covariance for normalized data
+       </ul>
+       </p>
+  <li> Example from table
+</ul>
+
+       
+
+
+<hr>
+<address></address>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Oct 25 10:09:37 EDT 1999
+<!-- hhmts end -->
+</p>
+
+</body> </html>

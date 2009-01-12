@@ -1,0 +1,86 @@
+\batchmode
+\documentclass{article}
+\makeatletter
+
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$|x|^2 = \sum_i x_i^2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline23: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\hat\beta$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline25: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\min_\beta|Y - X \beta|^2 = |Y - X\hat\beta|^2.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$s^2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline31: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$n \times n$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline35: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}|Q x| = |x|.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Y = X\beta + \epsilon\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Q\, Y = Q\,X\beta + Q\,\epsilon.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$p \times p$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline45: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$Q\,X = X^\ast$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline47: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(n-p) \times p$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline49: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}|Y - X \beta|^2  = |Q(Y - X \beta)|^2  = |Y_1^\ast - X_1^\ast \beta|^2 +
+|Y_2^\ast|^2,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline53: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\hat\beta = (X_1^\ast)^{-1} Y_1^\ast,\end{displaymath}
+}
+
+
+\end{document}

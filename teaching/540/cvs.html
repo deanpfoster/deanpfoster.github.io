@@ -1,0 +1,111 @@
+<html>
+<header>
+<title>  Statistics 540 CVS lecture</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  CVS </h1></center>
+
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Most everyone got things to run
+  <li> Problems included:
+       <ul>
+	 <li> incorrect perl address (hint: copy from my directory)
+	 <li> permissions to tight (public can't read)
+	 <li> permissions to lose (public can write)
+	 <li> DOS file format (looking for the program /usr/bin/perl<cr>)
+	 <li> Can't run from command line (any problem in code does this)
+	 <li> Believing in a consistent world view (putting &le and &gr around html header)
+       </ul>
+</ul>
+
+<h2> CVS</h2>
+
+<ul>
+  <li> logical programming vs experimental programming
+       <ul>
+	 <li> logical approach: use designed languages say ML, smalltalk
+	 <li> For all others, use experimental approach
+	 <li> Logical can be done with pencil and paper (some schools actually teach this way)
+	 <li> experimental requires running lots of code 
+       </ul>
+  <li> Experimental programming methods
+       <ul>
+	 <li> Just like any other controled experiment
+	 <li> sample size requirements aren't as high as for drug testing
+	 <li> BUT, you do need to do controlled experiments
+       </ul>
+  <li> Primary tool of controlled experiment is a version control system
+       <ul>
+	 <li> Problem: there is more than one experiment you can do
+	      <ul>
+		<li> say running from the command line
+		<li> running on sample input
+		<li> running from web
+		<li> checking colors
+	      </ul>
+
+	 <li> If you make a whole bunch of changes without running ALL
+	      of your tests, you will find yourself with broken code
+	 <li> you undo those changes to make a clean experiment
+	 <li> CVS allows unlimited undo's
+       </ul>
+  <li> Picture of cvs tree (yikes!  Do we really need all of that?)
+       (names: head, branch, tags, version number.)
+  <li> Picture of single user cvs thread (ah, that makes more sense)
+  <li> How to see the thread?
+       <ul>
+	 <li> Find a cvs gui (only for people born after 1980)
+	 <li> The real way: use cvs commands
+	 <li> "cvs log" shows tree
+	 <li> "cvs diff" shows what has changed
+	 <li> "cvs co -r1.4" rolls back to some previous time
+       </ul>
+  <li> Rules of experimental programming using CVS
+       <ul>
+	 <li> Check in frequently.  Write comments every time. (To get
+	      your comments to appear in your file put in the
+	      statement $log:$ into your file.)
+	 <li> Start with simple working code (say hello world)
+	 <li> Gradually modify that code to do what you want it to do
+	 <li> When you discover it no longer works on the web, roll
+	      back until it runs on the web
+	 <li> Now look and see what you changed.  it should only be
+	      about 5 lines.  figure out what went wrong in those 5
+	      lines.  Patch them into the head.
+	 <li> Check that the head works, and check it in.
+       </ul>
+  <li> Class rules:
+       <p>
+       If you have problems with your code, tell me between which
+       versions the problem started.  There should only be a few lines
+       of difference.  Email me the "cvs diff -r1.5 -r1.6" output and
+       I'll see if I can figure out the problem.
+</ul>
+	      
+	      
+
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Sep 18 08:27:38 2001
+<!-- hhmts end -->
+</p>
+<p align=right>
+<!--#exec cmd="./counter.pl index.counter" -->
+<p>
+</em>
+
+
+</body>
+
+</html>
+

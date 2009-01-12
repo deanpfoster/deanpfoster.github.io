@@ -1,0 +1,76 @@
+
+     
+	 		    HW0	HW1  HW2    HW3   HW4/5 HW6 HW7 HW8 HW9 HW10 HW11 HW12 total
+A hongz	 Hong Zhang	     1     1  11110  11?0?  10?    execelent zoo! good hint button
+B+hyehan Hye Won Han         0     1  10000         00?   (wants an incomplete, no hint)
+A lisha	   Lisha Chen	     1     1  11100  --     10?   (not done, working hint)
+A Shannon  Shannon McWeeney  1     1  11111  out    out   (nice zoo, hint done)
+A songwut Songwut Apirakkhit 0     1  10000  11?1?  111   (zoo done, hint written) 
+A-twhittin Tom Whittingham   1     1  11111  1      ???   (nice zoo, starting hint)
+A xinyi    Xinyi Xu          0     1  11100  --     --    (nice zoo, hint done)
+A zhhu     Zhenhua Hu        0     0  10000  11?1?  10?   animals good hint button
+A zhqiao   Zhihua Qiao       1     1  10000  10?0?  10?   animals (done with everything)
+                       ==========================================================================
+   maximum		   1	 1  11111 11111   11111  11  12  11  11  111  1   11   1    =28
+
+
+HW1 = hello world
+
+HW2 = 1000 simulations of dice
+	a) cvs 
+	b) 5 die
+	c) perl 4 colors
+	d) html 4 colors
+	e) comparison
+HW3 = 
+	a) pretty up & perl links 
+	b) perl & html colors
+	c) compare
+	d) survey
+	c) log
+
+HW4/HW5 =
+	a) runs
+	b) runs ergonomically
+	c) CVS
+
+
+HW6 =
+	a) R links
+	b) LM
+
+HW7 =
+	a) sorting
+	b) results
+
+HW8 = (no recursion)
+	a) sorting
+	b) results
+
+HW9 = 
+	a) tree writeup
+	b) CVS
+	c) hint button
+	
+HW10 = 
+	a) multiset
+
+HW11 =
+	a) hint button
+	b) listing posibilities
+
+HW12 = 
+	a) searching
+
+---------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------
+2000
+A  ~jvv	     Siddharth Jayanty 	 1   1111   111?  00  11  11  11  10  10-      11   0    =17
+A  ~shenyi   Yi Shen		 1   1110   011?  11  10  11  11  10  11-      11   1    =19
+A+ ~avalluri Annapurna Valluri 	 1   ?111   011?  11  11  11  11  11  11-  9   11   0    =19+8
+A  ~binwei   Bin Wei		 1   ?111   111?  00  10  12  11  11  11-  1   11   1    =21+1
+A  ~liangyuz Liangyue Zhang	 1   1111   111?  11  11  11  11  11  1--  1   11   1    =23
+   ==================================================================================
+   maximum			 1   1111   11111 11  11  12  11  11  111  1   11   1    =28

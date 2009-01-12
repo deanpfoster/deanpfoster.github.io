@@ -1,0 +1,183 @@
+<html>
+<header>
+<title>  STAT 541: Random Effects</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Random Effects </h1></center>
+
+
+<h2>Homework:</h2>
+       <p>
+       In this assignment you will simulate some repeated measurements data
+       and then estimate it to see how much of the information you can
+       recover.  The scientific study we are simulating is that each
+       person has a sensitivity to sun.  We will apply two different
+       sunscreens to their nose and measure how much exposure there
+       is.  They will use one sunscreen for 10 days and then switch to
+       the other sunscreen.  We are interested in whether there is a
+       difference between the treatment.
+       <p>
+       The data you will create then will consists of 20 measurements
+       for 15 people (300 observations in all).  Suppose we measure
+       redness on a 10 point scale (1-10), with 1 being "winter time
+       pale" and 10 being "burned to a bright red."  We then observe
+       Y<sub>ij</sub> which is the observation taken at the end of
+       each day, and X<sub>ij</sub> which is 0 for j = 1..10, and 1
+       for j = 11..20.  The model is that
+       <p>
+       Y<sub>ij</sub> = beta<sub>0</sub> + beta<sub>1</sub>
+       X<sub>ij</sub> + epsilon<sub>ij</sub>
+       <ol>
+	 <li> Describe three different scientific stories as to how
+	      the epsilon<sub>ij</sub> might be correlated.  Be as
+	      concrete as possible--in other words, suppose you were
+	      trying to explain to someone who knows basic statistics
+	      (but not advanced statistics) why these shouldn't be
+	      analyzed as simply i.i.d. errors.
+	 <li> For each of your above three scientific stories,
+	      describe how you might model them probabilisticly or
+	      statisticial.
+	 <li> Simulate a model of the form:
+	      <p>
+	      Y<sub>ij</sub> = beta<sub>0</sub> + beta<sub>1</sub>
+	      X<sub>ij</sub> + epsilon<sub>i</sub> +
+	      epsilon<sub>ij</sub>
+	      <p>
+	      where all the epsilons are independent.  Make various
+	      plots to see if your simluation makes sense.  You will
+	      have to truncate the numbers to make the Y's land on the
+	      numbers 1 through 10.  You will have to pick a resonable
+	      value for the variance so it isn't degenerate.  You will
+	      have to think hard about how big a variance you should
+	      have on epsilon<sub>i</sub> since it describes
+	      individual effects.  You will
+	      have to think about what are reasonable values of beta.
+	 <li> Do some exploritory data analysis to show that your
+	      model looks right.  Make some histograms, etc.
+       </ol>
+       Now that we have a data set, it is time to analyse it.  The
+       primary attribute of interest is beta<sub>1</sub>.
+       <ol>
+	 <li> First run a two-sample t-test.  In other words, just
+	      compare the average for those under treatment 0 with
+	      those under treatment 1.  Run this test on your data.
+	      Does this test provide correct size?  In other words,
+	      will 95% confidence intervals cover 95% of the time?
+	      (You might be able to check this by simply resimulating
+	      20 times and see how often you cover the truth.)
+	 <li> Now run a "Tukey test."  This means create an estimate
+	      of beta<sub>1</sub> for each person.  Now compute the
+	      one sample confidence interval based on these 15
+	      numbers.  Will a 95% confidence created in this fashion
+	      cover 95% of the time?
+	 <li>  Use GEE (Generalized Estimating Equations from the
+	      paper I passed out) to estimate the  
+	      standard error of the simple regression done in the
+	      first part. (Note: This one is impossible to do in JMP.)
+	 <li> Use a fixed effects model to deal with individual
+	      effects.  In other words, include the subject as a
+	      variable.  This will generate 15 estimates of the
+	      individual effects.  Plot the actual effects vs. the
+	      estimated individual effects.  Test if this is a 45
+	      degree line as an "estimate" should be.  Due to
+	      regression to the mean it won't in fact be a 45 degree
+	      line.  Explain this.
+	 <li> Use a random effects model to recover both the
+	      individual effect and beta<sub>1</sub>.
+	      <p>
+	      If your software package does do this for you
+	      automatically, it can be
+	      done as follows.   First estimate the fixed effects.  Now
+	      estimate how accurately you estimate each of the fixed
+	      effects above. (JMP gives you standard errors.)
+	      Now estimate the variance of the estimated fixed
+	      effects (by computing a variance).
+	      <p>
+	         variance(estimated fixed effects) =
+	      var(epsilon<sub>i</sub>) + SE<sup>2</sup>
+	      <p>
+	      So we can now estimate var(epsilon<sub>i</sub>) which is
+	      also the covariance between the fixed effects estimates
+	      and the true random effects.  From this we can now
+	      construct a regression equation for the
+	      epsilon<sub>i</sub> based on the estimated fixed effects.
+	 <li> Plot your estimate random effects vs the true random
+	      effects.  Does it seem to be a better fit than the fixed
+	      effect plot?
+       </ol>
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> If off to see my grandma (she is doing much better now)
+</ul>
+
+<h2> Random intercept</h2>
+
+<h3>Basic model</h3>
+<ul>
+  <li> Simple random effect: Y<sub>i</sub> = X<sub>i</sub>*beta + epsilon<sub>i</sub> + epsilon<sub>ij</sub>
+  <li> Called random intercept
+  <li> sigma<sup>2</sup> = variance(epsilon<sub>ij</sub>), tau<sup>2</sup> = var(epsilon<sub>i</sub>)
+  <li> Often interested in the distribution of epsilon<sub>i</sub>
+  <li> In that case, want mean and variance
+  <li> Obviously, mean can't be estimated, so assume it is zero
+  <li> Variance is interesting term
+  <li> Simpler: Y<sub>i</sub> = alpha + epsilon<sub>i</sub> + epsilon<sub>ij</sub>
+  <li> Var(Y<sub>ij</sub>) = Var(epsilon<sub>i</sub>) +  Var(epsilon<sub>ij</sub>)
+  <li> We can easilly estimate Var(Y<sub>ij</sub>)
+  <li> We can easilly estimate Var(epsilon<sub>ij</sub>)
+  <li> Hence:  estimate Var(epsilon<sub>i</sub>) = Var(Y<sub>ij</sub>) -  Var(epsilon<sub>ij</sub>)
+</ul>
+<h3>Standard errors</h3>
+<ul>
+  <li> alpha-hat = sum(Y)/(Kn) say
+  <li> var(alpha-hat) = (1/(Kn)<sup>2</sup>) var(sum(Y))
+  <li> var(alpha-hat) = (1/(Kn)<sup>2</sup>)(sum(var(Y)) + sum(covariance(Y<sub>ij</sub>,Y<sub>i'j'</sub>)))
+  <li> var(alpha-hat) = (1/(Kn)<sup>2</sup>)(Kn(sigma<sup>2</sup>+tau<sup>2</sup>) + sum(covariance(Y<sub>ij</sub>,Y<sub>ij'</sub>)))
+  <li> var(alpha-hat) = (1/(Kn)<sup>2</sup>)(Kn(sigma<sup>2</sup>+tau<sup>2</sup>) + sum n<sub>i</sub>( n<sub>i</sub>-1)tau<sup>2</sup>)
+  <li> Notice: if inbalanced design, weighted least squares makes sense
+</ul>
+<h3>Fixed effects version</h3>
+<ul>
+  <li> Y<sub>i</sub> = X<sub>i</sub>*beta + epsilon<sub>i</sub> + epsilon<sub>ij</sub>
+  <li> sigma<sup>2</sup> = variance(epsilon<sub>ij</sub>)
+  <li> epsilon<sub>i</sub> are unknown parameters
+  <li> This is just a one-way ANOVA
+  <li> Obviously no estimate of tau since there isn't a tau in the model
+  <li> Estimate effects by epsilon<sub>i</sub>
+</ul>
+<h3>Estimating the random effects</h3>
+<ul>
+  <li> Plot estimates of effects vs true effect
+  <li> Notice: perfect regressions setup
+  <li> Compute means, variances, covariances
+  <li> But, we want the regression the other way around
+  <li> Still can be done
+</ul>
+<h2>What is a random effect and what is a parameter?</h2>
+<ul>
+  <li> Are you a Bayesian vs frequentists? Bayesians don't distinguish between the two.
+  <li> Are you interested in describing the distribution or the actual values?
+  <li> How many effects do you have?  (if few, then random effects don't help very much)
+</ul>
+<h2>More complex random effects models</h2>
+<ul>
+  <li> random slopes (often intersted in average slope, say HGH)
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Apr 12 08:53:02 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

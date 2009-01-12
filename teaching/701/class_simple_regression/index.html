@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 1 Stat701</TITLE>
+<META NAME="description" CONTENT="Class 1 Stat701">
+<META NAME="keywords" CONTENT="class2">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class2.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <P CENTER>
+<CENTER><H1> Class 1. Stat701</H1></CENTER>
+<P CENTER>
+<P>
+Concise regression review notes are available from 
+<A HREF="http://www-stat.wharton.upenn.edu/~waterman/Teaching/608f97">
+Stat608 1997 homepage.</A>
+<P>
+<H2><B>Today.</B></H2>
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Review of simple linear regression.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>New idea. Heavy tailed residual distributions and what they may indicate.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Extending categorical variables to &quot;broken stick&quot; models.
+<P>
+ </DL>
+<P>
+<HR>
+Illustrations: 30 years of returns on gold.
+ <ul>
+<li>
+<A HREF="http://www-stat.wharton.upenn.edu/~waterman/DataSets/GOLD.jmp">gold.jmp</A><IMG SRC="http://www-stat.wharton.upenn.edu/~waterman/Teaching/701f97/classnotes/jmp.gif">
+<li><A HREF="../normalandt.jsl">normal and t distributions</A>
+<li><A HREF="../quantileplot.jsl">quantile plot</A>
+     </ul>
+<HR>
+
+<P>
+<B>The model for the mean relationship:</B>
+<P>
+<P> <IMG WIDTH=321 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath75" SRC="img1.gif"  > <P>
+<P>
+<B>The model for the raw data:</B>
+<P>
+<P> <IMG WIDTH=318 HEIGHT=15 ALIGN=BOTTOM ALT="displaymath77" SRC="img2.gif"  > <P>
+<P>
+This is the straight line or <I>linear</I> model.
+<P>
+Assumptions are <B>mostly</B> on the  <IMG WIDTH=10 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline79" SRC="img3.gif"  > .
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Independent
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Constant variance. Mean zero.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Approximately normally distributed.
+<P>
+ </DL>
+<P>
+Biggest problems. Dependence, skewness and non-constant variance.
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Call the  <IMG WIDTH=10 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline79" SRC="img3.gif"  >  the &quot;true error terms&quot;.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Distance from point to the true line.  <IMG WIDTH=110 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline83" SRC="img4.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>We don't know them as we don't know the regression line.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Substitute with the &quot;residuals&quot;, estimated error terms.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Distance from point to estimated regression line.  <IMG WIDTH=176 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline85" SRC="img5.gif"  > .
+</DL>
+<P>
+<B>ALWAYS check assumptions on the residuals.</B>
+<P>
+Why so important?
+<P>
+<DL ><DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Standard least squares regression is sensitive to individual data points.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>A single point can dominate the regression. 
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Everything you say and conclude
+may be driven by a single data point.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Residual plots are one of the tools
+available to help identify these points.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Even if you keep it, it is important to know that it is there.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Inference, p-values, CI's etc only have validity if assumptions hold.
+<P>
+ </DL>
+<P>
+<B>Key diagnostics.</B>
+<P>
+1. Residual plot. Good plots lack structure.
+<P>
+2. Normal scores plot of the residuals.
+<P>
+<B>More depth.</B>
+<P>
+What's behind a normal scores plot?
+<P>
+Most model diagnostics (here the model is the normal distribution for the 
+error terms) compare reality (what we observe) to theory (what we expect).
+In general OBSERVED versus EXPECTED.
+<P>
+This is how the normal scores plot is constructed. 
+<DL ><DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>On the X-axis is what we expect. 
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>On the Y axis is what we observe.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>The idea is simple: say there were 100 observations (n = 100) and therefore
+100 residuals.
+<DL ><DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD> The model says that the residuals come from an approximate
+normal distribution. 
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Now order the residuals from lowest to highest.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Where would you EXPECT the smallest of 100 observations from a NORMAL
+distribution to lie?  
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Plot where you expect it to be against where it actually is. 
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Repeat for the other 99 points.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>If the model is correct than theory and reality should coincide, ie
+observed equals expected and the points should roughly (because there's
+inherent variability) lie along a line.
+<P>
+ </DL> 
+ </DL>
+<P>
+<B>Extension.</B>
+<P>
+There is no reason why for the X-axis we have to use the normal
+distribution, perhaps the data has a gamma distribution 
+(useful for life length data). 
+You just calculate where you EXPECT the data to be if a gamma distribution 
+is true. These more general plots are called <I>&quot;
+<A HREF="http://www-stat.wharton.upenn.edu/~waterman/Teaching/701f97/quantile.html">
+Quantile-Quantile</A> plots&quot;</I>
+or Q-Q plots.
+<P>
+<B>Heavy tailed residuals.</B>
+<P>
+The ends of the normal scores plot 
+have greater slopes than the reference line because the observations in
+the tails are spreading out more than the normal theory predicts.
+<P>
+One reason for heavy tails. The residuals come from TWO groups with
+different variances. Always leads to heavy tails. Interpretation:
+two different volatility regimes, low and high.
+<P>
+Graphical observation generates sensible questions.
+<P>
+<HR>
+<P>
+<H2><B>
+<A Name="parallel">
+Categorical variable regression.</A></B></H2>
+<P>
+Enables comparisons between groups while accounting for other
+related variables - Amazonian Indian Stress Study.
+<P>
+First case: a single dichotomous variable.
+Our example: Pre 1980 vs Post 1980.
+<P>
+The way JMP does it: model
+<P>
+<P> <IMG WIDTH=342 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath87" SRC="img6.gif"  > <P>
+<P>
+where z = 1 if observation is in the first group and -1 if observation
+is in the second group.
+<P>
+Check to understand the model: plug in z = 1 and -1.
+<P>
+Group 1 model
+<P>
+<P> <IMG WIDTH=375 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath89" SRC="img7.gif"  > <P>
+<P> <IMG WIDTH=362 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath91" SRC="img8.gif"  > <P>
+<P> <IMG WIDTH=368 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath93" SRC="img9.gif"  > <P>
+<P>
+Group 2 model
+<P> <IMG WIDTH=395 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath95" SRC="img10.gif"  > <P>
+<P> <IMG WIDTH=368 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath97" SRC="img11.gif"  > <P>
+<P> <IMG WIDTH=374 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath99" SRC="img12.gif"  > <P>
+<P>
+Compare Group 1 and Group 2.
+<P>
+Av(Y|x,z=1) - Av(Y|x,z=-1) is the difference in height between the
+two regression lines.
+<P>
+Notes.  
+<DL ><DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Both groups have the same slopes ( <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline101" SRC="img13.gif"  > ) - parallel lines.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>The difference in heights is  <IMG WIDTH=22 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline103" SRC="img14.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Recognize that  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline101" SRC="img13.gif"  >  represents a comparison against the &quot;norm&quot;.
+<P>
+ </DL>
+<P>
+There are many different types of coding schemes for categorical variables. 
+We will investigate them in more detail.
+<P>
+Example from the Gold data set.
+<P>
+Consider Q-Q plot of one set of residuals against the other.
+<P>
+
+On to 
+<A HREf="../class03/class3.html#interaction">
+interaction</A> in categorical variables (non-parallel lines).
+ 
+<HR>
+<P>
+<H2><B>
+<A Name="bstick">
+Broken </A>stick regression.</B> <IMG ALIGN=CENTER SRC="bstick.gif"></H2>
+<P>
+Useful for systems that may suffer a &quot;shock&quot;.
+<P>
+Another application of categorical variables.
+<P>
+Model:
+
+
+<P>
+<P> <IMG WIDTH=398 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath107" SRC="img15.gif"  > <P>
+where  z = 0 if <I>x</I> &lt; <I>T</I> and z = 1 if  <IMG WIDTH=41 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline111" SRC="img16.gif"  > , and T is the
+&quot;breakpoint&quot;.
+<P>
+Case 1, <I>x</I> &lt; <I>T</I>, plug in to get
+<P> <IMG WIDTH=398 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath115" SRC="img17.gif"><P>
+<P> <IMG WIDTH=330 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath117" SRC="img18.gif"  > <P>
+<P>
+Case 2,  <IMG WIDTH=41 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline111" SRC="img16.gif"  > , plug in to get
+<P> <IMG WIDTH=376 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath121" SRC="img19.gif"  > <P>
+<P> <IMG WIDTH=374 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath123" SRC="img20.gif"  > <P>
+<P> <IMG WIDTH=382 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath125" SRC="img21.gif"  > <P>
+<P>
+Slope before T is  <IMG WIDTH=14 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline101" SRC="img13.gif"  > , slope after T 
+is  <IMG WIDTH=50 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline127" SRC="img22.gif"  > .
+<P>
+Therefore  <IMG WIDTH=15 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline129" SRC="img23.gif"  >  measures the change in slope after time T.
+<P>
+
+<P>
+<B>Implementation in JMP.</B>
+<DL ><DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>1. Create the categorical variable column z.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>2. Create a new column x - T.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>3. Create a new column by multiplying column z by column (x - T).
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>4. Run the regression with column x and the &quot;product column&quot;.
+<P>
+ </DL>
+<P>
+Technical name: Piecewise linear regression.
+<P>
+Issues: searching for the breakpoint.
+<P>
+ </DL></P></P><BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Mon Sep  8 22:11:51 </I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

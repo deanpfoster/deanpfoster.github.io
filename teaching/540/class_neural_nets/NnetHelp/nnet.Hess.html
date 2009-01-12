@@ -1,0 +1,58 @@
+<HEAD><TITLE>R: Evaluates Hessian for a Neural Network</TITLE></HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000F0" VLINK="#660066" ALINK="#FF0000" BACKGROUND="white">
+
+<h2 align=center><FONT FACE="Courier New,Courier" COLOR="#999999">Evaluates Hessian for a Neural Network</FONT></h2>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Usage</FONT></h2>
+
+<PRE>
+nnet.Hess(net, x, y)
+</PRE>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Arguments</FONT></h2>
+
+<TABLE>
+<TR VALIGN=TOP><TD><CODE>net</CODE>
+<TD>
+object of class <CODE>nnet</CODE> as returned by <CODE>nnet</CODE>.
+
+<TR VALIGN=TOP><TD><CODE>x</CODE>
+<TD>
+training data.
+
+<TR VALIGN=TOP><TD><CODE>y</CODE>
+<TD>
+classes for training data.
+
+<TR VALIGN=TOP><TD><CODE>weights</CODE>
+<TD>
+the (case) weights used in the <CODE>nnet</CODE> fit.
+
+</TABLE>
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Description</FONT></h2>
+
+Evaluates the Hessian (matrix of second derivatives) of the specified
+neural network. Normally called via argument <CODE>Hess=TRUE</CODE> to <CODE>nnet</CODE> or via
+<CODE>vcov.multinom</CODE>.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Value</FONT></h2>
+
+square symmetric matrix of the Hessian evaluated at the weights stored 
+in the net.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">See Also</FONT></h2>
+
+<CODE><A HREF="../../nnet/html/nnet.html">nnet</A></CODE>, <CODE><A HREF="../../nnet/html/predict.nnet.html">predict.nnet</A></CODE><h2><FONT FACE="Courier New,Courier" COLOR="#666666">Examples</FONT></h2>
+
+<PRE>
+data(iris3)
+# use half the iris data
+ir &lt;- rbind(iris3[,,1],iris3[,,2],iris3[,,3])
+targets &lt;- matrix(c(rep(c(1,0,0),50), rep(c(0,1,0),50), rep(c(0,0,1),50)),
+150, 3, byrow=TRUE)
+samp &lt;- c(sample(1:50,25), sample(51:100,25), sample(101:150,25))
+ir1 &lt;- nnet(ir[samp,], targets[samp,],size=2, rang=0.1, decay=5e-4, maxit=200)
+eigen(nnet.Hess(ir1, ir[samp,], targets[samp,]), T)$values
+</PRE>
+
+
+
+<p align=center><hr><div align=center><a href="00Index.html">[Package Contents]</a>
+
+</BODY></HTML>

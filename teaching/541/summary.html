@@ -1,0 +1,120 @@
+<html>
+<header>
+<title>  STAT 541: Summary</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Summary </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Evaluations
+</ul>
+
+<h2>Summary</h2>
+
+<ul>
+  <li> Always run a regression first--it helps you understand your
+       data 
+  <li> Estimators need standard errors to be useful
+  <li> Identification of independence requires scientific knowledge
+       not statistical knowledge 
+  <li> Design in orthogonality or suffer colinearity
+  <li> Use generalized linear models for efficiency (i.e. when
+       publishing) 
+</ul>
+<h3>Regression</h3>
+<ul>
+  <li> This class pushed regression
+  <li> We can handle almost any difficulty that arises in regression
+  <li> Hence if you have trouble with your data--you can make sure
+       that you can deal with the primary problems (by using
+       regression)  
+</ul>
+
+<h3>Standard errors</h3>
+<ul>
+  <li> Anyone can write down an estimator that will "guess" the right
+       answer.  (Method of moments, MLE, "it just feels right"
+       estimators)
+  <li> But without a standard error these are practically useless:
+       <ul>
+	 <li> How to justify significance?
+	 <li> How to do Bonferonni?
+	 <li> How to create confidence intervals?
+	 <li> How to tell if one estimator is more accurate than
+	      another?
+       </ul>
+  <li> Cheap standard errors: Two independent estimates of the
+       same thing.
+       <ul>
+	 <li> for example:  One based on the future and the other based on the
+	      past (this would have shorten an Econometrica paper of
+	      mine by 30 pages) 
+	 <li> for example: histograms instead of kernal smoothed densities
+	 <li> in expensive simulations:  Run it twice
+       </ul>
+</ul>
+<h3>Independence</h3>
+<ul>
+  <li> If there isn't independence the SEs are wrong
+  <li> We can identify from the data:
+       <ul>
+	 <li> hetroskadasticity
+	 <li> distributions of errors (normal, Cauchy, etc)
+	 <li> covariance structure of repeated measurements
+	 <li> linearity
+	 <li> complex patterns (say polynomials)
+       </ul>
+  <li> It is impossible to identify independence
+       <ul>
+	 <li> The best we can do is look for some simple form of
+	      dependence
+	 <li> Say the simple forms found in time series
+       </ul>
+  <li> So know the science behind your data to identify independence
+  <li> Note: bootstrapping won't help.
+</ul>
+<h3> Orthogonality and randomization</h3>
+<ul>
+  <li> If the coefficients of the regression are actually important
+       orthoganlity/randomization is almost necessary for them to make
+       sense
+</ul>
+       
+<h3>Efficiency</h3>
+<ul>
+  <li> Efficiency requires believing a model
+  <li> Some models are easy to believe (say binary data, or Poisson
+       data).  These don't need the disclaimers below.
+  <li> Often times the more efficiency you have, the more sensitive
+       your estimators become to assumptions of your model being
+       correct
+  <li> Tests based on ranks often avoid this problem
+  <li> If you have explored your data first using regression, you can
+       avoid this problem by hand
+  <li>  If your robust estimator disagrees with efficient
+       estimator, use the robust one
+  <li> If your robust confidence interval is much wider than your efficient
+       one, life is good.  Give both and let the readed decide if they
+       are willing to make the added assumption necessary to justify
+       the narrower window.
+</ul>
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Apr 24 07:00:43 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

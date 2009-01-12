@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Wavelets</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Oct  6 17:07:38 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Wavelets</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> I put your homework in your mail boxes
+   <li> Read, read, read!
+</ul>
+
+<h3>Problem: curve fitting</h3>
+<ul>
+  <li> Splines are classical way of fitting curves
+  <li> E.g. piecewise linear
+  <li> Often more smoothness, so piecewise cubic say?
+  <li> allows derivatives to match
+</ul>
+<h3>Where to put the knots?</h3>
+<ul>
+  <li> Very non-linear model.  Moving knots changes fit
+  <li> Even counting degrees of freedom isn't easy
+</ul>
+<h3>Competitors to splines</h3>
+<ul>
+  <li> Fourier bases (sines and cosines)
+  <li> Polynomials
+  <li> wavelets (piecewise Fourier?)
+  <li> Both linear
+</ul>
+<h3>Fourier can't fit jumps</h3>
+<ul>
+  <li> Consider jump
+  <li> Spline can fit by outting two knots at jump
+  <li> Fourier runs into "Gibbs" phenomena
+  <li> So to polynomials (reason for knots in the first place)
+  <li> Wavelets only get hit with a log badness
+</ul>
+<h3>Splines can be approximated by wavelets</h3>
+Theorem: (DJ94) R(SW,f) < a + b log(n)R(PP,f)
+<ul>
+  <li> SW = selective wavelet (best basis possible)
+  <li> PP = piecewise polynomial
+  <li> note: splines are subset of PP
+</ul>
+<h3>Bonferroni can approximate best wavelet</h3>
+
+Theorem: (DJ94) R(Bonferroni,f) <  (1 + 2 log(n)) * (sigma<sup>2</sup> + R(SW,f))
+<ul>
+  <li> Identical to Risk inflation
+</ul>
+<h3>Can anything beat Bonferroni?</h3>
+
+Theorem: (DJ94) For some n: R(anything,f) > (2 - epsilon)  log(n)R(SW,f)
+
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

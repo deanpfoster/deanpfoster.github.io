@@ -1,0 +1,82 @@
+<HTML>
+<TITLE>Homework 7 </TITLE>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1> Homework 7. Stat 540 Spring 1999.</H1>
+<P>
+<B> Objective</B>
+Allow a remote user to perform prediction on
+a binary outcome variable, using a set of covariates. 
+Use both logistic regression and a neural network for the prediction
+to allow a comparison of results.
+<P>
+Prediction should be done out of sample, that is on the validation dataset.
+<P> Make sure that your procedure works on the dataset found in
+<BR>
+<TT>
+http://www-stat.wharton.upenn.edu/~waterman/DataSets/class_06.data
+</TT>
+
+<P>
+<b> Deliverables (by 3/4/99):</B>
+<UL>
+<LI> An HTML interface page that allows a user to run both the
+logistic regression (additive at this stage) 
+and neural network. It must have an input
+area in which the user identifies the URL of their dataset,
+and chooses the number of nodes for the net.
+<LI> A cgi perl script that receives the request, fetches the data, runs the
+R process and returns the results. Results should be in the form of two 
+tables for the out of sample predictions.
+<LI> Thought question: consider how you might identify areas in the
+covariate space in which predictions differ between the two methods.
+</UL>
+<HR>
+
+Additional comments added 2/27/99.
+<BR>
+I've cleaned up the trial data set to be used for testing your
+code on. It's called "new.uva" and is a tab delimited text file.
+The URL is <TT>"http://www-stat.wharton.upenn.edu/~waterman/DataSets/new.uva"</TT><P>
+Please put your interface page in 
+<BR>
+<B><TT>/home/username/public_html/Stat540s99/homework07/interface.html</TT></B>
+<BR> and the Perl script in
+<BR>
+<B><TT>/home/username/public_html/cgi-bin/homework07.pl</TT></B>
+<P>
+Remember to rescale, to (0,1), the <B><TT>age</TT></B>
+ variable before you use it in
+the net. In general, you will need to be able to identify the
+continuous predictor variables so you can rescale them. 
+Use the command <TT>is.real</TT>  to do this.
+<P>
+Don't forget that I have put a link to the 
+<A HREF="../class06/NnetHelp/00Index.html"> Neural nets help files. </A>
+help pages.
+<P>
+As a matter of interest, here is the 
+<A HREF="http://enkidu.wharton.upenn.edu/~waterman/Teaching/701f97/classnotes/class19/c19ssc.html">
+S-Plus </A>code that I used to produce
+the page of neural net 
+<A HREF="http://www-stat.wharton.upenn.edu/~waterman/Teaching/701f98/nets/graphs.html">
+graphics.</A> You can see how I constructed the perspective plots. Note that
+parts of this code are out of date now, as I had the uva dataset labeled
+differently when I wrote it, the file names differently and everything in
+different locations! (But it's still a useful example.)
+
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+

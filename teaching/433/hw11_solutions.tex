@@ -1,0 +1,199 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 11 Solution}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class or are of particular interest.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+
+\begin{flushleft}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 4.9}
+
+Notice that given $N(t)$,$W_1,\ldots,W_{N(t)}$ follow a uniform
+distribution. Hence,
+\begin{eqnarray*}
+E(W_1,\ldots,W_n|N(t)=n)&=&(\frac{t}{2})^n\\
+&\Rightarrow& E(W_1,\ldots,W_n)=E((\frac{t}{2})^{N(t)})\\
+&=&\sum_{n=0}^\infty (\frac{t}{2})^n \frac{(\lambda t)^n
+e^{-\lambda
+t}}{n!}\\
+&=&\sum_{n=0}^\infty \frac{(\frac{t^2}{2} \lambda )^n
+e^{-\lambda t}}{n!}\\
+&=&e^{-\lambda t} \sum_{n=0}^\infty \frac{(\frac{t^2}{2} \lambda
+)^n}{n!}\\
+&=&e^{-\lambda t} e^{(\frac{t^2}{2} \lambda)}\\
+&=&e^{-\lambda t (1- \frac{t}{2})}\\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+
+\textbf{Question 1.2}\\
+
+We know that $\lambda_k=\alpha+k\beta$ and that $X(0)=0$. Also
+from the book we know that $P_n(t) = \lambda_0 \cdots
+\lambda_{n-1} [\sum_{i=0}^{n} B_{i,n} e^{-\lambda_i t}]$.
+
+Now we need to figure out the $B$ coefficients.
+
+\begin{eqnarray*}
+P_0(t)&=&e^{-\alpha t}\\
+P_1(t) &=& \lambda_0 [B_{0,1} e^{-\alpha t} + B_{1,1}
+e^{-(\alpha+\beta) t}\\
+&\Rightarrow&
+B_{0,1}=\frac{1}{\lambda_1-\lambda_0}=\frac{1}{\beta}\\
+&\Rightarrow&
+B_{1,1}=\frac{1}{-\lambda_1+\lambda_0}=-\frac{1}{\beta}\\
+\end{eqnarray*}
+
+After playing around with the equations (just work out a few more
+$B$ coefficients) we can see that
+\begin{eqnarray*}
+B_{k,n}&=&\frac{1}{(\lambda_0-\lambda_k)(\lambda_1-\lambda_k)
+\cdots (\lambda_{k-1}-\lambda_k)(\lambda_{k+1}-\lambda_k) \cdots
+(\lambda_{n}-\lambda_k)}\\
+&\Rightarrow& B_{k,n} = \frac{(-1)^k}{\beta^n \cdot k!(n-k)!}
+\end{eqnarray*}
+
+Hence,
+\begin{eqnarray*}
+P_n(t) &=&\prod_{k=0}^{n-1} (\alpha+k\beta) \sum_{k=0}^n
+\frac{(-1)^k}{\beta^n \cdot k!(n-k)!} e^{-(\alpha+\beta k )t}\\
+&=&(\prod_{k=0}^{n-1} (\alpha+k\beta)) \cdot \frac{e^{- \alpha t
+}}{\beta^n \cdot n!} \sum_{k=0}^n \left ( \begin{array}{c}
+ n\\
+ k \end{array} \right ) (-e^{-\beta t} )^k \\
+ &=&(\prod_{k=0}^{n-1} (\alpha+k\beta)) \cdot \frac{e^{- \alpha t
+}}{\beta^n \cdot n!} (1-e^{-\beta t} )^n \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 1.3}\\
+
+\begin{eqnarray*}
+\lambda_i &=&\lim_{n\rightarrow0} \frac{P(X(t+h)-X(t)=1|X(t)=x)}{h}\\
+&=&\lim_{n\rightarrow0} \frac{ \left ( \begin{array}{c}
+ i(n-i)\\
+ 1 \end{array} \right ) (\alpha h +o(h))(1-\alpha h + o(h))^{i(n-i)-1}
+}{h}\\
+&=&  i (n-i) \cdot \alpha
+\end{eqnarray*}
+
+Intuitively, there are $n-i$ susceptible people and i infected
+people. Also, $\lambda_0=0$ since no one can infect.
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+
+\textbf{Problem 2.1}\\
+All the sojourns and T are independent and exponentially
+distributed with parameters $\mu_1,\ldots,\mu_N,\theta$. We will
+use this fact to find the desired probability.
+\begin{eqnarray*}
+P(X(t)=0)&=& P(T>\sum_{n=1}^N S_n)\\
+&=&\int_0^\infty \ldots \int_0^\infty \int_{s_1+\cdots+s_N}^\infty
+\mu_1 e^{-\mu_1 s_1} \cdots \mu_N e^{-\mu_N s_N}\theta e^{-\theta
+t} dt \cdot ds_N \cdots ds_1\\
+&=&\int_0^\infty \ldots \int_0^\infty \mu_1 e^{-\mu_1 s_1} \cdots
+\mu_N e^{-\mu_N s_N} (\int_{s_1+\cdots+s_N}^\infty \theta
+e^{-\theta t} dt )\cdot ds_N \cdots ds_1\\
+&=&\int_0^\infty \ldots \int_0^\infty \mu_1 e^{-\mu_1 s_1} \cdots
+\mu_N e^{-\mu_N s_N} (e^{-\theta (s_1+\cdots+s_N)}) \cdot ds_N \cdots ds_1\\
+&=&\int_0^\infty \ldots \int_0^\infty \mu_1 e^{-(\mu_1+\theta)
+s_1} \cdots \mu_N e^{-(\mu_N+\theta) s_N} ds_N \cdots ds_1\\
+&=&\prod_{j=1}^N \frac{\mu_j}{\mu_j+\theta} \int_0^\infty \ldots
+\int_0^\infty (\mu_1+\theta) e^{-(\mu_1+\theta)
+s_1} \cdots (\mu_N+\theta) e^{-(\mu_N+\theta) s_N} ds_N \cdots ds_1\\
+&=&\prod_{j=1}^N \frac{\mu_j}{\mu_j+\theta}
+\end{eqnarray*}
+
+The last step is true since all of the variables are independent
+and we can integrate each one individually. Also, we integrate
+each variable over the (adjusted) exponential density which of
+course yields a result of value 1.
+
+Some students only explained why intuitively this results should
+hold. They received full marks for that but here we wanted to also
+show you how you can prove this mathematically.
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 2.3}\\
+
+\begin{eqnarray*}
+E(W_1,\ldots,W_N)&=& \sum_{i=1}^N E(W_i)\\
+\end{eqnarray*}
+
+Now notice (and if you can't do that look at graph in the book
+which describes the pure-death process) that
+
+\begin{eqnarray*}
+E(W_1)&=& E(S_N)=\frac{1}{\mu_N}\\
+E(W_2)&=& E(S_N+S_{N-1})=\frac{1}{\mu_N}+\frac{1}{\mu_{N-1}}\\
+\vdots\\
+E(W_i)&=& \sum_{i=N-i+1}^N \frac{1}{\mu_i} \\
+\vdots\\
+E(W_N)&=& \sum_{i=1}^N \frac{1}{\mu_i}\\
+\end{eqnarray*}
+
+Hence,
+
+\begin{eqnarray*}
+E(W_1,\ldots,W_N)&=& \sum_{i=1}^N E(W_i)\\
+&=& \sum_{i=1}^N i \frac{1}{\mu_i} \\
+\end{eqnarray*}
+
+
+Some people mistakenly wrote that $E(W_i)= \sum_{i=1}^{N-i+1}
+\frac{1}{\mu_i}$. This is not true and the graph of the pure-death
+process should clarify why (in case the math didn't).
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\end{flushleft}
+\end{document}

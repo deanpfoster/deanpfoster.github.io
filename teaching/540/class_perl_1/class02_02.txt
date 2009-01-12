@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+
+### Script to show array and hash indexing.
+
+@letters =  (alpha,beta,gamma,delta);
+
+# Look what's inside here.
+
+print @letters, "\n";
+print "@letters\n";
+print '@letters\n', "\n";
+
+# Now start the indexing:
+
+print "$letters[0] \n"; # The first element
+print "$letters[1] \n"; # The second element
+print "$letters[2] \n"; # The third element
+print "$#letters \n"; # the number of elements in the array
+
+
+
+print "@letters[0] \n"; # an array with only one element.
+print "@letters[0,2] \n"; # an array with two elements.
+print "@letters[1..3] \n"; # a sequential slice.
+
+
+### Hashes.
+
+%letters = ( A => alpha,
+             B => beta,
+             G => gamma,
+             D => delta);
+
+print %letters, "\n"; # dont' print the hash like this!
+
+print $letters{G}, "\n"; # This will get at an element.
+
+print keys %letters, "\n"; # This shows the keys in the hash.
+print values %letters, "\n"; # This shows the values in the hash.
+
+### Iterating over a hash. (Note the order of the output)
+
+foreach $key (keys %letters){
+    print "The value of $key is,  $letters{$key} \n";
+}
+
+
+
+ 
+
+
+
+
+
+

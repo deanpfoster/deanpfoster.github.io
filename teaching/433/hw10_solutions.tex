@@ -1,0 +1,169 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 10 Solution}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class or are of particular interest.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 50.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+
+\begin{flushleft}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 2.4}
+
+Each point falls in the interval [0,1) with probability $1/N$ and
+we have $N$ points. The number of points in the interval is
+distributed binomially with parameters ($1/N$,$N$). Using the law
+of rare events we can conclude that as $N \rightarrow \infty$  the
+number of points in the interval $S_N$ follows a Poisson
+distribution with $\lambda=\frac{1}{N}\cdot N=1$.
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Question 2.10}\\
+
+
+We know that
+
+\begin{eqnarray*}
+P(E(p)=X(p))\geq 1-p^2  &\Rightarrow&  P(E(p)\neq X(p))\leq p^2
+\end{eqnarray*}
+
+Using equation 2.8 on page 285 in the book we know that for all
+$k\in I$ the following is true
+
+\begin{eqnarray*}
+|P(S_n=k)-P(X(\mu)=k)|\leq \sum_{k=1}^n P(E(p_k)\neq X(p_k))\leq
+\sum_{k=1}^n p_k^2
+\end{eqnarray*}
+
+Since this holds for all $k\in I$ the desired result holds.
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Question 2.11}\\
+
+
+First notice that $\{X \in B\}=\{X \in B\ \cap Y \in B\}\cup \{X
+\in B\ \cap Y \not \in B\}$. Using the same logic we know that
+$\{Y \in B\}=\{Y \in B\ \cap X \in B\}\cup \{Y \in B\ \cap X \not
+\in B\}$. Hence,
+
+
+\begin{eqnarray*}
+|P(X \in B)-P(Y \in B)|&&\\
+&=& | P(X \in B) + P(Y \in B) - P(X\in B)-  P(Y \not \in B)|\\
+&=& |P(X \in B\ \cap Y \in B) + P(X \in B\ \cap Y \not \in B)\\
+&-&P(Y \in B\ \cap X \in B) - P(Y \in B\ \cap X \not \in B)\\
+&=& |P(X \in B\ \cap Y \not \in B)- P(Y \in B\ \cap X \not \in B)\\
+\end{eqnarray*}
+
+Since $\{X \in B\ \cap Y \not \in B\} \subseteq  \{X \neq Y\}$ the
+desired result follows.
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 3.3}\\
+The two dimensional transformation of variables formula is
+\begin{eqnarray*}
+f_{S_0,S_1}(s_0,s_1)=f_{W_0,W_1}(w_0,w_1)det(J).
+\end{eqnarray*}
+
+where J is the Jacobain matrix of $(S_0,S_1)$ as a function of
+$(W_0,W_1)$. In this example the determinant of the Jacobain is 1
+and as a result the density is $\lambda^2 e^{-\lambda
+(s_0+s_1)}=\lambda e^{-\lambda s_0} \cdot \lambda e^{-\lambda
+s_1}$. Hence we see that it is just the joint distribution of two
+independent exponential random variables.
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Question 3.8}\\
+
+\begin{eqnarray*}
+P(W_r=x|X(t)=n)&=& \frac{\frac{\lambda^r x^{r-1} e^{-\lambda
+x}}{(r-1)!} \cdot \frac{(\lambda(t-x))^{n-r}
+e^{-\lambda(t-x)}}{(n-r)!}}{ \frac{(\lambda t)^{n} e^{-\lambda
+t}}{n!}}\\
+&=& \left ( \begin{array}{c}
+ n \\
+ r
+\end{array} \right) \cdot \frac{r}{t} (\frac{x}{t})^{r-1}
+(1-\frac{x}{t})^{n-r}
+\end{eqnarray*}
+
+A different that arrives to the same solution is to start from the
+conditional cumulative distribution function and take the
+derivative with respect to x.
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Question 4.8}\\
+
+Using the iterated expectation rule we know that
+$E(Z(t))=E(E(Z(t)|N(t)))$. First we will find $E(Z(t)|N(t))$.
+
+\begin{eqnarray*}
+E(Z(t)|N(t))&=& E(\sum_{k=1}^{N(t)} \theta_k (t)) \\
+&=& \sum_{k=1}^{N(t)} E(\theta_k (t)) \\
+&=& \sum_{k=1}^{N(t)} E(\xi_k e^{-\alpha (t-w_k)}) \\
+&=& E(\xi_1) \sum_{k=1}^{N(t)} E(e^{-\alpha (t-w_k)}) \\
+&=& E(\xi_1) \frac{N(t)}{\alpha t} \cdot (1-e^{-\alpha t}) \\
+\end{eqnarray*}
+
+Hence, $E(Z(t))=E( E(\xi_1) \frac{N(t)}{\alpha t} \cdot
+(1-e^{-\alpha t}) )=\frac{\lambda t E(\xi_1)}{\alpha t}
+(1-e^{-\alpha t}) $
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\end{flushleft}
+\end{document}

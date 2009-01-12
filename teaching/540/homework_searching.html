@@ -1,0 +1,57 @@
+<html>
+<header>
+<title>  Homework on searching</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Homework on searching </h1></center>
+
+You should write up a one page description of how your program runs.
+In particular tell me what are the properties of the two heuristics
+and the two search algorithms.  Talk about CPU time and how good a
+solution it generates.  So you will most
+(Use latex for this--don't include the code.)
+
+<p>
+The code should also run on the web.
+
+<ol>
+  <li> create a class called Heuristic that will evalualate how many
+       quesses it will take to figure out which member of a set is the
+       correct one in mastermind.  (In other words, it should have a
+       member function that you can pass in a set of possible answer
+       and it will return a number--the guess as to the number of
+       moves to solve from this position.)
+       <p>
+  <li> Create a subclass of Heuristic, called Entropy, that inherits
+from
+       Heuristic.  have it return the log of the number of items in
+       the set.
+       <p>
+  <li> Create a subclass of Heuristic, called Simulation, that uses
+       your existing random quesser to estimate how many moves it will
+       take to solve by guessing until it gets the solution.  It should
+       have a parameter passed in when it is created to say how many
+       simulations it should run.
+       <p>
+  <li> Write a random search algorithm that randomly generates a guess
+       and then calls a Heuristic to find out how good the guess is.
+       It should then make a bunch of guesses and keep track of which
+       one is best.
+       <p>
+  <li> Write a graph search algorithm that randomly generates a
+       starting guess.  Then it evaluates the heuristic for each of
+       the simple modifications of that guess (i.e. changing each
+       position to a different color.)  If it find a neighbor that has
+       a better heuristic value, it changes to the neighbor.
+       <p>
+  <li> Run both search algorithms using both heuristics.  Generate
+       timing statistics (CPU time) and the average number of guess to
+       find a solution for a random key.
+</ol>
+</body>
+
+</html>
+

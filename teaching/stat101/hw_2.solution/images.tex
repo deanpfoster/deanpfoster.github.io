@@ -1,0 +1,423 @@
+\batchmode
+\documentclass[10pt]{article}
+\makeatletter
+\usepackage[dvips]{graphicx}
+\setlength{\textheight}{8in}  
+\setlength{\textwidth}{6in}  
+\setlength{\headsep}{0.4in}  
+\setlength{\headheight}{0.1in}  
+\setlength{\topmargin}{0in}  
+\setlength{\oddsidemargin}{0in}  
+\renewcommand{\baselinestretch}{1.5}
+\par\usepackage[dvips]{color}
+\pagecolor[gray]{.7}
+
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{} \catcode`\_=\count@
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup}%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup%
+ \let\ifinner=\iffalse }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\def\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA[1]{\lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA[1]{\lthtmlmathtype{#1}\lthtmlhboxmathA  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA[1]{\lthtmlmathtype{#1}\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em\vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%\dimen1=\ht\sizebox
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize\expandafter\vfill
+  \else\expandafter\vss\fi}%
+\makeatletter \tracingstats = 1 
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\makeatother
+{\newpage\clearpage
+\lthtmldisplayA{displaymath313}%
+\begin{displaymath}{\bf P}(A|B)={\bf P}(B\mbox{ and }A)/{\bf P}(A)={\bf P}(B){\bf P}(A)/{\bf P}(A)={\bf P}(B).\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath323}%
+\begin{displaymath}{\bf P}(B|\mbox{not }A)=P(B\mbox{ and not }A)/{\bf P}(\mbox{not }A)={\bf P}(B){\bf P}(\mbox{not }A)/{\bf P}(\mbox{not }A)={\bf P}(B).\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline325}%
+${\bf P}(A|B)={\bf P}(B)$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline327}%
+${\bf P}(B|\mbox{not }A)={\bf P}(B)$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline329}%
+${\bf P}(B|A)={\bf P}(B|\mbox{not }A)$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath331}%
+\begin{displaymath}{\bf P}(\mbox{not }A\mbox{ and }\mbox{not }B)=1-{\bf P}(A\mbox{ or }B)=1-{\bf P}(A)-{\bf P}(B)+{\bf P}(A\mbox{ and }B).\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath337}%
+\begin{displaymath}{\bf P}(\mbox{not }A\mbox{ and }\mbox{not }B)= 1-{\bf P}(A)-{\bf P}(B)+{\bf P}(A){\bf P}(B)\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath339}%
+\begin{displaymath}=(1-{\bf P}(A))(1-P(B))={\bf P}(\mbox{not }A){\bf P}(\mbox{not }B). \end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath341}%
+\begin{displaymath}A_1=\{A\mbox{ wins the first match and }A\mbox{ wins the second  match}\},\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath343}%
+\begin{displaymath}A_2=\{A\mbox{ wins the first match and }B\mbox{ wins the second  match}\},\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath345}%
+\begin{displaymath}A_3=\{B\mbox{ wins the first match and }A\mbox{ wins the second  match}\},\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath347}%
+\begin{displaymath}A_4=\{B\mbox{ wins the first match and }B\mbox{ wins the second  match}\}.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath349}%
+\begin{displaymath}\begin{array}{cl}
+{\bf P}(A_1)&={\bf P}(A\mbox{ wins the first match}){\bf P}(A\mbox{ wins the second  match}|A\mbox{ wins the first match})\\
+       &=0.5*0.6=0.3,
+\end{array}\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath351}%
+\begin{displaymath}\begin{array}{cl}
+{\bf P}(A_2)&={\bf P}(A\mbox{ wins the first match}){\bf P}(B\mbox{ wins the second  match}|A\mbox{ wins the first match})\\
+       &=0.5*0.4=0.2.
+\end{array}\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline353}%
+${\bf P}(A_1)+{\bf P}(A_3)=.5$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline357}%
+${\bf P}(A_3)=0.2$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath359}%
+\begin{displaymath}{\bf P}(A\mbox{ wins at least one match})={\bf P}(A_1)+{\bf P}(A_2)+{\bf P}(A_3)=0.7.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline24}%
+$\mbox{$\bullet$}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath361}%
+\begin{displaymath}\begin{array}{lll}
+{\bf P}(\mbox{failure})=0.60 & {\bf P}(\mbox{moderate})=0.30 & {\bf P}(\mbox{major})=0.10\\
+{\bf P}(\mbox{poor$|$failure})=0.50 & {\bf P}(\mbox{fair$|$failure})=0.30 & {\bf P}(\mbox{good$|$failure})=0.20\\
+{\bf P}(\mbox{poor$|$moderate})=0.20 & {\bf P}(\mbox{fair$|$moderate})=0.40 & {\bf P}(\mbox{good$|$moderate})=0.40\\
+{\bf P}(\mbox{poor$|$major})=0.10 & {\bf P}(\mbox{fair$|$major})=0.30 & {\bf P}(\mbox{good$|$major})=0.60
+\end{array}\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline363}%
+${\bf P}(\mbox{failure})=0.60$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline367}%
+${\bf P}(\mbox{poor$|$ failure})=0.5$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath369}%
+\begin{displaymath}{\bf P}(\mbox{failure and poor})=0.6*0.5=0.3.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath371}%
+\begin{displaymath}{\bf P}(\mbox{failure$|$good})=\frac{{\bf P}(\mbox{ failure and good})}{{\bf P}(\mbox{good})}=0.12/0.30=0.40\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline373}%
+${\bf P}(\mbox{major and poor})=0.01$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline375}%
+${\bf P}(\mbox{poor})$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline377}%
+${\bf P}(\mbox{poor})=0.3+0.06+0.01=.37$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath379}%
+\begin{displaymath}{\bf P}(\mbox{major$|$poor})=0.01/0.37=0.027.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline104}%
+$\mbox{$\mathbf{\circ}$}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath395}%
+\begin{displaymath}\begin{array}{rl}
+{\bf P}(B\mbox{ wins})&={\bf P}(B\mbox{ hits }C){\bf P}(A\mbox{ misses } B){\bf P}(B\mbox{ hits } A)=0.5*0.7*0.5=0.175,\\
+{\bf P}(C\mbox{ wins})&={\bf P}(B\mbox{ misses }C){\bf P}(C\mbox{hits } B){\bf P}(A\mbox{ misses }C){\bf P}(C\mbox{ hits}A)\\
+&=0.5*1*0.7*1=0.35,\\
+{\bf P}(A\mbox{ wins})&={\bf P}(B\mbox{ hits }C){\bf P}(A\mbox{ hits } B)+{\bf P}(B\mbox{ misses } C){\bf P}(C\mbox{ hits }B){\bf P}(A\mbox{ hits }C)\\
+&=0.5*0.3+0.5*1*0.3=0.30,\\
+{\bf P}(\mbox{no one wins})&={\bf P}(B\mbox{ hits }C){\bf P}(A\mbox{ misses } B){\bf P}(B\mbox{ misses } A)=0.5*0.7*0.5=0.175.
+\end{array}\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath401}%
+\begin{displaymath}{\bf P}(A\mbox{ wins})={\bf P}(A \mbox{ misses } B){\bf P}(A\mbox{ wins if $A$ shoots in air })=0.7*0.3=0.21.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath407}%
+\begin{displaymath}{\bf P}(A\mbox{ wins})={\bf P}(A\mbox{ hits }C){\bf P}(B\mbox{ misses } A){\bf P}(A\mbox{ hits }B)\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath409}%
+\begin{displaymath}+{\bf P}(A\mbox{ misses } C){\bf P}(A\mbox{ wins if $A$ shoots in air })=0.3*0.5*0.3+0.7*0.3=0.255.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline417}%
+${\bf P}(A\mbox{ wins})=0.3$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline419}%
+${\bf P}(B\mbox{ wins})=0.175$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline421}%
+${\bf P}(C\mbox{ wins})=0.35$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath425}%
+\begin{displaymath}\bar{y}=\frac{0*201+1*287+\cdots+12*3}{201+287+\dots+3}=2.477.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline433}%
+$\sigma=1.833$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline437}%
+$\%$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline439}%
+$\bar{y}\pm s$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath443}%
+\begin{displaymath}{\bf P}(\mbox{at least 1 deduction})=1332/1533=0.869.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath445}%
+\begin{displaymath}{\bf P}(\mbox{at most 1$|$at least 1})=\frac{{\bf P}(\mbox{at most and at least 1})}{{\bf P}(\mbox{at least 1})}=\frac{983/1533}{1332/1533}=0.738.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath447}%
+\begin{displaymath}{\bf P}(\mbox{at most 1$|$at least 1})=\frac{983}{1533}=0.738.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline451}%
+$y=3,2,1, \mbox{ or } 0$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath455}%
+\begin{displaymath}{\bf P}(Y=3)={\bf P}(WWW)=0.3*0.3*0.3=0.027.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath457}%
+\begin{displaymath}{\bf P}(Y=0)={\bf P}(LLL)=0.7*0.7*0.7=0.343.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath461}%
+\begin{displaymath}{\bf P}(Y=1)={\bf P}(WLL)+{\bf P}(LWL)+{\bf P}(LLW)=0.3*0.7*0.7+0.7*0.3*0.7+0.7*0.7*0.3=0.441.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath463}%
+\begin{displaymath}{\bf P}(Y=2)={\bf P}(WWL)+{\bf P}(WLW)+{\bf P}(LWW)=0.189.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath465}%
+\begin{displaymath}{\bf E}(Y)=0*{\bf P}(Y=0)+\cdots+3*{\bf P}(Y=0)=0.9\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath467}%
+\begin{displaymath}\mbox{Var}(Y)=0^2*(0.343)+1^2*(0.441)+2^2*(0.189)+3^2*(0.027)-(0.9)^2=0.63.\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline481}%
+${\bf P}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline489}%
+$\$$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+
+\end{document}

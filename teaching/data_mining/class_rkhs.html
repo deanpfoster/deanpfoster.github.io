@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: RKHS</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Nov 10 14:41:33 EST 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: RKHS</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Jon will finish his lecture next Tuesday.
+   <li> I'll talk about RKHS today that is useful in both SVM and regression
+</ul>
+
+<h2>Hilbert spaces, what are they good for?</h2>
+<ul>
+   <li> My definition of datamining: "p >> n"
+   <li> But with sufficient data, all problems are classical
+statistics
+   <li> BUT, if p = infinity, then we are always in the domain of data
+mining!
+   <li> An infinite dimension space is called a Hilbert space
+   <li> We need Hilbert instead of Banach since we need a projection
+operator (i.e. right angles and hence inner products)
+</ul>
+
+<h2>Building a Hilbert space up by hand</h2>
+<ul>
+   <li> Need an inifintely long feature vector
+   <li> Using coordinates will take a long time to describe such an
+vector
+   <li> Use abstract function phi(x).
+   <li> x is in R<sup>p</sup>
+   <li> phi(x) is in H = R<sup>infinity</sup>.
+   <li> If phi() is linear, not very interesting
+   <li> We can do all of regression if we can compute
+&lt phi(x),phi(w) &gt
+   <li> For convienence let K(x,w) = &lt phi(x),phi(w) &gt
+</ul>
+<h2>Example 1: quadradic kernel</h2>
+<ul>
+   <li> Draw picture of donut
+   <li> Can't get a good fit using either SVM or regression
+   <li> But if we used x<sup>2</sup> and w<sup>2</sup> we could do
+it as long as it were a circle.
+   <li> We could do elipses if we added sqrt(2) x*w.
+   <li> K(x,w) = ... = (x - w)^4 = &lt x,w &gt <sup>2</sup>
+   <li> Ok, very cool, but still finite
+</ul>
+<h2>Example 2: radial basis functions</h2>
+<ul>
+   <li> Draw picture of 3-sphere with curve on it
+   <li> Imagine an infinite sphere which locally looks like this
+   <li> What does the inner product of two points on the curve look
+like?
+   <li> If close, K(x,w) = 1.  If far away K(x,w) --> 0.
+   <li> How about: K(x,w) = exp(-|x-w|^2)?  Does that work?  If so,
+what does phi(a) look like?
+</ul>
+<h2>Difficult to describe phi, easy to describe K</h2>
+<ul>
+   <li> Suppose we don't want to be explicite about phi.  Can we say
+it exists without exhibiting it?
+   <li> If K() is nice we can do this.
+   <li> Using functional analysis: phi(x) = sum
+&lt x,b<sub>i</sub> &gt b<sub>i</sub> for basis b
+   <li> It is sufficient to consider phi(x) = K(x,.) a function in
+space R<sup>p</sup>
+   <li> It might have redundent basis elements--but we can Gram-Smidt
+them away.
+   <li> It might miss some basis elements--but then they never appear
+so are not needed.  We can live on a smaller Hilbert space.
+</ul>
+<h2>Which K work?</h2>
+<ul>
+   <li> K(x,w) must be:
+     <ol>
+     <li> continuous.
+     <li> symetric.  (I.e. K(x,w) = K(w,x))
+     <li> positive definite.  (i.e. acts like an inner product for
+finite number of x's.)
+  <li> Called a Mercer kernel.
+</ul>
+Theorem: If K is a Mercer kernel, then there exists a phi and a H such
+that K(x,w) = &lt phi(x),phi(w) &gt .
+
+ <hr>
+<address>dean@foster.net</address>
+</body> </html>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Casual </title>
+</head>
+
+<body>
+<center><h1> So if regression doesn't prove causation, what does?</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Data analysis is due a week today
+	 <li> Extra office hours by Nuria: 10 - 1 May 26 and 27th.
+	 <li> Extra office hours by Michael: 10 - 12 Monday May 17th
+	      and 10 - 12 on Thursday May 20th.
+       </ul>
+       </p>
+</ul>
+<h2>Getting started on your data analysis</h2>
+<ol>
+  <li> Histogram each variable (check for outliers, get to know your data)
+  <li> Scatter plot your continuous variables
+       <p>
+       <ul>
+	 <li> look for obvious relationships (age and year)
+	 <li> look for high correlations
+	 <li> check Mahmanovous distance for "multidimentional" outliers
+       </uL>
+       <p>
+  <li> Edit data if necessary (you might have found some strange points)
+  <li> color code for some of the more important categorial variables (pink/blue say).
+  Look at the previous histograms and scatter plots with the new colors--see if anything striking happens.
+  <li> Start multiple regression and run full model
+       <p>
+       <ul>
+	 <li> kitchen sink model (throw everything that is reasonable into the model)
+	 <li> look at leverage plots to see if colinearity is a problem
+	 <li> look at VIF
+       </ul>
+       <p>
+  <li> Build a reasonable model
+       <p>
+       <ul>
+	 <li> find variables that you can explain
+	 <li> keep it simple
+	 <li> You might not find anything significant at all.  (Since isn't always fun.)
+       </ul>
+       <p>
+  <li> check your residuals (linearity via Y vs Y-hat plot), normality via a historgram and a normal probabiltiy plot, hetroskadasticy by looking at residuals vs your important X variables.
+  <li> Build another model
+  <li> repeat!
+</ol>
+       
+       
+	      
+
+<h2>Observational studies vs controled experiments</h2>
+
+<ul>
+  <li> Observational studies
+       <p>
+       <ul>
+	 <li> An observation study is one where you watch the world around you
+	 <li> Most of science progress this way
+	 <li> Examples: Astrophysics, traditional evolution, economics, sociology
+	 <li> Correct inferences can be made--but they must be made timidly
+	 <li> Recall our diagrams--one of those could always be the right story
+       <p>
+       </ul>
+  <li> controled Experiments
+       </p>
+       <ul>
+	 <li> Manipulate the world and see the result
+	 <li> The definition of the scientific method
+	 <li> Examples: chemistry, psychology, microbiology, modern genetic
+	 <li> Statements of causation can be made with confidence (if
+	      randomization is done)
+       </ul>
+       <p>
+  <li> Why are controled experiments stronger?
+       </p>
+       <ul>
+	 <li> Suppose we observe X --> Y, then there might exist a Z
+	      correlated with X, and Z is also correlated Y.
+	 <li> Suppose we control X ourselves and see X --> Y.  Could
+	      there be a Z that is corrlated with X?  YES! If we don't
+	      randomize.
+	 <li> Example: Stanford heart transplant data.  Picked healthy
+	      subjects for surgery and frail subjects for "control
+	      group."  The healthy subjects did better--sorry the
+	      surgery did better.  :-)
+	 <li> So controled experiments WITHOUT randomization aren't
+	      any better than observational studies
+	 <li> But, if X is randomized from the outcome of a coin toss,
+	      then X will be uncorrelated with Z.
+	 <li> So our diagram is X is unrelated to Z.  So if X is
+	      correlated with Y, it is based on its own merits.
+       </ul>
+       </p>
+  <li> These sorts of setting are the domain of ANOVA
+       </p>
+       <ul>
+	 <li> A key advantage of regression is that you can study 20
+	      x-planitory variables all at once
+	 <li> In a simple controled experiment you can only do 1
+	      x-planitory variable at a time--and that variable can
+	      only have two levels.
+	 <li> ANOVA is a way of fixing that
+	 <li> Randomly assign people into treatment cells of a 2 way
+	      table.
+	 <li> Run regression (aka ANOVA)
+	 <li> If you find a ROW effect or a COL effect you know that
+	      assignemtn to ROW/COL is random and hence uncorrelated
+	      with any possible lurking variable.
+	 <li> So many row and many column effects can be tested at the
+	      same time.  This can save lots of time!
+       </ul>
+       <p>
+</uL>
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Apr 13 13:10:42 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

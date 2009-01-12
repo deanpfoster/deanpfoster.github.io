@@ -1,0 +1,123 @@
+<html>
+<header>
+<title>  STAT 541: F Tests</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: F Tests </h1></center>
+
+
+
+<h2>Homework</h2>
+
+Homework: (due next thursday) A construction company that builds
+lakefront vacation cottages is considering a move to construction of a
+line of larger vacation homes.  It has been building cottages in the
+500 - 1000 square-foot range.  It recently built one which was 3500
+square feet.
+       <p>
+       Its primary question is should it build some cottages around
+       2500 sq-ft in size.
+       <p>
+       <ul>
+	 <li> Using S-plus read in the <a href="cottages.txt">data</a>
+	 <li> Run a simple regression and create a prediction interval
+	      for a 2500 sq-ft cottage.
+	 <li> Run a multiple regression on both square-ft and
+	      (square-ft)<sup>2</sup>.  (y ~ x + x^2).  Now create a
+	      prediction interval for a 2500 sq-ft cottage.  Why is
+	      there such a big difference from the interval you
+	      created before?
+	 <li> Generate prediction intervals for cottages of sizes 0,
+	      500, 1000, ..., 3000 square ft using both the linear and
+	      the quadradic model.  Plot these intervals on a graph
+	      (you might want to do this by hand if you can't trick
+	      S-plus into doing it for you.)
+	 <li> Sketch a few quadradics that might stay within your
+	      bounds for the entire range of the data.
+	 <li> Do you think they should build these cottages or not?
+	      Type up a one paragraph description of your reasoning.
+       </ul>
+       The above can be done more simply using JMP.  Load the data (<a
+       href="cottages.jmp">.jmp</a>) and do a fit-Y-by-X.  Now add a
+       line.  On the line button, have it add
+       confidence-intervals-individual.  Add the quadradic line also.
+       Now add the confidence intervals for the quadradic fit.  While
+       your at it, try doing a cubic fit.
+       <p>
+       Exclude the 3500 ft point.  Now re-generate the linear fit with
+       its prediction intervals.  Notice how most of the "accuracy" of
+       prediction of the linear fit is due to the 3500 ft cottage.
+       Also generate the quadradic fit on this smaller data set.
+       <p>
+       Print the entire mess (with all 5 fits on it).  Obviously this
+       is a fairly useless graph!
+
+<h2> F Tests</h2>
+
+<h3>Kinderschool example continued</h3>
+<ul>
+  <li> Skiing Kinderschool example: Y = how much child learns. Xs =
+       instructor age, instructor skiing expericiense, instructor
+       teaching expericiense, instructor sex, student age, student
+       sex, student expericence.
+  <li> Does the teacher matter?
+  <li> OK, the teacher matters, do interactions matter?
+       <ul>
+	 <li> needs a divisor (could use TSS, or SSE, tradition says SSE)
+	 <li> called partial F 
+	 <li> tests whole subspace is irrelvant
+	 <li> Not much power against only one variable being relavent
+       </ul>
+  <li> Interactions
+       <p>
+       <ul>
+	 <li> instructor variables * student variables
+	 <li> (quadradic surface, so include squared variables)
+	 <li> Hopefully nothing is significant 
+	 <li> Tests if the R-sq'd has gone up significianlty
+       </ul>
+       <p>
+  <li> Peak vs off peak
+       <p>
+       <ul>
+	 <li> consider a variable X<sub>7</sub> = PEAK = 1 if peak 0 if offpeak
+	 <li> add it to regression
+	 <li> doesn't do much
+	 <li> interact it with all the other 6 varibles
+	 <li> NOW it does a lot!  Creates two totally different regressions
+	 <li> The partial F is very useful and meaningful here
+       </ul>
+       <p>
+  <li> How partial F is usually used (albeit incorrectly)
+       <p>
+       <ul>
+	 <li> Look at regression with all 13 variables in it,
+	 <li> Looks like X1, X4, X7, X13 are useful (large t-statistics)
+	 <li> Lets test if they are
+	 <li> Run partial-F-test
+	 <li> Reject if F is less than .05.  WRONG!
+	 <li> Consider experiment that does this on random data.
+	 <li> There are 13 choose 4 different F statistics being looked at each time
+	 <li> A total of 715 different tests!
+	 <li> So use Bonferroni (see M:page 50)
+	 <li> If each test is done at .05/715, total chance of error is less than .05 
+       </ul>
+       <p>
+</ul>
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Feb  8 08:35:09 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

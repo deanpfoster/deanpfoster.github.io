@@ -1,0 +1,57 @@
+<html>
+<header>
+<title> Sample html and java script</title>
+</header>
+<body>
+<h1> Personal samples of HTML and Java Script </h1>
+
+<p>
+Many of these things are used in production mode in other of my pages.
+I use this page to pilot them and see how HTML actually works.  (I
+like having them all collected here so that as I try various brousers,
+I can see how they treate these thing.)
+</p>
+
+<SCRIPT Language = "JavaScript">
+
+function reversecolor() {
+        // The if statement still requires the triplet.
+        if (document.bgColor == '#ffc0cb') {
+                document.bgColor = 'purple'}
+        else {
+                document.bgColor = 'pink'
+        }
+}
+
+function darker() {
+        // The if statement still requires the triplet.
+	str = document.bgColor;
+	str2 = "0x"+str.substring(1,8);
+        i = parseInt(str2);
+	window.status = str2 + 23 + " as an in" + i;
+	i -= 0x080808;
+	document.bgColor = i;
+}
+</SCRIPT>
+
+<FORM>
+        <INPUT type = "button" value="click me"
+                onclick="reversecolor()">
+</FORM>
+
+<FORM>
+        <INPUT type = "button" value="darker"
+                onclick="darker()">
+</FORM>
+
+<p>
+<a href="" onMouseOver="bar()">Alert!</a>
+<p>
+<a href="" onMouseOver="window.status = 'hello world';return true;">Hello world.</a>
+<p>
+<a href="" onMouseOver="darker()">Change background.</a>
+<p>
+<a href="" onMouseOver="document.fgColor = '#GGEEFF';return true;">Change foreround.</a>
+
+<p>
+<a href="http:/~foster">Return to my home page.</a>

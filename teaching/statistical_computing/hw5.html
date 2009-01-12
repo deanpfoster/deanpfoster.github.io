@@ -1,0 +1,155 @@
+<html>
+<header>
+<title> Statistical computing homework 5</title>
+</header>
+<body>
+<h1> Statistical computing homework 5 (Spring 1998) </h1>
+
+<p>
+ To see how much can be written about how little, read the Splus help
+on exp.  It is amazing how much they say about so little.  But
+actually, it is useful.
+</p>
+
+<p>
+One way to layout the homework answer would be to make a table with
+each function in it with a short description.  Say something like:
+</p>
+
+<table border>
+<TR>
+<th>
+function
+<th> Short description
+</th>
+
+<TR>
+<TD> <a href="http:sq.html">sq()</a>
+<TD> Takes a  number and returns the square of the number.
+</TR>
+
+<TR>
+<TD> <a href="http:d.html">d()</a>
+<TD> Takes the derivative of a function.
+</TR>
+
+
+</table>
+
+<p>
+Here is some samples that might cause your code to break.
+</p>
+<table border>
+<TR>
+<th>
+Code that might cause problems
+<th>
+Reason
+</tr>
+
+<TR>
+<td>
+<pre>
+d(d(sq))
+</pre>
+<td>
+Does d() return a function properly
+</tr>
+
+<TR>
+<td>
+<pre>
+test <- function(f) d(f)(1)
+test(sq)
+</pre>
+<td>
+Does d() find the right lambda expression or just the name?
+</tr>
+
+<TR>
+<td>
+<pre>
+d(function(x) x*x)
+</pre>
+<td>
+does d() accept lambda expressions?
+</tr>
+
+<TR>
+<td>
+<pre>
+test.arg <- 5
+normal(test.arg)(5)
+</pre>
+<td>
+does normal() handle arguments correctly
+</tr>
+
+
+<TR>
+<td>
+<pre>
+chisq <- function(){
+   g <- transform(normal,sq);
+   g(3)}
+</pre>
+<td>
+Can transform be called from inside a function?  (In general this is a
+good thing to check since the handling of variables is kinda strange
+in Splus.)
+</TR>
+
+<TR>
+<td>
+<pre>
+test.arg <- 5
+test <- function(mu) 
+    { 
+      normal(mu)(5)
+    }
+test(test.arg)
+</pre>
+<td>
+does normal() handle arguments correctly
+</tr>
+
+
+<TR>
+<td>
+<pre>
+large <- function(x) 1e20 * (x-.33)
+root(large,0,1)
+</pre>
+<td>
+Does root incorrectly complain if it is given big numbers?
+</TR>
+
+<TR>
+<td>
+<pre>
+large <- function(x) 1e20 * (x-.33)
+if(root(large,0,1) != .33) print("oops")
+</pre>
+<td>
+Does root find enough accuracy so that equality is preserved?
+</TR>
+
+<TR>
+<td>
+<pre>
+d(sq)(1e20)
+</pre>
+<td>
+Can d() handle large numbers?
+</TR>
+
+<TR>
+<td>
+<pre>
+d(sq)(1e-10)
+</pre>
+<td>
+Can d() handle small numbers?
+</TR>
+
+</table>

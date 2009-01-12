@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter V.1: The poisson distribution</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Posted homework 8 on the web.
+  <li> Read p 267 - 274.
+</ul>
+
+<h1>Poisson distributions</h1>
+<h2>Infinitely divisable distributions</h2>
+<ul>
+  <li> Suppose I can find A and B such that:
+     <ul>
+       <li> X = A + B.
+       <li> A, B are independent.
+       <li> A, B have the same distribution.
+     </ul>
+  Called "divisable."
+  <li> Suppose I can repeat this process as much as I like.  THen it
+is called infinitely divisable.
+  <li> This allows construction of a continuous time Markov chain.
+</ul>
+<h2>The poisson distribution: Basic facts</h2>
+<ul>
+  <li> review: density, mean and variance.
+  <li> X= Poisson(mu), Y= Poisson(lambda), X+Y = Poisson(mu+lambda)
+  <li> N poisson.  M|N = Binomial(p,N).  Then M is Poisson.
+</ul>
+<h2>The Poisson process</h2>
+<ul>
+  <li> Definition:
+    <ul>
+    <li> independent increments.
+    <li> X<sub>t</sub> - X<sub>s</sub> is Poisson.
+    <li> X(0) = 0.
+    </ul>
+  <li> What is distribution, mean and variance of X<sub>t</sub>?
+  <li> Relies on infinite diviability.
+</ul>
+
+<h2>Examples</h2>
+<ul>
+  <li> Defects along DNA.  (SNIPS)
+  <li> Sime times it works, other times not:
+    <ul>
+    <li> Good model for bikers in triathelone.
+    <li> Bad model for bikers in tour de france.
+    <li> Why?
+    </ul>
+</ul>
+<h2>Nonhomogeneous process</h2>
+<ul>
+   <li> lambda(t) instead of lambda is rate
+   <li> E(X<sub>t+h</sub>-X<sub>t</sub>) = lambda(t)h
+   <li> P(X<sub>t+h</sub>-X<sub>t</sub> = 1) = lambda(t)h
+   <li> Example: Call board.
+</ul>
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Mar 22 11:51:41 EST 2004
+<!-- hhmts end -->
+</body> </html>

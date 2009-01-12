@@ -1,0 +1,124 @@
+<HEAD><TITLE>R: Fit Multinomial Log-linear Models</TITLE></HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000F0" VLINK="#660066" ALINK="#FF0000" BACKGROUND="white">
+
+<h2 align=center><FONT FACE="Courier New,Courier" COLOR="#999999">Fit Multinomial Log-linear Models</FONT></h2>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Usage</FONT></h2>
+
+<PRE>
+multinom(formula, data=sys.parent(), weights, subset, na.action, 
+contrasts=NULL, Hess=FALSE, summ=0, censored=FALSE, ...)
+</PRE>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Arguments</FONT></h2>
+
+<TABLE>
+<TR VALIGN=TOP><TD><CODE>formula</CODE>
+<TD>
+a formula expression as for regression models, of the form 
+<CODE>response ~ predictors</CODE>. The response should be a factor or a matrix with
+K columns, which will be interpreted as counts for each of K classes.
+A log-linear model is fitted, with coefficients zero for the first
+class. An offset can be included: it should be a matrix with K columns
+if the response is a matrix with K columns or a factor with K &gt; 2
+classes, or a vector for a factor with 2 levels.
+See the documentation of <CODE>formula</CODE> for other details.
+
+<TR VALIGN=TOP><TD><CODE>data</CODE>
+<TD>
+an optional data frame in which to interpret the variables occurring
+in <CODE>formula</CODE>.
+
+<TR VALIGN=TOP><TD><CODE>weights</CODE>
+<TD>
+optional case weights in fitting.
+
+<TR VALIGN=TOP><TD><CODE>subset</CODE>
+<TD>
+expression saying which subset of the rows of the data should  be used
+in the fit. All observations are included by default.
+
+<TR VALIGN=TOP><TD><CODE>na.action</CODE>
+<TD>
+a function to filter missing data.
+
+<TR VALIGN=TOP><TD><CODE>contrasts</CODE>
+<TD>
+a list of contrasts to be used for some or all of
+the factors appearing as variables in the model formula.
+
+<TR VALIGN=TOP><TD><CODE>Hess</CODE>
+<TD>
+logical for whether the Hessian (the observed information matrix)
+should be returned.
+
+<TR VALIGN=TOP><TD><CODE>summ</CODE>
+<TD>
+integer; if non-zero summarize by deleting duplicate rows and adjust weights.
+Methods 1 and 2 differ in speed (2 uses <CODE>C</CODE>); method 3 also combines rows
+with the same X and different Y, which changes the baseline for the
+deviance.
+
+<TR VALIGN=TOP><TD><CODE>censored</CODE>
+<TD>
+If Y is a matrix with <CODE>K &gt; 2</CODE> columns, interpret the entries as one
+for possible classes, zero for impossible classes, rather than as
+counts.
+
+<TR VALIGN=TOP><TD><CODE>...</CODE>
+<TD>
+additional arguments for <CODE>nnet</CODE>
+
+</TABLE>
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Description</FONT></h2>
+
+Fits multinomial log-linear models via neural networks.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Value</FONT></h2>
+
+A <CODE>nnet</CODE> object with additional structure.
+<P>
+<TABLE>
+<TR VALIGN=TOP><TD><CODE>deviance</CODE>
+<TD>
+the residual deviance.
+
+<TR VALIGN=TOP><TD><CODE>edf</CODE>
+<TD>
+the (effective) number of degrees of freedom used by the model
+
+<TR VALIGN=TOP><TD><CODE>AIC</CODE>
+<TD>
+the AIC for this fit.
+
+<TR VALIGN=TOP><TD><CODE>Hessian</CODE>
+<TD>
+(if <CODE>Hess</CODE> is true).
+
+</TABLE>
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">See Also</FONT></h2>
+
+<CODE><A HREF="../../nnet/html/nnet.html">nnet</A></CODE><h2><FONT FACE="Courier New,Courier" COLOR="#666666">Examples</FONT></h2>
+
+<PRE>
+options(contrasts = c("contr.treatment", "contr.poly"))
+library(MASS)
+example(birthwt)
+bwt.mu &lt;- multinom(low ~ ., bwt)
+bwt.mu
+Call:
+multinom(formula = low ~ ., data = bwt)
+
+Coefficients:
+ (Intercept)         age         lwt raceblack raceother  
+    0.823477 -0.03724311 -0.01565475  1.192371 0.7406606
+     smoke      ptd        ht        ui       ftv1     ftv2+ 
+  0.7555234 1.343648 1.913213 0.6802007 -0.4363238 0.1789888
+
+Residual Deviance: 195.4755 
+AIC: 217.4755 
+</PRE>
+
+
+
+<p align=center><hr><div align=center><a href="00Index.html">[Package Contents]</a>
+
+</BODY></HTML>

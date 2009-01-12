@@ -1,0 +1,463 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	99.10.14.17.06.11;	author foster;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>No Title</TITLE>
+<META NAME="description" CONTENT="No Title">
+<META NAME="keywords" CONTENT="midterm1">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="midterm1.css">
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/previous_motif_gr.gif">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+ HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+<B><FONT SIZE="+1">Statistics 101: Midterm Exam 1</FONT></B>
+</DIV>
+<P>
+<B>Problem I</B>
+<DL COMPACT>
+<DT><B>A.</B>
+<DD>Since the distance from the median to lower quartile
+<I>Q</I><SUB>1</SUB> is less than the distance from the median to the upper
+quartile <I>Q</I><SUB>3</SUB> this indicates the number of hits is skewed to the
+right. Also the lower whisker is smaller than the upper whisker.
+<DT><B>B.</B>
+<DD>Visually 36 is not above the upper whisker.
+Also 
+<!-- MATH: $IQR=Q_3-Q_1=19-2=17$ -->
+<I>IQR</I>=<I>Q</I><SUB>3</SUB>-<I>Q</I><SUB>1</SUB>=19-2=17 and the upper inner fence is
+
+<!-- MATH: $Q_3+1.5*IQR=44.5$ -->
+<I>Q</I><SUB>3</SUB>+1.5*<I>IQR</I>=44.5. Since 36 is smaller it is not a candidate
+outlier.
+<DT><B>C.</B>
+<DD>The median is higher for recreational than for
+business. Since the box is bigger for recreational it also has
+higher variance. Business and recreational are both skewed to the
+right.
+<DT><B>D.</B>
+<DD>Since 36 is well above the box for business it would
+be candidate outlier. Visually 
+<!-- MATH: $Q_3\sim 12$ -->
+<IMG
+ WIDTH="61" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.gif"
+ ALT="$Q_3\sim 12$">
+and 
+<!-- MATH: $IQR\sim 12$ -->
+<IMG
+ WIDTH="74" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.gif"
+ ALT="$IQR\sim 12$">.
+So
+limit is 
+<!-- MATH: $12+1.5*12=30$ -->
+12+1.5*12=30.
+<DT><B>E.</B>
+<DD><DT><B>(i)</B>
+<DD>The right tail would be pulled in (higher values
+less extreme). This would make the data look symmetric.
+<DT><B>(ii)</B>
+<DD>Since logs preserve order, median of the
+
+<!-- MATH: $\ln (\mbox{ hits }) =\ln(7.5)=2.0149$ -->
+<IMG
+ WIDTH="199" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.gif"
+ ALT="$\ln (\mbox{ hits }) =\ln(7.5)=2.0149$">.
+</DL>
+<P>
+<B>Problem II</B>
+
+<P>
+<DL COMPACT>
+<DT><B>A.</B>
+<DD>Because  <I>B</I> and <I>C</I> are independent, it follows
+that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(A\cup C)={\bf P}(B)+{\bf P}(C)-{\bf P}(B\cap C)={\bf P}(B)+{\bf P}(C)- {\bf P}(B)*{\bf P}(C)
+=.5+.4-.5*.4=.7.
+\end{displaymath} -->
+
+<IMG
+ WIDTH="588" HEIGHT="38"
+ SRC="img5.gif"
+ ALT="\begin{displaymath}{\bf P}(A\cup C)={\bf P}(B)+{\bf P}(C)-{\bf P}(B\cap C)={\bf P}(B)+{\bf P}(C)- {\bf P}(B)*{\bf P}(C)
+=.5+.4-.5*.4=.7.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>B.</B>
+<DD>Since <IMG
+ WIDTH="47" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.gif"
+ ALT="$B\cap A$">
+is a subset of <IMG
+ WIDTH="47" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.gif"
+ ALT="$B\cup C$">
+we get that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(B\cap C|B\cup C)=\frac{{\bf P}(B\cap C)}{{\bf P}(B\cup
+C)}=.2/.7=2/7.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="312" HEIGHT="49"
+ SRC="img8.gif"
+ ALT="\begin{displaymath}{\bf P}(B\cap C\vert B\cup C)=\frac{{\bf P}(B\cap C)}{{\bf P}(B\cup
+C)}=.2/.7=2/7.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>C.</B>
+<DD><DT><B>(i)</B>
+<DD>Since 
+<!-- MATH: ${\bf P}(A\cap B)={\bf P}(B|A){\bf P}(A)=.6*.6$ -->
+<IMG
+ WIDTH="245" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.gif"
+ ALT="${\bf P}(A\cap B)={\bf P}(B\vert A){\bf P}(A)=.6*.6$">
+we find that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\bar{A}\cap\bar{B})=1-{\bf P}(A\cup B)=1-[{\bf P}(A)+{\bf P}(B)-{\bf P}(A\cap B)]=
+1-(.6+.5-.6*.6)=.26.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="555" HEIGHT="38"
+ SRC="img10.gif"
+ ALT="\begin{displaymath}{\bf P}(\bar{A}\cap\bar{B})=1-{\bf P}(A\cup B)=1-[{\bf P}(A)+{\bf P}(B)-{\bf P}(A\cap B)]=
+1-(.6+.5-.6*.6)=.26.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+The different interpretation of this question is possible, so the
+full credit is granted also for the following solution:
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\overline{A\cap B})=1-{\bf P}(A\cap B)=1-.6*.6=.64.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="318" HEIGHT="38"
+ SRC="img11.gif"
+ ALT="\begin{displaymath}{\bf P}(\overline{A\cap B})=1-{\bf P}(A\cap B)=1-.6*.6=.64.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>(ii)</B>
+<DD>Since the probability that C occurs is independent
+of whether A or B occurs  we have that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\bar{C}|\bar{A}\cup\bar{B})={\bf P}(\bar{C})=.6.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="181" HEIGHT="38"
+ SRC="img12.gif"
+ ALT="\begin{displaymath}{\bf P}(\bar{C}\vert\bar{A}\cup\bar{B})={\bf P}(\bar{C})=.6.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Hence,
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(A\cup B\cup C)=1-{\bf P}(\bar{A}\cap\bar{B}\cap\bar{C})=
+1-{\bf P}(\bar{C}|\bar{A}\cap\bar{B}){\bf P}(\bar{A}\cap\bar{B})
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="443" HEIGHT="38"
+ SRC="img13.gif"
+ ALT="\begin{displaymath}{\bf P}(A\cup B\cup C)=1-{\bf P}(\bar{A}\cap\bar{B}\cap\bar{C...
+...f P}(\bar{C}\vert\bar{A}\cap\bar{B}){\bf P}(\bar{A}\cap\bar{B})\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+=1-{\bf P}(\bar{C}){\bf P}(\bar{A}\cap\bar{B})=1-.6*.26=.844.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="298" HEIGHT="38"
+ SRC="img14.gif"
+ ALT="\begin{displaymath}=1-{\bf P}(\bar{C}){\bf P}(\bar{A}\cap\bar{B})=1-.6*.26=.844.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P></DL>
+<P>
+<B>Problem III</B>
+<DL COMPACT>
+<DT><B>A.</B>
+<DD>
+<!-- MATH: ${\bf P}(\mbox{Find on C})$ -->
+<IMG
+ WIDTH="101" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.gif"
+ ALT="${\bf P}(\mbox{Find on C})$">
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rl}
+=&{\bf P}(\mbox{Find on C}|\mbox{Correct submenu on C is chosen
+}){\bf P}(\mbox{Correct submenu on C is chosen})\\=&.7*.9=.63.
+\end{array}
+\end{displaymath} -->
+
+<IMG
+ WIDTH="607" HEIGHT="64"
+ SRC="img16.gif"
+ ALT="\begin{displaymath}\begin{array}{rl}
+=&{\bf P}(\mbox{Find on C}\vert\mbox{Correc...
+...box{Correct submenu on C is chosen})\\ =&.7*.9=.63.
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>B.</B>
+<DD>Using previous result we find that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+{\bf P}(\mbox{Find the page})&=&{\bf P}(\mbox{Find the page}|\mbox{A is
+chosen}){\bf P}(\mbox{A is chosen})\\&&+{\bf P}(\mbox{Find the
+page}|\mbox{B is chosen}){\bf P}(\mbox{B is chosen})\\
+&&+{\bf P}(\mbox{Find the page}|\mbox{C is chosen}){\bf P}(\mbox{C is
+chosen})\\&=&.5*1/3+.56*1/3+.63*1/3=169/300 =0.56(3).
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="526" HEIGHT="121"
+ SRC="img17.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+{\bf P}(\mbox{Find the page})&=&{\bf P}(\m...
+...sen})\\ &=&.5*1/3+.56*1/3+.63*1/3=169/300 =0.56(3).
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>C.</B>
+<DD>The probability of finding the page on A is .5; for
+B this probability is .56; for C it is .63. So search engine C is
+best.
+<DT><B>D.</B>
+<DD>First we note that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+{\bf P}(\mbox{The page is found})&=& {\bf P}(\mbox{A is chosen}\cap\mbox{A
+is accessed}\cap\mbox{The page is found on A})\\&&+{\bf P}(\mbox{B is
+chosen}\cap\mbox{B is accessed}\cap\mbox{The page is found on
+B})\\&&+{\bf P}(\mbox{C is chosen}\cap\mbox{C is
+accessed}\cap\mbox{The page is found on C})\\& =&
+1/3*1*.5+1/3*.9*.56+1/3*.8*.63=1508/3000=.502(6).
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="648" HEIGHT="121"
+ SRC="img18.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+{\bf P}(\mbox{The page is found})&=& {\bf ...
+...&
+1/3*1*.5+1/3*.9*.56+1/3*.8*.63=1508/3000=.502(6).
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+So,
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{A is chosen}|\mbox{The page is
+found})=\frac{1/3*1*.5}{1/3*1*.5+1/3*.9*.56+1/3*.8*.63}=500/1508.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="635" HEIGHT="49"
+ SRC="img19.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{A is chosen}\vert\mbox{The page is
+found})=\frac{1/3*1*.5}{1/3*1*.5+1/3*.9*.56+1/3*.8*.63}=500/1508.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P></DL><B>Problem IV</B>
+<DL COMPACT>
+<DT><B>A.</B>
+<DD>The probability distribution of <I>X</I> is shown below:
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>X</I></TD>
+<TD ALIGN="CENTER">-1000</TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">500</TD>
+<TD ALIGN="CENTER">1000</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.gif"
+ ALT="${\bf P}$"></TD>
+<TD ALIGN="CENTER">.1</TD>
+<TD ALIGN="CENTER">.2</TD>
+<TD ALIGN="CENTER">.2</TD>
+<TD ALIGN="CENTER">.5</TD>
+</TR>
+</TABLE></DIV><DT><B>(i)</B>
+<DD>
+<!-- MATH: ${\bf P}(X>0)=.2+.5=.7.$ -->
+<IMG
+ WIDTH="176" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.gif"
+ ALT="${\bf P}(X>0)=.2+.5=.7.$"><DT><B>(ii)</B>
+<DD>
+<!-- MATH: ${\bf E}(X)=-1000*.1+0*.2+500*.2+1000*.5=500.$ -->
+<IMG
+ WIDTH="390" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.gif"
+ ALT="${\bf E}(X)=-1000*.1+0*.2+500*.2+1000*.5=500.$"><DT><B>(iii)</B>
+<DD>
+<!-- MATH: ${\bf
+Var}(X)=(-1000-500)^2*.1+(0-500)^2*.2+(500-500)^2*.2+(1000-500)^2*.5=400000$ -->
+<IMG
+ WIDTH="676" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.gif"
+ ALT="${\bf
+Var}(X)=(-1000-500)^2*.1+(0-500)^2*.2+(500-500)^2*.2+(1000-500)^2*.5=400000$">Respectively, standard deviation 
+<!-- MATH: $\sigma=\sqrt{400000}$ -->
+<IMG
+ WIDTH="96" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.gif"
+ ALT="$\sigma=\sqrt{400000}$">.
+<DT><B>B.</B>
+<DD><DT><B>(i)</B>
+<DD>
+<!-- MATH: ${\bf P}(X>0)=\displaystyle\int_0^1(x+1)/2\,dx=x^2/4+x/2\Big|_0^1=3/4.$ -->
+<IMG
+ WIDTH="362" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.gif"
+ ALT="${\bf P}(X>0)=\displaystyle\int_0^1(x+1)/2\,dx=x^2/4+x/2\Big\vert _0^1=3/4.$"><DT><B>(ii)</B>
+<DD>
+<!-- MATH: $\displaystyle{\bf E}(X)=\int_{-1}^1x(x+1)/2\,dx=x^3/6+x^2/4\Big|_{-1}^1=1/3.$ -->
+<IMG
+ WIDTH="364" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.gif"
+ ALT="$\displaystyle{\bf E}(X)=\int_{-1}^1x(x+1)/2\,dx=x^3/6+x^2/4\Big\vert _{-1}^1=1/3.$"><DT><B>C.</B>
+<DD>The distribution of daily profits, <I>Y</I>, is given by
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>Y</I></TD>
+<TD ALIGN="CENTER">-1500</TD>
+<TD ALIGN="CENTER">-500</TD>
+<TD ALIGN="CENTER">500</TD>
+<TD ALIGN="CENTER">1500</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.gif"
+ ALT="${\bf P}$"></TD>
+<TD ALIGN="CENTER">.1</TD>
+<TD ALIGN="CENTER">.2</TD>
+<TD ALIGN="CENTER">.2</TD>
+<TD ALIGN="CENTER">.5</TD>
+</TR>
+</TABLE></DIV>
+Hence, 
+<!-- MATH: ${\bf E}(Y)=-1500*.1+-500*.2+500*.2+1500*.5=600.$ -->
+<IMG
+ WIDTH="416" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.gif"
+ ALT="${\bf E}(Y)=-1500*.1+-500*.2+500*.2+1500*.5=600.$">
+<P>
+</DL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html3"
+ HREF="node1.html">About this document ... </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/previous_motif_gr.gif">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+ HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Wenxin Mao</I>
+<BR><I>1999-10-13</I>
+</ADDRESS>
+</BODY>
+</HTML>
+@

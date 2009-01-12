@@ -1,0 +1,124 @@
+\batchmode
+\documentclass[html,htmllist]{article}
+\makeatletter
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x) = \beta_0 + \beta_1 x.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Y_i = \beta_0 + \beta_1 x_i + \epsilon_i.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\epsilon_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline79: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_i - (\beta_0 + \beta_1 x_i)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline83: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_i - (\hat\beta_0 +
+\hat\beta_1 x_i) = y_i - \hat y_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline85: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x) = \beta_0 + \beta_1 x + \beta_2 z\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z=1) = \beta_0 + \beta_1 x + \beta_2 \times 1.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z=1) = \beta_0 + \beta_1 x +  \beta_2.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z=1) = (\beta_0 + \beta_2) + \beta_1 x.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z=-1) = \beta_0 + \beta_1 x +  \beta_2 \times* -1.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z=-1) = \beta_0 + \beta_1 x -  \beta_2.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z=-1) = (\beta_0 -  \beta_2) + \beta_1 x.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline101: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$2 \beta_2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline103: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z) = \beta_0 + \beta_1 x + \beta_2\times z\times x,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x \ge T$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline111: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z) = \beta_0 + \beta_1 x + \beta_2\times 0\times x,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z) = \beta_0 + \beta_1 x,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z) = \beta_0 + \beta_1 x + \beta_2\times 1\times x,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(Y|x,z) = \beta_0 + (\beta_1 + \beta_2) x,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_1 + \beta_2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline127: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline129: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

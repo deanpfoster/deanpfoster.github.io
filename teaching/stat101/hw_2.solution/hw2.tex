@@ -1,0 +1,191 @@
+\documentclass[10pt]{article}
+\usepackage[dvips]{graphicx}
+\setlength{\textheight}{8in}
+\setlength{\textwidth}{6in}
+\setlength{\headsep}{0.4in}
+\setlength{\headheight}{0.1in}
+\setlength{\topmargin}{0in}
+\setlength{\oddsidemargin}{0in}
+\renewcommand{\baselinestretch}{1.5}
+%\pagestyle{empty}
+
+\def\Pr{{\bf P}}
+\def\E{{\bf E}}
+
+\begin{document}
+\begin{center}
+{\bf \large Statistics 101: Homework 2}
+\end{center}
+
+
+{\bf Exercise 1} 
+\begin{itemize}
+\item[\bf a.] If $A$ and $B$ are independent, 
+$$\Pr(A|B)=\Pr(B\mbox{ and }A)/\Pr(A)=\Pr(B)\Pr(A)/\Pr(A)=\Pr(B).$$
+If $A$ and $B$ are independent, then not $A$ and $B$ are independent. So,
+$$\Pr(B|\mbox{not }A)=P(B\mbox{ and not }A)/\Pr(\mbox{not }A)=\Pr(B)\Pr(\mbox{not }A)/\Pr(\mbox{not }A)=\Pr(B).$$
+Since $\Pr(A|B)=\Pr(B)$ and $\Pr(B|\mbox{not }A)=\Pr(B)$, then $\Pr(B|A)=\Pr(B|\mbox{not }A)$.
+\item[\bf b.] First note that
+$$\Pr(\mbox{not }A\mbox{ and }\mbox{not }B)=1-\Pr(A\mbox{ or }B)=1-\Pr(A)-\Pr(B)+\Pr(A\mbox{ and }B).$$
+Since $A$ and $B$ are independent we get that
+$$\Pr(\mbox{not }A\mbox{ and }\mbox{not }B)= 1-\Pr(A)-\Pr(B)+\Pr(A)\Pr(B)$$
+$$=(1-\Pr(A))(1-P(B))=\Pr(\mbox{not }A)\Pr(\mbox{not }B). $$
+\item[\bf c.] Let 
+$$A_1=\{A\mbox{ wins the first match and }A\mbox{ wins the second  match}\},$$
+$$A_2=\{A\mbox{ wins the first match and }B\mbox{ wins the second  match}\},$$
+$$A_3=\{B\mbox{ wins the first match and }A\mbox{ wins the second  match}\},$$
+$$A_4=\{B\mbox{ wins the first match and }B\mbox{ wins the second  match}\}.$$
+We have
+$$\begin{array}{cl}
+\Pr(A_1)&=\Pr(A\mbox{ wins the first match})\Pr(A\mbox{ wins the second  match}|A\mbox{ wins the first match})\\
+       &=0.5*0.6=0.3,
+\end{array}$$
+$$\begin{array}{cl}
+\Pr(A_2)&=\Pr(A\mbox{ wins the first match})\Pr(B\mbox{ wins the second  match}|A\mbox{ wins the first match})\\
+       &=0.5*0.4=0.2.
+\end{array}$$
+Since $\Pr(A_1)+\Pr(A_3)=.5$ ($A$ wins the second match) we get that 
+$\Pr(A_3)=0.2$. Hence, 
+$$\Pr(A\mbox{ wins at least one match})=\Pr(A_1)+\Pr(A_2)+\Pr(A_3)=0.7.$$
+\end{itemize}
+
+{\bf Exercise 2}
+
+\begin{itemize}
+\item[\bf a.] As usual, a good start is to write out the probability information stated in the problem.
+$$\begin{array}{lll}
+\Pr(\mbox{failure})=0.60 & \Pr(\mbox{moderate})=0.30 & \Pr(\mbox{major})=0.10\\
+\Pr(\mbox{poor$|$failure})=0.50 & \Pr(\mbox{fair$|$failure})=0.30 & \Pr(\mbox{good$|$failure})=0.20\\
+\Pr(\mbox{poor$|$moderate})=0.20 & \Pr(\mbox{fair$|$moderate})=0.40 & \Pr(\mbox{good$|$moderate})=0.40\\
+\Pr(\mbox{poor$|$major})=0.10 & \Pr(\mbox{fair$|$major})=0.30 & \Pr(\mbox{good$|$major})=0.60
+\end{array}$$ 
+
+We now that $\Pr(\mbox{failure})=0.60$ and $\Pr(\mbox{poor$|$failure})=0.5$. By the multiplication principle we find
+$$\Pr(\mbox{failure and poor})=0.6*0.5=0.3.$$
+
+Repeating this process for all combination of results and ratings we construct the table of joint probability.
+\begin{center}
+\begin{tabular}{ccccc}
+& & \multicolumn{3}{c}{Panel rating}\\
+& & Poor & Fair & Good\\
+& Failure & 0.30 & 0.18 & 0.12\\
+Result & Moderate & 0.06 & 0.12 & 0.12\\
+& Major & 0.01 & 0.03 & 0.06\\
+\end{tabular}
+\end{center}
+Finally, $$\Pr(\mbox{failure$|$good})=\frac{\Pr(\mbox{ failure and good})}{\Pr(\mbox{good})}=0.12/0.30=0.40$$
+\item[\bf b.] The tree diagram is shown below:\\
+\centerline{\includegraphics{tree.ps}}
+For the first branch of a probability tree, we pick the events that have known unconditional probabilities. In this case, that's the introduction results -- failure, moderate, or major. For the next branches, we use the ratings -- poor, fair, or good -- and insert conditional probabilities given the preceding branch. Multiplying the probabilities on all paths completes the tree.
+
+To find the conditional probability of major given poor, we need 
+$\Pr(\mbox{major and poor})=0.01$ from the seventh path on the tree. Also, 
+$\Pr(\mbox{poor})$ can be obtained by adding the probabilities for all paths including a poor rating. $\Pr(\mbox{poor})=0.3+0.06+0.01=.37$. Thus
+$$\Pr(\mbox{major$|$poor})=0.01/0.37=0.027.$$
+\end{itemize}
+
+{\bf Exercise 3}
+\begin{itemize}
+\item[\empty] Two observations:
+\begin{itemize}
+\item shooting in the air is the same as missing,
+\item if $A$ and $B$ are both alive when $C$ shoots, it is better for $C$ to kill $B$ than $A$.
+\end{itemize}
+ 
+Thus, we get that
+\begin{itemize}
+\item If $A$ shoots in the air
+$$
+\begin{array}{rl}
+\Pr(B\mbox{ wins})&=\Pr(B\mbox{ hits }C)\Pr(A\mbox{ misses } B)\Pr(B\mbox{ hits } A)=0.5*0.7*0.5=0.175,\\
+\Pr(C\mbox{ wins})&=\Pr(B\mbox{ misses }C)\Pr(C\mbox{hits } B)\Pr(A\mbox{ misses }C)\Pr(C\mbox{ hits}A)\\
+&=0.5*1*0.7*1=0.35,\\
+\Pr(A\mbox{ wins})&=\Pr(B\mbox{ hits }C)\Pr(A\mbox{ hits } B)+\Pr(B\mbox{ misses } C)\Pr(C\mbox{ hits }B)\Pr(A\mbox{ hits }C)\\
+&=0.5*0.3+0.5*1*0.3=0.30,\\
+\Pr(\mbox{no one wins})&=\Pr(B\mbox{ hits }C)\Pr(A\mbox{ misses } B)\Pr(B\mbox{ misses } A)=0.5*0.7*0.5=0.175.
+\end{array}$$
+\item If $A$ shoots at $B$
+$$\Pr(A\mbox{ wins})=\Pr(A \mbox{ misses } B)\Pr(A\mbox{ wins if $A$ shoots in air })=0.7*0.3=0.21.$$ 
+\item If $A$ shoots at $C$
+$$\Pr(A\mbox{ wins})=\Pr(A\mbox{ hits }C)\Pr(B\mbox{ misses } A)\Pr(A\mbox{ hits }B)$$
+$$+\Pr(A\mbox{ misses } C)\Pr(A\mbox{ wins if $A$ shoots in air })=0.3*0.5*0.3+0.7*0.3=0.255.$$
+\end{itemize}
+Since $0.3>0.21$ and $0.255$ it is best for $A$ to shoot in the air. And respectively, $\Pr(A\mbox{ wins})=0.3$; $\Pr(B\mbox{ wins})=0.175$; $\Pr(C\mbox{ wins})=0.35$;  $\Pr(B\mbox{ wins})=0.175$.
+\end{itemize}
+
+{\bf Exercise 4}
+\begin{itemize}
+\item[\bf a.] We must take into account not only the number of deductions, but also the frequencies. We could simply use the definition of the mean. Add up 0 201 times, 1 287 times, and so on, then divide by the total frequency. Or we could regard the data as grouped. In either case
+$$\bar{y}=\frac{0*201+1*287+\cdots+12*3}{201+287+\dots+3}=2.477.$$
+
+By calculator, $s=1.834$. Because there are 1533 observations, it would make virtually no difference whether we divided by $n$ or $n-1$. In fact, calculations show $\sigma=1.833$, calculated by dividing by $n$.
+
+Recall that about 68$\%$ of the data should fall within one standard deviation of the mean. The range $\bar{y}\pm s$ is 0.643 to 4.311. It includes the values 1, 2, 3, and 4 and contains 1134 observations. This is 1134/1533=0.740 or 74$\%$ of the data. The Empirical Rule works surprisingly well, despite the skewness of the data.
+\item[\bf b.] There is 1533 forms, of which 1332 claim at least 1 deduction.
+$$\Pr(\mbox{at least 1 deduction})=1332/1533=0.869.$$
+
+We note that 287+364+332=983 forms claim at least 1 and at most 3 deductions, so
+$$\Pr(\mbox{at most 1$|$at least 1})=\frac{\Pr(\mbox{at most and at least 1})}{\Pr(\mbox{at least 1})}=\frac{983/1533}{1332/1533}=0.738.$$
+Alternatively, there are 1332 forms with at least one deduction, of which 983 claim at  most three deductions. Therefore,
+$$\Pr(\mbox{at most 1$|$at least 1})=\frac{983}{1533}=0.738.$$
+\end{itemize}
+
+{\bf Exercise 5}
+\begin{itemize}
+\item[\bf a.] Because the firm holds 30$\%$ of the market, we assume that the probability of winning any one bid is 0.30. The company can win $y=3,2,1, \mbox{ or } 0$ bids. To have $Y$ come out equal to 3, the company must win all the bids.
+$$\Pr(Y=3)=\Pr(WWW)=0.3*0.3*0.3=0.027.$$
+Similarly,
+$$\Pr(Y=0)=\Pr(LLL)=0.7*0.7*0.7=0.343.$$
+The event $Y=1$ can occur in three different ways, corresponding to the choice of which of the three bids wins.
+$$\Pr(Y=1)=\Pr(WLL)+\Pr(LWL)+\Pr(LLW)=0.3*0.7*0.7+0.7*0.3*0.7+0.7*0.7*0.3=0.441.$$
+Similarity,
+$$\Pr(Y=2)=\Pr(WWL)+\Pr(WLW)+\Pr(LWW)=0.189.$$
+
+We assumed that the probability of winning was the 0.3 on all three bids and that whether or not one bid won didn't change the probability that any other bid would win. If there are no systematic difference among the bids, we can't think of any reason why the probability would change. Barring  collusion, there's no obvious reason for dependence, either. The assumptions seem at least fairly reasonable.
+  
+\item[\bf b.] $$\E(Y)=0*\Pr(Y=0)+\cdots+3*\Pr(Y=0)=0.9$$
+and
+$$\mbox{Var}(Y)=0^2*(0.343)+1^2*(0.441)+2^2*(0.189)+3^2*(0.027)-(0.9)^2=0.63.$$
+\item[\bf c.] The expected value shouldn't change. On average, the company 
+should still win 30$\%$ of all its bids, and 30$\%$ of 3 is 0.9, as we found 
+in the the previous exercise.  What should change is the variance. The 
+statement of the exercise indicates that there's higher probability that the 
+company will either win all its bids or lose all its bids, that is, that $Y$ 
+will come out either 3 or 0. Therefore, there must be a smaller probability 
+that Y will come out 1 or 2. If there is higher probability on the more 
+extreme values, the variance must be larger.
+\end{itemize}
+
+{\bf Exercise 6}
+\begin{itemize}
+\item[\bf a.] The value of $Y_1$  depends on the number of Reds on four consecutive rolls. This number  has a binomial distribution. The probability distribution of $Y_1$ is shown below:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline       
+$Y_1$ & 0    & 16   & 32   & 48   & 64 \\
+\hline
+$\Pr$  & 1/16 & 4/16 & 6/16 & 4/16 & 1/16\\
+\hline
+\end{tabular}
+\end{center}
+\item[\bf b.] We lose only if we get five Reds in  a row, otherwise we win 1 dollar. The probability distribution of $Y_2$ is shown below:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline       
+$Y_2$ & 1    & 33\\
+\hline 
+$\Pr$  & 1/32 & 31/32\\
+\hline
+\end{tabular}
+\end{center} 
+\item[\bf c.] First criterion: Expected Value. Both have expectation of $\$$32, so same on this criterion.
+
+Second criterion: Median. Median of $Y_1$ is 32 but  median of $Y_2$ is 33, so $Y_2$ is better.
+
+\end{itemize}
+
+\end{document}
+
+
+
+

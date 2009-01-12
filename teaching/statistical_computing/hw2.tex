@@ -1,0 +1,76 @@
+\documentstyle[12pt]{article}
+\renewcommand{\baselinestretch}{1.2}
+\begin{document}
+\centerline{\bf Statistical computing: Homework 2}
+
+\vspace{2ex}
+
+This second homework is due Monday, Jan 26th.  All these should be
+programmed using a functional programming style and written up carefully.
+
+\begin{enumerate}
+\item Code up the bisection algorithm for finding $f(x) = 0$.  It
+should accept a function and a range and find where the function
+crosses zero in that range.  If the function evaluated at the
+end-points both have the same sign, then the algorithm should call
+{\tt stop(``Function might not have a zero.'')}.
+\begin{enumerate}
+\item Test your root finder with $f_1(x) = x^3 - 8$, and $f_2(x) =
+10^{-30}x - 1$ and $f_3(x) = \cos(x) + x$, and $f_4(x) = \cos(x) + 2$
+and $f_5(x) = \sin(x)$ for $x$ in $[3,4]$.  Finally, try your function
+on $I(x>1) - .5$ for the interval $[0,2]$.  Does it do the right thing?
+\item Write a function what will accept as input one function $f$ and will
+find a value $M$ such that $f(-M)f(M) \le 0$.  In other words, if $f$
+is continuous there will be a zero somewhere in the interval $[-M,M]$.
+Try to come up with an input function for force $M$ to be very large.
+\item Write a function called {\tt root} that will accept as input a
+function and return a zero of that function or an error condition.
+\item Write a function called {\tt solve} that will accept as input a
+function $f$ and a value $y$ and will return an $x$ such that $f(x) = y$.
+\item Test your two new functions.  In writing your test functions try
+to come up with ones that will break it.  Special conditions are
+always good.  Extreme cases.  Illegal inputs etc.
+\end{enumerate}
+
+\item The following Splus defintion will compute numerical
+derivatives (recall $f' \approx \frac{f(x+h) - f(x)}{h}$):
+ 
+{\tt d <- function(f) \\
+\{ substitute( function(x) (f(x+.001)-f(x))/.001 ) \}
+}
+
+The above function will take a function $f$ and return a numerical
+approximation to $f'$.
+\begin{enumerate} 
+\item Compute the derivative of the $\sin()$ function and plot it.
+\item Try this again with values of ``$h$'' set at $10^3$, $10^{-0}$,
+$10^{-3}$, $10^{-6}$, $10^{-9}$, $10^{-12}$, $10^{-15}$, $10^{-18}$.
+Which value seems to work best?  
+\item Compute the 4th derivative of the $\sin()$ function and plot
+it for the various values of $h$.  What seems optimal now?
+\item Combine this derivative function with your root finder from the
+previous problem to find the arg-max of $\sin(x)$.
+\item Write a function {\tt arg-max()} that will take as input a
+single function and find the location of the maximum point.
+\item Write a function {\tt max()} that will compute maximum of a
+function that is passed in.
+\item Test your function on various cases.
+\item Try your function on $f(x) = x^2$.  What does it do?  
+\end{enumerate}
+\item Consider a random walk that takes steps forward of size $f$ and
+backwards of size $b$ with equal probability.  In other words,
+$P(X_{t+1} = X_t + f)$ = $P(X_{t+1} = X_t -b$ = $1/2$.  We are
+interested in computing $E(g(X_t)|X_0=x_0)$.  Write an Splus function
+called {\tt E} that accepts a function $g$, a time $t$, a starting
+position $x_0$, and the forward and backward steps, $f$ and $b$ and
+returns the expected value of $E(g(X_t)|X_0=x_0)$.  You should use
+recursion and functional programming.  Try your function with $f =
+1.1$, $b = -1$, $t = 5$, $x_0 = 100$ and $g(x) = \max(x-100,0)$.  
+
+If you think of $X_t$ as the stock price at time $t$ then you have
+just computed the value of a ``at the money'' call option (or is it a
+put option?).  Rerun it for various values of $x_0$ and make a plot
+the expectation vs the starting point.  Comments?
+\end{enumerate}
+\end{document}
+

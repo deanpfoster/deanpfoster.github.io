@@ -1,0 +1,66 @@
+<html>
+<header>
+<title>  Statistics 701: CAPM</title> 
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 701: CAPM from a statistical perspective</h1></center>
+
+
+
+<H2>Summary so far</h2>
+<ul>
+  <li> Ponzironi 1: Bonferonni p-value = n * regular p-value.
+  <li> Ponzironi 2: Unseen crashes can be delt with by adding 3 of them to your data.
+  <li> Ponzironi 3: Correct for risk since variance matters.
+</uL>
+
+<H2>Optimal investing</h2>
+<ul>
+  <li> long run growth rate = mean - variance / 2
+  <li> optimizing LRGR:
+<p>
+       <ul>
+	 <li> How leveraged should one be?
+	 <li> mean = alpha * (mean - RiskFreeRate)
+	 <li> varinace = alpha<sup>2</sup> variance
+	 <li> optimize a quadratic: -b/2a
+	 <li> Market details
+	      <p>
+	      <ul>
+		<li> If we put w fraction of wealth in market
+		<li> mean is .07w
+		<li> SD is (.22w)
+		<li> Variance is (.22w)<sup>2</sup>
+		<li> goal: maximize .07 w - .22<sup>2</sup>w<sup>2</sup>/2
+		<li> optimize a quadratic: -b/2a = (-.07)/(-2*.22<sup>2</sup>/2) = 1.44
+		<li> Slightly leveraged
+	      </ul>
+	      <p>
+	 <li> optimum investment: alpha = (mean - RiskFreeRate)/variance
+	 <li> Units work out since everything is in returns
+       </ul>
+<p>
+  <li> Look at stock market
+<p>
+       <ul>
+	 <li> look at whole series (find annual mean and variance)
+	 <li> look at recient series
+	 <li> figure out optimal investment
+	 <li> compute LRGR and do it empirically
+       </ul>
+       <p>
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Oct 22 13:07:36 2002
+<!-- hhmts end -->
+</em>
+</body>
+
+</html>
+

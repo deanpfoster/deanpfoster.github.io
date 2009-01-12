@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter III.6: Branching processes</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Midterm this Wednesday
+  <li> Questions from the homework?
+</ul>
+
+<h1>Multiplying matrixes</h1>
+<ul>
+  <li> Read section III.7 before next time
+  <li> Submatrices: P = ((Q R) (0 I)).
+  <li> How to multiply them out?
+  <li> Cool fact: you can treat as 2x2 matrix.
+  <li> P to power involves q to power a sum of q to powers
+  <li> Review summing p-series.
+</ul>
+<h2>W = mean number of visits</h2>
+<ul>
+  <li> W = sum P<sup>i</sup>
+  <li> For our matrix: one piece is "finite" the other is "infinite"
+  <li> Save out the finite part: call it our W of interest
+  <li> Expected number of visits to each state
+  <li> Can be used to compute almost everything!
+</ul>
+<h2>Passing to the limit</h2>
+<ul>
+  <li> For the finite part, we can pass to the limit
+  <li> W = I + QW
+  <li> Interpret as a first step analyses (or n-squared first step analyses)
+  <li> Give explicit solution: W = (1 - Q)<sup>-1</sup>
+</ul>
+<h2> Computing number of visits W</h2>
+<ul>
+  <li> W<sub>ij</sub> = E(number of hits to j starting from i)
+</ul>
+<h2>Computing hitting probabilities with W</h2>
+<ul>
+  <li> WR = hitting probabilities
+  <li> Do as a first step analysis
+</ul>
+</h2>Computing last state before absorbtion with W</h2>
+<ul>
+  <li> Just change the matrix so the absorbing states keep track of
+       the last state visited.
+</ul>
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Feb 23 13:12:42 EST 2004
+<!-- hhmts end -->
+</body> </html>

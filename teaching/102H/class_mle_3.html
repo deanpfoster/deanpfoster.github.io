@@ -1,0 +1,121 @@
+<html>
+<header>
+<title> Statistics 102H: MLE's (Statistical Inference by S. D. Lilvey</title>
+</header>
+<body>
+<center>
+<h1>Statistics 102H: MLE's (Statistical Inference by S. D. Lilvey</title>
+</center>
+<p>
+
+<h2>Administrivia</h2>
+
+<ul>
+  <li> data analysis due today
+  <li> I'll quickly read over your analysis to see if there are any
+       MAJOR statistical prolbem.  If you have any minor statistical
+       issues, please not them on the cover and I'll email you a
+       response.
+  <li> We will not cover sections 4.3 and 4.7 of handout
+  </ul> <hr>
+
+<h3>Review: taking the deravitives</h3>
+
+  log(likelihood) = l(theta<sub>0</sub>) + l'(theta<sub>0</sub>)
+  (theta - theta<sub>0</sub>) + l''(theta<sub>0</sub>) (theta -
+  theta<sub>0</sub>)<sup>2</sup>
+  <ul>
+    <li> first derivative is called the score
+    <li> it can be expanded as a sum of derivatives of each term
+    <li> second dervative is called the Fisher Information
+    <li> It typically acts like a constant (i.e. it doesn't depend
+	 very much on the data itself.)
+  </ul>
+
+<h3>First useful example</h3>
+<ul>
+  <li>Suppose there are outliers in the data
+  <li> You can handle it using ideas of the first part of hte course
+  <li> Now lets do it carefully.
+  <li> Need a distribution that generates outliers: Cauchy
+  <li> Compute the score (i.e. use mathematica)
+
+<tt><pre>
+       In[31]:= f[t_]
+
+                      1
+       Out[31]= -------------
+                            2
+                1 + (x - t_)
+
+       In[32]:= l[t_]
+
+                          1
+       Out[32]= Log[-------------]
+                                2
+                    1 + (x - t_)
+
+       In[33]:= l'[t_]
+
+                 2 (x - t_)
+       Out[33]= -------------
+                            2
+                1 + (x - t_)
+
+       In[34]:= l''[t_]
+
+                                            2
+                     -2           4 (x - t_)
+       Out[34]= ------------- + ----------------
+                            2                2 2
+                1 + (x - t_)    (1 + (x - t_) )
+</pre>
+</tt>
+       
+
+  <li> Notice: large values are down-weighted!  Just like you do when
+       you remove them!
+</ul>
+
+<h3>Major theorems</h3>
+THe major theorems are:
+<ul>
+  <li> consistency (section 4.4 and 4.5): theta-hat --> theta (in prob)
+  <li> efficiency (section 4.6): hits Cramer-Rao lower bound
+  <li> normality  (section 4.6): P(theta-hat < z) --> normal distribution
+</ul>
+The intepretation of these is the key thing:
+<ul>
+  <li> consisitency: MLE will be with in spitting distance of the
+       truth.  IN other words, it won't be fooled into an alternative
+       global minimum.
+  <li> efficiency: No other estimatory that is different than the MLE
+       has a lower standard error
+  <li> normaility: once you compute the MLE, you can use the
+       Z-statistics to give CI's and hypothesis testing.
+</ul>
+
+
+<hr>
+
+<h2><a href="homework.html">Homework</a></h2>
+<ul>
+  <li> Page 84 of handout:
+       <ul>
+	 <li> 4.1 just compute the MLEs for each case
+	 <li> 4.2
+	 <li> 4.3 (skip the "not idenifiable" part)
+	 <li> 4.6 (skip simple approximation)
+	 <li> BONUS: 4.7 is hard!  It requires doing some geometry.
+       </ul>
+</ul>
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Apr 21 08:23:28 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

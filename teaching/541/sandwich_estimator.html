@@ -1,0 +1,111 @@
+<html>
+<header>
+<title>  STAT 541: Sandwich Estimator</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Sandwich Estimator </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> 
+</ul>
+
+<h2> Car data example</h2>
+
+Example: <a href="car89.jmp">Car data</a>.
+
+
+<h2> Sandwich Estimator</h2>
+
+<h4>The problem</h4>
+<ul>
+  <li> heteroskedasticity = fan shaped residuals
+  <li> usual estimator is "consistent." (Like who cares?)
+  <li> SEs are wrong! (Now this is important.)
+  <li> Hypothesis-tests are wrong, CIs are wrong
+  <li> Even Bonferonni doesn't work!
+</ul>
+<h4>Example</h4>
+<ul>
+  <li> Suppose X mostly equals zero and sometimes equals 1
+  <li> Suppose Y = iid N(0,1)
+  <li> slope estimate = Y at (X =1)
+  <li> Suppose it is heteroskadastic, small variance at zero large at
+       one
+  <li> high probably of looking significant, having incorrect SEs,
+       making bad predictions.
+</ul>
+<h4>First solution: weighted least squares</h4>
+(Myers:7.1)
+<ul>
+  <li> suppose Y<sub>i</sub> = X<sub>i</sub> beta + sigma<sub>i</sub> Z<sub>i</sub>
+     instead of Y<sub>i</sub> = X<sub>i</sub> beta + sigma Z<sub>i</sub>
+  <li> Then Y<sub>i</sub>/sigma<sub>i</sub>  = X<sub>i</sub>/sigma<sub>i</sub>  beta + Z<sub>i</sub>
+  <li> But this is homoskadastic and we are done
+  <li> Where do the sigma<sub>i</sub>'s come from?
+       <p>
+       <ul>
+	 <li> theory hopefully
+	 <li> estimation possibly.  E.g. fit model to
+	      Y<sub>i</sub><sup>2</sup>, or (Y<sub>i</sub> -
+	      Y-hat)<sup>2</sup>.  Then use predictions from this
+	      model to weight regression. 
+       </ul>
+</ul>
+<h4>Second solution: Sandwich estimator.</h4>
+(White 1980, Long and Ervin 2000)
+<ul>	      
+  <li> Use usual LS estimators for Y
+  <li> beta-hat = (X'X)<sup>-1</sup>X'Y
+  <li> So var(beta-hat) = (X'X)<sup>-1</sup>X' var(Y<sub>i</sub>)
+       X(X'X)<sup>-1</sup>
+  <li> Called sandwich estimator since the variance of Y is sandwiched
+       between the two inverses.
+  <li> Consistent for true variance of beta-hat
+</ul>
+<h4>example revisited</h4>
+(Foster Stine 2001)
+<ul>
+  <li> Suppose you fit then compute variance
+  <li> Oops!  zero variance estimate at (X = 1)
+  <li> Better is compute variance, THEN fit
+</ul>
+<h4>Third solution: Use both! </h4>
+<ul>
+  <li> First change by doing weighted least squares
+  <li> Then use sandwich on resulting Y's
+  <li> If your weights are wrong, you should still get good results.
+</ul>
+
+</ul>
+<p>
+<hr>
+Foster, D. P. and Stine, R. A. (2001) "Variable selection in data
+mining: Building a predictive model for bankruptcy." <a href="../../research/vita.html">
+preprint</a>.
+<p>
+Long, J. S. and Ervin, L. H. (2000), "Using heteroscedastic consistent
+standard errors in the linear regression model," American
+statistician, 54, 795 - 806.
+<p>
+White (1980) "A heteroscedastic-consistent covariance matrix estimator
+and a direct test of heteroskedasticity," Econometrica, 48, 817 - 838.
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Feb 20 08:44:47 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

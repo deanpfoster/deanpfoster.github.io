@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\renewcommand{\baselinestretch}{1.3}
+\begin{document}
+\section*{The correct finish to the proof}
+
+Suppose $X_1$, $X_2$, $\ldots$, $X_n$ form a martingale, and $X_i \ge
+0$ for all $i$.  then 
+\begin{displaymath}
+P(\max_{i=1,n} X_i \ge \lambda) \le E(X_1)/\lambda.
+\end{displaymath}
+
+Proof:
+Here is what we did in class:
+\begin{eqnarray*}
+P(\max_{i=1,n} X_i \ge \lambda) 
+& = & \sum_{i=1}^n P((X_i \ge \lambda) \cap (X_j < \lambda \hbox{ for $j < i$})) \\ 
+& = & \sum_{i=1}^n E(I_{(X_i \ge \lambda) \cap (X_j < \lambda \hbox{ for $j < i$})}) \\ 
+& \le & \sum_{i=1}^n E((X_i/\lambda) I_{(X_i \ge \lambda) \cap (X_j <
+\lambda \hbox{ for $j < i$})}) 
+\end{eqnarray*}
+Now we need to condition the other direction than I was conditioning
+in class.  So we need to use that $E(X_m|X_1,X_2,\ldots,X_i) = X_i$.
+\begin{eqnarray*}
+P(\max_{i=1,n} X_i \ge \lambda) &\le & \ldots \\
+& = & \sum_{i=1}^n E\left(E\left(X_m|X_1,X_2,\ldots,X_i\right)/\lambda I_{(X_i \ge \lambda) \cap (X_j <
+\lambda \hbox{ for $j < i$})}\right) \\
+& = & \sum_{i=1}^n E\left(E\left(X_m/\lambda I_{(X_i \ge \lambda) \cap (X_j <
+\lambda \hbox{ for $j < i$})}\right)\right) \\
+& = &  E\left(E\left((X_m/\lambda) \sum_{i=1}^n  I_{(X_i \ge \lambda) \cap (X_j <
+\lambda \hbox{ for $j < i$})}\right)\right) \\
+& \le &  E(E(X_m/\lambda))  =  E(X_m/\lambda) = E(X_1)/\lambda
+\end{eqnarray*}
+
+NOTE: This is basically the proof that is given in the book, but
+working backwards.
+\end{document}

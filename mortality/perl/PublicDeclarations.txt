@@ -1,0 +1,48 @@
+Option Explicit
+
+Public Sheet1
+
+Dim I As Integer
+Dim AllScale(1 To 120) As Double
+Dim CancerScale(1 To 120) As Double
+Dim YourSex As Integer
+Dim YourAge As Integer
+Dim YourRace As Integer
+Dim YourHeight As Double
+Dim YourBMI As Double
+Dim YourEducation As Integer
+Dim YourIncome As Long
+Dim YourMaritalStatus As Integer
+Dim YourFitness As Integer
+Dim FamilyHeartDiseases As Integer
+Dim FamilyProstate As Integer
+Dim FamilyBreast As Integer
+Dim FamilyColorectal As Integer
+Dim FamilyStomach As Integer
+Dim FamilyLung As Integer
+Dim FamilyDiabetes As Integer
+Dim FamilyStroke As Integer
+Dim YourGeography As Integer
+Dim YourAIDSDiagnosis As Integer
+Dim YourAIDSAZT As Integer
+Dim YourAIDSPCP As Integer
+Dim YourAsthma As Integer
+Dim YourDiabetes As Integer
+Dim YourBloodPressure As Integer
+Dim YourSmoking As Integer
+Dim YourSpouseSmoking As Integer
+Dim YourAlcohol As Integer
+Dim YourDriverSex As Integer
+Dim YourDriverAge As Integer
+Dim YourDriverBelt As Integer
+Dim YourDriverSpeed As Integer
+Dim YourDriverAlcohol As Integer
+Dim YourStress As Integer
+Dim YourExercise As Integer
+Dim YourOccupation As Integer
+Dim YourOccupationClass As Integer
+Dim YourNutrition As Integer
+Dim YourFatIntake As Integer
+Dim YourDepression As Integer
+Dim YourCondomUse As Integer
+Dim YourSleep As Double

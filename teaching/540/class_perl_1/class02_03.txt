@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+
+### Program to illustrate various control structures.
+
+### The "for" and "if" statements.
+
+
+for($i = 0; $i < 30; $i++){
+    if(( $i % 2) == 0){
+	print $i, " is an even number!\n";
+    }
+}
+
+
+
+

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Intrinsically large data</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Oct 20 11:26:25 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Intrinsically large data (aka graphs)</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Homework 3 is due next week.  Any questions on it so far?
+</ul>
+
+<h2>n large is often not a problem</h2>
+<ul>
+   <li> Database people say, "big data is that which doesn't fit in
+memory."
+   <li> When do we have big data in statistics?
+   <li> If n is large we can subsample to generate resonable sized data
+   <li> Random sampling is unbiased
+      <ul>
+      <li> Larry does this in his call center data
+      <li> loses signal, so only finds big stuff
+      </ul>
+   <li> Sampling on Y can be more efficient
+      <ul>
+      <li> Simillar to matched data in obseravational studies
+      <li> If many "no"'s and few "yes"'s use subsample of "no"'s and
+all the "yes"
+      <li> Eg: direct marketing, fraud detection, targeted advertisements
+      </ul>
+</ul>
+
+<h2>When isn't sampling available?</h2>
+<ul>
+   <li> Graph like data can't be sub-sampled
+   <li> examples:
+      <ul>
+      <li> Citation graph (our working example)
+      <li> Wikipedia
+      <li> WWW links
+      <li> phone call database (long distance say)
+      </ul>
+   <li> Must keep everything in database
+   <li> But not our problem--we only need a vector to represent each X
+</ul>
+
+<h2>Model: Stat engine attached to database query engine</h2>
+<ul>
+  <li> Try to keep things seperate as much as possible
+  <li> query database for a vector of X's
+  <li> Collect up a bunch of X's and drop them into a statistical
+model
+  <li> Now we don't have to learn data structures, database
+optimizations, etc.  Leave that to the computer scientists
+  <li> But we do need to understand the interface.
+</ul>
+
+
+<h2>What do graph variables look like?</h2>
+<ul>
+   <li> easy stuff: Cites(x,y), author(a,b)
+   <li> meta-cites(a,b) = sum cites(a,x) cites(x,b)
+   <li> selfcites(a) = sum(x,y) author(a,x) and cites(a,y) and author(y,x)
+   <li> Lots of similar variables
+</ul>
+
+<h2>Searching an infinite set of variables</h2>
+<ul>
+   <li> Can't list them all like regular regression
+   <li> Need a way of walking through them one at at time
+   <li> Think of building them up from more primative ones
+</ul>
+<h2>Search methods</h2>
+<ul>
+   <li> Model: finding solution to 16 puzzle
+      <ul>
+      <li> history: reverse order of tiles
+      <li> All the rage in 1700's
+      <li> Easy to prove it is impossible
+      </ul>
+   <li> Depth first search
+     <ul> Nice recursive structure
+     <ul> Can get carried away
+    </ul>
+   <li> Breadth first search
+     <ul>
+     <li> Doesn't use topology of variables
+     <li> lots of memory
+     </ul>
+   <li> A* algorithm
+     <ul>
+     <li> Guess where you are so far
+     <li> Expand the best node first
+     <li> Will find answer if A* is bound on remaining search depth
+     </ul>
+   <li> Itterative deaping A* (IDA)
+     <ul>
+     <li> Cool trick: Top of tree is small, so just recompute it!
+     </ul>
+</ul>
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

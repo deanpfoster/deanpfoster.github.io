@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: LS using RKHS</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Nov 17 14:54:29 EST 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: LS using RKHS</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> I'm still missing a fair bunch of homework
+</ul>
+
+<h2>Least squares using RKHS</h2>
+<ul>
+   <li> In general, spans whole space
+   <li> Hence, y = y-hat at observed points
+   <li> How about at other points?
+   <li> Requires looking at constrained minimization: minimize
+beta<sup>2</sup> such that (y - x*beta)<sup>2</sup> < target
+   <li> So how does it do for near by points?
+   <li> Draw some polynomial pictures as examples
+   <li> YIKES! Thats not good.
+</ul>
+<h2>Regularization</h2>
+<ul>
+  <li> Do Legrandian of above: minimize beta<sup>2</sup> + lambda(SSE
+- target)
+  <li> Equavalently: minimize SSE*sigma<sup>-2</sup> +
+beta<sup>2</sup>*tau<sup>-2</sup>
+  <li> Sometimes called the MAP estimator (Maximum Apostory) in
+Bayesian world view
+     <ul>
+     <li> Suppose beta is normal(0,tau<sup>2</sup>)
+     <li> Joint distribution is: P(Y|beta)P(beta)
+     <li> Maximizing this over beta generates result
+     <li> Do maximization: beta-hat = MLE/(1 + sigma<sup>2</sup>/tau<sup>2</sup>)
+     </ul>
+  <li> Version of shrinkage.
+  <li> NOTE: distance function makes big difference
+</ul>
+<h2>Optimal regularization</h2>
+<ul>
+  <li> Best tau is |beta|
+     <ul>
+     <li> PROOF: minimize E(alpha Y - mu)<sup>2</sup>
+     </ul>
+  <li> Hence we need to estimate |beta|
+  <li> Bayesian method: Place a prior over it
+  <li> Unbiased estimate: |beta-hat|<sup>2</sup> - p sigma<sup>2</sup>
+</ul>
+
+<h2>Regularizing over subspaces</h2>
+<ul>
+   <li> Y = beta X1 + gamma X2
+   <li> X1, X2 both RKHS or other large spaces
+   <li> No reason to believe that beta and gamma are same size
+   <li> So estimate size seperately.
+</ul>
+<h2>Why not divide them up even more?</h2>
+<ul>
+   <li> As you divide up the X's in to smaller groups, estimating the
+shrinkage parameter gets harder
+   <li> Increase in quadradic error is by a factor of 1 + 1/d, where d
+is the number of dimension in a bin
+   <li> Potential improvement is factor of 1/k, where k is number of
+bins.
+   <li> This is the idea of Tony's "Block coding" in wavelet domain
+</ul>
+
+<h2>Limit: dividing up in to single variables</h2>
+<ul>
+   <li> Stepwise regression once again
+   <li> Inefficient if we can find strength to borrow from
+   <li> But "only" off by a constant factor
+</ul>
+
+
+ <hr>
+<address>dean@foster.net</address>
+</body> </html>

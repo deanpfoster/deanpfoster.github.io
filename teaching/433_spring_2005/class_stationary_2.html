@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter IV.2: Models</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Midterms look great!
+  <li> Read p 215 - 223.
+</ul>
+
+<h1>Models</h1>
+<h2>Double stochastic</h2>
+<ul>
+  <li> Row sums and column sums are both 1
+  <li> What is the stationary distribution? Uniform!
+  <li> Generalization of "reversable"
+  <li> All of physics is reversable
+  <li> Hence: the world will evolve to a uniform distribution
+  <li> Strong links to 2nd law of thermodynamics	
+</ul>
+
+<h2>2 step Markov instead of 1 step</h2>
+<ul>
+  <li> Build in history
+  <li> Simple model of depression: Happy, Sad.
+  <li> If "sad" twice in row, much more likely to be "sad" following
+       time.
+  <li> We could call this a new name "depressed".
+  <li> Fraction happy is (H,S) + (H,H).  NOTE: this is the same as
+       (H,H) + (H,S).
+</ul>
+<h2>Sampling plans</h2>
+
+<ul>
+  <li> Two manufacturing policies:
+     <ul>
+      <li> cross fingers and hope for the best
+      <li> sample every item and fix those that are broken
+     </ul>
+  <li> Each has its advantages
+  <li> But, doing the wrong one is an expensive mistake
+  <li> How about we dynamically switch back an forth?
+  <li> Model:
+    <ul>
+    <li> Each item has probability p of being defective
+    <li> We will switch from sampling at rate 1/r, to complete
+         sampling.
+    <li> One defective --> switch to complete sampling
+    <li> k nondefectives --> switch to random sampling
+    <li> What does the limiting behavior look like?
+    <li> Sampling increase as defects increase
+    <li> Maximum error rate is bounded
+    <li> All can be exactly computed (see page 218-220)
+    </ul>
+</ul>
+   
+
+
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Mar  3 09:19:23 EST 2004
+<!-- hhmts end -->
+</body> </html>

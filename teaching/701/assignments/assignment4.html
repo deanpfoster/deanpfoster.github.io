@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+</head>
+
+<body>
+<h1></h1>
+
+
+Assignment #4
+
+<p>
+This assignment builds a regression tree for the amount spent by
+customers who visit amazon.com and purchase an item in the video games
+category. The following questions thus resemble those considered in
+class.  In that example, we built a regression tree for the amount
+spent on toys; only the purchase type has changed.  As in that example,
+amazon.com would like to understand the demographic characteristics of
+customers; in particular, it would like to know which segments
+of customers buy heavily and which purchase relatively small amounts.
+It would also like to learn whether customers coming from the various
+referring sites are similar, or perhaps learn whether referrals from
+some sites generate larger sales.
+
+<p>
+
+NOTE: Answer all the questions as briefly as you can.  Unlike
+previous exercises which emphised communcation skills, the purpose of
+this exercise is to expose you to trees.  
+
+<ol>
+
+<li> Extract the video game purchasers from the amazon_baskets.jmp
+file.  Place these in a separate file (which should have 545 rows).
+From these 545, reserve a validation sample of 145 cases, leaving the
+other 400 for estimation.  Conclude this step by showing a comparison
+of the amount spent on video games in the two samples; in particular,
+are there significant differences in spending?  Should there be?
+
+<li> Construct a balanced tree having only 3 splits.  As the
+predictors, use all of the factors in the data file from Referring
+Domain through Income (continuous).  Allow the software to pick the
+optimal split, but keep the tree balanced. Show the tree summary and
+offer a brief interpretation.  Do the 3 splits look meaningful?
+
+<li> Continuing from the balanced tree used in Q2, continue the
+splitting by allowing the software to chose both how and where to
+split.  Continue until you believe the data no longer support further
+splits.  For the resulting tree
+
+<ol>
+<li> Show the tree diagram,
+<li> Offer a
+brief interpretation of the meaning of this tree, noting particularly
+the roles of demographic factors like age, income, and education
+<li> Explain how you stopped the fitting process.
+</ol>
+
+<li> Are the trees described in Q2 and Q3 calibrated?  Show the
+appropriate plots.
+
+<li> Fit a regression model which is motiviated by one of your trees
+above.  Do you like it better or worse than the orginal tree.
+</ul>
+<hr>
+<address></address>
+<!-- hhmts start -->
+Last modified: Tue Nov 25 09:50:06 EST 2003
+<!-- hhmts end -->
+</body> </html>

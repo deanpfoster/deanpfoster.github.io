@@ -1,0 +1,107 @@
+<HTML>
+<HEAD><TITLE>
+Homework 4. Stat 540 Spring 1999.
+</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1> Homework 4 & 5. Stat 540.</H1>
+
+Homework 4 consists of providing me evidence that you are successfully
+moving ahead on this project.  You should provide several small pieces
+of code that do various parts of the assignment.  You should provide
+CVS log's of your main code.  You should provide a outline/diagram of
+how everything will fit together.  I'm looking for "method" in
+assignment 4 and results in assignment 5.
+
+<ul> <li> Write a form and perl script that asks the user their name,
+age, favorite color, favorite type of music, sex, continents the
+person has been to, and a 5 other questions of your choice.  The name
+should be done as a text field, the music should be done from a list
+of choices, the continents should be done with radial buttons.  The
+other you can do what ever makes sense.  They should
+be able to reenter the data on the page you print out and then hit a
+resubmit key or an OK key.
+<p> Once the user has input correct data
+save this information to a file along with the date and time of the
+request.
+<p> This piece of code will eventually be the first screen
+of your mastermind program and will allow you to keep track of who
+played your master-mind game and how well they did.
+</p>
+<li> Design a program schematic to display how you think that your
+mastermind program will work. You can expand on mine, or design your
+own from scratch. The schematic should indicate the variables that you
+believe need to be defined, as well as where they will be updated.
+(Turn this in to class.)
+</p>
+<li> Work through the skeleton program and schematic that I made
+available in class. Make sure that you understand the flow of the
+program.
+
+<P>
+The objective of this homework is to construct a working Mastermind
+program, which will run over the WEB by using the HTTP and CGI protocols.
+<P>
+<H2>Game components</H2>
+<UL>
+<LI> The game should use 6 colors in the secret code.
+<LI> The game should offer the user unlimited tries at guessing the code.
+<LI> The game should allow the user to input their guess for the secret code.
+<LI> After each guess, the program should report to the user 2 numbers; 
+<UL>
+<LI> 1. The number of colors guessed correctly and in the correct place.
+<LI> 2. The number of colors guessed correctly but in the wrong place.
+</UL>
+<LI> The game should display a game board which shows all previous guesses, and the outcome of each guess.
+<LI> The game should offer the user the ability to <B>quit</B> a
+ game half way through and <B>request</B> the secret code.
+<LI> Outcomes: 
+<UL> 
+<LI> If the user guesses correctly the program should report this!
+<LI> The user should have the ability to <B>reset</B> a game half 
+way through.
+</UL>
+</UL>
+
+<H2>Deliverables</H2>
+<UL>
+<LI>  Your program schematic (either emailed or put in my mailbox).  
+<LI>  Your program, which I should find a link to off of your homepage.
+<li>  The perl code itself (which I can read in your cgi-bin directory).
+<li> A cvs log of all of the perl programs necessary to run the
+program.  You should do a commit (cvs ci) ever 10 to 15 lines of code
+you write.  Add a comment as to what you are thinking and what you
+have done since the last commit.  (This assumes cvs is working.)
+</UL>
+
+<H2> Considerations</H2>
+<UL>
+<LI> Use <b> cookies </b> to store state information.
+<LI> Test your program by throwing some "crazy inputs" at it, to get an idea
+of its robustness.
+<LI> Make sure that it acts appropriately under the three conditions, win,
+lose and reset.
+<LI> Suggestion: build the code up slowly. Structure your efforts along the
+lines of subroutines, state information, program flow, interface.
+<LI> Debugging. This is a pain for CGI programs. Remember that you can always
+run your Perl script from the command line. You can include copious numbers
+of print statements in your code to check the status of variables. Check out the simple <A HREF = "class04_01.txt"> DEBUG device</A>.
+</UL>
+<P>
+<HR>
+<P>
+<I>Richard Waterman.</I><TT> Fri Feb  5 06:20:05 EST 1999.</TT>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+

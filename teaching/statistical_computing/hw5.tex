@@ -1,0 +1,57 @@
+\documentstyle[12pt]{article}
+\renewcommand{\baselinestretch}{1.2}
+\begin{document}
+\centerline{\bf Statistical computing: Homework 4}
+
+\vspace{2ex}
+
+This fifth homework is due Monday, Feb 23rd.  You should do the put
+the write up on your homepage.  (Actually, you should put it on a
+separate page and provide a pointer to it on your homepage.)  Please
+turn the name of your homepage on Feb 23rd.
+
+Your goal in this homework is to provide robust functions.  There is
+only one new function to write.  But, you will probably want to
+rewrite most of your earlier programs to make them be more robust.
+
+The way I will grade it is by cutting and pasting the code from your
+homepage to Splus and running it.  You will lose points, if I give it
+input that it generates an incorrect answer for.  You won't lose as
+much (or possible any at all) if you told me in your documentation
+that it wouldn't in fact work.  
+
+I started writing a home page a week ago.  It has a few pointers that
+you might find useful if you haven't every written any html.  Point
+your broswer at ``www-stat.wharton.upenn.edu/~foster''.
+
+\begin{enumerate}
+\item Add the following functions to your homepage:
+\begin{enumerate}
+\item {\tt d()}, the derivative operator
+\item {\tt root(f,lower,upper)} find a root in the interval lower to upper
+\item {\tt root(f)}, a root finder 
+\item {\tt arg.max(f)} and {\tt max(f)}
+\item A definition of a density function
+\item {\tt norm(mu,sigma), uniform(theta), exponential(lambda)}, some
+density generators
+\item {\tt CDF} which accepts a density and returns the CDF
+\item {\tt E(density,g)} which computes $E(g(X))$ and $X \sim {\tt
+density}$.
+\item {\tt MGF(density)}
+\item {\tt transform(density,g)} (this is new) This returns the
+density of $Y$ where $Y = g(X)$ and $X \sim {\tt density}$.
+\end{enumerate}
+You should tell me exactly what restrictions you want to place on
+inputs.  If you only want to find roots for monotonic functions, tell
+me that.  It is better the fewer restrictions you place on your
+functions.  Provide documentation for each function similar to the
+documentation that Splus provides.  
+
+\item Make a separate page off of your homepage that has testing
+functions.  Your goal is to find a test that breaks other peoples
+functions but not your own.  So, you might want to look at their pages
+as they are being developed!
+
+\end{enumerate}
+\end{document}
+

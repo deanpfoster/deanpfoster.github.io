@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Extreme tail probabilities</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Oct 20 11:26:25 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Extreme tail probabilities</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Homework 3 is due in 10 days
+</ul>
+
+<h2>White estimator</h2>
+<ul>
+   <li> beta-hat = cov(X - xhat,Y - yhat)/var(X - xhat)
+   <li> Nice sum formation
+   <li> Estimate variance of beta-hat
+   <li> Usual method: assume Y's are IID (or at least homoskadastic)
+   <li> White estimator is more robust.  Doesn't need anything except
+        independence.
+   <li> Sandwich estimator for variance.  (Name comes from matrix
+        format.) 
+   <li> Called GEE's in biostatistics.
+</ul>
+
+<h2>Putting them together</h2>
+<ul>
+   <li> Assumption: Y - yhat is symetric
+   <li> Lemma: |Y| and sgn(Y) are independent
+   <li> Use Chernoff to compute P(beta-hat > c| |Y-yhat|'s)
+</ul>
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

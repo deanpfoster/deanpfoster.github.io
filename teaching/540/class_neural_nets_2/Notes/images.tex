@@ -1,0 +1,77 @@
+\batchmode
+\documentclass[leqno]{article}
+\makeatletter
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$|x_i - x_{i-1}| < \epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline29: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\frac{|x_i - x_{i-1}|}{x_{i-1}} < \epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline31: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$|x_i - x_{i-1}|$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline33: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$g(t) = F(x_0 + t d)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline37: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline41: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$d_N = -[F''(x)]^{-1}[F'(x)]$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline45: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$d_S$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline47: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$d_S = -F'(x)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline53: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}d_{LM} = -[F''(x) + \lambda I]^{-1}[F'(x)],\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\lambda > 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline57: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\lambda = 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline59: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\lambda$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline61: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

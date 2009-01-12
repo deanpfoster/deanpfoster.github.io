@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter III.6: Branching processes</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Midterm next week
+  <li> Questions from the homework?
+</ul>
+
+<h1>Chapter III.8:  Branching processes</h1>
+
+<h2>Examples</h2>
+<ul>
+  <li> electron mutipliers
+  <li> Neutron chain reaction
+  <li> Family names
+  <li> Biology: genes
+  <li> Biology: bird flu
+</ul>
+
+<h2>Model</h2>
+<ul>
+  <li> Let B<sub>i</sub> be the number of births a person has
+  <li> Each generatino is exactly one life long
+  <li> X<sub>n+1</sub> = sum<sub>i=1,X<sub>n</sub></sub> B<sub>i</sub>
+</ul>
+
+<h2>Mean growth</h2>
+<ul>
+    <li> let mu = E(B)
+    <li> E(X<sub>n+1</sub>|X<sub>n</sub>) = B X<sub>n</sub>
+    <li> So M(n) = E(X<sub>n</sub>) = mu<sup>n</sup> if X<sub>1</sub> = 1
+ </ul>
+<h2>Variance</h2>
+Same sort of calculation:
+V(n) = sigma<sup>2</sup> mu<sup>n-1</sup> (1 - mu<sup>n</sup>)/(1-mu)
+<p>
+What if mu = 1???
+<h2>Extinction probability</h2>
+Suppose mu = 1, then a martingale.  Suppose sigma isn't zero.
+<p>
+Theorem: probability of extinction = 1.  Why? Martingale maximal
+inequality.
+<p>
+What if mu < 1?  Use coupling.  Give each family some extra virtual
+children.  Now mu = 1.  The whole population goes extinct, hence, so
+does the real population.
+<h2>What if mu > 1?</h2>
+No cheap tricks.  Got to work it out.
+
+<h2>First step analysis</h2>
+<ul>
+  <li> Let u<sub>n</sub> = probability of extinction in n steps
+starting from X = 1.
+  <li> u<sub>i</sub><sup>k</sup> = starting from X = k.
+  <li> First step equation is then easy: u<sub>n</sub> = sum p(k) u<sub>n-1</sub><sup>k</sup>
+</ul>
+<h2>Limiting behavior</h2>
+<ul>
+  <li> u is increasing, and less than one.
+  <li> Hence limit exists.
+  <li> Suppose limit is one.  Then we can do taylor series.
+  <li> ... which shows mean is less than or equal to one.
+  <li> Theorem: mean <= 1 iff extincion is inevitable.
+  <li> See section III.9 for martingale free version of this proof.
+</ul>
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Tue Feb 19 13:13:49 EST 2008
+<!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Assumptions and prediction intervals</title>
+</head>
+
+<body>
+<center><h1>Stat 112: Assumptions and prediction intervals</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> JMP Homework due next thrusday.
+	      You may work in pairs.
+	      Try to start on it this weekend so that you
+	      can bring in questions/problems on tuesday. 	    
+       </ul>
+       </p>
+</ul>
+
+<UL>
+  <li> Course goal: understanding how to use statistics correctly NOT
+       how to compute statistics
+  <li> Today: checking our assumptions, "price of admissions" to statistics
+  <li> true line --> data --> fit line --> residuals
+       <ul>
+	 <li> Which fits better orginal line or fit line?
+	 <li> Which do we care more about?
+       </ul>
+  <li> Two questions:
+       <ul>
+	 <li> Is it a line?
+	 <li> Are the residuals well behaved?  (sub questions: no patterns,
+	      independent, same variance, normally distributed, no outliers)
+       </ul>
+  <li> Ideal regression model handout
+       <ul>
+	 <li> Histogram residuals, average squared deviation = variance = SD<sup>2</sup>
+	 <li> Normal quantile plot
+       </ul>
+  <li> Look for:
+       <ul>
+	 <li> outliers
+	 <li> influential points
+	 <li> curvature
+	 <li> hetroskadisticty
+	 <li> lack of independence (requires thought)
+       </ul>
+  <li> If it passes tests, then you can use the model for predictions
+       <ul>
+	 <li> Prediction intervals are +/- 2 * SD
+	 <li> The computer does something more accurate--show extrapolation penality picture 
+       </ul>
+  <li> Look at <a href="Cellular.jmp">Cellular data</a> (cell phones
+       in the US from 1984 - 1995) Grew from 90k to 35M.  (handout)
+       <ul>
+	 <li> Not linear--use Tukey to suggest something to try
+	 <li> Try log(y)
+	 <li> discuss percentage changes
+	 <li> Make up scale so that 1% increase equals .01 increase
+	 <li> Does .10 then equal a 10%? Close enough
+	 <li> Does 1.00 then equal a 100% increase? No it 271% increase!
+	 <li> a .69 increase equals 100% growth.
+	 <li> Try it on the data.  Not great.  Bummer
+	 <li> Generate a forecast anyway for next year
+       </ul>
+ </ul>
+
+
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Feb  3 12:17:48 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

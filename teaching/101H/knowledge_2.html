@@ -1,0 +1,127 @@
+<html>
+<header>
+<title> Statistics 101H: Knowledge (part 2)</title>
+</header>
+<body>
+<center>
+<h1> Pure knowledge: When the conditional probability is zero or one</h1>
+</center>
+<p>
+<h2>Definition of E(X|F)</h2>
+<ul>
+  <li> We know that E(X|F) is a random variable with the following two properties:
+       <ul>
+	 <li> Further E(X|F) must be measurable with respects to F
+	 <li> Further if I is an indicator of a set in F, then E(IX) = E(IE(X|F))
+       </ul>
+  <li> These two properties define a conditional expectation
+</ul>
+
+<h2>Practical definition of E(X|F)?</h2>
+<ul>
+  <li> Find a partition that generates F
+  <li> Compute E(X|S) for each S in F
+</ul>
+
+<h2>Relative amounts of knowledge</h2>
+<ul>
+  <li> If A is contained in B, then B knows more.
+  <li> In other words, from the random variable E(X|B) we can compute E(X|A)
+  <li> But not the other way around
+  <li> Note: E(E(X|B)|A) = E(X|A) and E(E(X|A)|B) = E(X|A).
+  <li> So in sequential expectations it is the weaker one that wins.
+</ul>
+
+<h2>The common knowledge sigma-fields</h2>
+<ul>
+  <li> the intersection of two sigma fields
+  <li> Represents everything BOTH people know
+  <li> Also represents E(E(E(E(E(E(E(...E(X|A)....B)A)B)A)B)A)B)
+</ul>
+
+<h2>The cheating sigma-fields</h2>
+<ul>
+  <li> The union of two sigma 
+</ul>
+
+<h2>Baby hats</h2>
+<ul> 
+  <li> at least 1 person has a red hat.  (start with 3 people--give 1
+       a red everyone else another color.)  
+  <li> Do you konw if your hat is red?  (Yes, IF everyone else
+       doesn't have a red hat).
+  <li> After I ask the red-hat person, even the other people can
+       figure out their hat color
+  <li> Notice: No probability.  Only sigma-algebras.
+</ul>
+
+<h2>More hats</h2>
+<ul>
+  <li> at least 1 person has a red hat.
+  <li> Try 2 red
+  <li> Try 3 red
+</ul>
+
+<h2>Even more hats--One for everyone</h2>
+<ul>
+  <li> at least 1 person has a red hat.
+  <li> Try 1 red out of all hats
+  <li> Try 5 red
+</ul>
+
+<h2>The unfaithful wifes</h2>
+<ul>
+  <li> see <a
+       href="http://www-formal.stanford.edu/jmc/model/node13.html">here</a>
+       for a gruesome description.
+  <li> see <a href="http://www-formal.stanford.edu/jmc/model/node12.html">here</a>
+       for a formal discussion from a philosophers perspective.
+  <li> Simple version
+       <ul>
+	 <li> 20 couples in town.  It is traditional to set a husbands
+	      shoes out in the street if he is found to be
+	      unfaithful.  This constitutes a divorce.
+	 <li> Every woman knows the status of everyone else's husband,
+	      but not their own.
+	 <li> This is common knowledge (what pray tell does that
+	      mean?)
+       </ul>
+  <li>Easy case 1:
+       <ul>
+	 <li> Chief (who knows everything) says, 1 of your husbands
+	      have been unfaithful.
+	 <li> The next morning that woman sets out her husbands shoes
+	 <li> (identical to the "one red hat" case previously discussed)
+       </ul>
+  <li>easy case 2:
+       <ul>
+	 <li> Chief says, 2 of your husbands have been unfaithful.
+	 <li> The next morning two women set out their husbands
+	 <li> (identical to the "two red hats")
+       </ul>
+  <li>medium case:
+       <ul>
+	 <li> Chief says, one or two of your your husbands have been
+	      unfaithful. 
+	 <li> The first morning every, anyone who knows everyone else
+	      in not faithful will set out her husband.  If this
+	      doesn't occur, then we know that she sees at least one
+	      unfaithful husband.
+	 <li> The second morning, if no one has set out their husband,
+	      both wifes figure it out and divorce them.
+       </ul>
+</ul>
+
+<h2><a href="http://www.greylabyrinth.com/Puzzles/puzzle007.htm">hats!</a></h2>
+
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Dec  4 07:42:04 2002
+<!-- hhmts end -->
+</body>
+
+</html>
+

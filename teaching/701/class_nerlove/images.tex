@@ -1,0 +1,50 @@
+\batchmode
+\documentclass[12pt]{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(y|x) = \beta_0 + \beta_1 x_1\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Av(y|x) = \beta_0 + \beta_1 x_1 + \beta_2 x_2\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_2 = 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline69: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$r = 1/(1 + \beta_2)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline71: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\alpha_c$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline73: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline75: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline77: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

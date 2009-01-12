@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl
+
+# A script that sends out a cookie.
+# The cookie is sent by adding a line to the HTTP header.
+
+print "Content-type: text/html\r\n";
+print "Set-Cookie: name=Waterman; path = /cgi-bin/\r\n";
+print "\r\n";
+
+### Now print out the HTML document. 
+
+print "<HTML>";
+print "<HEAD><TITLE> Cookie sender</TITLE></HEAD>";
+print "I've just sent you a cookie!";
+print "<\/HTML>";
+
+
+
+

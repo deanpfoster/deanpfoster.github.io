@@ -1,0 +1,802 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>No Title</TITLE>
+<META NAME="description" CONTENT="No Title">
+<META NAME="keywords" CONTENT="hw2">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="hw2.css">
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/previous_motif_gr.gif">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+ HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+<B><FONT SIZE="+1">Statistics 101: Homework 2</FONT></B>
+</DIV>
+<P>
+<B>Exercise 1</B> 
+<DL COMPACT>
+<DT><B>a.</B>
+<DD>If <I>A</I> and <I>B</I> are independent, 
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(A|B)={\bf P}(B\mbox{ and }A)/{\bf P}(A)={\bf P}(B){\bf P}(A)/{\bf P}(A)={\bf P}(B).
+\end{displaymath} -->
+
+<IMG
+ WIDTH="409" HEIGHT="38"
+ SRC="img1.gif"
+ ALT="\begin{displaymath}{\bf P}(A\vert B)={\bf P}(B\mbox{ and }A)/{\bf P}(A)={\bf P}(B){\bf P}(A)/{\bf P}(A)={\bf P}(B).\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+If <I>A</I> and <I>B</I> are independent, then not <I>A</I> and <I>B</I> are independent. So,
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(B|\mbox{not }A)=P(B\mbox{ and not }A)/{\bf P}(\mbox{not }A)={\bf P}(B){\bf P}(\mbox{not }A)/{\bf P}(\mbox{not }A)={\bf P}(B).
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="551" HEIGHT="38"
+ SRC="img2.gif"
+ ALT="\begin{displaymath}{\bf P}(B\vert\mbox{not }A)=P(B\mbox{ and not }A)/{\bf P}(\mb...
+...bf P}(B){\bf P}(\mbox{not }A)/{\bf P}(\mbox{not }A)={\bf P}(B).\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Since 
+<!-- MATH: ${\bf P}(A|B)={\bf P}(B)$ -->
+<IMG
+ WIDTH="117" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.gif"
+ ALT="${\bf P}(A\vert B)={\bf P}(B)$">
+and 
+<!-- MATH: ${\bf P}(B|\mbox{not }A)={\bf P}(B)$ -->
+<IMG
+ WIDTH="146" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.gif"
+ ALT="${\bf P}(B\vert\mbox{not }A)={\bf P}(B)$">,
+then 
+<!-- MATH: ${\bf P}(B|A)={\bf P}(B|\mbox{not }A)$ -->
+<IMG
+ WIDTH="162" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.gif"
+ ALT="${\bf P}(B\vert A)={\bf P}(B\vert\mbox{not }A)$">.
+<DT><B>b.</B>
+<DD>First note that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{not }A\mbox{ and }\mbox{not }B)=1-{\bf P}(A\mbox{ or }B)=1-{\bf P}(A)-{\bf P}(B)+{\bf P}(A\mbox{ and }B).
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="517" HEIGHT="38"
+ SRC="img6.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{not }A\mbox{ and }\mbox{not }B)=1-{\bf P}(A\mbox{ or }B)=1-{\bf P}(A)-{\bf P}(B)+{\bf P}(A\mbox{ and }B).\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Since <I>A</I> and <I>B</I> are independent we get that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{not }A\mbox{ and }\mbox{not }B)= 1-{\bf P}(A)-{\bf P}(B)+{\bf P}(A){\bf P}(B)
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="378" HEIGHT="38"
+ SRC="img7.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{not }A\mbox{ and }\mbox{not }B)= 1-{\bf P}(A)-{\bf P}(B)+{\bf P}(A){\bf P}(B)\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+=(1-{\bf P}(A))(1-P(B))={\bf P}(\mbox{not }A){\bf P}(\mbox{not }B).
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="326" HEIGHT="38"
+ SRC="img8.gif"
+ ALT="\begin{displaymath}=(1-{\bf P}(A))(1-P(B))={\bf P}(\mbox{not }A){\bf P}(\mbox{not }B). \end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>c.</B>
+<DD>Let 
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+A_1=\{A\mbox{ wins the first match and }A\mbox{ wins the second  match}\},
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="428" HEIGHT="38"
+ SRC="img9.gif"
+ ALT="\begin{displaymath}A_1=\{A\mbox{ wins the first match and }A\mbox{ wins the second match}\},\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+A_2=\{A\mbox{ wins the first match and }B\mbox{ wins the second  match}\},
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="430" HEIGHT="38"
+ SRC="img10.gif"
+ ALT="\begin{displaymath}A_2=\{A\mbox{ wins the first match and }B\mbox{ wins the second match}\},\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+A_3=\{B\mbox{ wins the first match and }A\mbox{ wins the second  match}\},
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="430" HEIGHT="38"
+ SRC="img11.gif"
+ ALT="\begin{displaymath}A_3=\{B\mbox{ wins the first match and }A\mbox{ wins the second match}\},\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+A_4=\{B\mbox{ wins the first match and }B\mbox{ wins the second  match}\}.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="430" HEIGHT="38"
+ SRC="img12.gif"
+ ALT="\begin{displaymath}A_4=\{B\mbox{ wins the first match and }B\mbox{ wins the second match}\}.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+We have
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{cl}
+{\bf P}(A_1)&={\bf P}(A\mbox{ wins the first match}){\bf P}(A\mbox{ wins the second  match}|A\mbox{ wins the first match})\\
+&=0.5*0.6=0.3,
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="619" HEIGHT="64"
+ SRC="img13.gif"
+ ALT="\begin{displaymath}\begin{array}{cl}
+{\bf P}(A_1)&={\bf P}(A\mbox{ wins the firs...
+...t A\mbox{ wins the first match})\\
+&=0.5*0.6=0.3,
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{cl}
+{\bf P}(A_2)&={\bf P}(A\mbox{ wins the first match}){\bf P}(B\mbox{ wins the second  match}|A\mbox{ wins the first match})\\
+&=0.5*0.4=0.2.
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="619" HEIGHT="64"
+ SRC="img14.gif"
+ ALT="\begin{displaymath}\begin{array}{cl}
+{\bf P}(A_2)&={\bf P}(A\mbox{ wins the firs...
+...t A\mbox{ wins the first match})\\
+&=0.5*0.4=0.2.
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Since 
+<!-- MATH: ${\bf P}(A_1)+{\bf P}(A_3)=.5$ -->
+<IMG
+ WIDTH="145" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.gif"
+ ALT="${\bf P}(A_1)+{\bf P}(A_3)=.5$">
+(<I>A</I> wins the second match) we get that 
+
+<!-- MATH: ${\bf P}(A_3)=0.2$ -->
+<IMG
+ WIDTH="90" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.gif"
+ ALT="${\bf P}(A_3)=0.2$">.
+Hence, 
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(A\mbox{ wins at least one match})={\bf P}(A_1)+{\bf P}(A_2)+{\bf P}(A_3)=0.7.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="445" HEIGHT="38"
+ SRC="img17.gif"
+ ALT="\begin{displaymath}{\bf P}(A\mbox{ wins at least one match})={\bf P}(A_1)+{\bf P}(A_2)+{\bf P}(A_3)=0.7.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P></DL>
+<P>
+<B>Exercise 2</B>
+
+<P>
+<DL COMPACT>
+<DT><B>a.</B>
+<DD>As usual, a good start is to write out the probability information stated in the problem.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{lll}
+{\bf P}(\mbox{failure})=0.60 & {\bf P}(\mbox{moderate})=0.30 & {\bf P}(\mbox{major})=0.10\\
+{\bf P}(\mbox{poor$|$failure})=0.50 & {\bf P}(\mbox{fair$|$failure})=0.30 & {\bf P}(\mbox{good$|$failure})=0.20\\
+{\bf P}(\mbox{poor$|$moderate})=0.20 & {\bf P}(\mbox{fair$|$moderate})=0.40 & {\bf P}(\mbox{good$|$moderate})=0.40\\
+{\bf P}(\mbox{poor$|$major})=0.10 & {\bf P}(\mbox{fair$|$major})=0.30 & {\bf P}(\mbox{good$|$major})=0.60
+\end{array}
+\end{displaymath} -->
+
+<IMG
+ WIDTH="553" HEIGHT="121"
+ SRC="img19.gif"
+ ALT="\begin{displaymath}\begin{array}{lll}
+{\bf P}(\mbox{failure})=0.60 & {\bf P}(\mb...
+...ajor})=0.30 & {\bf P}(\mbox{good$\vert$major})=0.60
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P> 
+
+<P>
+We now that 
+<!-- MATH: ${\bf P}(\mbox{failure})=0.60$ -->
+<IMG
+ WIDTH="123" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.gif"
+ ALT="${\bf P}(\mbox{failure})=0.60$">
+and 
+<!-- MATH: ${\bf P}(\mbox{poor$|$ failure})=0.5$ -->
+<IMG
+ WIDTH="156" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.gif"
+ ALT="${\bf P}(\mbox{poor$\vert$ failure})=0.5$">.
+By the multiplication principle we find
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{failure and poor})=0.6*0.5=0.3.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="259" HEIGHT="38"
+ SRC="img22.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{failure and poor})=0.6*0.5=0.3.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+Repeating this process for all combination of results and ratings we construct the table of joint probability.
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER" COLSPAN=3>Panel rating</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Poor</TD>
+<TD ALIGN="CENTER">Fair</TD>
+<TD ALIGN="CENTER">Good</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Failure</TD>
+<TD ALIGN="CENTER">0.30</TD>
+<TD ALIGN="CENTER">0.18</TD>
+<TD ALIGN="CENTER">0.12</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Result</TD>
+<TD ALIGN="CENTER">Moderate</TD>
+<TD ALIGN="CENTER">0.06</TD>
+<TD ALIGN="CENTER">0.12</TD>
+<TD ALIGN="CENTER">0.12</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Major</TD>
+<TD ALIGN="CENTER">0.01</TD>
+<TD ALIGN="CENTER">0.03</TD>
+<TD ALIGN="CENTER">0.06</TD>
+</TR>
+</TABLE></DIV>
+Finally, <BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{failure$|$good})=\frac{{\bf P}(\mbox{ failure and good})}{{\bf P}(\mbox{good})}=0.12/0.30=0.40
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="412" HEIGHT="49"
+ SRC="img23.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{failure$\vert$good})=\frac{{\bf P}(\mbox{ failure and good})}{{\bf P}(\mbox{good})}=0.12/0.30=0.40\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>b.</B>
+<DD>The tree diagram is shown below:
+<center><IMG  WIDTH="328" HEIGHT="179" SRC="tree.gif"></center>
+For the first branch of a probability tree, we pick the events that have known unconditional probabilities. In this case, that's the introduction results - failure, moderate, or major. For the next branches, we use the ratings - poor, fair, or good - and insert conditional probabilities given the preceding branch. Multiplying the probabilities on all paths completes the tree.
+
+<P>
+To find the conditional probability of major given poor, we need 
+
+<!-- MATH: ${\bf P}(\mbox{major and poor})=0.01$ -->
+<IMG
+ WIDTH="188" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.gif"
+ ALT="${\bf P}(\mbox{major and poor})=0.01$">
+from the seventh path on the tree. Also, 
+
+<!-- MATH: ${\bf P}(\mbox{poor})$ -->
+<IMG
+ WIDTH="61" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.gif"
+ ALT="${\bf P}(\mbox{poor})$">
+can be obtained by adding the probabilities for all paths including a poor rating. 
+<!-- MATH: ${\bf P}(\mbox{poor})=0.3+0.06+0.01=.37$ -->
+<IMG
+ WIDTH="240" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.gif"
+ ALT="${\bf P}(\mbox{poor})=0.3+0.06+0.01=.37$">.
+Thus
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{major$|$poor})=0.01/0.37=0.027.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="250" HEIGHT="38"
+ SRC="img27.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{major$\vert$poor})=0.01/0.37=0.027.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P></DL>
+<P>
+<B>Exercise 3</B>
+<DL COMPACT>
+<DT>
+<DD>Two observations:
+<UL>
+<LI>shooting in the air is the same as missing,
+<LI>if <I>A</I> and <I>B</I> are both alive when <I>C</I> shoots, it is better for <I>C</I> to kill <I>B</I> than <I>A</I>.
+</UL> 
+Thus, we get that
+<UL>
+<LI>If <I>A</I> shoots in the air
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rl}
+{\bf P}(B\mbox{ wins})&={\bf P}(B\mbox{ hits }C){\bf P}(A\mbox{ misses } B){\bf P}(B\mbox{ hits } A)=0.5*0.7*0.5=0.175,\\
+{\bf P}(C\mbox{ wins})&={\bf P}(B\mbox{ misses }C){\bf P}(C\mbox{hits } B){\bf P}(A\mbox{ misses }C){\bf P}(C\mbox{ hits}A)\\
+&=0.5*1*0.7*1=0.35,\\
+{\bf P}(A\mbox{ wins})&={\bf P}(B\mbox{ hits }C){\bf P}(A\mbox{ hits } B)+{\bf P}(B\mbox{ misses } C){\bf P}(C\mbox{ hits }B){\bf P}(A\mbox{ hits }C)\\
+&=0.5*0.3+0.5*1*0.3=0.30,\\
+{\bf P}(\mbox{no one wins})&={\bf P}(B\mbox{ hits }C){\bf P}(A\mbox{ misses } B){\bf P}(B\mbox{ misses } A)=0.5*0.7*0.5=0.175.
+\end{array}
+\end{displaymath} -->
+
+<IMG
+ WIDTH="609" HEIGHT="178"
+ SRC="img29.gif"
+ ALT="\begin{displaymath}\begin{array}{rl}
+{\bf P}(B\mbox{ wins})&={\bf P}(B\mbox{ hit...
+... } B){\bf P}(B\mbox{ misses } A)=0.5*0.7*0.5=0.175.
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<LI>If <I>A</I> shoots at <I>B</I>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(A\mbox{ wins})={\bf P}(A \mbox{ misses } B){\bf P}(A\mbox{ wins if $A$ shoots in air })=0.7*0.3=0.21.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="531" HEIGHT="38"
+ SRC="img30.gif"
+ ALT="\begin{displaymath}{\bf P}(A\mbox{ wins})={\bf P}(A \mbox{ misses } B){\bf P}(A\mbox{ wins if $A$ shoots in air })=0.7*0.3=0.21.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<LI>If <I>A</I> shoots at <I>C</I>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(A\mbox{ wins})={\bf P}(A\mbox{ hits }C){\bf P}(B\mbox{ misses } A){\bf P}(A\mbox{ hits }B)
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="369" HEIGHT="38"
+ SRC="img31.gif"
+ ALT="\begin{displaymath}{\bf P}(A\mbox{ wins})={\bf P}(A\mbox{ hits }C){\bf P}(B\mbox{ misses } A){\bf P}(A\mbox{ hits }B)\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
++{\bf P}(A\mbox{ misses } C){\bf P}(A\mbox{ wins if $A$ shoots in air })=0.3*0.5*0.3+0.7*0.3=0.255.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="555" HEIGHT="38"
+ SRC="img32.gif"
+ ALT="\begin{displaymath}+{\bf P}(A\mbox{ misses } C){\bf P}(A\mbox{ wins if $A$ shoots in air })=0.3*0.5*0.3+0.7*0.3=0.255.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P></UL>Since 0.3&gt;0.21 and 0.255 it is best for <I>A</I> to shoot in the air. And respectively, 
+<!-- MATH: ${\bf P}(A\mbox{ wins})=0.3$ -->
+<IMG
+ WIDTH="119" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.gif"
+ ALT="${\bf P}(A\mbox{ wins})=0.3$">;
+
+<!-- MATH: ${\bf P}(B\mbox{ wins})=0.175$ -->
+<IMG
+ WIDTH="136" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.gif"
+ ALT="${\bf P}(B\mbox{ wins})=0.175$">;
+
+<!-- MATH: ${\bf P}(C\mbox{ wins})=0.35$ -->
+<IMG
+ WIDTH="128" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.gif"
+ ALT="${\bf P}(C\mbox{ wins})=0.35$">;
+
+<!-- MATH: ${\bf P}(B\mbox{ wins})=0.175$ -->
+<IMG
+ WIDTH="136" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.gif"
+ ALT="${\bf P}(B\mbox{ wins})=0.175$">.
+</DL>
+<P>
+<B>Exercise 4</B>
+<DL COMPACT>
+<DT><B>a.</B>
+<DD>We must take into account not only the number of deductions, but also the frequencies. We could simply use the definition of the mean. Add up 0 201 times, 1 287 times, and so on, then divide by the total frequency. Or we could regard the data as grouped. In either case
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\bar{y}=\frac{0*201+1*287+\cdots+12*3}{201+287+\dots+3}=2.477.
+\end{displaymath} -->
+
+<IMG
+ WIDTH="304" HEIGHT="46"
+ SRC="img36.gif"
+ ALT="\begin{displaymath}\bar{y}=\frac{0*201+1*287+\cdots+12*3}{201+287+\dots+3}=2.477.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+By calculator, <I>s</I>=1.834. Because there are 1533 observations, it would make virtually no difference whether we divided by <I>n</I> or <I>n</I>-1. In fact, calculations show 
+<!-- MATH: $\sigma=1.833$ -->
+<IMG
+ WIDTH="71" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.gif"
+ ALT="$\sigma=1.833$">,
+calculated by dividing by <I>n</I>.
+
+<P>
+Recall that about 68<IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$\%$">
+of the data should fall within one standard deviation of the mean. The range 
+<!-- MATH: $\bar{y}\pm s$ -->
+<IMG
+ WIDTH="40" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.gif"
+ ALT="$\bar{y}\pm s$">
+is 0.643 to 4.311. It includes the values 1, 2, 3, and 4 and contains 1134 observations. This is 1134/1533=0.740 or 74<IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$\%$">
+of the data. The Empirical Rule works surprisingly well, despite the skewness of the data.
+<DT><B>b.</B>
+<DD>There is 1533 forms, of which 1332 claim at least 1 deduction.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{at least 1 deduction})=1332/1533=0.869.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="318" HEIGHT="38"
+ SRC="img40.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{at least 1 deduction})=1332/1533=0.869.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+We note that 287+364+332=983 forms claim at least 1 and at most 3 deductions, so
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{at most 1$|$at least 1})=\frac{{\bf P}(\mbox{at most and at least 1})}{{\bf P}(\mbox{at least 1})}=\frac{983/1533}{1332/1533}=0.738.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="522" HEIGHT="49"
+ SRC="img41.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{at most 1$\vert$at least 1})=\frac{{\bf P}(\mbo...
+...}{{\bf P}(\mbox{at least 1})}=\frac{983/1533}{1332/1533}=0.738.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Alternatively, there are 1332 forms with at least one deduction, of which 983 claim at  most three deductions. Therefore,
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(\mbox{at most 1$|$at least 1})=\frac{983}{1533}=0.738.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="279" HEIGHT="45"
+ SRC="img42.gif"
+ ALT="\begin{displaymath}{\bf P}(\mbox{at most 1$\vert$at least 1})=\frac{983}{1533}=0.738.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P></DL>
+<P>
+<B>Exercise 5</B>
+<DL COMPACT>
+<DT><B>a.</B>
+<DD>Because the firm holds 30<IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$\%$">
+of the market, we assume that the probability of winning any one bid is 0.30. The company can win 
+<!-- MATH: $y=3,2,1, \mbox{ or } 0$ -->
+<IMG
+ WIDTH="112" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.gif"
+ ALT="$y=3,2,1, \mbox{ or } 0$">
+bids. To have <I>Y</I> come out equal to 3, the company must win all the bids.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(Y=3)={\bf P}(WWW)=0.3*0.3*0.3=0.027.
+\end{displaymath} -->
+
+<IMG
+ WIDTH="338" HEIGHT="38"
+ SRC="img44.gif"
+ ALT="\begin{displaymath}{\bf P}(Y=3)={\bf P}(WWW)=0.3*0.3*0.3=0.027.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Similarly,
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(Y=0)={\bf P}(LLL)=0.7*0.7*0.7=0.343.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="320" HEIGHT="38"
+ SRC="img45.gif"
+ ALT="\begin{displaymath}{\bf P}(Y=0)={\bf P}(LLL)=0.7*0.7*0.7=0.343.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+The event <I>Y</I>=1 can occur in three different ways, corresponding to the choice of which of the three bids wins.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(Y=1)={\bf P}(WLL)+{\bf P}(LWL)+{\bf P}(LLW)=0.3*0.7*0.7+0.7*0.3*0.7+0.7*0.7*0.3=0.441.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="643" HEIGHT="38"
+ SRC="img46.gif"
+ ALT="\begin{displaymath}{\bf P}(Y=1)={\bf P}(WLL)+{\bf P}(LWL)+{\bf P}(LLW)=0.3*0.7*0.7+0.7*0.3*0.7+0.7*0.7*0.3=0.441.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Similarity,
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(Y=2)={\bf P}(WWL)+{\bf P}(WLW)+{\bf P}(LWW)=0.189.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="400" HEIGHT="38"
+ SRC="img47.gif"
+ ALT="\begin{displaymath}{\bf P}(Y=2)={\bf P}(WWL)+{\bf P}(WLW)+{\bf P}(LWW)=0.189.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+We assumed that the probability of winning was the 0.3 on all three bids and that whether or not one bid won didn't change the probability that any other bid would win. If there are no systematic difference among the bids, we can't think of any reason why the probability would change. Barring  collusion, there's no obvious reason for dependence, either. The assumptions seem at least fairly reasonable.
+  
+<DT><B>b.</B>
+<DD>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf E}(Y)=0*{\bf P}(Y=0)+\cdots+3*{\bf P}(Y=0)=0.9
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="338" HEIGHT="38"
+ SRC="img48.gif"
+ ALT="\begin{displaymath}{\bf E}(Y)=0*{\bf P}(Y=0)+\cdots+3*{\bf P}(Y=0)=0.9\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+and
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\mbox{Var}(Y)=0^2*(0.343)+1^2*(0.441)+2^2*(0.189)+3^2*(0.027)-(0.9)^2=0.63.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="555" HEIGHT="38"
+ SRC="img49.gif"
+ ALT="\begin{displaymath}\mbox{Var}(Y)=0^2*(0.343)+1^2*(0.441)+2^2*(0.189)+3^2*(0.027)-(0.9)^2=0.63.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>c.</B>
+<DD>The expected value shouldn't change. On average, the company 
+should still win 30<IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$\%$">
+of all its bids, and 30<IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$\%$">
+of 3 is 0.9, as we found 
+in the the previous exercise.  What should change is the variance. The 
+statement of the exercise indicates that there's higher probability that the 
+company will either win all its bids or lose all its bids, that is, that <I>Y</I> 
+will come out either 3 or 0. Therefore, there must be a smaller probability 
+that Y will come out 1 or 2. If there is higher probability on the more 
+extreme values, the variance must be larger.
+</DL>
+<P>
+<B>Exercise 6</B>
+<DL COMPACT>
+<DT><B>a.</B>
+<DD>The value of <I>Y</I><SUB>1</SUB> depends on the number of Reds on four consecutive rolls. This number  has a binomial distribution. The probability distribution of <I>Y</I><SUB>1</SUB> is shown below:
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>Y</I><SUB>1</SUB></TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="CENTER">32</TD>
+<TD ALIGN="CENTER">48</TD>
+<TD ALIGN="CENTER">64</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img50.gif"
+ ALT="${\bf P}$"></TD>
+<TD ALIGN="CENTER">1/16</TD>
+<TD ALIGN="CENTER">4/16</TD>
+<TD ALIGN="CENTER">6/16</TD>
+<TD ALIGN="CENTER">4/16</TD>
+<TD ALIGN="CENTER">1/16</TD>
+</TR>
+</TABLE></DIV><DT><B>b.</B>
+<DD>We lose only if we get five Reds in  a row, otherwise we win 1 dollar. The probability distribution of <I>Y</I><SUB>2</SUB> is shown below:
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>Y</I><SUB>2</SUB></TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">33</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img50.gif"
+ ALT="${\bf P}$"></TD>
+<TD ALIGN="CENTER">1/32</TD>
+<TD ALIGN="CENTER">31/32</TD>
+</TR>
+</TABLE></DIV> 
+<DT><B>c.</B>
+<DD>First criterion: Expected Value. Both have expectation of <IMG
+ WIDTH="12" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.gif"
+ ALT="$\$$">32, so same on this criterion.
+<P>
+Second criterion: Median. Median of <I>Y</I><SUB>1</SUB> is 32 but  median of <I>Y</I><SUB>2</SUB> is 33, so <I>Y</I><SUB>2</SUB> is better.
+
+<P>
+</DL>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html3"
+ HREF="node1.html">About this document ... </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/previous_motif_gr.gif">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+ HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Wenxin Mao</I>
+<BR><I>1999-10-05</I>
+</ADDRESS>
+</BODY>
+</HTML>

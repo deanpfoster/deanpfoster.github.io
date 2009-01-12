@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter IV.1: Stationary distributions</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Midterm Wednesday
+  <li> No homework due this week
+</ul>
+
+<h1>Chapter IV.1: Regular matrices</h1>
+
+
+<h2>Relating to first step analysis</h2>
+<ul>
+  <li> One very important "first step" problem is the stationary
+       distribution.
+  <li> Under sutiable regularity conditions the stationary distribution
+       instead of being a matrix is just a vector.
+  <li> What are these magic conditions?
+</ul>
+<h2>Regular transition matrices</h2>
+<ul>
+  <li> regular: P to a large power has only positive elements
+  <li> Note: thus there is an epsilon such that P<sup>t</sup> >
+       epsilon for all large t.
+  <li> Via first step analysis: If we check for power n, we can show
+       for power n+1.
+  <li> Claim: Probability of going from i to j at some point in time is 1.
+       (called recurence)
+  <li> Proof: (1 - epsilon)<sup>t</sup> - - > zero.
+</ul>
+<h2>Limiting distribution</h2>
+<ul>
+  <li> P<sub>ij</sub><sup>t</sup> -->
+       P<sub>ij</sub><sup>infinity</sup>
+  <li> But does it really depend on i?
+  <li> We will use the "long run mean fraction" of times in state j
+       starting from state i as our probability of interest.
+  <li> Let f<sub>j</sub>(t) be the actual fraction of times in state j if
+       we start in state i.  (NOTE: this is a random variable.)
+  <li> Let g<sub>kj</sub>(t) be the actual fraction of times in state
+       j AFTER we touch state k.
+  <li> Let T<sub>k</sub> be the first time we touch k.
+  <li> Then: t f<sub>j</sub>(t) < t g<sub>j</sub>(t) +  T<sub>k</sub>
+  <li> And:  t f<sub>j</sub>(t) > t g<sub>j</sub>(t)
+  <li> But: g<sub>kj</sub>(t) --> P<sub>kj</sub><sup>infinity</sup>
+  <li> But: f<sub>j</sub>(t) --> P<sub>ij</sub><sup>infinity</sup>
+  <li> So  P<sub>kj</sub><sup>infinity</sup> = P<sub>ij</sub><sup>infinity</sup>
+  <li> Call it pi<sub>j</sub>
+</ul>
+<h2>Powers of matrices</h2>
+<ul>
+  <li> Computing p<sup>infinity</sup> by computer: keep squaring it.
+  <li> For regularity: we only need to know 0*x = 0, x*y > 0.
+  <li> Keep track of signs.
+  <li> If you raise it to power larger than n<sup>2</sup>, it will be
+	regular if it is ever going to be regular. (proof by
+        induction.)  
+  <li> Need all n squared steps.  (Consider cyclic shift with one
+       alternate path of length 1 vs length 2.)
+</ul>
+
+<h2>What if it isn't regular?</h2>
+<ul>
+  <li> One case we have already studied: absorbing states. (Note:
+       dependence on initial condition.)
+  <li> Another is periodic (Note: dependence on initional conditions.)
+  <li> We'll discuss both of these later in the chapter.
+</ul>
+
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Feb 21 10:53:17 EST 2005
+<!-- hhmts end -->
+</body> </html>

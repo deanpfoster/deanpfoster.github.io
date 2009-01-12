@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Stepwise regression</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Sep 27 12:17:21 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Stepwise regression</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Lots of readings for today (including new one on JL theorem.)
+</ul>
+
+
+<h2>Regression vs nearest neighbor (yet again)</h2>
+
+<ul>
+   <li> Nearest neighbor picks up rich structure from log(n) sized space
+   <li> Regression picks up linear structure from o(n) sized space
+   <li> Nearest neighbor degenerates to noise if space is too large
+   <li> Regression degenerates to "divide by zero" if space is too
+large
+   <li> What to do?
+   <li> Pick a smaller space!
+</ul>
+
+<h2>Best basis problem (best subsets regression)</h2>
+
+<ul>
+  <li> goal: find subspace that generates a good fit 
+  <li> Same thing is needed for both regression and Nearest neighbor
+</ul>
+
+<h2>NP complete problems</h2>
+
+<ul>
+<li> Review complexity via sorting algorithms: O(n^2)
+vs. O(2^n). (use cards)
+<li> Can exponential problems be interesting?
+   <ul>
+   <li> No, since we can never know if the answer were correct.
+   <li> Yes, since sometimes sometimes checking is easier than
+deriving.
+   </ul>
+<li> These class of problems are called "NP".
+   <ul>
+   <li> No known way to actually solve them quickly.
+   <li> Even quantium computers might not solve them quickly.  (Open conjecture)
+   <li> All good machine learning problems fall in this class.
+   </ul>
+<li> Aside: NP complete
+   <ul>
+   <li> The whole class is either all easy, or all hard
+   <li> If one problem (say TSP/3STAT, or stepwise regression).......
+   <li> Sudoku are good example of NP complete problem
+   </ul>
+<li> <a href="http://www.claymath.org/millennium/">Millennium prize</a>
+</ul>
+<p>
+
+<h2>Best subsets regression is NP complete</h2>
+<ul>
+  <li> Must phrase it carefully
+  <li> Do there exist q < p variables such that the R-sq'd is bigger
+than x?
+  <li> Certainly this is polynomial time checkable (do the regression)
+  <li> Can it be found quickly?
+    <ul>
+    <li> Try the best first? (Fails since might lead down wrong path)
+    <li> Add them all and eliminate useless ones (fails since p might
+be bigger than n)
+    </ul>
+  <li> reduce it to another previously shown to be hard problem
+  <li> So if someone says, "I've got a fast way to solve subsets
+regression" they shouldn't be telling statisticians, instead they
+should be telling the Clay foundation.
+</ul>
+
+<h2>"All interesting problems are impossible."</h2>
+<ul>
+  <li> How do we solve them?
+</ul> 
+
+<h2>Gready search</h2>
+
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

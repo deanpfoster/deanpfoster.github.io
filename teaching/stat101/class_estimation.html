@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 101 class outline: Estimation</title>
+</head>
+
+<body>
+<center><h1>Stat 101: Estimation</H1></center>
+
+<ul>
+  <li> Admistrivia
+       <p>
+       <ul>
+	 <li> Homework due last day of class
+       </ul>
+       </p>
+</ul>
+<h2>Introduction to Estimation and Confidence intervals</h2>
+<ul>
+  <li> Suppose your assistant come screaming into your office and
+       says: "We have gone out of bounds on the control chart!"
+       <ul>
+	 <P>
+	 <li> Yikes!  How bad is it?
+	 <li> Is going off any control chart equally bad?
+	 <li> It would be a big change if it went off the daily control
+	      chart.
+	 <li> It would be a very small change if it went off the annual
+	      control chart.
+	 <li> Both require corrective actions, but they differ.
+	 <li> Speed is of the importance for the daily problem--whereas
+	      accuracy is of importance for the annual chart.
+	 <li> Confidence intervals try to capture this concept.
+	 <li> Two pieces: best guess and accuracy
+	 <li> Today we will study the idea of good guessing
+	 <li> Tomarrow we study accuracy
+       </ul>
+       </P>
+  <li> Guessing = estimation
+       </P>
+  <li> Estimate the width of a wire
+       <P>
+       <ul> 
+	 <li> Situation: Manufacturing memory.  One important "wire
+	      width" should be about 50 nm.
+	 <li> Data: We use an atomic force microscope to measure widths
+	      several times aday.
+	 <li> Goal: Guess average width for all chips manufactured
+	      today.
+	 <li> estimator 1 = ave of 10 measurements made today
+	      (X<sub>1</sub> + ... + X<sub>10</sub>)/10
+	 <li> Estimator 2 = ave of 1000 measurements made over the
+	      past 100 days
+	 <li> Estimator 2 could be biased
+       </ul>
+       </P>
+  <li> Estimators are random variables!
+       </P>
+  <li> Estimators have distributions, means, variances
+</ul>
+<h2>Estimation</h2>
+<ul>
+  <li> Unbiased: E(estimator) = truth
+       <P>
+       <ul>
+	 <li> What if there are many unbiased estimators to choose from?
+	      (mean, median, max+min/2 all are unbiased)
+	 <li> Picking the one with the smallest standard deviation is called
+	      picking the "most efficient" estimator
+       </ul>
+       </P>
+  <li> Consistent
+       <P>
+       <ul>
+	 <li> Is the estimator close when n is large?
+	 <li> Example: using the median to estimate mu in an
+	      exponential.  Median --> half life which doesn't equal
+	      the mean.
+       </ul>
+       </P>
+</ul>
+
+
+
+<hr>
+<address></address>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Nov 29 09:13:46 EST 1999
+<!-- hhmts end -->
+</p>
+
+</body> </html>

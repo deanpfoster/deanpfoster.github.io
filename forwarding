@@ -1,0 +1,9 @@
+add 
+
+<META HTTP-EQUIV="Refresh" CONTENT="3; URL=http://gosset.wharton.upenn.edu/~foster">
+
+
+
+to header section of the html page to forward to the gosset.
+
+Then remove all the <a href 's in the main text since they are relative.

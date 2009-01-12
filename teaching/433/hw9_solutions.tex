@@ -1,0 +1,150 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 9 Solution}}
+\end{center}
+
+\textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
+\begin{itemize}
+
+    \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
+    questions which were problematic to most of the class or are of particular interest.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    final answers. Points will be deducted if partial solutions
+    are submitted.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
+    Write your name and email on top of the first page.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
+    grading please email: sivana@wharton.upenn.edu
+}
+\end{itemize}
+
+
+\begin{flushleft}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Page 256 Question 4.3}
+
+\begin{eqnarray*}
+\pi_0&=&q_1 \pi_1 \\
+\pi_1&=&\pi_0+q_2 \pi_2\\
+\pi_2&=&p_1\pi_1+q_3\pi_3\\
+\end{eqnarray*}
+
+From these three questions we can see that the following pattern
+is created:
+
+\begin{eqnarray*}
+\pi_1&=&\frac{1}{q_1} \pi_0 \\
+\pi_2&=&\frac{p_1}{q_1q_2} \pi_0\\
+\pi_3&=&\frac{p_1p_2}{q_1q_2q_3} \pi_0\\
+\end{eqnarray*}
+
+Generalizing these equations yields the following conclusion
+
+
+\begin{eqnarray*}
+\pi_i&=&\frac{\pi_0}{p_i} \prod_{j=1}^{i} \frac{p_j}{q_j}
+\end{eqnarray*}
+
+Integrating the fact that $\sum_{i=0}^N \pi_i =1$ we can figure
+out $\pi_0$.
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+
+\textbf{Question 4.8}\\
+The transition matrix is as follows:
+
+\[ P = \left ( \begin{array}{ccccc}
+ \frac{1}{2} &\frac{1}{2} & 0 & 0 & \ldots  \\
+ \frac{1}{3} & \frac{1}{3} & \frac{1}{3}& 0  & \ldots \\
+ \frac{1}{4 }& \frac{1}{4 } & \frac{1}{4 } & \frac{1}{4 } & 0\\
+ \vdots &  \vdots &  \vdots &  \vdots &  \vdots
+\end{array} \right) \]
+
+Using the first few equations we conclude that the following
+holds:
+
+\begin{eqnarray*}
+\pi_1&=& \pi_0 \\
+\pi_2&=&\pi_1-\frac{1}{2}\pi_0 = \frac{1}{2}\pi_0\\
+\pi_3&=&\pi_2-\frac{1}{3}\pi_1 = \frac{1}{6}\pi_0\\
+\pi_4&=&\pi_3-\frac{1}{4}\pi_2 = \frac{1}{24}\pi_0\\
+\end{eqnarray*}
+
+Generally we can prove that $\pi_i=\frac{1}{i!}\pi_0$ using the
+induction method.  Using the fact that the sum over all $\pi_i$
+must be one and the Taylor series expansion for $e$ we get
+
+\begin{eqnarray*}
+\sum_{i=0}^{\infty} \pi_{i} &=& 1 \\
+\pi_0 \sum_{i=0}^{\infty} \frac{1}{i!} &=& 1 \\
+\pi_0 \cdot e &=& 1\\
+\pi_0 &=&\frac{1}{e}
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+\textbf{Question 1.1}\\
+\begin{eqnarray*}
+P(X=k)&=&\int_0^1 f(X=k|\xi_1+\ldots+\xi_k=x)f(\xi_1+\ldots+\xi_k=x)dx \\
+&=&\int_0^1 \frac{f(X=k,\xi_1+\ldots+\xi_k=x)}{f(\xi_1+\ldots+\xi_k=x)}f(\xi_1+\ldots+\xi_k=x)dx \\
+&=&\int_0^1 \frac{f(\xi_1+\ldots+\xi_k=x,\xi_1+\ldots+\xi_{k+1}>1)}{f(\xi_1+\ldots+\xi_k=x)}f(\xi_1+\ldots+\xi_k=x)dx \\
+&=&\int_0^1 \frac{f(\xi_1+\ldots+\xi_k=x,\xi_{k+1}>1-x)}{f(\xi_1+\ldots+\xi_k=x)}f(\xi_1+\ldots+\xi_k=x)dx \\
+&=&\int_0^1 \frac{f(\xi_1+\ldots+\xi_k=x)P(\xi_{k+1}>1-x)}{f(\xi_1+\ldots+\xi_k=x)}f(\xi_1+\ldots+\xi_k=x)dx \\
+&=&\int_0^1 P(\xi_{k+1}>1-x)f(\xi_1+\ldots+\xi_k=x)dx \\
+&=&\int_0^1 (1-F(1-x))f(\xi_1+\ldots+\xi_k=x)dx \\
+&=&\int_0^1 (e^{-\lambda(1-x)})\frac{\lambda^k x^{k-1} e^{-\lambda x}}{(k-1)!}dx \\
+&=&\frac{\lambda^k e^{-\lambda}}{(k-1)!} \int_0^1  x^{k-1} dx \\
+&=&\frac{\lambda^k e^{-\lambda}}{k!}\\
+\end{eqnarray*}
+
+
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Question 1.7}\\
+Let $X_t$ be a random variable counting the number of shocks up to
+time t.  Then it follows that the probability that the system is
+surviving at time t is:
+
+\begin{eqnarray*}
+&=&\sum_{i=0}^{\infty} \alpha^i P(X_t=i)\\
+&=&\sum_{i=0}^{\infty} \alpha^i \frac{(\lambda t)^i e^{-\lambda t}
+}{i!}\\
+&=& e^{-\lambda t} \sum_{i=0}^{\infty} \frac{(\alpha\lambda t)^i}
+{i!}\\
+&=&e^{-\lambda t} e^{\alpha\lambda t} \\
+&=&e^{-\lambda t (1- \alpha)} \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\end{flushleft}
+\end{document}

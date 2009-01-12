@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Reading from, and writing to files</TITLE>
+<META NAME="description" CONTENT="Reading from, and writing to files">
+<META NAME="keywords" CONTENT="class03">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class03.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00020000000000000000">Reading from, and writing to files</A></H1>
+<P>
+Back to the mundane but useful, reading to and writing from files.
+<P>
+To write to  a file, you need to create a <TT>filehandle</TT> and then
+<TT>open</TT> the file. When you have finished writing, <TT>close</TT> the file.
+<P>
+There are 3 special file handles in Perl, <TT>STDIN</TT> the standard input, usually the keyboard, <TT>STDOUT</TT> the standard output, usually the screen, 
+and <TT>STDERR</TT> the standard error device, again usually the screen.
+<P>
+The <TT>select</TT> command is useful when having multiple output sources
+<P>
+Here's an example Perl script to write to a file, and then to append to it.
+<P>
+<PRE>#!/usr/local/bin/perl
+
+open(MYOUTFILE,&quot;&gt;output.txt&quot;); ### open file for output
+                               ### will detroy an old one if it exists.
+print MYOUTFILE &quot;Hello my new file!\n&quot;;
+print MYOUTFILE &quot;Hello again my new file!\n&quot;;
+
+close MYOUTFILE;
+
+print &quot;Should be writing to the screen again.\n&quot;;
+
+open (MYOUTFILE, &quot;&gt;&gt;output.txt&quot;); ### Open the output file again.
+                                  ### but this time appending to it.
+
+select  MYOUTFILE; ### Now a print without a file handle will 
+                   ### default to MYOUTFILE;
+
+print &quot;This should go back again to my file\n&quot;;
+
+print STDOUT &quot;Even though the file is open this should go to the screen\n&quot;;
+
+print &quot;And we are back to the file again\n&quot;;
+
+close MYOUTFILE;
+
+select STDOUT;
+
+print &quot;And we are back to the screen again\n&quot;;</PRE>
+<P>
+Here's how you read a file into your script:
+<P>
+<PRE>#!/usr/local/bin/perl
+
+### First open a file , hopefully with something in it.
+
+open( MYINPUTFILE, ``input.txt'');
+
+while (&lt;MYINPUTFILE&gt;){
+print;
+}</PRE>
+<P>
+The angle brackets will take one line at a time, from the file pointed to by teh file handle within the brackets. Each line is read into the default scalar
+variable $_. The <TT>print</TT> command looks for this variable by default.
+Thus, this script simply prints out the file.
+<P>
+<HR><A NAME="tex2html26" HREF="node3.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/next_motif.gif"></A> <A NAME="tex2html24" HREF="class03.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/up_motif.gif"></A> <A NAME="tex2html18" HREF="node1.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/previous_motif.gif"></A>   <BR>
+<B> Next:</B> <A NAME="tex2html27" HREF="node3.html">Saving state</A>
+<B>Up:</B> <A NAME="tex2html25" HREF="class03.html">Class 3 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html19" HREF="node1.html">Random number generators</A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Jan 29 06:45:16 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

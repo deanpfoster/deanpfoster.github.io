@@ -1,0 +1,63 @@
+<html>
+<header>
+<title>  STAT 541: Introduction to Multiple Regression</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Introduction to Multiple Regression </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> return first homeworks
+  <li> collect 2nd homeworks
+  <li> read chapter 3 of Myers
+</ul>
+
+<h2> Introduction to Multiple Regression</h2>
+
+Estimation in linear multiple regression (M:3.1, 3.2)
+<ul>
+  <li> What is a linear model? 
+       <ul>
+	 <li> log, x<sup>2</sup> are all linear???
+	 <li> Cobb-Douglass is linear or not???
+	 <li> General definition: "Mine is linear, yours is not"
+       </ul>
+  <li> Matrix representation for multiple regression Y = X(beta) + epsilon
+  <li> Normal equations:  X'X = X'Y
+  <li> Beta-hat = X'X<sup>-1</sup>X'Y
+  <li> estimating variance: MSE
+</ul>
+Properties of least squares estimators (M:3.3)
+<ul>
+  <li> unbiased
+  <li> var(b) = sigma<sup>2</sup>(X'X)<sup>-1</sup>
+  <li> BLUE, UMVUE, MLE, generally the right stuff
+</Ul>
+<h2>Hypothesis testing in multiple linear regression (M:3.4) </h2>
+Sum of squares magic: SST = SSR + SSE (T=total, R=regression, E = error)
+<ul>
+  <li> Sequential SS: SSR = R(all betas) = R(some|rest) + R(rest)
+  <li> Testing: Is R(some|rest) significantlly bigger than zero?
+  <li> partical F test tests if R(some|rest) is significant
+  <li> if "some" is only one variable, then t-test tests significance
+</ul>
+
+<p>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Feb 14 12:42:09 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

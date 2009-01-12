@@ -1,0 +1,271 @@
+<html>
+<head>
+<title> Dean Foster's Research </title>
+</head>
+<body>
+<h1>Dean Foster's Research</h1>
+
+<p>
+
+
+<h2>Variable selection</h2> 
+
+Everyone does stepwise regression--statisticians don't approve, but
+then statisticians don't approve of many things.  Edward and I wanted
+to justify stepwise regression and hopefully find a better way of
+doing it.  Our justification was to consider a risk-ratio.  We then
+optimized this criterion and came up with a proceedure that suggests
+adding variables if the F-statistic is bigger than 2 log p (basically
+this is Bonferroni).    While we
+were waiting around for referee's reports we talked to Donoho and
+Johnstone who also had a paper under review that had the same idea.
+
+<ul>
+<li> "The
+Risk Inflation Criterion for Multiple Regression"<a
+href="http://www.jstor.org/fcgi-bin/jstor/post-query.fcg/cc993314.9808723630/1-4?configsortorder=SCORE&frame=frame&dpi=3&config=jstor">(JSTOR)</a> with E.
+George, <a href="http://www.stat.berkeley.edu/users/annstat/"><em> The
+Annals of Statistics</em></a>,
+ <strong> 22</strong>, (1994), 1947 - 1975.
+</ul>
+
+The next big gain in variable selection was to switch from 2 log p to
+2 log (p/q).  This value is the smallest cut-off that doesn't
+obviuosly over fit.  Decreasing it even a little bit will led to
+massive overfitting.  So the question is, can we prove it doesn't over
+fit?
+
+<p>
+Edward and I have approached it from an empirical Bayes perspective.
+Bob and I have approached it from information theory.  Neither
+approach has lead to a proof that the risk has desirable properties.
+<ul>                               
+<li> "An Information Theoretic Comparison of Model Selection," with
+<a href = "http://www-stat.wharton.upenn.edu/~bob"> Bob Stine </a>.
+
+<li>  "<a
+href="http://www-stat.wharton.upenn.edu/~bob/research/bankrupt.pdf
+">Variable selection in data mining: Building a predictive model for
+bankruptcy,</a>" with <a href =
+"http://www-stat.wharton.upenn.edu/~bob"> Bob Stine </a>, (<a
+href="http://www-stat.wharton.upenn.edu/~bob/research/indianapolis-asa.pdf">talk</a>).
+  <li> "<a href="./EBVS00.pdf">Empirical Bayes Variable Selection,
+(pdf)</a>" with <a
+href="http://uts.cc.utexas.edu/~eig/index.html">Edward George</a>,
+Biometrika, 2000, 731 - 747.
+
+  <li> "<a href="./lac.pdf">Local Asympotic Coding for Model
+Selection (pdf)</a>," with <a href =
+"http://www-stat.wharton.upenn.edu/~bob"> Bob Stine </a>, , <em>IEEE
+    Transaction on Information Theory</em>, (1999) 1289 - 1293.
+<li> "<a
+href="http://www-stat.wharton.upenn.edu/~bob/research/honests2.pdf">Honest
+Confidence Intervals for the Error Variance in Stepwise
+Regression</a>" <a href = "http://www-stat.wharton.upenn.edu/~bob">
+Bob Stine </a>.
+<li>"<A HREF="./universal_monotone.ps">Universal Codes for Finite
+     Sequences of Integers Drawn from a Monotone Distribution</A></I>", with
+     R. Stine and A.J. Wyner, To Appear in the&nbsp; <I>IEEE Transactions on
+     Information Theory</I>, 2002.
+</ul>
+Recently, Bob Stine and I finally got a risk result for estimators of
+this type.
+<ul>
+<li> "<a
+href="./bayes-expert.ps">Adaptive
+variable selection with Bayesian oracles. </a>" (<a href =
+"http://www-stat.wharton.upenn.edu/~bob/research/bayes-expert.pdf">pdf</a>)
+with Bob Stine. (<a href="./bayes-expert-talk.ps">talk</a>)
+
+<p>
+Sprinkling in a bit of game theory, led to considering a market for
+variables.  The idea is a player buys the oppertunity to try a
+variable.  If that variable turns out to be significant, then the
+player is rewarded.  The price can be paid in "alpha" or in "bits."
+These ideas have lead to the following papers:
+<ul>
+ <li> <a href="edc.ps">Multiple hypothesis testing using 
+        the excess discovery count and alpha-investing rules</a>
+ (<a href="edc.pdf">.pdf</a>) with Robert Stine.
+<li> We are also working on two more papers.
+</ul>
+
+
+</ul>
+
+<h2>Learning models (Calibration/No-regret/game theory)</h2>
+
+Suppose you observe a sequence of events--but you are unwilling to
+consider a probabilistic model for these events.  Can you still come
+up with good forecasts?  Blackwell (1956) and Hannan (1957) showed
+that this was possible (as did I, but they were first).  Rick's and my
+review paper (1999) discuss all the various people who have
+independently rediscoved these sorts of results.  
+<p>
+
+In 1991 Rick and I also came up with a scheme that has a property
+called calibration.  The idea of calibration is to make sure that your
+forecasts make empirical sense.  So when you say there is a .2 chance
+of rain, it should rain empirically 1/5 of the time.  This idea (along
+with our idea of no-regret) has a nice game theoretic applications:
+calibrated rules converge to correlated equilibria.
+<ul>
+<li> "Prediction in the Worst Case,"<a
+href="http://www.jstor.org/fcgi-bin/jstor/post-query.fcg/cc993314.9808723630/1-4?configsortorder=SCORE&frame=frame&dpi=3&config=jstor">(JSTOR)</a> <a
+href="http://www.stat.berkeley.edu/users/annstat/"><em> The Annals of
+Statistics</em></a>, <strong> 19</strong>, (1991), 1084 - 1090.
+                                   
+<li> "A Randomization Rule for Selecting Forecasts," with <a
+href="http://www.cob.ohio-state.edu/~mgtsci/vohra.htm">Rakesh
+Vohra</a>, <em> Operations Research</em>, <strong> 41</strong>,
+(1993), 704 - 709, with discussion by R. Clemen.
+                                
+<li> <a href="calibration.ps">"Asymptotic Calibration,"</a> with <a
+href="http://www.cob.ohio-state.edu/~mgtsci/vohra.htm">Rakesh
+Vohra</a>, <em> Biometrika</em>.
+                             
+<li> <a href="./calibration_and_CE.ps">"Calibrated Learning and
+Correlated Equilibrium,"</a> with <a
+href="http://www.cob.ohio-state.edu/~mgtsci/vohra.htm">Rakesh
+Vohra</a> to appear in <em> Games and Economic Behaviour.</em>
+
+<li> "Introduction to the Special Issue," (in honor of David
+  Blackwell) with R. Vohra, D. Levine, <em>Games and Economic
+    Behavior</em>, (1999), 1 - 7.
+
+<li> <a href="./no_regret.ps"> "Regret in the On-line Decision
+Problem,"</a> with <a
+href="http://www.cob.ohio-state.edu/~mgtsci/vohra.htm">Rakesh
+Vohra</a>, Games and Economic Behavior, 1999, 7 - 36.
+
+<li> <a href="http:calibration_via_blackwell.ps">"A proof of
+Calibration via Blackwell's Approchability Theorem."</a>, Games and
+Economic Behavior, 1999, 73 - 79.
+</ul>
+
+My work with Rick showed that one can learn correlated equilibria.
+But, can one learn the more traditional concept of a Nash equilibrium?
+Peyton and I extended Jordon's proof that Bayesians can't learn a Nash
+equilibrium to include Bayesians that do discounting.
+
+<ul>
+ 
+  <li> "<a href="nash.ps">Learning, Hypothesis Testing, and Nash
+Equilibrium (ps)</a>" (<a href="nash.pdf">.pdf</a>), with H. P. Young.
+
+  <li> "Learning with Hazy Beliefs," (1997) with H. P. Young. (No longer
+current.  See "Hypothesis testing" above.)
+
+<li> "<a href="impossibility_of_predicting.ps">On the Impossibility of
+Predicting the Behavior of Rational Agents (ps)</a>," (<a
+href="impossibility_of_predicting.pdf">.pdf</a>) with H.P.  Young,
+<em>PNAS</em>, 2001.
+
+<li> "On the Nonconvergence of Fictitious Play in Coordination Games," with
+H. P. Young, <em> Games and Economic Behaviour,</em> 1998, 79 - 96.
+</ul>
+
+It turns out that you can make a version of calibration that can be
+used as a coordinating device to discover a NE.  It is still as
+exponentially slow as the exhaustive search done in the "Hypothesis
+Testing" approach.
+<ul>
+<li> <a
+href="deterministic_calibration.ps">
+Deterministic Calibration and Nash Equilibrium</a> (<a
+href="deterministic_calibration.pdf">.pdf</a>)
+with <a href="http://www.cis.upenn.edu/~skakade/">Sham M. Kakade</a>,
+COLT, 2004.
+ <li> "Determinisic calibration with simplier checking rules," with
+Sham M. Kakade, <a href="nash_trees_slides.ps">talk.ps</a> 
+                (<a href="nash_trees_slides.pdf">.pdf</a>),
+                <a href="nash_trees_handout.ps">handout.ps</a> 
+                (<a href="nash_trees_handout.pdf">.pdf</a>).
+</ul>
+
+<h2>ARCH models</h2>
+
+If you look the stock market, there are periods when not much is
+happening and the prices are stable and there are periods when the
+prices flucuate all over the place.  Dan Nelson had me assist him in
+his analyis of these ARCH models.
+
+<ul>
+<li> <a href="./rolling_regression_econometrica_paper.ps">"Continuous
+Record Asymptotics for Rolling Sample Variance Estimators,"</a> with
+D.  Nelson, <em> 
+<a href="http://gemini.econ.yale.edu/es/index.html">Econometrica</a>
+,</em> <strong> 64</strong>, (1996), 139
+- 174.
+<li> "Filtering and Forecasting with Misspecified ARCH Models: Making
+the Right Forecast with the Wrong Model," with D.  Nelson, <em> Journal of
+Econometrics</em>, <strong> 67</strong>, (1995), 303 - 335.
+                                    
+<li> "Asymptotic Filtering Theory for Univariate ARCH Models,"<a
+href="http://www.jstor.org/fcgi-bin/jstor/post-query.fcg/cc993314.9808723630/1-4?configsortorder=SCORE&frame=frame&dpi=3&config=jstor">(JSTOR)</a> with D.
+Nelson, <em> 
+<a href="http://gemini.econ.yale.edu/es/index.html">Econometrica</a></em>
+<strong> 62</strong>, (1994), 1 - 41.
+</ul>
+
+<h2>Affirmative action </h2> 
+
+Rick and I saw a talk by Judge Posner, that was so rabidly free-market
+that we wanted to write a piece showing that the free-market can't
+solve all problems.  (Posner was argueing that rape is primarlly a
+search cost issue.)  So we wrote this little model which showed that
+if all agents are rational, a free market is unable to remove arbitary
+and capricious discrimination.  While our paper was under review, we
+were given a copy of a paper by Coate and Loury which had basically
+the identical model.  Interestingly enough, it had the opposite
+conclusion.
+
+<ul>
+<li> "An Economic Argument for Affirmative Action," with <a
+href="http://www.cob.ohio-state.edu/~mgtsci/vohra.htm">Rakesh
+Vohra</a>, <em> Rationality and Society</em>, <strong> 4</strong>,
+(1992), 176 - 188, with discussion by G. Loury, by D.  Friedman, and
+by J. Heckman and T. Philipson.
+</ul>
+
+<h2>Evolution and games</h2>
+
+In 1988, Peyton Young and I came up with the idea of merging
+population genetics with game theory.  This had be done for
+deterministic dynamics already--we just added noise to the existing
+definition.  This is my most frequently cited paper.
+<p>
+
+<ul>
+<li> "Stochastic Evolutionary Games Dynamics," with H.P.  Young, <em>
+Journal of Theoretical Population Biology</em>, <strong> 38</strong>, (1990), 219 - 232.
+<li> "Cooperation in the Short and in the Long Run," with H.P.  Young,
+<em> Games and Economic Behavior</em>, <strong> 3</strong>, (1991), 145 - 156.
+</ul>
+
+<h2>Other work in progress</h2>
+
+<p>
+One current project that has web pointers that I am working on is <a
+href="http://www.cis.upenn.edu/~ungar/go.html">computer go.</a> We are
+trying to use pattern matching to develop a go player.
+</p>
+
+<p> I've currently only put up only one open source project called <a
+href="http://sourceforge.net/projects/baby-lakos/">baby-lakos)</a>.
+It implements a way of doing levilization ala lakos.  This was enough
+to get <a href="http://www.advogato.org/person/foster/">me</a>
+certified as a apprentice on <a
+href="http://www.advogato.org/">Advogato</a>.  Hopefully when the go
+progrect goes open-source I'll upgrade to journeyman.
+
+<p>
+Another project is the <a href="/mortality/">life calculator.</a>
+Choong Tze Chua is now working on this project with us.  He has
+developed a more complete version of the <a href="/~chuac/">life
+calculator.</a> 
+</p>
+
+</body>
+</html>
+

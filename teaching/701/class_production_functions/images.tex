@@ -1,0 +1,194 @@
+\batchmode
+\documentclass[12pt]{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}c_t = c_1n_t^{\alpha_c}e^{u_t},\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$c_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline117: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$c_1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline119: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$n_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline121: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\alpha_c$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline123: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$u_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline125: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\epsilon_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline127: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\ln(c_t) = \ln(c_1) + \alpha_c \ln(n_t) + u_t.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\alpha_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline131: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}y = A \times x_1^{\alpha_1} \times x_2^{\alpha_2} \times x_3^{\alpha_3},\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline139: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\alpha_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline143: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$r = \sum\alpha_i.$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline147: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$C = \sum_i p_i x_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline149: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}C = k\, y^{1/r} p_1^{\alpha_1/r} p_2^{\alpha_2/r} p_3^{\alpha_3/r},\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}k = r ( A \alpha_1^{\alpha_1} \alpha_2^{\alpha_2} 
+\alpha_3^{\alpha_3})^{-1/r}.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\alpha_3 = r - \alpha_1 - \alpha_2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline159: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\ln(C^\ast) = \beta_0 + \beta_y \ln(y) + \beta_1 \ln(p_1^\ast) + \beta_2 
+\ln(p_2^\ast),\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\ln(C^\ast) = \ln(C) - \ln(p_3)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline163: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\ln(p_1^\ast) = \ln(p_1) - \ln(p_3)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline165: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\ln(p_2^\ast) = \ln(p_2) - \ln(p_3)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline167: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_0 = \ln(k)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline169: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$ \beta_y = 1/r$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline171: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_1 = \alpha_1/r$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline173: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_2 = \alpha_2/r$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline175: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$r, \alpha_1, \alpha_2, \alpha_3$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline177: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\ln(C) = \ln(k) + (1/r) \ln(y) + (\alpha_1/r) \ln(p_1) +
+(\alpha_2/r) \ln(p_2) + (\alpha_3/r) \ln(p_3) + v_t.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$A_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline183: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$A_t = n_t^{-\alpha_c}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline185: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}GNPD_t = (\alpha_1/r) \ln_(p_1) + (\alpha_2/r) \ln_(p_2) + 
+(\alpha_3/r) \ln_(p_3).\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\ln(C_t') = \ln(k') + (\alpha_c/r) \ln(n_t) + 1/r \ln(y_t) + u_t.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$C_t'$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline191: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\ln(c_t) = \ln(k') + (\alpha_c/r) \ln(n_t) + ((1 - r)/r) \ln(y_t) + u_t,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline203: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(r \> 1)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline205: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

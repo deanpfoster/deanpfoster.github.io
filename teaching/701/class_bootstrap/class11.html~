@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>No Title</TITLE>
+<META NAME="description" CONTENT="No Title">
+<META NAME="keywords" CONTENT="class11">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class11.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <HR>
+<P>
+<CENTER><H1> Class 11 Stat701 Fall 1997</H1></CENTER>
+<P>
+<P CENTER>
+<CENTER><H2>Introduction to SPlus.</H2></CENTER>
+<P>
+Todays class.
+Fit Nerlove data +  Bootstrap demonstration.
+<P>
+Read in the Nerlove dataset.
+<P>
+Note that I have carried out the necessary transformations.
+<P>
+We are fitting Equation (3.20) the cost function associated with the
+Cobb Douglas Production function.
+<P>
+Knowing, prices, costs and output we can estimate the alpha's and
+the returns to scale <I>r</I>.
+<P>
+Note that the estimate of <I>r</I> comes from the relationship
+ <IMG WIDTH=71 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline24" SRC="img1.gif"  > .
+<P>
+Checking if <I>r = 1</I> is the interesting question, so we will find a 
+bootstrap CI for <I>r</I>.
+<P>
+Also, to get an impression of the stability of R-squared we will
+find a bootstrap CI for R-squared - this we will do for the returns data
+set that includes the 87 crash.
+<P>
+<A HREF="../../nerlov.htm">The code needed to do this is here.</A>
+<P>
+<HR>
+<P>
+
+<B>Bootstrap comments.</B>
+<P>
+<DL >
+   <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Produces valid estimates of standard errors and confidence intervals
+for just about any estimator
+   <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Relies on <B>resampling</B> data to produce many ``new'' datasets.
+   <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Extremely useful, especially for complicated statistics and 
+complicated sampling designs
+   <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Is not a <B>panacea</B>. Does not save bad data. Does not work if 
+    resampling done incorrectly.
+<P>
+ </DL></P></P><BR> <HR>
+<A HREF="http://enkidu.wharton.upenn.edu/~bob/michigan.html">
+A link to Bob Stines bootstrapping notes.</A>
+
+
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Wed Oct  8 22:29:13 EDT 1997</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

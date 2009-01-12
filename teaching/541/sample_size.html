@@ -1,0 +1,101 @@
+<html>
+<header>
+<title>  STAT 541: Sample size calculations</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Sample size calculations </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> Handout for homework
+</ul>
+
+<h2> Sample size calculations</h2>
+
+<h3> Simulating an experiment</h2>
+
+<ul>
+  <li> Need to simulate a whole experiment in our heads
+  <li> Suppose we are testing H<sub>0</sub>: mu = 0 vs. H<sub>1</sub>: mu > 0
+  <li> Collect n samples, compute X-bar, SD(X-bar) = sigma/sqrt(n)
+  <li> Draw pictures under null and under alternative
+  <li> Rejection region defines alpha
+  <li> Acceptance region defines beta under alternative
+  <li> Goal:
+       <ul>
+	 <Li> want mu to be small so we can detect subtle differences
+	 <li> want alpha to be small so no type I errors
+	 <li> want beta to be small so no type II errors
+	 <li> want n to be small so we don't have to collect much data
+       </ul>
+  <li> Problem:  ALL of these are playing agisnst each other
+</ul>
+
+<h3>Picking n</h3>
+The one sample problem.  Is x-bar signficantly larger than a specified null value?
+<ul>
+  <li> Alpha says how far away x-bar has to be to be significant
+  <li> Beta for some delta says how far away x-bar has to be from interesting point
+  <li> Draw picture on Z-scale
+  <li> Put "real" scale underneath it
+  <li> n determines ratio of two scales
+  <li> Ah, now the details begin
+       <ul>
+	 <li> delta = mu - mu<sub>0</sub>
+	 <li> Z<sub>alpha</sub> = required significance (alpha)
+	 <li> Z<sub>beta</sub> = required power (beta)
+	 <li> Key equation: |Z<sub>alpha</sub>| + |Z<sub>alpha</sub>| = delta/SE
+	 <li> n = sigma<sup>2</sup> (|Z<sub>alpha</sub>| + |Z<sub>alpha</sub>|)<sup>2</sup>/delta<sup>2</sup> 
+       </ul>
+</ul>
+
+Easier problem: Find n to work with a confidence interval.  n =
+|Z<sub>alpha</sub>| sigma<sup>2</sup> /(Interval width)<sup>2</sup>.
+Depending how you define width, you many need a factor of 2 in here
+also.
+
+<h3>Picking all values</h3>
+Need to pick all parameters.
+<ul>
+  <li> Draw up table of type I and type II error
+  <li> specify delta via economics (smallest profitable difference)
+  <li> put costs on each error cell
+  <li> If null is true, want small alpha, if alternative is true want
+       small beta, unfortunately, this would be self-confirming EVEN if it
+       weren't correct.
+  <li> Scientific tradition: alpha = .05, beta = .1 or beta = .2
+  <li> economic decisions are more difficult
+       <ul>
+	 <li> Example: to build a new plant or not
+	      <ul>
+		<li> if everything works, small profits
+		<li> if not enough new jobs, large loss
+		<li> Must protect null (alpha very small)
+	      </ul>
+	 <li> Example: eliminate night shift to cut down on breakdowns
+	      <ul>
+		<li> if alternative true, big wins
+		<li> if alternative shown untrue, we missed a few overtime jobs
+		<li> more symetric (alpha approximately = beta, both not too small)
+	      </ul>
+       </ul>
+  <li> Now solve for n
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Apr  3 08:50:07 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

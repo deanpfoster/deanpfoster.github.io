@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 9, Stat701 Fall 1997</TITLE>
+<META NAME="description" CONTENT="Class 9">
+<META NAME="keywords" CONTENT="class9">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class9.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<P>
+<CENTER><H1> Class 9 Stat701 Fall 1997</H1></CENTER>
+<P>
+<CENTER><H2> Learning, productivity and cost models.</H2></CENTER>
+<P>
+<HR>
+<P CENTER>
+<P>
+From last time: <A HREF="../class08/class8.html#transform">transformation in 
+regression.</A><BR>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>For next time read Berndt 3.5,3.6.
+<P>
+<HR>
+<H2>Todays class.</H2>
+
+<P>
+<H2>The game plan</H2>
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/yellowpin.gif" ALT="*"><DD>1. Model learning curves
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/yellowpin.gif" ALT="*"><DD>2. Model production functions
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/yellowpin.gif" ALT="*"><DD>3. Model costs associated with production function
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/yellowpin.gif" ALT="*"><DD>4. Specialize cost function to include the learning curve model 
+as a special case
+<P>
+ </DL>
+<P>
+<B>1. Learning curves</B>
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>The motivation
+  <DL >
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Unit costs decrease as cumulative output increases.
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Strategic implications for pricing and marketing strategy
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Formulation
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD><P> <IMG WIDTH=303 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath115" SRC="img1.gif"  > <P> where
+          <UL><LI> <IMG WIDTH=12 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline117" SRC="img2.gif"  >  is unit cost in time period t (adjusted for inflation)<LI> <IMG WIDTH=13 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline119" SRC="img3.gif"  >  is unit cost in initial time period<LI> <IMG WIDTH=16 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline121" SRC="img4.gif"  >  cumulative production up to but not including time t<LI> <IMG WIDTH=17 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline123" SRC="img5.gif"  >  is unit cost elasticity with respect to cumulative volume<LI> <IMG WIDTH=16 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline125" SRC="img6.gif"  >  stochastic disturbance term (our  <IMG WIDTH=12 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline127" SRC="img7.gif"  > )
+          </UL> 
+ </DL>
+<P>
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Note. Response is unit cost. A multiplicative model.
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Make linear by taking logs.
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD><P> <IMG WIDTH=375 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath129" SRC="img8.gif"  > <P>
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Estimate  <IMG WIDTH=16 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline131" SRC="img9.gif"  >  from a simple regression.
+<P>
+ </DL>
+<P>
+<HR>
+<H2>2. Cobb Douglas production function.</H2>
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Model: <P> <IMG WIDTH=351 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath133" SRC="img10.gif"  > <P> where
+  <UL><LI><I>y</I> is the output<LI><I>A</I> denotes the state of technical knowledge<LI> <IMG WIDTH=15 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline139" SRC="img11.gif"  >  denotes the quantity of input <I>i</I><LI> <IMG WIDTH=15 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline143" SRC="img12.gif"  >  is the parameter to be estimated (like an elasticity of output with respect to input <I>i</I>)
+   </UL>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Note: the response is output. Another multiplicative model.
+   <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Define <I>returns to scale</I> as  <IMG WIDTH=75 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline147" SRC="img13.gif"  > 
+<P>
+ </DL>
+<P>
+<HR>
+<H2>3. The cost function</H2>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>The cost function is  <IMG WIDTH=94 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline149" SRC="img14.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Just the quantity of inputs times their prices.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Relates the minimum cost of producing a level of output <I>y</I> to the
+prices of the inputs and the state of technical knowledge.
+<P>
+ </DL>
+<P>
+<B>Objective;</B>
+Find the input levels that minimze the production cost for a given 
+level of output. (Cost minimizer assumption.)
+<P>
+This is an optimization problem, in particular choose input levels to 
+minimize costs. But subject to a <B>constraint</B>: the inputs must produce a 
+given level of output, <I>y</I>.
+<P>
+Mathematical technique for solution of constrained optimization: 
+Lagrange multipliers.
+<P>
+It turns out that, assuming the Cobb Douglas production function, then 
+the optimal level of inputs produce a <B>COST FUNCTION</B> of the form
+<P> <IMG WIDTH=351 HEIGHT=24 ALIGN=BOTTOM ALT="displaymath155" SRC="img15.gif"  > <P>
+where
+<P> <IMG WIDTH=346 HEIGHT=23 ALIGN=BOTTOM ALT="displaymath157" SRC="img16.gif"  > <P>
+<P>
+It looks a mess, but notice that it is multiplicative, so taking logs will
+achieve a linear expression ready for regression.
+<P>
+Further, using the fact that  <IMG WIDTH=137 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline159" SRC="img17.gif"  >  the logged
+version can be rewritten as
+<P>
+<P> <IMG WIDTH=433 HEIGHT=21 ALIGN=BOTTOM ALT="displaymath161" SRC="img18.gif"  > <P> where
+<UL><LI> <IMG WIDTH=191 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline163" SRC="img19.gif"  > <LI> <IMG WIDTH=188 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline165" SRC="img20.gif"  > <LI> <IMG WIDTH=188 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline167" SRC="img21.gif"  > <LI> <IMG WIDTH=82 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline169" SRC="img22.gif"  > <LI> <IMG WIDTH=70 HEIGHT=31 ALIGN=MIDDLE ALT="tex2html_wrap_inline171" SRC="img23.gif"  > <LI> <IMG WIDTH=80 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline173" SRC="img24.gif"  > <LI> <IMG WIDTH=80 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline175" SRC="img25.gif"  > 
+</UL>
+<P>
+From this lot we can get at what's of interest,  <IMG WIDTH=90 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline177" SRC="img26.gif"  > .
+<P>
+<HR>
+<H2>4. Putting together the Learning Curve and the Cost Function</H2>
+<P>
+Objective: make assumptions that incorporate the learning curve into the
+cost function as a special case.
+<P>
+<UL><LI>Recall that the learning curve equation can be written as
+<P> <IMG WIDTH=375 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath129" SRC="img8.gif"  > <P><LI>And the cost equation as
+<P> <IMG WIDTH=620 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath181" SRC="img27.gif"  > <P>
+
+</UL>
+<P>
+Then the question becomes can we put restrictions and assumptions on the 
+cost function so that the learning curve is a special case?
+<P>
+Here's how it goes.
+<P>
+<UL><LI>Define the state of knowledge  <IMG WIDTH=19 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline183" SRC="img28.gif"  >  as  <IMG WIDTH=80 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline185" SRC="img29.gif"  > .<LI>Assume that effects of the input prices are captured by a GNP deflator,
+ ie 
+<P> <IMG WIDTH=477 HEIGHT=21 ALIGN=BOTTOM ALT="displaymath187" SRC="img30.gif"  > <P>
+</UL>
+<P>
+This leads to a simpler equation:
+<P>
+<P> <IMG WIDTH=443 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath189" SRC="img31.gif"  > <P>
+<P>
+Here  <IMG WIDTH=18 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline191" SRC="img32.gif"  >  is a real total cost because it as been adjusted by the GNP 
+deflator.
+<P>
+Finally move to unit real costs rather than total real costs and you obtain
+<P> <IMG WIDTH=471 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath193" SRC="img33.gif"  > <P>
+<P>
+which for <I>r</I> = 1 is the learning curve model.
+<P>
+How much sense does the previous equation make?
+<P>
+It says that the log of your average real cost at time <I>t</I> depends on
+two things. 
+<UL>
+<LI> 1, how much you have produced up to time <I>t</I> which surrogates for
+how much knowledge you have. 
+<LI> 2, how much you produce at time <I>t</I> as denoted
+ by  <IMG WIDTH=14 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline203" SRC="img34.gif"  > . If you produce more and your returns to scale are greater than 1
+ (r > 1) then your average cost should decrease - which makes sense.
+</UL>
+<P>
+<HR><B>Summary</B>
+<P>
+We have seen a variety of econometric models in action. 
+<UL><LI>There were all <B>multiplicative</B>.<LI>Their functional form was convenient to work with.<LI>They involved some very strong assumptions.<LI>Criticism should be tempered by the objective of the modeling.<LI>They provide a framework and language for discussion rather than a vague conversation.
+</UL></P></P><BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Wed Oct  1 20:47:26 EDT 1997</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

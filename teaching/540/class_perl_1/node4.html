@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The for and if statements</TITLE>
+<META NAME="description" CONTENT="The for and if statements">
+<META NAME="keywords" CONTENT="class02">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class02.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <H2><A NAME="SECTION00011000000000000000">The <TT>for</TT> and <TT>if</TT> statements</A></H2>
+<P>
+The <TT>for</TT> statement allows you to perform the same block of code
+for a set of values. The <TT>for</TT> loop takes three components;
+one to set the initial state, a condition to test the loop variable, and
+a means of modifying the looping variable.
+<P>
+There are two other looping commands, <TT>while</TT> and <TT>until</TT>
+that evaluate a logical expression and  execute a block of code so long as 
+the logical expression is true and false respectively.
+<P>
+The <TT>if</TT> statement evaluates a logical condition, and if that
+condition turns out to be true, executes a block of code. The block is
+delimited by curly brackets, as is the block for the <TT>for</TT> statement.
+<P>
+More than one condition can be incorporated by using the <TT>elsif</TT> 
+and <TT>else</TT> constructs.
+<P>
+There is an <TT>unless</TT> statement, that could be expressed as an
+<TT>if</TT> statement but is cleaner!
+<P>
+Here's as example of basic usage:
+<PRE>#!/usr/local/bin/perl
+
+for($i = 0; $i &lt; 30; $i++){
+    if(( $i % 2) == 0){
+        print $i, `` is an even number!\n'';
+    }
+}</PRE>
+<P>
+Flow through a loop can be modified using the <TT>next</TT> and <TT>last</TT>
+operators. <TT>next</TT> allows you to skip to the end of the current loop iteration and <TT>last</TT> lets you go to the end of the block.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Jan 22 01:27:29 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

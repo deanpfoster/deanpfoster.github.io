@@ -1,0 +1,98 @@
+<html>
+<header>
+<title>  STAT 541: Residuals</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Residuals </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Homework: Do Myers' problem: 3.20 (on page 160, <a href="homework_epa.txt">data</a>).  
+       Also give me a histogram of the residuals.
+  <li> Read all of chapter 5.
+</ul>
+
+<h2> Residuals (chapter 5 of Myers)</h2>
+
+<ul>
+  <li> Which residuals?
+       <p>
+       <ul>
+	 <li> Y - Y-hat: don't have the same variance under ideal
+	      circumstances.  They aren't independent either!  
+	 <li> (Y - Y-hat)/SD(Y - Y-hat) called studentized residuals:
+	      normalizes to common scale.
+	 <li> Leave one out statistics: remove the data point--run the
+	      regression and refit and standardize.  Luckilly no need
+	      for doing all this work--its the same as the studentized
+	      residual!  (related to PRESS = Prediction Sum of
+	      Squares)
+	 <li> Use variance with value or not?  CAlled externally
+	      studentized or R-student.  Has a known distribution:
+	      t<sub>n-p-1</sub>.
+       </ul>
+       <p>
+  <li> Using regression to test outliers
+       <p>
+       <ul>
+	 <li> Did TMI affect the price of GPU? <a href="events.csv">csv</a>
+	 <li> Need a Bonferroni correction if you don't know the cause
+	      of the outlier.
+       </ul>
+       <p>
+  <li> Using regression to test for curvature
+       <p>
+       <ul>
+	 <li> Is there a non-linear effect caused by X?
+	 <li> Test it by putting in X<sup>2</sup>.
+       </ul>
+       <p>
+  <li> Histogramming the residuals
+       <p>
+       <ul>
+	 <li> outliers
+	 <li> normality
+       </ul>
+       <p>
+  <li> Plotting residuals vs Y-hat
+       <p>
+       <ul>
+	 <li> Feel good plot
+	 <li> shows off R-sq
+	 <li> Might suggest need to transform Y
+       </ul>
+       <p>
+  <li> Plotting residuals vs X's
+       <p>
+       <ul>
+	 <li> curvature
+	 <li> hetroskadasticity
+       </ul>
+       </p>
+  <li> Plotting residuals vs partial regression
+       <p>
+       <ul>
+	 <li> X-axis is X regressed on all other variables
+	 <li> Shows leverage effects
+	 <li> slope is partial slope in regression
+       </ul>
+       </p>
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Feb 20 08:18:47 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

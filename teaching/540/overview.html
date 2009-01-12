@@ -1,0 +1,188 @@
+<html>
+<header>
+<title>  Statistics 540 overview</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 540 overview </h1></center>
+
+<P>
+Instructor: Dean Foster.<BR> 
+email: foster@diskworld.wharton.upenn.edu<BR> 
+class homepage: http://diskworld.wharton.upenn.edu/teaching/540<BR>
+<P>
+<H2>Objectives.</H2>
+<P>
+<OL>
+  <LI>Learn a programming language. Perl.
+  <LI>Learn web based computing (CGI, periodic and recursive web agents).
+  <LI>Process text to extract information.
+  <LI>Classical linear algebra and optimization techniques. (Thisted)
+  <LI>Computation for Bayesian methods.
+  <LI>Overview of other computing tools. Mathematica, S-Plus.
+</OL>
+<P>
+<H2>Structure.</H2>
+<P>
+The course will be split into 5 modules. Each module will focus on
+constructing a program to perform a specific task. The task itself will be
+broken down into components, and a set of components will be addressed in each
+class.
+<P>
+<H3>Modules.</H3>
+<P>
+<H4>1. Web based minesweeper. Perl and CGI</H4>
+<P>
+   i.    Hello wide world. Perl, HTML, HTTP and CGI basics. Client/Server paradigm. 
+         Take a protocol (HTTP), an interface (CGI), a mark up language (HTML) and
+         mix in a little Perl and you can do anything!<BR> 
+   ii.   Data structures in Perl. Scalars, lists and associative arrays.<BR> 
+   iii.  Subroutines, randomization.<BR> 
+   iv.   Saving &quot;state&quot;; &quot;cookies&quot;.
+<P>
+<H4>2. Classification potpourri. </H4>Set up a web based interface to offer a user the
+ability to select a classification method for data analysis. AKA, how to make your 
+methodology available to the world.
+<P>
+We will learn the algorithms behind the classification techniques and construct a
+web based interface which allows a remote user to implement them.
+<P>
+   i.   Logistic regression.<BR> 
+   ii.  Neural networks.<BR> 
+   iii. Boosting. <BR>
+<P>
+<H4>3. Web based agents for mining online patent databases.</H4>
+<P>
+   We will design recursive web agents to mine technology patent databases. We will
+   construct representations of patent &quot;family trees&quot;. We will represent these
+   trees efficiently and discuss models for tree features.
+<P>
+   i.   Regular expressions and pattern matching. 
+        What does <PRE>m@(\w+)://([^/:]+)(:\d*)?([^#]*)@</PRE> do for you?  <BR> 
+   ii.  Agent construction. The LWP module. OOP in Perl.<BR> 
+   iii. Tree representation and analysis.<BR>
+<P>
+<H4>4. Click by click - collecting, representing and analyzing web click data.</H4>
+<P>
+   We will customize the apache web server's log files to allow a click by
+   click analysis of a users progression and action through a web site.
+<P>
+   i.   Massive data set issues. <BR> 
+   ii.  Graphs and their representations. <BR> 
+   iii. Algorithms.
+<P>
+<H4>5. The tower of Babel - Yahoo's stock bulletin boards.</H4>
+<P>
+   Is there any useful information out there? We will design, periodic and
+   adaptive agents to retrieve all posts, then extract and statistically
+   analyze their content.  We will obtain real time stock quotes and correlate
+   boards with markets.
+<P>
+   i.   Language feature extraction.<BR> 
+   ii.  Document classification - Bayesian models &amp; Markov Chain Simulation.<BR>
+<P>
+<h3>Grading</h3>
+
+<p> Grading will be based on homework.  There will be about 10 - 15
+assignments.  No late assignments will be accepted.
+
+<h3>Readings and resources:</h3>
+<p>
+<ul>
+  <li> Perl
+       <p>
+       <ul>
+	 <li> Perl is the programming language we will learn this semester.  
+	 <li>
+	      <a href="http://www.amazon.com/exec/obidos/ASIN/1884777805/rts/002-6249414-416/104-3536916-2495118">
+	      Elements of Programming With Perl</a> by Andrew
+	      L. Johnson.  This is said to be a good tutorial for
+	      beginners.  
+	 <li>
+	      <a
+	      href="http://www.amazon.com/exec/obidos/ASIN/0596000278/ref=sim_books/104-3536916-2495118">Programming
+	      perl</a> 3rd edition?  by Larry Wald.  The definitive
+	      book on perl.  We will be using
+	      it as the text for the class.
+	 <li> <a href="http://c2.com/cgi/wiki?IwannaLearnPerl">Wiki page on learning perl.</a>
+	      <li> <a href="http://www.cclabs.missouri.edu/things/instruction/perl/perlshow.html">A more structured tutorial</a>
+	 <li> Other books recommended by Wired: Perl: The programmer's companion, The perl cookbook.
+	 <li> <a href="cpan.org">Comprehensive Perl Archive Network (cpan)</a>
+	 <li> 
+       </ul>
+       <p>
+  <li> HTML
+       <p>
+       <ul>
+	 <li> HTML is the language web pages are written in.
+	      It is how you present material to the world.
+	 <li> There are 100s of books on HTML, many web pages,
+	      etc.  So find something that works for you.
+	      (Using the view-source is a good way of seeing
+	      how somebody did something.)
+	 <li> see <a href="http://www.ncsa.uiuc.edu/General/Internet/WWW/HTMLPrimerP1.html#TM2">here</a>
+for an introduction to HTML.
+	 <li> Another on line source is <a href="http://www.RZ.UniBw-Muenchen.de/~r31dmaeu/wilbur/overview.html">here</a>.
+	 <li> Here is a quick list of <a href="http://www.cosy.sbg.ac.at/~lendl/tags.html">tags</a>.
+       </ul>
+       <p>
+  <li> LaTeX (self taught)
+       <p>
+       <ul>
+	 <li> Latex is how almost all papers are written in
+	      statistics.  All homework should be written up
+	      using Latex.
+	 <li> My favorite book is "A guide to LaTeX 2e" by Helmut
+	      Kopka and Patrick Daly.
+       </ul>
+       <p>
+
+  <li> CVS or equivalent (self taught)
+       <p>
+       <ul>
+	 <li> CVS is a way of backing up your work as you go
+	      along.  It also provides an audit trail of what you did as you do it.
+	      I won't actually teach how to use it.  You will have to learn on your
+	      own.
+	 <li> <a href="http://www.loria.fr/~molli/cvs/cvs-FAQ/FAQ">An FAQ on CVS</a>
+	 <li> <a href="http://cellworks.washington.edu/pub/docs/cvs/">Lots of pointers to other resources.</a>
+	 <li> Also try "info cvs" from inside emacs (c-h i m cvs)
+	 <li> Book reference?
+       </ul>
+       <p>
+  <li> Emacs (self taught / optional)
+       <p>
+       <ul>
+	 <li> Emacs is a good editor from the 70s.  If you like
+	      software that isn't older than you are you may
+	      use some PC based editor.
+	 <li> Fire up emacs and run the emacs tutorial: C-h t.
+	 <li> After you have worked through that learn how to use info: C-h i.
+       </ul>
+</ul>
+
+<!-- Final project ideas:
+          program chalange: http://www-aig.jpl.nasa.gov/public/home/gat/ftp/study.txt
+          implement a wiki-wiki web
+-->
+<p>
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Sep  3 11:24:15 2001
+<!-- hhmts end -->
+</p>
+<p align=right>
+<!--#exec cmd="./counter.pl index.counter" -->
+<p>
+</em>
+
+
+</body>
+
+</html>
+

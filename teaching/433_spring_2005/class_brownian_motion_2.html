@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter VIII: Brownian motion</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Optional: read 6.6
+  <li> Read section 8.1
+</ul>
+
+<h1>Brownian motion: 8.1 continued</h1>
+
+<h2>Notation: little phi, big phi is normal distrubtion</h2>
+<h2>Axioms</h2>
+B(t) is a Brownian motion if:
+<ul>
+  <li> increments are normal with mean =0, var = t sigma<sup>2</sup>.
+  <li> increments are independent.
+  <li> B(0) = 0.
+  <li> (Difficult one) B(t) is continuous.
+</ul>
+<h2>Typical Brownian motion: Chance of George II being elected</h2>
+<h2>Covariance</h2>
+Suppose T < s < t then
+<ul>
+<li> Cov(B(s),B(t)|B(T)) = Cov(B(s)-B(T),B(t)-B(T)|B(T))
+<li> = Cov(B(s)-B(T),B(t)-B(T)+ B(s)-B(s)|B(T))
+<li> = Cov(B(s)-B(T),B(s)-B(T)|B(T)) + Cov(B(s)-B(T),B(t)-B(s)|B(T))
+<li> = Var(B(s)-B(T),B(s)-B(T)|B(T)) + 0
+<li> = (s-T)sigma<sup>2</sup>
+</ul>
+<h2>Invariance principle</h2>
+An alternative construction for a BM is:
+<ul>
+   <li> Let B(t) = sum(nt) X(i)/sqrt(n)
+   <li> Check assumptions:
+   <ul>
+      <li> increments are close to normal (for large n) via CLT
+      <li> increments are independent by construction
+      <li> B(0) = 0.
+      <li> Continuous?  Let the mathematicians worry about this one.
+(If we assume "2+epsilon" moments it should be continuous.) 
+   </ul>
+   <li> Hence all "sums" look the same!
+</ul>
+<h1>Brownian motion: 8.2</h1>
+
+<h2>Hitting time</h2>
+
+Definition: tau<sub>x</sub> = min{t &ge 0: B(t) = x}.
+<ul>
+ <li> Well defined (because of continuity)
+ <li> may be infinite?
+</ul>
+<h2>Reflection principle:</h2>
+<ul>
+  <li> B*(t) = x + (B(t)-x) for t &le tau<sub>x</sub>
+  <li> B*(t) = x - (B(t)-x) for t > tau<sub>x</sub>
+  <li> Note: B*(t) satisfies axioms of brownian motion
+  <li> same variance as before
+  <li> Draw picture (eg p 492)
+</ul>
+<h2>Maximum of a brownian motion</h2>
+<ul>
+  <li> P(max B(s) > x) = P(tau<sub>x</sub> < t)
+  <li> = P(B*(t) > x and B(t) < x) +  P(B(t) > x and B*(t) < x)
+  <li> = P(B*(t) > x) +  P(B(t) > x)
+  <li> = 2 P(B(t) > x)
+  <li> = 2(1 - Phi<sub>t</sub>(x))
+  <li> = 2 Phi<sub>t</sub>(-x)
+</ul>
+<h2>Hitting time distribution</h2>
+<ul>
+  <li> P(tau<sub>x</sub> < t) = P(max B(s) > x) = 2 Phi<sub>t</sub>(-x)
+</uL>
+<h2>Hitting time distribution</h2>
+<ul>
+  <li> P(zero between t and t+s) = 2/pi arctan sqrt(s/t)
+  <li> Proof via graphs!
+</uL>
+<h2>Number of zeros</h2>
+<ul>
+  <li> P(zero in interval epsilon<sup>3</sup> to epsilon) = 1 - O(epsilon)
+  <li> Expected number "near" zero is infinite
+  <li> Worse than that: Call a zero at t, "delta-natural" if there is
+another zero in (t,t+delta).
+  <li> Probability of being delta-natural is 1.
+  <li> Call a point a left-limit if it is natural for all delta.
+  <li> Probability of being left-limit is 1.
+  <li> If number of zeros is conuntable, probabilty of all being left-limits is 1.
+  <li> But, this means there can be no "last" zero.
+  <li> Hence there are an uncountable number of zeros.
+</uL>
+
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Apr 14 11:45:35 EDT 2004
+<!-- hhmts end -->
+</body> </html>

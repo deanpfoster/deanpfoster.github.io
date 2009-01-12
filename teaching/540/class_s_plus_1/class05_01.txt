@@ -1,0 +1,14 @@
+#!/usr/local/bin/perl
+
+### A graphic include
+
+print "Content-type: text/html\r\n";
+print "\r\n";
+
+
+print "Hello\n";
+
+print "<IMAGE SRC=\"http://www-stat.wharton.upenn.edu/~waterman/GD1.2/gd1.2/fsw.gif\">";
+
+
+

@@ -1,0 +1,138 @@
+\documentclass[10pt]{article}
+\usepackage[dvips]{graphicx}
+\setlength{\textheight}{8in}
+\setlength{\textwidth}{6in}
+\setlength{\headsep}{0.4in}
+\setlength{\headheight}{0.1in}
+\setlength{\topmargin}{0in}
+\setlength{\oddsidemargin}{0in}
+\renewcommand{\baselinestretch}{1.5}
+%\Pragestyle{empty}
+
+\def\Pr{{\bf P}}
+\def\E{{\bf E}}
+
+\begin{document}
+\begin{center}
+{\bf \large Statistics 101: Midterm Exam 1}
+\end{center}
+
+
+{\bf Problem I}
+\begin{itemize}
+\item[\bf A.] Since the distance from the median to lower quartile
+$Q_1$ is less than the distance from the median to the upper
+quartile $Q_3$ this indicates the number of hits is skewed to the
+right. Also the lower whisker is smaller than the upper whisker.
+\item[\bf B.] Visually 36 is not above the upper whisker.
+Also $IQR=Q_3-Q_1=19-2=17$ and the upper inner fence is
+$Q_3+1.5*IQR=44.5$. Since 36 is smaller it is not a candidate
+outlier.
+\item[\bf C.] The median is higher for recreational than for
+business. Since the box is bigger for recreational it also has
+higher variance. Business and recreational are both skewed to the
+right.
+\item[\bf D.] Since 36 is well above the box for business it would
+be candidate outlier. Visually $Q_3\sim 12$ and $IQR\sim 12$. So
+limit is $12+1.5*12=30$.
+\item[\bf E.]
+\item[\bf (i)] The right tail would be pulled in (higher values
+less extreme). This would make the data look symmetric.
+\item[\bf (ii)] Since logs preserve order, median of the
+$\ln (\mbox{ hits }) =\ln(7.5)=2.0149$.
+\end{itemize}
+
+{\bf Problem II}
+
+\begin{itemize}
+\item[\bf A.] Because  $B$ and $C$ are independent, it follows
+that
+$$\Pr(A\cup C)=\Pr(B)+\Pr(C)-\Pr(B\cap C)=\Pr(B)+\Pr(C)- \Pr(B)*\Pr(C)
+              =.5+.4-.5*.4=.7.$$
+\item[\bf B.] Since $B\cap A$ is a subset of $B\cup C$ we get that
+$$\Pr(B\cap C|B\cup C)=\frac{\Pr(B\cap C)}{\Pr(B\cup
+C)}=.2/.7=2/7.$$
+\item[\bf C.]
+\item[\bf (i)] Since $\Pr(A\cap B)=\Pr(B|A)\Pr(A)=.6*.6$ we find that
+$$\Pr(\bar{A}\cap\bar{B})=1-\Pr(A\cup B)=1-[\Pr(A)+\Pr(B)-\Pr(A\cap B)]=
+1-(.6+.5-.6*.6)=.26.$$
+
+The different interpretation of this question is possible, so the
+full credit is granted also for the following solution:
+$$\Pr(\overline{A\cap B})=1-\Pr(A\cap B)=1-.6*.6=.64.$$
+\item[\bf (ii)] Since the probability that C occurs is independent
+of whether A or B occurs  we have that
+$$\Pr(\bar{C}|\bar{A}\cup\bar{B})=\Pr(\bar{C})=.6.$$
+Hence,
+$$\Pr(A\cup B\cup C)=1-\Pr(\bar{A}\cap\bar{B}\cap\bar{C})=
+1-\Pr(\bar{C}|\bar{A}\cap\bar{B})\Pr(\bar{A}\cap\bar{B})$$
+$$=1-\Pr(\bar{C})\Pr(\bar{A}\cap\bar{B})=1-.6*.26=.844.$$
+\end{itemize}
+
+{\bf Problem III}
+(Note: Some students used the information from problem II.  If the information was used correctly, no penality resulted.)
+\begin{itemize}
+\item[\bf A.] $\Pr(\mbox{Find on C})$
+$$\begin{array}{rl}
+=&\Pr(\mbox{Find on C}|\mbox{Correct submenu on C is chosen
+})\Pr(\mbox{Correct submenu on C is chosen})\\=&.7*.9=.63.
+\end{array}$$
+\item[\bf B.] Using previous result we find that
+$$\begin{array}{rcl}
+\Pr(\mbox{Find the page})&=&\Pr(\mbox{Find the page}|\mbox{A is
+chosen})\Pr(\mbox{A is chosen})\\ &&+\Pr(\mbox{Find the
+page}|\mbox{B is chosen})\Pr(\mbox{B is chosen})\\
+&&+\Pr(\mbox{Find the page}|\mbox{C is chosen})\Pr(\mbox{C is
+chosen})\\ &=&.5*1/3+.56*1/3+.63*1/3=169/300 =0.56(3).
+\end{array}$$
+\item[\bf C.] The probability of finding the page on A is .5; for
+B this probability is .56; for C it is .63. So search engine C is
+best.
+\item[\bf D.] First we note that
+$$\begin{array}{rcl}
+\Pr(\mbox{The page is found})&=& \Pr(\mbox{A is chosen}\cap\mbox{A
+is accessed}\cap\mbox{The page is found on A})\\ &&+\Pr(\mbox{B is
+chosen}\cap\mbox{B is accessed}\cap\mbox{The page is found on
+B})\\ &&+\Pr(\mbox{C is chosen}\cap\mbox{C is
+accessed}\cap\mbox{The page is found on C})\\ & =&
+1/3*1*.5+1/3*.9*.56+1/3*.8*.63=1508/3000=.502(6).
+\end{array}$$
+So,
+$$\Pr(\mbox{A is chosen}|\mbox{The page is
+found})=\frac{1/3*1*.5}{1/3*1*.5+1/3*.9*.56+1/3*.8*.63}=500/1508.$$
+\end{itemize}
+{\bf Problem IV}
+\begin{itemize}
+\item[\bf A] The probability distribution of $X$ is shown below:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+  \hline
+  $X$   & -1000 & 0 & 500 & 1000 \\
+  \hline
+  $\Pr$ & .1 & .2 & .2 & .5 \\ \hline
+\end{tabular}
+\end{center}
+\item[\bf (i)]   $\Pr(X>0)=.2+.5=.7.$
+\item[\bf (ii)]  $\E(X)=-1000*.1+0*.2+500*.2+1000*.5=500.$
+\item[\bf (iii)] ${\bf
+Var}(X)=(-1000-500)^2*.1+(0-500)^2*.2+(500-500)^2*.2+(1000-500)^2*.5=400000$
+Respectively, standard deviation $\sigma=\sqrt{400000}$.
+\item[\bf B]
+\item[\bf (i)]
+$\Pr(X>0)=\displaystyle\int_0^1(x+1)/2\,dx=x^2/4+x/2\Big|_0^1=3/4.$
+\item[\bf (ii)]
+$\displaystyle\E(X)=\int_{-1}^1x(x+1)/2\,dx=x^3/6+x^2/4\Big|_{-1}^1=1/3.$
+\item[\bf C]
+The distribution of daily profits, $Y$, is given by
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+  \hline
+  $Y$   & -1500 & -500 & 500 & 1500 \\
+  \hline
+  $\Pr$ & .1 & .2 & .2 & .5 \\ \hline
+\end{tabular}
+\end{center}
+Hence, $\E(Y)=-1500*.1+-500*.2+500*.2+1500*.5=600.$
+
+\end{itemize}
+\end{document}

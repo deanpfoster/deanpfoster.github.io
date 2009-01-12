@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Multiple testing </title>
+</head>
+
+<body>
+<center><h1> Multiple testing</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Bring your surveys next time if you can collect data
+	      from 112 students
+	 <li>
+       </ul>
+       </p>
+</ul>
+<h2> Estimating contrasts</h2>
+
+<ul>
+  <li> Consider our managers again:
+       <p>
+       <table border>
+       <tr><th> coefficient <th> estimate <th> SE </tr>
+	<tr><td> Intercept  <td>   20  <td>      5 </tr>
+	<tr><td> Manager[A-C]<td>  10 <td>       20 </tr>
+	<tr><td> Manager[B-C]<td>  5  <td>       20</tr>
+       </table>
+       </p>
+  <li> Write the equation for each manager
+  <li> What is the difference between Manager A and manager C?
+       <p>
+       <ul>
+	 <li> Suppose manager C was "new" and had only done 10 jobs, but
+	      manager A and B had each done 1000 jobs.
+	 <li> Then [A-C] has a large SE, and [B-C] has a large SE
+	 <li> But, [A-B] has a very small SE say SE = 1.
+	 <li> Is [A-B] significant? We can't tell.
+	 <li> What is the standard error of [A-B]?  We can't tell.
+       </ul>
+       </p>
+  <li> We COULD change the name of manager B to by ZZZ. Then JMP would
+       tell us the answer.
+  <li> Not such a bad idea when there are three--but what if there
+       were 10?
+</ul>
+<h2> Broken glassware</h2>
+<ul>
+  <li> We are moving our appartment from NJ to Philly this week
+  <li> Hence, breakage of glassware is on the mind
+  <li> There are many different ways you could pack glassware:
+       <p>
+       <ul>
+	 <li> A: pack in peanuts by owner
+	 <li> B: pack in paper by owner
+	 <li> C: Pack in clothes or other soft stuff by owner
+	 <li> D: Pack in orginal shipping box by owner
+	 <li> E: pack in paper by shipper
+	 <li> F: pack in foam by shipper
+       </ul>
+       </p>
+  <li> List contrasts: A-B, A-C, A-D, A-E, A-F, B-C, B-D, B-E, B-F,
+       C-D, C-E, C-F, D-E, D-F, E-F.
+  <li> Why don't we need B-A? We can compute it by looking at minus
+       A-B
+  <li> number of contrasts: p(p+1)/2
+  <li> Even more comparisons than in regression!
+  <li> Tukey  solved this problem also (same Tukey of the bulging rule)
+</ul>
+<h2> <a href="Repairs.jmp">Computer repair</a> </h2>
+<ul>
+  <li> see Handout
+</ul>
+
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Apr  6 10:48:09 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

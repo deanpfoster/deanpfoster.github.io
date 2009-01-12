@@ -1,0 +1,119 @@
+<html>
+<header>
+<title> Statistics 102H: Confidence intervals</title>
+</header>
+<body>
+<center>
+<h1>Statistics 102H: Confidence intervals</h1>
+</center>
+<p>
+
+<h2>Predicting a long term forecast</h2>
+<ul>
+  <li> Goal of science: predict future predictions!
+  <li> (No need to predict truth--that is ahead of your time)
+  <li> But, if you predict future predictions, they will all have to
+       <a href=""http://citeseer.nj.nec.com/cs">cite you!</a>
+</ul>
+<h2>Ignore future variation: only look at statistical error</h2>
+<ul>
+  <li> Y - y-hat = prediction interval
+  <li> EY - y-hat = confidence interval
+  <li> Note: Y - y-hat = (Y - EY) - (EY - y-hat)
+       <ul>
+	 <li> difference of two independent random variables
+	 <li> hence variances add
+	 <li> Variance of Y-EY is constant
+	 <li> variance of EY-y-hat grows as we get far from the data
+	      we have previously collected
+       </ul>
+</ul>
+
+<h2>Where does statistical error come from?</h2>
+<ul>
+  <li> A little background:
+       <ul>
+	 <li> Regression does least squares
+	 <li> solution to least squares is linear combination of error + truth
+	 <li> Hence normality sets in and CLT sets in
+	 <li> E(alpha-hat) = alpha  (This is called unbiased)
+	 <li> E(beta-hat) = beta  (This is called unbiased)
+       </ul>
+  <li> Thus accuracy of alpha and beta depend on where the data is collected
+  <li> more spread out X's generate better slope estimates
+  <li> But might introduct unwanted data to problem. Hence design of where to put the X's must take care.
+  <li> Error looks like sigma/sqrt(n)sigma(X)
+</ul>
+<h2>Translating this statistical error into confidence intervals</h2>
+<ul>
+  <li> y-hat = alpha-hat + beta-hat x
+  <li> So errors in alpha-hat and beta-hat lead to errors in
+       y-hat
+  <li> unfortunately, alhpa-hat and beta-hat are correlated
+  <li> So formula is kinda ugly
+</ul>
+
+<h3>Cell phones</h3>
+<ul>
+  <li> pages 29-38 and pages 53-56
+  <li> Extrapolation is where the fun is!  (And the danger)
+  <li> Looks like March 2002 = 180 Million (Current statistics: <a
+       href="http://hypertextbook.com/facts/2002/BogusiaGrzywac.shtml">here</a>).
+</ul>
+
+
+<h3>Cottages</h3>
+<ul>
+  <li> pages 78 - 85, and 89 - 98
+  <li> Does linear regression really capture the spread of confidence?
+  <li> Consider confidence intervals for polynomial regression.  YIKES!
+</ul>
+
+
+</ul>
+<h2>Homework</h2>
+<ul>
+  <li> Be sure you understand all the pictures in the first three
+       chapters of the book.  The primary issues is to understand WHY
+       they were generated, not how. 
+  <li> Read blurb on page 109.  Look at the car89 data using simple
+       regression.   Don't follow the book--just play around with the
+       data.
+  <li> Look at the <a
+       href="http://lib.stat.cmu.edu/datasets/">stat-lib data
+       archive</a>.  Find a data set that sounds interesting--read it
+       into JMP and analyse it.  Examples that might be of interest:
+       <ul>
+	 <li> <a
+	      href="http://lib.stat.cmu.edu/datasets/sleep">sleep</a>
+	      (question: does size affect hours of sleep?  Does 
+       predation affect hours of sleep?)
+	 <li> <a href="http://lib.stat.cmu.edu/datasets/wseries">world
+	      series</a> (question: Is there a home field advantage? 
+	      Has it increase or decrased over time?)
+	 <li> <a
+	      href="http://lib.stat.cmu.edu/datasets/places.data">places</a> looks at various
+	      properties of places: crime, transportation, education.
+	      If you don't want to unpack it, I"ve done so here:
+	      (<a href="statlib/PLACES.DAT">.DAT</a>, <a
+	      href="statlib/PLACES.documentation">.documentation</a>, <a
+	      href="statlib/PLACES.KEY">.KEY</a>) 
+       </ul>
+       Notice: you will probably have to use an editor and maybe excel
+       to read these into JMP.  Be sure to page to the bottom of the
+       file in case there are suprises!  (Sometimes there is a
+       different data set at the bottom of the file.)
+</ul>
+
+<hr>
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Feb  3 08:21:17 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

@@ -1,0 +1,916 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>No Title</TITLE>
+<META NAME="description" CONTENT="No Title">
+<META NAME="keywords" CONTENT="hw4">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="hw4.css">
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/previous_motif_gr.gif">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+ HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+<B><FONT SIZE="+1">Statistics 101: Homework 4</FONT></B>
+</DIV>
+<P>
+<B>Exercise 1</B>
+<DL COMPACT>
+<DT><B>1.</B>
+<DD>First of all, note that:
+<UL>
+<LI>the probability that an applicant will pass the test is .5
+<LI>the conditional probability that an applicant is qualified
+given that an applicant has passed the test is equal to .9
+<LI>the conditional probability that an applicant is unqualified
+given that an applicant has failed the test is equal to .9
+</UL>Thus, the decision tree is as shown below:
+<BR>
+<DIV ALIGN="CENTER">
+DTree.ps</DIV>
+<DT><B>2.</B>
+<DD>No. The best strategy is to hire everyone. The
+expected company profit is <IMG
+ WIDTH="12" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.gif"
+ ALT="$\$$">250 (if an applicant is given the
+screening test, the expected profit is equal to <IMG
+ WIDTH="12" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.gif"
+ ALT="$\$$">245).
+<DT><B>3.</B>
+<DD>In case of the perfect test the expected company
+profit is equal to 400-P. So, the perfect screen test is worth
+<IMG
+ WIDTH="12" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.gif"
+ ALT="$\$$">150.
+<DT><B>4.</B>
+<DD>This screen test is worth <IMG
+ WIDTH="12" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.gif"
+ ALT="$\$$">95.
+<P>
+</DL>
+<P>
+<B>Exercise 2</B>
+
+<P>
+<DL COMPACT>
+<DT><B>1.</B>
+<DD>We want 
+<!-- MATH: ${\bf P}(X=2\cap Y=2)$ -->
+<IMG
+ WIDTH="132" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.gif"
+ ALT="${\bf P}(X=2\cap Y=2)$">,
+which is 
+<!-- MATH: ${\bf P}_{XY}(2,2)$ -->
+<IMG
+ WIDTH="74" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.gif"
+ ALT="${\bf P}_{XY}(2,2)$">
+by definition
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}(X=2\cap Y=2)=0.100
+\end{displaymath} -->
+
+<IMG
+ WIDTH="186" HEIGHT="38"
+ SRC="img6.gif"
+ ALT="\begin{displaymath}{\bf P}(X=2\cap Y=2)=0.100\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+There are three cases for which 
+<!-- MATH: $X=2\cap Y\leq 2$ -->
+<IMG
+ WIDTH="108" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.gif"
+ ALT="$X=2\cap Y\leq 2$">.
+The additional law
+may be used to find
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+{\bf P}(X=2\cap Y\leq 2)&=& {\bf P}(X=2\cap Y=0)+{\bf P}(X=2\cap Y=1)+{\bf P}(X=2\cap Y=2)\\
+&=&{\bf P}_{XY}(2,0)+{\bf P}_{XY}(2,1)+{\bf P}_{XY}(2,2)=0.03+0.045+0.1=0.175
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="625" HEIGHT="64"
+ SRC="img8.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+{\bf P}(X=2\cap Y\leq 2)&=& {\bf P}(X=2\ca...
+...P}_{XY}(2,1)+{\bf P}_{XY}(2,2)=0.03+0.045+0.1=0.175
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+For this part of the problem, there are nine cases having <I>X</I> and <I>Y</I> both
+less than or equal to 2. Add probabilities for all cases satisfying this event.
+So
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+{\bf P}(X\leq 2\cap Y\leq 2)&=& {\bf P}_{XY}(0,0)+{\bf P}_{XY}(0,1)+{\bf P}_{XY}(0,2)\\
+&+& {\bf P}_{XY}(1,0)+{\bf P}_{XY}(1,1)+{\bf P}_{XY}(1,2)\\
+                        &+& {\bf P}_{XY}(2,0)+{\bf P}_{XY}(2,1)+{\bf P}_{XY}(2,2)\\
+&=&0.01+0.015+0.03+0.02+0.03+0.045+0.03+0.045+0.1\\
+&=&0.325
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="598" HEIGHT="150"
+ SRC="img9.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+{\bf P}(X\leq 2\cap Y\leq 2)&=& {\bf P}_{X...
+...015+0.03+0.02+0.03+0.045+0.03+0.045+0.1\\
+&=&0.325
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><DT><B>2.</B>
+<DD>To find 
+<!-- MATH: ${\bf P}_X(x)$ -->
+<IMG
+ WIDTH="50" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="${\bf P}_X(x)$">,
+sum 
+<!-- MATH: ${\bf P}_{XY}(x,y)$ -->
+<IMG
+ WIDTH="76" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.gif"
+ ALT="${\bf P}_{XY}(x,y)$">
+over all <I>y</I> values.
+The result are shown here
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>x</I></TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">
+<!-- MATH: ${\bf P}_X(x)$ -->
+<IMG
+ WIDTH="50" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="${\bf P}_X(x)$"></TD>
+<TD ALIGN="CENTER">0.180</TD>
+<TD ALIGN="CENTER">0.195</TD>
+<TD ALIGN="CENTER">0.250</TD>
+<TD ALIGN="CENTER">0.195</TD>
+<TD ALIGN="CENTER">0.180</TD>
+</TR>
+</TABLE></DIV>
+To find 
+<!-- MATH: ${\bf P}_Y(y)$ -->
+<IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="${\bf P}_Y(y)$">,
+add probabilities down columns
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>y</I></TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">
+<!-- MATH: ${\bf P}_Y(y)$ -->
+<IMG
+ WIDTH="49" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="${\bf P}_Y(y)$"></TD>
+<TD ALIGN="CENTER">0.150</TD>
+<TD ALIGN="CENTER">0.225</TD>
+<TD ALIGN="CENTER">0.250</TD>
+<TD ALIGN="CENTER">0.225</TD>
+<TD ALIGN="CENTER">0.150</TD>
+</TR>
+</TABLE></DIV>
+<P>
+To test independence, we must see if 
+<!-- MATH: ${\bf P}_{XY}(x,y)={\bf P}_X(x){\bf P}_Y(y)$ -->
+<IMG
+ WIDTH="188" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.gif"
+ ALT="${\bf P}_{XY}(x,y)={\bf P}_X(x){\bf P}_Y(y)$">for every <I>x</I> and <I>y</I>. For <I>x</I>=0 and <I>y</I>=0
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}_{XY}(0,0)=0.01 \mbox{ but } {\bf P}_X(0)*{\bf P}_Y(0)=0.027.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="320" HEIGHT="38"
+ SRC="img14.gif"
+ ALT="\begin{displaymath}{\bf P}_{XY}(0,0)=0.01 \mbox{ but } {\bf P}_X(0)*{\bf P}_Y(0)=0.027.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Therefore <I>X</I> and <I>Y</I> are not independent.
+<DT><B>3.</B>
+<DD>To calculate 
+<!-- MATH: ${\bf P}_{Y|X}(y|x)={\bf P}_{XY}(x,y)/{\bf P}_X(x)$ -->
+<IMG
+ WIDTH="224" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.gif"
+ ALT="${\bf P}_{Y\vert X}(y\vert x)={\bf P}_{XY}(x,y)/{\bf P}_X(x)$">we must divide the joint probabilities by appropriate marginal probability for given <I>x</I> value. The result is conveniently shown by a table
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER" COLSPAN=5><I>y</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER">x</TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">0.0556</TD>
+<TD ALIGN="CENTER">0.0833</TD>
+<TD ALIGN="CENTER">0.1667</TD>
+<TD ALIGN="CENTER">0.4167</TD>
+<TD ALIGN="CENTER">0.2778</TD>
+</TR>
+<TR><TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">0.1026</TD>
+<TD ALIGN="CENTER">0.1538</TD>
+<TD ALIGN="CENTER">0.2308</TD>
+<TD ALIGN="CENTER">0.3077</TD>
+<TD ALIGN="CENTER">0.2051</TD>
+</TR>
+<TR><TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">0.1200</TD>
+<TD ALIGN="CENTER">0.1800</TD>
+<TD ALIGN="CENTER">0.4000</TD>
+<TD ALIGN="CENTER">0.1800</TD>
+<TD ALIGN="CENTER">0.1200</TD>
+</TR>
+<TR><TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">0.2051</TD>
+<TD ALIGN="CENTER">0.3077</TD>
+<TD ALIGN="CENTER">0.2308</TD>
+<TD ALIGN="CENTER">0.1538</TD>
+<TD ALIGN="CENTER">0.1026</TD>
+</TR>
+<TR><TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">0.2778</TD>
+<TD ALIGN="CENTER">0.4167</TD>
+<TD ALIGN="CENTER">0.1667</TD>
+<TD ALIGN="CENTER">0.0833</TD>
+<TD ALIGN="CENTER">0.0556</TD>
+</TR>
+</TABLE></DIV>
+If <I>X</I> and <I>Y</I> were independent, the conditional probabilities for <I>Y</I> would be the same. regardless of the <I>x</I> value. But in this exercise, the conditional probability of any particular <I>y</I> value changes as the <I>x</I> value changes. Thus <I>X</I> and <I>Y</I> are not independent.
+<DT><B>4.</B>
+<DD>The marginal probability distribution of <I>X</I> and <I>Y</I> are both symmetric around the value 2. Therefore 
+<!-- MATH: $\mu_X=\mu_Y=2$ -->
+<IMG
+ WIDTH="97" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.gif"
+ ALT="$\mu_X=\mu_Y=2$">.
+
+<P>
+Using the shortcut method for calculating variances, we square values, weight by probabilities and sum, subtracting the square of the mean at the end.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\sigma_X=\sqrt{0^2*0.180+1^2*0.190+\cdots+4^2*0.180-2^2}=\sqrt{1.83}=1.353.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="494" HEIGHT="36"
+ SRC="img17.gif"
+ ALT="\begin{displaymath}\sigma_X=\sqrt{0^2*0.180+1^2*0.190+\cdots+4^2*0.180-2^2}=\sqrt{1.83}=1.353.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Similarly 
+<!-- MATH: $\sigma_Y=1.285$ -->
+<IMG
+ WIDTH="82" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.gif"
+ ALT="$\sigma_Y=1.285$">.
+<DT><B>5.</B>
+<DD>The shorter way to find 
+<!-- MATH: ${\rm Cov}(X,Y)$ -->
+<IMG
+ WIDTH="78" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.gif"
+ ALT="${\rm Cov}(X,Y)$">
+is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\sum_{x}\sum_{y}xy{\bf P}_{XY}(x,y)-\mu_X\mu_Y.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="205" HEIGHT="56"
+ SRC="img20.gif"
+ ALT="\begin{displaymath}\sum_{x}\sum_{y}xy{\bf P}_{XY}(x,y)-\mu_X\mu_Y.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+We have 
+<!-- MATH: $\mu_X=\mu_Y=2$ -->
+<IMG
+ WIDTH="97" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.gif"
+ ALT="$\mu_X=\mu_Y=2$">
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+{\rm Cov}(X,Y)&=&0*0*0.01+0*1*0.015+\cdots\\
+&+&\cdots\\
+         &+&\cdots +4*3*0.015+4*4*0.01-2*2 \\
+         &=&-.070
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="381" HEIGHT="121"
+ SRC="img21.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+{\rm Cov}(X,Y)&=&0*0*0.01+0*1*0.015+\cdots...
+...\
+&+&\cdots +4*3*0.015+4*4*0.01-2*2 \\
+&=&-.070
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+From previous exercise, 
+<!-- MATH: $\sigma_X=1.353$ -->
+<IMG
+ WIDTH="83" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.gif"
+ ALT="$\sigma_X=1.353$">
+and 
+<!-- MATH: $\sigma_Y=1.285$ -->
+<IMG
+ WIDTH="82" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.gif"
+ ALT="$\sigma_Y=1.285$">
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\rm Corr}(X,Y)=\frac{{\rm Cov}(X,Y)}{\sigma_X\sigma_Y}=-0.403.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="249" HEIGHT="47"
+ SRC="img23.gif"
+ ALT="\begin{displaymath}{\rm Corr}(X,Y)=\frac{{\rm Cov}(X,Y)}{\sigma_X\sigma_Y}=-0.403.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+As <I>X</I> increases, <I>Y</I> tends to decrease, as shown by the negative correlation.
+<I>X</I> and <I>Y</I> can't be independent, because independent random variables have 0
+correlation.
+<DT><B>6.</B>
+<DD>The conditional expectation of <I>Y</I> given <I>X</I>=<I>x</I> is calculated like any expected value, but using conditional probabilities. That is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\mu_{Y|X=0}=0*0.0556+\cdots+4*0.2778=2.778
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="322" HEIGHT="39"
+ SRC="img24.gif"
+ ALT="\begin{displaymath}\mu_{Y\vert X=0}=0*0.0556+\cdots+4*0.2778=2.778\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Similar calculations lead to the following table:
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>x</I></TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">
+<!-- MATH: $\mu_{Y|X=x}$ -->
+<IMG
+ WIDTH="57" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.gif"
+ ALT="$\mu_{Y\vert X=x}$"></TD>
+<TD ALIGN="CENTER">2.778</TD>
+<TD ALIGN="CENTER">2.359</TD>
+<TD ALIGN="CENTER">2.000</TD>
+<TD ALIGN="CENTER">1.641</TD>
+<TD ALIGN="CENTER">1.222</TD>
+</TR>
+</TABLE></DIV>
+As <I>x</I> increases, 
+<!-- MATH: $\mu_{Y|X=x}$ -->
+<IMG
+ WIDTH="57" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.gif"
+ ALT="$\mu_{Y\vert X=x}$">
+decreases, as we'd expect given that <I>X</I> and <I>Y</I> have a negative correlation.
+
+<P>
+<DT><B>7.</B>
+<DD>The additional law can be used to find 
+<!-- MATH: ${\bf P}_T(t)$ -->
+<IMG
+ WIDTH="45" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.gif"
+ ALT="${\bf P}_T(t)$">.
+For example, <I>T</I>=<I>X</I>+<I>Y</I>=2 if
+
+<!-- MATH: $(X=0\cap Y=2)\cup(X=1\cap Y=1)\cup(X=2\cap Y=0)$ -->
+<IMG
+ WIDTH="386" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.gif"
+ ALT="$(X=0\cap Y=2)\cup(X=1\cap Y=1)\cup(X=2\cap Y=0)$">.
+Thus
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf P}_T(2)={\bf P}_{XY}(0,2)+{\bf P}_{XY}(1,1)+{\bf P}_{XY}(2,0)=0.09
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="364" HEIGHT="38"
+ SRC="img28.gif"
+ ALT="\begin{displaymath}{\bf P}_T(2)={\bf P}_{XY}(0,2)+{\bf P}_{XY}(1,1)+{\bf P}_{XY}(2,0)=0.09\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Similar calculations yield the distribution of <I>T</I>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><I>t</I></TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER">5</TD>
+<TD ALIGN="CENTER">6</TD>
+<TD ALIGN="CENTER">7</TD>
+<TD ALIGN="CENTER">8</TD>
+</TR>
+<TR><TD ALIGN="CENTER">
+<!-- MATH: ${\bf P}_T(t)$ -->
+<IMG
+ WIDTH="45" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.gif"
+ ALT="${\bf P}_T(t)$"></TD>
+<TD ALIGN="CENTER">0.010</TD>
+<TD ALIGN="CENTER">0.035</TD>
+<TD ALIGN="CENTER">0.090</TD>
+<TD ALIGN="CENTER">0.205</TD>
+<TD ALIGN="CENTER">0.320</TD>
+<TD ALIGN="CENTER">0.205</TD>
+<TD ALIGN="CENTER">0.090</TD>
+<TD ALIGN="CENTER">0.035</TD>
+<TD ALIGN="CENTER">0.010</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<IMG
+ WIDTH="49" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.gif"
+ ALT="$\mu_t=4$">,
+by symmetry. To calculate the variance, the shortcut approach is convenient.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\sigma_T^2=0^2*0.01+\cdots+8^2*0.01-4^2=2.08
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="299" HEIGHT="38"
+ SRC="img30.gif"
+ ALT="\begin{displaymath}\sigma_T^2=0^2*0.01+\cdots+8^2*0.01-4^2=2.08\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+We previously have found all the relevant means, variances, and
+the covariance. We must have 
+<!-- MATH: $\mu_T=\mu_X+\mu_Y=2+2=4$ -->
+<IMG
+ WIDTH="193" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.gif"
+ ALT="$\mu_T=\mu_X+\mu_Y=2+2=4$">
+and
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\sigma_T^2=\sigma_X^2+\sigma_Y^2+2{\rm Cov}(X,Y)=2.08
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="252" HEIGHT="38"
+ SRC="img32.gif"
+ ALT="\begin{displaymath}\sigma_T^2=\sigma_X^2+\sigma_Y^2+2{\rm Cov}(X,Y)=2.08\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P></DL>
+<P>
+<B>Exercise 3</B>
+<DL COMPACT>
+<DT><B>1.</B>
+<DD>The marginal probabilities of <I>X</I> and <I>Y</I> are
+summarized in the table below:
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER" COLSPAN=4><I>y</I></TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">x</TD>
+<TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER"><B> P</B>(X)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">0</TD>
+<TD ALIGN="CENTER">0.25</TD>
+<TD ALIGN="CENTER">0.08</TD>
+<TD ALIGN="CENTER">0.04</TD>
+<TD ALIGN="CENTER">0.00</TD>
+<TD ALIGN="CENTER">0.37</TD>
+</TR>
+<TR><TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">0.22</TD>
+<TD ALIGN="CENTER">0.15</TD>
+<TD ALIGN="CENTER">0.05</TD>
+<TD ALIGN="CENTER">0.01</TD>
+<TD ALIGN="CENTER">0.43</TD>
+</TR>
+<TR><TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">0.05</TD>
+<TD ALIGN="CENTER">0.05</TD>
+<TD ALIGN="CENTER">0.06</TD>
+<TD ALIGN="CENTER">0.01</TD>
+<TD ALIGN="CENTER">0.17</TD>
+</TR>
+<TR><TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">0.00</TD>
+<TD ALIGN="CENTER">0.00</TD>
+<TD ALIGN="CENTER">0.01</TD>
+<TD ALIGN="CENTER">0.02</TD>
+<TD ALIGN="CENTER">0.03</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><B> P</B>(Y)</TD>
+<TD ALIGN="CENTER">0.52</TD>
+<TD ALIGN="CENTER">0.28</TD>
+<TD ALIGN="CENTER">0.16</TD>
+<TD ALIGN="CENTER">0.04</TD>
+<TD ALIGN="CENTER">1.00</TD>
+</TR>
+</TABLE></DIV>
+<P>
+To show that <I>X</I> and <I>Y</I> are not independent, we only need to show
+that 
+<!-- MATH: ${\bf P}(X)*{\bf P}(Y)\neq{\bf P}(X,Y)$ -->
+<IMG
+ WIDTH="176" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.gif"
+ ALT="${\bf P}(X)*{\bf P}(Y)\neq{\bf P}(X,Y)$">
+for one set of (<I>X</I>,<I>Y</I>) pairs.
+Consider the pair (3,0).
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+0={\bf P}(3,0)\neq{\bf P}(X)*{\bf P}(Y)=0.03*0.52
+\end{displaymath} -->
+
+<IMG
+ WIDTH="284" HEIGHT="38"
+ SRC="img34.gif"
+ ALT="\begin{displaymath}0={\bf P}(3,0)\neq{\bf P}(X)*{\bf P}(Y)=0.03*0.52\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Therefore, <I>X</I> and <I>Y</I> are not independent.
+<DT><B>2.</B>
+<DD>Since the majority of probability mass falls along the (0,0) to
+(3,0) diagonal, we would expect the correlation should be
+positive. This because it appears that <I>X</I> and <I>Y</I> move together
+(as <I>X</I> gets smaller, <I>Y</I> gets smaller, vice verse).
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf E}X=0*0.37+1*0.43+2*0.17+3*0.03=0.86
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="360" HEIGHT="35"
+ SRC="img35.gif"
+ ALT="\begin{displaymath}{\bf E}X=0*0.37+1*0.43+2*0.17+3*0.03=0.86\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf E}Y=0*0.52+1*0.28+2*0.16+3*0.04=0.72
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="359" HEIGHT="35"
+ SRC="img36.gif"
+ ALT="\begin{displaymath}{\bf E}Y=0*0.52+1*0.28+2*0.16+3*0.04=0.72\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+To compute the covariance, we also need <IMG
+ WIDTH="44" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.gif"
+ ALT="${\bf E}XY$">.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+{\bf E}XY &=&0*0*0.25+0*1*0.08+0*2*0.04+0*3*0.00\\
+&+&\cdots\\
+         &+&3*0*0.00+3*1*0.00+3*2*0.01+3*3*0.02 \\
+         &=&0.92
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="440" HEIGHT="121"
+ SRC="img38.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+{\bf E}XY &=&0*0*0.25+0*1*0.08+0*2*0.04+0*...
+...&+&3*0*0.00+3*1*0.00+3*2*0.01+3*3*0.02 \\
+&=&0.92
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Therefore, 
+<!-- MATH: ${\rm Cov}(X,Y)={\bf E}(XY)-{\bf E}(X){\bf E}(Y)=0.92-0.86*0.72=0.3008$ -->
+<IMG
+ WIDTH="452" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.gif"
+ ALT="$ {\rm Cov}(X,Y)={\bf E}(XY)-{\bf E}(X){\bf E}(Y)=0.92-0.86*0.72=0.3008$">.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf E}X^2=0^2*0.37+1^2*0.43+2^2*0.17+3^2*0.03=1.38
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="396" HEIGHT="35"
+ SRC="img40.gif"
+ ALT="\begin{displaymath}{\bf E}X^2=0^2*0.37+1^2*0.43+2^2*0.17+3^2*0.03=1.38\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\sigma_X=\sqrt{{\rm Var}(X)}=
+\sqrt{{\bf E}(X^2)- ({\bf E}X)^2}=\sqrt{1.38-0.86^2}=0.8003
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="444" HEIGHT="38"
+ SRC="img41.gif"
+ ALT="\begin{displaymath}\sigma_X=\sqrt{{\rm Var}(X)}=
+\sqrt{{\bf E}(X^2)- ({\bf E}X)^2}=\sqrt{1.38-0.86^2}=0.8003\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Similarly 
+<!-- MATH: $\sigma_Y=0.8727$ -->
+<IMG
+ WIDTH="90" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.gif"
+ ALT="$\sigma_Y=0.8727$">.
+The correlation is then
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\rm Corr}(X,Y)=0.3008/(0.8003*0.8727)=0.4307.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="335" HEIGHT="38"
+ SRC="img43.gif"
+ ALT="\begin{displaymath}{\rm Corr}(X,Y)=0.3008/(0.8003*0.8727)=0.4307.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+</DL>
+<P>
+<B>Exercise 4</B>
+<DL COMPACT>
+<DT><B>1.</B>
+<DD>One dollar invested in the Ford stock is the portfolio with the
+highest expected return.
+<DT><B>2.</B>
+<DD>USAir stock is the riskiest. It is true for this particular
+example, but in general it is not.
+<DT><B>3.</B>
+<DD>Here is the covariances matrix:
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">Company</TD>
+<TD ALIGN="CENTER">Bristol Myers</TD>
+<TD ALIGN="CENTER">Ford</TD>
+<TD ALIGN="CENTER">IBM</TD>
+<TD ALIGN="CENTER">Merck</TD>
+<TD ALIGN="CENTER">USAir</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Bristol Myers</TD>
+<TD ALIGN="CENTER">0.00384400</TD>
+<TD ALIGN="CENTER">0.00057288</TD>
+<TD ALIGN="CENTER">0.00010044</TD>
+<TD ALIGN="CENTER">0.000279</TD>
+<TD ALIGN="CENTER">0.0019840</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Ford</TD>
+<TD ALIGN="CENTER">0.00057288</TD>
+<TD ALIGN="CENTER">0.00592900</TD>
+<TD ALIGN="CENTER">0.00168399</TD>
+<TD ALIGN="CENTER">0.000154</TD>
+<TD ALIGN="CENTER">-0.0001232</TD>
+</TR>
+<TR><TD ALIGN="CENTER">IBM</TD>
+<TD ALIGN="CENTER">0.00010044</TD>
+<TD ALIGN="CENTER">0.00168399</TD>
+<TD ALIGN="CENTER">0.00656100</TD>
+<TD ALIGN="CENTER">0.002673</TD>
+<TD ALIGN="CENTER">0.0028512</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Merck</TD>
+<TD ALIGN="CENTER">0.00027900</TD>
+<TD ALIGN="CENTER">0.00015400</TD>
+<TD ALIGN="CENTER">0.00267300</TD>
+<TD ALIGN="CENTER">0.002500</TD>
+<TD ALIGN="CENTER">0.0016800</TD>
+</TR>
+<TR><TD ALIGN="CENTER">USair</TD>
+<TD ALIGN="CENTER">0.00198400</TD>
+<TD ALIGN="CENTER">-0.00012320</TD>
+<TD ALIGN="CENTER">0.00285120</TD>
+<TD ALIGN="CENTER">0.001680</TD>
+<TD ALIGN="CENTER">0.0256000</TD>
+</TR>
+</TABLE></DIV>
+<P>
+The pair (<B>USAir, IBM</B>) have the highest covariance
+0.00285120. The pair (<B>IBM, Bristol Myers</B>) have the lowest
+covariance 0.00010044.
+<P>
+<DT><B>4.</B>
+<DD>Let <I>P</I><SUB>1</SUB> denote the portfolio with equal amounts
+invested in the <B>USAir</B> and <B>IBM</B>  stocks, and <I>P</I><SUB>2</SUB> -
+in the <B>IBM</B> and <B>Bristol Myers</B>. Then we have that
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\bf E}P_1=\frac{1}{2}(0.0097+0.0025)=0.0061, \quad
+{\bf E}P_2=\frac{1}{2}(0.0025+0.0170)=0.00975,
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="532" HEIGHT="45"
+ SRC="img44.gif"
+ ALT="\begin{displaymath}{\bf E}P_1=\frac{1}{2}(0.0097+0.0025)=0.0061, \quad
+{\bf E}P_2=\frac{1}{2}(0.0025+0.0170)=0.00975,\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\rm Var}P_1=0.16^2/4+0.081^2/4+2*1/2*1/2*0.00285120=0.00946585,\quad \sigma_{P_1}=0.0972926,
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="593" HEIGHT="38"
+ SRC="img45.gif"
+ ALT="\begin{displaymath}{\rm Var}P_1=0.16^2/4+0.081^2/4+2*1/2*1/2*0.00285120=0.00946585,\quad \sigma_{P_1}=0.0972926,\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+{\rm Var}
+P_2=0.081^2/4+0.062^2/4+2*1/2*1/2*0.00010044=0.00265147,\quad
+\sigma_{P_2}=0.05149243.
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="609" HEIGHT="38"
+ SRC="img46.gif"
+ ALT="\begin{displaymath}{\rm Var}
+P_2=0.081^2/4+0.062^2/4+2*1/2*1/2*0.00010044=0.00265147,\quad
+\sigma_{P_2}=0.05149243.\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+</DL>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html3"
+ HREF="node1.html">About this document ... </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/home/mao/pkgs/latex2html-98.1p1/icons.gif/previous_motif_gr.gif">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+ HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Wenxin Mao</I>
+<BR><I>1999-10-27</I>
+</ADDRESS>
+</BODY>
+</HTML>

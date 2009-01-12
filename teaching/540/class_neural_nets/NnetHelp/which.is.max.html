@@ -1,0 +1,43 @@
+<HEAD><TITLE>R: Find Maximum Position in Vector or Matrix</TITLE></HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000F0" VLINK="#660066" ALINK="#FF0000" BACKGROUND="white">
+
+<h2 align=center><FONT FACE="Courier New,Courier" COLOR="#999999">Find Maximum Position in Vector or Matrix</FONT></h2>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Usage</FONT></h2>
+
+<PRE>
+which.is.max(x)
+max.col(A)
+</PRE>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Arguments</FONT></h2>
+
+<TABLE>
+<TR VALIGN=TOP><TD><CODE>x</CODE>
+<TD>
+a vector
+
+<TR VALIGN=TOP><TD><CODE>A</CODE>
+<TD>
+a matrix
+
+</TABLE>
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Description</FONT></h2>
+
+Find the maximum position in a vector or for each row of a matrix, breaking ties at random.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Details</FONT></h2>
+
+Ties are broken at random.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Value</FONT></h2>
+
+index of a maximal value (for each row in the case of <CODE>max.col</CODE>).<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Examples</FONT></h2>
+
+<PRE>
+
+pred &lt;- predict(nnet, test)
+table(true, apply(pred,1,which.is.max))
+</PRE>
+
+
+
+<p align=center><hr><div align=center><a href="00Index.html">[Package Contents]</a>
+
+</BODY></HTML>

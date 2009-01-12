@@ -1,0 +1,20 @@
+\batchmode
+\documentclass[12pt,html,htmllist]{article}
+\makeatletter
+
+\setlength{\parindent}{0cm}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline12: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

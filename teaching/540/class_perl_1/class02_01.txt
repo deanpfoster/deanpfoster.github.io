@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+
+### Script to show the basic math operators on scalars.
+
+$x = 10;
+$y = 16;
+
+print $x + $y, "\n";
+print $x - $y, "\n";
+print $x * $y, "\n";
+print $x / $y, "\n";
+print $x % $y, "\n";
+print $x ** $y, "\n";
+
+
+### Some built in math functions
+
+print log($x), "\n";
+print exp($x), "\n";
+print sin($x), "\n";
+
+### Some string operations.
+
+$a = "Angola";
+$z = "Zimbabwe";
+
+print $a . $z . "\n";
+
+print $a x 4 . "\n";
+
+
+### Assignment operators, with the equals sign.
+
+
+print '$x is ', "$x \n";
+$x = $y;
+print '$x is ', "$x \n";
+print '$x is ', --$x, "\n"; 
+print '$x is ', "$x \n";
+print '$x is ', $x++,  "\n"; 
+print '$x is ', "$x \n";
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+\batchmode
+\documentclass{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$e_i = (y_i - \hat y_i)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline83: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}s_i = \frac{e_i}{\sqrt{\widehat{Var}(e_i)}}.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$t_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline87: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$e_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline89: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$Var(y_i) = \sigma^2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline93: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(RMSE)^2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline95: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline99: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$Var(e_i) = \sigma^2 (1 - h_{ii})$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline101: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$s_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline103: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$h_{ii}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline105: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\hat y_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline111: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline113: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}h_{ii} = \frac{d\hat y_i}{d y_i},\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_i - \hat y_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline135: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y_i - \hat y_{i,(-i)}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline141: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\hat y_{i,(-i)}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline143: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

@@ -1,0 +1,72 @@
+<html>
+<header>
+<title> First homework for 102H</title>
+</header>
+<body>
+<center>
+<h1>First homework for 102H</h1>
+</center>
+<p>
+
+<h2>Preliminaries</h2>
+
+(What to hand in: Write up about one paragraph describing what you
+found. Then provide copies of the output that you generated to answer
+the questions.  Sloppy is fine on this assignment!)
+
+<ul>
+  <li> First homework to be turned in: Use the web to find two
+       unrelated time series.  By this I mean two variables
+       that are measured over time.  For example, it might be
+       murders in the US and cell phones in Asia.  Import both
+       of these into JMP and run a regression of one on the
+       other.
+       <ul>
+	 <li> What is the t-statistics for the slope?  
+	 <li> Do you believe it is significant?
+	 <li> Create a variable called "TIME".
+	 <li> Plot your residuals vs. TIME.  Do you see a
+	      pattern?
+	 <li> Your residuals probably are time dependent and hence not
+	      independent.  
+       </ul>
+</ul>
+<h2>Cures</h2>
+(Note: this section requires class 4 from the FSW book.)
+<ul>
+  <li> Lag your Y variable.  (Use the formula editor to make a new
+       column called lag(y)).
+  <li> Now do a multiple regression of Y on X and lag(Y).
+  <li> Save the new residuals.  Do your residuals still show
+       dependence on time?  Has it at least been reduced.
+  <li> (If that didn't fix the dependency, try making lag(2,Y) and
+       lag(3,Y) and dropping both of them into the regression.)
+  <li> If you have removed the dependency, what is your t-statistic
+       for your effect of X on Y?  Does this match your intuition better? 
+</ul>
+<h2>Another cure (optional)</h2>
+<ul>
+  <li> If you have data that looks very smooth (like GDP or
+       population) then one possible cure is to difference the data.
+       So use the diff(Y) and diff(X) formulas to generate two new
+       columns.
+  <li> Check that each row consists of the difference between pairs of
+       rows of the orginal column.  When the difference is positive, Y
+       should increase.
+  <li> Now do a regression of diff(Y) on diff(X).  It should have the
+       "same slope" as the orginal relationship between X and Y.  But
+       the residuals should look much better.
+  <li> If the residuals look good, interpret the t-statistic for the
+       slope.      
+</ul>
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Feb 12 07:34:53 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

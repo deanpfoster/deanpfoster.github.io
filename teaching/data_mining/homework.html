@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Data mining homework</title>
+</head>
+
+<body>
+<h1>Stat 991: Data mining homework</h1>
+
+<p>
+The bonus sections for the following problems are optional.  If
+you have time, do at least one of them.  No late penalty will be
+assessed for the first week late if a bonus problem is done.  A one
+week extension will be added for each further bonus completed.
+</p>
+
+<a name = "hw1">
+<h2>Homework 1 (high dimensional data)</h2>
+<ol>
+
+<li> (Probability theory background) Suppose that Z is random
+variable which has a standard normal distribution.
+   <ol type="a">
+   <li> Prove that P(Z > z) > e^(-(z+1)^2/2)/sqrt(2 pi) for z > 0.
+   <li> Prove that P(Z > z) < e^(-z^2/2)/sqrt(2 pi) for z > 2.
+   <li> (bonus) Prove that P(Z > z) is approximately e^(-z^2/2)/sqrt(2
+pi)z for z > 2. 
+   </ol>
+
+<p>
+<li> Suppose X and Y are d-dimensional multivariate normal random
+vectors with mean zero and identity covariance matrix.  This problem
+will help you determine the chance that two random vectors are
+pointing in the same direction.
+  <ol>
+  <li> Find EX and E|X|<sup>2</sup>.
+  <li> Find the asympotitic distribution of |X|<sup>2</sup>.
+(I.e. take d to infinity.  You should actually be able to come up with
+an exact distribution also, but we don't need it.)
+  <li> Using the delta method find the asympotitic distribution of
+       |X| (again as d goes to infinity.)
+  <li> Find the asymptotic distribution of X'Y (the inner product of X
+       and Y).
+  <li> Determine the asymptotic distribution for the angle between X
+and Y.
+  <li> Estimate the probability that the angle between X and Y is less
+       than 45 degrees.  Say if your estimate is legitmate or if it is
+       truely only a guess.
+
+<li> (Bonus) Suppose that we have n of these vectors.  If n is small 
+relative to d, we know that no two of these vectors will have a small 
+angle between them.  Estimate how large n has to be before we are likely to
+find two of these vectors with an angle less than 45 degrees.
+
+<li> Bonus: Create a definition of what it means for a needle to be
+sharp.  Apply this definition to a high dimensional cube and a high
+dimensional sphere.  (If you can do a high dimensional simplex that
+would be cool.  I haven't been able to figure that one out.)
+
+<p> Use this information to generate a one paragraph description of a
+d-dimensional cube.  If you have figured out the simplex, which seems
+more dangerious, a d-dimensional cube, or a d-dimensional simplex?
+</ol>
+</ol>
+<a name = "hw2">
+<h2> Homework 2: Overfitting with regression?</h2>
+
+</p>
+<ol>
+<li> (Theory) Suppose you have n observations and m orthogonal
+regression variables.  (This the identical setup to the wavelet
+framework.)  Obviously m < n.  Suppose that you pick the best m/log(m)
+variables and add them to the regression.  This should pick up a huge
+amount of signal.  But our question is, does it pick up too much noise?
+   <ol type="a">
+   <li> Suppose that m<sub>0</sub> the number of variables that are
+zero is equal to m.  In other words, we are considering the global
+null model.  Approximately what will the in-sample R-sq'ed be?
+(Assume that n and m are large.)
+   <li> Approximate what the z-statistic be for the least significant
+variable that is added to the model?
+   <li> Suppose that there m-m<sub>0</sub> is much less than
+m/log(m), but not zero.  In other words, there are several variables
+that should be included in the model.
+   <li> (Bonus) Read a current paper by Eitan Greenshtein.  Stop by
+and tell me about it.
+   </ol>
+</p>
+<li> (Computing) This homework will have fit some curves to data.
+Though this is easy to do using a crayon, we want to make it more
+automatic. 
+   <ol type="a">
+   <li> Grab some wavelet code for your favorite
+statistics package.  Pick two different wavelet basis.  One should be
+very smooth and the other should be very localize and rough.
+(Extremes examples would be a sin/cosine basis (Fourier) for the smooth
+case and a step function basis (Harr basis) for the rough one.)  Draw
+a picture of one of the basis elements for each case.
+   <li> Fit the cosmic microwave <a href="cosmic.txt">data set</a>
+using both basis which shows the leftovers from the <a
+href="http://www.evolutionpages.com/big_bang_no_myth.htm">big 
+bang</a>.  Use the following two ways of deciding which coefficients
+to keep.
+  <ol>
+   <li>  (Greenshtein's method) Keep the largest 16
+coefficients.
+   <li> (Bonferroni) Keep the coefficients with p-values less
+than .05/32.
+  </ol>
+ Which of the 4 graphs seems the best?
+   <li> The above curve cost billions of dollars to generate--but it
+still isn't a large dataset.  Either find 4 other datasets (with at
+least 256 points that need estimation) or simulation the 4 datasets
+from Donoho and Johnstone (1994).  For each of the 4 datasets try both
+a Bonferroni method to decide which variables to keep and a
+Greenshtein method where you keep the best m/log(m) variables.  Which
+of the four graphs looks best?
+   <li> (Bonus) Compute out-of-sample errors either by comparing to
+the truth (if you simulated the data) or by using cross validation.
+   </ol>
+</ol>
+<a name = "hw3">
+<h2> Homework 3</h2>
+<ol>
+<li> Birge' (2001) shows that for a non-central chi-square the tails
+fall off exponentially quickly.  He proves that for any probability 0
+< u < 1, and for any non-centraility parameter z &ge
+0, and for any degrees of freedom d &ge 1, that
+<p>
+q<sub>z,d</sub>(u) &le z + d + 2 sqrt((2 z + d) log(1/u)) + 2 log(1/u)
+<p>
+q<sub>z,d</sub>(1-u) &ge z + d - 2 sqrt((2 z + d) log(1/u)).
+<p>
+Using the asymptotic distribution you computed in the very first
+homework, see how close that normal approximation compares to these
+bounds. 
+
+<li> Consider a regression of Y on p orthogonal X variables, where p =
+kq.  Suppose that you know for a fact that the correct number of
+variables to try is q.
+  <ol type="a">
+  <li> Use the risk inflation bound to estimate the prediction risk
+for this problem.
+  <li> Suppose that you knew that one of the first k variables was
+truely non-zero, and one of the second k variables was truely
+non-zero, etc.  Using the orcacle inequality from Donoho and Johnstone
+to compute a bound on each set of k variables for an estimator that
+keeps any variables for which the t-statistic is larger than sqrt(2
+log(k)).  Combine these risks to get a bound on the overall risk.
+  <li> Now use equation (4.6) of Foster and George to bound the risk
+of this estimator without assuming the block structure of hte previous
+part.
+  <li> (Bonus) Use Lemma A.2 of Foster and George to show that the
+above estimator is the best possible.  
+  </ol>
+<li> This problem will have you use the construction in Schervish to
+create various proper scoring rules.  To do this, you need some
+measure on the interval zero to one.  A nice class of such measures is
+the Beta distribution.
+  <ol type="a">
+  <li> Construct the proper scoring rule generated by a uniform
+       distribution (aka Beta(1,1)).
+  <li> Construct the proper scoring rule generated by the density
+       1/(p(1-p)) which is aka Beta(0,0).
+  <li> Now do the beta(1/2,1/2).  This is the Jefferies prior.
+  <li> What is the limiting proper scoring rule for Beta(nx,ny) as n
+       goes to infinity?
+  </ol>
+<li> (Spam filtering) This exercise will walk you through building
+your own spam filtering system.
+<p>
+INSTRUCTIONS FOR DATA CLEANING:
+  <ol type="A">
+  <li> First download some emails (as if you don't have enough
+already) from <a href="http://spamassassin.apache.org/publiccorpus/">
+               http://spamassassin.apache.org/publiccorpus/</a>.  Read
+the readme file.  Grab the easyham and the spam file.
+  <li> Then uncompress it and untar it.  Say in unix:
+    <p>
+      bunzip2 20021010_easy_ham.tar.bz2
+    <p>
+      tar -xvf 20021010_easy_ham.tar
+    </p>
+  <li> Find the 10000 most common words:
+   <p>
+  cat all | tr " " "\n" | sort | uniq -c | sort -n | tail -1000
+<p>
+The command cut can be used to remove the numbers if you need it to.
+Note: you can use tr to remove the punctuation via "tr -d
+[:punct:]".  This is a trick from Kenny.
+  <li> Generate a count of the number of times each word accurs in the
+file.  For example to find the word "the" use:
+  <li>
+      egrep --no-filename --count "\Wthe\W" *
+   <p>
+How you want to do this 10000 times is up to you.  You can either
+write a little perl script, or C++, or tcsh shell script.  For
+example, in say tcsh syntax it might look like: 
+
+mkdir ../word_counts
+<p>
+foreach foo ( `cat ../word_list` )
+<p>
+   egrep --no-filename --count "\W$foo\W" * > ../word_counts/$foo
+<p>
+end
+
+  <li>	Finally use something like "paste word_counts/* > all_output" to glue all
+these files together.
+<p>
+If you are using rafisher/ljsavage/dpfoster then the paste command
+will only take 12 words.  Instead you might want to convert to row
+order and the do a transpose when you get it inside of R.  The command
+"echo $filename `cat $filename`" will string out a file onto one line
+and put the file name in the first position.  
+   </ol>
+</p>
+Alternative: Kenny has made up a tar that has all of the words, one
+per file that you use to read into R.  He also has a sample of how to
+read it into R.  This can all be found <a
+href="cleaned_data.tar">here</a>.  Just untar (tar -xvf
+cleaned_data.tar) and you will have a directory that you can use to
+get the words.
+<p>
+Now that we have the data in a table that we can read we need to start
+fitting it.
+<ol type="a">
+   <li> Divide the data into two pieces.  Make sure that you have 1/2
+of the spam and 1/2 of the "ham" in each piece.
+   <li> Fit 10000 simple regression to the counts of the 10000 most
+common words. Create a histogram of the t-statistics from these
+regressions.  Does it appear to be a standard normal?  How many do you
+think are truely  significant?  Which word has the best insample
+prediction? 
+   <li> Use each of these models to predict the 1/2 of the data that
+you left out.  Which word has the best out of sample prediction?
+   <li> Compute the average of these predictions.  Call this the naive
+regression estimator.  Plot the in sample calibration curve for the
+naive regression estimator.  Does it need calibration?  If so, find a
+crude way to calibrate it.  (You don't have to use pool adjacent
+violators.) 
+   <li> Using your calibrated forecast, predict your out-of-sample
+emails.
+   <li>  If type I and type II errors are treated as equally
+bad, then you should classify an email as being spam anytime its
+predicted probabiltiy is greater than .5.  Using this clasification
+rule, what is your error rate?
+   <li> Bonus: Run a stepwise regression on all 10000 most common
+words.  Using pool adjacent violators calibrate these fits.  How well
+does this forecast do out of sample?  Does it beat the naive estimator?
+</ol>
+
+<li> Bonus: Using the Johnson-Lindenstrauss lemma prove that a nearest
+neighbor algorithm will have trouble estimating a linear function if
+the parameter space is much larger than log(n).   Assume
+that the X's are IID normal.
+</ol>
+
+<a name = "hw4">
+<h2> Homework 4</h2>
+<ol>
+<li> (Heteroscedasticity) This problem will have you fix the problem
+of heteroscedasticity using a variety of techniques.  Look at this <a
+href="exec_comp_03.jmp">.jmp</a> file of executive pay
+compensation data (<a href="exec_comp_03.txt">.txt</a>).
+Tradition says that larger companies pay their CEO more than smaller
+companies do.  Use total sales as a proxy for the size of the
+company. 
+  <ol type="a">
+  <li> Do a plot of the size of the company vs the pay.  Visually is
+       this born out?  Using the output of JMP can you honestly say if
+	this is a significant relationship?  Convert the file to R so
+	you can do the rest of this problem.
+  <li> Fit a weighted least squares to this dataset.  You will have to
+	figure out a weighting scheme that makes the data
+	homeostatic.   How much does this change the t-statistic?
+  <li> Now use the sandwich estimator to compute the t-statistic.
+	Using the idea of MLE, argue that this shouldn't be as
+	efficient as the weighted least squares.  (Just a few
+	sentences will do.)
+   <li> (bonus) Using the bootstrap to estimate the standard error.
+	To do this you simply simulate a new data set by sampling from
+	your current dataset.  Then re-run the regression.  For this
+simulation, we know the truth (i.e. the fit on the original data) so we
+can compute how far away this bootstrapped estimator is.  Repeat this
+several times and we can compute a standard deviation.  This would be
+the standard error.
+   </ol>
+<li> (theory for sandwich) This exercise will try to break the
+sandwich estimator.  Suppose Y = alpha + beta X + epsilon where the
+epsilon is IID normal(0,sigma<sup>2</sup>).  Unfortunately, our
+paranoia makes us use a sandwich estimator.  In other words, we
+believe that the variance of epsilon<sub>i</sub> is
+sigma<sub>i</sub><sup>2</sup> and hence we can't use the classical t
+statistic. The variable X is a binary variable which either equals
+zero or equals one.  To make the problem easier, we will assume that
+alpha is known to be zero in this problem.
+<p>
+The sandwich estimator estimates the variance of epsilon i by (y -
+hat(y))<sup>2</sup>.  But we have two different hat(y)'s.  The first is the
+forecast under then null that both alpha and beta are zero.  This
+hat(y) is simply zero.  The second is hat(y) under the alternative.
+This works out to be hat(beta).  We will use both hat(y)'s to compute
+our sandwich estimator.
+   <ol type="a">
+   <li> What is the least squares estimator for beta?
+   <li> If X has n/2 ones and n/2 zeros, compute both sandwich
+estimators for variance of beta-hat.  Is there any difference?  Which makes more
+sense? 
+   <li> Now suppose that the X's aren't balanced between zero and one.
+So assume that all the rows have an X of zero except for exactly 1 row
+which has an X of 1. Compute both sandwich
+estimators for beta.  Is there any difference?  Which makes more
+sense? 
+   </ol>
+</ol>
+
+<a name = "hw5">
+<h2> Homework 5</h2>
+<ol>
+<li> (Information theory) This problem will ask you to come up with
+two codes--each optimized for a particular distribution.  Please
+comment on what you find.  (Read Bob's paper for hints.  Thomas and
+Cover is a lovely book on information theory also.  But it might be
+more than you want to read.  <a
+href="http://www.matf.bg.ac.yu/nastavno/vobul.html">To see also</a>.
+) 
+   <ol type="a">
+   <li> Suppose you are coding a long sequence of integers which were
+drawn from a geometric distribution with parameter 1/2.  What is the
+entropy of this distribution?  What is a good code for each number?
+If you were to code n numbers, approximately how many bits would this
+take? 
+   <li> Suppose you are coding a long sequence of integers which were
+drawn from a uniform distribution over 1,2,3,...,100.    What is the
+entropy of this distribution?  What is a good code for each number?
+If you were to code n numbers, approximately how many bits would this
+take?
+   <li> Suppose you had a sequence of integers that came from one of
+the above two distributions.  But you didn't know which.  Can you
+think of a code that will do well reguardless of which  distribution
+it came from?  What is your code length in each case.
+   </ol>
+
+<li> (RKHS) On page 146, equation (5.53) we can convert this to
+regular regression if we make two changes: (1) set lambda = 0, and (2)
+let the phi's be coordinate functions for the vector x.  Thus we are
+solving good old fashion least squares multiple regression.  Under
+this change we can now use formula 5.55 to find an estimator for
+alpha.  This in turn leads to a forecast for a new observation.
+<ol type="a">
+   <li> Suppose we have n observations and p variables.  Write down
+the prediction formula in terms of the n x p X matrix.
+   <li> Show that this prediction formula equals the usual one we get
+from regression.
+   </ol>
+<li> (Support vectors) Suppose the following is a set of positive
+examples: (-1,0), (0,0), (1,0), and (0,1).  And the following is a set
+of negative examples: (1,1), (2,2), (7,-4).  (Read chapter 12 of HTF
+if you need a review.)
+   <ol type = "a">
+    <li> What is the optimization problem that would be solved by a
+quadratic program in this case?  What is the value of the solution?
+    <li> Suppose the positive example (0,1) where changed to (0,.5)
+would the support vector change?  Which other points would change the
+solution if they were perturbed a small amount?
+  </ol>
+<li> (Clustering) Suppose we use the set up from Tali Tishby  and Eyal
+Krupka's paper.  But instead of using information theory to describe
+their clusters as they do, we use the MSE.
+   <ol type="a">
+   <li> Suppose we cluster into two groups. Consider the MSE of the
+new feature values to the centers for the new feature values.  If this
+is small compared to the MSE to the grand mean for the new feature,
+then our clusters have been useful in describing the new variable.
+Come up with an estimator of this ratio.  
+   <li> (Bonus) State and prove a generalization bound (like their
+theorem 1) for this measure of accuracy.
+   </ol>
+</ol>
+
+<hr>
+<address>dean@foster.net</address>
+<!-- hhmts start -->
+Last modified: Sun Dec 18 08:01:10 EST 2005
+<!-- hhmts end -->
+</body> </html>
+
+

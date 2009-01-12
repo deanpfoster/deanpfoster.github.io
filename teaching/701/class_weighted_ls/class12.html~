@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 12 Stat701 Fall 1997</TITLE>
+<META NAME="description" CONTENT="Class 12 Stat701 Fall 1997">
+<META NAME="keywords" CONTENT="class12">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class12.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+
+<P>
+<CENTER><H1> Class 12 Stat701 Fall 1997</H1></CENTER>
+<P CENTER>
+<CENTER><H2>Estimation, Heteroscedasticity and Weighted Least Squares.</H2></CENTER>
+ <HR>
+<P>
+Todays class.
+<UL>
+<LI>What makes a good estimate?
+<LI> Heteroscedasticity and Weighted Least Squares
+</UL>
+<P>
+<HR>
+<B>What makes a good estimate?</B>
+<P>
+A good estimator,  <IMG WIDTH=8 HEIGHT=18 ALIGN=BOTTOM ALT="tex2html_wrap_inline34" SRC="img1.gif"  >  of a population parameter  <IMG WIDTH=8 HEIGHT=14 ALIGN=BOTTOM ALT="tex2html_wrap_inline36" SRC="img2.gif"  >  
+has at least two properties:
+<DL >
+   <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>On average it takes on the correct value, that is
+ <IMG WIDTH=82 HEIGHT=37 ALIGN=MIDDLE ALT="tex2html_wrap_inline38" SRC="img3.gif"  > 
+   <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>It is <B>concentrated</B> around the true value
+<P>
+ </DL>
+To see that the first is not enough by itself consider civilians living
+around a missile testing range.
+<P>
+Technically the first of these conditions is termed <B>unbiased</B>,
+and an unbiased estimator that is most concentrated about the true value
+is called <B>efficient</B>.
+<P>
+So a good estimator is unbiased and efficient.
+<P>
+Further, it is highly desirable to be able to estimate accurately the
+variability/s.e.  of an estimator.
+<P>
+It is a fact that under the classical regression assumptions, the least
+squares estimate of  <IMG WIDTH=11 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline40" SRC="img4.gif"  >  is both unbiased and efficient. Further, the
+estimate of the standard error is accurate - we quantify the uncertainty
+accurately.
+<P>
+Recall the the ordinary least squares (OLS) 
+estimates are defined as the values of
+ <IMG WIDTH=17 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline42" SRC="img5.gif"  >  and  <IMG WIDTH=17 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline44" SRC="img6.gif"  >  that minimize
+<P> <IMG WIDTH=343 HEIGHT=36 ALIGN=BOTTOM ALT="displaymath46" SRC="img7.gif"  > <P>
+<P>
+<B>Heteroscedasticity</B>
+<P>
+Under conditions of heteroscedasticity things change:
+<P>
+To be precise, the OLS estimate of  <IMG WIDTH=11 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline40" SRC="img4.gif"  >  is still unbiased but it is
+not efficient. That is, there is another estimator out there that is
+more concentrated about the true value than the OLS estimate. In addition, the
+estimate of standard error that comes from OLS is just plain wrong, 
+it misrepresents the standard error. The bottom line is that
+estimation is OK but could be better and inference (CI's and p-values) is
+broken.
+<P>
+Options:
+<P>
+1. A very straightforward 
+option is to still use the OLS estimate, recognize that
+it is not efficient, but at least get the standard error right. One way
+to get the standard error right is to use <B>bootstrap estimates</B> of 
+standard error.
+<P>
+2. If you want to deal with the efficiency issue you need to leave the
+OLS paradigm. The way to get efficient estimates in the presence
+of heteroscedasticity is to do <B>Weighted Least Squares</B> (WLS).
+<P>
+WLS estimates are defined as the values of
+ <IMG WIDTH=17 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline42" SRC="img5.gif"  >  and  <IMG WIDTH=17 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline44" SRC="img6.gif"  >  that minimize
+<P> <IMG WIDTH=353 HEIGHT=36 ALIGN=BOTTOM ALT="displaymath54" SRC="img8.gif"  > <P>
+where  <IMG WIDTH=18 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline56" SRC="img9.gif"  >  are the weights.
+<P>
+The question is of course, just what should the weights be? Intuitively
+you should give higher weight in the regression to observations that are
+more ``informative'', and down weight the less informative observations.
+It turns out that information is just the inverse of variability, so that
+if we denote the variance of  <IMG WIDTH=13 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline58" SRC="img10.gif"  >  as  <IMG WIDTH=17 HEIGHT=33 ALIGN=MIDDLE ALT="tex2html_wrap_inline60" SRC="img11.gif"  > , then
+ <IMG WIDTH=80 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline62" SRC="img12.gif"  > . That is we weight inversely proportional to the variance.
+<P>
+Next question; how do we get at  <IMG WIDTH=17 HEIGHT=33 ALIGN=MIDDLE ALT="tex2html_wrap_inline60" SRC="img11.gif"  > ? Options here are
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Sometimes we know it. An example is Poisson data where the variance
+is proportional to the mean. Another example is when there is an 
+<I>a priori</I> reason for believing that the variance is a function of some 
+variable (often a proxy for size).
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Otherwise we model it. The idea here is that if we knew the true error terms, the  <IMG WIDTH=11 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline66" SRC="img13.gif"  > , than by definition  <IMG WIDTH=182 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline68" SRC="img14.gif"  > .
+Unfortunately we don't have the true  <IMG WIDTH=6 HEIGHT=8 ALIGN=BOTTOM ALT="tex2html_wrap_inline70" SRC="img15.gif"  > 's so we use the residuals
+as surrogates, and we make a model for the squared residuals. If we term the
+estimates from the squared residuals model as  <IMG WIDTH=17 HEIGHT=33 ALIGN=MIDDLE ALT="tex2html_wrap_inline72" SRC="img16.gif"  >  then we use
+ <IMG WIDTH=35 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline74" SRC="img17.gif"  >  as weights in the WLS. Clearly this is a two step procedure.
+First run a preliminary OLS regression to get at the residuals. Obtain weights,
+then rerun a WLS regression.
+<P>
+ </DL>
+<P>
+In summary, in the presence of heteroscedasticity we have
+<P>
+<CENTER> 
+<IMG WIDTH=621 HEIGHT=121 ALIGN=BOTTOM ALT="tabular26" SRC="img18.gif"  > </CENTER>
+<P>
+To illustrate the points I have run some simulations from a fake dataset,
+one in which I generate the data, so know the ``truth''. This is  the
+most common way (Monte Carlo simulation) around to understand long run
+properties of estimates and procedures.
+<P>
+The idea is to create data and run a regression. Coefficients and
+standard errors are saved for this regression. Then another new data set
+is created and the new coefficients etc are saved.
+This is replicated many times (2000 for this example) 
+and the long run/average properties of the estimates are investigated.
+<P>
+It
+may even be the case that some of the coefficients themselves are obtained by
+a simulation, in this case the bootstrap standard error estimates, so that
+there are two levels of simulation. If each bootstrap estimate takes 1000
+<B>resamples</B> from a single dataset, and there are 2000 replicates in the
+entire simulation then we end up doing 2,000,000 regressions!
+<P>
+The Fake.
+<UL><LI>True parameter values;  <IMG WIDTH=123 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline97" SRC="img19.gif"  > .<LI>True heteroscedasticity structure;  <IMG WIDTH=117 HEIGHT=33 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img20.gif"  > 
+</UL>
+<P>
+<CENTER> <IMG WIDTH=619 HEIGHT=123 ALIGN=BOTTOM ALT="tabular39" SRC="img21.gif"  > </CENTER>
+<P>
+Comments:
+<UL><LI>In the first row notice that the OLS estimate is on average correct.
+But importantly, note that the estimated variance is <B>much lower</B> 
+than the true 
+variance of the estimate, giving a false sense of precision.<LI>In the second row where the bootstrap is used, notice that the estimate
+is on average correct, and the bootstrap variance estimate nails the true variance.<LI>The third row is WLS. Again, we get an unbiased estimate, but also the
+true variance is much lower than the OLS variance, 100% more efficient in fact,
+and the estimated variance is  close to the true variance.
+</UL></P></P><BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Wed Oct 15 23:11:29 EDT 1997</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 3 Stat701 Fall 1997</TITLE>
+<META NAME="description" CONTENT="Class 3">
+<META NAME="keywords" CONTENT="class3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class3.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <P CENTER>
+<P>
+<CENTER><H1> Class 3. Stat701 Fall 1997</H1></CENTER>
+<P CENTER>
+<P>
+<H2> Recap</H2>
+<UL>
+<LI>Last time we reviewed the simple linear regression model.
+<LI><A HREF="../class_simple_regression/quantile.html">Normal quantile</A>
+ plots were discussed.
+<LI>We considered a simple model
+that would give rise to two 
+<A HREF="../class_simple_regression/goldvol.html">volatility regimes</A>
+ on returns.
+<P>
+The volatility regime model, in which trades took place at different
+rates over the course of a day, relied on knowing the key  facts that
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The sum of normal random variables is again normal
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The variance of a sum is the sum of the variances when the observations
+are independent
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The return over a fixed period (say a day) is approximately equal
+to the sum of returns over contained shorter periods (say hours)
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Example:
+<P>
+ </DL>
+<P>
+<H3> Comparing hourly returns and the daily return.</H3>
+<P>
+
+<CENTER>
+<TABLE BORDER=2>
+<TR ALIGN=CENTER>
+<TD> HOUR <TD> 0 <TD> 1 <TD> 2 <TD> 3 <TD> 4 <TD> 5 <TD> 6 <TD> 7 </TR>
+<TR ALIGN=RIGHT>
+<TD> Value<TD>100.0000<TD>  99.4819<TD>  99.6610<TD>
+ 100.6495<TD> 101.5622<TD> 102.7503<TD> 100.9752<TD> 101.2928</TR>
+<TR ALIGN=RIGHT>
+<TD>Hourly return<TD> *** <TD> -0.0052<TD>  0.0018<TD>  0.0099 <TD>
+ 0.0091<TD>  0.0117<TD> -0.0173<TD>  0.0031</TR>
+</TABLE>
+</CENTER>
+<P>
+Daily return = 0.0129.<BR>
+Sum of hourly returns = 0.0131<BR>
+<P>
+The sum of the hourly returns approximates the daily return.
+<P>
+If the hourly returns are approximately normal, then so is their sum, but
+this is just the daily return. The daily return is  a sum, and the variance
+of a sum is the sum of the variances (provided the returns are independent), 
+so if you buy into the model then daily returns have more variance 
+than the hourly returns.
+<P>
+<HR>
+<P>
+<H2>
+<A NAME="interaction">
+Todays material:</A> looking at categorical variables.</H2>
+<P>
+<A HREF = "../class_simple_regression/class2.html#parallel">
+Parallel lines regression</A>.
+<P>
+Interaction terms in categorical variables.
+<P>
+Interaction: a three variable concept. One Y and two X's. X1 and X2.
+<P>
+The impact of X1 on Y depends on the level of X2.
+<P>
+In the gold example;  the impact of SP500 return on gold return
+depends on the date (Pre 1980 vs. Post 1980).
+<P>
+In formulae, denote the categorical variable by z, and let z = 1 for
+group 1 and z = -1 for group 2. Then for group 1:
+<P>
+<P> <IMG WIDTH=387 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath23" SRC="img1.gif"  > <P>
+<P> <IMG WIDTH=409 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath25" SRC="img2.gif"  > <P>
+<P> <IMG WIDTH=372 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath27" SRC="img3.gif"  > <P>
+and group 2
+<P> <IMG WIDTH=428 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath29" SRC="img4.gif"  > <P>
+<P> <IMG WIDTH=371 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath31" SRC="img5.gif"  > <P>
+<P>
+Hence  <IMG WIDTH=22 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline33" SRC="img6.gif"  >  is the difference in intercepts and  <IMG WIDTH=22 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline35" SRC="img7.gif"  >  is the
+difference in slopes.
+<P>
+When doing categorical variable regression always check the residuals
+for each group.
+<P>
+Comparison boxplots are good for this.
+<P>
+
+<B>Back to 
+<A HREF = "../class_simple_regression/index.html#bstick">
+``broken stick regression''</A>.</B>
+<P>
+<HR>
+What you need to know:
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The basic graphics for simple regression
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The interpretation of the regression coefficients
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The interpretation of the number summaries,  <IMG WIDTH=18 HEIGHT=15 ALIGN=BOTTOM ALT="tex2html_wrap_inline37" SRC="img8.gif"  > , RMSE.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Inference: confidence intervals for the slope, p-values
+<P>
+ </DL>
+<P>
+<H2>Next time </H2>
+Start multiple regression. This is chapter 3 in Berndt.
+<P>
+We will use this to review transformation, prediction and categorical
+variables with more than two groups.
+<P>
+</P></P><BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Wed Sep 10 23:44:00 EDT 1997</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

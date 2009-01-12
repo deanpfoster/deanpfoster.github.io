@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Subroutines</TITLE>
+<META NAME="description" CONTENT="Subroutines">
+<META NAME="keywords" CONTENT="class02">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class02.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <H1><A NAME="SECTION00020000000000000000">Subroutines</A></H1>
+<P>
+Subroutines are the key to writing legible and to some extent reusable code.
+The core of the program should be clean, with the flow easy to follow,
+the tough stuff should be done in subroutines.
+<P>
+You can write a subroutine anywhere in your code, but I'll always group them
+at the end. A subroutine is declared using the keyword <TT>sub</TT>.  The
+subroutine needs a name, and the commands will be enclosed in curly brackets.
+<P>
+Subroutines are called using the &amp; prefix, so if I called my subroutine
+<TT>find</TT> then I call it with <TT>&amp;find</TT>.
+<P>
+Subroutines typically take arguments. Perl passes the arguments as a 
+<B>list</B> of scalars. It's your job to put anything you need in the
+subroutine into the list. Similarly  all subroutines will return a list.
+Arguments come into the subroutine in the @_ array.
+<P>
+Example code.
+<P>
+<HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Jan 22 01:27:29 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

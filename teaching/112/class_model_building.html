@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Model building </title>
+</head>
+
+<body>
+<center><h1> Model building</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Courtney Bennett will say a few words about being
+	      subjects in her study.  
+	 <li> Stay after class to collect some data if you want
+       </ul>
+       </p>
+</ul>
+<h3>Principled model building: Example</h3>
+<ul>
+  <li> Suppose Y = blood presure
+  <li> Xs in include: Age, time-of-day, at-work, exercising, sex,
+       race, drugs-taken, billing-address....
+  <Li> Maybe some interactions also
+  <li> Naive rule:  Keep all X variables which have t's of 2 or more 
+  <li> For example, which do you think is better to include:
+       <p>
+       <ul>
+	 <li> X10 = Age with a t = 2.2
+	 <li> X25 = street-address with a t = 2.7
+	 <li> If you think of them as X10 and X20, the question is
+	      easy--X25 is better
+	 <li> If you think of htem as science--X10 is better, X25 is
+	      pure noise!
+       </ul>
+       <p>
+  <li> Principled approach = use your brain
+  <li> unprincipled approach = be a statistician and don't know the science
+</ul>
+<h3>Unprincipled approach = stepwise regression</h3>
+<ul>
+  <li> Story of GI's during Viet Nam war
+       <ul>
+       <p>
+	 <li> American GI's were easy for the communist to "brain
+	      wash"
+	 <li> Americans tried a program of "America is wonderful."
+	 <li> led to No effect
+	 <li> Americans tried a program of "what is it really like in
+	      China."
+	 <li> Big effect--much harder to "brain wash" GIs
+	 <li> This is my reason for telling you a full lecture about
+	      stepwise regression
+       </ul>
+       <p>
+  <li> run stepwise regression on <a href="Car89.jmp">Car89</a> data
+       (using quadradic surface: control-click to highlight continuous
+       variables--use "surface" to add them)
+  <li> Run forward, change p-value to .001, run mixed
+  <li> Lots of variables
+  <li> Clear variables--rerun. generates a "natural" answer
+</ul>
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Apr  6 10:47:48 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

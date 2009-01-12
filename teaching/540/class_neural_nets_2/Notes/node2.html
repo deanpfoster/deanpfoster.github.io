@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>An algorithm for the nets</TITLE>
+<META NAME="description" CONTENT="An algorithm for the nets">
+<META NAME="keywords" CONTENT="class07">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class07.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00020000000000000000">An algorithm for the nets</A></H1>
+<P>
+Issues to deal with.
+<P>
+Newton Raphson - making a quadratic approximation to
+the surface. If this approximation is bad N-R is likely to diverge.
+<P>
+Multi-modal objective function - local maxima.
+<P>
+Use multiple starting values.
+<P>
+When to stop (convergence criteria).
+<P>
+Absolute convergence:  <IMG WIDTH=99 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline29" SRC="img1.gif"  > .
+<P>
+Relative convergence:  <IMG WIDTH=85 HEIGHT=32 ALIGN=MIDDLE ALT="tex2html_wrap_inline31" SRC="img2.gif"  > .
+<P>
+Relative convergence will be unhelpful if the true solution is
+close to 0.
+<P>
+Further  <IMG WIDTH=71 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline33" SRC="img3.gif"  >  maybe small, not because we are close to the
+solution, but because the algorithm is progressing slowly.
+<P>
+In statistical problems, we don't just have the root (parameter estimate) 
+to find, we also have the objective function, the log-likelihood.
+<P>
+We can monitor this too, during the iterative procedure. Statistically,
+we have a metric to decide whether or not a change in the log-likelihood is 
+of interest.
+<P>
+What does it tell you if the log-likelihood moves by 0.0001 during an
+iteration, but the parameter estimate jumps by 10?
+<P>
+Consider a 1 dimensional minimization problem:
+<P>
+We want to minimize <I>F</I>, but instead we minimize  <IMG WIDTH=120 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline37" SRC="img4.gif"  > ,
+where <I>t</I> is now a scalar,  <IMG WIDTH=15 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline41" SRC="img5.gif"  >  is a starting point and <I>d</I> is a direction.
+<P>
+That is we have replaced the original problem, with a new one ``find the
+minimum of the function in a particular direction''.
+<P>
+Clearly, we want to look in ``good'' directions.
+<P>
+Newton-Raphson, is equivalent to direction  <IMG WIDTH=167 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline45" SRC="img6.gif"  > ,
+but if we are not near the minima, then this will not necessarily
+force us down the hill - it can diverge.
+<P>
+The method of steepest descent, chooses the direction  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline47" SRC="img7.gif"  >  at which
+<I>F</I> is decreasing most rapidly at <I>x</I>, this gives  <IMG WIDTH=88 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline53" SRC="img8.gif"  > .
+<P>
+The problem with this is that is that you might only descend for a short 
+distance.
+<P>
+A compromise is the Levenberg-Marquardt adjustment:
+<P>
+<P> <IMG WIDTH=360 HEIGHT=18 ALIGN=BOTTOM ALT="displaymath55" SRC="img9.gif"  > <P>
+ <IMG WIDTH=37 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline57" SRC="img10.gif"  > . Consider two cases,  <IMG WIDTH=37 HEIGHT=12 ALIGN=BOTTOM ALT="tex2html_wrap_inline59" SRC="img11.gif"  > , and  <IMG WIDTH=8 HEIGHT=11 ALIGN=BOTTOM ALT="tex2html_wrap_inline61" SRC="img12.gif"  >  large.
+<P>
+<HR><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/next_motif_gr.gif"> <A NAME="tex2html19" HREF="class07.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/up_motif.gif"></A> <A NAME="tex2html15" HREF="node1.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/previous_motif.gif"></A>   <BR>
+<B>Up:</B> <A NAME="tex2html20" HREF="class07.html">Class 7 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html16" HREF="node1.html">Discussion of the last </A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Feb 26 08:13:41 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

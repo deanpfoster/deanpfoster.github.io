@@ -1,0 +1,202 @@
+<HEAD><TITLE>R: Fit Neural Networks</TITLE></HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000F0" VLINK="#660066" ALINK="#FF0000" BACKGROUND="white">
+
+<h2 align=center><FONT FACE="Courier New,Courier" COLOR="#999999">Fit Neural Networks</FONT></h2>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Usage</FONT></h2>
+
+<PRE>
+nnet.formula(formula, data=NULL, ...,
+             subset, na.action=na.fail, contrasts=NULL)
+nnet.default(x, y, weights, size, Wts, mask,
+             linout=FALSE, entropy=FALSE, softmax=FALSE, censored=FALSE,
+             skip=FALSE, rang=0.7, decay=0, maxit=100,
+             Hess=FALSE, trace=TRUE, MaxNWts=1000, abstol=1.0e-4,
+             reltol=1.0e-4)
+</PRE>
+
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Arguments</FONT></h2>
+
+<TABLE>
+<TR VALIGN=TOP><TD><CODE>formula</CODE>
+<TD>
+A formula of the form <CODE>class ~ x1 + x2 + ...{}</CODE> 
+
+<TR VALIGN=TOP><TD><CODE>x</CODE>
+<TD>
+matrix or data frame of <CODE>x</CODE> values for examples.
+
+<TR VALIGN=TOP><TD><CODE>y</CODE>
+<TD>
+matrix or data frame of target values for examples.
+
+<TR VALIGN=TOP><TD><CODE>weights</CODE>
+<TD>
+(case) weights for each example &#150 if missing defaults to 1.
+
+<TR VALIGN=TOP><TD><CODE>size</CODE>
+<TD>
+number of units in the hidden layer. Can be zero if there are skip-layer units.
+
+<TR VALIGN=TOP><TD><CODE>data</CODE>
+<TD>
+Data frame from which variables specified in  <CODE>formula</CODE> are
+preferentially to be taken.
+
+<TR VALIGN=TOP><TD><CODE>subset</CODE>
+<TD>
+An index vector specifying the cases to be used in the training
+sample.  (NOTE: If given, this argument must be named.)
+
+<TR VALIGN=TOP><TD><CODE>na.action</CODE>
+<TD>
+A function to specify the action to be taken if <CODE>NA</CODE>s are found.
+The default action is for the procedure to fail.  An alternative is
+na.omit, which leads to rejection of cases with missing values on
+any required variable.  (NOTE: If given, this argument must be named.)
+
+<TR VALIGN=TOP><TD><CODE>contrasts</CODE>
+<TD>
+a list of contrasts to be used for some or all  of
+the  factors  appearing as variables in the model formula.
+
+<TR VALIGN=TOP><TD><CODE>Wts</CODE>
+<TD>
+initial parameter vector. If missing chosen at random.
+
+<TR VALIGN=TOP><TD><CODE>mask</CODE>
+<TD>
+logical vector indicating which parameters should be optimized (default all).
+
+<TR VALIGN=TOP><TD><CODE>linout</CODE>
+<TD>
+switch for linear output units. Default logistic output units.
+
+<TR VALIGN=TOP><TD><CODE>entropy</CODE>
+<TD>
+switch for entropy (= maximum conditional likelihood) fitting. 
+Default by least-squares. 
+
+<TR VALIGN=TOP><TD><CODE>softmax</CODE>
+<TD>
+switch for softmax (log-linear model) and maximum conditional
+likelihood fitting. <CODE>linout</CODE>, <CODE>entropy</CODE>, <CODE>softmax</CODE> and <CODE>censored</CODE> are mutually
+exclusive.
+
+<TR VALIGN=TOP><TD><CODE>censored</CODE>
+<TD>
+A variant on <CODE>softmax</CODE>, in which non-zero targets mean possible
+classes. Thus for <CODE>softmax</CODE> a row of <CODE>(0, 1, 1)</CODE> means one example
+each of classes 2 and 3, but for <CODE>censored</CODE> it means one example whose
+class is only known to be 2 or 3.
+
+<TR VALIGN=TOP><TD><CODE>skip</CODE>
+<TD>
+switch to add skip-layer connections from input to output.
+
+<TR VALIGN=TOP><TD><CODE>rang</CODE>
+<TD>
+Initial random weights on [-<CODE>rang</CODE>, <CODE>rang</CODE>].  Value about 0.5 unless the 
+inputs are large, in which case it should be chosen so that 
+<CODE>rang</CODE> * max(<CODE>|x|</CODE>) is about 1.
+
+<TR VALIGN=TOP><TD><CODE>decay</CODE>
+<TD>
+parameter for weight decay.  Default 0.
+
+<TR VALIGN=TOP><TD><CODE>maxit</CODE>
+<TD>
+maximum number of iterations. Default 100.
+
+<TR VALIGN=TOP><TD><CODE>Hess</CODE>
+<TD>
+If true, the Hessian of the measure of fit at the best set of weights
+found is returned as component <CODE>Hessian</CODE>.
+
+<TR VALIGN=TOP><TD><CODE>trace</CODE>
+<TD>
+switch for tracing optimization. Default <CODE>TRUE</CODE>.
+
+<TR VALIGN=TOP><TD><CODE>MaxNWts</CODE>
+<TD>
+The maximum allowable number of weights.  There is no intrinsic limit
+in the code, but increasing <CODE>MaxNWts</CODE> will probably allow fits that
+are very slow and time-consuming (and perhaps uninterruptable under
+Windows).
+
+<TR VALIGN=TOP><TD><CODE>abstol</CODE>
+<TD>
+Stop if the fit criterion falls below <CODE>abstol</CODE>, indicating an
+esentially perfect fit.
+
+<TR VALIGN=TOP><TD><CODE>reltol</CODE>
+<TD>
+Stop if the optimizer is unable to reduce the fit criterion by a
+factor of at least <CODE>1 - reltol</CODE>.
+
+</TABLE>
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Description</FONT></h2>
+
+Fit single-hidden-layer neural network, possibly with skip-layer connections.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Details</FONT></h2>
+
+If the response in <CODE>formula</CODE> is a factor, an appropriate classfication
+network is constructed; this has one output and entropy fit if the
+number of levels is two, and a number of outputs equal to the number
+of classes and a softmax output stage for more levels.  If the
+response is not a factor, it is passed on unchanged to <CODE>nnet.default</CODE>.
+<P>
+A quasi-Newton optimizer is used, written in <CODE>C</CODE>.<h2><FONT FACE="Courier New,Courier" COLOR="#666666">Value</FONT></h2>
+
+object of class <CODE>nnet</CODE> or <CODE>nnet.formula</CODE>.
+Mostly internal structure, but has components
+<P>
+<TABLE>
+<TR VALIGN=TOP><TD><CODE>wts</CODE>
+<TD>
+the best set of weights found
+
+<TR VALIGN=TOP><TD><CODE>value</CODE>
+<TD>
+value of fitting criterion plus weight decay term.
+
+<TR VALIGN=TOP><TD><CODE>fitted.values</CODE>
+<TD>
+the fitted values for the training data.
+
+<TR VALIGN=TOP><TD><CODE>residuals</CODE>
+<TD>
+the residuals for the training data.
+
+</TABLE>
+<h2><FONT FACE="Courier New,Courier" COLOR="#666666">See Also</FONT></h2>
+
+<CODE><A HREF="../../nnet/html/predict.nnet.html">predict.nnet</A></CODE>, <CODE><A HREF="../../nnet/html/nnet.Hess.html">nnet.Hess</A></CODE><h2><FONT FACE="Courier New,Courier" COLOR="#666666">Examples</FONT></h2>
+
+<PRE>
+data(iris3)
+# use half the iris data
+ir &lt;- rbind(iris3[,,1],iris3[,,2],iris3[,,3])
+targets &lt;- class.ind( c(rep("s", 50), rep("c", 50), rep("v", 50)) )
+samp &lt;- c(sample(1:50,25), sample(51:100,25), sample(101:150,25))
+ir1 &lt;- nnet(ir[samp,], targets[samp,], size=2, rang=0.1, 
+            decay=5e-4, maxit=200)
+test.cl &lt;- function(true, pred){
+        true &lt;- max.col(true)
+        cres &lt;- max.col(pred)
+        table(true, cres)
+}
+test.cl(targets[-samp,], predict(ir1, ir[-samp,]))
+
+# or
+ird &lt;- data.frame(rbind(iris3[,,1], iris3[,,2], iris3[,,3]),
+	species=c(rep("s",50), rep("c", 50), rep("v", 50)))
+ir.nn2 &lt;- nnet(species ~ ., data=ird, subset=samp, size=2, rang=0.1, 
+            decay=5e-4, maxit=200)
+table(ird$species[-samp], predict(ir.nn2, ird[-samp,], type="class"))
+</PRE>
+
+
+
+<p align=center><hr><div align=center><a href="00Index.html">[Package Contents]</a>
+
+</BODY></HTML>

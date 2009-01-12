@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter 2: Martingales</title>
+</head>
+
+<body>
+<h1>Martingales</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+  <li> Questions from the homework?
+  <li> read pp 60-61 and 87 - 93.
+</ul>
+
+
+<h2>Martingales: background</h2>
+<ul>
+<li> We can define an interesting class of processes simply by using
+conditional expectation:
+<ul>
+<li> E(X<sub>2</sub>|X<sub>1</sub>) = X<sub>1</sub>)
+<li> E(X<sub>3</sub>|X<sub>1</sub>,X<sub>2</sub>) = X<sub>2</sub>)
+<li> E(X<sub>4</sub>|X<sub>1</sub>,X<sub>2</sub>,X<sub>3</sub>) =
+X<sub>3</sub>)
+<li> ...
+</ul>
+<li> Called a martingale
+<li> Amazingly useful.  It is a good model of:
+  <ul>
+  <li> betting
+  <li> stock market
+  <li> Random walk
+  <li> accumulated noise in many systems
+</ul>
+<li> Amazingly mathematical.  You can prove truely powerful theorems:
+  <ul>
+  <li> Very controlled: names comes from the french for "horse bridle" 
+  <li> Eg: Suppose Var(X<sub>t</sub>) is bounded, then
+X<sub>infinity</sub> exists
+  <li> Accurate approximations: i.e. central limit theorems
+  <li> Lots of nice representations
+  <li> General setting for proving "impossiblity of betting systems"
+  <li> All very french!  (They do love their theory)
+  </ul>
+</ul>
+<h2>Conditional expectation one more time</h2>
+<ul>
+<li> page 61 #5 and #6.
+<li> Show E(X<sub>t</sub>|X<sub>i</sub> > lambda) > lambda a.s.
+<li> Say what the a.s. means
+<li> Show E(X<sub>t</sub>|X<sub>1</sub> < lambda,...,X<sub>i</sub> > lambda) > lambda a.s.
+</ul>
+
+<h2>Maximal inequalities for regular random variables</h2>
+<ul>
+ <li> state theorem for martingales
+ <li> "prove" via though experiment (no free lunch)
+ <li> State result for general collection of n random variables
+ <li> "prove" also via no free lunch
+ <li> Now prove second claim by first proving Markov and Bonferonni inequality
+  <li> Background theorem: Markov inequality.
+    <ul>
+    <li> X >= 0.  (You should konw what this means!)
+    <li> P(X > k) < E(X)/k.
+    <li> Proof: obvious!
+    <li> X > k I<sub>X > k</sub>.  So, E(X) > k P(X > k).  q.e.d.
+    </ul>
+  <li> Obvious extension.  Suppose E(X<sub>0</sub>) = 1 -->
+P(X<sub>n</sub> > k) < 1/k.
+
+</ul>
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Jan 19 12:58:54 EST 2005
+<!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>Statistical computing HW1</TITLE>
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+
+<h1>Statistical computing: Homework 1</h1>
+<p>
+This is the first of many short homework.  It is due Jan 19th, 1998.
+</p>
+<h2>Grading policy:</h2>
+<p>
+ My goal is to make sure you understand the concepts from each week as
+we go along.  So it is important to do it immediately.  To encourage
+you, I will take off 2/10 for each day late.  So turn it in by the
+following Friday for any positive credit.  Even if you don't finish it
+by ``zero points day,'' you will still need to finish it to complete
+the course.
+<P>
+<h2>Homework writeups:</h2> 
+<p>
+Expect to spend about 1/2 of your time
+programming and 1/2 of your time writing up what you did.  You should
+of course write up your results using LaTeX.  Edit your code into
+your latex file and then use the  \tt command to make it look
+like typewriter output.  (This is the usual convention for presenting
+code.)  Your write up should be detailed enough such that if I were to
+give it to another student he/she could reproduce your results
+exactly.  (Including any mistakes you might have made!)
+<P>
+<OL><LI> Code the two functions that compute the absolute value in
+class.  Call them <TT>absoSq</TT> and <TT>absoIf</TT>.  (Recall the first
+computed the square and then the squareroot.  The second tested if <I>x</I>
+was greater than 0.)  Check the function on various values and see if
+they both work.
+<OL><LI> If you only checked the values, 3, 4.674 and 10000, do you have
+confidence that your functions work?<LI> Print out the help for the <TT>unix.time</TT> command (staple it to
+the end of your homework.)  Also read the help on <TT>lapply</TT> and
+<TT>rnorm</TT>.<LI> Run the following command:
+<P>
+<P CENTER>
+and
+<P>
+<P CENTER>
+<P>
+What do the above commands do?  Which runs faster, absoSq or absoIf?
+Why do you think this is the case?<LI> Run <TT>absoSq(-2+3*1i)</TT> and <TT>absoIf(-2+3*1i)</TT>.  What is
+happening? 
+</OL>
+<P>
+<LI> The Fibonacci are defined as <I>F</I>(<I>x</I>) = <I>F</I>(<I>x</I> - 1) + <I>F</I>(<I>x</I>-2).  This
+inductive definition requires that we specify the values for <I>x</I>=0 and
+<I>x</I>=1.  Let them be zero and one respectively.
+<OL><LI> Program up the Fibonacci numbers.<LI> Find the running time for <I>x</I>=1,2,3,4,5,10,15,20,25,30,35,40, etc.
+Plot the running time against <I>x</I>.  What shape does it follow?<LI> Plot the log running time against <I>x</I>.  What is the
+slope?  How does this relate to the shape in the previous part?<LI> Estimate an equation for the running time as a function of <I>x</I>.
+</OL></OL></P></P></P></P><BR> <HR>
+<P><ADDRESS>
+<I>Dean Foster <BR>
+Tue Feb 17 10:50:03 EST 1998</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: class notes, Model parameters and lurking variables</title>
+</head>
+
+<body>
+<center><h1>Stat 112: Model, parameters and Lurking variables</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+       </ul>
+       </p>
+</ul>
+
+<UL>
+<li> Statistics: scatter diagram of Y vs X
+<li> probability: histograms of future observations given X
+<li> Both describe X relating to Y
+<li> Model details
+   <p>
+   <ul>
+   <li> describes the population
+   <li> Average Y = beta<sub>0</sub> + beta<sub>1</sub> x
+   <li> Actual Y  = beta<sub>0</sub> + beta<sub>1</sub> x + noise
+   <li> Noise = normal, with SD = sigma
+   <li> Three greek letters (parameters):
+	<p>
+	<ul>
+	<li> beta<sub>0</sub> =  intercept
+	<li> beta<sub>1</sub> = slope
+	<li> sigma = noise
+        </ul>
+        </p>
+   <li> Called "Simple Linear Regression Model"
+   </ul>
+   </p>
+
+<li> Estimating parameters from data
+    <p>
+    <ul>
+    <li> Fit by least squares: Y = b<sub>0</sub> + b<sub>1</sub> X
+    <li> b<sub>0</sub> estimates beta<sub>0</sub>
+    <li> b<sub>1</sub> estimates beta<sub>1</sub>
+    <li> JMP will compute standard errors for you
+    <li> good guess for slope: b<sub>1</sub> +/- 2 * SE
+    </ul>
+    </p>
+<li> Look at insurance <a href="Insure.jmp">data</a> (or see handout)
+<li> Model is different than causation.
+    <p>
+    <uL>
+    <li> X ---> Y could generate model
+    <li> Y ---> X could generate model (draw smoking = Y, cancer = X)
+    <li> Z ---> X and Z ---> Y could generate model
+    <li> In all above, the model might hold
+    <li> But causation is only in the first case
+    </ul>
+    </p>
+<li> proving causation requires a controled experiment 
+<li> proving the model requires data (easy to do with observation)
+</p>
+<li> If we have good residuals, and a good linear fit do we have causation?
+   <p>
+   <ul>
+   <li> NO! NO! NO! NO! NO! NO! NO! NO! NO! NO! NO! NO! NO! NO! NO!
+   <li> Why: Lurking variables
+   <li> X causes Y is possible
+   <li> Y causes X is possible
+   <li> Z causes X and Y is posible (Z is lurking variable)
+   <li> Infant death rates and breast feeding: lurking variable
+   </ul>
+</ul>
+
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Feb  1 09:54:30 EST 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>

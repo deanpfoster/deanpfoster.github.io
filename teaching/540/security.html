@@ -1,0 +1,155 @@
+<html>
+<header>
+<title>  STAT 540: Welcome and security games</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 540: Security issues </h1></center>
+
+
+<h2>Homework:</h2>
+       <p> Your first homework is to get logged onto gosset using a
+public/private key by 5:00 monday.  Details are found in <a
+href="./homework_ssh.html">Homework 0</a>.
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> HTML can be learned on the web
+  <li> Perl can be learned on the web in conjuction with Wall's book
+       (I'll treate Wall's book as the text for the class).
+</ul>
+
+<h2>Security</h2>
+
+<h3>Security model</h3>
+<ul>
+  <li> Alice --> Bob.  Eve is trying to listen in.
+  <li> Alice uses a cypher: e(b.pub,x) -> y.  d(b,y) -> x.
+       <ul>
+	 <li> A one way function is: if you know e,d.pub,k1, can not determine k2
+	 <li> Example: squareroots modulo the product of two large primes (called RSA)
+	 <li> Called public key/private key encryption
+	 <li> Everyone in the world knows e,d,b.pub, only Bob knows b
+	 <li> In RSA everyone knows pq.  But only Bob knows the factors p and q.
+       </ul>
+  <li> see
+       <center>
+       <cite>
+       B. Schneier, "Applied Cryptography, Second Edition", Wiley, 1996.
+       </cite>
+       </center>
+       for a deeper understanding of todays lecture
+</ul>
+<h3>Theory of applications</h3>
+<ol>
+  <li>
+       Sending email to a friend.  (x = message to send).  send
+       y = e(b.pub,x) to friend.  They open it using d(b,y) to recover
+       x.  Unfortunately they have no idea who sent it to them.
+  <li>
+       sending a private an email so your friend can prove you wrote
+       it.  So
+       send: e(b.pub,d(a,x)).  They decrypt with d(a.pub,e(b(x)).  No
+       one else could send it.  No one else can read it.
+  <li> Signing a public announcement so everyone knows you wrote it.
+       Publish x and y = e(a,x).  Everyone can compute d(a.pub,y) and
+       confirm it equals x.  No one else could have generated y.
+  <li>
+       Verifing who you are on a protected chanel.  Method: Alice send
+       Bob a challenge of x.
+       Bob computes y=d(b,x) and returns it to Alice.  Alice confirms
+       that e(b.pub,y) = x.
+  <li> Virifying who you are on a public chanel.  Combine method 2 and
+       4 above!
+  <li> Thought exercise: Use above to generate a concept of electronic
+       cash.  It should be secure and anonymous.
+ </ol>
+
+ <h3>Attacks</h3>
+ <ol>
+   <li>
+	listening in
+   <li>
+	man in the middle attacks (reason for fingerprints in pgp/gpg)
+   <li>
+	trafic analysis (reason for email bounce points)
+   <li>
+	physical security (not really an issues)
+ </ul>
+
+ <h3>SSH</h3>
+ <ul>
+   <li>
+	ssh authenticates users via cryptography
+   <li>
+	It is "easy" to use
+   <li> setup
+	<ul>
+	  <li> 
+	       machines keep track of public key/private key pairs for each
+	       machine
+	  <li>
+	       users put public key on machine they want to login to
+	  <li>
+	</ul>
+   <li> logging in
+	<ul>
+	  <li>
+	       machines get connection with each other using previous keys to
+	       authenticate who the machine is.  (this avoids
+	       man-in-the-middle)  Question: which machines must have the
+	       public key?
+	  <li> system sends a chalange to user
+	  <li> user incrypts chalenge and returns it
+	  <li> system verify's chalenge and opens a channel for
+	       communication
+	  <li> user is logged in!
+	</ul>
+   <li> What one gets out of this.
+	<ul>
+	  <li> Secure file movement (scp, sftp)
+	  <li> secure x windows graphics
+	  <li> can open up secure side channels (fancy stuff)
+	  <li> ease of use.  (simple passwords are good enough)
+	</ul>
+ </ul>
+ <h3>Does it work?</h3>
+ <ul>
+   <li>
+	Users can undermine security.
+   <li>
+	Suppose user uses name of cat for pasword (blacky) to ssh.  We
+	are safe IF the machine they are comeing in from is totally
+	secure.  (based on public key/private key security.)  
+   <li>
+	Suppose user has unsafe machine (one that allows password long
+	ons) and uses "blacky" for password to unsafe machine AND
+	secure machine.  Now it is easy to break in.
+   <li>
+	But ssh doesn't leak passwords.  So is ANY ssh machine safe
+	with "blacky"?  No, password attacks.
+   <li>
+	Moral: Keep 3 passwords of different levels of security.  One
+	should be "blacky" which you give to they NYTs.  (For example,
+	my public password is "india".)  One should be private but
+	insecure.  Use it to log in to web sites that deal with
+	money (something like perl45fuN)  Finally one should be
+	involitile and NEVER passed over an insecure channel.
+ </ul>
+	
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Sep  6 08:53:57 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

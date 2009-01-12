@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 101 class outline: Discrete distributions</title>
+</head>
+
+<body>
+<center><h1>Discrete distributions</h1></center>
+
+<ul>
+  <li> Admistrivia:
+       <p>
+       <ul>
+	 <li> <a href="hw_4_extra.html">Extra problems</a> to do for "fun"
+	 <li> You should 5.1 - 5.3 carefully
+	 <li> Collect homework 4
+	 <li> Passout homework 4 solutions
+       </ul>
+       </p>
+</ul>
+<h2>Bernoulli trials and binomial distributions</h2>
+<ul>
+  <li> Opinion poll: God exists vs God doesn't exist
+       </p>
+  <li> Call a 10 people and ask: are you G or D?
+       </p>
+  <li> Series might look like: D,D,D,G,D,G,G,D,G,D
+       </p>
+  <li> Let pi = P(God) and 1 - pi = P(D)
+       </p>
+  <li> Prob of series is: pi*pi*pi*(1-pi)*pi*...*pi
+       </p>
+  <li> How many series have exactly 6 "Gods" out of 10 trials? 10
+       choose 6.
+</ul>
+<h2>Hypergeometric</h2>
+<ul>
+  <li> Better opinion poll: Don't ask the same person twice!
+       </p>
+  <li> Ask 10 out of 120 Ph.D. students in math department at U. MD.
+       </p>
+  <li> Suppose 55 actually believe in God, 65 don't 
+       </p>
+  <li> Prob of getting 6 out of 10 believing in God?
+       </p>
+  <li> counting posibilites:
+       <ul>
+	 <li> From the 55 choose 6 (ways of getting God fearing)
+	 <li> From the 65 choose 4 (ways of getting heathens)
+	 <li> From the 100 choose 10 (ways of getting anybody)
+       </ul>
+</ul>
+<h2>Geometric</h2>
+<ul>
+  <li> Days until I get run over by a bus.  Notice it is the first
+       time it happens that is important to me, not the second time.
+       </p>
+  <li> Success = run over
+       </p>
+  <li> P(Success) = pi
+       </p>
+  <li> What I hope for:
+       (1-pi)*(1-pi)*(1-pi)*(1-pi)*(1-pi)....(1-pi)*pi
+       </p>
+  <li>
+</ul>
+<h2>Negative binomial</h2>
+<ul>
+  <li> Days until I get "car door'ed" twice.  At which point I learn
+       not to ride in the door lane.
+       </p>
+  <li> (1-pi)*(1-pi)*...*pi*.....*(1-pi)*pi
+       </p>
+  <li> Look up formula if you need it
+</ul>
+<h2>Discuss means and variances of each type</h2>
+<ul>
+  <li> Binomial: mean = n(pi), var = n(pi)(1-pi)
+       </p>
+  <li> Hypergeometric: mean = n(pi)(1-pi), var = n(pi)(1 - pi) (N-n)/(N-1)
+       </p>
+  <li> Geometric: mean = 1/pi, var = (1 - pi)/pi<sup>2</sup>
+  <li> Negative binomial: k/pi, var = k(1 - pi)/pi<sup>2</sup>
+</ul>
+
+
+
+<hr>
+<address></address>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Nov  1 08:33:14 EST 1999
+<!-- hhmts end -->
+</p>
+
+</body> </html>

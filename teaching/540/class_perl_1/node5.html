@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The foreach  statements</TITLE>
+<META NAME="description" CONTENT="The foreach  statements">
+<META NAME="keywords" CONTENT="class02">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class02.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <H2><A NAME="SECTION00012000000000000000">The <TT>foreach</TT>  statement</A></H2>
+.
+<P>
+The <TT>foreach</TT> statement is a core Perl idiom. The <TT>foreach</TT>
+command executes a block of code for a set of scalars, as might be
+stored in a list.
+<P>
+For example the next code fragment checks that everybody produced 
+their last homework.
+<P>
+<PRE>  foreach $user (@users) {
+        if (-e ``/home/$user/public_html/cgi-bin/hello_world.pl''){
+            print ``Looks like $user did their homework\n'';
+        }
+        else {
+            print ``Looks like $user did not do their homework\n'';
+        }
+  }</PRE>
+<P>
+In this code the array ``@users'' contains a list of user names and the 
+operator ``-e'' checks to see if a file exists. The scalar $user is assigned
+each element of the list in turn, which is then used in the loop.
+<P>
+One way of iterating over a hash is as follows:
+<PRE>foreach $key (keys %letters){
+print ``The value of $key is $letters{$key} \n'';
+}</PRE>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Jan 22 01:27:29 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

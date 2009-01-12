@@ -1,0 +1,84 @@
+<HTML>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1> Homework 2. Stat 540.</H1>
+
+<H2> 1. </h2>
+
+Make a cvs directory off of your home directory (the followng two
+commands should work: setenv CVSROOT $home/cvs; cvs init).  Import
+your public html directory into cvs.  Set your environment variables
+CVSROOT to be /usr/local/home/yourname/cvs. (In tcsh this could be
+done by "setenv CVSROOT $home/cvs"). Now something like
+
+<p>
+
+cd public_html <br>
+cvs import public_html foster start
+
+<p> should work save your public_html directory into your cvs
+directory.  Move your public_html directory somewhere safe:
+
+<p> mv public_html public_html_safe
+
+<p> and the check out a new version of your public html directory from
+cvs.
+
+<p>
+
+cvs co public_html
+
+<p>
+
+This should create a new public_html directory that works just like
+the old one.  The only difference is that now you can back up by doing
+a "cvs ci".  Running "cvs log index.html" should now say that you have
+created the file.  Any time you edit index.html and save it in cvs,
+you will add to this log file.
+
+
+<P>
+2. Write a Perl script to repeatedly throw 5 dice until
+all 5 dice show the same number. Have the program count the number of 
+iterations until this event occurs. Embed this code in a for loop
+so that the simulation is repeated 1000 times. Have your program report
+the empirical probability of rolling 5 dice and obtaining the
+same number on all 5. 
+
+<P>
+3. Modify your subroutine that rolls the dice, so that it can be used to draw
+a simple random sample with replacement of 4 colors from 6 colors (label the
+colors R (red), Y (yellow), G (green), P (purple), L (lemon) and S
+(silver). In essence your subroutine should accept 2 pieces of information;
+the set of objects that constitute the population and the number of objects to
+be drawn, and return the simple random sample.
+
+<p>4 (easy version) Write (by hand) a web page to display the outcome of 3
+sets of rolls of your dice.  It should be in a tabular format, something like 
+<P>
+<PRE>
+&lt;TABLE&gt; &lt;TR&gt;
+&lt;TD&gt; R &lt;TD&gt; Y &lt;TD&gt; G &lt;TD&gt; P
+&lt;/TR&gt;&lt;/TABLE&gt;
+</PRE>
+
+Make your page accessible over the WEB. See if you can get it to
+display different colors.  Look at your page under two or three
+different browsers (say Opera, Netscape, or lynx).  Write a few
+sentences describing how the different browsers display the same
+information.
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+

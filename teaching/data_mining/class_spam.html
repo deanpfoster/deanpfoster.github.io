@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Bayes filtering</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Oct 19 19:34:08 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Bayes and spam</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> 
+</ul>
+
+<h2>The war on spam</h2>
+<ul>
+   <li> Email history:
+     <ul>
+       <li> In the beginning... you called to ask if an email went
+            through
+       <li> Then it was reliable: (Early 90's)
+       <li> Now there is spam and you call to ask if the email was
+            recieved
+     </ul>
+   <li> How can we solve this problem?
+      <ul>
+        <li> In economics: with money (i.e. pay to send
+		email--spammers can't afford it)
+        <li> In theoretical CS: with cryptography (i.e. sign messages.  Spammers
+		don't have valid signatures.)
+        <li> In applied CS: via black listing (i.e. Real Time Blackholes)
+        <li> In law: with laws obviously
+        <li> In statistics: via Naive bayes
+      </ul>
+</ul>
+<h2>Simplify the data</h2>
+<ul>
+  <li> Bag of words / set of words
+  <li> Lose order
+  <li> "Dog bites man" and "man bites dog" both the same.
+  <li> Wonderful for statistics: one big table
+     <ul>
+     <li> Rows are emails
+     <li> Columns are word counts
+     <li> Y is hand coded
+     </ul>
+  <li> Data is expensive: Must ask users to classify
+</ul>
+
+<h2>Why not a full regression model?</h2>
+<ul>
+  <li> n = 100, p = 100,000
+  <li> Very quickly run out of degrees of freedom
+</ul>
+
+<h2>Toy regression model (basically what my filter does)</h2>
+<ul>
+  <li> regress Y on each word: generates p different regressions
+  <li> Average all these y-hats
+  <li> Generates a "score" for each email
+  <li> Avoids multiple regression
+</ul>
+
+<h2>Bayesian model: Justification of the toy regression methodology</h2>
+<ul>
+<li> P(Y|X1,X2,...,Xp) = k P(Xs|Y) P(Y)
+<li> Assume: P(Xs|Y) = P(X1|Y)*...P(Xp|Y)
+<li> Now log odds ratio of Y|Xs is easy
+<li> log(P(Y=1|Xs)/P(Y=0|Xs)) = log(P(Y=1)/P(Y=0)) + Sum log(P(Xi=xi|Y=1)/P(Xi=xi|Y=1))
+<li> Called: Idiot's Bayes, or Naive Bayes
+</ul>
+<h2>Asside: Helped get OJ off the hook</h2>
+<ul>
+   <li> In computing the probabiliyt of a blood match, this model used
+to be used
+   <li> probabilities of 1 in a billion were then quoted
+   <li> Then asked: What is the chance of an error in methodology?  It
+is much higher than 1/billion.
+   <li> Expert looks stupid.
+</ul>
+<h2>Obviously not calibrated</h2>
+<li>
+  <li> We could calibrate it
+  <li> To use the output in other systems this might be useful
+  <li> But to use it for filtering it isn't necessary
+  <li> We just need to pick a threashold and kill everything over that threashold
+</ul>
+<h2>How effective is it?</h2>
+<ul>
+  <li> Sahami (1998) false negative = 12% false positive = 3%
+  <li> with some hand tuning false negative = 4% false positive = 0%
+  <li> Androutsopoulos (2000) fals negative under 1%
+</ul>
+<h2>Problem: How do we estimate P(X|Y)?</h2>
+<ul>
+   <li> Good-Turing methodology (aka empirical Bayes)
+   <li> (r+1) #(r+1)/#(r)
+   <li> See Gale's  <a href="good_turing.pdf">article</a>
+</ul>
+
+quote:
+<p>
+ 
+Olny srmat poelpe can.
+<p>
+cdnuolt blveiee taht I cluod aulaclty uesdnatnrd waht I was
+rdanieg. The phaonmneal pweor of the hmuan mnid, aoccdrnig to a
+rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr
+the ltteers in a wrod are, the olny iprmoatnt tihng is taht the frist
+and lsat ltteer be in the rghit pclae. The rset can be a taotl mses
+and you can sitll raed it wouthit a porbelm. Tihs is bcuseae the huamn
+mnid deos not raed ervey lteter by istlef! ! ! , but the wrod as a
+wlohe. Amzanig huh? yaeh and I awlyas tghuhot slpeling was ipmorantt! 
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter VI: Continuous markov</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+</ul>
+
+<h1>Continuous markov models</h1>
+<h2>Pure birth process</h2>
+
+<h3>Review of poisson</h3>
+Yet another way to describe the poisson:
+<ul>
+   <li> P(X(t+h) - X(t) = 1|X(t) = x) = lambda h + o(h)
+   <li> P(X(t+h) - X(t) = 0|X(t) = x) = 1 - lambda h + o(h)
+   <li> X(0) = 0.
+</ul>
+Notice: description this time looks Markovian.
+<p>
+Nice property: we can easilly adjust lambda dynamically in this
+formalization.  this generates continuous time markov processes.
+<h3>(Pure) Birth Processes</h3>
+<ul>
+   <li> P(X(t+h) - X(t) = 1|X(t) = x) = lambda<sub>x</sub> h + o(h)
+   <li> P(X(t+h) - X(t) = 0|X(t) = x) = 1 - lambda<sub>x</sub> h + o(h)
+   <li> P(X(t+h) - X(t) < 0|X(t) = x) = 0.  
+   <li> X(0) = 0.
+</ul>
+Definition: P<sub>n</sub>(t) = P(X(t) = n|X(0) = 0).
+<ul>
+  <li> NOTE: if we can solve this, we know "everything."
+  <li> We just have to shift the lambda's
+</ul>
+<h3>Forward equations?</h3>
+<ul>
+  <li> P<sub>n</sub>'(t) = - lambda<sub>n</sub>P<sub>n</sub>(t) + lambda<sub>n-1</sub>P<sub>n-1</sub>(t)
+  <li> Special case for n = 0: P<sub>0</sub>'(t) = -
+lambda<sub>n</sub>P<sub>n</sub>(t)
+  <li> Derive via o() notation and take limit
+</ul>
+<h3>Sojourn times</h3>
+<ul>
+  <li> Times between births called sojourn times
+  <li> S<sub>k</sub> is time between kth and (k+1)st birth
+  <li> Each is exponential
+</ul>
+<h3>Finiteness</h3>
+<ul>
+  <li> ES<sub>k</sub> = 1/lambda<sub>k</sub>
+  <li> Sum 1/lambda<sub>k</sub> = expected time till explosion
+  <li> if infinite--math very difficult.
+  <li> Model goes to infinite in finite time
+</ul>
+<h2>Yule Process</h2>
+<ul>
+  <li> Explicit case: lambda<sub>k</sub> = beta * k.
+  <li> NOTE: X(0) = 1 for conviencence
+  <li> P<sub>n</sub>(t) = exp(-beta t)(1 - exp(-beta t))<sup>n-1</sup>
+  <li> Check that it is correct.
+</ul>
+
+
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Apr  5 10:36:00 EDT 2004
+<!-- hhmts end -->
+</body> </html>

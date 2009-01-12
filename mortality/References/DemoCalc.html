@@ -1,0 +1,466 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>DemoCalc</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<U><FONT SIZE=5><P ALIGN="CENTER">A Simple DEMO of the Procedures </P>
+</U></FONT><P>All values in this demo are hypothetical and are only meant to serve as an illustration of the procedure used to construct the actual calculator.</P>
+<P>Assume that we want to calculate the life expectancy of a 71 year-old, white female, whose height is 1.50 meters; who is in the fittest quartile among women of her age; had 11 years of formal education; and resides in Pennsylvania. </P>
+<P>We first obtain a life table for white females (for simplicity, the life table is truncated at 80 for the demo):</P>
+<P>The probabilities are then converted to lambda values (of an exponential distribution) via the formula lambda = - ln (1-Probability)</P>
+<P>The lambda value is then distributed among the factors that we consider: Stroke, Heart Diseases, Cancer, Homicide and All Others; according to the actual proportion of people dying of each cause for that particular sex and age group. In our case, the proportion of deaths are 0.2 : 0.3 : 0.15 : 0.1 :0.25</P>
+
+<TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=821>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>Age</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>Probability of death at that age given survival to that age</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P>Lambda</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P>Stroke</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P>Heart Diseases</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P>Cancer</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P>Homicide</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P>All Others</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>71</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.2</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.22314</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0446</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0669</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0334</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0223</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0557</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>72</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.25</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.28768</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0575</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0863</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0431</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0287</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0719</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>73</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.3</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.35667</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0713</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1070</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0535</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0356</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0891</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>74</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.35</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.43078</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0861</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1292</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0646</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0430</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1076</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>75</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.4</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.51082</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1021</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1532</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0766</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0510</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1277</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>76</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.45</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.59783</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1195</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1793</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0896</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0597</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1494</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>77</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.5</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.69314</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1386</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2079</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1039</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0693</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1732</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>78</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.6</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.91629</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1832</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2748</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1374</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0916</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2290</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>79</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.7</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">1.20397</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2407</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3611</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1805</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1203</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3009</TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP">
+<P>80</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0.8</TD>
+<TD WIDTH="17%" VALIGN="TOP">
+<P ALIGN="RIGHT">1.60943</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3218</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.4828</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2414</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1609</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.4023</TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;</P>
+<P>Now, we start to take into account of the individual characteristics of the person. Each of her characteristics will change the lambda values of the associated risk factors (all values are truncated at 4 or 5 decimal places for simplicity):</P>
+
+<UL>
+
+<UL>
+<LI>Her height is 1.50 meters. This would give her a relative risk for stroke of 1.86. Since this relative risk is applicable to all ages, the entire column of lambda for stroke is multiplied by 1.86. </LI>
+<LI>She is the fittest among the women of her age group. This would make her relative risk for heart diseases and cancer to be 0.3 and 0.2 respectively. Thus, the column of lambda for heart diseases is multiplied by 0.3 and the column for cancer is multiplied by 0.2. </LI>
+<LI>She had 11 years of formal education. This gives her an all-cause mortality relative risk of 1.1. The lambda values in all the columns (stroke, heart diseases, cancer, homicide and all others) are multiplied by 1.1 </LI>
+<LI>She resides in Pennsylvania. This would make her relative risk for homicide 0.7. The column of lambda for homicide is multiplied by 0.7 </LI></UL>
+</UL>
+
+
+<UL>
+
+<UL>
+<LI>The lambda values are then summed up row by row to get a column of 'Final Lambda' </LI>
+<LI>From this column of lambda, a column of Final Probability of Death at that age given survival to that age can be worked out : Probability = 1 - e<SUP>-lambda</LI></UL>
+</UL>
+
+</SUP>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=895>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>Age</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>Probability of death at that age given survival to that age</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P>Lambda</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P>Modified Stroke</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P>Modified Heart Diseases</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P>Modified Cancer</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P>Modified Homicide</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P>Modified All Others</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P>Final Lambda</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P>Final Probability of Death</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>71</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.2</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.22314</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0913</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0220</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0073</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0171</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0613</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1993</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1807</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>72</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.25</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.28768</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1177</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0284</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0094</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0221</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0791</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2569</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2266</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>73</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.3</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.35667</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1459</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0353</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0117</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0274</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0980</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3185</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2728</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>74</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.35</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.43078</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1762</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0426</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0142</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0331</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1184</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3847</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3193</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>75</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.4</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.51082</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2090</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0505</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0168</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0393</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1404</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.4562</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3663</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>76</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.45</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.59783</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2446</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0591</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0197</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0460</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1644</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.5339</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.4137</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>77</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.5</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.69314</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2836</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0686</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0228</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0533</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1906</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.6191</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.4615</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>78</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.6</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.91629</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3749</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0907</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0302</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0705</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.2519</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.8184</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.5588</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>79</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.7</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">1.20397</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.4926</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1191</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0397</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0927</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.3310</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">1.0753</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.6588</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>80</TD>
+<TD WIDTH="16%" VALIGN="TOP">
+<P>0.8</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">1.60943</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.6585</TD>
+<TD WIDTH="9%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1593</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.0531</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.1239</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.4425</TD>
+<TD WIDTH="10%" VALIGN="TOP">
+<P ALIGN="RIGHT">1.4375</TD>
+<TD WIDTH="11%" VALIGN="TOP">
+<P ALIGN="RIGHT">0.7624</TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;</P>
+<P>From the column of probabilities her life expectancy can be easily calculated. In this case, her life expectancy works out to be 74 years.</P>
+<P>The actual calculator takes into account approximately 50 characteristics affecting approximately 20 risk factors. The degree of accuracy used range from 5 decimal places for relative risks to 9 decimal places for lambda. The life table used has data for ages 0 to 119, beyond which death is assumed.</P>
+<FONT SIZE=4><P>&nbsp;</P></FONT></BODY>
+</HTML>

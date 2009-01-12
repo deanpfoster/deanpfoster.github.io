@@ -1,0 +1,105 @@
+<html>
+<header>
+<title>  Statistics 540: Keeping code separate from data</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 540: Code separate from data</h1></center>
+
+
+<h2>Announcement</h2>
+
+<ul>
+  <li> HW issues?
+</ul>
+<p>
+<h2>lecture</h2>
+code ---------------------------------------------------------------------- data
+<p>
+get the picture?
+<ul>
+  <li> In the beginning:
+       <p>
+       <ul>
+	 <li> code on heavy trays
+	 <li> data in lights and tubes
+	 <li> life was good, but backs were sore
+       </ul>
+       <p>
+  <li> The fall from grace--the loadable program
+       <p>
+       <ul>
+ 	 <li> makes data look just like code
+	 <li> consider the following program:
+       <p>
+	      <ul>
+		<li> loop: i = i + 1
+		<li> total = total + a[i]
+		<li> goto loop
+	      </ul>
+       <p>
+	 <li> it works, but why?  It is self modifying code
+       <p>
+	      <ul>
+		<li> i stored here
+		<li> loop: i = i + 1
+		<li> total = total + a[i]
+		<li> goto loop
+	      </ul>
+       <p>
+	 <li> when i overflows the i = i + 1 command polymorfs into a
+	      "goto" which jumps to the value of the instruction
+	      total=total+a[i].  Like wow!
+       </ul>
+       <p>
+  <li> Fast forward: modern equivalent is a global variable
+       <p>
+       <ul>
+	 <li> a = sort(b)
+	 <li> increasing or decreasing?
+	 <li> check a global maybe?
+	 <li> yikes!
+	 <li> Too ugly to even consider?  Look at most operating
+	      systems code
+       </ul>
+       <p>
+  <Li> Solutions 1: outlaw it
+       <p>
+       <ul>
+	 <li> functional programming
+	 <li> some mroe pure than others
+	 <li> remimber: lisp was the orginal functional programming
+	      language and was loved since you could write programs
+	      that wrote programs!
+	 <li> so it takes some careful control
+       </ul>
+       <p>
+  <li> solution 2: ignore it
+       <p>
+       <ul>
+	 <li> leads to microsoft(r) viruses
+	 <li> a word(r) file shouldn't be able to be a program!
+       </ul>
+       <p>
+  <li> solution 3: control it
+       <p>
+       <ul>
+	 <li> object orented programming
+	 <li> read chapters 10 and 11
+       </ul>
+</ul>
+
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Nov  6 08:52:11 2001
+<!-- hhmts end -->
+</em>
+</body>
+
+</html>
+

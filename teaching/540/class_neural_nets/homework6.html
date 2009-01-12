@@ -1,0 +1,49 @@
+<HTML>
+<TITLE>Homework 6, Stat540 Spring 1999</TITLE>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1> Homework 6. Stat 540.</H1>
+
+<H2> Objective </H2>
+Enable a user to submit data over the WEB, run a statistical routine
+on the server, and return the output of that routine to the user.
+The idea, is that the <b>routine</b> implements your research methodology,
+but we will start with the methodology being simple linear regression!
+ 
+<H2> Deliverables:</H2>
+
+<UL> <LI> An HTML interface page that allows a user to run a linear
+regression, (R commands <TT>lm</TT> and <TT> summary</TT> will be
+needed).  It must have an input area in which the user identifies the
+URL of their dataset.  It must have the ability to take at least one
+argument to pass to the R script, for example the ability to return
+the predicted values or the residuals from the regression fit.
+<BR>As usual, I should be able to easilly get to your interface page from your home page.
+<p>
+<LI> A cgi perl script that receives the request, parses the passed
+parameters, (returns predicted values etc) fetches the data, runs the R
+process and returns the results. Results can be easily shown using the
+PRE HTML Tag.
+<p>
+<li>
+For good measure, add some key R links to your homepage.
+</UL>
+
+Note: you might find some of the samples from by directory useful
+(~deanf/public_html/play/).
+
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+

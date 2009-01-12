@@ -1,0 +1,106 @@
+<html>
+<header>
+<title>  STAT 541: Bankruptcy</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Bankruptcy </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> 
+</ul>
+
+<h2>Extrapolation</h2>
+
+
+<ul>
+  <li> lots of data from x=1..3, little data for x=4..6, but interested in x=4..6
+  <li> Should we use all the data?  Or just the data from 4..6?
+  <li> Using all the data assumes the model holds everwhere
+  <li> Borrows strength.  Generates a good null distribution.
+  <li> Maybe then: extropolate 1..3 to generate y-hat-linear.  Then
+       regression on Y-y-hat-linear.  Advantage, uses all data, but
+       doesn't use it very much.
+  <li> Bad idea: simply use all the data.  Basically the same as only
+       using the data from 1..3
+</ul>
+
+<h2>Fit on what your criterion is going to be</h2>
+
+<ul>
+  <li> Point made by George Easton: robust estimators should be
+       evaluated with robust losses
+  <li> Thinking about how you would validate an estimator helps focus
+       your mind on what you are trying to accomplish
+  <li> Efficiency says to fit based on statistical loss, not economic
+       loss:  This requires the model to be correc so it is taking a
+       risk and isn't robust 
+  <li> Often a good idea to fit based on the criterion you are going
+       to evalute with--this is a robust technique
+  <li> Lots of fun research on it.  (see <a
+       href="research/index.html">calibration and no-regret</a>)  Fun
+       at least to me!
+</ul>
+
+<h2>Example: Bankruptcy</h2>
+
+<ul>
+  <li> the problem:
+       <ul>
+	 <li>  forecast bankruptcies based on things credit card
+	      companies know.
+	 <li> not an economic model
+	 <li> prediction is goal and not estimating the parameters
+	 <li> millions of person-months of observations
+	 <li> 1000s of bankruptcies
+	 <li> 100 basic variables --> 67000 interactions, and dummies
+	      for missing values
+       </ul>
+  <li> Economic loss
+       <ul>
+	 <li> Ideally, classification, with abolute error loss
+	 <li> Most interested in classifying people close to 5% chance
+	      of bankruptcy than people close to .001% chance.
+	 <li> closer to squared error than to weighted error
+	 <li> Most people don't go bankrupt
+	      <ul>
+		<li> Most (as in 90%) people have a forecast of .001 or less
+		<li> weighting the heavily would lead to an
+		     extrapolation error
+	      </ul>
+	 <li> Our criterion then is quadratic loss, better would be
+	      weighted quadratic loss weighting by importance of the
+	      person. 
+       </ul>
+  <li> Searching for independence
+       <ul>
+	 <li> repeated measurements on each person
+	 <li> GEE is right answer.
+	 <li> we took only one obseravtion per person as our cheat
+       </ul>
+  <li> Impressive graph: show lift chart page 7
+  <li> Creation of the 67000 variables (dummies, interactions)
+  <li> White estimator for hetroskadasticity
+  <li> Variable selection (Bonferonni = 2 log p, we used 2 log p/q)
+  <li> Page 31 graph is in sample
+  <li> page 32 is out of sample 
+</ul>
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Apr 24 09:00:27 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

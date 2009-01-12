@@ -1,0 +1,122 @@
+<html>
+<header>
+<title>  STAT 541: Finding Independence</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Finding Independence </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+
+<li> How to make prediction intervals in JMP (and possibly other
+     software): If you regress Y on X1,X2 and you want to predict for
+     X1=5,x2=10, then create Z1 = X1-5, Z2 = X2-10, and now regress Y on Z1
+     and Z2.  The intercept of this regression is the point Z1=0, Z2=0,
+     which is the same point as X1=5, X2=10.  In other words, assuming
+     you are doing a quadratic regression, the regression formula is:
+     <p>
+     logit(P(Y)) = alpha + beta<sub>1</sub> Z1 + beta<sub>2</sub> Z2 +
+     beta<sub>3</sub> Z1<sup>2</sup> + ...
+     <p>
+     But sinse the Z1 and Z2 are both zero, this reduces to 
+     <p>
+     logit(P(Y)) = alpha + beta<sub>1</sub> 0 + beta<sub>2</sub> 0 +
+     beta<sub>3</sub> 0<sup>2</sup> + ... = alpha
+     <p>
+     The confidence interval for this intercept is now the same as a
+     confidence interval for alpha.
+</ul>
+
+<h2> Finding Independence</h2>
+
+Experiment: A study has been performed to determine how students
+interact with professors.  (Ok, it is currently being proformed here
+at Penn and so we don't have any data yet.)  Students are observed
+raising their hands and data is recorded as to who gets called on.
+1520's events are collected.  The question of interest is whether male
+professors call on male students more or less than female students and
+likewise for female professors.
+
+<p>
+
+For each event, the following is recorded:
+
+<ul>
+  <li> The sex of the professor
+  <li> number of males with their hands up
+  <li> number of females with their hands up
+  <li> who gets called on
+  <li> fraction of males in the class
+</ul>
+
+19 classes of data were collected with 80 observations taken in each
+class.  10 male professors and 10 female professors. (But one female
+professor used cold calling and so was eliminated from the study.)
+How should this be analyzed?
+<hr>
+<h3>Different attacks</h3>
+<ul>
+  <li> Regression vs. logistic regression
+  <li> Subsample times when there are the same number of males and
+       females? 
+  <li> What are the variables should we use? (Only sex of called on
+       and professor?  Also who has hand up?)
+  <li> What do we want to test for?  (intercept? interaction term?
+       some slope?)
+  <li> What is the sample size?
+</ul>
+<h3>Naive logistic regression</h3>
+<ul>
+  <li> run logistic regression of called_on_sex on fraction_male_hands
+       for only the male professors.
+  <li> Look at prediction for .5 male hands.  Is this "intercept"
+       zero?
+  <li> If we reject that it is zero, what have we proven?
+       <ul>
+	 <li> Each professor has their own pet that they call on?
+	 <li> Males are biased?
+	 <li> These males are biased?
+	 <li> People sitting at the front of classes are called on
+	      more often?
+	 <li> The person called on is NOT a random draw from the
+	      students who have their hands up
+       </ul>       
+  <li> Now suppose we compute an intercept for each of the 10
+       professors.  That gives us 10 numbers.  We can now test if they
+       are in fact different from zero.  What have we proven?
+  <li> This is much closer to showing that males are biased.
+</ul>
+<h3> Doesn't clustering hurt us statistically alot?</h3>
+<ul>
+  <li> Suppose we have n samples from 10 different hospitals.
+  <li> Suppose the are all truely IID normal(mu,sigma<sup>2</sup>).
+  <li> We should use X-bar = sum/(10n), with SE = sigma/sqrt(10n)
+  <li> But, suppose we worry that the data might not be
+       independent within each hospital
+  <li> So we compute X-bar<sub>1</sub>, X-bar<sub>2</sub>,...,
+       X-bar<sub>10</sub>.
+  <li> Each under our assumption is normal(mu,sigma<sup>2</sup>/n)
+  <li> We then use classical statistics on these 10 numbers
+  <li> The average of the average is the same as X-bar before
+  <li> Its SE = (sigma/sqrt(n))/sqrt(10)
+  <li> The SAME SE as before!
+  <li> So this gratutious clustering hasn't hurt (very much).
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Apr  5 08:31:09 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

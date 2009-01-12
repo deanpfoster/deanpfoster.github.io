@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 10 Stat701 Fall 1997</TITLE>
+<META NAME="description" CONTENT="Class 10">
+<META NAME="keywords" CONTENT="class10">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class10.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<P CENTER>
+<CENTER><H1> Class 10 Stat701 Fall 1997</H1></CENTER>
+
+<P>
+<CENTER><H2> Fitting the Nerlove data.</H2></CENTER>
+<P>
+
+<P>
+<H2>Key points from the econometric models</H2>
+<P>
+<DL >
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>All multiplicative models - giving percentage change interpretations
+on the log scale.
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Learning is proxied by the cumulative output.
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Level of technology is also proxied by the cumulative output
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Models have some obvious limitations - returns to scale does not 
+        depend on the level of X.
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Can still value the models if you  buy into them as approximations to
+        a ``local'' reality.
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Models manufactured to mirror economic theory.
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>A possible more hard-nosed approach. If your only objective
+        is to predict cost, <B>FORGET</B> the theory, use and manipulate the
+        explanatory variables in anyway that lets you do ``good'' prediction -
+        closer to the Stat621 regression project view of the world.
+<P>
+ </DL>
+<P>
+<H2>Statistical points from Berndt</H2>
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Underspecification - 
+what's the impact of leaving out a variable that should be in the model?
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>What's the impact of fitting
+<P> <IMG WIDTH=332 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath65" SRC="img1.gif"  > <P> when the true model is
+<P> <IMG WIDTH=362 HEIGHT=20 ALIGN=BOTTOM ALT="displaymath67" SRC="img2.gif"  > <P>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Answer: typically it biases the estimates of those that are left in -
+unless
+<DL >
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>The left out variable is uncorrelated with those that are in.
+  <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD> <IMG WIDTH=52 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline69" SRC="img3.gif"  > 
+<P>
+ </DL>
+<P>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>If you can design an experiment, it is often a good idea to build this feature in - make the X-s uncorrelated (aka orthogonal).
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>In the underspecified model RMSE is biased <B>upwards</B> - so you tend to be conservative - p.values too big, PI's too wide.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Berndt  on p.75 (3.35) recovers the returns to scale parameter
+<I>r</I> by using the relationship  <IMG WIDTH=116 HEIGHT=30 ALIGN=MIDDLE ALT="tex2html_wrap_inline71" SRC="img4.gif"  >  and likewise for
+ <IMG WIDTH=17 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline73" SRC="img5.gif"  > . He then goes on to say that <I>one cannot in general directly employ the estimated standard errors of  <IMG WIDTH=17 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline75" SRC="img6.gif"  >  and  <IMG WIDTH=17 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline77" SRC="img7.gif"  >  to compute confidence intervals for <I>r</I> and  <IMG WIDTH=17 HEIGHT=18 ALIGN=MIDDLE ALT="tex2html_wrap_inline73" SRC="img5.gif"  > .</I>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>However, there is a very computer intensive way of finding standard
+errors and confidence intervals for just about any ``smooth'' function
+of the original parameters. It is called the <B>BOOTSTRAP</B>.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Idea behind the bootstrap. 
+<UL><LI>Resample your data - take a random sample with replacement of rows from your spreadsheet.<LI>Recompute the regression and related statistics from this resampled
+dataset.<LI>Repeat many times, obtaining a bootstrap sample of parameter estimates.<LI>Estimate the standard error by calculating the standard deviation
+of the resampled estimates.<LI>Obtain bootstrap confidence intervals from the quantiles of the resampled
+estimates
+</UL> 
+ </DL>
+<P>
+<HR>
+<P>
+</P></P><BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Mon Oct  6 23:04:14 EDT 1997</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

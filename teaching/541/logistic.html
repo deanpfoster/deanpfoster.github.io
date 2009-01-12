@@ -1,0 +1,92 @@
+<html>
+<header>
+<title>  STAT 541: Logistic</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Logistic </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> Read section 7.4
+<li> Questions about the project? (suggested due date: next tuesday)
+<li> Sure there aren't any question?
+<li> Really no questions?
+<li> Positive?
+  </ul>
+
+<h2> Logistic</h2>
+
+Suppose Y is discrete (binary response) and X is one or more
+continuous variable(s).  We want to write P(Y) as a function of X
+beta.  This violates any sense of linear regression--so how do we
+proceed? Logistic regression uses P(Y) = logit(X beta).  But why is
+this at all reasonable?
+<p>
+<h2> Normal distribution motivation</h2>
+  Consider a simple regression of Y (binary) on X (continuous).
+<ul>
+  <li> Think of the joint distribution
+  <li> Three ways of thinking about it:
+       <ul>
+	 <li> P(Y,X)
+	 <li> P(Y|X)
+	 <li> P(X|Y)  (this one we have done already)
+       </ul>
+  <li> So suppose X|Y is normal
+  <li> We have a two sample t-test situation (simple linear regression
+       with one binary regressor.)
+  <li> So, working this this model, compute P(Y|X)
+  <li> Or more easilly, the odds ratio P(Y=1|X)/P(Y=0|X) = exp(alpha +
+       beta X)
+  <li> Oops: Slope isn't 1/diference in means but is difference in
+       means itself!
+  <li> Can this possibly be correct?
+  <lI> Ok, graphically it is fine--but does it make any sense
+</ul>
+
+<h2>Regression slopes review</h2>
+<ul>
+  <li> slope of Y|X = beta
+  <li> slope of X|Y = gamma
+  <li> if Y|X increases does gamma increase or decrease?
+       <ul>
+	 <li> decreases: Scale Y by a factor r.  Then beta --> r beta
+	      and gamma -> gamma/r. 
+	 <li>  increases: slope is cov/var.  So if beta increases, the
+	      covaraince increases and hence gamma increases
+	 <li> Oops: that doesn't help
+       </ul>
+  <li> SD line: ratio of SD(y)/SD(x).  Truely the best fit line!
+  <li> Keeping the SD line constant, the slopes are identical.
+  <li> This is what is happening in the logistic regression problem
+</ul>
+
+<h2>Interpretation of the wrong-way two-sample t test model</h2>
+<ul>
+  <li> Slope of logistic regression measures how far about the two
+       distributions are 
+  <li> Different variances --> add a quadratic term
+  <li> Doesn't make sense if X is an outlier
+  <li> p-values should be identical (or at least close)
+</ul>
+
+</ul>
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Mar 20 11:44:50 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

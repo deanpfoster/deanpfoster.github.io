@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter III.5: Random walk</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Readings: Chapter 3 up to page 166
+  <li> Homework due thursday
+  <li> Questions from the homework?
+</ul>
+
+<h1>Chapter III.5.3: Random walk</h1>
+
+<h2>Recall random walk definition</h2>
+<ul>
+  <li> Big matrix!  (q = move left, p = move right,  r = stay put)
+</ul>
+<h2>Random walk ruin probability</h2>
+<ul>
+  <li> First step analysis generates recursion
+  <li> That is all there is to the theory--now just solve it
+  <li> Good guessing is the traditional way of generating a solution!
+  <li> But there is an alternative: Martingales!
+     <ul>
+       <li> Create a martingale that matches the first step analysis
+       <li> If a bettor were betting--what would make it fold back on
+	    itself?
+       <li> Eg: The bettor wins $1 (with prob p) or loses $(p/q) (with
+	    probability q).  He wins $1.  What should his next bet be
+	    to land him right back where he was? Win $(q/p) vs lose $1. 
+       <li> Let the state count the number of net winning bets of the 
+	    bettor.
+       <li> Label states by bet amount: (q/p)^i
+       <li> Check that it is a martingale (don't forget the boundary!)
+     </ul>
+  <li> Now that we have a martingale what do we do with it?
+     <ul>
+       <li> Where will X<sub>T</sub> be for large T?  (Markov chains
+	    tell us it will be at one of the absorbing states)
+       <li> What is the expected value of X<sub>T</sub>? (Martingales
+	    tell us it is X<sub>0</sub>)
+       <li> Solve the resulting equation and we are done!
+     </ul>
+  <li> Maybe guessing the solution isn't so bad after all
+  <li> (q/p)<sup>i</sup> - (q/p)<sup>n</sup>)/(1 - (q/p)<sup>n</sup>)
+</ul>
+
+<h2>Understanding the equation itself</h2>
+<h3>Graph</h3>
+<ul>
+  <li> plot fall off for the 3 cases: p < q, p > q, p = q.
+</ul>
+<h3>Large n</h3>
+<ul>
+  <li> What if n is really really large?
+  <li> Easy to compute limit.
+</ul>
+
+<h2>Success runs processes</h2>
+<ul>
+  <li> "double or nothing"
+  <li> Failure goes back to beginning
+  <li> Called renewal process
+</ul>
+
+
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Feb 11 10:17:16 EST 2004
+<!-- hhmts end -->
+</body> </html>

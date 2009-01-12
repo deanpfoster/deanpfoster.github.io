@@ -1,0 +1,136 @@
+<html>
+<header>
+<title>  STAT 541: More Logistic Regression</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541:  Logistic Regression 3 </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> Homework:
+     <ul>
+       <li> I typed in <a href="vol_rate.txt">table 7.7</a> on pages
+	    330 - 332 from Myers.   Load it into your favorite
+	    software for analysis.  (You might scan it for errors!)
+       <Li> In spite of the fact that we can't actually look at any
+	    good plots, we still need to check assumptions.
+	    We don't have to worry about hetroskadasticity since we
+	    KNOW the variance.  But we have to worry about curvature.
+	    So add varables corresponding to vol<sup>2</sup> and
+	    rate<sup>2</sup>.  Are the quadratic terms significantly
+	    better? 
+       <li> Maybe some other transformation of the X's makes sense?
+	    Instead of using a linear term for volumn use a 4th degree
+	    polynomial.  Does it fit signficantly better than the
+	    linear fit?  (In other words, you want to have (vol, rate,
+	    vol<sup>2</sup>, vol<sup>3</sup>, vol<sup>4</sup>) as X's
+	    in your regression.  THen test if 
+	    vol<sup>2</sup>, vol<sup>3</sup>, vol<sup>4</sup> are
+	    collectively all zero.)
+       <li> Suppose we are interested in predicting the point vol=5,
+	    rate=3.  First describe a measure of how much of an
+	    extrapolation this is (Mahalanobis would be one possible
+	    measure for this.)  Now make prediction intervals using
+	    your linear model and your quadratic model for this point.
+	    Which prediction would you prefer to champion?
+       <li> Consider the point (ave(vol),ave(rate)), in other
+	    words, the center of the data.   What is the Mahalanobis
+	    measure for this point?  Make predictions using both the
+	    linear and the quadratic model.  Does it matter which
+	    interval you use?
+       <li> Type up a paragraph saying what model do you think is best
+	    for fitting this data.  You don't have to restrict
+	    yourself to the models listed above--you can try other
+	    transformations.  For example, you might consider the
+	    interaction (vol times rate) in the presence of the
+	    quadratic terms (namely  vol, rate, vol<sup>2</sup>,
+	    rate<sup>2</sup>, vol*rate).  This is called a quadradic
+	    surface. 
+     </uL>
+</ul>
+
+<h2>General modeling concepts</h2>
+Suppose one believes Y is a monotone function of X.
+<ul>
+  <li> Logistic gives one particular form.
+  <li> Adding polynomials will possibly fix it.
+  <li> But has strange modeling assumptions for large values of X.
+  <li> Either goes to 1, goes to zero or goes to "Unknown."
+</ul>
+
+Use trimmed X's to fix this problem.  So regress on both X and an X
+truncated at say the 95% point of the data.
+<ul>
+  <li> The regression doesn't know which X to extrapolate with
+  <li> So it will give wide intervals that match the "last good part
+       of the data."
+  <li> If we now do trimmed polynomials--we avoid extrapolation AND
+       can fit any function
+  <li> Unfortunately, most software will break due to colinearity
+       problems.  Oh well.
+</ul>
+
+<h2>Computing standard errors via likelihood methods</h2>
+
+An advantage of estimators that are linear combinations of Y's is that
+we can figure out SE's via a central limit theorem.  This was the
+approach in least squares regression.  (Beta-hat =
+(X'X)<sup>-1</sup>X'Y = wY for some weight w.)
+<p>
+We have two approaches.  We can simply use the weights given by the
+last round of the IRLS, or we can use a likelihood based method.
+<p>
+Likelihood method for standard regression:
+<ul>
+  <li> Consider X-bar = Normal(mu,sigma<sup>2</sup>/n)
+  <li> We compute t = X-bar*sqrt(n)/sigma = Normal(mu*sqrt(n)/sigma,1)
+  <li> likelihood under null takes t =  Normal(0,1)
+  <li> likelihood under mu-hat  t =  Normal(xbar*sqrt(n)/sigma,1)
+  <li> So the likelihood ratio is: exp(-t<sup>2</sup>/2)
+  <li> So the log likelihood ratio is: -t<sup>2</sup>/2
+  <li> So a p-value =  .05 implies t = 2, implies lambda = -2
+  <li> So intuition is a likelihood difference of 2 is about p-value
+       of .05
+  <li> In general, (- 2 *log likelihood) has about a chi-squared
+       distribution
+</ul>
+Likelihood method for logistic regression:
+<ul>
+  <li> Compute the likelihood ratio statistic: - 2 log likilhood
+  <li> Reject at .05 if bigger than 4
+</ul>
+
+<h2>Chi-square tests</h2>
+What if Y is discrete and X is discrete also?
+<ul>
+  <li> EG: Y regressed on X where X takes on value A/a and Y
+       takes on values B/b.
+  <li> What is the model?
+       <ul>
+	 <li> P(B|A)/P(b|A) = exp(alpha)
+	 <li> P(B|a)/P(b|a) = exp(alpha + beta)
+	 <li> Independence iff P(B|A)/P(b|A) = P(B|a)/P(b|a)
+	 <li> I.e. independence iff beta = 0
+       </ul>
+  <li> Typical test is chi-squared test.  Gives almost same
+       answer--but chi-square is an approximation
+  <li> Permutation tests also available
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Mar 27 08:57:19 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Calculations For life Table</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<U><FONT SIZE=6><P ALIGN="CENTER">Calculations for Life Table</P>
+<OL>
+
+</U></FONT><FONT SIZE=4><LI>All tables were downloaded from the Society of Actuaries website at </FONT><A HREF="http://www.soa.org/tblins.html"><FONT SIZE=5>http://www.soa.org/tblins.html</FONT></A><FONT SIZE=4> </LI>
+<LI>The Male Life Table and the Female Life Table were derived the same way.</LI>
+<LI>For ages 0 to 84, race and sex-specific tables were used.</LI>
+<LI>For ages 85 to 119, only sex specific tables were used. This is because the race specific table used only had data up to age 84. The accuracy lost is negligible as the tables for the different races already tend towards each other as the age approaches 84.</LI>
+<LI>No person is assumed to live beyond the age of 119. Even if a few people do in fact live past that age, their statistical contribution to our calculation would small enough not affect the life expectancy.</LI>
+<LI>The life tables' data is of the form: probability of death at that age given survival to that age.</LI>
+<LI>The occurrence of death for any year is assumed to take on an exponential distribution, and the probability of death for that year is converted to a age, race and sex-specific parameter for the exponential distribution through the function: lambda = -ln(1-probability of death)</LI>
+<LI>Then, based on the table downloaded from the National Center for Health Statistics website at </FONT><A HREF="http://www.cdc.gov/nchswww/data/nvsr47_9.pdf"><FONT SIZE=5>http://www.cdc.gov/nchswww/data/nvsr47_9.pdf</FONT></A><FONT SIZE=4> , the proportion of death due to each major cause at each age group of each race and sex was determined. The age specific lambda were distributed among the causes of death according to the determined proportion to get age, race, sex, and cause-specific lambda.</LI></OL>
+</FONT></BODY>
+</HTML>

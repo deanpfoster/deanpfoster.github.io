@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 101 class outline: Confidence intervals (1)</title>
+</head>
+
+<body>
+<center><h1>Stat 101: Confidence intervals</h1></center>
+
+<ul>
+  <li> Admistrivia
+       <p>
+       <ul>
+	 <li> Do class evaluations
+       </ul>
+       </p>
+</ul>
+<h2>Confidence intervals--calculating them</h2>
+<ul>
+  <li> CI = estimate +/- 2 * SE
+       </p>
+  <li> SE is the standard deviation of the estimate
+       </p>
+  <li> Example: X-bar
+       <p>
+       <ul>
+	 <li> SE = SD(X-bar) = sigma/sqrt(n)
+	 <li> So, CI = X-bar +/- 2 sigma/sqrt(n)
+       </ul>
+       </P>
+  <li> Consider hits on my <a href="http://diskworld.wharton.upenn.edu/~foster/mortality/form.html">life calculator</a> web page
+       <p>
+       <uL>
+	 <li> Average age =  28.6, s = 19, n = 271
+	 <li> s/sqrt(n) = 1.15
+	 <li> CI = 28.6 +/- 2.3
+	 <li> CI = [26.3,29.9]
+	 <li> How do we interpret this?
+       </ul>	      
+       </p>
+  <li> Interpretation: mu = average over year, CI constructed from one month
+       <p>
+       <ul>
+	 <li>Naive interpretation: 95% chance that mu is in [26.3,29.9]
+	 <li> Classical interpretation: Interval is random and covers 95% of the time
+       </uL>
+      </p>
+  <li> Technical details
+       <p>
+       <ul>
+	 <li> If sigma is known use it: X-bar +/- 2 sigma/sqrt(n)
+	 <li> If sigma isn't  known use st: X-bar +/- 2 s/sqrt(n)
+	 <li> Estimating proportions: pi-hat +/- 2 sqrt(pi(1-pi)/n)
+       </ul>
+</ul>
+<h2>Do we always use 2?</h2>
+<ul>
+  <li> For the MBA's, we always use 2
+       </p>
+  <li> For more sophisticated audiences--we use variants on 2
+       <p>
+       <ul>
+	 <li> Example: 99.8% coverage needs 3
+	 <li> Example: 2/3 coverage needs 1
+	 <li> Example: exactly 95% needs 1.964
+	 <li> example: Psychological intervals are usually 50% which need +/- .67
+       </uL>
+       </p>
+  <li> Other distributions require other numbers
+  <lI> We will look at the t-distribution next time
+</ul>
+
+
+<hr>
+<address></address>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Dec  1 10:08:28 EST 1999
+<!-- hhmts end -->
+</p>
+
+</body> </html>

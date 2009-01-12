@@ -1,0 +1,205 @@
+\batchmode
+
+
+\documentclass[12pt]{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+\input epsf
+
+%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newcommand {\epsffig}[3]{
+\begin{figure}[H]
+    \begin{center}
+    \setlength{\epsfxsize}{#2 \textwidth}
+    \setlength{\epsfysize}{#3 \textheight}
+    \leavevmode
+    \epsfbox{#1}
+  \end{center}
+\end{figure}
+}
+
+\newcommand {\epsffigl}[4]{
+\begin{figure}[H]
+    \begin{center}
+    \setlength{\epsfxsize}{#2 \textwidth}
+    \setlength{\epsfysize}{#3 \textheight}
+    \leavevmode
+    \epsfbox{#1}
+    \caption{#4}
+  \end{center}
+\end{figure}
+}
+
+\newcommand {\epsffiga}[3]{
+\begin{figure}[H]
+    \setlength{\epsfxsize}{#2 \textwidth}
+    \setlength{\epsfysize}{#3 \textheight}
+    \leavevmode
+    \epsfbox{#1}
+\end{figure}
+}
+
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}E(X(t)) = \mu \qquad Cov(X(t),X(t + \tau)) = \gamma(\tau)\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\{Z_t\}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline95: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\rho(k) = \left\{ \begin{array}{cl}1 & k = 0 \\ 
+                                       0 & k = \pm 1, \pm 2 \cdots
+\end{array}
+\right.
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\mu$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline101: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\sigma^2_z$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline103: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\{X_t\}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline105: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X_t = X_{t-1} + Z_t.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$X_1 = Z_1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline109: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$X_t = \sum_{i=1}^t Z_i$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline111: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$E(X_t)) = t \mu$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline113: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$Var(X_t) = t \sigma^2 t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline115: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$X_t - X_{t-1} = Z_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline119: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X_t = \beta_0 Z_t + \beta_1 Z_{t - 1} + \cdots + \beta_q Z_{t-q}\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\rho(k) = \left\{ \begin{array}{cl}1 & k = 0 \\ 
+\sum_{i = 1}^{q - k}\beta_i \beta_{i + k} \left/ \sum_{i = 0}^q \beta_i^2
+\right. & k = 1,\cdots, q \\ 
+0 & k > q \\ 
+\end{array}
+\right.
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_0 = 1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline133: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\rho(k) = \left\{ \begin{array}{cl}1 & k = 0 \\ 
+\beta_1 \left/ (1 + \beta_1^2) \right. & k = \pm 1 \\ 
+0 & otherwise \\ 
+\end{array}
+\right.
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X_t = \alpha_1 X_{t-1} + \cdots + \alpha_p X_{t - p} + Z_t.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$X_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline143: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X_t = \alpha X_{t-1} + Z_t\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$|\alpha | < 1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline147: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\rho(k) = \alpha^k\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\rho(1) = 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline151: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X_t = \alpha_1 X_{t-1} + \cdots + \alpha_p X_{t-p} + Z_t + \beta_1 Z_{t-1} 
++ \cdots + \beta_q Z_{t-q}\end{displaymath}
+}
+
+
+\end{document}

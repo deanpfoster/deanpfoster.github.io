@@ -1,0 +1,70 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{color}
+\usepackage{psfrag,graphicx,verbatim,array,multicol,palatino,enumerate}
+\usepackage{amsmath,amsfonts,bm,rotating,natbib}
+\usepackage{epsfig}
+
+\begin{document}
+
+\begin{flushleft}
+Course No. Stat 433 \\
+\today
+\end{flushleft}
+
+\begin{center}
+{\Large{\bf  Homework 13 Solution}}
+\end{center}
+
+
+\begin{flushleft}
+\textbf{Page 497 Question 2.4}\\
+Let $\tau_z$ be the hitting time of $z$.
+\begin{eqnarray*}
+P(M(t) \geq z, B(t) \leq x) &=& P(\tau_z \leq t, B(t) \leq x)\\
+&=& P(\tau_z \leq x, z - (B(t) - z) \leq x) \\
+&=& P(\tau_z \leq x, B(t) \geq 2z - x) \\
+&=& P(B(t) \geq 2z - x) \\
+&=& 1 - \Phi(\frac{2z-x}{\sqrt{t}})\\
+\end{eqnarray*}
+Differential with respect to $x$. \\
+\begin{center}
+$\frac{1}{\sqrt{2\pi t}}\exp(-\frac{1}{2}\frac{(2z-x)^2}{t}) =
+\frac{1}{\sqrt{t}}\Phi(\frac{2z-x}{\sqrt{t}})$\end{center}
+
+Then taking the derivative with respect to $z$, we get
+\begin{center}
+$\frac{1}{\sqrt{t}}\Phi(\frac{2z-x}{\sqrt{t}})(\frac{-2(2z-x)}{\sqrt{t}})$
+\end{center}
+
+
+
+\textbf{Page 506 Question 3.2}\\
+
+\begin{eqnarray*}
+f(B(t)=x)|B(1)=b) & = & \frac{f(B(t)=x,B(1)=b)}{f(B(1)=b)} \\
+& = & \frac{f(B(t)=x)f(B(1-t)=b-x)}{f(B(1)=b)} \\
+& = &
+\frac{1}{\sqrt{2\pi t(1-t)}}\exp(-\frac{x^2}{2t}-\frac{(b-x)^2}{2(1-t)}+\frac{b^2}{2}) \\
+& = & \frac{1}{\sqrt{2\pi t(1-t)}}\exp(-\frac{(x-tb)^2}{2t(1-t)})
+\end{eqnarray*}
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+\textbf{Page 506 Question 3.8}\\
+
+Reflected Brownian Motion has transition density
+$$p(y,t|x)=\phi_{t}(y-x)+\phi_{t}(y+x) \cdots (1)$$
+We know $\phi_{t}(y-x)$ satisfies the diffusion equation. In the
+same way of Page 487, Exercise 1.3, we can show $\phi_{t}(y+x)$
+satisfies the diffusion equation. Hence, (1) satisfies (1.3).
+
+\begin{eqnarray*}
+\\
+\end{eqnarray*}
+
+
+
+\end{flushleft}
+\end{document}

@@ -1,0 +1,67 @@
+<html>
+<header>
+<title>  Homework on objects</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Homework on objects </h1></center>
+
+For the following, give me anotated output of your program.  So tell
+me in words what your program is doing and then have it do it.  It
+should sound like a story at the end of the day!
+
+<ol>
+  <li> This assignment will have you create a program to manage a zoo.
+       There are two basic objects, animals and cages.  Each animal
+       has a  name (like Shanti the indian elephant, or Sing Sing the Panda
+       bear) and a species type.  Each cage has an size and a cage
+       number.
+       <ol>
+	 <li> In the real world, animals would have to be escorted
+	      between cages with the help of zoo keepers.  we will
+	      assume these animals can follow instructions--and hence
+	      don't need zoo keepers.  Obviously this is just to make
+	      your life easier.
+	 <li> All animals should be able transport themselves from one
+	      cage to another cage.
+	 <li> Each cage should know which animals are members of that
+	      cage.
+	 <li> Implement the above description as cleanly as possible.
+	 <li> Besure to have the following:
+	      <ol>
+		<li> Print zoo (which prints out each cage and its
+		     contents)
+		<li> animal -> location which returns the location of an
+		     animal.
+		<li> animal -> name.
+		<li> animal -> species.
+		<li> animal -> move_to(cage).  Has the animal move
+		     to a cage.
+	      </ol>
+	 <li> populate your zoo with at least 4 different species of
+	      animals, and 20 different animals.   Print out your zoo.
+       </ol>
+  <li> When animals walk they make noise.  These noises should be
+       printed as the animals walk.  So a duck should go "quack quack
+       quack" as it walks along.  (Obviously it takes more quacks if
+       the distance between the cages is greater).  Add sounds for
+       each animal to print out as it moves around.
+  <li> Give each animal a home cage.  Write the following functions:
+       <ol>
+	 <li> start_meeting:  this should have everyone walk to the
+	      "main cage" for where ever they currently are.
+	 <li> end_meeting: this should have everyone walk home.
+       </ol>
+  <li> Finally add a "size" to each cage.  Give each animal a "size"
+       also.  There shouldn't be more animals in a cage than can fit.
+       Write a function called optional_move_to(cage) which checks if an
+       animal can move to a cage.  If it can be moved there without
+       overflowing the cage, have him move there.  This function
+       should be an "animal" function not a species function.
+</ol>
+</body>
+
+</html>
+

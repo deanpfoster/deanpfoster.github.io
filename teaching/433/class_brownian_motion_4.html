@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter VIII.3: Useful Models (Brownian motion)</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Read parts of section 8.4 (p  508-514 and 514-521.  Stop each
+subsection when your eyes glaze over.)
+</ul>
+
+<H1>More models of Brownian motion</h1>
+
+<h2>BM with drift</h2>
+<ul>
+  <li> Suppose B(t) is the standard BM (i.e. no sigma so var(B(t)) =
+t)
+  <li> Drift: X(t) = mu t + sigma B(t)
+  <li> Drifts up at rate t.
+  <li> Theorem: Y(t) = exp(-2mu X(t)/sigma<sup>2</sup>) is a martingale.
+  <li> Called Girsanov's martingale
+  <li> Proof sketch:
+   <ul>
+     <li> E(Y(t+h)|Y(t)) = Y(t)exp(-2 mu (X(t+h)-X(t))/sigma<sup>2</sup>)
+     <li> if E(exp(-2 mu (X(t+h)-X(t))/sigma<sup>2</sup>)) = 1 we have
+a martingale!
+     <li> exp(delta) = 1 + delta + delta<sup>2</sup>/2 approximately
+     <li> E(delta) = -2mu<sup>2</sup>h/sigma<sup>2</sup>
+     <li> E(delta<sup>2</sup>) = 2mu<sup>2</sup>h/sigma<sup>2</sup>
+     <li> QED
+   </ul>
+  <li> From this we can compute the probability of going bankrupt.
+  <li> We can also compute the probability of the maximum.
+</ul>
+<h2>Geometric BM</h2>
+<ul>
+  <li> Now let Y(t) = exp(X(t))
+  <li> Since constants aren't as above, not a martingale
+  <li> Good model for stock prices
+</ul>
+
+<h2>Future directions for study and review of course</h2>
+
+<h3>Markov chains</h3>
+<ul>
+   <li> Leads in to dynamical systems
+   <li> modeling physics, engineering, chemistry, DNA, and other "clean" settings
+</ul>
+
+<h3>Poisson processes</h3>
+<ul>
+  <li> Leads into semi-martingales
+  <li> Modern model of Markets (allows for jumps, and difusions)
+  <li> dY = mu dt + sigma dN
+</ul>
+
+<h3>BM</h3>
+<ul>
+  <li> Leads into SDE's
+  <li> Classical PDE.
+  <li> Classical finance.
+</ul>
+
+<h3>Martingales</h3>
+<ul>
+  <li> Leads into measure theory
+  <li> Philosophy of knowledge (sigma-fields)
+  <li> dY = mu dt + sigma dM
+</ul>
+
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Thu Apr 17 15:03:35 EDT 2008
+<!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter III.6: Branching processes</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Homework due Thursday
+  <li> Midterm next Wednesday
+  <li> Questions from the homework?
+</ul>
+
+<h1>Chapter III.5.3: Extinction probability of branching processes</h1>
+
+<h2>First approximation</h2>
+<ul>
+  <li> Recall the mean function
+  <li> Using Markov's inequality, if mean < 1, it goes extinct.
+  <li> If mean = 1, it is martingale.  It goes extinct.
+  <li> What if mean is greater than 1?
+  <li> What is the actual probability of extinction?
+</ul>
+<h2>First step analysis</h2>
+<ul>
+  <li> Let u<sub>n</sub> = probability of extinction in n steps
+starting from X = 1.
+  <li> u<sub>i</sub><sup>k</sup> = starting from X = k.
+  <li> First step equation is then easy: u<sub>n</sub> = sum p(k) u<sub>n-1</sub><sup>k</sup>
+</ul>
+<h2>Limiting behavior</h2>
+<ul>
+  <li> u is increasing, and less than one.
+  <li> Hence limit exists.
+  <li> Suppose limit is one.  Then we can do taylor series.
+  <li> ... which shows mean is less than or equal to one.
+  <li> Theorem: mean <= 1 iff extincion is inevitable.
+</ul>
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Feb 23 09:59:07 EST 2004
+<!-- hhmts end -->
+</body> </html>

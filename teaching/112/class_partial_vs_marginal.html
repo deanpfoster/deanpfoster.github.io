@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Partial vs marginal slopes </title>
+</head>
+
+<body>
+<center><h1> Partial vs marginal slopes </h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Handout sample exam from last year
+	 <li> It covers about up to here.  We will have some multiple
+	      regression on the exam also.
+	 <li> Exam a week from Thursday
+	 <li> 2nd Homework due 2 weeks from Today
+       </ul>
+       </p>
+</ul>
+
+<ul>
+  <li> Basic idea
+       <p>
+       <UL>
+	 <li> X --> Z, Z --> Y, Z --> Y looks like X --> Y
+	 <li> Example: breast feeding --> bad water --> infant mortality
+	 <li> Correct analysis finds this: regress Y on both X and Z
+	 <li> Relationship between X and Y is marginal slope
+	 <li> Relationship between X and Y HOLDING Z FIXED is partial
+	      slope
+	 <li> Partial slopes are better!
+       </ul>
+  <li> Example:
+       <p>
+       <ul>
+       <li> Y = beta<sub>0</sub> + beta<sub>1</sub> X<sub>1</sub> +
+	    beta<sub>2</sub> X<sub>2</sub> + error
+       <li> GP1000M = 11.7 + .0089 Weight + .088 Horsepower + error
+       <li> GP1000M = 9.43 + .0136 Weight + error
+       <li> HP =  Weight / 20 + error
+       <li> explination: GP1000M = 9.43 + .0089 weight + .088 * (weight/20)
+     </ul>
+     </p>
+<li> Handout on Effort and Reward in College
+</ul>
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Feb 22 13:13:26 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

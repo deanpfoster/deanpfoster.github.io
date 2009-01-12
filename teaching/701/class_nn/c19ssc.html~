@@ -1,0 +1,163 @@
+<HTML>
+<BODY>
+<PRE>
+# The following assign command tells SPlus where to look for libraries.
+#assign(where=0, "lib.loc", "/home/waterman/library")
+
+# The library command by itself makes the library accessible
+library(nnet,first =T)
+
+# More on contrasts later
+options(contrasts=c("contr.treatment", "contr.poly"))
+
+
+# Objective: can we characterise new users by demographics?
+# This command will read in the uva dataset.
+
+uva <- read.table("uvanomis.txt",sep="\t",header=T,na.strings=c("NA"))
+
+attach(uva)
+dim(uva)
+summary(uva)
+
+# This command randomly chooses rows to be in the training dataset
+training <- sample(15432,7716)
+
+# and this one defines the validation rows as those that were not in
+# the training one.
+validation <- c(1:15432)[-training]
+
+# This command does logistic regression
+glm.out <- glm(Newbie ~ Age + Inc, 
+family=binomial,data=uva,subset=training)
+
+#Here is how you predict on the validation data set
+#predict.glm(glm.out,uva[validation,],type="response")
+
+#Now we turn these probability predictions into a 
+#simple YES/NO prediction.
+
+outsample.pred <- ifelse(
+predict.glm(glm.out,uva[validation,],type="response")>.5,1,0)
+
+#Now pull off the validation dataset separately
+#   (makes the table command faster)
+validate.data <- as.matrix(uva.nomiss[validation,])
+training.data <- as.matrix(uva.nomiss[training,])
+
+
+#Now compare the predictions with the true values
+
+table(validate.data[,1],outsample.pred) 
+
+#######
+# For fun see how the in sample predictions do
+#######
+insample.pred <- ifelse(
+predict.glm(glm.out,uva[training,],type="response")>.5,1,0)
+table(training.data[,1],insample.pred)
+
+###
+# Generate a grid on which to do prediction and contour plotting.
+###
+
+prediction.grid <- expand.grid(seq(5,80,length=40),seq(1000,150000,length=40))
+names(prediction.grid) <- c("Age","Inc")
+prediction.grid <- as.data.frame(prediction.grid)
+
+
+win.graph()
+persp(seq(5,80,length=40), seq(1000,150000,length=40),
+matrix(predict.glm(glm.out,prediction.grid,type="response"),ncol=40))
+
+
+
+
+###########
+## Neural Nets introduction code.
+###########
+
+###########
+## First generate some fake data to illustrate the ideas.
+## Probabilities that Y = 1 are given by a sin curve
+## A 0/1 observation is then generated with the sin curve probabilities
+###########
+
+x <- seq(0,1,length=1500)
+y <- rbinom(1500,1,(sin(x * 2 * 3.14 * 3) * .5) + .5)
+plot(x,(sin(x * 2 * 3.14 * 3) * .5) + .5)
+
+
+###########
+## This code sets up a graph sheet with a 3 by 3 grid of images
+###########
+
+win.graph()
+par(mfrow=c(3,3))
+
+
+
+for(i in 0:8){
+## This line fits the nueral network with "i" units in the hidden layer.
+nnet.out <- nnet(x,as.factor(y),size=i,entropy=T,decay=0.001,skip=T)
+
+## Now print out the value of the fitting criterion.
+## The analog of the sums of squares error in regression
+
+print(nnet.out$value)
+plot(x,y)
+
+## Now predict the probabilities from the trained network
+##  Hopefully they should be close to a sin curve.
+ 
+points(x,predict.nnet(nnet.out,matrix(x,ncol=1)),col=i+1)
+}
+
+
+## Now use neural nets on the internet demographics dataset
+win.graph()
+ 
+m1 <- max(uva$Age)
+m2 <- max(uva$Inc)
+prediction.grid <- expand.grid(seq(5,80,length=40)/m1,seq(1000,150000,length=40)/m2)
+names(prediction.grid) <- c("Age","Income")
+prediction.grid <- as.data.frame(prediction.grid)
+par(mfrow=c(3,3))
+for(i in 1:9){
+nnet.out <- nnet(
+	cbind(uva$Age/m1, uva$Inc/m2),
+		as.factor(uva$Newbie),size=i,skip=T,decay=.0005,entropy=T)
+print(nnet.out$value)
+persp(seq(5,80,length=40)/m1, seq(1000,150000,length=40)/m2,
+matrix(predict.nnet(nnet.out,prediction.grid),ncol=40))
+}
+
+
+
+## Add some gold to this data to see how successful the nnet is in 
+## identifying it.
+
+fakedata <- uva
+
+
+fakedata[1:1000,1] <- 1
+fakedata[1:1000,2] <- sample(c(35:45),1000,replace=T)
+fakedata[1:1000,11] <- sample(c(35000:45000),1000,replace=T)
+ 
+m1 <- max(fakedata$Age)
+m2 <- max(fakedata$Inc)
+prediction.grid <- expand.grid(seq(5,80,length=40)/m1,seq(1000,150000,length=40)/m2)
+names(prediction.grid) <- c("Age","Income")
+prediction.grid <- as.data.frame(prediction.grid)
+par(mfrow=c(3,3))
+for(i in 1:9){
+nnet.out <- nnet(
+cbind(fakedata$Age/m1, fakedata$Inc/m2),
+as.factor(fakedata$Newbie),size=i,skip=T,entropy=T,decay=0.0001)
+print(nnet.out$value)
+persp(seq(5,80,length=40)/m1, seq(1000,150000,length=40)/m2,
+matrix(predict.nnet(nnet.out,prediction.grid),ncol=40))}
+
+</PRE>
+</BODY>
+</HTML>

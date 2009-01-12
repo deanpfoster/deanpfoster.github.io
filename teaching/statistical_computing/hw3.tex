@@ -1,0 +1,70 @@
+\documentstyle[12pt]{article}
+\renewcommand{\baselinestretch}{1.2}
+\begin{document}
+\centerline{\bf Statistical computing: Homework 3}
+
+\vspace{2ex}
+
+This third homework is due Monday, Feb 2th.  As usual, these should be
+programmed using a functional programming style and written up
+carefully.  Feel free to ``reuse'' your code from last week.  If you
+don't end up reusing your code, say what was wrong with it that
+required you to rewrite it and how you might avoid this sort of
+problem in the future.
+
+\begin{enumerate}
+\item Code up the density concepts from last week.  Do densities,
+and expectations as we did in class.  
+\begin{enumerate}
+
+\item Write functions that will generate normal($\mu,\sigma$),
+uniform(0,$\theta$), and exponential($\mu$).  Write a ``wrapper''
+function that will convert the built in {\tt pchisq} into the format
+we used in class.  
+
+\item Add a default of $\mu = 0$ and $\sigma =1$ to your {\tt normal}
+function.  So {\tt normal(3,4)}, has a mean of 3 and a SD of 4, and
+{\tt normal(3)} has a mean of 3 and a SD of 1, and {\tt norm()} has a
+mean of zero and a SD of 1.
+
+\item Write and test a function, {\tt CDF}, that when given a
+density will generate a CDF.  
+
+\item Write and test a function, {\tt MGF}, that will take a density and return
+the moment generating function.
+
+\item Use the derivative function from last week and the {\tt MGF}
+from this week to find a the first few moments of a non-central
+chisquared distrubution.  Check them by using the {\tt E} operator you
+wrote.  Which computes the 10th moment quicker?
+\end{enumerate}
+\newpage
+\item Write a fixed point function.  In other words, a function that
+will take another function and a value and then keep applying the
+function until a fixed point results.  
+\begin{enumerate}
+\item Newton's method for finding a root of an equation is usually
+written as: 
+$$x_n = x_{n-1} - \frac{f(x_{n-1}}{f'(x_{n-1})}$$ 
+Code up {\tt Newton}'s method using your fixed point algorithm above.
+\item Create a function {\tt difficult} which has a root at zero, but
+for which {\tt Newton(difficult,1)} doesn't converge.
+\item Check that your bisection algorithm converges for your function
+{\tt difficult}.
+\item Prove or provide a counter example: If Newton's method is
+started close enough to a root then it will converge to the root.
+\item Compute the squareroot of of the first $n$ numbers using both
+bisection and Newton's method.  Which is faster?  By how much?
+\end{enumerate}
+\item Using the quadratic equation and a two term Taylor series you
+should be able to write a root finder that is even faster than
+Newton's method.  Program up such an algorithm.
+\begin{enumerate}
+\item Find a function it fails to find the root for.
+\item Write a hybrid algorithm that will use bisection to get close to
+a root, and then use your quadratic root finder to find the actual
+root. 
+\item  How does its speed compare to bisection and Newton's method?  
+\end{enumerate}
+\end{enumerate}
+\end{document}

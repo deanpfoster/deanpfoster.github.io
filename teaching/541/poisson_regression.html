@@ -1,0 +1,83 @@
+<html>
+<header>
+<title>  STAT 541: Poisson Regression</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Poisson Regression </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Read section 7.5 and 7.6
+  <li> Any questions about the project so far?
+</ul>
+
+<h2> Poisson RV review </h2>
+<ul>
+  <li> e<sup>-mu</sup>mu<sup>y</sup>/y!
+  <li> If time involved: e<sup>-t*mu</sup> (t*mu)<sup>y</sup>/y!
+  <li> E(Y) = mu (or t*mu)
+  <li> Var(Y) = mu (or t*mu)
+  <li> Y is approximately normal if mean is large
+  <li> So we could use weighted least squares since variance depends only on the mean which we will have to know anyway.
+  <li> Note: We don't have to estimate the variance unlike regular regression
+</ul>
+<h2>Poisson regression model</h2>
+<ul>
+  <li> E(Y) = X beta
+  <li> E(Y) = t * X beta  (if using time)
+  <li> E(Y) = exp<sup>X beta</sup>
+  <li> E(Y) = t * exp<sup>X beta</sup>  (if using time)
+  <li> Called "link function"
+  <li> Y = X beta + Z   where E(Z) = 0, var(Z) = X beta
+  <li> Y/E(Y) = X beta/E(Y) + Z   where E(Z) = 0, var(Z) = 1
+  <li> So as long as we know E(Y) we can estimate E(Y) using regression
+  <li> Oops!
+  <li> IRLS to the rescue
+  <li> Works when mean is large and poisson looks like a normal distribution
+</ul>
+<h2>Poisson likelihood (no regression case)</h2>
+<ul>
+  <li> goal is maximize: product e<sup>-mu</sup>mu<sup>y</sup>/y!
+  <li> same as maximize: sum -mu + y log(mu) - log y!
+  <li> max at: sum (-1 + y/mu) = 0
+  <li> max at: mu-hat = sum(y)/n
+</ul>
+<h2>Poisson likelihood (regression case)</h2>
+<ul>
+  <li> If mu is a function of beta, say mu = t X beta
+  <li> maximize: sum -t X beta + y log(t X beta) - log y!
+  <li> max is at: sum -t X + y /(X beta) * X = 0
+  <li> max is at: sum (Y - Y-hat)/(y-hat) * X = 0
+  <li> close to: sum (Y - Y-hat)/(sigma-hat) * X = 0
+  <li> Which is exactly weighted least squares (IRLS)
+  <li> Again, we don't have to estimate the variance
+</ul>
+<h2>Poisson likelihood (regression with link function)</h2>
+<ul>
+  <li> If mu is a function of beta, say mu = exp<sup>t X beta</sup>
+  <li> Usually written: ln(E(Y)) = t X beta
+  <li> maximize: sum -exp<sup>t X beta</sup> + y t X beta - log y!
+  <li> max is at: sum -t X exp<sup>t X beta</sup> + y t X = 0
+  <li> max is at: sum (Y - Y-hat) * t X = 0
+  <li> Since Y-hat is non-linear this isn't as easy as it appears
+</ul>
+
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Mar  7 13:45:06 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

@@ -1,0 +1,97 @@
+<html>
+<header>
+<title>  STAT 541: Linear Tests And Colinearity</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Linear Tests And Colinearity </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Read M:3.4 and M:3.8
+</ul>
+
+<h2> Linear Tests</h2>
+
+Consider productivity (Y) as a function of the amount of labor hours
+in packing material (X1) and in shipping material (X2).  Which
+generates more output per hour, X1 or X2?
+
+<ul>
+  <li> Easy case: confidence intervals for betas don't overlap
+  <li> Given it takes so much more time to pack than to ship, why
+       aren't these very different?  Its the marginal slope that we
+       are measuring.  Correct economics says they should be the
+       same.
+  <li> What regression would we do if we believed the ecnomic theory
+       that X1 and X2 were identical?  We'd regression Y on (X1+X2).
+  <li> Write model as Y ~ (X1+X2) + (X1-X2)
+  <li> Intepret coefficients
+  <li> to test which is larger, use the coefficient on second term
+  <li> Notice exact same fits are possible as in Y ~ X1 + X2
+  <li> What if we regressed on: Y ~ (X1+X2) + X1?  Same answer!
+  <li> General policy: Fit reduced model with appropiate variables,
+       then add enough variables to span space.
+</ul>
+EXAMPLE: ETS reciently alleged that there was cheating on SAT exams at some
+centers.  Suppose we have a Y = test result when arriving on campus, X
+= test result taken non-cheating centers.  Z = test results taken at
+cheating centers, I = which center.  How would you test their claim?
+<p>
+Answer: Y = (X+Z) is small model.  Y = X + Z + I is full model.  Now
+use partial F.
+
+<h2> Colinearity</h2>
+<ul>
+  <li> The good life: orthogonal design (collected from designed
+       experiement)
+       <p>
+       <ul>
+	 <li> consider a 2x2 table
+	 <li> partial coefficient equals marginal coeficient
+	 <li> there is only "one slope" so easy to understand
+       </ul>
+       <p>
+  <li> The real world: multicolinearity
+       <p>
+       <ul>
+	 <li> marginal slope is different than partial slope
+	 <li> draw diagram: Y ~X+Z, X~Z, then Z-->Y via two routes
+	 <li> Signs can change
+	 <li> intepretation is difficult
+	 <li> Controlled experiments are really useful here
+       </ul>
+  <li> Measuring colinearity via the VIF
+       <p>
+       <ul>
+	 <li> VIF = SE<sup>2</sup>(partial)/SE<sup>2</sup>(marginal)
+	 <li> (technically: diagonal of inverse of correlation matrix)
+	 <li> VIF > 1
+	 <li> 
+       </ul>
+  <li> Example: <a href="sp500_and_dow.jmp"></a>
+       <p>
+       <ul>
+	 <li> Regress stock on "market".  But what is the market?
+	 <li> DOW is what people have heard of, but S&P500 is what is
+	      traded.
+	 <li> Why not use both?
+       </ul>
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Feb 13 08:53:07 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

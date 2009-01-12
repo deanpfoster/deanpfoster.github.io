@@ -1,0 +1,66 @@
+### MonteCarlo simulation question.
+
+
+### 
+# Historic probabilities of the numbers of hurricanes and tropical storms
+# That hit the US coast in the last 110 years
+###
+# Example: there were 0 hits in 1 year, 1 hit in 13 of the years etc
+
+hitprobs <- c(1, 13, 29, 20, 25, 8, 5, 5, 4)/110
+
+ 
+
+
+
+# Simulation level variables
+simsize <- 1000             # The number of MonteCarlo iterations
+timehorizon <- 20           # The planning time horizon
+
+# a variable to store the all the simulation results in.
+results <- rep(0,simsize)   
+
+for( i in 1:  simsize) {    # Start the Monte Carlo loop
+# This print command indicates how many of the Monte Carlo 
+# iterations you have done
+print(paste("Monte Carlo simulation" , i))
+
+
+bust <- 0                   # At the start of each monte carlo iteration
+                            # we are solvent.
+                            # 1 means bust, 0 means solvent
+
+reserves <- 500000000       # Initially have $500,000,000 in reserve
+
+for(j in 1: timehorizon)  { # Loop through the 20 year period
+
+# This command generates the number of hurricanes in any one year.
+numhurricanes <- sample (c(0,1,2,3,4,5,6,7,8), size = 1, prob=hitprobs) 
+
+
+# Model yearly profit as a normal random variable: mean 10000000, sd 7500000
+profit  <- rnorm(1,mean = 10000000,sd = 7500000)
+
+# Catastrophic loss each year is the number of hurricanes * 10000000
+catloss <- numhurricanes * 10000000  
+
+# At the end of each year reserves are just previous reserves + profit - loss
+reserves <- reserves + profit - catloss
+
+
+# At the end of each year check to see if the company has gone bust. 
+# If so, stop and move onto the next monte carlo iteration.
+if(reserves < 0) { bust <- 1 ; break}
+
+}
+  
+# Save the result of this particular iteration 
+results[i] <- bust
+
+}
+
+
+# Find the proportion of simulations in which the comnpany went bust
+
+print(mean(results))
+

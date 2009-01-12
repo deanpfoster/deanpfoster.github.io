@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Interacting with the page</TITLE>
+<META NAME="description" CONTENT="Interacting with the page">
+<META NAME="keywords" CONTENT="class01">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class01.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <H1><A NAME="SECTION00030000000000000000">Interacting with the page</A></H1>
+<P>
+Many WEB pages are static. You request the page, the page is served. Period.
+We want to be able to have the user interact with the page, in particular
+to have the server execute a program and return its output.
+<P>
+Pretend for now that we have that program written and it's on our server,
+and lets say that it's called ``hello.pl''. It sits inside a directory
+called cgi-bin in your public_html directory structure.
+<P>
+Here's how we put a link inside the WEB page to execute the program.
+<P>
+<PRE>&lt;HTML&gt;
+&lt;BODY&gt;
+Can you see me?
+&lt;P&gt;
+Do you want to execute me?
+
+&lt;FORM
+METHOD=GET
+ACTION=&quot;http://www-stat.wharton.upenn.edu/~waterman/cgi-bin/hello.pl&quot;
+&gt;
+&lt;INPUT TYPE=&quot;SUBMIT&quot; VALUE=&quot;YES&quot;&gt;
+&lt;/FORM&gt;
+
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE>
+<P>
+What happens?
+<P>
+The action is in the FORM tag.
+The WEB page initiates a GET request which is sent to the server.
+The server recognizes the object of the GET request as an executable
+program (because of the .pl) extension. The server executes the
+program and returns the output from the program to the browser.
+<P>
+If you think of the client/server interaction as an ``ASK/RECEIVE'' pair,
+then this page simply allows the client to ask  for the output from a
+program.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Thu Jan 14 23:42:10 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

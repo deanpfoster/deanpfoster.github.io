@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>Time series assignment (HW4)</TITLE>
+<BODY>
+<P>
+<CENTER><H1> Time series assignment (HW4) </H1></CENTER>
+<P>
+
+Do problems 3 and 6 from chapter 6 of Berndt (page 283 and 287.)  No
+discussion necessary this time.
+<p>
+
+NEW NOTE: In Exercises 3 and 6, Berndt is looking for you to complete
+a series of analysis for both IE and IS structures.  You all are only
+required to do one of them (IE/equipment prefered, but you can do
+either one).  That means that things like 3c, you can skip the part
+which tells you to do everything you just did for IS for the IE
+variable.
+
+<p>
+NOTE: ignore Durbin-Watson in (3d).
+
+<p>
+Hints on the PDL stuff:
+<ul>
+  <li> Background: Suppose you had a regression of Y = alpha + beta<sub>1</sub>
+X<sub>1</sub> + beta<sub>2</sub> X<sub>2</sub> + noise.  But you
+       wanted to assume that  beta<sub>1</sub> = beta<sub>2</sub>.
+       How would you do it?  The easiers way would be to construct a
+       new varible Z = X<sub>1</sub> + X<sub>2</sub> and do a
+       regression of Y on Z, namely, Y = Z + noise.
+  <li> PDL: We want to assume that beta<sub>1</sub>, beta<sub>2</sub>,
+       ..., beta<sub>6</sub> land on a polynomial when plotted verse
+       their index number.  In other words, we want beta<sub>i</sub> =
+       a + b*i + c*i<sup>2</sup> + d*i<sup>3</sup>.  To do this we
+       ahve to create the following variables:
+       <ul>
+	 <li> Sum = X<sub>1</sub> + X<sub>2</sub> + X<sub>3</sub>+
+	      X<sub>4</sub>+ X<sub>5</sub> + X<sub>6</sub>
+	 <li> L = Linear = X<sub>1</sub> + 2 * X<sub>2</sub> + 3 *
+	      X<sub>3</sub> + 4 * X<sub>4</sub> +  5 * X<sub>5</sub> + 6 * X<sub>6</sub>
+	 <li> Q = Quadratic = X<sub>1</sub> + 4 * X<sub>2</sub> + 9 *
+	      X<sub>3</sub> + 16 * X<sub>4</sub>+ 25 * X<sub>5</sub>+ 36 * X<sub>6</sub>
+	 <li> C = Cubic = X<sub>1</sub> + 8 * X<sub>2</sub> + 27 *
+	      X<sub>3</sub> + 64 * X<sub>4</sub> + 125 * X<sub>5</sub> + 216 * X<sub>6</sub>
+       </ul>
+       Now do a regression on Sum,L,Q and C.
+       <p> Finding out the coeficient of say X<sub>2</sub> can be
+       constructed by using beta<sub>SUM</sub> +
+       2*beta<sub>L</sub>+4*beta<sub>Q</sub>+8*beta<sub>C</sub>.
+  <li> (PDL for part c) Now suppose that we want the coefficient of
+       X<sub>6</sub> to be zero.  We can create the following
+       variables:
+       <ul>
+	 <li> Sum' = Sum - C/216
+	 <li> L' = L - C/36
+	 <li> Q' = Q - C/6
+       </ul>
+       Now a regression on Sum', L' and Q' will generate coefficients
+       beta<sub>Sum'</sub> and  beta<sub>L'</sub> and
+       beta<sub>Q'</sub>.
+       <p>
+       From these we can figure out what the coeficients are for the
+       unprimed variables.  To do this use:
+       <p>
+       <ul>
+	 <li> beta<sub>Sum</sub> = beta<sub>Sum'</sub>
+	 <li> beta<sub>L</sub> = beta<sub>L'</sub>
+	 <li> beta<sub>Q</sub> = beta<sub>Q</sub>
+	 <li>beta<sub>C</sub> = - beta<sub>Sum'</sub>/216 -
+	      beta<sub>L'</sub>/36 - beta<sub>Q'</sub>/6
+       </ul>
+       Now  we can
+       figure out what the coefficients are for the orginal X's.  With
+       a bit of algebra, you should be able to show that the
+       coefficient of X<sub>6</sub> is in fact zero.
+  </ul> <p>
+
+I suggest you turn this in before homework 5, but I know you have
+various panics.  So there is both a suggested due date and a hard
+deadline for this assignment.  Which you follow is your choice.  But
+the hard deadline will not have any extensions for any reasons at all. 
+   
+<P>
+</BODY>
+</HTML>

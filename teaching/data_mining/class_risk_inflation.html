@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Risk inflation</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Sep 29 13:56:22 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Bonferroni</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Homework due today.  More homework due next week
+</ul>
+
+<h3>So: Add all of them with a |t| > sqrt(2 log p)</h3>
+<ul>
+  <li> Called Bonferroni
+     <ul>
+     <li> Prove tail of the null: Phi(x) < phi(x) for x < -1.
+     <li> Prove sum of events: P(U A<sub>i</sub>) &le sum P(A<sub>i</sub>)
+     </ul>
+  <li> First suggested by Foster and George (for regression) / Donoho
+and Johnstone (for wavelets)
+</ul>
+<h2>Started with "fit" ended with paranoia</h2>
+<ul>
+  <li> Back to first principles
+  <li> Goal is a good fit: Too poorly defined
+  <li> Goal is a good worst-case fit: Bad goal since encorages adding
+all variables
+  <li> Goal is good fit over each size model: Idea of Risk Inflation
+</ul>
+<h2>Risk inflation</h2>
+<ul>
+  <li> Definition: ratio of risks to best
+  <li> Alternative definition: compared to oracle
+  <li> Look at table 2 from paper to see how some simple methods do
+<hr>
+</ul>
+<address>dean@foster.net</address>
+</body> </html>

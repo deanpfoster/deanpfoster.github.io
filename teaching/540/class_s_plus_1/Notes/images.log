@@ -1,0 +1,209 @@
+This is TeX, Version 3.1415 (C version 6.1) (format=latex 95.11.7)  12 FEB 1999 06:43
+**images.tex
+(images.tex
+LaTeX2e <1995/06/01> patch level 3
+
+(/opt/tex/lib/texmf/tex/latex2e/base/article.cls
+Document Class: article 1995/06/26 v1.3g Standard LaTeX document class
+(/opt/tex/lib/texmf/tex/latex2e/base/leqno.clo
+File: leqno.clo 1995/06/19 v1.3e Standard LaTeX option (left equation numbers)
+) (/opt/tex/lib/texmf/tex/latex2e/base/size10.clo
+File: size10.clo 1995/06/19 v1.3e Standard LaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\lthtmlwrite=\write3
+\sizebox=\box26
+(images.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 15.
+latex2htmlSize :tex2html_wrap_inline85: 5.83333pt::1.94444pt.
+[1
+
+
+]
+latex2htmlSize :tex2html_wrap_inline89: 5.83333pt::0.83333pt.
+[2
+
+]
+latex2htmlSize :tex2html_wrap_inline91: 8.41226pt::1.94444pt.
+[3
+
+] [4
+
+] [5
+
+] [6
+
+] [7
+
+] [8
+
+] [9
+
+] [10
+
+]
+Overfull \hbox (0.95885pt too wide) detected at line 99
+\OML/cmm/m/it/10 min[] [][] \OT1/cmr/m/n/10 =
+ []
+
+[11
+
+] [12
+
+] [13
+
+]
+latex2htmlSize :tex2html_wrap_inline117: 7.5pt::2.5pt.
+[14
+
+]
+latex2htmlSize :tex2html_wrap_inline119: 6.94444pt::1.94444pt.
+[15
+
+]
+latex2htmlSize :tex2html_wrap_inline121: 8.14003pt::2.5pt.
+[16
+
+]
+latex2htmlSize :tex2html_wrap_inline123: 9.35pt::3.05008pt.
+[17
+
+]
+latex2htmlSize :tex2html_wrap_inline125: 8.41226pt::1.94444pt.
+[18
+
+]
+latex2htmlSize :tex2html_wrap_inline129: 6.83331pt::1.94444pt.
+[19
+
+]
+latex2htmlSize :tex2html_wrap_inline143: 5.83333pt::1.94444pt.
+[20
+
+]
+latex2htmlSize :tex2html_wrap_inline147: 6.94444pt::1.94444pt.
+[21
+
+] [22
+
+]
+latex2htmlSize :tex2html_wrap_inline153: 6.94444pt::1.94444pt.
+[23
+
+] [24
+
+] [25
+
+] [26
+
+] [27
+
+]
+latex2htmlSize :tex2html_wrap_inline171: 7.5pt::2.5pt.
+[28
+
+]
+latex2htmlSize :tex2html_wrap_inline173: 7.51782pt::2.5pt.
+[29
+
+]
+latex2htmlSize :tex2html_wrap_inline175: 7.5pt::2.5pt.
+[30
+
+]
+latex2htmlSize :tex2html_wrap_inline177: 6.94444pt::1.94444pt.
+[31
+
+] [32
+
+]
+latex2htmlSize :tex2html_wrap_inline183: 7.5pt::2.5pt.
+[33
+
+]
+latex2htmlSize :tex2html_wrap_inline185: 7.5pt::2.5pt.
+[34
+
+]
+latex2htmlSize :tex2html_wrap_inline187: 8.44843pt::3.44841pt.
+[35
+
+] [36
+
+]
+latex2htmlSize :tex2html_wrap_inline191: 6.44444pt::1.49998pt.
+[37
+
+] [38
+
+] [39
+
+] [40
+
+]
+latex2htmlSize :tex2html_wrap_inline199: 6.44444pt::1.49998pt.
+[41
+
+]
+latex2htmlSize :tex2html_wrap_inline201: 6.44444pt::1.49998pt.
+[42
+
+]
+latex2htmlSize :tex2html_wrap_inline203: 7.5pt::2.5pt.
+[43
+
+] [44
+
+] [45
+
+] [46
+
+]
+latex2htmlSize :tex2html_wrap_inline223: 7.5pt::2.5pt.
+[47
+
+]
+latex2htmlSize :tex2html_wrap_inline227: 7.5pt::2.5pt.
+[48
+
+]
+latex2htmlSize :tex2html_wrap_inline231: 5.83333pt::2.33333pt.
+[49
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 223 strings out of 10957
+ 2138 string characters out of 73532
+ 46660 words of memory out of 262141
+ 3122 multiletter control sequences out of 9500
+ 3640 words of font info for 14 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 23i,9n,21p,179b,143s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on images.dvi (49 pages, 9520 bytes).

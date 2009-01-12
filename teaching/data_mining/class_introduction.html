@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Introduction</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Sep 27 12:17:06 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Introduction</h1>
+
+<h2>Class structure</h2>
+<ul>
+ <li> credit based mostly homeworks 
+ <li> readings (see web since I'll often forget to mention them)
+ <li> You might have to surf the web to find background readings.  If
+so, send me pointers to useful links and I'll put the on the web page.
+ <li> If you don't understand -- ask!
+ <li> Final exam 
+</ul>
+<h2>What is data mining?</h2>
+Data mining doesn't have a good definition:
+<ul>
+   <li> <a href="http://www.thearling.com/text/dmwhite/dmwhite.htm">Kurt
+        Thearling</a> views it as a set of problem.
+  <li> <a href="http://www.autonlab.org/tutorials/">Andrew Moore</a>
+       views it a collection of techniques.
+  <li> Our definition will be statistics for very large datasets.
+</ul>
+<h1>The data</h1>
+The data comes from many sources:
+<ul>
+  <li> Marketing
+  <li> medicine
+  <li> the Web
+  <li> text sources
+  <li> UCI / KDD!  (Practice data sets)
+  <li> Maybe even financial data (yuck! This doesn't have any signal
+and so generally can be dealt with using classical statistics).
+</ul>
+Unifying properties of the data:
+<ul>
+   <li> Something worth predicting is measured
+   <li> often times lots of signal (think high R-squares)
+   <li> Always lots of variables (think 1000s or millions)
+   <li> Lots of data (think Gigabytes)
+</ul>
+
+The data is mostly observational
+<ul>
+  <li> Not collected for science, so the goal isn't to find
+truth (i.e. true models).
+   <li> Goal is to predict.
+   <li> Causal reasoning probably isn't justified.  Is it necessary though?
+</ul>
+
+<h2>The methods</h2>
+
+<ul>
+   <li> Machine learning  (used to be called AI)
+   <li> modification of existing statistical methods
+   <li> commercial ones are often ad hoc
+   <li> see <a href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">Elements of
+Statistical Learning</a> (You might want to buy this book)
+</ul>
+
+<h2>The modeling spectrum</h2>
+
+Under-fitting vs over-fitting
+<ul>
+  <li> Simple models will under fit (traditional statistics)
+  <li> complex models have more parameters than data.  Hence often
+over fix.
+  <li> (Aside: what is over fitting?  Ill defined, draw graph)
+  <li> Goal is to find compromise between them
+</ul>
+
+Paradigm methods
+<ul>
+  <li> Linear regression
+    <ul>
+      <li> If it finds signal, we know that it is real
+      <li> very finite dimensional
+      <li> as traditional statistics as you can get
+    </ul>
+  <li> Nearest neighbor
+    <ul>
+      <li> Will find "signal" in anything
+      <li> dimensionality is equal to number of data points
+    </ul>
+ </ul>
+
+
+
+Which is better?
+  <ul>
+    <li> Advantage of regression
+     <ul>
+       <li> It deals with statistical significance well.
+       <li> It is efficient
+       <li> Lives in standard error space (+/- 1/sqrt(n))
+     </ul>
+    <li> Advantage of nearest neighbor
+      <ul>
+       <li> It doesn't miss signal well
+	<li>  Today's theorem: E|Y-hat(y|x)| < 2 E|Y - E(Y|X)|.
+           <ul>
+           <li> assume n large, E(Y|X) = h(X) is smooth
+           <li> assume homoskadasticity (at least locally)
+           <li> then hat(y|x) - E(Y|X) is E|Y - E(Y|X)|
+           <li> Now use triangle inequality
+           <li> See Hastie, Tibshirani, Friedman p 415-420. 
+           </ul>
+       <li> It lives in standard deviation space (+/- 1)
+     </ul>
+    <li> Neither uniformly best
+    <li> Goal of course is to meet in the middle
+  </ul>
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: What does data look like in high
+dimensional spaces? (part 2)</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Sep 27 12:16:59 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: High dimensions (part 2)</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+  <li> New homework 1
+</ul>
+
+
+<h2>Lecture overview</h2>
+<ul>
+<li> Clearly regression doesn't extend to p > n
+<li> How about nearest neighbor?
+<li> This will be the meat of todays lecture
+</ul>
+
+<h2>Model</h2>
+Model: Truth is a linear function.  I.e. Y = X beta.  
+<ul>
+  <li> No error.
+  <li> So theorem from last time says: nearest neighbor should be
+perfect.
+  <li> Certainly true using classical statistics asymptotics
+  <li> draw one-d picture
+</ul>
+<h2>2-d example</h2>
+<ul>
+  <li> 2-d plot.  X axis has signal, Y no signal
+  <li> three cases: Y no spread, Y simillar spread, Y very spread out
+axis
+  <li> In very spread out case, nearest neighbor is no better than
+chance at getting a good fit. 
+</ul>
+
+<h2>2-d heuristic for d-dimensional problem</h2>
+<ul>
+  <li> 2-d plot.  X axis is signal, Y axis shows orthognal component
+  <li> most points have distance about sqrt(d) from each other on y
+axis
+  <li> Suppose 2-d plot was correct.  Draw picture.  If n < sqrt(d)
+nearest neighbor is no better than chance at getting a good fit.
+</ul>
+<h2>How close are nearest neighbors?</h2>
+<ul>
+  <li> distance squared to closest point is about d - sqrt(4 d log n)
+   <ul>
+    <li> Proof: write as sums of squares
+    <li> squared distance then is normal
+    <li> mean = d, variance = 2d.
+    <li> Tails of a normal say extreme value is about sqrt(2 log n)
+from mean in SD units
+   </ul>
+  <li> "close" if d is approximately equal to log n.  (CLT breaks down
+here, so above approximation fails and thus avoids negative distances.)
+</ul>
+<h2>Intuition via Johnson-Lindenstrauss lemma</h2>
+<ul>
+  <li> In 1984, Johnson-Lindenstrauss proved that you can approximate
+the distances between n points living in d dimensions using about
+log(n) dimensions.
+  <li> Since nearest neighbor only needs these distances, it can be so
+approximated.
+  <li> These log(n) dimensions can be picked randomly.  (See Dimitris
+Achlioptas' paper) 
+  <li> Each of these log(n) coordinates is about orthogonal to the
+"true" vector
+  <li> So the truth can not be reconstructed via any method.
+</ul>
+
+<h2>Readings:</h2>
+<ul>
+ <li> The <a
+href="http://citeseer.ist.psu.edu/dasgupta99elementary.html">
+Johnson-Lindenstrauss lemma</a> says that any nearest neighbor
+algorithm can be reduced to using only log(n) dimensions.  This can be
+viewed as a good thing (it speeds up nearest neighbor calculations).
+Or it can be viewed as a bad thing (it shows how little information
+nearest neighbor actually ends up using).
+  <li> For another gentle introduction see <a
+href="http://research.microsoft.com/~optas/">Dimitris 
+Achlioptas</a>' paper called "Database friendly projections".
+</ul>
+
+
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Pulling scalars out of lists and hashes</TITLE>
+<META NAME="description" CONTENT="Pulling scalars out of lists and hashes">
+<META NAME="keywords" CONTENT="class02">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class02.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <H2><A NAME="SECTION00002000000000000000">Pulling scalars out of lists and hashes</A></H2>
+<P>
+Note that list indexing starts by default at 0. You can actually change this
+by setting the special <TT>$[</TT> variable.
+<P>
+Let's set up a list;
+<P>
+<TT>@names = (alpha, beta, gamma, delta);</TT>
+<P>
+<TT>$names[0];</TT>
+<P>
+Hashes are special lists in which you look up elements NOT by position,
+but by using a key string.
+ Here's an example of initializing a hash:
+<PRE>%letters = ( A =&gt; alpha,
+             B =&gt; beta,
+             G =&gt; gamma,
+             D =&gt; delta);</PRE>
+<P>
+A single element is returned by accessing the hash through the key, as in
+<TT>$letters{G}</TT>.
+<P>
+You can get at the keys in a hash using the <TT>keys</TT> command, and the values
+by the <TT>values</TT> command.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Jan 22 01:27:29 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

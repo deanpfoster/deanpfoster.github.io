@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter VIII.3: Useful Models (Brownian motion)</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Read section 8.2 and 8.3
+  <li> May 5: 8:30 - 10:30 Final exam (mostly recent stuff)
+</ul>
+
+<H1>Models of Brownian motion</h1>
+
+
+<h2>Boundaries</h2>
+So what about those boundaries?  (Recall boundaries are what make
+PDE/SDE/first-step-analysis difficult)
+<ul>
+  <li> Exact Brownian motion doesn't exist (velocities would be
+infinite for example.)
+  <li> It is a very good approximation though
+  <li> What might boundaries look like for a random walk?
+</ul>
+Discrete time revisited:
+<ul>
+  <li> No boundaries (state space -infinity to +infinity)
+  <li> absorbing boundary (i.e. gamblers ruin)
+  <li> Reflecting boundary (i.e. birth-death with imigration)
+</ul>
+<h2>Reflecting boundary</h2>
+
+Easy model: R(t) = |B(t)|
+<ul>
+  <li> E(R(t)|R(0)=0) = sqrt(2t/pi)
+  <li> p(y,t|x) = phi<sub>t</sub>(y-x) + phi<sub>t</sub>(-y-x)
+</ul>
+<h2>Absorbing boundary</h2>
+
+Since we will absorb at "zero" it is best not to start there.
+<ul>
+  <li> Start at B(0) = x.
+  <li> Recall tau, our first hitting time of B(t) = 0
+  <li> Let A(t) = B(t) up to time tau
+  <li> Let A(t) = 0 after tau.
+</ul>
+Easy random variable model.  How about probability density function?
+<ul>
+  <li> NOTE: I'll use infinitesimal approach.  Book uses CDF approach.
+  <li> Use reflection principle to determine P(min X < 0 and y < X(t)
+< y+h|X(0) = x)
+  <ul>
+     <li> Draw picture
+     <li> Same probability as -y > X(t) > -y-h.
+     <li> so answer is phi<sub>t</sub>(-x-y)h
+  </ul>
+  <li> Use law of total probability to compute: P(min X > 0 and y < X(t)
+< y+h|X(0) = x)
+  <ul>
+     <li>  P(y < X(t) < y+h|X(0) = x) = phi<sub>t</sub>(y-x)h
+     <li> answer = (phi<sub>t</sub>(y-x) - phi<sub>t</sub>(-y-x))h
+  </ul>
+  <li> Density = limit 
+</ul>
+<h2>Brownian Bridge</h2>
+<ul>
+  <li>aka tied down Brownian motion
+  <li> Condition on X(0) = 0, and X(1) = 0.
+  <li> E(X(t)) = 0.
+  <li> for 0 < s < t < 1: Cov(X(s),X(t)) = s(1-t). 
+  <li> s = t: Var(X(s)) = s(1-s).
+  <li> E(X(t)|X(s)) = E(X(t)- beta X(s)+ beta X(s)hi
+</ul>
+
+
+<h2>Hitting time distribution</h2>
+<ul>
+  <li> P(zero between t and t+s) = 2/pi arctan sqrt(s/t)
+  <li> Proof via graphs!
+</uL>
+<h2>Number of zeros</h2>
+<ul>
+  <li> P(zero in interval epsilon<sup>3</sup> to epsilon) = 1 - O(epsilon)
+  <li> Expected number "near" zero is infinite
+  <li> Worse than that: Call a zero at t, "delta-natural" if there is
+another zero in (t,t+delta).
+  <li> Probability of being delta-natural is 1.
+  <li> Call a point a left-limit if it is natural for all delta.
+  <li> Probability of being left-limit is 1.
+  <li> If number of zeros is conuntable, probabilty of all being left-limits is 1.
+  <li> But, this means there can be no "last" zero.
+  <li> Hence there are an uncountable number of zeros.
+</uL>
+
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Thu Apr 22 11:33:54 EDT 2004
+<!-- hhmts end -->
+</body> </html>

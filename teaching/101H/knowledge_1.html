@@ -1,0 +1,73 @@
+<html>
+<header>
+<title> Statistics 101H: Knowledge (part 1)</title>
+</header>
+<body>
+<center>
+<h1> Knowledge can be represented by sigma-algebras</h1>
+</center>
+<p>
+
+<h2>Example of information</h2>
+
+Game: 30 cents to buy in.  Win $1 if you get the Ace of hearts.  10
+cards in all.  Any takers?
+<ul>
+  <li> Suppose I tell you the denomination of the card?  Any takers?
+  <li> Suppose I tell you the color (red/black) of the card?  Any takers?
+  <li> Detail: The cards are the 4 aces and 6 other clubs.
+  <li> This is called an option.  Payment is max(E(Win|know)-.3,0).
+  <li> We need to konw what the expected value of this option is to decide.
+  <li> Three cases:
+       <ul>
+	 <li> trivial knowledge: E(Win|know) = E(win).  Option worth zero.
+	 <li> know Number: E(Win|know) = .25 or 0.  Option worth zero.
+	 <li> know color: E(Win|know) = .5 or 0.  Option worth 4 cents.
+       </ul>
+  <li> So what you know matters.
+  <li> Options of this sort are studied in finance
+</ul>
+
+<h2> Example of two players</h2>
+<ul>
+  <li> Suppose 3 cards are in a "deck" (2 black and 1 red)
+  <li> Each of two players get one card.
+  <li> Call the remaining card the "kitty"
+  <li> Computing some probabilities:
+       <ul>
+	 <li> What is the expected probability that the kitty is black? 
+	 <li> Conditional on first player seeing his card? (100%/50%)
+       </ul>
+  <li> Learning from actions:
+       <ul>
+	 <li> Suppose the second player sees the first player bet that the kitty will be black?
+	 <li> What is her conditional probability that the kitty is black?
+	 <li> Suppose the second player sees the first player NOT bet that the kitty will be black?
+	 <li> What is her conditional probability that the kitty is black?
+	 <li> So the second player then KNOWS the color of the card.
+       </ul>
+  <li> Knowledge about actions
+       <ul>
+	 <li> What is "her" probability that "he" will bet on black?
+       </ul>
+</ul>
+
+<h2>Representing all of this</h2>
+<ul>
+  <li> Each players knowledge is represented by a sigma-field
+  <li> Sample space contains 6 items: draw it.
+  <li> Draw each sigma-field.
+  <li> After we see the first player bet, the sigma-field is updated.
+</ul>
+
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Dec  2 14:15:04 2002
+<!-- hhmts end -->
+</body>
+
+</html>
+

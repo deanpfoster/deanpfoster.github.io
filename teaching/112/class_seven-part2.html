@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Non-parallel lines </title>
+</head>
+
+<body>
+<center><h1> Non-parallel lines</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Turn in project questionnaires
+	 <li> Start collecting data as soon as possible!
+	 <li> The more data you collect, the easier your anaylsis will be
+       </ul>
+       </p>
+</ul>
+<h2> R-sq, F-test and doing multiple tests</h2>
+<ul>
+  <li> Question: "How often do you worry about what you will do after you graduate?"
+       <p>
+       <ul>
+	 <li> plot vs year.
+	 <li> We expect people to htink more about it as they get closer to graduating
+	 <li> But what about Wharton?  It is all they think about! (My
+	      introduction to business school consisted of overhearing
+	      two students discussing the importance of bullets
+	      vs. paragraphs on their vitas--this was before the fall
+	      semester started!)
+	 <li> Maybe engineers worry at first (hence majoring in
+	      engineering) but realize they don't have to worry later.
+	 <li> So we would get different slopes for these different
+	      groups.
+       </ul>
+       </p>
+  <li> Production example
+       <p>
+       <ul>
+	 <li> R-sq'ed = variability explained = (SST - SSE)/SST
+	 <li> It always increases when you add more variables
+	 <li> But did it increase more than chance alone would
+	      predict?
+	 <li> This is the goal of the F-test
+       </ul>
+       </p>
+  <li> Why not just use individual t-statistics/p-values?
+       <p>
+       <ul>
+	 <li> Each protects at 5%
+	 <li> you will have at least 7 variables and 21 "interactions"
+	      on your project
+	 <li> Expected number of variables included by chance alone =
+	      .05 * (7 + 21) = 1.4 variables
+	 <li> So you will include some "noise" variables = bummer!
+	 <li> The F-test protects against this somewhat.
+       </uL>
+       </p>
+</ul>       
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Fri Mar 31 15:52:20 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 4. Stat701 Fall 1997</TITLE>
+<META NAME="description" CONTENT="Class 4">
+<META NAME="keywords" CONTENT="class4">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class4.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <P CENTER>
+<P>
+<CENTER><H1> Class 4. Stat701 Fall 1997</H1></CENTER>
+<P CENTER>
+<H2> Residuals, leverage and outliers.</H2>
+<P>
+Last time we reviewed 
+<A HREF="../class03/class3.html#interaction">
+categorical variables</A>.
+<P>
+<B>Today's material</B>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>
+The <A HREF="../class02/class2.html#bstick">
+broken stick</A> regression model
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>An in depth look at 
+    <DL >
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Leverage
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Residuals
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Influence
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Jackknife
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Masking
+<P>
+ </DL>
+<P>
+<HR>
+ </DL>
+<P>
+<H2>Residuals</H2>
+Residuals are vital to regression because they  establish the credibility
+of the analysis. Never accept a regression analysis without having checked the
+residual plots.
+<P>
+Residuals come in many flavors:
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Vanilla residual:  <IMG WIDTH=90 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline83" SRC="img1.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Standardized residual: <P> <IMG WIDTH=305 HEIGHT=45 ALIGN=BOTTOM ALT="displaymath85" SRC="img2.gif"  > <P>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Studentized residual:  <IMG WIDTH=9 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline87" SRC="img3.gif"  > .
+<P>
+ </DL>
+<P>
+The plain residual  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline89" SRC="img4.gif"  >  and its plot is useful for checking how well the
+regression line fits the data, and in particular if there is any systematic <B>lack of fit</B>, for example <B>curvature</B>.
+<P>
+But, what value should be considered as a big residual?
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Problem:  <IMG WIDTH=11 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline89" SRC="img4.gif"  >  retains the scale of the response variable (Y).
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Answer: standardize by an estimate of the variance of the residual.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Know,  <IMG WIDTH=90 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline93" SRC="img5.gif"  >  estimated by  <IMG WIDTH=70 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline95" SRC="img6.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>But,  <IMG WIDTH=90 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline83" SRC="img1.gif"  > , which is more than just  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Turns out,  <IMG WIDTH=148 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline101" SRC="img8.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Use standardized residual,  <IMG WIDTH=10 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline103" SRC="img9.gif"  > .
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>The quantity,  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline105" SRC="img10.gif"  >  is fundamental to regression.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>A heuristic explanation of  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline105" SRC="img10.gif"  >  (visually we are dragging a
+single point upward and measuring how the regression line follows):
+    <DL >
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>Think about  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  the <B>observed</B> value, and  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline111" SRC="img11.gif"  >  the
+          <B>estimated</B> value (ie the point on the regression line). 
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>For a fixed  <IMG WIDTH=13 HEIGHT=15 ALIGN=MIDDLE ALT="tex2html_wrap_inline113" SRC="img12.gif"  >  perturb  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  a little bit, 
+            how much do you  expect  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline111" SRC="img11.gif"  >  to move?
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>If  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline111" SRC="img11.gif"  >  moves as much as  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  then clearly  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  has the
+          potential to drive the regression - so  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  is <B>leveraged</B>.
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>If  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline111" SRC="img11.gif"  >  hardly moves at all then clearly  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  has 
+          no chance of driving the regression.
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>In other words  <IMG WIDTH=16 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline105" SRC="img10.gif"  >  is the measure of ``leverage''.
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/redpin.gif" ALT="*"><DD>More precisely <P> <IMG WIDTH=284 HEIGHT=36 ALIGN=BOTTOM ALT="displaymath133" SRC="img13.gif"  > <P>
+          and it depends only on the x-values.
+<P>
+ </DL>
+
+<P>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>Understanding leverage is essential in regression because leverage
+exposes the potential role of individual data points. Do you want your
+decision to be based on a single observation?
+<P>
+ </DL>
+<P>
+<H2>Standardized residuals</H2>
+Standardized residuals allow the residuals to be compared on the 
+``standard scale''. Plus/Minus 2 indicates something unusual, Plus/Minus 3
+indicates something really out of the ordinary and Plus/Minus 4 is something
+from outer space (it just shouldn't happen).
+<P>
+<HR>
+<H2>Subtle point</H2>
+<P>
+<B>Problem.</B> 
+The standardized residuals still start off with  <IMG WIDTH=44 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline135" SRC="img14.gif"  >  and the problem is that if  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  is really leveraged then it will drag the regression line
+toward it, influencing the estimate of the residual itself.
+<P>
+<B>Solution.</B>
+Fit the regression line excluding  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  >  and base the residual on
+ <IMG WIDTH=72 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline141" SRC="img15.gif"  > , where  <IMG WIDTH=39 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline143" SRC="img16.gif"  >  denotes the fit based on
+a regression line estimated excluding  <IMG WIDTH=12 HEIGHT=16 ALIGN=MIDDLE ALT="tex2html_wrap_inline99" SRC="img7.gif"  > .
+<P>
+<B>Notes</B>.
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>This is the <B>leave one out</B> idea and is the basis for much 
+computationally intensive modern statistics. The leave one out 
+idea is often called ``jackknifing''.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>This ``leave one out'' residual can be used as a basis for judging the
+predictive ability of a model. Clearly the lower the residual the better, and
+the sum of the squares of the jackknifed residuals is called the PRESS
+statistics, or Predicted Sum of Squares.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>The <B>studentized residual</B>,  <IMG WIDTH=9 HEIGHT=21 ALIGN=MIDDLE ALT="tex2html_wrap_inline87" SRC="img3.gif"  > , is 
+just a standardized jackknifed residual. This
+is an extremely good way of judging how much of an outlier in the y-direction
+a point is.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>from now on we will use the studentized residual plot to judge
+outliers in the y-direction.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>A new plot. Leverage vs. studentized residual. Points that drive 
+the regression have big leverage and extreme studentized residuals.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/bluepin.gif" ALT="*"><DD>The delete one idea works pretty well, except when there is a second data
+point lying close by. In this case the second point can drive the regression line, <B>masking</B> the effect of the first point. This leads to the idea
+of ``delete two'' etc.
+<P>
+ </DL></P></P><BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Mon Sep 15 22:27:08 EDT 1997</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

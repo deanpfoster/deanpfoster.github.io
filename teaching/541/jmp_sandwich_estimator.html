@@ -1,0 +1,52 @@
+<html>
+<header>
+<title>  JMP Sandwich Estimator</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  JMP Sandwich Estimator </h1></center>
+
+To generate a sandwich estimate of a SE in JMP do the following: 
+<ol>
+  <li> Run the multiple regression like usual
+  <li> Save the leverage plots
+       <ul>
+	 <li> this generates 2 columns for each of your leverage plots
+	 <li> One column is the Y of the plot the other is the X of
+	      the plot
+	 <li> Check this by doing a simple regression.
+       </ul>
+  <li> Center the X and Y for the variable you want to estimate
+       <ul>
+	 <li> You will have to create new columns
+	 <li> Just subtract off the mean
+	 <li> Now you can compute the beta-hat by averaging the
+	      product of these two columns divided by the average of
+	      the square of the X column.  Check this by creating a  
+	      product column and the square column averaging and dividing.
+       </ul>
+  <li> Compute the variance by sum(LX<sup>2</sup>
+       LY<sup>2</sup>)/sum(LX<sup>2</sup>)
+       <ul>
+	 <Li> Use the product column you create above, call it P.
+	 <li> sum(p<sup>2</sup>) is simple the mean squared plus the
+	      variance of P.
+	 <li> A simillar argument works for LX.
+	 <li> Alternatevly you can use a formula: sum(p<sup>2</sup>)sum(LX<sup>2</sup>)
+       </ul>
+</ol>
+
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Apr 19 10:39:30 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

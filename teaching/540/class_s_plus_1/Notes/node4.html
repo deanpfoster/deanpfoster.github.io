@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Newton-Raphson</TITLE>
+<META NAME="description" CONTENT="Newton-Raphson">
+<META NAME="keywords" CONTENT="class05">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class05.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00040000000000000000">Newton-Raphson</A></H1>
+<P>
+The essential feature of this algorithm for solving
+ <IMG WIDTH=59 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline175" SRC="img30.gif"  > , is that given a guess for the solution, say  <IMG WIDTH=17 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline177" SRC="img31.gif"  > ,
+we get an update using the rule
+<P> <IMG WIDTH=342 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath179" SRC="img32.gif"  > <P>
+<P>
+Try as an example to use it to find the value of <I>x</I> such that
+ <IMG WIDTH=64 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline183" SRC="img33.gif"  > .
+<P>
+That is  <IMG WIDTH=142 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline185" SRC="img34.gif"  >  and  <IMG WIDTH=65 HEIGHT=29 ALIGN=MIDDLE ALT="tex2html_wrap_inline187" SRC="img35.gif"  > , so that the
+update is
+<P> <IMG WIDTH=343 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath189" SRC="img36.gif"  > <P>
+Start of with a guess, say  <IMG WIDTH=53 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline191" SRC="img37.gif"  >  then
+<P> <IMG WIDTH=380 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath193" SRC="img38.gif"  > <P>
+<P> <IMG WIDTH=445 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath195" SRC="img39.gif"  > <P>
+<P> <IMG WIDTH=445 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath197" SRC="img40.gif"  > <P>
+which can be further iterated, for example,  <IMG WIDTH=98 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline199" SRC="img41.gif"  > ,
+ <IMG WIDTH=97 HEIGHT=23 ALIGN=MIDDLE ALT="tex2html_wrap_inline201" SRC="img42.gif"  > .
+<P>
+The real answer is of course  <IMG WIDTH=125 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline203" SRC="img43.gif"  > , so we essentially
+get there after just 5 iterations.
+<P>
+Where does Newton-Raphson come from? Either a picture, or as a first
+order Taylor Series approximation. First order Taylor series
+approximations are often referred to as a <B>linearization</B> of the
+problem.
+<P>
+The matrix version for the Newton-Raphson comes from thinking about
+approximating the function using a hyper-plane, and gives an update
+<P>
+<P> <IMG WIDTH=353 HEIGHT=19 ALIGN=BOTTOM ALT="displaymath205" SRC="img44.gif"  > <P>
+where <I>x</I> and <I>g</I> are now vectors and therefore <I>g</I>' is a square 
+symmetric matrix.
+<P>
+Matrix inversion should be avoided wherever possible, so we re-express
+the update by multiplying through by <I>g</I>' to get
+<P> <IMG WIDTH=350 HEIGHT=17 ALIGN=BOTTOM ALT="displaymath215" SRC="img45.gif"  > <P>
+<P>
+Note that this is now a linear system of equations of the form,
+<P> <IMG WIDTH=277 HEIGHT=16 ALIGN=BOTTOM ALT="displaymath217" SRC="img46.gif"  > <P> 
+where <I>A</I> is a  <IMG WIDTH=36 HEIGHT=17 ALIGN=MIDDLE ALT="tex2html_wrap_inline143" SRC="img20.gif"  >  matrix,  <IMG WIDTH=111 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline223" SRC="img47.gif"  >  is a 
+<I>p</I>-vector as is  <IMG WIDTH=79 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline227" SRC="img48.gif"  > .
+<P>
+If we can solve this equation for <I>y</I> then clearly  <IMG WIDTH=100 HEIGHT=20 ALIGN=MIDDLE ALT="tex2html_wrap_inline231" SRC="img49.gif"  > .
+<P>
+This is how we will really do it, and we can use the Q-R decompostion
+to solve this system of linear equations.
+<P>
+<HR><A NAME="tex2html46" HREF="node5.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/next_motif.gif"></A> <A NAME="tex2html44" HREF="class05.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/up_motif.gif"></A> <A NAME="tex2html38" HREF="node3.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/previous_motif.gif"></A>   <BR>
+<B> Next:</B> <A NAME="tex2html47" HREF="node5.html">Other topics</A>
+<B>Up:</B> <A NAME="tex2html45" HREF="class05.html">Class 5 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html39" HREF="node3.html">A non-linear least squares </A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Feb 12 06:43:38 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

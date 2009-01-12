@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl
+
+### Program to illustrate the foreach construct.
+
+
+@users = (jvv, shenyi, avalluri, binwei, liangyuz, zhengzhi);
+
+  foreach $user (@users) {
+      if (-e "/usr/local/home/$user/public_html/cgi-bin/hello_world.pl"){
+	  print "Looks like $user did their homework\n";
+      }
+      else {
+	  print "Looks like $user did not do their homework\n";
+      }
+  }
+
+
+
+

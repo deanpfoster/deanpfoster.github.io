@@ -1,0 +1,69 @@
+// Animated t-quantile plot  (8 Aug 00)
+
+// Begin with dialog to prompt for the column to analyze
+pResult = ColumnDialog( yName=ColList("Y,Response") );
+yName = char(pResult["yName"][1]);
+
+// Extract data from test.jmp in chosen column
+nRowsOfResponse = NRow();
+y = Column(yName)[1::nRowsOfResponse];
+
+// Sort the data and get range for plot
+si = rank(y);
+sortedY = y[si];
+yMin = sortedY[1];
+yMax = sortedY[nRowsOfResponse];
+yRange = yMax - yMin;
+yMax += .1 * yRange;
+yOffset = 0.01 * yRange;
+yBar = mean(y);
+show(yMin,yBar, yMax);
+
+// Set up for drawing quantiles
+probIndex = (1::nRowsOfResponse)/(nRowsOfResponse+1);
+xMin = -6; xMax = 6; xOffset=0.25;
+ksLim = 1.36/sqrt(nRowsOfResponse);
+yLine = yMax;
+dash = 0.01*yRange;
+df = 30;
+
+// Probability table for top reference probability scale
+pGrid = [.001 0.01 0.1 0.25 0.5 0.75 0.9 0.99 0.999];
+pLabel = {".001",".01",".10",".25",".5",".75",".90",".99",".999"};
+
+// Open window
+New Window("Quantile Plot",
+	VListBox(
+		gr = GraphBox(FrameSize(300,300), 
+			XScale(xMin,xMax), YScale(yMin,yMax),
+			XName("Student t Quantile"), YName(yName), DoubleBuffer,
+			// Show the data as blocky dots
+			xVal = tQuantile(probIndex,df);
+			PenColor("black"), Marker(11,xVal,sortedY),
+			beta = summation(i=1,nrowsOfResponse,xVal[i]*sortedY[i])/
+				  summation(i=1,nrowsOfResponse,xVal[i]*xVal[i]);
+			alpha = yBar - beta * mean(xVal);
+			// Draw the quantiles with KS bounds
+			PenColor("red"), 
+			YFunction(alpha+beta*x,x), // diagonal reference line
+			YFunction( p=tDistribution(x,df)+ksLim;
+					if(p<1,alpha+beta*tQuantile(p,df),.),x),
+			YFunction( p=tDistribution(x,df)-ksLim;
+					if(p>0,alpha+beta*tQuantile(p,df),.),x),
+			// Add the df label in lower right corner of plot
+			Text({xMax-1.75,yMin}, Concat(" df=",char(df,3,1))),
+			// Draw the probability reference axis
+			TextSize(8), PenColor("black");
+			Line({xMin+xOffset,yLine},{xMax-xOffset,yLine}),
+			for(i=1,i<=ncol(pGrid),i++,
+				xPos = tQuantile(pGrid[i],df);
+				Line({xPos,yLine-    dash},{xPos,yLine});
+				xPos -=0.2;
+				Text({xPos,yLine-5 * dash}, pLabel[i]))
+			),
+		HListBox(SliderBox(1,32,df,gr<<reshow),
+				TextBox("Degrees of Freedom Slider")))
+);
+
+		
+		

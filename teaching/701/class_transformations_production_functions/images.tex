@@ -1,0 +1,86 @@
+\batchmode
+\documentclass{article}
+\makeatletter
+\input{html.sty}
+\input{htmllist.sty}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{ccccccc} \\  \hline
+p = & $2$ & $1$ & $\frac{1}{2}$ & $\frac{1}{3}$ & $-\frac{1}{2}$ & $-1$ \\ 
+    & $z^2$&$z$ &  $\sqrt{z}$   & ${}^3\sqrt{z}$& $\frac{1}{\sqrt{z}}$& 
+$\frac{1}{z}$ \\ 
+\end{tabular}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\frac{z^p - 1}{p}.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$p \rightarrow 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline101: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}c_t = c_1 n_t^{\alpha_t}e^{u_t}  \qquad(3.10)\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$c_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline107: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$c_1$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline109: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$n_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline111: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\alpha_c$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline113: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$u_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline115: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\epsilon_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline117: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}y = A x_1^{\alpha_1} \times x_2^{\alpha_2} \times x_3^{\alpha_3}.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}ln(C) = ln(k) + (1/r) ln(y) + (\alpha_1/r) ln(p_1) +
+(\alpha_2/r) ln(p_2) +
+(\alpha_3/r) ln(p_3) \qquad (3.16).\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\alpha$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline125: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

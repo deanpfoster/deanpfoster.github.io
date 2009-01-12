@@ -1,0 +1,80 @@
+This is TeX, Version 3.1415 (C version 6.1) (format=latex 95.11.7)  6 OCT 1997 22:18
+**images.tex
+(images.tex
+LaTeX2e <1995/06/01> patch level 3
+
+(/opt/tex/lib/texmf/tex/latex2e/base/article.cls
+Document Class: article 1995/06/26 v1.3g Standard LaTeX document class
+(/opt/tex/lib/texmf/tex/latex2e/base/size12.clo
+File: size12.clo 1995/06/19 v1.3e Standard LaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/home/waterman/texlib/texstyles/html.sty) (/home/waterman/texlib/texstyles/h
+tmllist.sty)
+\lthtmlwrite=\write3
+\sizebox=\box26
+(images.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 16.
+[1
+
+
+] [2
+
+]
+latex2htmlSize :tex2html_wrap_inline69: 8.33331pt::2.33331pt.
+[3
+
+]
+latex2htmlSize :tex2html_wrap_inline71: 9.0pt::3.0pt.
+[4
+
+]
+latex2htmlSize :tex2html_wrap_inline73: 5.16667pt::1.79999pt.
+[5
+
+]
+latex2htmlSize :tex2html_wrap_inline75: 8.33331pt::2.33331pt.
+[6
+
+]
+latex2htmlSize :tex2html_wrap_inline77: 8.33331pt::2.33331pt.
+[7
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 278 strings out of 10957
+ 2777 string characters out of 73532
+ 44588 words of memory out of 262141
+ 3164 multiletter control sequences out of 9500
+ 6376 words of font info for 23 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 22i,4n,21p,168b,105s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on images.dvi (7 pages, 1092 bytes).

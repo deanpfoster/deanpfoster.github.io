@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Two way ANOVA </title>
+</head>
+
+<body>
+<center><h1> Two way ANOVA</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Data analysis is due a week from Thursday
+	 <li>
+       </ul>
+       </p>
+</ul>
+<h2> Motivating example</h2>
+
+<ul>
+  <li> Suppose you collect data twice on the individual
+  <li> A "pre-test" and a "post-test", left-vs-right
+  <li> Example: sensitivity training, education, nutrition,
+  <li> detailed example: Suntan lotion
+       <p>
+       <ul>
+	 <li> Compare a new formulation of suntan lotion with an existing one 
+	 <li> Plot histogram of "new suntan lotion" (Why can't you learn anything from this?) 
+	 <li> Plot histogram of "old suntan lotion" (Now why can't you learn anything?)
+	 <li> The two histograms overlap significantly--not much difference
+	      <p>
+	      <ul>
+		<li> Aside: which comparison do we do?
+		<li> each-pair, all-pairs, compare-with-best?
+		<li> doesn't matter!  all will be the same
+	      </ul>
+	      <p>
+	 <li> Some people burn more than others
+	 <li> So look at difference for each person
+	 <li> Draw histogram
+       </ul>
+       <p>
+</ul>
+
+<h2> How do we analyse such data?</h2>
+<ul>
+  <li> Easy case, only two posibilities.  Just subtract go generate constrast.
+  <li> More general case, many possibilities.  Lots of pairs to compare
+  <li> Think regression
+  <li> We have two effects--subject and treatment
+  <li> Treat each as a categorical X-planatory variable
+  <li> What does the subject effect explain?  (skin color, hair color,
+       eye color, general burning ability)
+  <li> What does the treatment explain? (Effect of suntan lotion)
+  <li> Suppose we got an R-sq of 90%, do we know the treatment made a
+       difference?  NO!  It could all be subject effect.
+  <li> But, the treatment might very significant now that we have
+       controled for the subject effect
+</ul>
+<h2> JMP IN example (<a href="shoes.jmp">Boys wearing shoes data</a>) </h2>
+<ul>
+  <li> Which material is better for the sole of a shoe?
+  <li> In this case--only two types are tested.
+  <li> If we were using ponies instead of boys, we could use 4 types
+       of material!
+  <li> Boys are very different in their use of shoes
+  <li> What if we just look at the one-way ANOVA?
+  <li> Nothing significant
+  <li> So do a regression
+</ul>
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Apr 11 11:10:03 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

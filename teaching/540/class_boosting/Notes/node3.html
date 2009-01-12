@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A look at Boosting</TITLE>
+<META NAME="description" CONTENT="A look at Boosting">
+<META NAME="keywords" CONTENT="class08">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class08.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00030000000000000000">A look at Boosting</A></H1>
+<P>
+Taken from the paper <I>A decision-theoretic generalization of on-line
+learning and an application to boosting</I>. Freund and Schapire 1995.
+<P>
+We are interested from section 4 on.
+<P>
+Language:
+<P>
+<I>X</I> is the <B>domain</B>.
+<P>
+A <B>concept</B> is a Boolean function  <IMG WIDTH=97 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline64" SRC="img1.gif"  > .
+<P>
+A concept class  <IMG WIDTH=9 HEIGHT=13 ALIGN=BOTTOM ALT="tex2html_wrap_inline66" SRC="img2.gif"  >  is a collection of concepts.
+<P>
+The learner has access to an oracle providing labeled examples of the
+form (<I>x</I>, <I>c</I>(<I>x</I>)), where <I>x</I> is chosen randomly according to some
+fixed but unknown and arbitrary distribution <I>D</I> on <I>X</I>, and  <IMG WIDTH=35 HEIGHT=25 ALIGN=MIDDLE ALT="tex2html_wrap_inline76" SRC="img3.gif"  > 
+is the <B>target concept</B>.
+<P>
+After some time , the learner outputs a hypothesis:  <IMG WIDTH=91 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline78" SRC="img4.gif"  > .
+<P>
+the <B>error</B> of the hypothesis  is  <IMG WIDTH=138 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline80" SRC="img5.gif"  > 
+where x follows distribution <I>D</I>.
+<P>
+A strong PAC-leraning algorithm is an algorithm, that given  <IMG WIDTH=50 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline84" SRC="img6.gif"  > , access to random examples, outputs with probability  <IMG WIDTH=33 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline86" SRC="img7.gif"  > 
+a hypothesis with error at most  <IMG WIDTH=6 HEIGHT=7 ALIGN=BOTTOM ALT="tex2html_wrap_inline88" SRC="img8.gif"  > .
+<P>
+A weak learner, is one that has  <IMG WIDTH=80 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline90" SRC="img9.gif"  > ,  <IMG WIDTH=38 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline92" SRC="img10.gif"  > .
+<P>
+It does a little bit better than guessing.
+<P>
+Boosting is a method for turning weak learners into strong learners.
+<P>
+The Boosting algorithm proceeds as follows:
+<P>
+Input: the examples, the distribution <I>D</I> over the examples, the
+weak learning algorithm and the number of iterations, <I>T</I>.
+<P>
+Initialize the weight vector:  <IMG WIDTH=70 HEIGHT=28 ALIGN=MIDDLE ALT="tex2html_wrap_inline98" SRC="img11.gif"  > ,  <IMG WIDTH=99 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline100" SRC="img12.gif"  > .
+<P>
+Do for  <IMG WIDTH=81 HEIGHT=22 ALIGN=MIDDLE ALT="tex2html_wrap_inline102" SRC="img13.gif"  > 
+<P>
+<OL><LI> Set <P> <IMG WIDTH=292 HEIGHT=39 ALIGN=BOTTOM ALT="displaymath104" SRC="img14.gif"  > <P><LI>Call the weak learner , providing it with  <IMG WIDTH=13 HEIGHT=26 ALIGN=MIDDLE ALT="tex2html_wrap_inline106" SRC="img15.gif"  > ; and get back the
+hypothesis  <IMG WIDTH=12 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline108" SRC="img16.gif"  > .<LI>Calculate the error of 
+<P> <IMG WIDTH=346 HEIGHT=47 ALIGN=BOTTOM ALT="displaymath110" SRC="img17.gif"  > <P><LI>Set  <IMG WIDTH=106 HEIGHT=24 ALIGN=MIDDLE ALT="tex2html_wrap_inline112" SRC="img18.gif"  > .<LI>Reweight: <P> <IMG WIDTH=333 HEIGHT=22 ALIGN=BOTTOM ALT="displaymath114" SRC="img19.gif"  > <P>
+</OL>
+<P>
+Output the hypothesis:
+<P>
+<P> <IMG WIDTH=430 HEIGHT=48 ALIGN=BOTTOM ALT="displaymath116" SRC="img20.gif"  > <P><HR><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/next_motif_gr.gif"> <A NAME="tex2html30" HREF="class08.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/up_motif.gif"></A> <A NAME="tex2html26" HREF="node2.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/previous_motif.gif"></A>   <BR>
+<B>Up:</B> <A NAME="tex2html31" HREF="class08.html">Class 8 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html27" HREF="node2.html">Where to find additional </A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Mar  5 08:09:37 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

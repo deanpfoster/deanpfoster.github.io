@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Dean's Stat 112: Correlation, LS</title>
+</head>
+
+<body>
+<center><h1>Stat 112: Correlation, LS, Extrapolation</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+       <li> Sample homework problems are listed on schedule along with
+            the reading.  You should do both to keep from following
+            behind in the class.
+       </ul>
+       </p>
+<li> Measuring the degree of association
+  <p>
+   <uL>
+   <li> Positive and negative LINEAR associations are measured by
+        correlation
+   <li> Perfectly postive = +1, perfectly negative = -1, no
+        association = 0 (see page 130 for pictures)
+   <li> Nice property: scale independent (try Y=chance of snow,
+        X=temp)
+   <li> Bad property: scale independent! (Y = MPG, X = engine size)
+   <li> Called r
+  </p>
+</ul>
+<li> What if it isn't linear
+  <p>
+    <ul>
+    <li> Tukey's "bulging rule"
+    <li> Draw a circle, divide into 4 pieces
+    <li> Upper left: sqrt X, log X, 1/X, Y<sup>2</sup>
+    <li> Upper right: X<sup>2</sup> Y<sup>2</sup>
+    <li> Lower left: sqrt X, log X, 1/X, sqrt Y, log Y, 1/Y
+    <li> Lower right: X<sup>2</sup>, sqrt Y, log Y, 1/Y
+    <li> So transform data then do analysis
+    <li> Example: Boat price vs boat length
+    </ul>
+  </p>
+<li> Which line to use for a blob of points?
+  <p>
+    <ul>
+    <li> Suppose X and Y aren't related (i.e. correlation = 0)
+    <li> Try both flat and 45 degree line--both seem to fit equally
+         well
+    <li> Think about prediction though.  If you wanted a large Y,
+         would you be better off picking a small X or a large X?
+    <li> This is what the LS line tries to answer
+    <li> Observed = predicted + error.  Draw a picture! (or see p 140)
+    <li> r = visual LS slope
+    </ul>
+   <p>
+<li> Equation for LS line
+  <p>
+    <ul>
+    <li> Centercept: (X-bar, Y-bar)
+    <li> slope: b = r s<sub>Y</sub>/s<sub>X</sub>
+    <li> predicted y = a + b x
+    </uL>
+  </p>
+<li> Extropolation
+  <p>
+    <ul>
+    <li> Good life: small error in slope = big error in prediction
+    <li> Bad life: linear doesn't even hold
+    <li> Blood presure = 70 + age / 2
+    <li> What is blood presure at age 1000? (prediction = explosion,
+         truth = 0!)
+    </ul>
+  </p>
+<li> Use a computer!
+  <p>
+    <ul>
+    <li> It is more important to get a computer to do the above for
+         you than to be able to do it in your head.
+    <li> Use JMP IN to do some of the homework.
+    </ul>
+
+</ul>
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Jan 20 09:14:25 EST 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>

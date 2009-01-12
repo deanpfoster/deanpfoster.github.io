@@ -1,0 +1,125 @@
+\batchmode
+\documentclass[leqno]{article}
+\makeatletter
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$c: X \rightarrow \{0,1\}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline64: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\cal C}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline66: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$c \in {\cal C}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline76: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$h: X \rightarrow [0,1]$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline78: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$E_{x \sim D}(|h(x) - c(x)|)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline80: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\epsilon,\delta 
+> 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline84: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$1 - \delta$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline86: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\epsilon$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline88: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\epsilon \ge 1/2 - \gamma$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline90: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\gamma > 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline92: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$w_i^1 = D(i)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline98: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$i = 1,2,\cdots, N$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline100: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$t = 1, \cdots, T$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline102: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}p^t = \frac{w^t}{\sum_i w_i^t}.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$p^t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline106: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$h_t$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline108: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}h_t: \epsilon_t = \sum_{i=1}^N p_i^t |H_t(i) - c(i)|.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_t = \epsilon_t/(1 - \epsilon_t)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline112: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}w_i^{t+1} = w_i^t \beta_t ^{1 - |h_t(i) - c(i)|}.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}h_f(i) = \left\{\begin{array}{c}
+1, \sum_{t = 1}^t \left(log \frac{1}{\beta_t} \right)h_t(i) \ge
+\frac{1}{2} \sum_{t = 1}^t \left(log \frac{1}{\beta_t} \right). \\ 
+0, \mbox{\rm otherwise}.
+\end{array}
+  \right. 
+\end{displaymath}
+}
+
+
+\end{document}

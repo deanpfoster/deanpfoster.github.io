@@ -1,0 +1,47 @@
+<html>
+<header>
+<title> Splus function: sq()</title>
+</header>
+<body>
+<h1> sq() </h1>
+
+<h2>Description</h2>
+Returns the square of a number.
+
+<h2>Usage</h2>
+<pre>
+     sq(x)
+</pre>
+<h2>Required arguments</h2>
+<table>
+<td>x <td> Numeric or complex (vectors are legal).  Missing values are ok also.
+</tr>
+</table>
+
+<h2>Details</h2> 
+
+<p>
+This function doesn't use "^" function.  So if that has been
+redefined, sq() will still generate a traditional square.
+</p>
+
+<h2> Other functions it depends on</h2>
+<p>
+This function doesn't require any other hand-written functions.  It
+only uses "*" so unless that is redefined, it will do the right thing.
+
+<h2>Examples</h2>
+<pre>
+     sq(7)
+     sq(3+5i)
+     sq(1:10)
+</pre>
+<h2>Definition code</h2>
+
+<pre>
+sq <- function(x) 
+   {
+      y &lt;- x*x;
+      return(y);
+   }
+</pre>

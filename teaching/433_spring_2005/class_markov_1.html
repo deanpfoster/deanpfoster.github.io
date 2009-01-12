@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter 2: Markov</title>
+</head>
+
+<body>
+<h1>Chapter III: Markov chains</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+  <li> Homework solutions posted on the web.  HW2 due Friday at noon.
+  <li> Questions from the homework?
+</ul>
+
+<h2>Chapter III.1: Defns</h2>
+
+<h3>Markov process</h3>
+<ul>
+	<li> almost "memory less"
+	<li> or better--only short term memory
+	<li>
+P(X<sub>t</sub>|X<sub>1</sub>,X<sub>2</sub>,...X<sub>t-1</sub>) = 
+P(X<sub>t</sub>|X<sub>t-1</sub>)
+<li> Much stronger than martingale since probabilities fully describe
+the world
+</ul>
+<h3>Examples</h3>
+<ul>
+	<li> the market (even stochastic volitility models are Markov)
+	<li> good marketing decisions
+	<li> quantum mechanics
+	<li> populations (both humans and viruses)
+	<li> genetics
+	<li> Human speach understanding
+</ul>
+<h3>Transition probability</h3>
+
+P<sub>ij</sub> = Probability of i --> j
+<ul>
+  <li> matrix of probabilities
+  <li> Along with a starting distribution FULLY describes the world
+(Theorem at end of class)
+  <li> Just keep multiplying up to get probably of any sequence
+</ul>
+<h3>Rows sum to one</h3>
+
+Probability of starting in i and going anywhere.  Hence law of total
+probabiltiy applies.
+
+<h3>Infinite matrixes!?!</h3>
+<ul>
+<li> Why? Populations for example are most easilly modeled as being
+unbounded.
+<li> Difficult to draw--easy to notate
+<li> Natural to consider only a piece of matrix and end up with "sub
+probabilities." 
+</ul>
+
+<h3>Theorem: multiplying probabilities</h3>
+
+<ul>
+  <li> probability version of proof (concrete as in book)
+</ul>
+
+
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Jan 24 09:38:54 EST 2005
+<!-- hhmts end -->
+</body> </html>

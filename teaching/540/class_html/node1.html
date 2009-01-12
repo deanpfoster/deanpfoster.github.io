@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Writing a page for display on the WEB.</TITLE>
+<META NAME="description" CONTENT="Writing a page for display on the WEB.">
+<META NAME="keywords" CONTENT="class01">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class01.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <H1><A NAME="SECTION00010000000000000000">Writing a page for display on the WEB.</A></H1>
+<P>
+We write WEB pages using  HTML (Hyper Text Markup Language).
+<P>
+Concept of a markup language - it allows the author to focus on content
+and structure rather than form. If you have used LaTeX you are familiar with
+this idea. For example, to indicate a major heading we use the
+&lt;H1&gt;...&lt;/H1&gt; tag. We do not specify how the heading is rendered - that
+decision is taken by the device that renders the document. So HTML (in theory)
+allows us a device independent description of a document.
+This is useful because the
+document could be rendered through a text to speech engine just as well as
+a WEB browser.
+<P>
+HTML is continuously evolving to meet new requirements. There are many
+&quot;fancy&quot; things you can do with it. We are not going to deal with that stuff
+though.
+<P>
+Core elements of an HTML page.
+<P>
+The basic format of an HTML page is:
+<P>
+<PRE>&lt;HTML&gt;
+
+ &lt;HEAD&gt;
+ &lt;TITLE&gt; Fire me up! &lt;/TITLE&gt; 
+ &lt;/HEAD&gt;
+
+ &lt;BODY&gt;
+
+Your text goes here.
+
+
+ &lt;/BODY&gt;
+&lt;/HTML&gt;</PRE>
+<P>
+The HTML tags are indicated inside the angle brackets. Typically they
+come in pairs, with the scope being closed by the forward slash.
+<P>
+There are many tweaks you can do to this. An example is specifying
+a background color via the BODY tag.
+<PRE>&lt;BODY BGCOLOR=&quot;#ffffff&quot;&gt;</PRE>
+<P>
+The best way to learn these tweaks is to use the <TT>view source</TT>
+option from your browser, which allows you to see the raw HTML of the
+document you are viewing. Here's a link to a listing of the HTML tags
+<A HREF="http://werbach.com/barebones/barebone.txt">
+The Bare Bones Guide to HTML</A>.
+<P>
+
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Thu Jan 14 23:42:10 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

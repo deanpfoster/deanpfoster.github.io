@@ -1,0 +1,25 @@
+\batchmode
+\documentclass[leqno]{article}
+\makeatletter
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$X\beta = g(y)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline38: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$g(y) = \frac{\exp(y/n)}{1 + \exp(y/n)}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline40: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{section}
+
+\end{document}

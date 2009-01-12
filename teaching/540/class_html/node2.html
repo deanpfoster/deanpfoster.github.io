@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Serving up a WEB page.</TITLE>
+<META NAME="description" CONTENT="Serving up a WEB page.">
+<META NAME="keywords" CONTENT="class01">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class01.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+ <H1><A NAME="SECTION00020000000000000000">Serving up a WEB page.</A></H1>
+<P>
+So we have a page. What do we need to display it?
+<P>
+You need an account on a machine that runs a WEB server.
+<P>
+To be able to offer your text to the world consider this analogy.
+<P>
+You've written a paper, and a Cuban academic wants to get it.
+What do they have to do?
+<OL><LI> They have to know of the papers existence.<LI> They have to know your address, so they can write you and request
+the paper.<LI>They need to know the name of the paper.<LI>There needs to be a request mechanism so that their request
+gets to you.<LI>There needs to be a answering mechanism so that you can serve the
+paper to them.
+</OL>
+<P>
+1. Existence is tricky, but your paper
+ might be indexed somewhere, like the Science Citation Index.
+<P>
+2 and 3. Your address and the paper's name are included in the URL; 
+think of it as three parts.
+<P>
+<TT>http://www-stat.wharton.upenn.edu/paper1.html</TT>
+<P>
+Part A is the <B>http</B>.  This describes the protocol that will send the
+request and deliver the paper. This is the analog of whether you want the document delivered by FedEx, surface mail, faxing etc.
+<P>
+Part B is the <B>www-stat.wharton.upenn.edu</B> which is the address of the
+machine on which the document resides.
+<P>
+Part C is the <B>paper1.html</B> which names the actual paper itself.
+<P>
+4 and 5. The sending of the request and answer is handled by the HTTP protocol.
+<P>
+Now we have the document that we want to make available there are certain actions that need to be taken. I'll describe the
+method for doing that on our unix machine, <TT>www-stat</TT>, on which you all
+need to have an account.
+<P>
+Every user account has a directory called <TT>public_html</TT>. When
+a request comes into the server, the server knows to go and look in the
+users <TT>public_html</TT> directory for the document (that's
+why you don't need to include ``public_html'' in the URL; it's included
+by the server by default).
+<P>
+To try and stay organized we'll create a sub-directory within the
+public_html directory.
+<P>
+Within the public_html directory we type
+<P>
+<TT></TT> mkdir Stat540s99 <TT></TT>
+<P>
+Within this directory we create the HTML document. It's a good idea
+to have the document extension end in html or htm.
+<P>
+On a Unix system, who has access to which files, is governed by what are
+called the ``file permissions''. For an outside user to reach the
+file, the directory in which it resides must be <B>executable</B> 
+by the world. To do this you use the command
+<P>
+<TT>chmod a+x Stat540s99</TT>.
+<P>
+Similarly the file must be <B>readable</B> by the world, which is
+accomplished by the command
+<TT>chmod a+r myfile.html</TT>.
+<P>
+Our system has been configured up to set these permissions by default. 
+But if you
+create a file in a non-standard way (like via a program) you might
+well find that you have to set the permissions yourself.
+<P>
+That's it, we are now in a position to allow universal access to our document.
+<P>
+One thing to note. most WEB servers are configured to look for a 
+default file within a directory, if no specific file is requested.
+For our server this file is called <TT>index.html</TT>. So if you create
+an <TT>index.html</TT> file you can access it by having the URL point to the
+directory which contains the file - you do not need to include the file name.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Thu Jan 14 23:42:10 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

@@ -1,0 +1,144 @@
+<html>
+<header>
+<title>  STAT 541: Influence</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Influence </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> Read Myers chapter 6
+  <li> new homework problem
+</ul>
+<h2> Homework</h2>
+
+Consider the following data on cleaning crews (<a
+href="cleaning.jmp">cleaning.jmp</a>).  We expect that the number of
+rooms cleaned will be linear in the number of crews sent to clean
+them.  In fact, we might even expect that if we send zero crews, we
+will get zero rooms cleaned.  We want Y to be the number of rooms
+cleaned and X to be the number of crews sent out.  How many rooms does
+each crew clean?
+
+<ol>
+  <li> Plot the data, run a simple regression and create prediction
+       bounds.  Does the data appear homoskedastic?
+       <p>
+  <li> Transform the data to do a weighted least squares.  Try using
+       both a standard deviation proportional to X and portional to
+       squareroot of X.  Plot both.  Which appears to be more
+       homoskedastic?
+       <p>
+  <li> Use the White estimator (the sandwich estimator) to generate
+       standard errors for the slope and intercept.
+       <p>
+  <li> Discussion question:  (Please type up a one page answer to the
+       following.)   Compare the confidence intervals for the slope in
+       each of the methods above.  Which ones do you believe?  Are the
+       ones that are theoretically wrong qualitatively wrong?
+       Our theory suggests that the  intercept should be zero.  Which
+       is the correct test to run?  Do we fail to reject the null?  Do
+       any of the other test incorrectly reject the null?
+       <p>
+  <li> Pick the weighted least squares model that appears to be the
+       most homoskedastic.  Now use the White estimator on that
+       model.  Does it change the SE's very much?
+       <p>
+  <li> The envelope please: Add up all the rooms cleaned.  Add up
+       all the crews.  Divide these two to come up with an average
+       number of rooms cleaned per crew.  This should match one of the
+       slopes you computed above.  (You could also compute a standard
+       error by hand to see which confidence intervals above are the
+       closest to describing the right answer.  But you don't have to
+       do this.)
+</ul>
+
+
+<h2>Leverage</h2>
+
+<ul>
+  <li> How much do betas depend on a single point? (this leads to p x
+       n matrix of leverages)
+  <li> How much do predictions depend on a single point? (this leads a
+       a vector of leverages)
+  <li> How much does prediction of i depend on value of i?
+       <p>
+       <ul>
+	 <li> prediction is X<sub>i</sub> beta-hat.
+	 <li> beta-hat = (X'X)<sup>-1</sup>X'Y
+	 <li> prediction is X<sub>i</sub> (X'X)<sup>-1</sup>X'Y
+	 <li> To convert Y to a prediction: (X (X'X)<sup>-1</sup>X')Y
+	 <li> hat matrix: h =  (X (X'X)<sup>-1</sup>X')
+	 <li> Called projection matrix.  Or "hat matrix" since it puts
+	      a hat on y.
+	 <li> h<sub>ii</sub> is dy-hat/dy--called leverate
+       </ul>
+       </p>
+  <li> Nice property: depends ONLY on X's.  So if you decide to toss a
+       point out based on its leverage, you aren't biasing your results.
+  <li> Use mahalobious to "see" leverage
+</ul>
+
+<h2>Influence = leverage x outlier</h2>
+
+<ul>
+  <li> A point that isn't leveraged doesn't effect outcome very much
+  <li> a point that isn't an outlier doesn't effect outcome very much
+  <li> need both to be influential
+  <li> draw pictures of various outliers: MBA call them, cottages,
+       direct mail, and  crime)
+</ul>       
+
+<h2>Various definitions of influence</h2>
+<ul>
+  <li> DFFITS = change in forecast i if you leave out observation i
+       <p>
+       <ul>
+	 <li> (y-hat<sub>i</sub> - y<sub>i,-i</sub>)/SE(y-hat)
+	 <li> R-student sqrt(h/1-h)
+	 <li> looking at squared values, and noting that h is
+	      approximately zero leads to influence = leverage x
+	      outlier concept
+       </uL>
+       </p>
+  <li> DFBETAS = change if slope j if you leave out obseration i
+       <p>
+       <ul>
+	 <li> no easy formula
+	 <li> no longer related to leverage (hat<sub>ii</sub>)
+	 <li> depends on scale of beta--change scale of X changes
+	      value of DFBETAS
+       </ul>
+       </P>
+  <li> DFALL = Cooks D = change in all betas = change in all
+       predictions
+       <p>
+       <ul>
+	 <li> use "natural" parameter space/prediction loss
+	 <li> Cooks D is squared-distance change in adding point i
+	 <li> tells how much parameters in natural basis
+	 <li> tells how much all the predictions change on average
+	 <li> r<sup>2</sup>h/(p(1-h))
+	 <li> again justifies outlier = leverage x outlier
+       </ul>
+       </p>	      
+</Ul>
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Feb 22 08:41:05 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

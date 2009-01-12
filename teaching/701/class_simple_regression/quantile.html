@@ -1,0 +1,69 @@
+<HTML>
+
+<HEAD><TITLE>Quantiles and Q-Q plots  Richard Waterman</TITLE></HEAD>
+<body
+bgcolor="#EEEEEE"  alink="#CC0000" vlink="#0000CC">
+<FONT SIZE=2 color="0000000" FACE="Arial,Helvetica,Sans Serif">
+
+
+<H1> Quantiles and Q-Q plots</H1>
+<P>
+
+
+Last time we discussed Q-Q plots which plot OBSERVED against EXPECTED
+quantiles. As with most diagnostics when the model holds true observed and
+expected should be about equal and in the case of the Q-Q plot we hope to
+see an approximate line in the plot.
+<P> 
+But what exactly is a <B> Quantile.</B>?
+
+Imagine taking lots of data, enough to be able to draw an extremely
+detailed histogram. Now "normalize" the histogram so that the area
+beneath it equals one. The function that 
+describes the shape of the normalized histogram is called a
+<B>probability density function</B> and often denoted by the convention
+f(x). 
+
+The probability density function for the standard 
+normal distribution looks like this:
+<P>
+<CENTER>
+<IMAGE SRC="density.gif">
+</CENTER>
+
+Now imagine adding up the area to the left of a point on the X-axis. The
+function that gives this area is called the <B>Cumulative Distribution Function</I> and usually written as F(x).
+<P>
+
+The cumulative distribution function for the normal distribution looks like this:
+<P>
+<CENTER>
+<IMAGE SRC="cumulate.gif">
+</CENTER>
+
+As an example, think about the area to the left of 0 for the standard normal 
+above. Since it's symmetric there must be 0.5 worth of area to the left of 0. 
+Which is why the Cumulative Distribution Function (CDF) takes on the value of 0.5
+above 0. That's just the way the CDF is defined -- area to the left of in the
+density graph.
+<P>
+Now the quantiles come about by looking at the CDF graph the other way around.
+Rather than asking, "how much area is there to the left of x?", the
+quantile function goes the other way - "what x-value has a certain area to the left of it?" For example, we could ask "what x-value has 0.9 area to the left 
+of it?". The answer to this question is precisely the 0.9 quantile, or the
+90th percentile of the normal distribution. From the graph above you can see
+that it's about 1.6, but of course if you want the exact number you get
+it from a computer.
+<P>
+Finally the Q-Q plot comes into being by plotting the 
+observed quantiles of the data against the 
+expected quantiles
+from a standard normal distribution.
+
+<P>
+<HR>
+<I> Richard Waterman</I> 09/10/97
+
+</FONT>
+</BODY>
+</HTML>

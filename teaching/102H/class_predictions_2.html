@@ -1,0 +1,92 @@
+<html>
+<header>
+<title> Statistics 102H: Predictions and CI (cont'd)</title>
+</header>
+<body>
+<center>
+<h1>Statistics 102H: Predictions and CI (cont'd)</h1>
+</center>
+<p>
+
+<h2>Can't the preditions just deal with bad data?</h2>
+<ul>
+  <li> Try a linear fit to curved data (look at prediction intervals)
+  <li> Try a linear fit to hetroskadastic data (look at prediction intervals)
+  <li> Coverage variaries depending on where you are in the data
+  <li> sometimes 100% (i.e. too wide)
+  <li> sometimes 50% or less (i.e. too narrow)
+  <li> Hence looking at graph is VERY important
+</ul>
+
+<h2>At least some of these we can fix</h2>
+<ul>
+  <li> Transformations for hetroskadasticity
+  <li> What is a transformation?
+       <ul>
+	 <li> Suppose "log(Y) vs X" and and "Y vs exp(X)" both fit equally well.
+	 <li> Which to use?
+	 <li> Different prediction bounds
+	 <li> Do actual transformation
+       </ul>
+  <li> Example of picking a transformation:
+       <ul>
+	 <li> picking between log-log and 1/X model in housing data
+	 <li> Generate all the new variables
+	 <li> Plot on new axis
+	 <li> Which is less hetroskadastic?
+       </ul>
+  <li> Example useful for linear case:
+       <ul>
+	 <li> Cleaning crews data
+	 <li> linear-linear  or should we use log-log or sqrt-sqrt?
+	 <li> Plot prediction intervals on orginal graph to see
+	 <li> Save residuals
+       </ul>
+  <li> The log-log transformation (elasticities)
+       <ul>
+	 <li> consider the asteroid data
+	 <li> raw plot is very ugly (sketch picture)
+	 <li> too extream in both directions
+	 <li> log-log tames a whole range of values
+       </ul>
+</ul>
+       <h2>Homework</h2>
+       <ul>
+       </ul>
+
+       <hr>
+       (next time?)
+    
+<h2>What about that statistical error?</h2>
+<ul>
+  <li> A little background:
+       <ul>
+	 <li> Regression does least squares
+	 <li> solution to least squares is linear combination of erorr + truth
+	 <li> Hence normality sets in and CLT sets in
+	 <li> E(alpha-hat) = alpha  (This is called unbiased)
+       </ul>
+  <li> Thus accuracy of alpha and beta depend on where the data is collected
+  <li> more spread out X's generate better slope estimates
+  <li> But might introduct unwanted data to problem. Hence design of where to put the X's must take care.
+  <li> Error looks like sigma/sqrt(n)sigma(X)
+</ul>
+
+
+<h3>Cell phones</h3>
+<ul>
+  <li> Current statistics: <a href="http://hypertextbook.com/facts/2002/BogusiaGrzywac.shtml">here</a>.
+  <li> Looks like March 2002 = 180 Million?
+</ul>
+
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Jan 29 07:29:13 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

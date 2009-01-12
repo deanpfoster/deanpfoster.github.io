@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+
+### First open a file , hopefully with something in it.
+
+open( MYINPUTFILE, "input.txt");
+
+while (<MYINPUTFILE>){
+print;
+}

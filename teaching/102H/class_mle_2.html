@@ -1,0 +1,73 @@
+<html>
+<header>
+<title> Statistics 102H: MLE's (Statistical Inference by S. D. Lilvey</title>
+</header>
+<body>
+<center>
+<h1>Statistics 102H: MLE's (Statistical Inference by S. D. Lilvey</title>
+</center>
+<p>
+
+<h2>Administrivia</h2>
+
+<ul>
+  <li> data analysis due monday
+  <li> If you have any questions about how your data analysis, include
+them with what you turn in and I'll email you an answer.
+  <li> I wrote up details of what the rest of the projct should entail.       
+  </ul> <hr>
+
+<h3>Example 1: binomial (cont'd)</h3>
+Last time we did the binomial my maximizing f.  It was ugly.  Lets redo it by maximizing log f.
+  
+<h3>Example 2: normal theory</h3>
+Full likelihood is product of individual likelihoods.  (Only do mu not
+sigma). 
+<ul>
+  <li> God it is ugly!
+  <li> Take logs.  Ah, a bit prettier
+  <li> Ignore constants.  Thats more like it!
+  <li> Take derivative
+  <li> Complete the square also: this is where leasts squares comes
+       from 
+</ul>
+<h3>Calculating the MLE</h3>
+<ul>
+  <li> Book uses D for multi-derivative.  we will stick with single
+       derivatives in class.
+  <li> Two term taylor series: log likelihood = l(theta<sub>0</sub>) +
+       ...
+  <li> DEEP THEOREM (LeCam): This is a  VERY good approximation.
+       Almost exact 
+       up to several standard errors.  (This is what I studied in my
+       thesis.  I didn't prove it.  I just tried to understand it.)
+  <li> So maximum is at -b/2a.  Or take dervatives.  Or use Newton's
+       method. 
+</ul>
+<h3>First useful example</h3>
+<ul>
+  <li>Suppose there are outliers in the data
+  <li> You can handle it using ideas of the first part of hte course
+  <li> Now lets do it carefully.
+  <li> Need a distribution that generates outliers: Cauchy
+  <li> Compute the score
+  <li> Notice: large values are down-weighted!  Just like you do when
+       you remove them!
+</ul>
+
+<hr>
+
+<h2><a href="homework.html">Homework</a></h2>
+<ul>
+  <li> Read pages 68 - 73 of handout.  Hopefully this time through they will make more sense.  Start looking at the exercises at the end of the section.
+</ul>
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Apr 16 07:46:27 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

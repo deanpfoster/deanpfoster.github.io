@@ -1,0 +1,141 @@
+<html>
+<header>
+<title> Grading for Statistical computing homework 5</title>
+</header>
+<body>
+<h1> Grading homework 5 (Spring 1998) </h1>
+
+
+<p>
+If you update your homepage, turn your grade sheet back into me and
+I'll regrade it.
+<p>
+<h2>
+First problem:
+</h2>
+<p>
+For each function, I wrote one test function.  It is graded as:
+(Where you start with 8 points and work up/down from there):
+</p>
+<ul>
+<li>        passing test function = +1
+<li>        Documented failure of test function  = no penality
+<li>        Undocumented failure of test function = -1
+<li>        No documentation at all = -2
+</ul>
+
+
+<table border>
+<TR>
+<td> 
+<th>
+Code that might cause problems
+<th>
+Reason
+</tr>
+
+<TR>
+<th>1</th>
+<td>
+<pre>
+test <- function(f) d(f)(1)
+test(sq)
+</pre>
+<td>
+Does d() find the right lambda expression or just the name?
+</tr>
+
+<TR>
+<th>2</th>
+<td>
+<pre>
+rootI({function(x) 10e-10 * (x - .5)},0,2)
+</pre>
+<td>
+does root test on x or on f(x)?
+</tr>
+
+<TR>
+<th>3</th>
+<td>
+<pre>
+root({function(x) 100 - log(x^2/(1+abs(x)))})
+</pre>
+<td>
+Can root find large roots for a monotonic function?
+</tr>
+
+<TR>
+<th>4</th>
+<td>
+<pre>
+nasty <- function(x) 1 - 1/(1+x^2);
+max(nasty)
+</pre>
+<td>
+Can it find the max of an asymptote? 
+</tr>
+
+<TR>
+<th>5</th>
+<td>
+<pre>
+test.arg <- 5
+
+test <- function(x) uniform(x)(1:5)
+
+test(test.arg)
+</pre>
+<td>
+does uniform() handle arguments correctly?
+</tr>
+
+<TR>
+<th>6</th>
+<td>
+<pre>
+CDF(norm(1000,1))(1500)
+</pre>
+<td>
+How is the "zero" function problem dealt with?
+</tr>
+
+<TR>
+<th>7</th>
+<td>
+<pre>
+E(norm(3,4))(sq)
+</pre>
+<td>
+Syntax may vary.   (should return 25)
+</tr>
+
+<TR>
+<th>8</th>
+<td>
+<pre>
+d(MGF(norm(10,1)))(0)
+</pre>
+<td>
+An easy one?
+</tr>
+
+<TR>
+<th>9</th>
+<td>
+<pre>
+chisq <- function(){
+   g <- transform(normal,sq);
+   g(3)}
+</pre>
+<td>
+Can transform be called from inside a function?  
+</TR>
+
+</table>
+
+<h2>second problem:</h2>
+<ul>
+<li>        1 point for having test functions
+<li>        1 point for breaking anyone's code (including your own)
+</ul>

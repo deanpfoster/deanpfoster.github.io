@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter V.2: Poisson point process</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Homework 8 due today, hw9 due thursday.
+</ul>
+
+<h1>Poisson point process</h1>
+
+<h2>Mind your names</h2>
+<ul>
+  <li> Poisson distribution: one random variable
+  <li> Poisson process: collection of random variables indexed by time
+  <li> Poisson point process: collection of random variables indexed
+by intervals
+</ul>
+<h2>Example</h2>
+<ul>
+  <li> Points distributed "uniformly" on a line
+  <li> Makes more intuitive sense than mathematical sense
+  <li> N((a,b]) = number that occur AFTER a, but at or before b.
+</ul>
+<h2>Definition</h2>
+N((a,b]) is a Poisson point process if:
+<ol>
+  <li> the number of events occuring in disjoint interval is
+independent.
+  <li> (The distribution of N((t,t+h]) depends only on h and not t.)
+  <li> P(N((t,t+h]) >= 1) = lambda h + o(h).
+  <li> P(N((t,t+h]) >= 2) = o(h).
+</ol>
+ASIDE: What is o(h) anyway?
+<ul>
+  <li> Ideal notation: o<sub>h --> 0</sub>(h)
+  <li> traditional notation: o<sub>h</sub>(h)
+  <li> lazy notation: o<sub>h</sub>(h)
+  <li> meaning: f(h) = o(h) if lim f(h)/h = 0
+  <li> Exercises:
+    <ul>
+    <li> o(h) + o(h) = o(h)
+    <li> o(1) + o(h) = o(1)
+    <li> o(h)*o(h) = o(h<sup>2</sup>)
+    <li> etc...
+    </ul>
+</ul>  
+</ul>
+<h2>KEY POINT: No mention of "Poisson" anywhere in definition</h2>
+<h2>N((0,t]) is a poisson process</h2>
+Proof:
+<ul>
+  <li> Independence follows from first postulate.
+  <li> X(0) = 0 follows from properties of the empty set.
+  <li> So we need only check that X(s+t)-X(s) is Poisson
+     <ul>
+     <li> Chop interval up into n pieces
+     <li> Let epsilon<sub>i</sub> denote whether or not it contains at
+least one point
+     <li>  S = sum epsilon<sub>i</sub>
+     <li> first step: S --> Poisson as n --> infinity
+     <li> second step: S = N((s,t]).
+   </ul>
+</ul>
+
+<h1>V.3: Distributions associated with the Poisson process</h1>
+
+How long until the kth event occurs?  called W<sub>k</sub>.
+
+<ul>
+  <li> P(t < W<sub>k</sub> < t+h) = hf(t) + o(h)
+  <li> P(t < W<sub>k</sub> < t+h) = P(N<sub>t</sub> < k <= < N<sub>t+h</sub>) 
+  <li> But, we this one we know already!
+</ul>
+
+<h2>Waiting times are independent and exponential</h2>
+
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Mar 29 13:21:24 EST 2004
+<!-- hhmts end -->
+</body> </html>

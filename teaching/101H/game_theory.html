@@ -1,0 +1,106 @@
+<html>
+<header>
+<title> Statistics 101H: Game Theory</title>
+</header>
+<body>
+<center>
+<h1> Knowledge part 3: Game theory</h1>
+</center>
+<p>
+
+
+<h2>Web links about last lecture</h2>
+<ul>
+  <li> see <a
+       href="http://www-formal.stanford.edu/jmc/model/node13.html">here</a>
+       for a gruesome description.
+  <li> see <a href="http://www-formal.stanford.edu/jmc/model/node12.html">here</a>
+       for a formal discussion from a philosophers perspective.
+  <li> <a href="http://www.greylabyrinth.com/Puzzles/puzzle007.htm">hats!</a></h2>
+</ul>
+
+<h2>The common knowledge sigma-fields</h2>
+<ul>
+  <li> the intersection of two sigma fields
+  <li> Represents everything BOTH people know
+</ul>
+
+<h2>The cheating sigma-fields</h2>
+<ul>
+  <li> The union of two sigma 
+</ul>
+
+<h2>The god sigma-fields</h2>
+<ul>
+  <li> The algebra where everything has to be mesasureable
+</ul>
+
+<h2> A game matrix</h2>
+<ul>
+  <li> Game of chicken
+  <li> Newlywed game 
+  <li> Prisinors dilemma game 
+</ul>
+<h2>Rationality (or greedy)</h2>
+<ul>
+  <li> One player rationality:
+       <ol>
+	 <li> Pick the best action (not good enough--best action might change)
+	 <li> Pick the best action possible (too good, they might not know which is best)
+	 <li> Pick the best action given what they know (just right)
+       </ol>
+  <li> Same thing as symbols: (X = random variable representing the
+       action choosen.  x is another possible action.) 
+       <ol>
+	 <li> E(U(X)) >= E(U(x))
+	 <li> U(X) >= U(x)
+	 <li> E(U(X)|KnowledgeX) >= E(U(x)|KnowledgeX)
+       </ol>
+  <li> Two players: Each is rational
+       <ul>
+	 <li>  E(U(X,Y)|KnowledgeX) >= E(U(x,Y)|KnowledgeX) 
+	 <li>  E(U(X,Y)|KnowledgeX) >= E(U(x,Y)|KnowledgeX) 
+       </ul>
+</ul>
+<h2>Example distributions for PD</h2>
+<ul>
+  <li> Equal probabilities in PD
+  <li> Any probabilities in PD
+  <li> Concept: called dominance
+  <li> Can use U(X) >= U(x) definition of rationality
+</ul>
+<h2>Example distributions for newlywed game</h2>
+<ul>
+  <li> Try equal probabilities (one row is rational other isn't)
+  <li> Try 50/50 on diagonal (each row is rational)
+  <li> Probably the "correct" solution to this game
+</ul>
+<h2> Overall model</h2>
+<ul>
+  <li> Each player has his/her own sigma-algebra
+  <li> There is a common knowledge sigma-algebra
+  <li> there is a "cheatting" sigma-algebra
+  <li> There is the mother sigma-algebra
+  <li> Nash assumed:
+       <ul>
+	 <li> Two primary algebras are independent
+	 <li> common knolwdege is trivial
+	 <li> Cheat = mother 
+       </ul>
+  <li> Mixed Nash drops common knowlwdge is trivial
+  <li> CE drops independence of two primary algebras
+  <li> Bayesian drops Cheat = mother
+  <li> These issues have lead to 30 years of fighting
+</ul>
+       
+
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Dec  9 07:46:17 2002
+<!-- hhmts end -->
+</body>
+
+</html>
+

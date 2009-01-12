@@ -1,0 +1,310 @@
+\batchmode
+\documentclass[leqno]{article}
+\makeatletter
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$n \times p$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline85: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$n \times n$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline89: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$Q^T \, X = R$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline91: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X = \left(\begin{array}{rr}
+1 & 1 \\ 
+1 & 3 \\ 
+1 & 4 \\ 
+1 & 5 
+\end{array}\right),\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Q^T = \left(\begin{array}{rrrr}
+ -0.500 & -0.500 & -0.500 & -0.500\\ 
+  0.761 & 0.085  & -0.254 & -0.592\\ 
+  0.047 & -0.491 &  0.796 & -0.351\\ 
+  0.411 & -0.708 & -0.229 & 0.526
+\end{array}\right),
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Q^T\,X = R = 
+\left(\begin{array}{rrrr}
+ -2 & -6.500\\ 
+  0 & -2.958\\ 
+  0 & 0.000\\ 
+  0 & 0.000
+\end{array}\right)
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}min_\beta | Y - X \beta|^2,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}min_\beta | Q(Y - X \beta)|^2.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}Y = \left(\begin{array}{r} 1\\ 3\\ 6\\ 2 \end{array}\right),\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}min_\beta | Q(Y - X \beta)|^2 = \end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}min_\beta \left| 
+\left(\begin{array}{cccc}
+ -0.500 & -0.500 & -0.500 & -0.500\\ 
+  0.761 & 0.085  & -0.254 & -0.592\\ 
+  0.047 & -0.491 &  0.796 & -0.351\\ 
+  0.411 & -0.708 & -0.229 & 0.526
+\end{array}\right)
+\left(\left(\begin{array}{r} 1\\ 3\\ 6\\ 2 \end{array}\right)
+ - 
+\left(\begin{array}{cc}
+1 & 1 \\ 
+1 & 3 \\ 
+1 & 4 \\ 
+1 & 5
+\end{array}\right)
+\beta\right)\right|^2 = 
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}min_\beta \left| 
+\left(\begin{array}{r} -6.000 \\  -1.690 \\  2.644 \\  -2.037 \end{array}\right) -
+\left(\begin{array}{rr}
+ -2 & -6.500\\ 
+  0 & -2.958\\ 
+  0 & 0.000\\ 
+  0 & 0.000
+\end{array}\right) \beta
+\right|^2=
+\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}min_\beta \left| \left(\begin{array}{r} -6.000 \\  -1.690 \end{array}\right) -
+\left(\begin{array}{r}-2 \beta_0 -6.500 \beta_1 \\ 
+                      -2.958 \beta_1\end{array}\right)\right|^2 + 
+  \left| \left(\begin{array}{r} 2.644 \\  -2.037 \end{array}\right)\right|^2.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_1 = -1.69/2.958 = 0.571$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline117: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_0 = 1.143$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline119: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$2.644^2 + (-2.037^2) = 11.14$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline121: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\sqrt(11.14/2) = 2.36.$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline123: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$Q^T\,Q = Q\,Q^T = I$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline125: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$X = Q\,R$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline129: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$p \times p$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline143: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline147: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}O(\beta) = |Y - X \beta|^2 = \sum_i (y_i - \sum_j x_{ij}\beta_j)^2.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_k$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline153: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\frac{\partial\,O}{\partial\beta_k} = \sum_i (y_i - \sum_j x_{ij}\beta_j)
+x_{ik} = 0, k = 1,\cdots,p.\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X^T(Y - X \beta) = X^T R = 0,\end{displaymath}
+}
+
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \begin{displaymath}|Y - g(X\beta)|^2,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}X^T W R = 0,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\{i,i\}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline171: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$g'(x_i \beta)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline173: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$g(\beta) = 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline175: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\beta_n$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline177: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}\beta_{n+1} = \beta_n - g(\beta_{n})/g'(\beta_{n}).\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\ln(x) = 4$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline183: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$g(x) = \ln(x) - 4 = 0$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline185: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$g'(x) = \frac{1}{x}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline187: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}x_{n+1} = x_n - x_n(\ln(x) - 4).\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_0 = 20$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline191: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}x_1 = 20 - 20\,(2.9957 - 4) = 40.08535,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}x_2 = 40.08535 - 40.08535\,(\ln(40.08535) - 4) = 52.47129,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}x_3 = 52.47129 - 52.47129\,(\ln(52.47129) - 4) = 54.55618,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_4 = 54.59813$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline199: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_5 = 54.59815$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline201: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\exp(4) = 54.59815$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline203: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}x_{n+1} = x_n - (g'(x_n))^{-1} g(x_n),\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}g'(x_n) (x_{n+1} - x_n) = -  g(x_n).\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \begin{displaymath}A y = \gamma,\end{displaymath}
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$y = (x_{n+1} - x_n)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline223: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\gamma = -g(x_n)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline227: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$x_{n+1} = y + x_n$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline231: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{section}
+
+\end{document}

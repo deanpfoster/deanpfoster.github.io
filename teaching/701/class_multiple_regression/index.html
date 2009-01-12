@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Class 5 Stat701 Fall 1997 Richard Waterman</TITLE>
+<META NAME="description" CONTENT="Class 5">
+<META NAME="keywords" CONTENT="class5">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class5.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<P>
+<CENTER><H1> Class 5. Stat701 Fall 1997</H1></CENTER>
+
+<P CENTER>
+<P>
+<HR>
+
+<H2> Multiple regression, transformation and prediction.</H2>
+<P CENTER>
+<P>
+Last time we reviewed 
+<A HREF="../class_residuals/class4.html#newmaterial">
+leverage, influence and residuals.</A>
+<P>
+<H3>Recap.</H3>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Residuals are useful, but may have two problems:
+    <DL >
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/redpin.gif" ALT="*"><DD>They retain the scale of the data
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/redpin.gif" ALT="*"><DD>A highly <B>leveraged</B> point my drag the regression line toward 
+          it giving a misleadingly small residual
+<P>
+ </DL>
+<P>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Fix this up as follows:
+    <DL >
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/redpin.gif" ALT="*"><DD>Divide through by the square root of the estimated variance - 
+          that is <B>standardizing</B> to get a standard deviation of 1 for 
+          the standardized residual
+      <DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/redpin.gif" ALT="*"><DD>Using Jackknifed residuals. The jackknifed residual is the
+            distance from the point to the line, <B>BUT</B>, when the line is 
+            estimated without that particular point.
+<P>
+ </DL>
+<P>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Each point gets it's own jackknifed residual based on a regression that
+left that point out. Conceptually, if there were 100 points then you would
+have to run 100 separate regressions to get the jackknifed residuals, but
+miraculously there is a simple formula to go from the plain residual to the
+jackknifed residual, jackknifed = plain/(1 - hii).
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The standardized jackknifed residuals are what we will work with and they are termed <B>studentized residuals</B>.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>The plot of leverage against studentized residual is useful for 
+identifying points that dominated the regression - they have high leverage
+and large studentized residual.
+<P>
+ </DL>
+<P>
+<H2><B>Todays material</B></H2>
+<P>
+<DL >
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Assignment 1 handouts and discussion.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>
+<A HREF="../hw1_guidelines.html">
+Guidelines for exhibits.</A>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>How to read in the Berndt data.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Multiple regression - illustrated with production functions.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>
+<A HREF="../class_simple_regression/index.html#newmaterial">
+Link to 608 notes</A>.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD><H2>Transformation discussion.</H2>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Know your transformations -handout
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Understand interpretations on the log scale, why log transforms result
+in 
+<A HREF="percent.html">
+percentage change interpretations</A>.
+ </DL>
+<P>
+<DL>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD><H2>
+<A NAME="predict">
+Prediction discussion.</A></H2>
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Two types corresponding to the ``data = signal + noise'' paradigm.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Prediction of just the signal <B>or</B> prediction that also includes the
+noise.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Prediction in the range of the data (interpolation) is pretty safe.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Prediction out of the range of the data (extrapolation) is pretty dangerous.
+<DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/bluepin.gif" ALT="*"><DD>Prediction for a <B>new</B> observation has 3 sources of uncertainty.
+  <DL >
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/redpin.gif" ALT="*"><DD>The fit is not quite right - uncertainty in the true regression 
+          line.
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/redpin.gif" ALT="*"><DD>There's variability about the regression line - noise.
+    <DT><IMG WIDTH=20 HEIGHT=20 SRC="../icons/redpin.gif" ALT="*"><DD>There is uncertainty because this may not be the correct model -
+        model misspecification.
+<P>
+ </DL> 
+ </DL></P></P><BR> <HR>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Wed Sep 17 22:17:18 EDT 1997</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

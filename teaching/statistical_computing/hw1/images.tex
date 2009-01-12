@@ -1,0 +1,21 @@
+\batchmode
+\documentstyle[12pt]{article}
+\makeatletter
+
+
+\renewcommand {\baselinestretch}{1.4}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\backslash$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline27: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+
+\end{document}

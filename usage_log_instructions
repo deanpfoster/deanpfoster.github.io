@@ -1,0 +1,8 @@
+
+webalizer-2.01-10-static -N 10 -D ipaddresses /opt/apache1.3.6/logs/access_log
+
+
+su
+cd /opt/apa.../logs/
+grep -v "chuac" access_log > no_chua
+webalizer-2.01-10-static -N 10 -D ipaddresses /opt/apache1.3.6/logs/no_chua

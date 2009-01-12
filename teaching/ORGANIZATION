@@ -1,0 +1,6 @@
+Current course should have numbers as the course numbers.
+
+WHen the are taught again, they should be cloned into a XXX_200X 
+directory.  No need to add this to CVS since it could be regenerated
+by simply doing an appropiate update.  But this snapshot allows
+it to be read by the rest of the world.

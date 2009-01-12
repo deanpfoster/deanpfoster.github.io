@@ -1,0 +1,138 @@
+<!doctype html public "-//W3C//DTD HTML 4.0//EN"><html><head><title>JMP Output</title></head><body>
+
+<h2>Data</h2>
+I got the data from <a
+href="http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">fama-french
+data library</a>.  Then merged it with our locally created market
+returns data set (from MBA land).  This generated the following two
+JMP data sets:
+<ul>
+<li> <a href="fama-french-stacked.JMP">stacked data set</a>
+<li> <a href="fama-french-summary.JMP">summary of the 100 regressions</a>
+<li>
+</ul>
+<h2>Paper</h2>
+Bob and I are working on a paper.  A very very preliminary version is
+<a href="ponzironi.ps">here</a>. 
+
+<h2>Regression of excess return based on which decile number</h2>
+
+Y = excess return for each of 100 portfolios
+<p>
+Size= decile number of size (0-9) 
+<p>
+B/E = book to equity ratio decile number (0-9)
+<p>
+This is the raw JMP output.  It basically shows the same thing that
+the orginal Fama-French paper showed.  Namely small stocks do
+amazingly well.  And high B/E ratio stocks to even better well.
+
+
+
+<h4>Actual by Predicted Plot</h4>
+<img src="fama-french-graphs/image1.PNG" width=286 height=317><br>
+
+<h4>Summary of Fit</h4>
+
+<table border=1 cellpadding=2 cellspacing=1>
+<tr valign=top align=right><td align=left>RSquare<td>0.604354
+<tr valign=top align=right><td align=left>RSquare Adj<td>0.596196
+<tr valign=top align=right><td align=left>Root Mean Square Error<td>0.191787
+<tr valign=top align=right><td align=left>Mean of Response<td>0.916007
+<tr valign=top align=right><td align=left>Observations (or Sum Wgts)<td>100
+</table>
+<h4>Analysis of Variance</h4>
+
+<table border=1 cellpadding=2 cellspacing=1>
+<tr valign=top align=right><th align=left>Source<th>DF<th>Sum of Squares<th>Mean Square<th>F Ratio
+<tr valign=top align=right><td align=left>Model<td>2<td>5.4499712<td>2.72499<td>74.0843
+<tr valign=top align=right><td align=left>Error<td>97<td>3.5678765<td>0.03678<td><b>Prob &gt; F</b>
+<tr valign=top align=right><td align=left>C. Total<td>99<td>9.0178477<td><td>&lt;.0001
+</table>
+<h4>Parameter Estimates</h4>
+
+<table border=1 cellpadding=2 cellspacing=1>
+<tr valign=top align=right><th align=left>Term<th align=left><th>Estimate<th>Std Error<th>t Ratio<th>Prob&gt;|t|
+<tr valign=top align=right><td align=left>Intercept<td align=left><td>0.772248<td>0.046621<td>16.56<td>&lt;.0001
+<tr valign=top align=right><td align=left>size<td align=left><td>-0.039234<td>0.006677<td>-5.88<td>&lt;.0001
+<tr valign=top align=right><td align=left>B/E ratio<td align=left><td>0.0711808<td>0.006677<td>10.66<td>&lt;.0001
+</table>
+<h4>Effect Tests</h4>
+
+<table border=1 cellpadding=2 cellspacing=1>
+<tr valign=top align=right><th align=left>Source<th>Nparm<th>DF<th>Sum of Squares<th>F Ratio<th>Prob &gt; F<th align=left>
+<tr valign=top align=right><td align=left>size<td>1<td>1<td>1.2699421<td>34.5260<td>&lt;.0001<td align=left>
+<tr valign=top align=right><td align=left>B/E ratio<td>1<td>1<td>4.1800291<td>113.6426<td>&lt;.0001<td align=left>
+</table><br>
+
+<h3>size</h3>
+
+<h4>Leverage Plot</h4>
+<img src="fama-french-graphs/image2.PNG" width=286 height=261><br>
+<br>
+
+<h3>B/E ratio</h3>
+
+<h4>Leverage Plot</h4>
+<img src="fama-french-graphs/image3.PNG" width=286 height=261><br>
+<br>
+
+<h2>Confidence intervals for each of the 100 portfolios</h2>
+
+Inspite of the impressive performance we got above, none of them seem
+to beat chance by very much.  The following graph gives +/- 2*SE for
+what CAPM would predict each of hte 100 portfolios should have for
+its return.  Only about 10 are outside this bound.  We would expect
+that 5 would be outside these bounds.  But since the tests aren't
+independent, it isn't clear if this is impressive or not.
+
+<img src="fama-french-graphs/image4.PNG" width=2092 height=523><br>
+<br>
+<img src="fama-french-graphs/image5.PNG" width=316 height=144><br>
+<br>
+
+<h2>Distribution of the z-statistics for the 100 portfolios</h2>
+
+CAPM says that any portfolio you create should have an intercept which
+is exactly zero.  The following shows the z-statistcs for alpha for
+these 100 portfolios.
+<p>
+CAPM along with independence would suggest that this should look like
+100 normal zero-one random variables.  Fama-French would suggest that
+there are some serious outliers (namely those portfolios that are
+either much better or much worse than expected.)
+
+
+
+<h3>t(alpha)</h3>
+<img src="fama-french-graphs/image6.PNG" width=811 height=597><br>
+<br>
+<br>
+
+<h4>Quantiles</h4>
+
+<table border=1 cellpadding=2 cellspacing=1>
+<tr valign=top align=right><td align=left>100.0%<td align=left>maximum<td>2.611
+<tr valign=top align=right><td align=left>99.5%<td align=left><td>2.611
+<tr valign=top align=right><td align=left>97.5%<td align=left><td>2.499
+<tr valign=top align=right><td align=left>90.0%<td align=left><td>2.030
+<tr valign=top align=right><td align=left>75.0%<td align=left>quartile<td>1.614
+<tr valign=top align=right><td align=left>50.0%<td align=left>median<td>0.763
+<tr valign=top align=right><td align=left>25.0%<td align=left>quartile<td>-0.329
+<tr valign=top align=right><td align=left>10.0%<td align=left><td>-1.147
+<tr valign=top align=right><td align=left>2.5%<td align=left><td>-1.753
+<tr valign=top align=right><td align=left>0.5%<td align=left><td>-2.306
+<tr valign=top align=right><td align=left>0.0%<td align=left>minimum<td>-2.306
+</table><br>
+
+<h4>Moments</h4>
+
+<table border=1 cellpadding=2 cellspacing=1>
+<tr valign=top align=right><td align=left>Mean<td>0.5850628
+<tr valign=top align=right><td align=left>Std Dev<td>1.1989276
+<tr valign=top align=right><td align=left>Std Err Mean<td>0.1198928
+<tr valign=top align=right><td align=left>upper 95% Mean<td>0.822956
+<tr valign=top align=right><td align=left>lower 95% Mean<td>0.3471695
+<tr valign=top align=right><td align=left>N<td>100
+</table>
+</body></html>

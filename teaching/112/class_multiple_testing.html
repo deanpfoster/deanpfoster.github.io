@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>stat 112: Multiple testing </title>
+</head>
+
+<body>
+<center><h1> Multiple testing</h1></center>
+
+
+<UL>
+  <li> Administrivia: 
+       <p>
+       <ul>
+	 <li> Start reading chapter 12
+	 <li> One makeup without name
+       </ul>
+       </p>
+</ul>
+<h2> When is 5% not good enough</h2>
+<ul>
+  <li> Our current rule is +/- 2
+       <p>
+       <ul>
+	 <li> +/- 2 SE allows for 5% error
+	 <li> Fine if you are only doing a few tests
+	 <li> But what if you have 20 variables?
+	 <li> You will find one of interest by chance along
+	 <li> In this case you need more protection
+       </ul>
+       </p>
+  <li> Finding other probabilities besides .05
+       <p>
+       <ul>
+	 <li> JMP output: estimate, SE, t, p-value
+	 <li> t = estimate / SE (makes math easier for +/- 2)
+	 <li> p-value is our primary tool for protection from multiple comparisons
+	 <li> p-values of 1/10 only occur 1/10 times
+	 <li> p-values of 1/100 only occur 1/100 times
+	 <li> p-values of 1/1000 only occur 1/1000 times
+       </ul>
+       </p>
+  <li> Bonferroni
+       <p>
+       <ul>
+	 <li> If you are doing 10 tests, use .05/10 = .005 for target p-value
+	 <li> If you are doing 25 tests, use .05/25 = .002 for target p-value
+	 <li> If you are doing 1000 tests, use .05/1000 = .00005!
+       </ul>
+       </p>
+  <li> Why Bonferroni works
+       <p>
+       <ul>
+	 <li> Suppose you are doing 100 tests and you use .0005 for your p-value
+	 <li> Then you expect 100*.0005 = .05 << 1 variables to enter by chance alone
+	 <li> So there isn't much chance you will claim a spurious result
+       </ul>
+       </p>
+</ul>
+
+<h2> Example: Jung's test of the Zodiac</h2>
+<ul>
+  <li> Whats your sign? (My sign is: <a href="http://dyna.iperweb.com/astro/astc_1_9.html">Ophiuchus</a> ("The serpent holder" Nov 30th--Dec 17th)
+       <p>
+       <ul>
+	 <li> Who should you date?
+	 <li> Look for successful relationships
+	 <li> Lets do a simulation to see what difficulties lie yere
+	      <ul>
+		<li> add rows (say 150)
+		<li> in the first column (label it "his sign")
+		<li> formula --> random --> uniform
+		<li> (uniform*12) then neumeric --> ceiling
+		<li> Repeat for "her sign"
+		<li> Repeat for "relationship success"
+	      </ul>
+       </p>
+       </ul>
+</ul>
+<hr>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Mar 30 09:57:09 2000
+<!-- hhmts end -->
+</p>
+
+</body> </html>
+

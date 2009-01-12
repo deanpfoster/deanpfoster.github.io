@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Streaming features and beam search</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Oct 27 14:46:59 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Streaming searching</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Homework 3 next class.
+</ul>
+
+<h2>ID1 stepwise regression</h2>
+<ul>
+  <li> Nearest neighbor 1
+  <li> As we discussed previously, need to do subspace selection
+  <li> Modelling after forward stepwise
+     <ul>
+     <li> Test a bunch of features
+     <li> Evaluate each on to see how it performs
+     <li> Add the best feature
+     </ul>
+</ul>
+<h2>Classification evaluation</h2>
+<ul>
+   <li> calinski-harabasz
+   <li> T. Calinski and J. Harabasz. A dendrite method for cluster
+analysis. Communications in statistics, 3(1):1--27, 1974. 2.
+  <li> "C&H use the Variance Ratio Criterion which is analogous to
+F-Statistics to estimate the number of clusters a given data naturally
+falls into. They minimize Within Cluster/Group Sum of Squares (WGSS)
+and maximize Between Cluster/Group Sum of Squares (BGSS)" <a
+href="http://search.cpan.org/~anaghakk/Statistics-CalinskiHarabasz-0.01/lib/Statistics/CalinskiHarabasz.pm">cpan</a> 
+</ul>
+<h2>Beam search and streaming</h2>
+<ul>
+   <li> Beam as a compromize between breadth first and depth first
+   <li> Beams of width one: Same as depth first search
+   <li> Beams of unbounded with is stepwise in this context
+   <li> Not address in paper: order of variables 
+</ul>
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

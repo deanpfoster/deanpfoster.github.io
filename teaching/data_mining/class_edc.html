@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: EDC (Excess Discovery Count)</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Nov  3 14:11:17 EST 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Streaming searching</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+</ul>
+<h2>Recall definitions of V/R/S/T/etc</h2>
+pass out handout
+<h2>FDR: False Discovery Rate</h2>
+<ul>
+   <li> FDR = E(V/R)
+   <li> FDR < alpha is target
+   <li> Simes procedure will control FDR
+</ul>
+<h2>EDC: Excess discovery count</h2>
+<ul>
+   <li> EDC = E(S - gamma R) + alpha
+   <li> EDC > 0 is target
+   <li> alpha controls FWER(0)
+   <li> gamma controls FDR at rate about 1-gamma
+</ul>
+
+<h2>Theorem: alpha investing controls EDC</h2>
+<ul>
+   <li> proof (see paper)
+</ul>
+
+<h2>Simes proceedure for FDR</h2>
+<ul>
+   <li> Does alpha investing control FDR? Unknown.
+   <li> What does control FDR? Simes does.
+       <ul>
+       <li> order the p-values
+       <li> Try first at alpha/m, second at 2 alpha/m, etc
+       <li> Once you fail to reject, stop.
+       </ul>
+   <li> If independent tests it is "easy" to prove controls the FDR.
+(Draw picture.)
+   <li> In worse case, it is "easy" to you lose a log(m) factor
+</ul>
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

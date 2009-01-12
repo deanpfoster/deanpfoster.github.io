@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Clustering</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Nov 29 14:53:10 EST 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+
+<h2>Admistrivia</h2>
+<ul>
+</ul>
+
+<ul>
+   <li> What to do with all those clusters?
+   <li> If clusters are "natural kinds" then additive models of
+clusters make sense.
+   <li> Can add them to a regression (as indicator variables)
+   <li> Not all that interesting if only one set of clusters
+   <li> But, if there are many sets of clusters, additive models could
+generate interesting models.  
+   <li> Alternatively, can use clusters in a tree.
+   <li> Suppose there are cluster types A,B,...,C
+   <li> Draw tree built out of these.
+   <li> Trees of natural kinds is motivation for:
+      <ul>
+      <li> CART
+      <li> ID3
+      <li> C4.5 / C5.0
+      <li> MARS
+      <li> Context trees
+     </ul>
+</ul>
+
+<h1>Trees</h1>
+<ul>
+    <li> Too expensive to run clustering at every step?
+    <li> If the natural kinds are clean enough, maybe only one
+variable would be enough.
+    <li> Motivation for CART
+    <li> Build tree using splits on each X variable
+</ul>
+
+<h2>Forecasting with a tree</h2>
+<ul>
+   <li> fits is the average in the node
+   <li> Draw picture: Note it is kinda bumpy
+   <li> In leaf nodes, use average (This is the description for CART)
+   <li> In leaf node, use most popular value in classification (This
+is the idea for C4.5)
+</ul>
+
+<h2>How many trees are there</h2>
+<ul>
+    <li> p choices for top.  n split points.  So np total top nodes.
+    <li> Each child node (there are 2) has basically same picture.
+    <li> If depth is d, there are 2<sup>d</sup> nodes each with pn
+         choices.
+    <li> If d = log(p), this is same size as all regression models
+</ul>
+<h2>Need heuristic search</h2>
+<ul>
+   <li> Heuristic function: current fit
+   <li> So pick best fit at each split
+   <li> where "Best" is defined to be LS for example
+</ul>
+
+<h2>Pruning trees</h2>
+<ul>
+   <li> As a forester (3nd generation) I know pruning trees is
+important
+   <li> Easy to consider lots of comparisions
+   <li> Allows seperation of searching from purning
+   <li> All one needs is a good fitting function
+   <li> See for example: (<a
+href="http://www-stat.wharton.upenn.edu/~ajw/vlmc.ps"> Variable Length
+Markov</a> Chains. P. Buhlmann and A.J. Wyner, The Annals of
+Statistics, Vol. 27, No. 2, pp. 480-513, 1999.)
+ </ul>
+
+
+<h2>Random forests</h2>
+<ul>
+   <li> Suppose truth is additive model in k variables
+   <li> Requires k parameters in usual version of regression
+   <li> requires 2<sup>k</sup> parameters (each based on only
+n2<sup>-k</sup> data points) to fit a tree
+   <li> Our solution: drop a bunch of trees into a regression
+   <li> Existing solution: average over a bunch of trees: called
+random forests
+</ul>
+
+<h2>
+
+ <hr>
+<address>dean@foster.net</address>
+</body> </html>

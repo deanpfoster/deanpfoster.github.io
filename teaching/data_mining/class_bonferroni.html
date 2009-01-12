@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Stepwise regression</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Sep 27 12:16:40 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Bonferroni</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Please do the reading
+   <li> (we have ways to know what you read!)
+   <li> When DRM come around this will be actually be true.
+</ul>
+
+<h2>Can't compute best fit in general, so assume orthoganal</h2>
+<ul>
+   <li> Avoid colinearity
+   <li> optimization problem is now seperatable
+   <li> Optimize each coordinate individually.
+</ul>
+
+
+<h2>Which variables should be included?</h2>
+
+<ul>
+   <li> Adding any variable increases insample fit
+</ul>
+<h3>So: Add them all</h3>
+<ul>
+   <li> Adding any variable increases insample fit
+   <li> But in sample fit is not an unbiased estimate of out-of-sample
+        fit.
+   <li> Adjusted-R-sqd is "unbiased" if no selection is done
+   <li> Adding a variable with t &le 1 actually decreases the the
+adjusted-r-sqd. 
+</ul>
+<h3>So: Add all of them with a t > 1</h3>
+<ul>
+   <li> If |beta| &lt 1 fitting by zero is better than fitting by
+betahat.
+   <li> E(t<sup>2</sup>) = beta<sup>2</sup>/SE<sup>2</sup> + 1
+   <li> So t<sup>^2</sup> - 1 is an unbiased estimate of
+beta<sup>2</sup>
+   <li> Related to Stein's unbiased estimate of risk (more on this later)
+   <li> IDEA: if less than 1 leave it out, otherwise put it in
+   <li> This is the idea of: AIC, C<sub>p</sub>
+</ul>
+<h3>So: Add all of them with a |t| > sqrt(2)</h3>
+<ul>
+  <li> But assumptions for AIC are violated if you use do variable
+selection.
+  <li> So lets focus on selection
+  <li> |t| > sqrt(2 log p) rarely occur under the null
+</ul>
+<h3>So: Add all of them with a |t| > sqrt(2 log p)</h3>
+<ul>
+  <li> Called Bonferroni
+     <ul>
+     <li> Prove tail of the null: Phi(x) < phi(x) for x < -1.
+     <li> Prove sum of events: P(U A<sub>i</sub>) &le sum P(A<sub>i</sub>)
+     </ul>
+  <li> First suggested by Foster and George (for regression) / Donoho
+and Johnstone (for wavelets)
+</ul>
+<address>dean@foster.net</address>
+</body> </html>

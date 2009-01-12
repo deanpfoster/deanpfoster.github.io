@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Clustering</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Nov 22 14:30:52 EST 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+
+<h2>Admistrivia</h2>
+<ul>
+</ul>
+
+<h2>Least squares using RKHS</h2>
+<ul>
+   <li> You say MAP, I say LS.
+   <li> Optimizing MAP is a form of LS
+   <li> as functions: Sum(Y - f(x))<sup>2</sup> + lambda |f|<sup>2</sup>
+   <li> as regression: Sum(Y - K alpha)<sup>2</sup> + lambda alpha K alpha
+</ul>
+
+<h1>Statistical Data mining: Clustering</h1>
+
+<h2>Supervised vs. unsupervised</h2>
+<ul>
+   <li> Regression is supervised: if you get it wrong you know!
+   <li> Clustering is unsupervised: you have your clusters, I have
+mine, which are better? Who knows?
+   <li> Still important EVEN if we can't tell if we are doing it well
+</ul>
+
+<h2>Natural kinds</h2>
+<ul>
+   <li> A <a href="http://en.wikipedia.org/wiki/Natural_kind">natural
+kind</a> is a set of objects that have truely similar properties.
+   <li> Should hold across time
+   <li> Hence: useful for prediction
+   <li> Examples: raven, duck, black, white
+   <li> Non-examples: cool, "pink is the new black" (as in
+fashion--neither pink nor black are natural kinds here), grue
+   <li> Talk about grue for a while:
+     <ul>
+     <li> Incorrect definition of a grue: "It is pitch black. You are
+likely to be eaten by a grue." (Zork)
+     <li> Looks green before 2000, looks like blue after 2001.
+     <li> From <a
+href="http://www.geocities.com/CollegePark/6174/jokes/calvin-hobbes-science.htm">Calvin
+and Hobbs</a> (10/29/89)
+       <ul>
+       <li> C: Dad, how come old photographs are always black and white? Didn't
+they
+have color film back then?
+       <li>D: Sure they did. In fact, those old photographs ARE in color. It's
+just the
+WORLD was black and white then.
+      <li> C: Really?
+      <li> D: Yep. The world didn't turn color until sometime in the
+1930s, and it was pretty grainy color for a while, too.
+
+      <li> C: That's really weird.
+      <li> D: Well, truth is stranger than fiction.
+
+      <li> C: But then why are old PAINTINGS in color?! If the world was black
+and
+white, wouldn't artists have painted it that way?
+      <li> D: Not necessarily. A lot of great artists were insane.
+
+      <li> C: But... but how could they have painted in color anyway? Wouldn't
+their
+paints have been shades of gray back then?
+      <li> D: Of course, but they turned colors like everything else in the '30s.
+
+      <li> C: So why didn't old black and white photos turn color too?
+      <li> D: Because they were color pictures of black and white, remember?
+      </ul>
+     </ul>
+   <li> Goal of clustering is to find natural kinds
+</ul>
+
+<h2>Good natural kinds should be easy to seperate</h2>
+<ul>
+   <li> As usual, think high dimensionally
+   <li> Try separating cats from dogs.
+      <ul>
+      <li> weight
+      <li> fuzziness of tail
+      <li> friendlyness
+      <li> food likes
+      <li> etc
+      </ul>
+   <li> No property may generate perfect separation
+   <li> But, they are still many 100s of SD apart
+   <li> Disjoint when considering: weight - fuzzy + friendly + ...
+</ul>
+
+<h2>Blackboards are a bad model</h2>
+<ul>
+   <li> Three groups in 2-D is not good model
+   <li> Instead, 3 groups, in 100-D but now hard to draw
+   <li> But now we can project the 3 groups back down to 2-D
+</ul>
+
+<h2>K-means algorithm</h2>
+<ul>
+   <li> Randomaly assign groups
+   <li> Compute center of each group
+   <li> Go back and reassign to closes group
+   <li> repeat
+</ul>
+<h2>Optimization</h2>
+<ul>
+   <li> Hill climbs up sum sum (x - center)<sup>2</sup>
+   <li> Only shows it won't cycle
+   <li> But since we don't have a loss function anyway, no need to
+actually optimize it.
+</ul>
+<h2>Testing the clusters</h2>
+<ul>
+   <li> If the clusters are good they should predict other features
+that weren't used in clustering
+(say number of tandem repeats in DNA of cats vs dogs)
+   <p>
+ Nice theory by <a
+href="http://www.cs.huji.ac.il/~tishby/">Tali Tishby</a> in his
+talk "Feature complexity and generalization - the missing dimension of
+learning?"
+   <li> Good clusters should make better features for supervised
+learning.  (Abishek is working on this).
+   <li> The total variablility should go down a lot.  More than one
+would expect by chance alone.  BUT, how much should it go down by
+chance?
+    <ul>
+    <li> consider multivariate normal that is noise (dim = d, number
+clusters = k)
+    <li> Easier to analyse if we use exemplar rather than actual mean
+(Sometimes called k-median)
+    <li> if d &gt &gt k: then no improvement for noise
+    <li> if d = log(k): then massive overfitting
+    <li> But this is effective dimension:  So one large eigenvalue
+would make it effectively 1 dimention.  So overfitting would occur.
+    </ul>
+</ul>
+
+<h2>Natural kinds don't need perfect algorithms</h2>
+
+Natural kinds should be well seperated.  All other clusters are
+sperious.  So this really is a CS problem rather than a statistical
+signfiicance problem.
+
+<ul>
+   <li> No need to optimally subselect features since there should be
+good seperation in many directions.
+   <li> No need for carefully dealing with the boundary.
+   <li> No need for soft clustering 
+</ul>
+
+</ul>
+
+ <hr>
+<address>dean@foster.net</address>
+</body> </html>

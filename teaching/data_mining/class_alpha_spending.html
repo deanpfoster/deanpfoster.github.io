@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Streaming features and beam search</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Nov  1 14:48:15 EST 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Streaming searching</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> Collect HW 3
+   <li> HW 4 due next thursday.
+</ul>
+
+<h2>Biostat: alpha spending rules</h2>
+<ul>
+   <li> Stopping in clinical trials.
+   <li> multiple endpoints / tests.
+</ul>
+
+<h2>Alpha spending in variable selection</h2>
+<ul>
+   <li> Sequentially look at each variable
+   <li> Spend some alpha on it to see if it should enter
+</ul>
+<h2>FWER</h2>
+<ul>
+   <li> Probability of union less than sum of probabilities
+   <li> Union is chance of making even one mistake
+   <li> FWER = Family wide error rate = worst chance of error
+   <li> Theorem: alpha spending controls FWER at level alpha.
+</ul>
+<h2>But do we want FWER for prediction?</h2>
+<ul>
+   <li> FWER guarentees not over fitting
+   <li> Draw typical out-of-sample MSE graph
+   <li> Out of sample graph version of FWER: It guarentees never going up by alpha by
+        bad luck
+   <li> We want the minimum, not a conservative left point
+   <li> Note: Some people argue we don't even want FWER for multiple testing
+   <li> Makes more sense to tradeoff between type I and type II error
+</ul>
+<h2>Better scheme</h2>
+<ul>
+   <li> For each rejection, give out new alpha to spend
+   <li> Called alpha investing rule
+   <li> amount given out controls tradeoff between type I and type II error
+</ul>
+<h2>Better analysis</h2>
+<ul>
+   <li> 2 x 2 table (see handout) U/V/T/S. V+S=R. U+V=m<sub>0</sub> =
+number true nulls
+</ul>
+<h2>FDR: False Discovery Rate</h2>
+<ul>
+   <li> FDR = E(V/R)
+   <li> FDR < alpha is target
+   <li> Simes procedure will control FDR
+</ul>
+<h2>EDC: Excess discovery count</h2>
+<ul>
+   <li> EDC = E(S - gamma R) + alpha
+   <li> EDC > 0 is target
+   <li> alpha controls FWER(0)
+   <li> gamma controls FDR at rate about 1-gamma
+</ul>
+
+<h2>Theorem: alpha investing controls EDC</h2>
+<ul>
+   <li> proof next time?
+</ul>
+
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Where to find additional code</TITLE>
+<META NAME="description" CONTENT="Where to find additional code">
+<META NAME="keywords" CONTENT="class08">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class08.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00020000000000000000">Where to find additional code</A></H1>
+<P>
+These ``S-Plus'' routines are infact interfaces to stand alone code,
+developed to do heavy-weight scientific computing; linear algebra,
+optimization etc.
+<P>
+There are propretiary  software suites available for these tasks -
+two popular ones being IMSL and NAG. However, if you want to put these
+routines in your code and re-distribute it, then you should check the
+license carefully.
+<P>
+The alternative is to obtain free routines, just like those built into S-Plus.
+The place to go is <TT>NETLIB</TT>. It's like  <TT>STATLIB</TT> but for
+mathematical software. NETLIB is the ``mother-load''.
+<P>
+<H2><A NAME="SECTION00021000000000000000">How to bring your ``real code'' into S-Plus</A></H2>
+<P>
+One of the key features of a decent environment is that it should
+be extensible. S-Plus allows you to import your own source.
+The commands to do this are <TT>.C</TT> and <TT>. Fortran</TT>.
+<P>
+There are 2 main reasonsfor wanting to do this.
+<P>
+1. Sloth - why re-invent the wheel, especially if someone has made
+a better one than you can.
+<P>
+2. Speed - S-Plus is interpreted, it's very slow. It's great for fast
+proto-typing but a disaster for really memory hogging, large jobs. Linking
+to compiled code outside S-Plus can speed up execution 100 times.
+<P>
+We'll have a look at some examples of bringing code into S-Plus.
+<P>
+<HR><A NAME="tex2html24" HREF="node3.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/next_motif.gif"></A> <A NAME="tex2html22" HREF="class08.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/up_motif.gif"></A> <A NAME="tex2html16" HREF="node1.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/previous_motif.gif"></A>   <BR>
+<B> Next:</B> <A NAME="tex2html25" HREF="node3.html">A look at Boosting</A>
+<B>Up:</B> <A NAME="tex2html23" HREF="class08.html">Class 8 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html17" HREF="node1.html">Optimization in S-Plus and </A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Mar  5 08:09:37 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

@@ -1,0 +1,125 @@
+<html>
+<header>
+<title>  STAT 541: Two-Sample</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Two-Sample </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+<li> Give back homework
+</ul>
+
+<h2> Two sample t-test</h2>
+
+
+<ul>
+  <li> Scientific contex
+       <p>
+       <ul>
+	 <li> Suppose we compare two groups
+	 <li> one typically called X other typically called Y.
+	 <li> Or scientifically: control and treatment group
+	 <li> EG: Do people with ACL replacements do "better" than
+	      those without ACL replacement?
+	 <li> interested in deciding which group is
+	      better/larger/higher mean.
+       </ul>
+       </p>
+  <li> How can we compare two group?
+       <p>
+       <ul>
+	 <li> Traditional answer: two sample t-test (keyword = pooled)
+	 <li> Also called simple regression
+	 <li> Let indicator represent each group
+	 <li> Run regression of outcome on indicator variable 
+       </ul>
+       </p>
+  <li> What if the two groups have different variances?
+       <p>
+       <ul>
+	 <li> Traditional answer: Welchs approximation (also large
+	      sample) 
+	 <li> Also called simple regression using the sandwich
+	      estimator
+	 <li> Done automatically by all statistical packages
+       </ul>
+       </p>
+  <li> What if we take two measurement on each person?
+       <p>
+       <ul>
+	 <li> Traditional answer: paired t-test 
+	 <li> Also called multiple regression
+	 <li> First indicator called treatment (1=treatment,
+	      0=control)
+	 <li> Add one indicator for each person (called "row effect")
+	 <li> Don't look at row effects, only at column effect
+	 <li> Easy to represent in a table
+       </ul>
+       </p>
+</ul>
+<h2>ANOVA</h2>
+<ul>
+  <li> Scientific context
+       <p>
+       <ul>
+	 <li> Suppose we compare more than two groups
+	 <li> EG: Which surgery is best, ACL reconstruction,
+	      cadavorious replacement, none, Teflon replacment
+	 <li> interested in deciding which group is best.
+       </ul>
+       </p>
+  <li> How can we compare many groups?
+       <p>
+       <ul>
+	 <li> Traditional answer: one-way ANOVA
+	 <li> Also called multiple regression
+	 <li> have one indicator for each group (no constant)
+	 <li> Multiple comparisons come up
+       </ul>
+       </p>
+  <li> What if the two groups have different variances?
+       <p>
+       <ul>
+	 <li> Traditional answer: Oops, don't like doing that
+	 <li> Easy with sandwich estimator
+       </ul>
+       </p>
+  <li> What if we take several measurements on each person?
+       <p>
+       <ul>
+	 <li> Traditional answer: two way ANOVA (keyword randomized
+	      block design)
+	 <li> Also done as multiple regression
+       </ul>
+       </p>
+</ul>
+
+<h2>The interesting new issue is multiple comparisons</h2>
+<ul>
+  <li> Compare to grand mean (Bonferroni = sqrt(2 log p))
+  <li> Compare all pairs (balanced design Bonferroni = 2 sqrt(2 log
+       p), work out both ways of thinking about this)
+  <li> Improvement: Tukey-Cramer, uses dependencies in situation and
+       hence get a slight improvement over Bonferroni
+  <li> Easier problem: HSU, uses the fact that we don't care which is
+       best, only if each category COULD be best or not.
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Feb 27 08:48:49 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

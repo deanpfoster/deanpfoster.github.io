@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter V.2: The poisson distribution (part 2)</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Homework 8 due Monday.
+  <li> Read p 279 - 286.
+  <li> Mean = 83, SD = 9.
+</ul>
+
+<h1>Models</h1>
+
+<h2>Examples</h2>
+<ul>
+  <li> Some times it works, other times not:
+    <ul>
+    <li> Good model for bikers in triathelone.
+    <li> Bad model for bikers in tour de france.
+    <li> Why?
+    </ul>
+    <li> BUT: Triathelon's are a Nonhomogeneous process
+       <ul>
+       <li> lambda(t) instead of lambda is rate
+       <li> E(X<sub>t+h</sub>-X<sub>t</sub>) = lambda(t)h
+       <li> P(X<sub>t+h</sub>-X<sub>t</sub> = 1) = lambda(t)h
+       <li> Example: Call board.
+       </ul>
+</ul>
+
+<h1>Theorem V.2.1 (p 280): Coupling argument</h1>
+
+THEOREM: Suppose,
+<ul>
+<li> epsilon<sub>i</sub> is bernoulli: P(epsilon<sub>i</sub> = 1) =
+     p<sub>i</sub>.
+<li> epsilon<sub>i</sub> are independent.
+<li> S = sum epsilon<sub>i</sub>
+</ul>
+Then S is approximately poisson with mean = sum p<sub>i</sub>.  In
+particular, the error is bounded by sum  p<sub>i</sub><sup>2</sup>.
+
+<h2>Proof</h2>
+<ul>
+<li> NOTE: If all p's are the same--this is the traditional poisson
+approximation.  Just do it!
+<li> Alternative proof: if n = 1, and p is small, Binomial = bernulli
+= Poisson.  Now sum the Poissons to discover that S is approximately
+Poisson.  But how accurate is this?
+  <ul>
+    <li> Each is off by p<sup>2</sup>
+    <li> total error is off by np<sup>2</sup> = lambda p.
+  </ul>
+<li>What is going on in second proof?
+  <ul>
+    <li> Sequence of epsilons
+    <li> Sequence of X's that approximate the epsilons
+    <li> They are "coupled" to live on the same probability space.
+         (New trick that we didn't know when I was a kid.)
+    <li> sum X's = sum epsilon's unless at least one differ.
+    <li> bound probability of at least one differing by sum
+  </ul>
+</ul>
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Mon Mar 29 12:32:11 EST 2004
+<!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter V.4: The uniform distribution</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Read 297-305
+  <li> Read V.3 on your own.
+    <ul>
+    <li> Gamma distribution for waiting times
+    <li> exponential distribution for inter-arrival times
+    <li> Binomial distribution for Xs|Xt
+    </ul>
+</ul>
+
+<h1>Relationship to the uniform distribution</h1>
+<h2>Approximation</h2>
+
+Story:
+<ul>
+  <li> Pick up n darts and throw them at interval of length t
+  <li> Look at picture.  Looks like a Poisson process.
+  <li> Each spot is equally likely (work out P(N(t,t+h)=1))
+  <li> no spot has two darts (work out P(N(t,t+h)>1))
+  <li> But not independent.
+     <ul>
+     <li> Divide into intervals
+     <li> work out probably 
+     <li> Ends up with slight negative dependency
+     </ul>
+</ul>
+Amazing fact:
+<ul>
+  <li> If you pick up a poisson number of darts then counts are independent!
+  <li> P(X,Y) = P(X,Y|N)P(N) ends up with independent Poissons
+  <li> We don't "care" that they are Poissons--the independence is
+       enough to show we have a poisson point process
+</ul>
+<h2>Theorem</h2>
+Interpret the above differently and we get:
+<p>
+THEOREM: f(w1,w2,...,wn|N(t)=n) = n!t<sup>-n</sup>.
+<p>
+Proof:
+<ul>
+  <li> We can generate a Poisson process any way we like and it is the
+same, so lets use our "poissonization" of a uniform distribution.
+  <li> U<sub>1</sub> is where first dart landed, etc
+  <li> W<sub>1</sub> is where left most dart, etc
+  <li> Given N(t)=n, the U's are uniform.
+  <li> But, the W's are NOT uniform!  (P(W<sub>1</sub> < t/2) > 1/2)
+  <li> But all we lose is the order--hence the n!.
+</ul>
+
+<h2>Example 1: NPV of Poisson payments</h2>
+
+<h3>By the book</h3>
+
+M = E(sum exp(-beta W<sub>k</sub>))
+<p>
+
+
+<h2>Example 2: Shot noise</h2>
+
+I(t) = sum h(t - W<sub>k</sub>)
+
+<p>
+
+Obviously, same if you use a Poisson number of U's.  But that is
+easier to work with.
+
+
+<h2>Time permitting: do details</h2>
+
+    <ul>
+    <li> Gamma distribution for waiting times
+    <li> exponential distribution for inter-arrival times
+    <li> Binomial distribution for Xs|Xt
+    </ul>
+
+<hr>
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Mar 23 10:42:20 EST 2005
+<!-- hhmts end -->
+</body> </html>

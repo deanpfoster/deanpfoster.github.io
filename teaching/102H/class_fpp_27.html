@@ -1,0 +1,128 @@
+<html>
+<header>
+<title> Statistics 102H: FPP (or FPPA) Freedman's book on Statistics</title>
+</header>
+<body>
+<center>
+<h1>Statistics 102H: FPP (or FPPA) Freedman's book on Statistics</h1>
+</center>
+<p>
+
+<h2>Administrivia</h2>
+
+<ul>
+  <li> analysis of a <a
+href="http://www.health-news.co.uk/showstory.asp?id=109816">recent
+article</a>.  ifestyle linked to prostate cancer risk:
+
+       <p>
+       Tuesday, April 08, 2003
+<p>
+       HMG Worldwide 2003 http://www.health-news.co.uk/
+<p>
+       By Rael Martell
+<p>
+       Maintaining a normal body mass index, engaging in regular
+physical activity and undergoing screening for prostate cancer can
+help stop disease progression, US research shows.  <p>
+
+       In a six-year study of 1,117 patients with localised prostate
+cancer, researchers from the University of Texas looked at prostate
+specific antigen levels, the aggressiveness of the cancer-- measured
+by a biopsy Gleason score -- and the size of the tumour.
+ <p>
+
+       The researchers discovered that patients with a high risk of
+progression were significantly more likely to be obese, to exercise
+less than twice a week and to not undergo annual prostate screening.
+<p>
+   
+    On the contrary, those with the lowest risk kept their weight
+down, undertook regular exercise and were screened regularly for signs
+of the What we are finding has positive implications for prostate
+cancer according to Dr Mfon Cyrus-David of the s department of It
+appears to be important that men maintain a low body mass index,
+exercise to the point of sweating at least two times a week, and are
+screened regularly for prostate he says.
+<p>
+   
+    The researchers emphasise that their conclusions are preliminary
+and a follow-up study is needed to validate their findings.
+       <p>
+
+       The study is one of the first to attempt to quantify the
+predictive risk that lifestyle factors have on whether or not prostate
+cancer will recur in patients who have been treated.
+<p>
+       The findings were due to be revealed at the cancelled meeting
+of the American Association of Cancer Research in Toronto, Canada,
+this week.
+<p>
+       Source: The University of Texas MD Anderson Cancer Center
+       cancer,epidemiology.
+<p>
+       
+
+<hr>
+<h2>Chapter 27: two boxes</h2>
+
+<h3>SE of two boxes</h3>
+All good statistics consists of contrasts
+<ul>
+  <li> if you exercise you will ... compared to if you don't exercise
+  <li> if you get a undergraduate degree you will earn more ... compared to if you don't
+  <li> etc
+</ul>
+How do we analyse these exeperiments?
+<ul>
+  <li> Consider two boxes: A and B
+  <li> draw from each box
+  <li> subtract means = estimate of difference
+  <li> What is the SE?
+</ul>
+Var(X - Y) = Var(X) + Var(Y) - 2 Cov(X,Y)
+<p>
+With luck, the covariance is zero
+<ul>
+  <li> Say if independent
+</ul>
+Hence: SE(difference) = sqrt(SE<sub>A</sub><sup>2</sup>+SE<sub>B</sub><sup>2</sup>)
+<h3>Z statistic for difference</h3>
+Z = (observed - target)/SE
+<h3>Experiments</h3>
+One box: two labels on each ticket
+<ul>
+  <li> Difficulty: only observe one of two values
+  <li> Dependent draws typically (i.e. choose sample, then randomize as to which half of ticket to observe)
+  <li> Difference is easy
+  <li> But what is the SE?
+  <li> Amazingly enough: same as before
+</ul>
+<h3>If we observed both halfs of ticket?<h3>
+<ul>
+  <li> just take the difference and you have a single ticket problem!
+</ul>
+<h3>page 514: Tversky trial</h3>
+
+<ul>
+<li> Phrasing of question.
+<li> order effect of questions
+</ul>
+
+<hr>
+
+<h2><a href="homework.html">Homework</a></h2>
+<ul>
+  <li> Read chapter 26.  In particular, read sections 5 - 8.  I didn't cover them, but you are responsable for them.
+  <li> What will your test statistic be in your project?  (You might not be able to answer this yet if your project involves a regression)
+</ul>
+<hr>
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Wed Apr  9 08:24:43 2003
+<!-- hhmts end -->
+</body>
+
+</html>
+

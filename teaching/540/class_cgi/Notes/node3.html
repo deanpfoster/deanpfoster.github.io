@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Saving state</TITLE>
+<META NAME="description" CONTENT="Saving state">
+<META NAME="keywords" CONTENT="class03">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="class03.css">
+</HEAD>
+<BODY TEXT = "#000000" bgcolor="#FFFFFF" alink="#CC0000" vlink="#0000CC" LANG="EN">
+<FONT  color="0000000" FACE="Arial,Helvetica,Sans Serif">
+<H1><A NAME="SECTION00030000000000000000">Saving state</A></H1>
+<P>
+The WEB was originally designed (the HTTP protocol) 
+to deliver documents. The conversation needed between client and server 
+to accomplish this is simple:
+<P>
+CLIENT: GET me this document.
+<P>
+SERVER: HERE it is.
+<P>
+End of story.
+<P>
+There is no need to have any memory of previous conversations - so the
+interactive aspect of the WEB is absent. As the WEB developed there
+was an increasing demand for the facility to interact, and in order to do this,
+past conversations needed to be remembered - this is what is meant by
+``saving state''.
+<P>
+We will discuss 2 ways of saving state. For the first method the
+state information is stored on the server, and for the second it's stored
+on the client.
+<P>
+<UL><LI> Session keys.<LI> Cookies.
+</UL><H3><A NAME="SECTION00030100000000000000">Session keys</A></H3>
+<P>
+For this method, a database sits on the server. Each user provides  a key
+into the database, the script takes the users key and uses it to look
+up their information on the database. This information can be modified and
+added to. The key is usually passed between client and server in a hidden
+field in the HTML form. This way, when entered once, the user no
+longer sees it.
+<P>
+<H3><A NAME="SECTION00030200000000000000">Cookies</A></H3>
+<P>
+Cookies are good ways of passing around small amounts of information.
+They reside on the client. A cookie in its most basic form consists
+of  a key/value pair together with a URL. Whenever you send a GET
+request to a URL, your browser checks the cookie data base to see
+if any cookies belong to that URL. If they do, then the cookies are
+added to the HTTP header. The server will then receive the GET request together
+with the cookies which can then be processed as desired - usually to extract
+some information about you.
+<P>
+A basic cookie setting command looks like this and would be sent by the server
+in the HTTP header:
+<P>
+<PRE>Set-Cookie: name=Waterman</PRE>
+<P>
+This could then be stored on the client data base as
+<P>
+<PRE>www-stat.wharton.upenn.edu/~waterman name=Waterman</PRE>
+<P>
+If the client returns to www-stat, and requests a document in the
+waterman subdirectory the following line is appended to the GET request:
+<P>
+<PRE>Cookie: name=Waterman</PRE>
+<P>
+Here's a simple script that sends out a cookie.
+<P>
+<PRE>#!/usr/local/bin/perl
+
+# A script that sends out a cookie.
+# The cookie is sent by adding a line to the HTTP header.
+
+print ``Content-type: text/html\r\n'';
+print ``Set-Cookie: name=Waterman; path = /cgi-bin/\r\n'';
+print ``\r\n'';
+
+### Now print out the HTML document.
+
+print ``&lt;HTML&gt;'';
+print ``&lt;HEAD&gt;&lt;TITLE&gt; Cookie sender&lt;/TITLE&gt;&lt;/HEAD&gt;'';
+print ``I've just sent you a cookie!'';
+print ``&lt;/HTML&gt;'';</PRE>
+<P>
+Cookies have options that can be set; 
+<UL><LI> an <B>expiry</B> date<LI> a <B>path</B> for which the cookie is valid<LI> a <B>domain</B> for which the cookie is valid<LI> return only over a <B>secure</B> connection.
+ </UL><HR><A NAME="tex2html36" HREF="node4.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/next_motif.gif"></A> <A NAME="tex2html34" HREF="class03.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/up_motif.gif"></A> <A NAME="tex2html28" HREF="node2.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="http://www-stat.wharton.upenn.edu/~waterman/icons/previous_motif.gif"></A>   <BR>
+<B> Next:</B> <A NAME="tex2html37" HREF="node4.html">Using mod CGI</A>
+<B>Up:</B> <A NAME="tex2html35" HREF="class03.html">Class 3 Stat 540 </A>
+<B> Previous:</B> <A NAME="tex2html29" HREF="node2.html">Reading fromand writing </A>
+<P><ADDRESS>
+<I>Richard Waterman <BR>
+Fri Jan 29 06:45:16 EST 1999</I>
+</ADDRESS>
+</FONT>
+</BODY>
+</HTML>

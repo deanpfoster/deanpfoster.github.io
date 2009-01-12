@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+
+open(MYOUTFILE,">output.txt"); ### open file for output
+                               ### will detroy an old one if it exists.
+print MYOUTFILE "Hello my new file!\n";
+print MYOUTFILE "Hello again my new file!\n";
+
+close MYOUTFILE;
+
+print "Should be writing to the screen again.\n";
+
+open (MYOUTFILE, ">>output.txt"); ### Open the output file again.
+                                  ### but this time appending to it.
+
+select  MYOUTFILE; ### Now a print without a file handle will 
+                   ### default to MYOUTFILE;
+
+print "This should go back again to my file\n";
+
+print STDOUT "Even though the file is open this should go to the screen\n";
+
+print "And we are back to the file again\n";
+
+close MYOUTFILE;
+
+select STDOUT;
+
+print "And we are back to the screen again\n";
+

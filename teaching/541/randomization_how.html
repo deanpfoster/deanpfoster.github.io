@@ -1,0 +1,87 @@
+<html>
+<header>
+<title>  STAT 541: Randomization (How To)</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 541: Randomization (How To) </h1></center>
+
+
+<H2>Admistrivia</h2>
+
+<ul>
+  <li> no homework this week (yea!)
+</ul>
+
+<h3>As treated vs intent to treat</h3>
+<ul>
+  <li> doesn't it make more sense to look at those who get the drugs?
+  <li> Called "as treated" (obviously named by the evil empire!)
+  <li> Average treated - average untreated is hopelessly biased
+  <li> Suppose you have three types:
+       <ol>
+	 <li> always takers
+	 <li> never takers
+	 <li> proper subjects (as assigned takers)
+       </ol>
+  <li> Then we can try to estimate the third group
+</ul>
+
+<h3>Controlled experiments/random sampling</h3>
+<ul>
+  <li> Chase down some goats
+  <li> 100 mice are in a cage, pick 50 for treatment, leave remaining
+       50 for control
+  <li> Slow goats/mice are sampled!
+  <li> Must use randomization device
+</ul>
+
+<h3>Blocking</h3>
+<ul>
+  <li> JMP will generate random Bernulli trials
+  <li> Problem with Bernuilli trials is that they are independent.
+  <li> You might get everyone under treatment!
+  <li> Better is to use a multinomial (fancy word for pulling cards
+       from a deck without replacement)
+</ul>
+
+<h3>Stratification</h3>
+<ul>
+  <li> Blocking for treatment vs control, why not also block for male
+       vs female?
+  <li> Called stratification.
+  <li> Good idea: but male/female, young/old, black/white,
+       healthy/sick.  Now we have one person per cell.
+  <li> Talk to doctor to see what is likely to be important and
+       control for the single most important issue.
+</ul>
+<h3>Non-stratification approaches</h3>
+<ul>
+  <li> What if you want to control for 10 things?
+  <li> You need at least 1024 subjects!
+  <li> If you use 11 subjects and regression you are fine.  (Ok, 40 would be more realistic)
+  <li> So do a multiple regression on things you want to control for
+  <li> Just don't tell anyone!  Call it "adjusted" or something else
+  <li> Note: Toxicity can't be used as a covariate.  Why?
+</ul>
+<h3>Some math on efficiency</h3>
+<ul>
+  <li> Controling ahead of time doesn't cost a degree of freedom
+  <li> Controling afterward costs a degree of freedom
+  <li> No bigee-if you have at least 50 observations.  Bigee if you have only 10 observations. 
+</ul>
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Mon Apr 23 17:38:57 2001
+<!-- hhmts end -->
+<p>
+</em>
+
+</body>
+
+</html>
+

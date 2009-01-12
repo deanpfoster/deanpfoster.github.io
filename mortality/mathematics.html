@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<title>The mathematics behind our calculations</TITLE>
+</HEAD>
+<h1>The mathematics behind our calculations</h1>
+
+<p>
+<a href="life_table_discussion.html">Life tables</a> tell us the
+fraction of people that are of age 75 that die before before reaching
+age 76.  Call this q(75).  We have this information for both males and
+females.  But, we don't have it for a particular individual.  
+<p>
+Call p(75) your personal chance of dieing before reaching 76 if you
+make it to 75.  Suppose you are i years of age.  Then what we need is
+to find a way to figure out your p(i), your p(i+1), your p(i+2), etc.
+<h2>Additive risks</h2>
+<p>
+So our problem is to convert this generic number into one appropiate
+for a particular individual, namely you.  There are two basic ways we
+have to modify it.  First if you drive a 100 thousand miles this year,
+you will have a 1% chance of dieing in an automobile accident.  So,
+your personal chance of death this year, p(i) is q(i) + .01.  If you
+did this next year also, p(i+1) = q(i+1) + .01, etc.
+<h2>Multiplicative risks</h2>
+<p>
+Other health habits only effect you when you are older.  For example,
+inspite of smoking being very bad for you, your chance of dieing from
+smoking when you are in your 20s are very slim.  This is clear if we
+think of smoking a pack a day as doubling your chance of death.  This
+is a small difference to a 20 year old (chance of death goes from
+1/1000 to 2/1000.  So it would be a small chance compaired to the
+driving risk described above.  But, if you are 60 it goes from 1/100
+to 2/100, so it is about the same as the driving risk above.  But, if
+you were 80, it would double your 1/20 chance of death to a 1/10
+chance of death - - a 5% increase in death rate.
+<p>
+In fact we don't use the above method since it might generate a chance
+of death greater than one.  What we use instead is what is called the
+Cox proportional hazards model.  For small numbers it works out
+identically to the above.  For large probabilities, it makes sure the
+probability stayes between zero and one.  It is easier to state if we
+work with the chance of staying alive, 1-p(i):
+<p align=center>
+ 1 - p(i) = (1 - q(i))^(1+c)
+<p>
+where c is a correction.  If c is zero, then 
+<p align=center>
+ 1 - p(i) = 1 - q(i)
+<p>
+so the chance of your living through out the year is the same as for a
+typical person.  But, if c = 1,
+<p align=center>
+ 1 - p(i) = (1 - q(i))^2
+<p>
+If q(i) is small, then p(i) = 2 q(i).  So your chance of dieing is
+doubled.  A more accurate way to think about it is that if your c=1,
+then you have to survive the year twice.  
+
+<h2>Combining it all together</h2>
+<p>
+Our proceedure then is to first figure out the base accident rate.
+(Assuming it is mostly due to driving about 10k miles per year).  What
+is left over is health base rate.  We then correct the base health
+rate by using the Cox model.  Finally we add in the actual number of
+miles you drive to get p(i).  This is done for each year (assuming
+your driving and other health habits stay the same.)  Finally it is
+all put together to get your predictions.
+
+<hr>
+<address> ungar@cis.upenn.edu
+

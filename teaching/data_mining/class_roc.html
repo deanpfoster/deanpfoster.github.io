@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Statistical Data mining: Alternatives to proper scoring rules</title>
+</head>
+
+<body>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Thu Oct  6 14:36:52 EDT 2005
+<!-- hhmts end -->
+by <a href="http://gosset.wharton.upenn.edu/~foster/">Dean Foster</a>
+<p>
+<h1>Statistical Data mining: Alternatives to proper scoring rules</h1>
+
+<h2>Admistrivia</h2>
+<ul>
+   <li> OPIM is running a data mining <a
+href="http://opim.wharton.upenn.edu/home/wp/talks.html">seminar</a>
+(Tuesday at noon, in G50.)  You should all go.  This tuesday my friend
+and long term coauthor and generally great speaker is talking.  (He
+will be talking about calibration.)
+</ul>
+
+<h2>2 x 2 table of outcomes</h2>
+<ul>
+  <li> action taken x outcome
+  <li> 4 numbers: TP, FP, TN, FN (P=test result is positive)
+  <li> Marginals will be called: P,N, S=sick, H=health
+  <li> How much time can we spend analysing them?
+  <li> Note: action might be something like: I(p > .5).  The p has
+       been lost.
+</ul>
+
+<h2>Alternatives to proper scoring rules</h2>
+<ul>
+  <li> <a href="http://en.wikipedia.org/wiki/Receiver_operating_characteristic">ROC</a> curves
+    <ul>
+    <li> Type I, type II error graph: easy to understand: FN/S, FP/H
+       <ul>
+       <li> alpha = FP/H
+       <li> beta = FN/S
+       <li> power = (sensitivity) = TP/S
+       </ul>
+    <li> ROC is transposed version of this: specificity=TN/H,
+sensitivity=TP/S (oppisite of error rates)
+    <li> sensitivity = fraction true positives
+    <li> specificity = fraction true negatives
+    <li> Both increase as threashold decreases
+    <li> All concept of claimed probability is lost 
+    </ul>
+  <li> Precision / recall
+    <ul>
+    <li> recall = TP/S
+    <li> precision = TP/P
+    <li> F measure = 2 * precision * recall / (precision + recall)
+    </ul>
+  <li> Area under the curve (ROC typically)
+   <li> lift charts
+    <ul>
+    <li> Y = TP/P vs P
+    </ul>
+</ul>
+<h2>Look at error graph</h2>
+<ul>
+   <li> Intepret slope
+   <li> Note: parametric curve
+   <li> If slope = parameter, called prediction is called calibrated
+</ul>
+<h2>Calibration</h2>
+<ul>
+  <li> Plot frequency vs claimed probability
+  <li> See <a href="handout_calibration_ne.ps">handout</a> from talk
+  <li> Assuming calibration: AUC, F-measure and others start making
+sense
+  <li> Without calibration: you are getting things truely wrong
+</ul>
+
+
+<hr>
+<address>dean@foster.net</address>
+</body> </html>

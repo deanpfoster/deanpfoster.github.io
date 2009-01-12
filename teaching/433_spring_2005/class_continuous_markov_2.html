@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Stat 433: Chapter VI.2 & 3: Continuous markov</title>
+</head>
+
+<body>
+<h2>Admistrivia</h2>
+<ul>
+  <li> Homework due tomarrow
+  <li> Read sections 6.1,2,3.
+</ul>
+
+<h1>Continuous markov models: Pure death processes</h1>
+<h2>Pure death process</h2>
+
+Birth / Death whats the difference? (Death = N - births?)
+
+<ol>
+   <li> P(X(t+h) - X(t) = -1|X(t) = k) = mu<sub>k</sub> h + o(h)
+   <li> P(X(t+h) - X(t) = 0|X(t) = k) = 1 - mu<sub>k</sub> h + o(h)
+   <li> P(X(t+h) - X(t) > 0|X(t) = k) = 0
+   <li> X(0) = N.
+</ol>
+<h2>Cool new way of representing "Yule"/linear death process</h2>
+
+Suppose mu<sub>k</sub> = alpha k.
+<ol>
+   <li> Each person has chance alpha h of dieing in time periods h.
+   <li> So expected number of deaths is alpha X(t) h.
+   <li> But each person is easy to solve individually
+   <li> Each treated independently: call death time eta<sub>i</sub>
+   <li> P(X<sub>t</sub> = n) = P(exactly N-n people die up to t)
+   <li> but this is just a Bernulli sequence!
+</ol>
+
+<h1>Birth / death processes</h1>
+<ol>
+   <li> P<sub>i,i+1</sub>(h) = lambda<sub>k</sub> h + o(h)
+   <li> P<sub>i,i-1</sub>(h) = mu<sub>k</sub> h + o(h)
+   <li> P<sub>i,i</sub>(h) = 1 - mu<sub>k</sub> h - lambda<sub>k</sub> h + o(h)
+   <li> P<sub>i,j</sub>(0) = 0 unless i = 1
+   <li> mu<sub>0</sub> = 0.  All others, positive
+</ol>
+
+Write it as a matrix:
+<ul>
+  <li> P<sub>i,j</sub>(h) basically looks like the identity matrix for
+small h
+  <li> So we can write P<sub>i,j</sub>(h) = I + h A + o(h)
+  <li> What is A?
+  <li> Exponential asside:
+     <ul>
+     <li> P<sub>i,j</sub>(t) = P<sub>i,j</sub>(h)<sup>t/h</sup>
+     <li> Taking limit: P<sub>i,j</sub>(t) = exp(tA).
+     <li> Make it computable later (at least now we have an exact definition)
+    </ul>
+</ul>
+<h2>Chapman-Kolmogorov equations</h2>
+
+P(t+s) = P(t)P(s)
+<p>
+<ul>
+  <li> Write also scalar form
+  <li> Continuous time analog of discrete case: P<sup>t+s</sup>
+=P<sup>t</sup>P<sup>s</sup>
+
+</ul>
+<h2>Sojourn times</h2>
+<ul>
+  <li> Exponential holding times
+  <li> up with probablity lambda/(mu+lambda)
+  <li> Enough to simulate it all
+</ul>
+<h2>Slight worry</h2>
+Is the above simulation unique?  Or are there others that would
+satisify our definition?
+<p>
+Unique if sum (1/lambda)'s is infinite.
+<p>
+Otherwise, there is a positive probability of visiting +infinity and
+maybe coming back down.  Very cool, but not very realistic.
+
+
+
+
+<address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
+<!-- hhmts start -->
+Last modified: Wed Apr  7 10:06:21 EDT 2004
+<!-- hhmts end -->
+</body> </html>

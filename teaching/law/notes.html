@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Notes</title>
+</head>
+
+<body>
+<h1>Notes</h1>
+
+<h2>Outline of key points:</h2>
+
+<h3>Background:</h3>
+
+During 1980's about 30% of the young doctors were women (where young
+means under 45) and only 10-15% of the older doctors were women.  See:
+<p>
+<a
+href="http://www.cis.org/articles/1998/DocsandNurses.html#table3.1">historical
+data</a>
+<p>
+Contrast this with ARCOM who has managed to attract enough women to
+make up over 50% of all its young doctors (those with under 10 years
+experience).  Even historically, ARCOM has hired well in the sense
+that it has about 25% of its older doctors being women.  So its hiring
+practice seems to be attractive enough to women to attract almost
+twice the typical number.
+<p>
+<a href="background_statistics">(See logistic graph from JMP for supporting data.)</a>
+<ol>
+<li>
+(1) But have these women been given comparable pay increases since
+they were hired?
+<li>
+(2) Were they hired at equivalent salaries?
+<li>
+(3) Is there other evidence of pay discrimination?
+<li>
+(4) Is there promotion or hiring bias?
+</ol>
+<p>
+NOTE: They can't argue point 2 since there is no data on it.  So
+innocent until proven guilty?)
+<h3>Analysis in jmp</h3>
+
+I'm working in jmp.  <a href="nussbaum.JMP">Here</a> is the data in
+that format.
+
+<p>
+<h3>Pay increase: (<a href="dollar_increase">in dollars</a>, <a
+href="percent_increase">in percent</a>)</h3>
+<p>
+In 1985, Women were given pay increase that were $5513 less than men
+got.  But, when controlling for field and experience women got pay
+raises within $200 of those of men.  (In fact women were given larger
+increases when controling for field and experience.)  These numbers
+aren't statistically meaningful due to issues of hetroscadasticity.
+<p>
+Using percentages, is better statistics.  Raises were mostly between
+5% and 14%.  But, they were typically about .2% lower for women than
+for men (2*.1% se=.12).  When controling for field, this is left
+basically unchanged (2 * .1%, se=.13).  When years of experience is
+also controlled for, this stays statistically insignificant at .26% (2
+* .13 se=.13).
+<p>
+So, it appears that over the year 84-85 there wasn't statistically
+significant differerence between the raises given to women and those
+given to men.
+<p>
+<h3>Current salary (<a href="log_sal_85_with_point">log sal</a>, <a
+href="log_sal_85_without_point">outlier removed</a>)</h3>
+<p>
+If there was a history of pay increase discrimination it might show up
+by having current pay be lower for women than men.  Unfortunately,
+lots of other things can show up here also: years experience, field,
+previous discrimination done by the educational system of the 1950's,
+etc.  So care will have to be taken to tease out these other effects.
+<p>
+Across the entire school women are paid about 40% less (2*19%, se=3%).
+So it is obvious that women and men are different.  We didn't need
+regression to determine this fact though.
+<p>
+We will look at three sources of this pay difference: field of choice,
+years of experience and sex.
+<p>
+The most important of these three is the field each person chooses to
+enter.  When this is controlled for the pay difference drops down to
+20% (10.2% se=1.7%).  Notice that the hospital pays surgeons twice the
+average (73%, se=3%), pediatrics about par (-4%, se=4%) and doctors in
+physiology almost 1/2 of typical (-48%, se=3.7%)
+<p>
+When years of experience is controled for, the pay difference for
+women is about 7% (2*3.4% se=1.7%).  Obviously if we controlled for
+different things this number would keep changing.  Rather than try
+every possibility, let's work with an analogy.
+<p>
+"Publish or perish."  Its the montra of academia.  But if you look for
+how much a paper affects your pay, it doesn't look like publishing is
+a good thing.  Writing one more paper per year lowers your pay by 4%
+(4.4%, se=1%, controling for experience and field).  But still most of
+the doctors write about 4 papers a year?  Why are they cutting their
+salary by almost 20%?  
+<p>
+Papers are a proxy for the type of medicine you do.  It is a proxy for
+what you find interesting in life.  
+<p>
+This data doesn't prove that women are getting 7% less pay than men
+are any more than it proves that publishing a paper decreases ones
+pay.  Since both effects are statistically small, it is easy to
+believe that something else is the source of what is going on.
+<p>
+<h3>Personal expertise:</h3>
+
+I have done <a href="../research">research</a> on the importance of
+affirmative action (see ``An Economic Argument for Affirmative
+Action,'' with R.  Vohra, Rationality and Society, (1992), 176 - 188,
+with discussion by G. Loury, by D.  Friedman, and by J. Heckman and
+T. Philipson.)
+
+<p>
+
+I will be using multiple regression for purposes of analysis.  For the
+past 15 years I've been an expert on multiple regression.  (See ``The
+Risk Inflation Criterion for Multiple Regression,'' with E.  George,
+The Annals of Statistics, (1994), 1947 - 1975.)  Multiple regression
+is the primary tool for investigating these sort of problems.
+<hr>
+<address>dean@foster.net</address>
+<!-- hhmts start -->
+Last modified: Thu Dec  2 12:36:06 EST 2004
+<!-- hhmts end -->
+</body> </html>
+
