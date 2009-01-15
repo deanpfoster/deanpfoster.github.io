@@ -38,7 +38,7 @@ my $dilbert_img_0000;
 
 my $dilbert_magic_1 =  img({-src=>'http://dilbert.com/dyn/str_strip/'. 
                            $dilbert_img_0000 ,-align=>"right"});
-my $dilbert_magic = "<a href = http://www.unitedmedia.com/comics/dilbert/>" . $dilbert_magic_1 . "</a>";
+my $dilbert_magic = "<a href = http://www.dilbert.com/>" . $dilbert_magic_1 . "</a>";
 
 
 # dilbert_magic looks like: "<a href = http:...> http://www... </a>"
