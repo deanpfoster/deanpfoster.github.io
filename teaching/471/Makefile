@@ -10,12 +10,14 @@
 #
 
 
-SOURCES = "*.tex"
+SOURCES = $(wildcard *.tex)
 
 all: $(SOURCES:.tex=.tex.html)
 
 
 %.tex.html: %.tex
-	cat class_header $^ class_footer >! $@
+	touch $@
+	rm $@
+	cat class_header $^ class_footer > $@
 	
 
