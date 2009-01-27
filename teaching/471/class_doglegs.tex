@@ -6,6 +6,100 @@
 
 (\href{class_doglegs.pdf}{pdf version})
 
+\title{Fitting using broken sticks}
+
+\section{Review of the standard linear model}
+
+The standard linear regression model is:
+\begin{displaymath}
+Y_i = \alpha + \beta x_i + \epsilon_i \quad \epsilon_i \sim_{iid}
+N(0,\sigma^2)
+\end{displaymath}
+You will see this equation written in almost any research paper which
+uses data.  The names are often changed, but it is there somewhere.
+For example, it is basically equation 2.17 in Berndt of the reading.
+The entire chapter is designed to motivate that one equation.
+
+Let's break it down into pieces.
+\begin{itemize}
+\item The fit:
+\begin{displaymath}
+Y_i = \underbrace{\alpha + \beta x_i}_{\hbox{the fit}} + \epsilon_i \quad \epsilon_i \sim_{iid}
+N(0,\sigma^2)
+\end{displaymath}
+the most fun part is ``the fit''.  It describes the relationship
+between $x$ and $Y$.  This version describes a linear relationship. 
+
+\item Residuals / errors:
+\begin{displaymath}
+Y_i = \alpha + \beta x_i + \underbrace{\epsilon_i \quad \epsilon_i
+\sim_{iid} N(0,\sigma^2)}_{\hbox{The residuals}}
+\end{displaymath}
+The residuals (aka errors) themselves.  Describing them,
+looking at them, investigating them is the primary activity of a
+statistician.  It is all about error!
+\begin{itemize}
+\item The ``i.d.'':  The i.i.d. part can be broken into two pieces, ``i.''
+and ``i.d.''  The easier is the identically distributed.  It means
+each error looks like any other error.
+
+\item The ``i.'': The first ``i'' in IID is for independence.  We will
+spend an entire class on this piece.  It is the most important
+assumption in the entire model.
+
+\item the ``N'': Means normal.  Look at a q-q plot to check it.  It is
+easy to check (hence we cover it in intro classes).  We won't discuss
+it here since I assume you already know how to check it.
+
+\item Style: iid = i.i.d. = IID = I.I.D. = independent and identically
+distributed.  It is often even left off entirely since it is always
+assumed. 
+\end{itemize}
+
+\item $Y$ is upper case, $x$ is lower case: Recall from probability that
+random variables are often writtten as upper case letters.  This is
+why $Y$ is written as an upper case--it is random.  The $x$ are
+thought of as inputs, and hence not random.
+
+\item $i$ is the row index.  We might even say how many rows we have
+by the cryptic addition to the equation:
+\begin{displaymath}
+(i = 1,\ldots,n) \quad
+Y_i = \alpha + \beta x_i + \epsilon_i \quad \epsilon_i \sim_{iid}
+N(0,\sigma^2)
+\end{displaymath}
+
+\section{Is linear good enough?}
+
+Taylor (\href{http://en.wikipedia.org/wiki/Brook_Taylor}{wiki}) tells
+us that ``everything'' can be approximated by a linear equation.  So
+if there is a true relationship between $Y$ and $x$ that is
+non-linear, then we could say 
+\begin{displaymath}
+E(Y|x) = f(x)
+\end{displaymath}
+(This is yet another cryptic for of our main equation.  It could be
+written as $Y = f(x) + \epsilon$ to make it look more like our
+previous equation.)  So Taylor's theorem says that
+\begin{displaymath}
+E(Y|x) \approx \alpha + \beta x
+\end{displaymath}
+and even tells us what $\alpha$ and $\beta$ are.  
+
+In this more enlighted age, we no longer believe all functions are
+basically polynomials on steriods.  They can be very weird.  So
+Taylors naive idea of all functions being linear is no longer held
+true.  But not to worry, in the modern age we can quote Littlewood who
+said, that {\it almost} all functions are {\it almost} locally
+linear. 
+
+So what isn't linear?  Jumps, and bends.
+
+\section{Create your own fit}
+
+In most setting, your best bet is still to keep things smooth by using
+polynomials.  This is done in JMP by asking it to fit a polynomial for
+you.  Hopefully you have seen this already.  
 
 
 \end{document}
