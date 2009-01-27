@@ -1,1 +1,4 @@
 *.tex.html
+class_*.pdf
+*.aux
+*.log
