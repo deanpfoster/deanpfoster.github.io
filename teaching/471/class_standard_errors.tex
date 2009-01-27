@@ -56,23 +56,61 @@ One problem that we can fix is that of hetroskadasticity.  Suppose
 that we are regression salary (Y) on runs (X).  Then we might expect
 that 
 \begin{displaymath}
-Y = \alpha + \beta X
+Y = \alpha + \beta x
 \end{displaymath}
 will display hetroskadastic errors.  In particular, we might expect
-that the errors grow with $X$.  
+that the errors grow with $x$.  
 
 \paragraph{log-log model}  If we use logs, we can consider the model
 \begin{displaymath}
-\log(Y) = \alpha + \beta \log(X) + \epsilon
+\log(Y) = \alpha + \beta \log(x) + \epsilon
 \end{displaymath}
 In this model, we now expect the errors to be homoskadastic.  
 \begin{eqnarray*}
-\log(Y) & = & \alpha + \beta \log(X) + \epsilon\\
-e^{\log(Y)} & = & e^{\alpha + \beta \log(X) + \epsilon}\\
-Y & = & e^{\alpha} e^{\beta \log(X)} e^{\epsilon}\\
-Y & = & e^{\alpha} (e^{\log(X)})^\beta  e^{\epsilon}\\
-Y & = & k X^\beta  e^{\epsilon}\\
+\log(Y) & = & \alpha + \beta \log(x) + \epsilon\\
+e^{\log(Y)} & = & e^{\alpha + \beta \log(x) + \epsilon}\\
+Y & = & e^{\alpha} e^{\beta \log(x)} e^{\epsilon}\\
+Y & = & e^{\alpha} (e^{\log(x)})^\beta  e^{\epsilon}\\
+Y & = & k x^\beta  e^{\epsilon}\\
 \end{eqnarray*}
 where we inserted a $k$ for $e^{\alpha}$ so the equation looked
 prettier. 
+
+The problem with this analysis is that we can no longer address the
+question, ``How much is a hit worth?''  Instead, we can say, ``How
+many log(dollars) is a log(hit) worth?''  If this sounds resonable to
+you, then you are definitely an economists:  A slope between
+log(Y) and log(x) is called the elasticity.
+
+\paragraph{Weighted least squares:} Alternatively, we can do weighted
+least squares.  If we believe that the errors scale with $x$, then we
+could write our model precisely as:
+\begin{displaymath}
+Y = \alpha + \beta x + x \epsilon
+\end{displaymath}
+So when $x$ is large, the errors are large and when $x$ is small the
+errors are small.  This would show up nicely in a plot of $\epsilon^2$
+vs $x$.  
+
+We can modify our equation by dividing both sides by $x$:
+\begin{displaymath}
+Y/x = \alpha/x + \beta +  \epsilon
+\end{displaymath}
+Now if we do a regression of $Y/x$ on $1/x$ we have a homoskadastic
+regression.  This methodology is called weighted least squares.  The
+weights in this case are $1/x$.
+
+There are two ways of doing a weighted least squares. 
+\begin{itemize}
+\item  First, you can
+ask JMP to simply use a column of $1/x$ as weights.  This is nice
+since the equation it generates will still use $\alpha$ and $\beta$ as
+we have been using them in the equations already.  
+\item Second, you can create the two new variables $Y/x$ and $1/x$ and
+do the regression yourself.  This allows you control and will work in
+any regression package (i.e. R or even excel).  But you then have to
+interpret the slope and intercept carefully.
+\end{itemize}
+
+
 \end{document}
