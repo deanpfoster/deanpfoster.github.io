@@ -2,3 +2,4 @@
 class_*.pdf
 *.aux
 *.log
+*.out
