@@ -27,3 +27,6 @@ all_pdf: $(SOURCES:.tex=.pdf)
 	pdflatex $^
 	
 
+install: all
+	scp -p *.pdf      go:public_html/teaching/471/
+	scp -p *.tex.html go:public_html/teaching/471/
