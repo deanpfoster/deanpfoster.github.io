@@ -1,7 +1,14 @@
-\documentclass{article}
+\documentclass{article} % -*- auctex -*-
+
+\usepackage{hyperref}
 
 \begin{document}
 \title{Class: standard errors}
+
+%\href{http://twitter.com/home}{Twitter}.
+
+(\href{class_standard_errors.pdf}{pdf version})
+
 
 \section{Status so far}
 
@@ -20,7 +27,52 @@ where $\epsilon_i$ are iid and
 \item Now we want to discuss how to estimate the error in $\hat\beta$
 \end{itemize}
 
- 
+\section{Why we care}
 
+If the normal linear model holds, we know that $\hat\beta$ has close
+to a normal distribution.  In particular,
+$\frac{\hat\beta}{SE(\hat\beta)}$ is a t-distribution.  We often want
+to know how accurately we know $\beta$ purely for its own sake.  For
+example, if our model is $Y = $ sales, and $X = $ advertisments, then
+$\beta = $sales/ad.  So if we know that each sale generates \$10
+profit, and each add costs \$1 (think web based advertisements) then
+we need $\beta > .1$ before we make more money in sales than we spent
+in advertisements.  
 
+We can also use $\hat\beta$ to make predictions:
+\begin{displaymath}
+\hat{Y} = \hat\alpha + \hat\beta x_i
+\end{displaymath}
+ So before we can now how accurate a forecast is, we need to know how
+accurate $\hat\beta$ is.
+
+Either of these require knowing that $\hat\beta$ is a good estimate of
+$\beta$ and exactly how good an estimate of it it actually is.  So we
+need the standard error for $\hat\beta$.
+
+\section{Hetroskadasticity}
+
+One problem that we can fix is that of hetroskadasticity.  Suppose
+that we are regression salary (Y) on runs (X).  Then we might expect
+that 
+\begin{displaymath}
+Y = \alpha + \beta X
+\end{displaymath}
+will display hetroskadastic errors.  In particular, we might expect
+that the errors grow with $X$.  
+
+\paragraph{log-log model}  If we use logs, we can consider the model
+\begin{displaymath}
+\log(Y) = \alpha + \beta \log(X) + \epsilon
+\end{displaymath}
+In this model, we now expect the errors to be homoskadastic.  
+\begin{eqnarray*}
+\log(Y) & = & \alpha + \beta \log(X) + \epsilon\\
+e^{\log(Y)} & = & e^{\alpha + \beta \log(X) + \epsilon}\\
+Y & = & e^{\alpha} e^{\beta \log(X)} e^{\epsilon}\\
+Y & = & e^{\alpha} (e^{\log(X)})^\beta  e^{\epsilon}\\
+Y & = & k X^\beta  e^{\epsilon}\\
+\end{eqnarray*}
+where we inserted a $k$ for $e^{\alpha}$ so the equation looked
+prettier. 
 \end{document}
