@@ -100,7 +100,35 @@ JMP?
 
 \section{Faking bootstrap in JMP}
 
+How many times will the first row be duplicated in the data set?  On
+average the number of times, will be one.  If this weren't true, the
+duplicate data set would have more rows (or fewer) than the original
+dataset.  But what will the distribution?
 
+The probability that the first row isn't used, will be
+$(1-\frac{1}{n})^n$.  This is very close to $1/e$.  Likewise, the
+chance that it is used exactly once, is $n$ chances each with
+probability $1/n$.  So it is 
+\begin{displaymath}
+P(\hbox{duplicated once}) = n (1-\frac{1}{n})^{n-1}\frac{1}{n} \approx e^{-1}
+\end{displaymath}
+Continuing in this fashion we see that
+\begin{displaymath}
+P(k \hbox{ duplicates}) = {n \choose k} (1-\frac{1}{n})^{n-k}(\frac{1}{n})^k \approx e^{-1}/k!
+\end{displaymath}
+If you spent too much time memorizing distributions in your last
+probability class, you will recognize this as a poisson distribution. 
+
+So we want to duplicate the first row a poisson(1) number of times.  
+
+JMP bootstrap
+\begin{itemize}
+\item Create a column called ``bootstrap weights''
+\item Use the formula editor to insert $1/Poisson(1)$ (located inside ``random'')
+\item Run a weighted regression using these weights
+\item Record the estimates
+\item Recalculate
+\end{itemize}
 
 
 
