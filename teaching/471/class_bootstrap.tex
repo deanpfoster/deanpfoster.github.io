@@ -1,0 +1,136 @@
+\documentclass{article}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Class: bootstrap}
+
+(\href{class_bootstrap.pdf}{pdf version})
+
+Suggested readings
+\begin{itemize}
+\item \href{http://en.wikipedia.org/wiki/Bootstrapping_(statistics)}{Wiki article}.
+\item \href{http://www.ats.ucla.edu/stat/R/library/bootstrap.htm}{How
+to bootstrap in R}.
+\item
+\href{http://cran.r-project.org/doc/contrib/Fox-Companion/appendix-bootstrapping.pdf}{More
+theoretical description of bootstrap} 
+\item Efron came up with the idea.  See for example, Efron,
+Bradley. Tibshirani, Robert J. {\em An introduction to bootstrap}.
+\end{itemize}
+
+
+\section{Typical data}
+
+Suppose that when we plot $Y$ vs $x$ we get a hetroskadastic pattern?
+(Think baseball example.)  
+\begin{itemize}
+\item Sometimes a transformation will fix it:
+\begin{displaymath}
+\log(Y) = \alpha + \beta \log(x) + \epsilon
+\end{displaymath}
+\item Sometimes doing weighted least squares will fix it:
+\begin{displaymath}
+Y/x = \alpha/x + \beta + \epsilon
+\end{displaymath}
+\item But sometimes we just don't know how to model the noise.  This
+is when a bootstrap would be useful.
+\end{itemize}
+
+\section{If only data were cheap}
+
+If we could get our hands on a new data set, we could do the
+following: 
+\begin{eqnarray*}
+\hat\beta_1 &=& \hbox{Least squares estimate of $\beta$ on data set \#1}\\
+\hat\beta_2 &=& \hbox{Least squares estimate of $\beta$ on data set \#2}\\
+\hat\beta_3 &=& \hbox{Least squares estimate of $\beta$ on data set \#3}\\
+\vdots &=& \vdots \\
+\hat\beta_M &=& \hbox{Least squares estimate of $\beta$ on data set \#M}
+\end{eqnarray*}
+Now we could compute $SD(\hat\beta)$.  This would be the true standard
+error of $\hat\beta$.
+\begin{itemize}
+\item In an ideal world, (i.e. under the normal linear model) then this
+would be the number that JMP would print out as the standard error of
+$\hat\beta$.
+\item If $\hat\beta$ is unbiased, (i.e. nothing correlates with the
+errors) then this $SD$ will tell us how far $\hat\beta$ is from the
+true $\beta$.
+\item Of course, if we had all this extra data, we wouldn't use it
+this way, we could put all the datasets together and generate a new
+and improved estimate of $\beta$.
+\end{itemize}
+
+\section{What might these data sets look like?}
+\begin{itemize}
+\item All these datasets are drawn from the same population
+\item Whatever model generates them, will generate all the data.
+\item So for any row which might be drawn as the first row in the 3rd
+data set, there should be some row in the 5th dataset that looks like
+it.
+\item In other words, if we scrambled the rows between the various
+data sets, we would get the same answer.
+\item This scrambling is the idea behind the bootstrap.
+\end{itemize}
+
+\section{Bootstrap methodology}
+The goal of the bootstrap is to fake a bunch of new datasets.  The
+method is assume that any row in the new data set is basically like
+some row that already exists in our current data set.  We just don't
+know which one it is.  So we can simulate this by grabbing a row at
+random.
+
+Procedure for the bootstrap standard error:
+\begin{itemize}
+\item Generate a new dataset
+\begin{itemize}
+\item For each row in the new data set, pick a row in the real dataset
+and copy it
+\item Sample with replacement so rows 
+\end{itemize}
+\item Compute the $\hat\beta$ on the new dataset
+\item Repeat this 1000s of times
+\item Compute the standard deviation of all the $\hat\beta$'s.
+\end{itemize}
+
+If you are in a programming langauge, you can write the above as a
+simple compute algorithm (say in R).  But what to do if you are using
+JMP? 
+
+\section{Faking bootstrap in JMP}
+
+How many times will the first row be duplicated in the data set?  On
+average the number of times, will be one.  If this weren't true, the
+duplicate data set would have more rows (or fewer) than the original
+dataset.  But what will the distribution?
+
+The probability that the first row isn't used, will be
+$(1-\frac{1}{n})^n$.  This is very close to $1/e$.  Likewise, the
+chance that it is used exactly once, is $n$ chances each with
+probability $1/n$.  So it is 
+\begin{displaymath}
+P(\hbox{duplicated once}) = n (1-\frac{1}{n})^{n-1}\frac{1}{n} \approx e^{-1}
+\end{displaymath}
+Continuing in this fashion we see that
+\begin{displaymath}
+P(k \hbox{ duplicates}) = {n \choose k} (1-\frac{1}{n})^{n-k}(\frac{1}{n})^k \approx e^{-1}/k!
+\end{displaymath}
+If you spent too much time memorizing distributions in your last
+probability class, you will recognize this as a poisson distribution. 
+
+So we want to duplicate the first row a poisson(1) number of times.  
+
+JMP bootstrap
+\begin{itemize}
+\item Create a column called ``bootstrap weights''
+\item Use the formula editor to insert $1/Poisson(1)$ (located inside ``random'')
+\item Run a weighted regression using these weights
+\item Record the estimates
+\item Recalculate
+\end{itemize}
+
+
+
+\end{document}

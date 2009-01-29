@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+
+\begin{document}
+\title{Assignment 2: Computer exercises}
+
+These exercises are to show you computer techniques.  So do simple
+ prints to confirm that they worked for you.
+
+\begin{enumerate}
+\item Dogleg construction and analysis:
+\begin{enumerate}
+\item Spend 20 minutes trying to find a new historical temperature
+series.  (If you can't find one, use New Hampshire which was discussed
+in class.).   Fit it using a dogleg at 1900 and print it.
+\item Create doglegs for 1800 and 1700 also (and 1600 if you have
+it).  Fit a multiple regression to these.  Find a smooth that looks
+close to your fit.  Print both predictions on one graph. 
+\item Fit simple regressions to all of your dog legs and save the
+predictions.  Compute an average prediction (pred1 + pred2 + pred3 +
+pred4)/4.  Find a smooth that looks close to the average prediction.
+Print both predictions on the same graph.
+\item Fit a 3rd degree polynomial to your data.  As usual, find a
+smooth that looks similar to your 3rd degree polynomial.  Print both
+predictions. 
+\end{enumerate}
+
+\item Predictions: Insert an artifical row with a date of 2100 into
+your historical data table.  Leave the temperature field blank.  For
+each of the 4 models you created above, predict the temperature at
+2100.   For the first, second and 4th model, you should be able to
+also save a prediction interval.  Which of these 3 intervals makes the
+most dramatic claim about temperature?
+
+\item Residuals: Create residuals from your favorite model of
+temperature above.  
+\begin{enumerate}
+\item Do the following checks (use regression):
+\begin{itemize}
+\item residuals vs time squared
+\item residuals squared vs time
+\item residuals vs previous residuals
+\item residuals squared vs previous residuals squared
+\item residuals vs any other columns you might have in your data table
+\item etc
+\end{itemize}
+\item Using the $1/20^2, 1/21^2, 1/22^2,\ldots$ rule, which of the
+above tests (if any) show problems with the data?
+\item If you have a problem, do we know how to fix it yet?
+\end{enumerate}
+
+\item Hetroskadasticity: Do a regression of income vs ERA.
+\begin{enumerate}
+\item Simple regression:
+\begin{itemize}
+\item By eye, you can see the problem of hetroskadasticity.  Make the
+appropiate plot and confirm that it is significant.  Clearly if it
+were the first test you were going to do, it would be significant.  If
+it were the second one, it would also be significant.  How many OTHER
+tests would you have to do before this test, so that it would no
+longer be considered significant?
+\item For a player who has an ERA of .35, how many more dollars would
+he earn if he increased it to .36?  Give a confidence interval based
+on your simple regression.
+\end{itemize}
+\item log-log:  Do a model of log(income) vs log(ERA):
+\begin{itemize}
+\item  Save the residuals.  Check if they are hetroskadastic.
+\item For a player who has an ERA of .35, how many more dollars would
+he earn if he increased it to .36?  Give a confidence interval. (HINT:
+this isn't easy--it will take a bit of calculation.  Ask in class.)
+\end{itemize}
+\item Weighted least squares:  Do a model of income/ERA vs 1/ERA:
+\begin{itemize}
+\item  Save the residuals.  Check if they are hetroskadastic.
+\item Using the weighted regression feature in JMP, run this
+regression as a weighted regression.  You should get the exact same
+coefficients and standard errors.  If not, try it again using
+$1/ERA^2$ as your weighting instead of $1/ERA$.
+\item For a player who has an ERA of .35, how many more dollars would
+he earn if he increased it to .36?  Give a confidence interval. 
+\end{itemize}
+\item Bootstrap a simple regression.
+\begin{itemize}
+\item Do at least 10 bootstrap recalcuations of your estimate of
+slope.  From these compute a standard deviation.
+\item For a player who has an ERA of .35, how many more dollars would
+he earn if he increased it to .36?  Give a confidence interval based
+on your bootstrap standard deviation.
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+\end{document}
