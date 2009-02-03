@@ -1,0 +1,180 @@
+<html>
+<header>
+<title>  Statistics 701: Ponzironi 2</title>
+</header>
+<body>
+
+<p>
+
+<center><h1>  Statistics 701: Ponzironi 2, the gambling approach</h1></center>
+
+
+<h2>Announcement</h2>
+
+<ul>
+  <li> Homework 2 due next time.
+  <li> Any homework questions?
+       <ul>
+	 <li> A point estimate is just a regular estimate.
+	 <li> use y-hat when computing the slope from an elasticity.
+	      draw a picture to convience yourself of this fact. 
+       </ul>
+</ul>
+
+<H2>Faking a good empirical track record</h2>
+<ul>
+  <li> Would a scheme that returned 2% over the market for the last 2
+       years impress you?
+       <ul>
+	 <li> last 10 years?
+	 <li> last 20 years?
+	 <li> last 100 years?
+       </ul>
+       <p>
+  <li> Our goal is to generate such impressive returns without having
+       to understand actual stocks and bonds.
+       <p>
+  <li> A Ponzi scheme for quiet customers
+       <p>
+       <ul>
+	 <li> Start with 1000 customers who each give 1000 dollars
+	 <li> Each month, tell 10% of them that their account has gone
+	      bust and no longer has any money in it.
+	 <li> Distribute the money of those busted 10% to the remaining
+	      players. 
+	 <li> After several rounds, you have a "client list" of
+	      customers each whom has seen 10% returns over the past
+	      several rounds.
+	 <li> After 25 periods you are down to 10 people.  The scheme
+	      basically crashes at this point.  Notice that these
+	      people have seen a 10% return for 25 rounds.  They each now
+	      hold 100,000 dollars!
+       </ul>
+       <p>
+  <li> Problem: The busted part of your client list will complain and
+       the scheme will be busted by the police.
+       <p>
+  <li> Principle: Dead people don't talk.
+       <p>
+  <li> Bettter principle: Non-existant people talk even less!
+       <p>
+  <li> A Ponzironi scheme (pick one random player from your orginal
+       list and track their wealth.)
+       <p>
+       <ul>
+	 <li> Start with 1 customer who gives 1000 dollars
+	 <li> Each month, place a bet which has a 91% chance of paying
+	      out 10% of the current value and a 9.1% chance of losing
+	      the whole thing.
+	 <li> If lucky, give money to client
+	 <li> If unlucky, tell client that they are busted
+	 <li> You have a 1/100 chance of making as far as 25 rounds
+	      before your one client crashes.
+	 <li> After 25 periods you are down to 10 people.  The scheme
+	      basically crashes at this point.
+       </ul>
+       <p>
+</ul>
+<H2>Estimating the probability of rare events.</h2>
+<ul>
+  <li> Suppose you are watching a biathelon (skiing and shooting) and
+       the shooter has hit 25/25 so far.  What is her chance of
+       missing?
+       <p>
+  <li> Suppose the true probability of missing is p, then to get 25/25
+       would have a chance of (1-p)^25.  This is a very small
+       probability IF p > 3/25.  But, if p < 3/25, the chance of this
+       occuring is greater than 5%.
+       <p>
+  <li> Rule for seeing no misses in n shots so far:
+       <p>
+       <ul>
+	 <li> 0 < chance of missing < 3/n  is 95% confidence interval
+	 <li> 0 < chance of missing < 5/n  is 99.5% confidence interval
+	 <li> 0 < chance of missing < 10/n  is 99.995% confidence interval
+	 <li> 0 < chance of missing < k/n  is 1 - exp(-k) confidence interval
+       </ul>
+       <p>
+  <li> Example:
+       Suppose you are watching 1000 biathelons in order to possibly
+       pick one to join your team.  The best shooter never misses.   How should
+       you estimate her chance of missing?  Use 1 - .05/1000 for confidence
+       level.  That means that k = 10. 
+</ul>
+<H2>How good a record can we fake?</h2>
+<ul>
+  <li> Above scheme requires the possibility of losing everything.
+  <li> What if the amount we can lose is bounded?
+       <p>
+       <ul>
+	 <li> Any instrument for which options exist, can be converted
+	      to having bounded downside.  (Of course this lowers the
+	      return.) 
+	 <li> Options can be "replicated" as long as the instrument is
+	      publically traded.
+	 <li> So publically traded assest can have their downside
+	      protected.
+	 <li> (Simple rule: sell if price drops more than 10% during
+	      any month.  Your sell might not get executed until it
+	      has dropped a bit further.  This will depend on market
+	      thickness.  Then hold cash for the rest of the month.)
+	 <li> Hedge funds can't have options written against them
+	      since buying and selling only occurs monthly instead of
+	      continuously. 
+       </ul>
+       <p>
+  <li> With bounded loss, we are forced to use a smaller disaster.
+       Hence we can't fake as good performace.  
+</ul> 
+
+<H2>Why read a mutual fund prospectus?</h2>
+<ul>
+  <li> An alternative to using options to bound the loss is to read
+       the prospectus.
+       <p>
+  <li> A mutual fund who can use leverage can generate larger swings.
+       <p>
+  <li> If only stocks can be purchased, downsides can be much lower
+       <p>
+  <li> If only big stock can be purchase and they must be diversified,
+       then the downside is lower still.
+</ul>
+
+<h2>Buy side: the three disasters rule</h2>
+<ul>
+  <li>  Determine what a total disaster would be by one of the
+       following methods:  (listed best to worst)
+       <p>
+       <ol>
+	 <li> Use actual options then the downside is legally
+	      determined
+	 <li> Use active trading.  Assume you monitor the value of the
+	      fund and anytime it drops by X% you sell.  You don't buy
+	      again until next period.  Charge yourself Y% for
+	      transaction costs AND how much it might have dropped
+	      past X%.  Ideally this requires using tic-by-tic data.
+	 <li> Estimate a disaster drop by reading the prospectus.  How
+	      bad might things go?
+	 <li> Use -100% as the definition of a disaster
+       </ol>
+       <p>
+  <li> Make a column of empirical returns
+       <p>
+  <li> Add three disasters to this column
+       <p>
+  <li> Test if the average return for this column is higher than
+       expected.  
+</ul>
+
+
+<hr>  
+<em>
+<p align=right>
+<!-- hhmts start -->
+Last modified: Tue Oct 16 11:45:46 2001
+<!-- hhmts end -->
+</em>
+</body>
+
+</html>
+
