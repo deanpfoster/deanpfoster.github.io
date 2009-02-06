@@ -52,6 +52,10 @@ this methodology.)
 
 \item Hetroskadasticity: Do a regression of income vs ``number of
 Runs''. (aka X3) from the \href{http://www4.stat.ncsu.edu/~boos/var.select/baseball.html}{baseball data}.
+(BTW, I changed it to use RUNS instead of ERA since there is no ERA
+data in the dataset I have.  If you used some other variable instead
+of runs, you don't need to switch to runs.  Just answer what would be
+a sensiable question for your variable of choice.)
 \begin{enumerate}
 \item Simple regression:
 \begin{itemize}
@@ -61,33 +65,33 @@ were the first test you were going to do, it would be significant.  If
 it were the second one, it would also be significant.  How many OTHER
 tests would you have to do before this test, so that it would no
 longer be considered significant?
-\item For a player who has an ERA of .35, how many more dollars would
-he earn if he increased it to .36?  Give a confidence interval based
+\item For a player who has RUNS of 100, how many more dollars would
+he earn if he increased it to 101?  Give a confidence interval based
 on your simple regression.
 \end{itemize}
-\item log-log:  Do a model of log(income) vs log(ERA):
+\item log-log:  Do a model of log(income) vs log(RUNS):
 \begin{itemize}
 \item  Save the residuals.  Check if they are hetroskadastic.
-\item For a player who has an ERA of .35, how many more dollars would
-he earn if he increased it to .36?  Give a confidence interval. (HINT:
+\item For a player who has an RUNS of 100, how many more dollars would
+he earn if he increased it to 101?  Give a confidence interval. (HINT:
 this isn't easy--it will take a bit of calculation.  Ask in class.)
 \end{itemize}
-\item Weighted least squares:  Do a model of income/ERA vs 1/ERA:
+\item Weighted least squares:  Do a model of income/RUNS vs 1/RUNS:
 \begin{itemize}
 \item  Save the residuals.  Check if they are hetroskadastic.
 \item Using the weighted regression feature in JMP, run this
 regression as a weighted regression.  You should get the exact same
 coefficients and standard errors.  If not, try it again using
-$1/ERA^2$ as your weighting instead of $1/ERA$.
-\item For a player who has an ERA of .35, how many more dollars would
-he earn if he increased it to .36?  Give a confidence interval. 
+$1/RUNS^2$ as your weighting instead of $1/RUNS$.
+\item For a player who has an  of 100, how many more dollars would
+he earn if he increased it to 101?  Give a confidence interval. 
 \end{itemize}
 \item Bootstrap a simple regression.
 \begin{itemize}
 \item Do at least 10 bootstrap recalcuations of your estimate of
 slope.  From these compute a standard deviation.
-\item For a player who has an ERA of .35, how many more dollars would
-he earn if he increased it to .36?  Give a confidence interval based
+\item For a player who has an RUNS of 100, how many more dollars would
+he earn if he increased it to 101?  Give a confidence interval based
 on your bootstrap standard deviation.
 \end{itemize}
 \end{enumerate}
