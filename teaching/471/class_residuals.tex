@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Class: Residuals}
+
+(\href{class_residuals.pdf}{pdf version})
+
+\section{Visual tests for residuals}
+
+Most testing of residuals is done by looking at plots.  This is fast
+and intuitive.  For the standard linear model:
+\begin{displaymath}
+Y = \alpha + \beta X + \epsilon
+\end{displaymath}
+the residuals are created by looking at
+\begin{displaymath}
+\hat\epsilon = Y - (\hat\alpha + \hat\beta X)
+\end{displaymath}
+or more succinctly
+\begin{displaymath}
+\hat\epsilon = Y - \hat Y
+\end{displaymath}
+The standard plots to look at are ones like the following:
+\begin{enumerate}
+\item $\hat\epsilon$ vs $X$, looking for curvature
+\item $\hat\epsilon$ vs $X$, looking for heteroskadasticity
+\item $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}$ auto correlation
+\item $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}^2$ hetroskadasticty / leverage
+\item $\hat\epsilon_t^2$ vs $\hat\epsilon_{t-1}^2$ ARCH like effects
+\item $\hat\epsilon$ vs $Z$ for any left out $Z$
+\item $\hat\epsilon$ vs $\hat Y$ for multiple regression (otherwise
+you have seen this plot already when you plotted vs $X$).
+\item any thing else involving $\hat\epsilon$!
+\end{enumerate}
+The problem with these visual tests is two fold, 
+\begin{itemize}
+\item How do you tell if the test fails or not?
+\item How many test are you actually doing in your head when you look
+at a plot?
+\end{itemize}
+Both of these are addressed in the following formal approach.
+
+\section{Formal Test of residuals}
+
+The idea of having a formal testing proceedure is that it helps tell
+ when something real is actually wrong.  You don't actually have to
+ follow this proceedure exactly (unless you are programming a computer
+ to do it for you).  But it helps address the problem of finding too
+many problems that you might run into if you just keep looking and
+looking and looking until you find something.
+
+The idea is to make every possible test for residuals into an actual
+t-test.  So instead of looking at whether there is curvature in the
+$\hat\epsilon$ vs $\hat Y$ plot, instead, just fit a polynomial of
+$\hat\epsilon$ on $\hat Y$ and see if the quadradic term is
+significant.  If it is--you have found curvature, if not, well you
+haven't proven there isn't curvature, but at least it won't be an
+obvious mistake.
+
+So we want to translate every visual test we could do into a t-test.
+Most of these are fairly easy to do:
+\begin{itemize}
+\item To test $\hat\epsilon$ vs $X$ for curvature, test the
+slope in $\hat\epsilon$ vs $(X - \bar X)^2$.  (The trick of
+subtracting out the mean saves on having to do the polynomial
+regression itself.)
+\item To test $\hat\epsilon$ vs $X$ for heteroskadasticity, look at a
+plot of $\hat\epsilon^2$ vs $X$ and see if the slope is non-zero.
+\item To test $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}$ for auto
+correlation, simply look at t-statistic for the slope
+\item To test $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}^2$ for
+hetroskadasticty / leverage, again look at the slope
+\item To test $\hat\epsilon_t^2$ vs $\hat\epsilon_{t-1}^2$ for ARCH
+like effects, look at the slope.
+\item To test $\hat\epsilon$ vs $Z$ for any left out $Z$, add $Z$ to
+your regression and look at the t-statistic.  (NOTE: you get a bad
+answer if you save your residuals and plot them vs $Z$.  The problem
+is colinearity.)
+\item To test $\hat\epsilon$ vs $\hat Y$ in a multiple regression,
+save the residuals, and then use ``Fit Y by X'' to see if a polynomial
+fits better.  Each degree of the polynomial you look at costs you one
+test! 
+\item Any thing else involving $\hat\epsilon$, just make up a test
+that seems to capture what you are looking for in a hypothesis test.
+\end{itemize}
+
+\section{So many tests?  Won't one of the always reject?}
+
+If you do 20 test at .05, you will probably get a rejection by chance
+alone.  If you do 100 tests at .05, you will certainly get a rejection
+by chance alone.  So how do you do all the above tests without finding
+something spurious?
+
+The trick is to do all the tests at a much more stringent p-value than
+just using .05.  In class I suggested testing the first one at
+$(1/20)^2$, and the second at $(1/21)^2$, etc.  This means that if you
+did 100 tests, the entire chance of rejecting something by chance
+alone would be:
+\begin{displaymath}
+1/20^2 + 1/21^2 + 1/22^2 + 1/23^2 \cdots + 1/120^2 < .05
+\end{displaymath}
+What is cool about this sequence if that even if you end up doing a
+million tests, 
+\begin{displaymath}
+1/20^2 + 1/21^2 + 1/22^2 + 1/23^2 \cdots + 1/1000020^2 < .05
+\end{displaymath}
+it is still less than .05.  
+
+
+\end{document}
