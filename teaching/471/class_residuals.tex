@@ -25,11 +25,11 @@ or more succinctly
 \end{displaymath}
 The standard plots to look at are ones like the following:
 \begin{enumerate}
-\item $\hat\epsilon$ vs $X$, looking for curvature
-\item $\hat\epsilon$ vs $X$, looking for heteroskadasticity
+\item $\hat\epsilon$ vs $X^2$, looking for curvature
+\item $\hat\epsilon^2$ vs $X$, looking for heteroskadasticity
 \item $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}$ auto correlation
-\item $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}^2$ hetroskadasticty / leverage
-\item $\hat\epsilon_t^2$ vs $\hat\epsilon_{t-1}^2$ ARCH like effects
+\item $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}^2$ leverage
+\item $\hat\epsilon_t^2$ vs $\hat\epsilon_{t-1}^2$ hetroskadasticty / ARCH like effects
 \item $\hat\epsilon$ vs $Z$ for any left out $Z$
 \item $\hat\epsilon$ vs $\hat Y$ for multiple regression (otherwise
 you have seen this plot already when you plotted vs $X$).
@@ -63,18 +63,18 @@ obvious mistake.
 So we want to translate every visual test we could do into a t-test.
 Most of these are fairly easy to do:
 \begin{itemize}
-\item To test $\hat\epsilon$ vs $X$ for curvature, test the
+\item To test $\hat\epsilon$ vs $X^2$ for curvature, test the
 slope in $\hat\epsilon$ vs $(X - \bar X)^2$.  (The trick of
 subtracting out the mean saves on having to do the polynomial
 regression itself.)
-\item To test $\hat\epsilon$ vs $X$ for heteroskadasticity, look at a
+\item To test $\hat\epsilon^2$ vs $X$ for heteroskadasticity, look at a
 plot of $\hat\epsilon^2$ vs $X$ and see if the slope is non-zero.
 \item To test $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}$ for auto
 correlation, simply look at t-statistic for the slope
 \item To test $\hat\epsilon_t$ vs $\hat\epsilon_{t-1}^2$ for
-hetroskadasticty / leverage, again look at the slope
-\item To test $\hat\epsilon_t^2$ vs $\hat\epsilon_{t-1}^2$ for ARCH
-like effects, look at the slope.
+ leverage, again look at the slope
+\item To test $\hat\epsilon_t^2$ vs $\hat\epsilon_{t-1}^2$ for
+hetroskadasticty /ARCH like effects, look at the slope.
 \item To test $\hat\epsilon$ vs $Z$ for any left out $Z$, add $Z$ to
 your regression and look at the t-statistic.  (NOTE: you get a bad
 answer if you save your residuals and plot them vs $Z$.  The problem
