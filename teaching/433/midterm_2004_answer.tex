@@ -1,0 +1,223 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage{graphicx}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+% ----------------------------------------------------------------
+\begin{document}
+
+\title{STAT 433: Midterm Solutions}
+
+\date{ \today}
+
+
+
+
+% ----------------------------------------------------------------
+
+\maketitle
+% ----------------------------------------------------------------
+\flushleft
+{\bf QUESTION 1}
+\newline
+{\bf (a)}
+\begin{eqnarray}
+\nonumber E(Q_t)&=&E\left(M_t^2-t\sigma^2\right) \\
+\nonumber &=&E\left(\left(\sum_{i=1}^{t} \eta_i\right)^2-t\sigma^2\right) \\
+\nonumber &=&E\left(\sum_{i=1}^{t} \eta_i^2 + \sum \sum_{i \neq j} \eta_i \eta_j \right) - t\sigma^2 \\
+\nonumber &=&t\sigma^2-t\sigma^2
+\end{eqnarray}
+\newline
+{\bf (b)}
+\begin{eqnarray}
+\nonumber E(Q_t | Q_{t-1})&=&E(M_t^2-t\sigma^2 | Q_{t-1}) \\
+\nonumber &=& E\left(\left[M_{t-1}+\eta_t\right]^2-(t-1)\sigma^2-\sigma^2 | Q_{t-1} \right)\\
+\nonumber &=& E\left(M_{t-1}^2-(t-1)\sigma^2 | Q_{t-1}\right)+E\left(\eta_t^2-\sigma^2 | Q_{t-1}\right) \\
+\nonumber &=& M_{t-1}^2-(t-1)\sigma^2=Q_{t-1}
+\end{eqnarray}
+\newline
+{\bf (c)}
+\begin{eqnarray}
+\nonumber E(Q_t | Q_{t-1}) &=& E\left(\left[M_{t-1}+\eta_t\right]^2-t\sigma^2 | Q_{t-1},Q_{t-2},\ldots,Q_0 \right)\\
+\nonumber &=& E\left(M_{t-1}^2+2M_{t-1}\eta_t+\eta_t^2 - (t-1)\sigma^2 - \sigma^2 | Q_{t-1},Q_{t-2},\ldots,Q_0 \right) \\
+\nonumber &=& E\left(Q_{t-1}+2M_{t-1}\eta_t+\eta_t^2 - \sigma^2 | Q_{t-1},Q_{t-2},\ldots,Q_0 \right) \\
+\nonumber &=& Q_{t-1}+2E\left(E\left(M_{t-1}\eta_t+\eta_t^2 - \sigma^2|M_{t-1},Q_{t-1},Q_{t-2},\ldots,Q_0\right) | Q_{t-1},Q_{t-2},\ldots,Q_0\right) \\
+\nonumber &=& Q_{t-1}+2E\left(M_{t-1}E\left(\eta_t+\eta_t^2 - \sigma^2|M_{t-1},Q_{t-1},Q_{t-2},\ldots,Q_0\right) | Q_{t-1},Q_{t-2},\ldots,Q_0\right) \\
+\nonumber &=& Q_{t-1}+2E\left(M_{t-1}\cdot 0 | Q_{t-1},Q_{t-2},\ldots,Q_0\right) \\
+\nonumber &=& Q_{t-1}
+\end{eqnarray}
+\newline
+{\bf (d)}
+In order to demonstrate that this is Markovian, we need to make a statement about the joint probability distribution. I.e. show $P(Q_t|Q_{t-1}=P(Q_{t-j}|Q_{t-j-1})$ We have made no such statement and hence do not know whether or not this process is Markovian.
+
+However, since $E(|Q_t|)< \infty$ and from (b) we know it is a martingale
+\bigskip
+
+{\bf QUESTION 2}
+\newline
+{\bf (a)}
+\newline
+\begin{eqnarray}
+\nonumber P&=&\left[
+\begin{array}[4]{llll}
+.1 & .5 & .1 & .3  \\
+.2 & .4 & .1 & .3  \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0& 1 \\
+\end{array}
+\right]
+\end{eqnarray}
+\newline
+{\bf (b)}
+\newline
+If we let $\tau=\text{min}\left\{ n \ge 0; X_n=3 \text{ or } X_n=4 \right\}$ and $u_i=P(X_T=4 | X_1=i)$ then the first step equations are
+\begin{eqnarray}
+\nonumber u_1&=&0.1u_1+.5u_2+.3 \\
+\nonumber u_2&=&0.2u_1+.4u_2+.3 \\
+\nonumber u_3&=&0 \\
+\nonumber u_4&=&1
+\end{eqnarray}
+\bigskip
+
+{\bf QUESTION 3}
+\newline
+{\bf (a)}
+\newline
+\begin{eqnarray}
+\nonumber && \text{Step 1} \\
+\nonumber && E\left(Z_n\right)= E\left(X_n \cdot 2^{-n}\right)=2^{-n}E\left(X_n\right)=2^{-n} \mu^n=2^{-n}2^n=1 < \infty \\
+\nonumber && \text{Step 2} \\
+\nonumber && E\left(Z_n | Z_{n-1},\ldots,Z_0\right)=2^{-n}E\left(X_n |X_{n-1},\ldots,X_0\right)=2^{n-1}2X_{n-1}=Z_{n-1}
+\end{eqnarray}
+\newline
+{\bf (b)} From the maximal inequality we have
+\begin{eqnarray}
+\nonumber P\left(\max_{0\le i \le n} X_i \ge 100\cdot 2^n \right) &=&P\left(\max_{0\le i \le n} Z_i \ge 100 \right) \\
+\nonumber &\le& \frac{E(Z_0)}{100}=\frac{1}{100} 
+\end{eqnarray}
+\bigskip
+{\bf QUESTION 4}
+\newline
+{\bf (a)}
+\newline
+The states are as follows
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|ccc|}
+\hline
+State  & & Number of & \\
+& Red balls & Green balls & Blue balls \\
+\hline
+0 & 2 & 1 & 0 \\
+1 & 2 & 0 & 1 \\
+2 & 1 & 1 & 1 \\
+3 & 1 & 0 & 2 \\
+4 & 0 & 1 & 2 \\
+5 & 0 & 0 & 3 \\
+6 & 1 blue & ball is & drawn \\
+\hline
+\end{tabular}
+\end{table}
+\newline
+{\bf (b)}
+The transition matrix would be
+\begin{eqnarray}
+\nonumber P&=&\left[
+\begin{array}[6]{ccccccc}
+0 & \frac{1}{3} & \frac{2}{3} & 0 & 0 & 0 & 0  \\
+0 & 0 & 0 & \frac{2}{3} & 0 & 0 & \frac{1}{3}  \\
+0 & 0 & 0 & \frac{1}{3} & \frac{1}{3} & 0 & \frac{1}{3}  \\
+0 & 0 & 0 & 0 & 0 & \frac{1}{3} & \frac{2}{3}  \\
+0 & 0 & 0 & 0 & 0 & \frac{1}{3} & \frac{2}{3}  \\
+0 & 0 & 0 & 0 & 0 & 0 & 1  \\
+0 & 0 & 0 & 0 & 0 & 0 & 1  \\
+\end{array}
+\right]
+\end{eqnarray}
+\newline
+{\bf (c)}
+We seek a solution to the following system of equations
+\begin{eqnarray}
+\nonumber v_0&=&1/3 v_1 + 2/3 v_2 + 1 \\
+\nonumber v_1&=&2/3 v_3 + 1\\
+\nonumber v_2&=&1/3 v_3 + 1/3 v_4 + 1 \\
+\nonumber v_3&=&1/3 v_5 + 1 \\
+\nonumber v_4&=&1/3 v_5 + 1 \\
+\nonumber v_5&=& 1 \\
+\nonumber v_6&=&0
+\end{eqnarray}
+which leads to $v_0=\frac{26}{9}$
+\newline
+\bigskip
+{\bf QUESTION 5}
+\newline
+{\bf (a)}
+State 3 is the absorbing state 
+\newline
+{\bf (b)}
+\begin{eqnarray}
+\nonumber u_i&=&P(X_T=3|X_0=i) \\
+\nonumber u_1&=&au_1+bu_2 \\
+\nonumber u_2&=&cU_2+d \\
+\nonumber u_3&=&1 \\
+\nonumber & \Downarrow & \\
+\nonumber u_2-cu_2&=&d \Rightarrow u_2=\frac{d}{1-c}=P(X_T=3|X_0=2)
+\end{eqnarray}
+{\bf (c)}
+\begin{eqnarray}
+\nonumber u_1&=&au_1+bu_2 \\
+\nonumber (1-a)u_1&=&\frac{bd}{1-c} \\
+\nonumber u_1&=& \frac{bd}{(1-a)(1-c)}=\underbrace{\frac{bd}{(1-a)(1-c)}}_{b=1-a,d=1-c}=\frac{bd}{bd}=1
+\end{eqnarray}
+{\bf (d) (e)}
+Remember from part (a) that state 3 is the absorbing state so eventually ......
+\begin{eqnarray}
+\nonumber P^T&\approx&\left[
+\begin{array}[4]{lll}
+0 & 0 & 1  \\
+0 & 0 & 1  \\
+0 & 0 & 1  \\
+\end{array}
+\right]
+\end{eqnarray}
+and an appropriate bound would be
+\begin{eqnarray}
+\nonumber P^T&\approx&\left[
+\begin{array}[4]{lll}
+a^T & (1-bd)^{T/2} & 1  \\
+0 & c^T & 1  \\
+0 & 0 & 1  \\
+\end{array}
+\right]
+\end{eqnarray}
+\bigskip
+{\bf QUESTION 6}
+\newline
+If a team of gamblers come into a casino everyday to gamble on the expression ``TO BE OR NOT TO BE", with the casino laying fair odds 27 to 1, the expected winnings of the casino is zero. 
+\begin{eqnarray}
+\nonumber 0&=&E[\tau]-\underbrace{27^{18}}_{\text{"TO BE OR NOT TO BE" winner}}-\underbrace{27^5}_{\text{"TO BE `` winner}} \\
+\nonumber E[\tau]&=&27^{18}+27^5
+\end{eqnarray}
+\end{document}

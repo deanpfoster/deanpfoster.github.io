@@ -1,3 +1,7 @@
 433_spring_2007
 433_spring_2008
 430H_2007
+*.log
+*.aux
+*.pdf
+*.sty
