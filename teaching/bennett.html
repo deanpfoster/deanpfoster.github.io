@@ -1,0 +1,89 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 //EN" 
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+		
+<head>
+<title>Bennett</title>
+<script type="text/javascript" src="LaTeXMathML.js"></script>
+<link rel="stylesheet" type="text/css" href="LaTeXMathML.standardarticle.css" /> 
+
+</head>
+
+<body bgcolor="#ffffff" >
+
+<pre class="LaTeX"><div>
+
+<!doctype HTML PUBLIC ``-//W3C//DTD HTML 4.01//EN'' 
+``http://www.w3.org/TR/html4/strict.dtd''> 
+<html xmlns=''http://www.w3.org/1999/xhtml''>
+
+<head>
+                
+<title>Torture Test of LaTeXMathML</title>
+<script type=''text/javascript'' src=''LaTeXMathMLnew.js''></script>
+<link rel=''stylesheet'' type=''text/css''
+href=''LaTeXMathML.standardarticle.css'' /> 
+
+
+</head>
+
+<body bgcolor=''#ffffff''>
+
+<pre class=''LaTeX''><div>
+\documentclass[12pt]{article}
+
+\begin{title}Bennett
+\end{title}
+
+\begin{document}
+
+Bennett's bound (1962) is usually stated for a bounded collection of
+ $n$ independent random variables $U_1, \ldots, U_n$ with $\sup |U_i|
+ < M$, $E\,U_i=0$, and $\sum_i E\,U_i^2 = 1$, and $\tau >0$
+\begin{displaymath}
+  P(\sum_i U_i \ge \tau) 
+   \le  \exp\left( 
+      \frac{\tau}{M} -
+      \left(\frac{\tau}{M}+\frac{1}{M^2}\right)\log(1+M\tau)
+    \right).
+\end{displaymath}
+We will rewrite it and narrow its focus to $n$ IID random variables
+ $X_1,\ldots,X_n$, which are bounded by 1, with Var$(X_i) =
+\sigma^2$.   Then
+\begin{displaymath}
+  P(\overline{X} - EX \ge \gamma) 
+   \le  \exp\left(n\gamma -
+        n(\gamma + \sigma^2)\log(1+\gamma/\sigma^2)\right) 
+\end{displaymath}
+Writing it differently:
+\begin{displaymath}
+  P(\overline{X} - EX \ge k\sigma^2) 
+   \le  \exp\left(n \sigma^2(k - (k+1)\log(k+1))
+    \right) 
+\end{displaymath}
+Or in its most traditional form, if $x \ll \sigma\sqrt{n}$, 
+expanding the log
+\begin{displaymath}
+  P\left(\frac{\overline{X} - EX}{\sigma/\sqrt{n}}  \ge x\right)
+   \le  \exp\left(-x^2/2 + x^3/(6\sigma\sqrt{n}) + O(x^4/n\sigma^2))
+    \right) 
+\end{displaymath}
+Or even more crudely $x < .3 \sigma\sqrt{n}$, then
+\begin{displaymath}
+  P\left(\frac{\overline{X} - EX}{\sigma/\sqrt{n}}  \ge x\right)
+   \le  \exp\left(-x^2/2(1 - x/\sigma\sqrt{n})\right)
+\end{displaymath}
+
+
+\begin{itemize}
+\item Bennett, G. (1962), ``Probability inequalities for the sum of
+  independent random variables,'' {\it JASA}, {\bf 57}, 33--45.
+\end{itemize}
+
+\end{document}
+
+</div></pre>
+</body>
+
+</html>
+
