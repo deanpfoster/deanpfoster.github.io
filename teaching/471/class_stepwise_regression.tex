@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage{hyperref}
+
+\usepackage[usenames]{color}
+
+
+\begin{document}
+\title{Class: Stepwise regression}
+\maketitle
+
+(\href{class_stepwise_regression.pdf}{pdf version})
+
+\section{suggested readings from the web}
+\begin{itemize}
+\item \href{http://en.wikipedia.org/wiki/Model_selection}{Wiki on
+model selection}
+\item \href{http://en.wikipedia.org/wiki/Bonferroni_correction}{Wiki
+on Bonferroni}
+\end{itemize}
+
+\section{Status so far}
+
+The model
+\begin{displaymath}
+Y = \alpha + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \cdots + \beta_p
+x_p + \epsilon
+\end{displaymath}
+where $\epsilon$ is $N(0,\sigma^2)$.  
+
+\textcolor{red}{{Notation: here the subscripts identify which variable we are
+ talking about not which observation we are talking about.  If you
+ need to do both, then you have to write it as: $Y_i = \alpha +
+ \beta_1 x_{i,1} + \beta_2 x_{i,2} + \beta_3 x_{i,3} + \cdots + \beta_p
+ x_{i,p} + \epsilon_i$.  But this is cumbersome.}}
+
+\begin{itemize}
+\item The problem is $p$ can be very large
+\item So fitting all these variables will lead to a bad estimate of $Y$
+\item Solution: only use some of the variables
+\end{itemize}
+
+\section{Software: JMP}
+
+\begin{itemize}
+\item Use ``fit model'' and change the ``personality'' to stepwise regression.
+\item Add as many X's as you have!
+\item To make even more X's you can
+\begin{itemize}
+\item Use the macros for response surface (this works for continuous
+variables only).  To do this, highlight some variables in the left
+hand column and hit macro-response surface.
+\item Use the macros factorial for discrete variables.  If you don't
+want exponentially many variables,
+\item Cross variables: (Highlight some X's already added and then
+highlight some more from the left hand column and hit cross)
+\item Do all three of the above!  (Response surface your continuous
+ones, factorial your discrete ones, and cross your continuous with
+your discrete.)
+\end{itemize}
+\item Run your stepwise regression 
+\begin{itemize}
+\item Change the probability to enter to something like $.05/p$, where $p$
+is the number of variables.
+\item Change the ``Rules'' to ``no rules''.  (This makes each item act
+individually of all other items.  So $X*Z$ is unrelated to either $X$
+or to $Z$.)
+\item Hit ``step'' to add one variable--repeat to add more variables
+\item Hit ``go'' to keep adding variables until none satisfy your
+p-value criterion.
+\end{itemize}
+\item Make a model: You won't get any diagnostics out of stepwise
+ regression.  It is truely only a fitting platform.  So to get a
+better view (residuals, leverage plots, etc) use the make model
+button. 
+\end{itemize}
+
+
+\end{document}
