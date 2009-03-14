@@ -9,21 +9,17 @@
 <center><h1>  Sample for bob </h1></center>
 
 <p>
- Please choose a file to upload:
+ Please choose a csv file to upload:
 <input type="file" name = "file">
 <input type="submit">
-<p> What happens:
+<a href=""></a><p> What happens:
 <ul>
-<li> This page grabs a file and calls it "file"
-<li> Then a perl script is called that <a
-href="http://stein.cshl.org/WWW/software/CGI/#upload">uploads</a> the
-data from "file"
-<li> It is then saved to ./tmp directory.
-<li> Then it calls a c++ program using that file as input
-<li> The output of the c++ program is written as a html page
-<li> If another file were desired it could be called "names"
+<li> This page grabs the file
+<li> Then a perl script reads the file and passes it to the C++ code
+(that runs in background)
+<li> All output for this run is saved in a unique directory under <a
+href="~foster/public_html/perl_samples/tmp">this</a> directory.
 </ul>
-Optional names file: <input type="file" name = "names">
 <input type="submit">
 </form>
 <HTML>
