@@ -17,6 +17,9 @@
 model selection}
 \item \href{http://en.wikipedia.org/wiki/Bonferroni_correction}{Wiki
 on Bonferroni}
+\item A fairly readable research paper with Bob Stine:
+\href{http://www-stat.wharton.upenn.edu/\~stine/research/honests2.pdf}{Honest
+RMSE}
 \end{itemize}
 
 \section{Status so far}
@@ -73,6 +76,40 @@ p-value criterion.
  regression.  It is truely only a fitting platform.  So to get a
 better view (residuals, leverage plots, etc) use the make model
 button. 
+\end{itemize}
+
+\section{Alternative selection rules}
+\begin{itemize}
+\item Maximize the R-squared:
+\begin{itemize}
+\item Problem: Will add all the variables
+\item Insample fit is perfect
+\item Out of sample fit is often twice as bad as Y's themselves of $p$
+is large
+\end{itemize}
+\item Maximize the adjusted R-sq'd
+\begin{itemize}
+\item Sounds better than using the R-sq'd--but the adjustment is not
+ for selection, only for degrees of freedom (I.e. Sum/n vs Sum/(n-1)
+ issues.)
+\item Same thing as using the minimized RMSE (which has the same
+adjustment aplied to it).
+\item So, will stil overfit.
+\item For a more fully adjusted R squared see my paper with Bob Stine:
+(\href{http://www-stat.wharton.upenn.edu/\~stine/research/honests2.pdf}{Honest RMSE})
+\end{itemize}
+\item AIC / C-P / BIC / neumerous others
+\begin{itemize}
+\item Sometimes over fit
+\item Sometimes work OK
+\end{itemize}
+\item Bonferroni
+\begin{itemize}
+\item Number of extranious variables is limited to .05 in expectation
+\item Hence will not over fit.
+\item For some nasty mathematics justifing this approach, see my
+\href{\~foster/research/risk_inflation.pdf}{paper} with Edward George.
+\end{itemize}
 \end{itemize}
 
 
