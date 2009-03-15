@@ -9,6 +9,7 @@
     $q = new CGI;
     my $fh = $q->upload("file");
     $user_file_name = $q->param('file');
+    $iterations = $q->param('iter');
 
 #    open(fh,"data") || die "can't open";  #debug version
 ####################################################################
@@ -48,9 +49,12 @@
     waitpid($pid,0);
     chdir($prefix);
     local(*Reader2, *Writer2, *Error2);
+
 #    $pid2 = open2(\*Reader2, \*Writer2, "../../build_model --input-file model --output-path log/ -r 100");
-    $pid2 = open3(\*Writer2, \*Reader2, \*Error2, "../../build_model --input-file model --output-path log/ -r 20000");
+#    $pid2 = open3(\*Writer2, \*Reader2, \*Error2, "../../build_model --input-file model --output-path log/ -r ".$iterations);
 #    waitpid($pid2,0);
+
+    system("../../build_model --input-file model --output-path log/ -r" . $iterations . " > latest_pretty&");
 
 # add a '-v 1' if you want a indicator function in the first column
 #        build_model --input-file model.dat --output-path log/ -r 800 -v 1
@@ -60,15 +64,20 @@
 #
 #  RETURN THE C++ OUTPUT TO THE SYSTEM
     
+#
     print $q->header;
-    
+    system("cp ../../refresh.pl .");
+    print "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"1; URL=http:".$prefix."/refresh.pl\">";
+   
     print "<h1>Fitted model as a CSV file</h1>\n";
     print "<a href=\"".$prefix."log/auction.model.txt\">Fitted model</a>";
+    print "<P>NOTE: You may have to wait for the file to be generated.";
 
     print "<h1>CPU TIME</h1>\n";
+    print "<h3>Iterations: $iterations</h3>";
     my $end_time = [ gettimeofday ];
     my $cpu_time = tv_interval($start_time,$end_time);
-    print "CPU TIME: $cpu_time seconds\n";
+    print "<h3>CPU TIME: $cpu_time seconds</h3>\n";
 
     print "<h1>Pretty Output</h1>\n";
 

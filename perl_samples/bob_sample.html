@@ -6,13 +6,21 @@
 
 </header>
 <body>
-<center><h1>  Sample for bob </h1></center>
+<center><h1>Alpha spending on line (by Bob Stine and Dean Foster)</h1></center>
 
 <p>
+<h2>Speed</h2>
+<input type="radio" name="iter" value="100">fast (100) <br>
+<input type="radio" name="iter" value ="1000" checked>medium (1000) <br>
+<input type="radio" name="iter" value ="10000">slow (10000) <br>
+<h2>File</h2>
+<p>
  Please choose a csv file to upload:
-<input type="file" name = "file">
-<input type="submit">
-<a href=""></a><p> What happens:
+<input type="file" name = "file">  <input type="submit">
+
+
+
+<h2> What happens:</h2>
 <ul>
 <li> This page grabs the file
 <li> Then a perl script reads the file and passes it to the C++ code
