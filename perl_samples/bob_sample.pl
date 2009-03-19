@@ -67,34 +67,14 @@
 #
     print $q->header;
     system("cp ../../refresh.pl .");
-    print "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"1; URL=http:".$prefix."/refresh.pl\">";
+    print "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"1; URL=http:".$prefix."refresh.pl\">";
    
-    print "<h1>Fitted model as a CSV file</h1>\n";
+    print "<h1>Waiting, waiting, waiting...</h1>\n";
     print "<a href=\"".$prefix."log/auction.model.txt\">Fitted model</a>";
-    print "<P>NOTE: You may have to wait for the file to be generated.";
+    print "<P>NOTE: The fitted model will eventually appear as a .csv file.  You may have to wait....";
 
-    print "<h1>CPU TIME</h1>\n";
     print "<h3>Iterations: $iterations</h3>";
-    my $end_time = [ gettimeofday ];
-    my $cpu_time = tv_interval($start_time,$end_time);
-    print "<h3>CPU TIME: $cpu_time seconds</h3>\n";
 
-    print "<h1>Pretty Output</h1>\n";
-
-
-
-# Pretty output
-
-    $output = "log/auction.model.pretty_print";
-    print "<p><h2>C++ output to file file: $output</h2><p>\n";
-    open(TMP,"<$output") || die "can't open";
-    while(<TMP>) {print ; print "<br>";};
-    close(TMP);
-
-# Echo'ing std::cout back to user
-
-    print "<p><h2>C++ standard output:</h2><p>\n";
-    while(<Reader>) {print ; print "<br>";};
 
 
 # Echo'ing the two input files

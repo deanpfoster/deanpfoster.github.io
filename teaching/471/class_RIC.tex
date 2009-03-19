@@ -1,0 +1,54 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{RIC: Risk Inflation Criterion}
+
+\section{Admistrivia}
+\begin{itemize}
+\item Edward:
+\begin{itemize}
+\item Ed said you were a lovely class
+\item Hopefully you enjoyed having him as much as he enjoyed teacing you
+\item We'll continue where he left off
+\end{itemize}
+\item Personal:
+\begin{itemize}
+\item Broke my collarbone
+\item Same surgeon as I had a year ago--but this time it is my left side
+\item So we will have to adapt.  I can't raise my arm--so no black board.
+\end{itemize}
+\end{itemize}
+\section{From last time}
+Goal, find a good fit/forecast:
+\begin{displaymath}
+\min E(Y_{\hbox{future}} - \hat{Y}_{\hbox{future}})^2
+\end{displaymath}
+The empirical trick, estimate an expectation by an average, so here is an
+``achievable goal:''
+\begin{displaymath}
+\min (1/n)\sum_{i=1}^n(Y_i - \hat{Y}_i)^2
+\end{displaymath}
+Now use the sum of squares trick, (Called Patheragean theorem to those
+of a historical perspective) and we have
+\begin{displaymath}
+\min \sum_j t^2_{X_j} + SSE
+\end{displaymath}
+where each $X_j$ is a possible explanitory variable.
+\section{But what to actually do?}
+This is useful for estimating our error--but it doesn't help us pick a
+model.  So we now need the variable selection trick:
+\begin{displaymath}
+\hbox{estimate $\beta_i$ by} = \left\{ 
+\begin{array}{l@{\quad}l}
+0 & \hbox{some times}\\
+\hat\beta_i & \hbox{other times}
+\end{array}
+\right.
+\end{displaymath}
+But when to do each?
+
+\section{Variable selection}
+Heuristic: If $t$ is large, then estimate $\beta$ otherwise call it
+zero.  (Tukey called this s yrdyimsyt0
+
+\end{document}
