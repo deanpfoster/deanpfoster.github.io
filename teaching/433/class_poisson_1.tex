@@ -1,0 +1,144 @@
+\documentclass[20pt]{extarticle}
+\usepackage{hyperref}
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
+\newcommand{\tech}[1]{\noindent{\textcolor{red}{\{{\bf technical note:} \em #1\}}}}
+\usepackage{xypic}
+
+
+\begin{document}
+\title{Stat 433: Chapter V.1: The Poisson distribution}
+
+\section{Admistrivia}
+\begin{itemize}
+\item  HW 7 due early next week, 8 du later next week.
+\item Read p 267 - 274.
+\item Mike loved teaching you all's again. Thanks for being such a
+great class.
+\end{itemize}
+
+\newpage
+
+\section{How to do continuous time?}
+
+For deterministic continuous functions, we have the intermediate value
+ theorem.  It allows us to gradually build up a function by successive
+approximations. 
+
+This doesn't help for the discrete setting.
+
+But in probability we have a new magic trick available to us:
+ \cite{http://en.wikipedia.org/wiki/Infinite_divisibility_(probability)}{infinitely
+ divisable distributions.}
+
+\section{Infinitely divisible distributions}
+
+Example which almost works.
+\begin{itemize}
+\item Let $X$ = number of Penn sudents winning the lottery this semester
+\item $X = M+W$ where $M$ = num Men, $W$ = num Women winners
+\item $W = S+N$ where $S$ = num women taking statistics who win
+\item $S = A + B$ where $A$ = num women taking statistics 433 who win
+\item $S = I + J$ where $I$ = 1 if Sophie wins
+\item $I = $ oops... can't divide further
+\end{itemize}
+
+\newpage
+
+Alternative division:
+\begin{itemize}
+\item Let $X$ = number of Penn sudents winning the lottery this semester
+\item $X = B+A$ where $B$ = num before spring break
+\item $A = F+G$ where $F$ = num won in feburary
+\item $\cdots$
+\item where $K$ = number won between 12:37.05 and 12:37.06 on Feb 3rd.
+\end{itemize}
+\newpage
+
+Both are divisable.  
+\begin{itemize}
+\item The first, the binomial, is only finitely divisable.
+\item The second, the Poisson, is infinitely divisable.
+\end{itemize}
+
+Three main examples:
+\begin{itemize}
+\item Normal (leads to brownian motion)
+\item Cauchy (leads to Levy processes)
+\item Poisson (leads to poisson process)
+\end{itemize}
+
+Definition:  A family of distributions $F_\mu$ is infinitely divisable
+if for any random variable $Y \sim F_\mu$ we can find random variables
+$A$, and $B$ which are independent and $Y=A+B$ and $A$ and $B$ both
+have distribution $F_{\mu/2}$.
+
+\tech{Sometimes you need other paramaterizations, so you end up with
+something besides $F_{\mu/2}$, it might be $F_{\sqrt{\mu}}$ instead.}
+
+Draw some pictures of how to construct these.
+
+\newpage
+
+\section{Poisson distribution review}
+
+\begin{itemize}
+\item Probability function:
+\begin{displaymath}
+P(X = x) = \frac{e^{-\lambda}\lambda^x}{x!}
+\end{displaymath}
+\item Mean
+\begin{displaymath}
+E(X)  =  \lambda 
+\end{displaymath}
+\item Variance
+\begin{displaymath}
+Var(X)  =  \lambda
+\end{displaymath}
+\item If $X \sim $Poisson$(\lambda)$ and $Y \sim $Poisson$(\mu)$, then
+ $X+Y$ is Poisson$(\lambda + \mu)$.
+\end{itemize}
+
+\newpage
+\section{The Poisson process}
+
+\begin{itemize}
+\item Index family of random variables by time
+\item $X_t$, so an uncountable infinite collection of random variables
+\tech{Actually, only countably infinite by ID.  Just keep dividing it
+in two and take limits.}
+\item $X_t - X_s$ is Poisson($\lambda(t-s)$).
+\item $X_0 = 0$.
+\item Nice story, but does it exist? (Yes, but ID.)
+\end{itemize}
+
+\section{Examples}
+\begin{itemize}
+\item  Defects along DNA.  
+\begin{itemize}
+\item SNPs
+\item \$1000 genome soon!
+\end{itemize}
+\item Good model of counts upto time $t$ for many things:
+\begin{itemize}
+\item gamma particles
+\item people at bank
+\item accidents
+\item insurance
+\end{itemize}
+\item Bad model in some setting:
+\begin{itemize}
+\item Good model for bikers in triathelone.
+\item Bad model for bikers in tour de france.
+\item Why this difference? (Drafting)
+\end{itemize}
+\end{itemize}
+\newpage
+
+\section{Nonhomogeneous process}
+\begin{itemize}
+\item $\lambda(t)$ instead of constant lambda
+\item $E(X_{t+h}-X_t) = lambda(t)h$
+\item $P(X_{t+h}-X_t = 1) = lambda(t)h$
+\item Example: Call board.
+\end{itemize}
+\end{document}
