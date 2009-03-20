@@ -9,10 +9,15 @@
 #  RETURN THE C++ OUTPUT TO THE SYSTEM
     
     print $q->header;
+    use Cwd;
+    $current_dir = &Cwd::cwd();
+    print "refresh started (".$current_dir.")";
     $output = "log/auction.model.pretty_print";
-    open(TMP,"<$output") || die "can't open";
-
-    if ( !<TMP> )
+    if(-e $output)
+    {
+	open(TMP,"<$output") || die "can't open";
+    }
+    else
     {
 	print "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"1; URL=http:./refresh.pl\">";
 	print "You output is not ready yet";

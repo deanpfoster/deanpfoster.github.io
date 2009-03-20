@@ -1,0 +1,38 @@
+<html>
+<header>
+<title>Auction code front end</title>
+
+<Form action="./auction.pl" method="post" enctype="multipart/form-data">
+
+</header>
+<body>
+<center><h1>Alpha spending on line (by Bob Stine and Dean Foster)</h1></center>
+
+<p>
+<h2>Speed</h2>
+<input type="radio" name="iter" value="100">fast (100) <br>
+<input type="radio" name="iter" value ="1000" checked>medium (1000) <br>
+<input type="radio" name="iter" value ="10000">slow (10000) <br>
+<h2>File</h2>
+<p>
+File:<br>
+<input type="radio" name="data_source" value="download" checked>Download your data 
+<input type="file" name = "file"> <br>
+<input type="radio" name="data_source" value="bankruptcy"><a href="bankruptcy.csv">bankruptcy data</a><br>
+<input type="radio" name="data_source" value="baseball"><a href="baseball.csv">baseball</a><br>
+ <input type="submit">
+
+
+<h2> What happens:</h2>
+<ul>
+<li> This page grabs the file
+<li> Then a perl script reads the file and passes it to the C++ code
+(that runs in background)
+<li> All output for this run is saved in a unique directory under <a
+href="~foster/public_html/perl_samples/tmp">this</a> directory.
+</ul>
+<input type="submit">
+</form>
+<HTML>
+<BODY>
+
