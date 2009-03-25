@@ -6,14 +6,14 @@
 
 </header>
 <body>
-<center><h1>Alpha spending on line (by Bob Stine and Dean Foster)</h1></center>
+<center><h1>Alpha Investing on line (by Bob Stine and Dean Foster)</h1></center>
 
 <p>
-<h2>Speed</h2>
+<h2>Speed (number of variables to add)</h2>
 <input type="radio" name="iter" value="100">fast (100) <br>
 <input type="radio" name="iter" value ="1000" checked>medium (1000) <br>
 <input type="radio" name="iter" value ="10000">slow (10000) <br>
-<h2>File</h2>
+<h2>Pick your file to analyze</h2>
 <p>
 File:<br>
 <input type="radio" name="data_source" value="download" checked>Download your data 
@@ -22,6 +22,30 @@ File:<br>
 <input type="radio" name="data_source" value="baseball"><a href="baseball.csv">baseball</a><br>
  <input type="submit">
 
+<h2>Research</h2>
+
+Research related to this code:
+
+<ul>
+ <li><a href="../research/edc.pdf">Alpha-investing: A procedure for sequential control of
+              expected false discoveries</a> with Robert Stine. (<a
+href="../research/mFDR_talk.pdf">talk</a>)
+<li> <a
+href="../research/bankrupt.pdf
+">Variable selection in data mining: Building a predictive model for
+bankruptcy,</a> (<a
+href="http://www-stat.wharton.upenn.edu/~stine/research/indianapolis-asa.pdf">talk</a>)
+with <a href = "http://www-stat.wharton.upenn.edu/~stine"> Robert Stine
+</a>, <em>JASA</em>, 2004. 
+
+<li> <a href="../research/risk_inflation.pdf">The
+Risk Inflation Criterion for Multiple Regression</a> with E.
+George, <em> The
+Annals of Statistics</em>,
+ <strong> 22</strong>, (1994), 1947 - 1975.
+</ul>
+
+
 
 <h2> What happens:</h2>
 <ul>
@@ -29,7 +53,7 @@ File:<br>
 <li> Then a perl script reads the file and passes it to the C++ code
 (that runs in background)
 <li> All output for this run is saved in a unique directory under <a
-href="~foster/public_html/perl_samples/tmp">this</a> directory.
+href="./tmp">this</a> directory.
 </ul>
 <input type="submit">
 </form>

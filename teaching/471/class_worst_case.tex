@@ -1,0 +1,230 @@
+\documentclass[12pt]{extarticle} % 14, 17, 20 all exist
+\usepackage{hyperref}
+
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
+\newcommand{\tech}[1]{\noindent{\textcolor{red}{\{{\bf technical note:} \em #1\}}}}
+\usepackage{xypic}
+
+\renewcommand{\baselinestretch}{1.4}
+\begin{document}
+\title{Paranoid, huh?}
+\maketitle
+\href{class_paranoid.pdf}{pdf version}
+\newpage
+\subsection*{Models: A review}
+Recall our usual model;
+\begin{displaymath}
+(\forall i) Y_i = \alpha + \sum_j \beta_j X_{ij} + \epsilon_i
+\end{displaymath}
+where
+\begin{displaymath}
+\epsilon_i \sim_{iid} N(0,\sigma^2)
+\end{displaymath}
+\begin{itemize}
+\item Strong stuff, lots of data aren't plausibly normal
+\item Wonderful conclusions, MLE, regression, effeciency, RIC, etc,
+all revolve around this model
+\item Which of these statments are still true if the model is wrong?
+\item This is the question of model free statistics
+\item Championed by modern machine learning
+\end{itemize}
+\newpage
+\subsection*{An always true model}
+The equation:
+\begin{displaymath}
+(\forall i) Y_i = \alpha + \sum_j \beta_j X_{ij} + \epsilon_i
+\end{displaymath}
+always holds for some $\epsilon_i$'s.  So if we drop our conditions on
+$\epsilon$'s we have an always true model.
+\begin{itemize}
+\item What theorems are still true? (None as previously stated)
+\item Can we replace the old theorems with new ones? (amazinly, this
+is pretty much always yes)
+\end{itemize}
+\newpage
+\subsection*{Typical statements}
+\begin{itemize}
+\item MR. Afterdefact looks at all the data after it was collected and says, ``You know, a
+regression of $Y$ on $X$ fits pretty darn well.''
+\item Ms. Statisitican, looks at the data sequentially and predicts
+the next observation.
+\item Competive comparison: Can Ms. Statistican have almost as good as
+fit as Mr. Afterdefact?
+\end{itemize}
+\newpage
+\subsection*{Model based on money}
+One of your close friends goes to Stanford business school and the
+other goes to Chicago.  Each claims they are going to kick the markets
+butt over the next 50 years.  They have very different aproaches.
+Your goal is 
+\begin{itemize}
+\item (If you are in Wharton) Defend our reputation!
+\item (If you aren't in Wharton) Skip finance and still get rich.
+\end{itemize}
+
+\newpage
+\subsection*{Choosing between two investments}
+
+\begin{itemize}
+\item {\bf Problem:} Suppose I have two friends who are hot-shot financial
+wizards.  They come from different schools of thought and both believe
+the other to be totally clueless.  So, in fact, I have one friend
+who is a financial wizard, and one friend who is an impostor.  But,
+I don't know which is which!
+
+\item {\bf Goal:} I want to get as rich as my financial wizard
+friend--whichever that empirically turns out to be.
+
+\item {\bf No assumptions:} I will not make any probabilistic assumptions.
+\end{itemize}
+
+\newpage
+\subsection*{Setup for finance}
+
+\begin{itemize}
+\item {\bf Notation:}
+  \begin{itemize}
+  \item  $A_t$ is the wealth of my first friend at time $t$
+  \item  $B_t$ is the wealth of my second friend 
+  \item  $C_t$ is my  wealth 
+  \item  $w_t$ is fraction of my wealth A invests for me at time $t$
+  \end{itemize}
+\item $A_0 = B_0 = C_0 = 1$
+\item {\bf Returns:}
+  \begin{itemize}
+  \item  $R^A_t  =  A_{t}/A_{t-1}$ is A's return 
+  \item  $R^B_t  =  B_{t}/B_{t-1}$ is B's return
+  \item $R^C_t  =  w_{t-1} R^A_t + (1-w_{t-1}) R^B_t$ is my return
+  \end{itemize}
+  
+\item  {\bf Goal:}
+$$C_{t}\cong  \max(A_{t},B_{t})$$
+All three are growing ``exponentially,'' so use $\log(C_t)$ instead.
+Now growing ``linearilly.'' So use 
+    \begin{displaymath}
+      \frac{\log(C_{t})}{t} \cong \max(\frac{\log(A_{t})}{t},
+      \frac{\log(B_{t})}{t})
+    \end{displaymath}
+    as our goal.
+\end{itemize}
+
+\newpage
+\subsection*{Invest with my best friend}
+
+\begin{itemize}
+\item {\bf Scheme:} Whichever friend is currently wealthier is ``more
+  likely'' to be the financial wizard.  So have her invest all my 
+  wealth:
+\begin{displaymath}
+  w_t = \left\{
+  {
+    \begin{array}{l@{\qquad\hbox{if}\quad}l}
+      1 & A_{t-1} \ge B_{t-1} \\
+      0 & A_{t-1} < B_{t-1}
+    \end{array}
+    }
+  \right.
+\end{displaymath}
+
+\item {\bf Evil data:} Will this scheme always work? No, the following
+  example shows this:
+
+\begin{table}[htbp]
+  \begin{center}
+    \leavevmode
+    \begin{tabular}{r|c|c|c|c|c|c|c|c|c|c}
+      time  & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$  & $8$ &$\cdots$
+      \\ \hline 
+      $A_t$ & $1$ & $1$ & $2$ & $2$ & $4$ & $4$ & $8$ & $8$  & $16$
+      &$\cdots$ \\ 
+      $B_t$ & $1$ & $2$ & $2$ & $4$ & $4$ & $8$ & $8$ & $16$ & $16$
+      &$\cdots$ \\ \hline
+      $w_t$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$  & $1$
+      &$\cdots$  \\
+      $C_t$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$  & $1$
+      &$\cdots$  \\
+    \end{tabular}
+  \end{center}
+\end{table}%
+
+\item {\bf growth rates:} 
+  \begin{itemize}
+  \item A's growth rate: $ \ln(2)/2$
+  \item B's growth rate: $ \ln(2)/2$
+  \item C's growth rate: $ 0$
+  \end{itemize}
+\end{itemize}
+
+\newpage
+\subsection*{Equal weight}
+
+\begin{itemize}
+\item {\bf Scheme:} Always have each friend invest 1/2 of my wealth:
+\begin{displaymath}
+  w_t = 1/2
+\end{displaymath}
+
+
+\item {\bf Evil data:} This scheme isn't sensitive enough.  If one
+  friend is doing better, it won't notice.  This motivates the
+  following bad data:
+
+
+\begin{center}
+  \begin{tabular}{r|c|c|c|c|c|c|c|c}
+    time  & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $\cdots$   \\ \hline 
+    $A_t$ & $1$ & $2$ & $4$ & $8$ & $16$ & $32$ & $64$ & $\cdots$  \\ 
+    $B_t$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $\cdots$   \\ \hline
+    $w_t$ & $1/2$ & $1/2$ & $1/2$ & $1/2$ & $1/2$ & $1/2$ & $1/2$  & $\cdots$  \\  
+    $C_t$ & $1$ & $1.5$ & $2.25$ & $3.4$ & $5.1$ & $7.6$ & $11.4$
+    & $\cdots$  \\ 
+  \end{tabular}
+\end{center}
+
+\item {\bf growth rates:} 
+  \begin{itemize}
+  \item A's growth rate: $ \ln(2)/2$
+  \item B's growth rate: $ 0$
+  \item C's growth rate: $ \ln(1.5)/2$
+  \end{itemize}
+\end{itemize}
+
+\newpage
+\subsection*{Value weighted}
+
+\begin{itemize}
+
+\item {\bf Scheme:} Have each invest in proportion to how well the have
+  done so far.
+  \begin{displaymath}
+    w_{t}=\frac{A_{t-1}}{A_{t-1}+B_{t-1}}
+  \end{displaymath}
+
+\item {\bf No evil data exist:}
+\begin{center}
+  \renewcommand{\arraystretch}{1.5} 
+  \begin{tabular}{r|c|c|c|c|c}
+    time  & $0$ & $1$   & $2$   & $\ldots$ & $i$   \\ \hline 
+    $A_t$ & $1$ & $A_1$ & $A_2$ & $\ldots$ & $A_i$ \\
+    $B_t$ & $1$ & $B_1$ & $B_2$ & $\ldots$ & $B_i$ \\ \hline
+    $w_t$ & $1/2$ & $\frac{A_1}{A_1 +B_1}$ & $\frac{A_2}{A_2+B_2}$ & $\ldots $ &
+    $\frac{A_i}{A_i+ B_i}$ \\
+    $C_t$ & $1$ & $\frac{A_1+B_1}{2}$ & $\frac{A_2+B_2}{2}$ & $\ldots$
+    & $\frac{A_i+B_i}{2}$
+  \end{tabular}
+  \renewcommand{\arraystretch}{1} 
+\end{center}
+
+\item {\bf Growth rate of C:} 
+  \begin{displaymath}
+    \frac{\ln(C_t)}{t} = \frac{\ln(A_t/2+B_t/2)}{t} \ge
+    \max\{ \frac{\ln(A_t)}{t},\frac{\ln(B_t)}{t} \} - \frac{\ln(2)}{t} 
+  \end{displaymath}
+  In particular:
+  \begin{displaymath}
+    \lim_{t \to \infty} \frac{\ln(C_t)}{t} - \max\{
+    \frac{\ln(A_t)}{t},\frac{\ln(B_t)}{t} \} = 0
+  \end{displaymath}
+\end{itemize}
+
+\end{document}

@@ -1,4 +1,4 @@
-\documentclass[20pt]{extarticle} % 14, 17, 20 all exist
+\documentclass[12pt]{extarticle} % 14, 17, 20 all exist
 \usepackage{hyperref}
 
 \usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
@@ -10,7 +10,6 @@
 \title{RIC 2: Risk Inflation Criterion continued}
 \maketitle
 \href{class_RIC_2.pdf}{pdf version}
-\newpage
 \section{Admistrivia}
 \begin{itemize}
 \item Homework has been posted
@@ -22,7 +21,6 @@
   \item Analyse your own data using ideas from class
   \end{itemize}
 \end{itemize}
-\newpage
 \subsection{Risk inflation definition}
 
 The risk inflation of an estimator is its risk compared to the best
@@ -56,7 +54,6 @@ RI(\hat{\beta},\beta) \equiv \frac{\hbox{Risk}(\hat{\beta},\beta)}{q(\beta)\sigm
 
 
 
-\newpage
 
 \centerline{\begin{tabular}{r|l|l}
 \bf{cut off} & \bf{Name} & \bf{Risk Inflation} \\ \hline
@@ -70,7 +67,6 @@ RI(\hat{\beta},\beta) \equiv \frac{\hbox{Risk}(\hat{\beta},\beta)}{q(\beta)\sigm
 \end{tabular}}
 
 Clearly the ``$\infty$'''s are bad!
-\newpage
 \centerline{\begin{tabular}{r|l|l}
 \bf{cut off} & \bf{Name} & \bf{Risk Inflation} \\ \hline
  $\infty$ & ``null'' & $\infty$ \\
@@ -82,7 +78,6 @@ Clearly the ``$\infty$'''s are bad!
  $4 \log p$& RIC & $4 \log p$\\ 
  $2 \log (p/q)$ & FDR & best? (open problem) 
 \end{tabular}}
-\newpage
 \subsection*{Driving force}
 Two issues need to be balanced:
 \begin{itemize}
@@ -98,7 +93,6 @@ Hence a trade off:
 
 We can graph each of these seperaly.  (see slides)
 
-\newpage
 
 Take home messages from Risk Inflation:
 \begin{itemize}
@@ -108,14 +102,12 @@ Take home messages from Risk Inflation:
 \item Puts in more variables than Bonferroni ($.05/p$).
 \item Lots and lots of variables are fine
 \end{itemize}
-\newpage
 \section{Too many variables for JMP/R}
 
 What if you have too many variables for JMP to handle?  What if there
 are too many for R to handle?  SAS?  
 
 Now we are talking big data.
-\newpage
 \subsection{Example: Predicting Bankruptcy  }
 \begin{description}
 
@@ -153,7 +145,8 @@ Cute Hack:
 \item Can't be done in JMP
 \end{itemize}
 
-\newpage{Faster algorithm: Alpha investing}
+\newpage
+\subsection{Faster algorithm: Alpha investing}
 
 \begin{verbatim}
 let Wealth = .05

@@ -11,8 +11,7 @@
     print $q->header;
     use Cwd;
     $current_dir = &Cwd::cwd();
-    print "refresh started (".$current_dir.")";
-    $output = "log/auction.model.pretty_print";
+    $output = "log/model.html";
     if(-e $output)
     {
 	open(TMP,"<$output") || die "can't open";
@@ -32,8 +31,10 @@
     $current_dir = &Cwd::cwd();
     $current_dir =~ s\/home/foster/public_html\~foster\;
     print "<h2>All output is in <a \"href=http://gosset.wharton.upenn.edu/".$current_dir.">this directory</a>.</h2><p>\n";
+    print "<p>If our code does something weird, send us the above link and we can investigate it.\n";
     print "<p>Note: you can bookmark / email the above link.  It will stay for a long time.\n";
-    print "<h1>Raw output</h1>\n";
+
+    print "<h1>Summary of fit</h1>\n";
 
 # Pretty output
 
