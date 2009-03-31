@@ -67,7 +67,7 @@
 #    $pid2 = open3(\*Writer2, \*Reader2, \*Error2, "../../build_model --input-file model --output-path log/ -r ".$iterations);
 #    waitpid($pid2,0);
 
-    system("../../build_model --input-file model --output-path log/ -r" . $iterations . " > latest_pretty&");
+    system("../../build_model --input-file=model --output-path=log/ -r" . $iterations . " > latest_pretty&");
 
 # add a '-v 1' if you want a indicator function in the first column
 #        build_model --input-file model.dat --output-path log/ -r 800 -v 1

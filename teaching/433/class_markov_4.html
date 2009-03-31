@@ -42,26 +42,41 @@ review first step analysis with simple example:
 <h1>Chapter III.5: Examples</h1>
 <h2>2 state limit</h2>
 
-(Hint for next year: Do it using LDU instead.)
-
 <ul>
-  <li><table> <td> P = <td> <table border>
+  <li>
+
+<table> <td> P = <td> <table border>
 <tr>   <td>   1-a  <td>    a    <td> </tr>
 <tr>   <td>   b   <td>     1-b   <td> </tr>
 </table>
 </table>
-  <li><table> <td> A = <td> <table border>
-<tr>   <td>   b/(a+b)  <td>   a/(a+b)  <td> </tr>
-<tr>   <td>   b/(a+b)  <td>   a/(a+b)  <td> </tr>
+
+  <li>
+
+<table> <td> L = <td> <table border>
+<tr>   <td>   1  <td>   a  <td> </tr>
+<tr>   <td>   1  <td>   -b  <td> </tr>
 </table>
 </table>
-  <li><table> <td> B = <td> <table border>
-<tr>   <td>   a/(a+b)  <td>   -a/(a+b)  <td> </tr>
-<tr>   <td>   -b/(a+b)  <td>   b/(a+b)  <td> </tr>
+
+  <li>
+
+<table> <td> D = <td> <table border>
+<tr>   <td>   1  <td>   0  <td> </tr>
+<tr>   <td>   0  <td>   1-a-b  <td> </tr>
 </table>
 </table>
-  <li> CHECK: AA = A, AB = 0, BA = 0, BB = B.  Very cool!
-  <li> P = A + (1 - a - b) B
+  <li>
+
+<table> <td> R = <td> <table border>
+<tr>   <td>   b  <td>   a  <td> </tr>
+<tr>   <td>   1  <td>   -1  <td> </tr>
+</table>
+</table>
+
+
+  <li> CHECK: RL = I
+  <li> Check: P = LDR/(a+b)
   <li> Now multiply P<sup>n</sup> by P to generate
 P<sup>n+1</sup>.
   <li> Inductive argument done carefully...
@@ -82,6 +97,6 @@ on who was ahead.  We both liked gambling.)
 <hr>
 <address><a href="http://gosset.wharton.upenn.edu/~foster/">Dean P. Foster</a></address>
 <!-- hhmts start -->
-Last modified: Mon Feb 11 11:51:30 EST 2008
+Last modified: Fri Mar 27 14:18:04 EDT 2009
 <!-- hhmts end -->
 </body> </html>
