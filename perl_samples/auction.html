@@ -9,10 +9,13 @@
 <center><h1>Alpha Investing on line (by Bob Stine and Dean Foster)</h1></center>
 
 <p>
-<h2>Speed (number of variables to add)</h2>
+<h2>Speed (number of variables to try)</h2>
 <input type="radio" name="iter" value="100">fast (100) <br>
 <input type="radio" name="iter" value ="1000" checked>medium (1000) <br>
 <input type="radio" name="iter" value ="10000">slow (10000) <br>
+<br>
+<input type="radio" name="iter" value ="100000">patience (100k) <br>
+<input type="radio" name="iter" value ="1000000">Forever (1M) <br>
 <h2>Pick your file to analyze</h2>
 <p>
 File:<br>
@@ -20,12 +23,14 @@ File:<br>
 <input type="file" name = "file"> <br>
 <input type="radio" name="data_source" value="bankruptcy"><a href="bankruptcy.csv">bankruptcy data</a><br>
 <input type="radio" name="data_source" value="baseball"><a href="baseball.csv">baseball</a><br>
+<input type="radio" name="data_source" value="hadamard"><a href="hadamard.csv">Hadamard</a><br>
+<input type="radio" name="data_source" value="hadamard_14"><a
+href="hadamard_14.csv">Larger Hadamard</a><br>
  <input type="submit">
 
-<h2>Research</h2>
+<center><h1>Under the hood</h1></center>
 
-Research related to this code:
-
+<h2>Papers</h2>
 <ul>
  <li><a href="../research/edc.pdf">Alpha-investing: A procedure for sequential control of
               expected false discoveries</a> with Robert Stine. (<a
@@ -44,6 +49,28 @@ George, <em> The
 Annals of Statistics</em>,
  <strong> 22</strong>, (1994), 1947 - 1975.
 </ul>
+<h2>The sample data sets</h2>
+The bankruptcy data is discussed in our JASA paper.
+<p>
+The baseball data is from <a
+href=""http://www4.stat.ncsu.edu/~boos/var.select/baseball.html">here</a>.
+It has no particular significance, except I was discussing it in class
+when I wrote this page.
+<p>
+The Hadamard data set (simulated) is motivated by Manfred's paper, <a
+href="http://www.cse.ucsc.edu/~manfred/pubs/span.pdf">Leaving the
+span</a>.  He argues that linear methods can't find the fit here.  So
+if our code find it, we must be non-linear!  (We search the space of
+linear models, but our method is clearly non-linear.)
+<h2>Code</h2>
+If you want the code, please <a
+href="mailto:stine@wharton.upenn.edu?subject=Auction code&body=Please send me
+the latest version of the auction code (build_model.tgz).  &cc=dean@foster.net">
+email</a> either Bob or <a
+href="mailto:dean@foster.net">Dean</a>.  We will try to keep a <a
+href="build_model.tgz">.tgz</a> file on line and upto date, but it is
+best to email for a fresh copy.
+
 
 
 
@@ -55,7 +82,6 @@ Annals of Statistics</em>,
 <li> All output for this run is saved in a unique directory under <a
 href="./tmp">this</a> directory.
 </ul>
-<input type="submit">
 </form>
 <HTML>
 <BODY>
