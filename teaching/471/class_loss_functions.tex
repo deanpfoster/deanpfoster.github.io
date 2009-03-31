@@ -108,12 +108,13 @@ Examples:
 \end{displaymath}
 \item Weird:
 \begin{displaymath}
-\hbox{loss}(p,X) = \sqrt{Xp} + \sqrt{(1-X)(1-p)}
+\hbox{loss}(p,X) = \frac{1 - X- p}{\sqrt{1 - 2p - p^2}}
 \end{displaymath}
 \item General:
 \begin{displaymath}
-\hbox{loss}(p,X) = \int_0^1 f(a) \hbox{\bf loss}_a(p,X) da
+\hbox{loss}(p,X) = \int_0^1  \hbox{\bf loss}_a(p,X) w(a) da
 \end{displaymath}
+for some $w(\cdot)\ge 0$.
 \end{itemize}
 
 
