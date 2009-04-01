@@ -40,14 +40,19 @@ friend $B$ will win $b_t$ pennies.
 \end{itemize}
 
 Your goal is to have your average winnings be about the same as the
-better of the two average winnings of your two friends.  So,
+better of the two average winnings of your two friends.  In other words:
 \begin{displaymath}
 \frac{\sum_{t=1}^T c_t}{T} \approx \max(\frac{\sum_{t=1}^T b_t}{T},\frac{\sum_{t=1}^T b_t}{T})
 \end{displaymath}
 So, no tricks this time.  No compounding.  No logs.  Just the real
-average. 
+average.  Ok, let's figure out how to do this.
 \begin{enumerate}
-\item ...
+\item If you bet with your friend who has currently won the most, show
+that there is a sequence for which you aren't close to winning as much
+as your better friend wins.
+\item If you always hedge your bets and put 1/2 with each, show that
+there is a sequence for which you aren't close to winning as much
+as your better friend wins.
 \end{enumerate}
 
 \item For each of the following loss function, say what probability
