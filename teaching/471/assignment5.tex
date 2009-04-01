@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\begin{document}
+\section*{Assignment 5: Paranoia}
+
+(\href{assignment5.pdf}{pdf version}) 
+
+\begin{enumerate}
+\item Suppose you have three friends ...
+
+\item On argument as to why the proof I gave in class works is that
+the log is a too crude summary of wealth.  So if we had to work with
+real money, the proof would not work.  Let's show that theory wrong.
+
+In this story, we will assume you have two friends who will help you
+pick ponies at a race track.  Now since gambling is illegal, we will
+have your maximum amount you can win be a single penny.  To avoid all
+issues of wealth, we won't worry about stakes and odds and all that.
+So your problem is:
+
+\begin{itemize}
+\item Before each race is run, decide who you want to bet for you,
+ friend A or friend B.  Call this $w_t$.  (Of course you can be
+ wishywashy and got with a fraction of each as long as it adds up to
+ exactly one.)
+\item When the race $t$ is run, friend A will win $a_t$ pennies, and
+friend $B$ will win $b_t$ pennies.
+\item You collect $c_t = w_t a_t + (1-w_t) b_t$.
+\end{itemize}
+
+Your goal is to have your average winnings be about the same as the
+better of the two average winnings of your two friends.  So,
+\begin{displaymath}
+\frac{\sum_{t=1}^T c_t}{T} \approx \max(\frac{\sum_{t=1}^T b_t}{T},\frac{\sum_{t=1}^T b_t}{T})
+\end{displaymath}
+So, no tricks this time.  No compounding.  No logs.  Just the real
+average. 
+\begin{enumerate}
+\item ...
+\end{enumerate}
+
+\item For each of the following loss function, say what probability
+you would announce if you believe the true probability was 50/50.
+\begin{enumerate}
+\item loss$(p,X) = I_{p>.9}X$
+\item ...
+\end{enumerate}
+
+\item Consider the following three forecasting rules,
+\begin{eqnarray*}
+\overline{X}_t & = & \sum_{i=1}^{t-1} \frac{X_i}{t-1}\\
+{\cal s}_t & = & 2/3 - X_{t-1}/3 \\
+{\cal E}_t & = & .9 {\cal E}_{t-1} + .1 X_{t-1}
+\end{eqnarray*}
+compute a calibration curve for each of them
+
+\end{enumerate}
+
+\end{document}

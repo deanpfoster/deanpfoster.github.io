@@ -1,4 +1,4 @@
-\documentclass[20pt]{extarticle} % 14, 17, 20 all exist
+\documentclass[12pt]{extarticle} % 14, 17, 20 all exist
 \usepackage{hyperref}
 
 \usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
@@ -24,22 +24,19 @@ where
 \item loss = $(Y -EY)^2$ = Var(Y)
 \item Can we use other loss functions?
 \end{itemize}
+
 \subsection*{Alternative loss function}
 
 Game:
 \begin{itemize}
 \item Guess a probability $p$ of rain
-\item If it rains, you get paid $p$, if it doesn't rain you get $1-p$.
+\item (Utility) If it rains, you get paid $p$, if it doesn't rain you get $1-p$.
+\item (Loss) If it rains, you lose $1-p$, if it doesn't lose $p$.
 \item Gratitous mathematics: Called absolute loss,
 \begin{eqnarray*}
-\hbox{loss}(p,X) &= &-|X - p|\\
-\hbox{loss}(p,X) &= &1 - |X - p|\\
-& =& \left\{\begin{array}{l@{\quad}l}1-|1-p| &
-\hbox{if X = 1}\\ 1-|0-p| & \hbox{if X = 0}
-\end{array}
-\right. \\
-&= &\left\{\begin{array}{l@{\quad}l}p &
-\hbox{if X = 1}\\ 1-p & \hbox{if X = 0}
+\hbox{loss}(p,X) &= &|X - p|\\
+&= &\left\{\begin{array}{l@{\quad}l}1-p &
+\hbox{if X = 1}\\ p & \hbox{if X = 0}
 \end{array}
 \right.
 \end{eqnarray*}
@@ -55,7 +52,7 @@ as if they said that.
 \item If $p < .5$ they will say ``p = 0'' so give them the same loss
 as if they said that.
 \item Magic function: $I_{p > .5}$ does the conversion
-\item Loss = $I_{p > .5} - X$.
+\item Loss = $|I_{p > .5} - X|$.
 \item No no lead to ``lie'' the loss function does it for us.
 \item Whole area of {\em mechanism design} works on these problems
 \end{itemize}
@@ -72,8 +69,8 @@ guess high & 1   & 0
 General loss\\
 \begin{tabular}{r|c|c}
 $\hbox{\bf loss}_a$ & X=0 & X=1 \\ \hline
-guess low  & 0   & a  \\ \hline
-guess high & 1-a & 0 
+guess low  & 0   & 1-a  \\ \hline
+guess high & a   & 0 
 \end{tabular}
 
 \begin{itemize}
@@ -82,7 +79,7 @@ guess high & 1-a & 0
 \item If $p<a$ guess low
 \item General loss function
 \begin{eqnarray*}
-\hbox{\bf loss}_a(p,X) &= &- aI_{p > a}(1-X) - (1-a)I_{p \le a}X \\
+\hbox{\bf loss}_a(p,X) &= & aI_{p > a}(1-X) + (1-a)I_{p \le a}X \\
 \end{eqnarray*}
 
 \end{itemize}
