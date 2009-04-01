@@ -8,9 +8,12 @@
 (\href{assignment5.pdf}{pdf version}) 
 
 \begin{enumerate}
-\item Suppose you have three friends ...
+\item Suppose you have three friends, creatively called $A$, $B$ and
+$C$.  Prove that if you give each of them 1/3 of a dollar and let it
+ride, that your average return will be approximately as high as the
+best of these three.
 
-\item On argument as to why the proof I gave in class works is that
+\item One argument as to why the proof I gave in class works is that
 the log is a too crude summary of wealth.  So if we had to work with
 real money, the proof would not work.  Let's show that theory wrong.
 
@@ -54,7 +57,58 @@ you would announce if you believe the true probability was 50/50.
 {\cal s}_t & = & 2/3 - X_{t-1}/3 \\
 {\cal E}_t & = & .9 {\cal E}_{t-1} + .1 X_{t-1}
 \end{eqnarray*}
-compute a calibration curve for each of them
+The first one is just the average of all the previous days.  The
+ second {\em switches} back and forth based on what the previous day
+ looked like.  And the third is called an {\em exponential smooth} of
+the previous 10 days.  Notice, none of them have a clue as to what to
+forecast on the first day.  So just set them to something like .5
+until they are up and running.
+\begin{enumerate}
+\item First make a simple simulation of weather, say IID 50/50, call
+it {\bf RAIN}.  Use say, 1000 observations.
+\item Now make a column in JMP (or an R function) which will represent
+each of these forecasts.
+\item Compute the calibration curve for each of these three
+forecasts.  (You can do this by simply plotting {\bf RAIN} vs each of
+the three forecasts and then doing your favorite smooth.)  This is
+called the calibration curve.  We can call it $C(f)$.
+\item You can pretty much see what is going on by looking at the
+picture.  But to get a number that you can apply to these forecasts,
+proceed as follows:
+\begin{enumerate}
+\item save the smooth generate in the previous section.
+\item compute the difference between the smooth and the forecast.
+\item Now square this difference and compute the average.
+\end{enumerate}
+You have now computed;
+\begin{displaymath}
+\hbox{calibration score} = \sum_{t=1}^T (C(\overline{X}_t) - \overline{X}_t)^2/T
+\end{displaymath}
+If this number is small, it says the forecast $\overline{X}_t$ is
+close to calibrated for this data.  If it is large, it isn't close to
+calibrated. 
+\item Now the fun begins.  Generate some new data for {\bf RAIN}.
+Think evil!  Try to make the calibration plots as bad as possible for
+each of the three forecasts.  Some ideas to try:
+\begin{itemize}
+\item IID with different probabilities
+\item $0,1,0,1,0,1,0,1,0,1,\ldots$
+\item $0,0,0,0,0,0,0,\ldots,1,1,1,1,1,\ldots$ (say 500 of each)
+\item For those in my 433 class, maybe a Markov chain might be
+nice. Something like:
+\begin{displaymath}
+\left[\begin{array}{cc}.9 &.1\\.2 & .8
+\end{array}
+\right]
+\end{displaymath}
+\item Have the probability of rain change over time.  For example,
+have the probability of rain be equal to the forecast made by ONE of
+the three forecasting rules and see if that messes up another
+forecasting rule.
+\item Any other ideas?
+\end{itemize}
+\end{enumerate}
+
 
 \end{enumerate}
 
