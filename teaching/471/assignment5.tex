@@ -6,9 +6,11 @@
 
 \renewcommand{\baselinestretch}{1.25}
 
-\begin{document}
 
-\section*{Assignment 5: Paranoia}
+\begin{document}
+\setcounter{section}{4}
+
+\section{Assignment 5: Paranoia}
 
 \note{This is a fairly technical assignment.  But it should be pretty
 straight forward inspite of that.  If there is something confusing,
@@ -18,13 +20,15 @@ than you will have to solving them.)}
 
 (\href{assignment5.pdf}{pdf version}) 
 
-\begin{enumerate}
-\item Suppose you have three friends, creatively called $A$, $B$ and
+\subsection{Three friends}
+
+ Suppose you have three friends, creatively called $A$, $B$ and
 $C$.  Prove that if you give each of them 1/3 of a dollar and let it
 ride, that your average return will be approximately as high as the
 best of these three.
 
-\item One complaint about why the theorem I gave in class is that
+\subsection{Day at the races}
+ One complaint about why the theorem I gave in class is that
 the log is a too crude summary of wealth.  So if we had to work with
 real money, the proof would not work.  Let's show that theory wrong.
 
@@ -83,7 +87,10 @@ all together and show how close the average combination is to the best
 combination. 
 \end{enumerate}
 
-\item For each of the following loss function, say what probability
+
+
+\subsection{Loss functions}
+ For each of the following loss function, say what probability
 you would announce if you believe the true probability was .5 and
 if the true probability were .9.
 \begin{enumerate}
@@ -95,7 +102,11 @@ a derivative)
 \end{enumerate}
 Which of the above are proper scoring rules?
 
-\item Consider the following three forecasting rules,
+
+
+
+\subsection{Calibration}
+ Consider the following three forecasting rules,
 \begin{eqnarray*}
 \overline{X}_t & = & \sum_{i=1}^{t-1} \frac{X_i}{t-1}\\
 {\cal s}_t & = & 2/3 - X_{t-1}/3 \\
@@ -151,9 +162,6 @@ the three forecasting rules and see if that messes up another
 forecasting rule.
 \item Any other ideas?
 \end{itemize}
-\end{enumerate}
-
-
 \end{enumerate}
 
 \end{document}
