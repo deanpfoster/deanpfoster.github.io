@@ -63,13 +63,16 @@ as your better friend wins.
 there is a sequence for which you aren't close to winning as much
 as your better friend wins.
 \item You hire an financal accountant (they are cheap now that
-wallstree has gone broke) to help you keep track of your pennies.
-Unfortunately, he doesn't really read the problem description very
-well and instead think we are compounding.  So he defines $A_t = 1 +
-a_t$.  Hence each round $A_t = 1$ or $A_t = 1.01$ depending on whether
-A wins nothing or A wins a penny.  He then computes the log growth
-rate of this compound series.  Show that $\log \prod A_t \approx \sum
-a_t$.
+ wallstreet has gone broke) to help you keep track of your pennies.
+  Unfortunately, he doesn't really read the problem description very
+ well and so thinks we are doing compounding.  
+
+ He defines $A_t = 1 + a_t$ and everone starts out with one dollar.
+  Hence each round $A_t = 1$ or $A_t = 1.01$ depending on whether
+ friend A wins nothing or friend A wins a penny.  He then computes the
+ log growth rate of this compound series.  He just thinks of it as
+ your final wealth as $A_1 \cdot A_2 \cdots A_t$ which we can call
+ $\prod A_t$.  Show that $\log \prod A_t \approx \sum a_t$.
 \item Your financial accountant then suggest you use the usual
  combination scheme for compound growth.  Namely, $w_t =
  A_t/(A_t+B_t)$.  Clearly this is a legal investment scheme, but does
@@ -84,7 +87,9 @@ a_t$.
 and from the previous part $\frac{\log \prod C_t}{T} \approx
 \frac{\sum_{t=1}^T c_t}{T}$ and likewise for $a$ and $b$.  Put these
 all together and show how close the average combination is to the best
-combination. 
+combination.  In other words, give a bound that says how far the average
+of the $c_t$'w will be from the better of the averages of the $a$'s or
+of the $b$'s.
 \end{enumerate}
 
 
@@ -123,10 +128,11 @@ until they are up and running.
 it {\bf RAIN}.  Use say, 1000 observations.
 \item Now make a column in JMP (or an R function) which will represent
 each of these forecasts.
-\item Compute the calibration curve for each of these three
-forecasts.  (You can do this by simply plotting {\bf RAIN} vs each of
-the three forecasts and then doing your favorite smooth.)  This is
-called the calibration curve.  We can call it $C(f)$.
+\item Compute the calibration curve for each of these three forecasts.
+  (You can do this by simply plotting {\bf RAIN} vs each of the three
+ forecasts and then doing your favorite smooth or polynomial
+ regression.)  This is called the calibration curve.  We can call it
+ $C(f)$.
 \item You can pretty much see what is going on by looking at the
 picture.  But to get a number that you can apply to these forecasts,
 proceed as follows:
