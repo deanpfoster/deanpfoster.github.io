@@ -89,6 +89,39 @@ y_t\rVert^2 + \lVert \theta \rVert^2 + \frac{d}{2} \log T
 \item  The ``Hannan regret'' is sublinear
 \end{itemize}
 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\foilhead{Weirdness}
+\begin{itemize}
+\item Plot of $y_t - \hat{y}_t$ vs $X_i$ should not have a pattern
+\item called ``normal equations'' in regression:
+\begin{displaymath}
+\hbox{corr}(Y,Y-\hat{Y}) = 0
+\end{displaymath}
+\item This doesn't hold for the on-line version
+\item It holds traditionally because $\hat{y} = X\hat{beta}$ so we
+consider it in our model.
+\item $\hat{y}$ is NOT in our on-line model.
+\end{itemize}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\foilhead{Where is our best regression variable?}
+\begin{itemize}
+\item Key idea of ``follow the leader'' is that $\hat{y}_t = \sum X_i
+\hat{\beta}_{i,t}$ is a good forecast of $y_t$.
+\item But the $\hat{\beta}$'s keep changing
+\item So, this ``signal'' is not in our model.
+\item Cute trick: Add $\hat{y}_{t-1}$ as a regression variable
+\end{itemize}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\foilhead{Normal equations now hold}
+\begin{itemize}
+\item correlation of $y_t - \hat{y}_t$ vs $X_i$ will be zero
+\end{itemize}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
