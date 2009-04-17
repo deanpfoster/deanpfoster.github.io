@@ -23,10 +23,60 @@ File:<br>
 <input type="file" name = "file"> <br>
 <input type="radio" name="data_source" value="bankruptcy"><a href="bankruptcy.csv">bankruptcy data</a><br>
 <input type="radio" name="data_source" value="baseball"><a href="baseball.csv">baseball</a><br>
+<input type="radio" name="data_source" value="boston"><a
+href="boston.csv">Boston Housing</a><br>
+<input type="radio" name="data_source" value="philadelphia"><a
+href="boston.csv">Philadelphia Housing (crime)</a><br>
 <input type="radio" name="data_source" value="hadamard"><a href="hadamard.csv">Hadamard</a><br>
 <input type="radio" name="data_source" value="hadamard_14"><a
 href="hadamard_14.csv">Larger Hadamard</a><br>
  <input type="submit">
+<h2>Prep'ing your data</h2>
+
+Here are guidelines for preparing your data:
+<ul>
+<li> Only .csv files can be used.
+<li> If you have interesting strings, you must quote them (I.e. quote
+things like "Allston-Brighton".  Spaces and letters are fine, but many
+other fancy symbols need quotes.)
+<li> You have to have names of variables in the first row.
+<li> The "Y" variable should come before the X's.
+<li> Don't include any X's that you don't want used in the regression!
+<li> If you want to fit the entire data set then use the order: Y,
+X1, X2, ...
+<br><br>
+Y, X1, X2
+<br>
+10, 2, 3
+<br>
+20, 4, 5
+<br>
+...
+<br><br>
+</ul>
+To do cross validation:
+
+<ul>
+<li> Put the indicator of which obserations are in sample in the first
+column (use values in / out)
+<li> Variable order: CROSS, Y, X1, X2, X3, ...
+<li> Example:
+<br><br>
+CROSS ,Y ,X1 ,X2
+<br>
+in, 10, 2, 3
+<br>
+in, 20, 4, 5
+<br>
+out, , 5, 4
+<br>
+out, , 10, 3
+<br><br>
+<li> You can include values for the Y's that are out of sample--they
+will be ignored.
+<li> The system will make predictions for the out-of-sample Y's.
+</ul>
+
 
 <center><h1>Under the hood</h1></center>
 

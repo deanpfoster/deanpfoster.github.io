@@ -25,7 +25,8 @@
     
     print "<h1>DONE!</h1>\n";
 
-    print "<h2><a href=\"".$prefix."log/model_data.csv\">data table from fitted model</a></h2>";
+    print "<h2><a href=\"log/model_data.csv\">data table from fitted model</a></h2>";
+    print "<h2><a href=\"log/progress.csv\">log of run</a></h2>";
 
     use Cwd;
     $current_dir = &Cwd::cwd();
