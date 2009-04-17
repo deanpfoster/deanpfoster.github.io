@@ -1,0 +1,6 @@
+#!/bin/sh
+
+touch 'parse csv was here'
+
+../../csv_parser --input-file=data --output-file=model > csv_parse_output
+../../build_model --input-file=model --output-path=log/ -r $1  > latest_pretty
