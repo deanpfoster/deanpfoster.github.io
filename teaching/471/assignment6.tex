@@ -32,12 +32,10 @@ April 16th.
 
 \subsection{Cross validation}
 
-This question will have you look at approval of credit cards.
-(Unfortunately, I have this data set at home, so I will not be able to
-post it until friday evening.)  The Y variable is then a ``yes'' or
-``no'' response.  But if we treat these as zeros and ones we can do a
-regression on them.  We will also do the more sophicicated logistic
-regression.
+This question will have you frauduant loans.  The Y variable is then a
+ ``OK'' or ``fraud'' response.  But if we treat these as zeros and
+ ones we can do a regression on them.  We will also do the more
+ sophicicated logistic regression.
 
 \begin{itemize}
 \item As usual, start by creating a linear fit, and testing
@@ -53,11 +51,11 @@ regression.
   the out of sample data.)  Does a calibrated forecast predict out of
   sample better than the uncalibrated forecast?
 \item Now switch to using a classification loss. (I.e. you must guess
-  either ``true'' or ``false'' and you win if you get it right and
-  lose if you get it wrong).  Make a decision out of your
-  probabilistic predictions.  How accurately does it predict?  Now try
-  using your uncalibrated forecasts.  How well do they fit?  Explain
-  what happens here.
+ either ``true'' or ``false.''  If you miss a ``true'' it costs you 50
+dollars if you miss a false it costs you 1 dollar.).  Make a decision out
+ of your probabilistic predictions.  How accurately does it predict?
+  Now try using your uncalibrated forecasts.  How well do they fit?
+  Explain what happens here.
 \end{itemize}
 
 \end{document}

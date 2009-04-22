@@ -14,15 +14,20 @@
     if($where_data_is_from eq "download")
     { 
 	$tmp_dir_name = $q->param('file');
+	use File::Basename;
+	$simple_dir_name = fileparse($tmp_dir_name,".csv");
+	fileparse_set_fstype("DOS");
+	$simple_dir_name = fileparse($simple_dir_name);
+
     }
     else
     {
-	$tmp_dir_name = $q->param('data_source');
+	$simple_dir_name = $q->param('data_source');
     }
 
 #  Setup the directory to recieve the information
     $random = int(rand(9999));
-    $prefix = "./tmp/". $tmp_dir_name . "_" . $random . "/";
+    $prefix = "./tmp/". $simple_dir_name . "_" . $random . "/";
     mkdir $prefix;
     mkdir $prefix . "log";
     $data = $prefix . "data";
