@@ -1,0 +1,220 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage{graphicx}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+% ----------------------------------------------------------------
+\begin{document}
+
+\title{STAT 433: Final Exam Solutions}
+
+\date{ \today}
+
+
+
+
+% ----------------------------------------------------------------
+
+\maketitle
+% ----------------------------------------------------------------
+\flushleft
+{\bf QUESTION 1}
+\newline
+{\bf (a)}
+Transient states $\left\{1\right\}$ \\
+{\bf (b)}
+Periodic states $\left\{3,5\right\}$ \\
+{\bf (c)} Communicating classes $\left\{2,4\right\}$ and
+$\left\{3,5\right\}$ \\
+ {\bf (d)}
+ $\pi_2=\pi_4=1/2$
+\bigskip
+
+{\bf QUESTION 2}
+\newline
+{\bf (a)}
+\newline
+\begin{eqnarray}
+\nonumber E[M(t)]&=&E[N(t)-f(t)] \\
+\nonumber 0&=&E[X(t)^2+Y(t)^2+Z(t)^2]-E[f(t)] \\
+\nonumber E[f(t)]&=&t+t+t=3t \\
+\nonumber &\Downarrow& \\
+\nonumber f(t)&=&3t
+\end{eqnarray}
+ {\bf (b)}
+\newline
+$E[M(t)]=0$ is not enough to show that M(t) is a martingale. In
+order to show it is a martingale, we also need to show
+\begin{eqnarray}
+\nonumber E[M(t)|M(t-1),M(t-2),\ldots,M(0)]&=&M(t-1)
+\end{eqnarray}
+\bigskip
+
+{\bf QUESTION 3}
+\newline
+\begin{eqnarray}
+\nonumber P\left\{\underbrace{B(t)\neq 0, a<t\leq b}_{A}
+|\underbrace{ B(t)\neq 0, b<t\leq c}_{B}\right\} &=&
+\frac{P\left\{\overbrace{B(t)\neq 0, a<t\leq b}^{A} \cap
+\overbrace{B(t)\neq 0,
+b<t\leq c}^{B}\right\}}{P\left\{\underbrace{B(t)\neq 0, b<t\leq c}_{B} \right\}} \\
+\nonumber &=& \frac{1-2/\pi \arctan\sqrt{\frac{c-a}{a}}}{1-2/\pi
+\arctan\sqrt{\frac{c-b}{b}}}
+\end{eqnarray}
+ {\bf (a)}
+\newline
+\begin{eqnarray}
+\nonumber \lim_{c\rightarrow b}\frac{1-2/\pi
+\arctan\sqrt{\frac{c-a}{a}}}{1-2/\pi
+\arctan\sqrt{\frac{c-b}{b}}}&=&1-2/\pi \arctan\sqrt{\frac{b-a}{a}}
+\end{eqnarray}
+since $1-2/\pi \arctan(0) = 1$
+\newline
+{\bf (b)}
+\begin{eqnarray}
+\nonumber \lim_{c\rightarrow \infty}\frac{1-2/\pi
+\arctan\sqrt{\frac{c-a}{a}}}{1-2/\pi
+\arctan\sqrt{\frac{c-b}{b}}}&=&\sqrt{\frac{a}{b}}
+\end{eqnarray}
+using l'Hopitals rule. \newline \newline
+\bigskip
+{\bf QUESTION 4}
+\newline
+{\bf (a)}
+\newline
+In general,
+\begin{eqnarray}
+\nonumber P(\max_{0<s<t}B(s)\geq z, B(t) \leq x)&=&P(B(t)\geq
+2z-x)\\
+\nonumber &=&1-\Phi\left(\frac{2z-x}{\sqrt{t}}\right) \\
+\nonumber z=\frac{70-60}{20}=.5 &,&x=\frac{60-60}{20}=0,t=1 \text{ time unit defined as 4 months}\\
+\nonumber P(\text{Make
+money})&=&1-\Phi\left(2(.5)-0\right)=1-\Phi\left(1\right)
+\end{eqnarray}
+\newline
+Alternatively, consider our path of interest as the reflected
+Brownian motion at 70. This unreflected path would be above 80 to
+be like our "above 70 and then back below 60" path. So  P(Make
+money)=1-$\Phi(\frac{80-60}{20})=1-\Phi(1)$ which is the same as
+before. \newline \newline
+\bigskip
+{\bf QUESTION 5}
+\newline
+{\bf (a)}
+\begin{eqnarray}
+\nonumber && \text{Case 1: } t \leq 1 \\
+\nonumber && X(t)=N(t) \\
+\nonumber && Y(t)=0 \\
+\nonumber && \text{Case 2: } t \geq 1 \\
+\nonumber && X(t)=N(t)-N(t-1) \sim \text{Pois}(\lambda) \\
+\nonumber && Y(t)=N(t-1) \sim \text{Pois}((t-1)\lambda)
+\end{eqnarray}
+\newline
+$X(t)$ and $Y(t)$ are independent. \newline
+\newline
+{\bf (b)}
+\newline
+This was a typo. The intended question was is X(t) a Poisson
+variable. The answer is no. Whether or not Y(t) is a Poisson
+variable is hard to tell so any answer is correct. \newline
+\newline
+\bigskip
+{\bf QUESTION 6}
+\newline
+Assuming $0\leq s \leq t$ \newline
+\begin{eqnarray}
+\nonumber \text{Cov}[N(t),N(s)]&=&E[N(t)N(s)]-\lambda t \lambda
+s\\
+\nonumber &=&E[N(t)N(s)]-\lambda^2ts \\
+\nonumber \\
+\nonumber
+E[N(t)N(s)]&=&E[{N(t)-N(s)+N(s)}N(s)]=E[{N(t)-N(s)}N(s)]+E[N(s)^2]
+\\
+\nonumber E[N(s)^2]&=&Var[N(s)]+(E[N(s)])^2= \lambda s + (\lambda
+s)^2 \\
+\nonumber
+E[{N(t)-N(s)}N(s)]&=&E[N(t)-N(s)]E[N(s)]=\lambda(t-s)\lambda s
+\end{eqnarray}
+combining all terms, we have
+\begin{eqnarray}
+ \nonumber
+\text{Cov}[N(t),N(s)]&=&\lambda(t-s)\lambda s + \lambda s +
+\lambda^2 s^2 -\lambda t \lambda s =\lambda s
+\end{eqnarray}
+\newline
+Similarly for $0\leq t \leq s$ we have
+$\text{Cov}[N(t),N(s)]=\lambda t$, hence
+\begin{eqnarray}
+ \nonumber
+\text{Cov}[N(t),N(s)]&=&\lambda \min(t,s)
+\end{eqnarray}
+\newline
+
+\bigskip
+{\bf QUESTION 7}
+\newline
+{\bf (a)}
+\begin{eqnarray}
+\nonumber \text{Model 1} &&\left[
+\begin{array}[4]{ccccccc}
+p & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6}  \\
+1-p & p & 0 & 0 & 0 & 0 & 0 \\
+1-p & 0 & p & 0 & 0 & 0 & 0 \\
+1-p & 0 & 0 & p & 0 & 0 & 0 \\
+1-p & 0 & 0 & 0 & p & 0 & 0 \\
+1-p & 0 & 0 & 0 & 0 & p & 0 \\
+1-p & 0 & 0 & 0 & 0 & 0 & p \\
+\end{array}
+\right]
+\end{eqnarray}
+\begin{eqnarray}
+\nonumber \text{Model 2} &&\left[
+\begin{array}[4]{cc}
+p & 1-p  \\
+1-p & p \\
+\end{array}
+\right]
+\end{eqnarray}
+\newline
+{\bf (b)} Inspection of Model 2 tells us $\pi_{\text{main}}=1/2$
+\newline
+{\bf (c)} Probability of not being in the main room is 1/2 and all
+six rooms are exchangeable so $1/2 \times 1/6 = 1/12$=P(mink in
+room A). \newline
+{\bf(d)}
+\begin{eqnarray}
+\nonumber \text{Model 1} &&\left[
+\begin{array}[4]{ccccccc}
+p & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6} & \frac{1-p}{6}  \\
+1-p-\epsilon_1 & p+\epsilon_1 & 0 & 0 & 0 & 0 & 0 \\
+1-p-\epsilon_2 & 0 & p+\epsilon_2 & 0 & 0 & 0 & 0 \\
+1-p & 0 & 0 & p & 0 & 0 & 0 \\
+1-p & 0 & 0 & 0 & p & 0 & 0 \\
+1-p & 0 & 0 & 0 & 0 & p & 0 \\
+1-p & 0 & 0 & 0 & 0 & 0 & p \\
+\end{array}
+\right]
+\end{eqnarray}
+\end{document}

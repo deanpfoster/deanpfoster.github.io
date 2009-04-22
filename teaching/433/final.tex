@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{simplemargins}
+\setallmargins{.5in}
+\settopmargin{1.2in}
+\renewcommand{\baselinestretch}{1.3}
+\pagestyle{empty}
+\begin{document}
+Dean Foster \hfill {\bf Stat 433: Final Exam} \hfill\today
+\vspace{1em}
+
+You are allowed both your midterm cheat-sheet and a new one if you made
+it up.  No calculators!
+
+\begin{enumerate}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\item Suppose we have a 5 state Markov chain represented by the
+following matrix: 
+\begin{displaymath}
+\left[\begin{array}{ccccc}
+        0 & 0 & 1 & 0 & 0 \\
+        0 & .9& 0 & .1& 0 \\
+        0 & 0 & 0 & 0 & 1 \\
+        0 & .1& 0 & .9& 0 \\
+        0 & 0 & 1 & 0 & 0
+\end{array}
+\right]
+\end{displaymath}
+where we label the states 1-5.
+\begin{enumerate}
+\item Which states are transient?
+\item Which states are periodic?
+\item What are the communication classes for this process?
+\item If the process started in second state, what will the
+distribution be in the limit?
+\end{enumerate}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\item Consider 3 standard Brownian motions, $X(t), Y(t),$ and $Z(t)$.
+Define the norm process as
+\begin{displaymath}
+N(t) = X(t)^2 + Y(t)^2 + Z(t)^2.
+\end{displaymath}
+Define $M(t) = N(t) - f(t)$ for some deterministic function $f(t)$. 
+\begin{enumerate}
+\item What would the function $f(t)$ have to be to make $E(M(t)) = 0$
+for all $t$? 
+\item For this $f()$, is the fact that  $E(M(t)) = 0$ enough to show
+that $M(t)$ is a martingale?
+\end{enumerate}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\item Find the conditional probability that a standard Brownian motion
+is not zero in the interval $(a,b]$ given that it is not zero in the
+interval $(b,c]$. 
+\begin{enumerate}
+\item What is the limit as $c \to b$?  Does this make sense?
+\item What is the limit as $c \to \infty$?  Does this make sense?
+\end{enumerate}
+(NOTE: in case you forgot to add the arc-tan rule to
+you cheat sheet it says the probability of a standard Brownian motion
+having at least one zero between $t$ and $t+s$ is $\frac{2}{\pi}
+\arctan\sqrt{s/t}$.)
+
+\item I have a scheme for buying and selling ``Bush'' futures
+contracts.  (Recall the graph I passed out in class.)  Currently they
+are trading for 60 points.  My scheme will make me money if over the
+next 4 months the price goes over 70 points and then ends up at less
+than 60 points at the end of the 4 months.  If this doesn't occur, I
+will losing money.  Assume that the standard deviation over this time
+period period is 20 points.  What is the probability of my scheme
+making money?  (Give me a formula for the answer AND a crude guess as
+to the numeric value of the probability.)
+
+
+\item Let $\{N(t); t\ge 0\}$ be a Poisson process of rate $\lambda$,
+representing the arrival process of customers entering a slow food
+joint.  Each person takes exactly one hour to get their food, eat it
+and leave.  Let $X(t)$ denote the number of customers remaining in the
+store at time $t$ and $Y(t)$ be the number that have come and departed
+by time $t$.
+\begin{enumerate}
+\item Find the joint distribution of $X(t)$ and $Y(t)$.
+\item Is $Y(t)$ a Poisson process?  Justify your answer.
+\end{enumerate}
+
+\item What is the covariance function for a Poisson process?  In other
+words, what is $Cov(N(t),N(s))$ where $N(t)$ is a Poisson process with
+rate $\lambda$.
+
+\item Consider a mink that is put in a cage that has one central room
+and 6 side rooms.  The main room is called M, and the side rooms are
+called A, B, C, D, E and F.  None of the side rooms are connected to
+each other.  In other words, when the mink leaves a side room, he must
+move back into the main room.
+
+In each period the mink either stays put with probability p or moves
+to one of the adjacent rooms with probability 1-p.  
+\begin{enumerate}
+\item Write down two different probabilistic models for this problem.
+(One of the should have 7 states, and the other should have only two
+states). 
+\item Find the probability that the mink is in the main room.
+\item Find the probability that the mink is in room A.
+\item Suppose rooms A and B have interesting toys in them.  (Say room
+A has a swimming pool--a favorite of minks, and room B has a traffic
+cone--which is much less popular.)  Hence once the mink enters either
+room A or room B, there is a much higher probability of staying than
+in the other side rooms.  If possible, modify your models to
+accommodate this change.
+\end{enumerate}
+
+\end{enumerate}
+BONUS. Prove or disprove that $M(t)$ in problem 2 is a martingale.
+
+
+\end{document}
+
+
