@@ -1,0 +1,68 @@
+This is TeX, Version 3.1415 (C version 6.1) (format=latex 95.11.7)  17 NOV 1997 22:26
+**images.tex
+(images.tex
+LaTeX2e <1995/06/01> patch level 3
+
+(/opt/tex/lib/texmf/tex/latex2e/base/article.cls
+Document Class: article 1995/06/26 v1.3g Standard LaTeX document class
+(/opt/tex/lib/texmf/tex/latex2e/base/size12.clo
+File: size12.clo 1995/06/19 v1.3e Standard LaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/home/waterman/texlib/texstyles/html.sty) (/home/waterman/texlib/texstyles/h
+tmllist.sty) (/opt/tex/lib/texmf/tex/plain/dvips/epsf.tex
+\epsffilein=\read1
+\epsfxsize=\dimen103
+\epsfysize=\dimen104
+\epsftsize=\dimen105
+\epsfrsize=\dimen106
+\epsftmp=\dimen107
+\pspoints=\dimen108
+)
+\lthtmlwrite=\write3
+\sizebox=\box26
+(images.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 75.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 75.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 75.
+[1
+
+
+] [2
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 326 strings out of 10957
+ 3283 string characters out of 73532
+ 45207 words of memory out of 262141
+ 3210 multiletter control sequences out of 9500
+ 6376 words of font info for 23 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 22i,4n,21p,127b,105s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on images.dvi (2 pages, 1012 bytes).
