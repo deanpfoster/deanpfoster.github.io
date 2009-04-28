@@ -1,0 +1,7 @@
+*.tex.html
+class_*.pdf
+*.aux
+*.log
+*.out
+*dvi
+assignment*.pdf
