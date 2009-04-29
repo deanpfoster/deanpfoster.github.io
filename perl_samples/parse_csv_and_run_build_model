@@ -5,3 +5,13 @@ touch 'parse csv was here'
 dos2unix < data > data.unix
 ../../csv_parser --input-file=data.unix --output-file=model > csv_parse_output 2> /dev/null
 ../../build_model --input-file=model --output-path=log/ -r $1  > latest_pretty 2> /dev/null
+
+
+
+
+
+# cat | gnuplot log/progress.csv
+#    set terminal gif
+#    set output "progress.gif"
+#    set datafile seperator ","
+#    plot "log/progress.csv" using 3
