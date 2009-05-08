@@ -12,6 +12,8 @@ dos2unix < data > data.unix
 
 # cat | gnuplot log/progress.csv
 #    set terminal gif
+# plot "philadelphia.csv" using 1
 #    set output "progress.gif"
 #    set datafile seperator ","
 #    plot "log/progress.csv" using 3
+
