@@ -9,6 +9,18 @@
 #  RETURN THE C++ OUTPUT TO THE SYSTEM
     
     print $q->header;
+
+#     print "<html>\n";
+#     print "<head>\n";
+#     print "<script src=\"canvastext.js\"></script>\n";
+#     print  " <script src=\"gnuplot_common.js\"></script>\n";
+#     print "</head>\n";
+#     print "<body onload=\"progress_plot();\">\n";
+#     print "<script src=\"progress_plot.js\"></script>\n";
+#     print "<canvas id=\"progress_plot\" width=600 height=400>\n";
+#     print "<div id=\"err_msg\">No support for HTML 5 canvas element</div>\n";
+#     print "</canvas>\n";
+
     use Cwd;
     $current_dir = &Cwd::cwd();
     $output = "log/model.html";
@@ -35,6 +47,9 @@
     print "<p>If our code does something weird, send us the above link and we can investigate it.\n";
     print "<p>Note: you can bookmark / email the above link.  It will stay for a long time.\n";
 
+
+
+    print "<IMG SRC=\"progress_plot.gif\">";
     print "<h1>Summary of fit</h1>\n";
 
 # Pretty output
