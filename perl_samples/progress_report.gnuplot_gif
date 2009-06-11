@@ -1,0 +1,7 @@
+set term gif size 1200,800
+set size .95,.95
+set output "progress_plot.gif"
+
+load "progress_report.gnuplot"
+
+exit

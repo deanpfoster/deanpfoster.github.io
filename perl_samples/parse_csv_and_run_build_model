@@ -16,8 +16,11 @@ rm log/progress.csv_tmp
 # build the graph
 cp ../../*js .
 
-#../../gnuplot ../../progress_report.gnuplot
-../../gnuplot ../../progress_report.gnuplot_gif
+ln -s ../../gnuplot
+ln -s ../../progress_report.gnuplot
+ln -s ../../progress_report.gnuplot_gif
+./gnuplot progress_report.gnuplot_gif
+chmod g+w .
 #../../gnuplot ../../progress_report.gnuplot_html
 
 
