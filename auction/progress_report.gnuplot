@@ -88,7 +88,7 @@ plot \
 # 29 RSS, 
 # 30 CVSS
 
-
+exit
 
 pause -1
 

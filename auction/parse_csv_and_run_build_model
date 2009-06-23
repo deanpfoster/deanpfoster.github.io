@@ -8,11 +8,6 @@ dos2unix < data > data.unix
 
 ../../build_model --input-file=model --output-path=log/ -r $1  > latest_pretty 2> /dev/null
 
-# clean out Singular's from file
-mv log/progress.csv log/progress.csv_tmp
-cat log/progress.csv_tmp | sed -es/Singular// > log/progress.csv
-rm log/progress.csv_tmp
-
 # build the graph
 cp ../../*js .
 
