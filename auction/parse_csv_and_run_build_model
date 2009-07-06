@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "parse csv was here" > 2> ./csv_parse_output
+echo "parse csv was here" > ./csv_parse_output 2> ./csv_parse_output
 
 dos2unix < data > data.unix
 ../../csv_parser --input-file=data.unix --output-file=model >> ./csv_parse_output 2>> ./csv_parse_output
@@ -13,7 +13,9 @@ cp ../../*js .
 
 ln -s ../../gnuplot
 ln -s ../../progress_report.gnuplot
-./gnuplot progress_report.gnuplot >> ./csv_parse_output
+ln -s log/progress.csv
+./gnuplot progress_report.gnuplot 
+# >> ./csv_parse_output
 chmod g+w .
 #../../gnuplot ../../progress_report.gnuplot_html
 
