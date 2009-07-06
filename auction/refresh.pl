@@ -42,7 +42,7 @@
 
 
 
-	print "<IMG SRC=\"progress_plot.gif\">";
+	print "<IMG SRC=\"./progress.gif\">";
 	print "<h1>Summary of fit</h1>\n";
 
 # Pretty output
