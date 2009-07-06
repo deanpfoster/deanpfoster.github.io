@@ -3,7 +3,7 @@
 echo "parse csv was here" > 2> ./csv_parse_output
 
 dos2unix < data > data.unix
-../../csv_parser --input-file=data.unix --output-file=model > ./csv_parse_output 2> ./csv_parse_output
+../../csv_parser --input-file=data.unix --output-file=model >> ./csv_parse_output 2>> ./csv_parse_output
 
 
 ../../build_model --input-file=model --output-path=log/ -r $1  > latest_pretty 2> /dev/null
@@ -13,7 +13,7 @@ cp ../../*js .
 
 ln -s ../../gnuplot
 ln -s ../../progress_report.gnuplot
-./gnuplot progress_report.gnuplot > ./csv_parse_output
+./gnuplot progress_report.gnuplot >> ./csv_parse_output
 chmod g+w .
 #../../gnuplot ../../progress_report.gnuplot_html
 
