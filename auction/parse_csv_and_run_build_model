@@ -13,8 +13,7 @@ cp ../../*js .
 
 ln -s ../../gnuplot
 ln -s ../../progress_report.gnuplot
-ln -s ../../progress_report.gnuplot_gif
-./gnuplot progress_report.gnuplot_gif
+./gnuplot progress_report.gnuplot > csv_parse_output
 chmod g+w .
 #../../gnuplot ../../progress_report.gnuplot_html
 
