@@ -1,6 +1,6 @@
 #!/bin/sh
 
-touch 'parse csv was here'
+echo 'parse csv was here' > csv_parse_output
 
 dos2unix < data > data.unix
 ../../csv_parser --input-file=data.unix --output-file=model > csv_parse_output 2> /dev/null
