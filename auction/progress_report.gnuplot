@@ -80,6 +80,7 @@ set autoscale y2fixmax
 set autoscale y2fixmin
 
 
+# see http://www.tayloredmktg.com/rgb/ for examples of rgb numbers
 #
 #  Color definitions
 #
@@ -93,25 +94,33 @@ InSample  = "#FAE0FA"
 # underFit is a wash color of OutSample
 underFit  = "#F0FAF0"
 OutSample = "#E0F0FA"
+
+# puke green
+pvalueColor = "#90D090"
+
 # 
 #   RSS (grey background, done mostly as a fade)
 #
 
 
-plot   "progress.csv" using 1:30:29            lc rgb overFit   with filledcurves below title "" axis x1y2
-replot "progress.csv" using 1:29:30            lc rgb underFit  with filledcurves below title "" axis x1y2
+max(x,y) = (x+y)/2. + abs((x-y)/2.)
+  
+
+plot "progress.csv" using 1:29               lc rgb lightGrey with filledcurves x2        notitle axis x1y2
+set y2range [*:GPVAL_Y2_MAX]
+replot "progress.csv" using 1:30:29            lc rgb overFit   with filledcurves below   notitle axis x1y2
   
 replot "progress.csv" using 1:29               lc rgb lightGrey with filledcurves x2 title "" axis x1y2
 replot "progress.csv" using 1:29               lc rgb lightGrey with filledcurves y2 title "" axis x1y2
+replot "progress.csv" using 1:29:30            lc rgb underFit  with filledcurves below title "" axis x1y2
 replot "progress.csv" using 1:30 with lines    lc rgb InSample  lt 1 lw 4    title "Out of sample error" axis x1y2
 replot "progress.csv" using 1:29 with lines    lc rgb OutSample lt 1 lw 4    title "In sample error" axis x1y2
 
 #
 #   P value stuff
 #
-replot "progress.csv" using 1:24 with lines    lc rgb "#000000" lw 10  title  "winning bid"
-replot "progress.csv" using 1:25 with  points pointsize .2 pt 7 lc rgb "#90D090"  notitle
-replot "progress.csv" using 1:($25 < $24 ? $25 : 1/0) with  points pointsize 2 pt 7 lc rgb "#90D090" title  "p-values"
+replot "progress.csv" using 1:24 with lines    lc rgb "#A07000" lw 10  title  "winning bid"
+replot "progress.csv" using 1:25 with  points pointsize .2 pt 7 lc rgb pvalueColor  notitle
 replot "progress.csv" using 1:4  with lines lc rgb "#000000" title "Total alpha"
 replot "progress.csv" using 1:($7 > 1e-9 ? $7 : 1/0) with points pointsize .2 pt 7 lc rgb "red"   notitle
 replot "progress.csv" using 1:($7 == $24 ? $7 : 1/0) with  points pointsize .4 pt 7 lc rgb "red" title "X's"
@@ -123,6 +132,7 @@ replot "progress.csv" using 1:($16 > 1e-9 ? $16 : 1/0) with points pointsize .2 
 replot "progress.csv" using 1:($16 == $24 ? $16 : 1/0) with  points pointsize .4 pt 7 lc rgb "purple" title "X*X (skipped)"
 replot "progress.csv" using 1:($19 > 1e-9 ? $19 : 1/0) with points pointsize .2 pt 7 lc rgb "blue"   notitle
 replot "progress.csv" using 1:($19 == $24 ? $19 : 1/0) with  points pointsize .4 pt 7 lc  rgb "blue"   title "Poly(X) (skipped)"
+replot "progress.csv" using 1:($25 < $24 ? $25 : 1/0) with  points pointsize 2 pt 7 lc rgb pvalueColor title  "p-values"
 
 #
 #  Add variable names to the RSS background stuff
