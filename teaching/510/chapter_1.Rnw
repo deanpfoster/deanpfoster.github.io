@@ -1,0 +1,103 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+\section{Random variables}
+
+\subsection{Setting}
+
+Describe some science, build up problem statement
+
+
+\subsection{Problem statement}
+
+How to model the world?  
+\begin{itemize}
+\item Newton said it is all clock work
+\item Worked pretty well--called the enlightenment
+\item But as did his phyisics, it broke down at the edges
+\item Not everything is deterministic
+\end{itemize}
+
+\subsection{Visacalc spread sheet view (aka Lotus 123/modern clones)}
+\begin{itemize}
+\item A ``random'' spread sheet
+\item Each row is a possible outcome
+\item Definition: A column in a random spreadsheet is called a random variable.
+\end{itemize}
+
+\subsection{Programming view}
+\begin{itemize}
+\item A computer program is deterministic
+\item How can it model a random variable? By using a random
+subroutine.  
+\end{itemize}
+
+\section{Complex combinations of random variables: Ballot problem}
+
+Problem: opening ballots one at a time.
+
+Model: Each is 50/50.
+
+
+
+\subsection{Why 50/50 for ballots?}
+
+Problem: what probability to use for the ballot problem?
+
+Model: median voter.  Move to far and you change parties.
+
+
+
+\section{Resolution}
+
+Probability is the study of long run frequency
+
+several models:
+\begin{itemize}
+\item spread sheets
+\item computer programs
+\item mathematics (the main topic of the rest of the semester)
+\end{itemize}
+
+\section{Programming language}
+It is your choice.
+\begin{itemize}
+\item R
+\begin{itemize}
+\item advantage: used in statistics, good at simulations, free (like
+our book,i.e. comercal version is called S+)
+\item Disadvantage: steep learning curve.
+\end{itemize}
+\item JMP
+\begin{itemize}
+\item  advantage: used in statistics.
+\item Disadvantage: not easy to do simulations with.
+\end{itemize}
+\item spread sheets
+\begin{itemize}
+\item advantage: easy to use
+\item disadvantage: cumbersome
+\end{itemize}
+\item Mathematica, matlab, maple
+\begin{itemize}
+\item advantage: also good at mathematics, linear algebra
+\item disadvantage: expensive, (octave is free clone of matlab) and
+not trivial to learn
+\end{itemize}
+\item You can also use real programming languages (i.e. C++, java,
+basic) if already know them.
+\end{itemize}
+
+
+
+\section{Story view}
+
+Charecter, conflict, struggle, goal
+
+
+
+\end{document}
