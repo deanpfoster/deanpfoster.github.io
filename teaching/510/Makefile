@@ -12,7 +12,7 @@ all: all_html all_pdf
 
 all_html: $(SOURCES:.Rnw=.tex.html)
 
-all_pdf: $(SOURCES:.tex=.pdf)
+all_pdf: $(SOURCES:.Rnw=.pdf)
 
 %.tex.html: %.tex
 	touch $@
@@ -27,4 +27,5 @@ all_pdf: $(SOURCES:.tex=.pdf)
 
 install: all
 	git commit -a -m "updating to gosset."
+	git push
 	ssh go "cd public_html;git pull;cd teaching/510/;make"

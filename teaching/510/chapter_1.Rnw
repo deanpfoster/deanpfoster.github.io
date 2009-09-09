@@ -5,54 +5,135 @@
 \author{Dean P Foster}
 \maketitle
 
-\section{Random variables}
 
-\subsection{Setting}
+\section*{Administrivia}
 
-Describe some science, build up problem statement
+See web page.  (google, ``Dean Foster'', follow links.)
 
-
-\subsection{Problem statement}
-
-How to model the world?  
+Summary:
 \begin{itemize}
-\item Newton said it is all clock work
-\item Worked pretty well--called the enlightenment
-\item But as did his phyisics, it broke down at the edges
-\item Not everything is deterministic
+\item midterm + final
+\item Lots of homework
+\item Free book (on line and editable, like the wiki)
+\item Hence suggestions for book are in order
+\item Poll: How many purchased vs downloaded?
 \end{itemize}
 
-\subsection{Visacalc spread sheet view (aka Lotus 123/modern clones)}
+
+\section*{Setting: History}
+
+\begin{itemize}
+\item Newton said it is the world is a clock
+\item Worked pretty well--called the enlightenment
+\item But as did his phyisics, it turned out to be an approximation
+\item That which isn't deterministic is called random
+\item Oh how nice giving it a name is. 
+\end{itemize}
+
+\section*{Random variables}
+
+\subsection*{Problem statement}
+
+How to model a random world?  
+
+\subsection*{Example, die rolls}
+
+\begin{itemize}
+\item Rule in mathematics, name everything!
+\item So, consider rolling a die 4 times.
+\item Call them $X_i$, $i = 1, 2, 3, 4,$
+\item What does: 
+$$X_1 + X_2 + X_3 + X_4$$
+mean?
+\item But, what is $X_1$?  Doesn't make sense.  It isn't a number
+ clearly!  Just ignore that aspect of it and go on.
+\end{itemize}
+
+\section*{Models}
+
+\subsection*{Tossing actual random devices}
+show toys
+
+but the best toy, is a computer
+
+\subsection*{VisiCalc spread sheet view (aka Lotus 123/modern clones)}
 \begin{itemize}
 \item A ``random'' spread sheet
 \item Each row is a possible outcome
 \item Definition: A column in a random spreadsheet is called a random variable.
 \end{itemize}
 
-\subsection{Programming view}
+\subsection*{Programming view}
 \begin{itemize}
 \item A computer program is deterministic
 \item How can it model a random variable? By using a random
 subroutine.  
 \end{itemize}
 
-\section{Complex combinations of random variables: Ballot problem}
+\section*{Complex combinations of random variables: Pascal and Fermat}
+
+Win bet if roll one 6 on 4 dice
+
+Getting one six in one roll:
+$$I_{X_1=6}$$
+
+Getting no six in one roll:
+$$1 - I_{X_1=6}$$
+
+Getting no six's altogether
+
+$$Y = (1 - I_{X_1=6})(1 - I_{X_2=6})(1 - I_{X_3=6})(1 - I_{X_4=6})$$
+
+So, problem is $1 - Y$.  Just like algebra!
+
+
+\section*{Complex combinations of random variables: Ballot problem}
 
 Problem: opening ballots one at a time.
 
-Model: Each is 50/50.
+Model: Each is ballot is 50/50, either for Harry, or for Tom.
+
+For example:
+\begin{center}
+THTTTHTTTTHTTTTTHHTT.
+\end{center}
 
 
+\subsection*{Race is only run once}
 
-\subsection{Why 50/50 for ballots?}
+No problem, we can still simulate it as if it were run many times
+
+\subsection*{Questions}
+
+What is the total vote count for Harry?  20 seems about right on
+average.
+
+Harry holds a party when ever he his a head in the opening of the
+ballots.  How many parties will he hold?  20 again seems about right.
+
+first one is about normal (SD=10)
+
+second one is about beta
+
+So what does the ``about 20'' mean?  it is the least likely point!
+
+
+\subsection*{Why 50/50 for ballots?}
 
 Problem: what probability to use for the ballot problem?
 
 Model: median voter.  Move to far and you change parties.
 
 
+\section*{How to come up with random numbers on a computer}
 
-\section{Resolution}
+Need a complex enough function to be confusing.
+\begin{itemize}
+\item cryptography is confusing
+\item turns out division is confusing enough...
+\end{itemize}
+
+\section*{Resolution}
 
 Probability is the study of long run frequency
 
@@ -63,7 +144,7 @@ several models:
 \item mathematics (the main topic of the rest of the semester)
 \end{itemize}
 
-\section{Programming language}
+\section*{Programming language}
 It is your choice.
 \begin{itemize}
 \item R
@@ -94,7 +175,7 @@ basic) if already know them.
 
 
 
-\section{Story view}
+\section*{Story view}
 
 Charecter, conflict, struggle, goal
 
