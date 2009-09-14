@@ -136,13 +136,11 @@ If you memorize it, you have to remimber whether it is $r/(1-r)$ or
 $1/(1-r)$.  So, lets derive it instead:
 
 \begin{eqnarray*}
-$$
 S & equiv & 1 + r + r^2 + r^3 + \cdots \\
 S & = & 1 + r(1 + r + r^2 + r^3 + \cdots) \\
 S & = & 1 + rS \\
 S(1-r) & = & 1 \\
 S& = & 1/(1-r)
-$$
 \end{eqnarray*}
 
 So works for 1/2.
