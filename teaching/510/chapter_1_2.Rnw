@@ -1,0 +1,167 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item homework questions?
+\end{itemize}
+
+
+\section*{Random variables}
+
+We have, the idea of $X$, and $Y$ that are random variables.  We can do
+\begin{eqnarray*}
+&& X + Y \\
+&& X * Y \\
+&& 3 * X \\
+&& X^2 \\
+&& X^3 \\
+&& e^X
+\end{eqnarray*}
+at least conceptually.  But we don't know what a Random variable is.
+
+\subsection*{definition by usage}
+
+What is the minimal collection of operations that we need?
+\begin{itemize}
+\item scaling (changing units)
+\item typical value (spoiler alert: called expectation)
+\item sum
+\item product
+\end{itemize}
+But the list could go on with $sin(X)$, $e^X$, $ln(X)$, etc.  Yikes!
+Or does it have to?
+
+\subsection*{We could stop here and hope}
+
+Called Banach Algebra.  Game plan:
+\begin{itemize}
+\item quick review of linear algebra for finite dimensions (i.e. matrixes)
+\item longer introduction into infinite dimensional linear spaces
+\item work quickly through functional analysis
+\item Introduce banach algebras and von neuman algebras (might as well
+throw in QM while we are here)
+\item Now show that $e^X = 1 + X + X^2/2 + X^3/3! + ...$ makes sense
+\item YIKES!!!
+\end{itemize}
+
+\section*{A better way}
+
+\begin{itemize}
+\item Sample space: $\Omega$ = list of possible outcomes
+\item Events $A$, $B$,$\ldots$, are subsets of $\Omega$
+\item outcomes, $\omega_1$, $\omega_2$, are elements of $\Omega$
+\item Probability: $P$ takes subset of $\Omega$
+\item distribution function $m$ takes elements of $\Omega$
+\item Rules
+\begin{itemize}
+\item $m(\omega) \ge 0$
+\item $\sum m(\omega) = 1$
+\end{itemize}
+\item Relationship to the $P$ operator
+\begin{displaymath}
+P(A) \equiv \sum_{\omega \in A} m(\omega)
+\end{displaymath}
+\end{itemize}
+
+\subsection*{Venn diagrams, etc}
+
+Draw union, intersection
+
+\subsection*{But we have lost our random variables}
+
+definition: A random variable is a function from $\Omega$ to the real
+line.  
+
+Easy example: if the $\omega$ are real numbers to start with, then
+the identity is a good function to work with
+
+\begin{theorem}
+
+\end{theorem}
+\begin{enumerate}
+\item $P(E) \ge 0$
+\item $P(\Omega) = 1$
+\item if $E \subset F \subset \Omega$ then $P(E) \le P(F)$
+\item Sums, for disjoint
+\item Complement rule
+\end{enumerate}
+
+Extensions: Finite sums
+
+Key theorem:
+\begin{theorem}[Summing over disjoint events] First version
+\begin{displaymath}
+P(E) = \sum P(E_i)
+\end{displaymath}
+If $E = \cup E_i$ and $E_i \cap E_j = \emptyset$.
+
+Second version
+\begin{displaymath}
+P(E) = \sum P(E \cap A_i)
+\end{displaymath}
+If $\Omega = \cup A_i$ and $A_i \cap A_j = \emptyset$.
+\end{theorem}
+
+\section*{Simulations}
+
+For finite sample spaces, you can just have the compute pick one out
+ of the list.  Can do it exactly.  Describe arithmetic coding.
+
+\section*{Infinite sample spaces}
+
+\begin{example}
+Toss a coin until the first time it comes up heads.
+$$
+\Omega = \{1,2,3, \dots\}\ .
+$$
+
+So,  $m(n) = 1/2^n$.  Hopefully:
+$$
+\sum_{\omega} m(\omega) = \frac12 + \frac14 + \frac18 + \cdots = 1\ .
+$$
+Why? Geometric series.  
+
+$$
+1 + r + r^2 + r^3 + \cdots = \frac1{1-r}\ ,
+$$
+If you memorize it, you have to remimber whether it is $r/(1-r)$ or
+$1/(1-r)$.  So, lets derive it instead:
+
+\begin{eqnarray*}
+$$
+S & equiv & 1 + r + r^2 + r^3 + \cdots \\
+S & = & 1 + r(1 + r + r^2 + r^3 + \cdots) \\
+S & = & 1 + rS \\
+S(1-r) & = & 1 \\
+S& = & 1/(1-r)
+$$
+\end{eqnarray*}
+
+So works for 1/2.
+
+Math geek question:  Why isn't my proof a happy proof?  Works even if
+$r = -1$.  So, ``$1 - 1 + 1 - 1 + \cdots = 1/2$''.  Huh?
+
+
+
+\end{example}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%    Putting these at the end of the file seems to make ess work better
+%
+%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "chapter_1_2.tex" 
+%%% End: 
