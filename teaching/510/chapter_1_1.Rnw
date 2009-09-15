@@ -1,7 +1,7 @@
 \documentclass[14pt]{extarticle}
 
 \begin{document}
-\title{Chapter 1 teaching notes}
+\title{Chapter 1 section 1 teaching notes}
 \author{Dean P Foster}
 \maketitle
 
@@ -125,14 +125,6 @@ Problem: what probability to use for the ballot problem?
 Model: median voter.  Move to far and you change parties.
 
 
-\section*{How to come up with random numbers on a computer}
-
-Need a complex enough function to be confusing.
-\begin{itemize}
-\item cryptography is confusing
-\item turns out division is confusing enough...
-\end{itemize}
-
 \section*{Resolution}
 
 Probability is the study of long run frequency
@@ -144,7 +136,7 @@ several models:
 \item mathematics (the main topic of the rest of the semester)
 \end{itemize}
 
-\section*{Programming language}
+\section*{Programming language (not discussed)}
 It is your choice.
 \begin{itemize}
 \item R
@@ -172,13 +164,6 @@ not trivial to learn
 \item You can also use real programming languages (i.e. C++, java,
 basic) if already know them.
 \end{itemize}
-
-
-
-\section*{Story view}
-
-Charecter, conflict, struggle, goal
-
 
 
 \end{document}
