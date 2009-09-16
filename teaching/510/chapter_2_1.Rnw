@@ -1,0 +1,120 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+Homework due friday in box outside my office.
+
+
+\section*{needles on the pavement}
+\begin{itemize}
+\item continuous math is easier
+\begin{itemize}
+\item calculus
+\item diferential equations
+\item approximations
+\end{itemize}
+\item What about a continuous probability?
+\item Example: angle of a tossed needle?  $[0, 2 \pi]$
+\end{itemize}
+
+\section*{Listing from 1 to infinity}
+\begin{itemize}
+\item How do we structure it?  Can we model a continuous spinner using
+our ``m'' and ``P'' technology?
+\item $\Omega = \{\omega_1,\omega_2,\omega_3,\ldots\}$.  
+\begin{itemize}
+\item some angle is assigned to $\omega_1$
+\item It is really special--it is likely to occur!
+\end{itemize}
+\end{itemize}
+
+{\bf Problem: we can't use our usual technology for needles}
+
+
+\section*{Simulation}
+
+As usual, ignore it first, then we will try to model it.
+
+\subsection*{Buffon's needle problem}
+
+\begin{itemize}
+\item We don't want probabilities of exact points anyway (answer is zero)
+\item Creating an interesting event: say, crossing a line on the floor
+\item Oops--depends on how accurate you throw it AND the angle it
+lands
+\item Make lots of lines on the floor and we have a real problem
+\end{itemize}
+
+
+\begin{tabular}{llrll}
+               &  Length of              &  Number of       &  Number of      &  Estimate  \\
+Experimenter   &  needle                 & casts\,\,\,\,\,\,&  crossings      &  for $\pi$  \\ \hline
+Wolf, 1850     &  \hspace{.073in}.8      & 5000\,\,\,\,\,\, &  2532                  & 3.1596      \\
+Smith, 1855    &  \hspace{.073in}.6      & 3204\,\,\,\,\,\, &  1218.5                & 3.1553      \\
+De Morgan, c.1860& 1.0                   & 600\,\,\,\,\,\,  &  \hspace{.075in}382.5  & 3.137       \\
+Fox, 1864      &  \hspace{.078in}.75     & 1030\,\,\,\,\,\, &  \hspace{.075in}489    & 3.1595      \\
+Lazzerini, 1901&  \hspace{.078in}.83     & 3408\,\,\,\,\,\, &  1808                  & 3.1415929   \\
+Reina, 1925    &  \hspace{.083in}.5419   & 2520\,\,\,\,\,\, &  \hspace{.075in}869    & 3.1795  \\ \hline
+\end{tabular}
+
+you will use a computer.  Question: are the scientist cheating?
+
+
+\section*{A calculation: Bertrand's paradox}
+
+Ok, we might not have a ``mathematical model'' yet, but we can still
+do calculations!
+
+Problem: What is the probability of a random cord exceeding $\sqrt{3}$?
+
+(where does $\sqrt{3}$ come from?)
+
+\begin{itemize}
+\item Pick two points on edge
+\item Pick uniformly for closest approach
+\item pick direction and closest approach
+\item pick point and random angle
+\end{itemize}
+(first two the same)
+
+\includegraphics{PSfig2-11}
+
+\section*{Mathematical model}
+
+For discrete, we used $m(\omega)$ and then had $P(A) \equiv \sum
+m(\omega)$.  This doesn't work.  But calculus will.
+
+\begin{itemize}
+\item Want $P([a,b]) = \int_a^b(?)dx$
+\item Looks like previous formula
+\item So, think of $m()$ as an infinitesimal weight function
+\item New name since it is a new type of function: $f(x)$.
+\item Even $P()$ gets a new name since it only does intervals $F(x) =
+P((-\infty,x])$.
+\item Newton would be 1/2 pleased: we are using his calculus, to do
+RANDOM calcuations.  
+\end{itemize}
+
+
+
+\section*{How to come up with random numbers on a computer}
+
+Need a complex enough function to be confusing.
+\begin{itemize}
+\item cryptography is confusing
+\item turns out division is confusing enough...
+\end{itemize}
+
+\section*{Story view}
+
+Character, conflict, struggle, goal
+
+
+
+\end{document}
