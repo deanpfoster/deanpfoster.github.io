@@ -101,20 +101,6 @@ P((-\infty,x])$.
 RANDOM calcuations.  
 \end{itemize}
 
-
-
-\section*{How to come up with random numbers on a computer}
-
-Need a complex enough function to be confusing.
-\begin{itemize}
-\item cryptography is confusing
-\item turns out division is confusing enough...
-\end{itemize}
-
-\section*{Story view}
-
-Character, conflict, struggle, goal
-
-
+\section*{READ 2.2--it is calculus}
 
 \end{document}
