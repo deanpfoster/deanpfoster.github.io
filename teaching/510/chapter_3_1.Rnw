@@ -1,0 +1,133 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 3.1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+Homework questions? (keep it short)
+
+\section*{Intro story}
+
+\begin{itemize}
+\item Think back to 1982, what were you doing?  Yikes!  Nothing?
+\item I was playing bridge, yes, like your grandparent.
+\item I wanted distribution of hands
+\item Wrote simulation, and let it run for 2 days:
+\begin{itemize}
+\item 21 point hand $\rightarrow$ 8 times
+\item 22 point hand $\rightarrow$ 0 times
+\item 23 point hand $\rightarrow$ 4 times
+\item 24 point hand $\rightarrow$ 0 times
+\item 25 point hand $\rightarrow$ 8 times
+\item 25 point hand $\rightarrow$ 0 times
+\end{itemize}
+\item What's going on? The random number generator had a period of
+64,000 I had cycled!
+\item Patch, used hands themselves for shuffling!
+\item Got same answer the web would now generate.
+\end{itemize}
+
+\subsection*{Modern random number generators}
+
+\begin{itemize}
+\item Key idea: use a complex function to generate next item
+\item Cool fact: division is a pretty complex function!  That is what
+is used in most random number generators
+\item Personal favorite: functions $f(x)$ that are so complex that
+$f^{-1}(y)$ can't be computed.  Sometimes used in strong random number
+generators.  (Hint: simulate it backwards!)
+\end{itemize}
+
+\section*{Problem statement}
+
+How to count stuff?
+\begin{itemize}
+\item Two problems,
+\begin{itemize}
+\item what to count?  Interesting and difficult.
+\item How to count it? tricks and fancy mathematics.
+\end{itemize}
+\item Key idea discovered by Gretchen Weikert
+\begin{itemize}
+\item Perry preschool project was run by David Weikert (1970's)
+\item Tested the idea of planning as an important educational
+activity: Motto: ``Plan, do, review.''
+\item Video of his daughter discovering our trick:
+\begin{itemize}
+\item 8 rows of 12 items
+\item teacher asks how many there are?
+\item Gretchen says, we could count them?
+\item Teacher asks for a better plan?
+\item Gretchen thinks, says, we could write down 12 a total of 8 time
+and add them up.
+\item And hence multiplication was discovered.
+\end{itemize}
+\item Still the best (i.e. only) controlled experiment in education!
+\end{itemize}
+\item We will use the same answer as Gretchen
+\end{itemize}
+
+\section*{Birthday problem}
+\begin{itemize}
+\item Do two of us have the same birthday?
+\begin{itemize}
+\item Good question for intro classes
+\item Intuition: $\#(people)/365.$
+\item Wrong question: probablity that someone has MY birthday
+\item There are $\#(people)$ who could make that guess.
+\item So, ``probability'' = $\#(people)^2/365$
+\item Yup!  I'll give that formula.  So it is sometimes bigger than 1,
+that doesn't bother them
+\end{itemize}
+\item We can do a more exact formula by counting how many classes
+don't have any birthdays in common: $365*364*\ldots(365-n)/365^n$.
+\item Useful enough to give a name: $365_n$ = $r_n$.
+\item Called permutations (but rarely often)
+\end{itemize}
+
+\section*{Factorials}
+\begin{itemize}
+\item $n!$ called n factorial, not ``n!''
+\item $r_k$ = $r!/(r-k)!$ hence rarity of $r_k$ notation
+\end{itemize}
+
+\section*{Sterlings}
+
+\begin{itemize}
+\item Greetings from The On-Line Encyclopedia of Integer Sequences!
+\item 1, 2, 6, 24, 120, 720, 5040, 40320,
+\item growing explosively, so draw on log scale
+\item much easier to see
+\item What does a gap look like? about log(n)
+\item So, log(n!) is about $\int^n_1 \log(x) dx = n \log(n) - n$
+\item Called Sterling's formula
+\begin{itemize}
+\item $\lim_{n \to \infty} \log(n!)/(n \log(n) - n) = \sqrt{2 \pi}$
+\item Parse that slowly 
+\end{itemize}
+\item Easier notation: $o(x)$, $\omega(x)$, $\theta(x)$, $\sim$
+\begin{itemize}
+\item $\lim a_n/b_n = 1$, write $a_n \sim b_n$
+\item Now, $n! \sim (\frac{n}{e})^n \sqrt{2 \pi n}$
+\end{itemize}
+
+\end{itemize}
+
+\section*{Multiplication on steriods}
+
+\begin{itemize}
+\item Gretchen discovered multiplication
+\item Today, we ``discovered'' hyper-multiplication
+\item Combinatorics is the study of hyper-multiplication
+\item Powerful mathematics, full of tricks.  We will avoid the tricks
+and focus on 8 * 12 like concepts!
+\item Take combinatorics classes for fun!
+\end{itemize}
+
+
+
+\end{document}
