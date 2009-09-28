@@ -1,4 +1,4 @@
-\documentclass[14pt]{extarticle}
+\documentclass[14pt,letter]{extarticle}
 \newtheorem{theorem}{Theorem}
 
 \begin{document}
