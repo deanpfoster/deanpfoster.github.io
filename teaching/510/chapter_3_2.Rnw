@@ -1,0 +1,84 @@
+\documentclass[14pt]{extarticle}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 3.2 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+Homework questions?
+
+
+\section*{Intro story?}
+
+\section*{Definition}
+\begin{itemize}
+\item n choose k
+\item We are done for the day!
+\item Theorem: n choose k = n-1 choose k-1 + n-1 choose k.  Why?
+\item Theorem: n choose k = n!/k!(n-k)!, Why?
+\end{itemize}
+\section*{Required stupid combinatorics}
+\begin{itemize}
+\item Poker: Full house, its just counting
+\item 13 choose 2, * 2 choose 1 * 4 choose 3 * 4 choose 2
+\end{itemize}
+\section*{Binomial distribution}
+\begin{itemize}
+\item Bernulli trials
+\item If total is all that matters--Binomial distribution
+\item We can compute it
+\end{itemize}
+\section*{Binomial theorem}
+$$(a + b)^n = \cdots$$
+\section*{Inclusion exclusion proof}
+\begin{theorem} Let $P$ be a probability distribution on a sample space
+$\Omega$, and let
+$\{A_1,\ A_2,\ \dots,\ A_n\}$ be a finite set of events.  Then
+$$ P(A_1 \cup A_2 \cup \cdots \cup A_n)  =  \sum_{i = 1}^n P(A_i)\ - 
+\sum_{1 \leq i < j \leq n} P(A_i \cap A_j) 
+$$
+\begin{equation} 
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ 
+\ \ \ \ \ \ \ \ \ \ \ \ \  + \sum_{1 \leq i < j < k \leq n} P(A_i \cap A_j \cap A_k) -
+\cdots\ .
+\end{equation}
+That is, to find the probability that at least one of $n$ events $A_i$ occurs, first add the
+probability of each event, then subtract the probabilities of all possible two-way
+intersections, add the probability of all three-way intersections, and so forth.
+ If the outcome $\omega$ occurs in at least one of the events $A_i$, its probability is added
+exactly once by the left side of Equation~\ref{eq 3.5}.  We must show that it is added
+exactly once by the right side of  Equation~\ref{eq 3.5}.  Assume that $\omega$ is in
+exactly $k$ of the sets.   Then its probability is added $k$ times in the first term,
+subtracted $k \choose 2$  times in the second, added $k \choose 3$ times in the third
+term, and so forth.   Thus, the total number of times that it is added is
+$$ {k \choose 1} - {k \choose 2} + {k \choose 3} - \cdots {(-1)^{k-1}} {k \choose k}\ .
+$$ But
+$$ 0 = (1 - 1)^k = \sum_{j = 0}^k {k \choose j} (-1)^j = {k \choose 0} - \sum_{j = 1}^k
+{k \choose j} {(-1)^{j - 1}}\ .
+$$ Hence,
+$$ 1 = {k \choose 0} = \sum_{j = 1}^k {k \choose j} {(-1)^{j - 1}}\ .
+$$
+If the outcome $\omega$ is not in any of the events $A_i$, then it is not counted on either side of
+the equation.
+\end{theorem}
+
+\section*{Hats}
+Inclusion exclusion on fixed points
+
+\section*{So why was binomial theorem my favorite?}
+From it you learn about
+\begin{itemize}
+\item statistics (see book)
+\item $e$
+\item finance $(1 + \epsilon)^n$
+\item inclusion - exclusion (I didn't konw this one before)
+\item WINNER!
+\end{itemize}
+
+
+\end{document}
