@@ -1,0 +1,19 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 4.1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+Exam 2 weeks from today 
+
+\section*{Story time}
+
+
+
+\section*{Conditional probability}
+
+\end{document}

@@ -1,0 +1,119 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 4.1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+Homework: Asymptotics \#19.
+
+\section*{Conditional probability as counts}
+
+\begin{itemize}
+\item Life table
+\item P(X > 80) = 57062
+\item P(X > 60) = 89835
+\item P(X > 80 | X > 60) = .63 (note > P(X > 80))
+\end{itemize}
+
+\section*{Story time: life tables}
+
+\begin{itemize}
+\item How was this computed?
+\item Measured how many people who were 60 in 1990 live to 61 in 1991
+\item So relive 1990 over and over again.  Like {\em ground hog's day}
+\item But we will all live in the future
+\item Rate of death is halfing every 20 years.
+\item Do infinite sum:
+\begin{eqnarray*}
+P(\hbox{live foreever})& =& (1 - p)(1 - p/2)(1 - p/4)\cdot\\
+& =& exp\{\sum \log(1 - p/2^i)\}\\
+& =& exp\{- p \sum /2^i - p^2/2 \sum 4^i)\}\\
+& =& exp\{- p - p^2/6)\}\\
+& > & 0
+\end{eqnarray*}
+\item Singularity (where I spent the weekend)
+\item Unfortunately, you will be 20 years older in 20 years.
+\item Probability of death for 20 years older is greater than 2*prob now.
+\item So we need more!
+\end{itemize}
+
+\section*{Conditional probability definition}
+
+\begin{displaymath}
+P(A|B) = P(A \cap B)/P(B)
+\end{displaymath}
+Big difference.  $A$ = abusive husband, $D$ = murdered woman,
+\begin{displaymath}
+P(D|A) \approx 0
+\end{displaymath}
+Which is a good thing since there are lots of abusive people. 
+\begin{displaymath}
+P(A|D) \approx .5
+\end{displaymath}
+
+\section*{Bayes rule}
+
+Drug testing.  Test faculty for drugs. $D$ = drug use, $T$ = test
+positive.  Science tells us
+\begin{displaymath}
+P(T|D)  =  .9
+\end{displaymath}
+Not enough!  Also want to know
+\begin{displaymath}
+P(\overline{T}|D)  =  .1
+\end{displaymath}
+Ok, that's better.  Can we compute $P(T \cap D)$? No.  Need more.  
+\begin{displaymath}
+P(D) = .01
+\end{displaymath}
+So,
+\begin{displaymath}
+P(D|T) = P(D \cap T)/P(T) = \cdots
+\end{displaymath}
+Easier with table
+
+\section*{Monty Hall if time.}
+
+Draw it all out.
+
+\section*{Independence}
+
+Amazingly lucky formula:
+
+\begin{displaymath}
+P(B) = P(B|A)
+\end{displaymath}
+Wouldn't life be nice?  Called independence.
+
+What power in a word.  ``Events $A_1, A_2, A_3,\ldots,A_n$ are
+independent if
+\begin{eqnarray*}
+P(A_1 \cap A_2) & = & P(A_1)P(A_2) \\
+P(A_1 \cap A_3) & = & P(A_1)P(A_3) \\
+                &\vdots &          \\
+P(A_1 \cap A_2 \cap A_3) & = & P(A_1)P(A_2)P(A_3) \\
+                &\vdots &          \\
+P(A_1 \cap A_2 \cap A_3 \cap A_4) & = & P(A_1)P(A_2)P(A_3)P(A_4) \\
+\end{eqnarray*}
+How many equations in all?  $2^n$ or so!
+
+If $P(A_i) = p$ which doesn't depend on $i$, we get to compress this
+power even more.  IID = Independent and identically distributed.  Just
+sneak these three letters in somewhere and you have snunk in $2^n + n$
+equations.  Now anything is easy to compute.
+
+\section*{Random variables}
+
+Create random variables out of $A_1$ and $A_2$.  They are
+independent: $I_{A_1}$ indpendnent of  $I_{A_2}$.
+
+In general: $X$ and $Y$ are independent if for any pair of numbers,
+$x$, $y$
+\begin{displaymath}
+P(X = x, Y = y)  = P(X=x)P(Y=y)
+\end{displaymath}
+\end{document}
