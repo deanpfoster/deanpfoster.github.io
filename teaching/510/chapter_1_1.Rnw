@@ -1,7 +1,7 @@
 \documentclass[14pt]{extarticle}
 
 \begin{document}
-\title{Chapter 1 section 1 teaching notes}
+\title{Chapter 1.1 teaching notes}
 \author{Dean P Foster}
 \maketitle
 
