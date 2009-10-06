@@ -1,17 +1,25 @@
 \documentclass[14pt]{extarticle}
 
 \begin{document}
-\title{Chapter 4.1 teaching notes}
+\title{Chapter 4.2 teaching notes}
 \author{Dean P Foster}
 \maketitle
 
 
 \section*{Administrivia}
 
-Exam 2 weeks from today 
+\begin{itemize}
+\item Exam 2 weeks from today
+\item I put up teaching notes on the web.  Let me know if you find
+them useful.  I didn't write them with students in mind--so they aren't
+necessarilly understandable to students.
+\end{itemize}
+
+
 
 \section*{Story time}
 
+Newton's billard table with one unknown particle leads to noise.
 
 
 \section*{Conditional probability}
