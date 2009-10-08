@@ -20,8 +20,148 @@ necessarilly understandable to students.
 \section*{Story time}
 
 Newton's billard table with one unknown particle leads to noise.
+\begin{itemize}
+\item Angle of strike is angle of direction
+\item Assume zero friction
+\item Balls keep going and going and going
+\item How accurately can we forecast it?
+\begin{itemize}
+\item Clearly if I hold a magnet next to table (and balls contain
+iron) then I can confuse a forecast.
+\item I have less control if I hold a brick (all that matters is gravity)
+\end{itemize}
+\item Theory says: predictions aregood for ever if you know everything
+\item But what if you don't know the brick?
+\item What if the brick is very far away? (Alpha centuria)
+\item What if the brick is very small? (one atom)
+\item Poll: How long? 
+\begin{itemize}
+\item Life of universe?
+\item 1000 years
+\item 1 year
+\item 1 day
+\item 1 minute
+\end{itemize}
+\item Closest answer: 1 minute (true answer about 2 minutes, but it
+depends on how fast you hit the balls, etc)
+\end{itemize}
+{\bf Moral: Randomness is everywhere -- even in a Newtonian universe.}
+
+\section*{Continuous conditional probability}
+
+Table form of random variables:
+\begin{itemize}
+\item Do Age (in decades) vs weight (in stones)
+\begin{itemize}
+\item Question: What is average age for 40 year old? (About 13)
+\end{itemize}
+\item Redo Age (in years) vs weight (in kg)
+\item Redo Age (in days) vs weight (in g)
+\item Redo Age (in nanosec) vs weight (in picograms)
+\item Limit is continuous
+\end{itemize}
+
+Usual definition: call numbers in cells $f(x,y)$.  Call sums $f_X(x)$
+and $f_Y(y)$.  Now conditional probability is $P(X=x|Y=y) =
+f(x,y)/f_Y(y)$.  But this is morally wrong!  The book avoids this
+definition. 
+
+\section*{Book's view:}
+
+\begin{displaymath}
+f(x|E) = f(x)/P(E), \hbox{if $x\in E$}
+\end{displaymath}
+and zero otherwise.
+\begin{itemize}
+\item No divide by zero, so no immorality!
+\item No need for limits or calculus
+\end{itemize}
+
+\section*{Exponential distribution}
+
+How long for an atom to decay? 
+\begin{itemize}
+\item Density is $f(x) = \lambda e^-{\lambda x}$
+\begin{itemize}
+\item Picture
+\item meaning of lambda
+\item typical = 1/lambda
+\item ``half life'' = .69/lambda
+\end{itemize}
+\item $E = \{X > r\}$ and $F \equiv \{X > r+s\}$ what is $P(F|E)$?
+\item Define a new random variable $Y = (X - r) \vee 0$.
+\item $f_Y(y|E) = f(x+r)/P(E) = f(x)$ if $E$ occurs.  
+\end{itemize}
+
+\section*{Independent random variables}
+
+\begin{itemize}
+\item table form: $P(X=x,Y=y) = P(X=x)P(Y=y)$
+\item Evil density form: $f(x,y) = f_X(x)f_Y(y)$ (Why evil? Left hand
+side is only meaningful when integrated with $d[x,y]$. RHS only when
+sequentially integrated.  So we need Fatou.)
+\item Wonderful probability form: $P(X \in A, Y \in B) = P(X \in A)P(Y
+\in B)$
+\item In fact, only need very simple $A$'s and $B$'s.
+\end{itemize}
+
+\section*{Definition of independence}
+$X_1,X_2,\ldots$ are independent if $F(x_1,x_2,\ldots) = \prod F(x_i)$ 
 
 
-\section*{Conditional probability}
+\section*{Tirade}
+
+Most books go off on double integrals at this point.  The key thing
+is, can you do the integral.  who cares if you get a negative
+probability--you did the arc-tan subsitution correctly.  We care!
+Since we are doing it correctly, we can do interesting things--like
+the beta-binomial.
+
+\section*{Beta distribution}
+$$
+B(\alpha,\beta,x) =  \left \{ \matrix{ 
+(1/B(\alpha,\beta))x^{\alpha - 1}(1 - x)^{\beta - 1}, & {\mbox{if}}\,\, 0 \leq x \leq 1, \cr
+                                                   0, & {\mbox{otherwise}}.\cr}\right. 
+$$
+First definition of $B$:
+$$
+B(\alpha,\beta) = \int_0^1 x^{\alpha - 1}(1 - x)^{\beta - 1}\,dx\ .
+$$
+Second definition of $B$:
+$$
+B(\alpha,\beta) = \frac{(\alpha - 1)!\,(\beta - 1)!}{(\alpha + \beta - 1)!}\ .
+$$
+So,
+\begin{displaymath}
+{\alpha-1+\beta-1 \choose \alpha-1} = \frac{1}{B(\alpha,\beta)}
+\end{displaymath}
+Or
+\begin{displaymath}
+{x+y \choose x} = \frac{1}{B(x+1,y+1)}
+\end{displaymath}
+Why all those silly $+/-1$'s?  Ask the Gamma.
+
+\subsection*{The random variables}
+\begin{itemize}
+\item $X$ is a beta distribution
+\item $Y|X$ is a binomial distribution with $p = X$.
+\item Joint is 
+\begin{eqnarray*}
+f(x,i) & = & m(i|x)B(\alpha,\beta,x) \\
+       & = & {n \choose i} x^i(1 - x)^j \frac 1{B(\alpha,\beta)} x^{\alpha - 1}(1 -
+x)^{\beta - 1} \\
+       & = & {n \choose i}  \frac 1{B(\alpha,\beta)} x^{\alpha + i - 1}(1 - x)^{\beta +
+j - 1}\ .
+\end{eqnarray*}
+\item Distribution of $Y$ is:
+\begin{eqnarray*}
+m(i) & = & \int_0^1 m(i|x) B(\alpha,\beta,x)\,dx \\
+     & = & {n \choose i} \frac 1{B(\alpha,\beta)} \int_0^1 x^{\alpha + i - 1}(1 -
+x)^{\beta + j - 1}\,dx \\
+     & = & {n \choose i} \frac {B(\alpha + i,\beta + j)}{B(\alpha,\beta)}\ .
+\end{eqnarray*}
+\item So $f(x|Y=i) = f(x,i)$ is just a beta!  Everything cancels!
+\end{itemize}
+
 
 \end{document}
