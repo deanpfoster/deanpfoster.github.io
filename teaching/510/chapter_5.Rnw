@@ -1,0 +1,34 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 5 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item No class monday
+\item I'll hold a review of homework only.  No exam questions
+allowed. (Fairness issues and to discurage people from coming.) So it
+will probably be short.
+\end{itemize}
+
+
+
+\section*{Story time}
+
+Paradox:  Two numbers between zero and one written in two envelops.
+Nice strategy, go with the bigger interval.  Works more than 1/2 the
+time for all distributions.  equilvant to, ``pick in the direction of
+1/2.''  Can be defeated.  Fix the defeat by randomizing the 1/2
+point.  Always works!
+
+Now, do it for a whole real line.  Want a distribution over
+everywhere.  Nice one is Cauchy.  It has high probability of
+generating large numbers.
+
+
+
+\end{document}

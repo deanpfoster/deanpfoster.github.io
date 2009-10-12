@@ -1,0 +1,119 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Chapter 4.3 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Homework questions?
+\end{itemize}
+
+
+
+\section*{Story time}
+
+
+\begin{itemize}
+\item Bet on ``red'' in 50/100 red balls.  (Pay about 50 cents)
+\item Bet on ``red'' in box with 100 red or blue balls (Pay much less
+than 50 cents)
+\item Bet on choice of ``red'' or ``blue'' in box with 100 red or blue
+balls (pay close to 50 cents)
+\end{itemize}
+Called ambiguity aversion.  If you model it as a beta-binomial, these
+are equivalent.  But as a game theorist--you will take into
+condieration the utility of the prize--giver.  They don't want to give
+prizes!  So they can stack the box with all blue.
+
+
+\begin{itemize}
+\item 90 balls
+\item 30 red 60 either yellow or black
+\item A: You receive \$100 if you draw a red ball
+\item B: You receive \$100 if you draw a black ball
+\item C: You receive \$100 if you draw a red or yellow ball       
+\item D: You receive \$100 if you draw a black or yellow ball
+\end{itemize}
+
+$A > B$ and $D > C$
+
+
+
+\section*{Paradoxes: Probability isn't logic}
+Consider the statement:
+
+``One of two doors has a prize in it.  You can have the contents of
+the first door.''
+
+What is the probability of getting the prize? (Answer: number between zero
+and one.)
+
+\subection{Two kids: information}
+
+A father is known to have two children, he says:
+\begin{itemize}
+\item ``I have at least one boy.''
+\item ``I have two children.''
+\item ``I have at least one girl.''
+\end{itemize}
+Assume he is always truthful.  What is the probability of two boys
+given he says ``I have at least one boy.''  Answer, between zero and
+one.
+\begin{itemize}
+\item Draw the picture
+\end{itemize}
+
+\section{Two kids: sets}
+A father is known to have two children, He is asked, do you have a
+son? (Say we are wondering if he might want to be a member of
+boyscouts.)  He says:
+\begin{itemize}
+\item ``Yes''
+\item ``no''
+\end{itemize}
+Assume he is always truthful.  What is the probability of two boys
+given he says ``Yes.''  Answer, two/thirds.
+\begin{itemize}
+\item Draw the picture
+\end{itemize}
+
+\section{Two kids: random meeting}
+A father is known to have two children, He found out walking his son
+ to school.  No need for truthfulness--this is reality!  What is the
+ probability of two boys?  Answer: depends.  Misogonist or not?
+\begin{itemize}
+\item Draw the picture for unbiased children.
+\end{itemize}
+
+\section{Correct definition}
+
+Conditional probability is only meaningfully defined relative to a
+ $\sigma$-field.  In other words, we need to know the whole partition
+of possible events.
+
+Definition for partition:
+\begin{itemize}
+\item Let ${\cal F}$ be a partition with elementary sets $F_i$
+(I.e. every set $A \in {\cal F}$ is a disjoint union of $F_i$'s.
+\item $P(A|{\cal F}) = P(A \cap F_i)/P(F_i)$ if $F_i$ occurs
+\item $P(A|{\cal F}) = \sum_i P(A \cap F_i)/P(F_i) I_{F_i}$ for full math
+\item In other words, you need the ``counter factual.''  Very
+important in some models for observational data.
+\end{itemize}
+
+\subsection*{Application: Monty Hall}
+\begin{itemize}
+\item As logic: number between zero and one.
+\item As simulation / sets: 2/3 (draw tree)
+\item As empirics: closer to 1/2.  How?  Monty Hall can be strategic.
+He can simply tell you, ``sorry you lose.''
+\item Why is 1/2 the right answer? It gets more people screaming!
+That is Monty's goal.
+\end{itemize}
+
+
+\end{document}
