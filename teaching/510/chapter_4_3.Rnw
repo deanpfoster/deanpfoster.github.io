@@ -52,7 +52,7 @@ the first door.''
 What is the probability of getting the prize? (Answer: number between zero
 and one.)
 
-\subection{Two kids: information}
+\subsection*{Two kids: information}
 
 A father is known to have two children, he says:
 \begin{itemize}
@@ -67,7 +67,7 @@ one.
 \item Draw the picture
 \end{itemize}
 
-\section{Two kids: sets}
+\section*{Two kids: sets}
 A father is known to have two children, He is asked, do you have a
 son? (Say we are wondering if he might want to be a member of
 boyscouts.)  He says:
@@ -81,7 +81,7 @@ given he says ``Yes.''  Answer, two/thirds.
 \item Draw the picture
 \end{itemize}
 
-\section{Two kids: random meeting}
+\section*{Two kids: random meeting}
 A father is known to have two children, He found out walking his son
  to school.  No need for truthfulness--this is reality!  What is the
  probability of two boys?  Answer: depends.  Misogonist or not?
@@ -89,7 +89,7 @@ A father is known to have two children, He found out walking his son
 \item Draw the picture for unbiased children.
 \end{itemize}
 
-\section{Correct definition}
+\section*{Correct definition}
 
 Conditional probability is only meaningfully defined relative to a
  $\sigma$-field.  In other words, we need to know the whole partition
