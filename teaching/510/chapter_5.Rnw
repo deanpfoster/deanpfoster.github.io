@@ -147,12 +147,17 @@ lines(x,lapply(x,k_norm),type="l",lwd=3,col="blue")
 $-\ln(U)$).  If we attach a random sign, we get a Laplace distribution
 shown in yellow.  If we then subsample with probability $e^{-(|x| -
 1)^2}$ we will get the distribution shown in green--which is a normal
-distribution.  Ignoring signs, in psudo code this looks like\protect\\\protect\\
+distribution.  Note: The relative area of the two distributions is
+$\sqrt{\pi/2e}$. \protect\\
+In psudo code this looks like\protect\\\protect\\
 {\tt
 \hspace*{2in}repeat \protect\\
-\hspace*{2.5in}$X = - \log(U)$ \protect\\
-\hspace*{2in}until $-2 * \log(U) < (X - 1.0)^2$
-}}
+\hspace*{2.5in}$X = - \log(rand())$ \protect\\
+\hspace*{2.5in}if$(rand() < .5) X = -X$ \protect\\
+\hspace*{2in}until $-2 * \log(rand()) < (|X| - 1.0)^2$
+}
+Where $rand()$ is a uniform random number generate.
+}
 \end{figure}
 
 
