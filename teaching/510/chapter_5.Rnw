@@ -1,5 +1,8 @@
 \documentclass[14pt]{extarticle}
-
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
 \begin{document}
 \title{Chapter 5 teaching notes}
 \author{Dean P Foster}
@@ -71,6 +74,11 @@ F(X) = u$.
 \item $x = - 1/\lambda \log(1 - F(x))$
 \end{itemize}
 
+see
+\href{http://en.wikipedia.org/wiki/Inverse_transform_sampling}{wiki on
+inverse sampling}
+
+
 \section*{Cool properties of exponential}
 \begin{itemize}
 \item Model for waiting times
@@ -106,7 +114,49 @@ to generate at least a 20 minute total wait?  Called Poisson.)
 \item Draw an exponential.
 \item Subsample by ratio of normal to exponential
 \item Some math can make this as tight as possible
+\item \href{http://en.wikipedia.org/wiki/Rejection_sampling}{Wiki on
+rejectin sampling}
+\item Some math:
+\begin{eqnarray*}
+-x^2/2 & \le & -|x| + 1/2 \quad \left(\hbox{Draw the picture}\right)\\
+-x^2/2 & \le & -x + 1/2  \quad \left(\hbox{for positive $x$}\right)\\
+0 & \le & (x - 1)^2/2 \\
+f_{exp}(x) & = & e^{-|x|}/2 \\
+f_{norm}(x) & = & k e^{-x^2/2} \\
+k \frac{f_{norm}(x)}{f_{exp}(x)} & = & e^{-(|x|-1)^2/2} \\
+\{U < k \frac{f_{norm}(x)}{f_{exp}(x)}\} & = & \{-\log(U) > (|x|-1)^2/2)\}
+\end{eqnarray*}
 \end{itemize}
+
+
+\begin{figure}
+
+<<rejection,fig=TRUE,include=FALSE,echo=FALSE>>=
+
+laplace <- function(x) exp(-abs(x))/2
+k_norm  <- function(x) exp(-x^2/2)*exp(-.5)/2
+x <- seq(-5,5,.001)
+plot(x,lapply(x,laplace),type="l",lwd=3,ylab="density",col="red")
+polygon(x,lapply(x,laplace),col="yellow",pch=FALSE,border=FALSE)
+lines(x,lapply(x,laplace),type="l",lwd=3,col="red")
+polygon(x,lapply(x,k_norm),col="green",pch=FALSE,border=FALSE)
+lines(x,lapply(x,k_norm),type="l",lwd=3,col="blue")
+
+@ 
+\includegraphics{.figures/chapter5-rejection}
+\caption{It is easy to sample from an exponential distribution (use
+$-\ln(U)$).  If we attach a random sign, we get a Laplace distribution
+shown in yellow.  If we then subsample with probability $e^{-(|x| -
+1)^2}$ we will get the distribution shown in green--which is a normal
+distribution.  Ignoring signs, in psudo code this looks like\protect\\\protect\\
+\tt
+\hspace*{2in}repeat \protect\\
+\hspace*{2.5in}$X = - \log(U)$ \protect\\
+\hspace*{2in}until $-2 * \log(U) < (X - 1.0)^2$
+}
+\end{figure}
+
+
 
 \section*{Conclusions}
 \begin{itemize}
