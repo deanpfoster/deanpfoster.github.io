@@ -154,7 +154,7 @@ In psudo code this looks like\protect\\\protect\\
 \hspace*{2in}repeat \protect\\
 \hspace*{2.5in}$X = - \log(rand())$ \protect\\
 \hspace*{2.5in}if$(rand() < .5) X = -X$ \protect\\
-\hspace*{2in}until $-2 * \log(rand()) < (|X| - 1.0)^2$
+\hspace*{2in}until $-2 * \log(rand()) < (|X| - 1.0)^2$\protect\\
 }
 Where $rand()$ is a uniform random number generate.
 }
