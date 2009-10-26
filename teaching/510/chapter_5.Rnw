@@ -114,8 +114,7 @@ to generate at least a 20 minute total wait?  Called Poisson.)
 \item Draw an exponential.
 \item Subsample by ratio of normal to exponential
 \item Some math can make this as tight as possible
-\item \href{http://en.wikipedia.org/wiki/Rejection_sampling}{Wiki on
-rejectin sampling}
+\item \href{http://en.wikipedia.org/wiki/Rejection\_sampling}{Wiki on rejectin sampling}
 \item Some math:
 \begin{eqnarray*}
 -x^2/2 & \le & -|x| + 1/2 \quad \left(\hbox{Draw the picture}\right)\\
@@ -148,14 +147,18 @@ lines(x,lapply(x,k_norm),type="l",lwd=3,col="blue")
 $-\ln(U)$).  If we attach a random sign, we get a Laplace distribution
 shown in yellow.  If we then subsample with probability $e^{-(|x| -
 1)^2}$ we will get the distribution shown in green--which is a normal
-distribution.  Ignoring signs, in psudo code this looks like\protect\\\protect\\
-\tt
+distribution.  Note: The relative area of the two distributions is
+$\sqrt{\pi/2e}$. \protect\\
+In psudo code this looks like\protect\\\protect\\
+{\tt
 \hspace*{2in}repeat \protect\\
-\hspace*{2.5in}$X = - \log(U)$ \protect\\
-\hspace*{2in}until $-2 * \log(U) < (X - 1.0)^2$
+\hspace*{2.5in}$X = - \log(rand())$ \protect\\
+\hspace*{2.5in}if$(rand() < .5) \quad X = -X$ \protect\\
+\hspace*{2in}until $-2 * \log(rand()) < (|X| - 1.0)^2$\protect\\
+}
+Where $rand()$ is a uniform random number generate.
 }
 \end{figure}
-
 
 
 \section*{Conclusions}
