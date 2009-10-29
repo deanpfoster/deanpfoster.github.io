@@ -1,0 +1,114 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+\title{Chapter 6 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Hand back homeworks and midterm
+\end{itemize}
+
+
+
+\section*{(1/2) factorial}
+
+\begin{itemize}
+\item Extending the factorial
+\item The gamma function: $\Gamma(n+1) = n!$
+\item $\Gamma(n+1) = n! = \int_0^\infty t^{n}e^{-t} dt$
+\item Plot: $\Gamma(0) = +\infty$ and $\Gamma(-1) = -\infty$
+\item Relationship to volumn of a sphere and hence a normal distribution
+\end{itemize}
+
+\section*{Expectation}
+\begin{itemize}
+\item Easy definition $E(X) = \sum_x x P(X=x)$
+\begin{itemize}
+\item Oops!  Not all sums are defined
+\item Call the undefined ones as ``undefined.''
+\end{itemize}
+\item Example: $X = $ number flips until a head.  What is $E(X)$?
+\item Example: $Y = 2^X$.  
+\begin{itemize}
+\item Is $E(Y) = 2^{E(X)}$?  No!
+\item Compute.
+\item Oops.  Makes sense to call it $+\infty$ rather than undefined.
+But tradition precludes us from doing so.
+\item What about $Y = 1.9999^X$ and $Y = 2.0001^X$?
+\item For shadow: $Y = 1.0001^X$ is also easy and useful
+\end{itemize}
+\end{itemize}
+\section*{Interpretation}
+\begin{itemize}
+\item Naive: ``Fair price'' (Good for $X$ but not for $Y$)
+\item Long run average.  (Good for intuition--but not for philosophy)
+\item Typical value.  (Again good for $X$ but not for $Y$)
+\item Gradually it will come to have meaning--but don't lean on the
+meaning too hard.  This is mathematics!
+\end{itemize}
+\section*{Sums of random variables}
+\begin{itemize}
+\item $A$ = first die, $B$ = second die, Then $E(A) = E(B) = 3.5$.
+\item What about $E(A + B)$?  Clearly 7! But mathematically why?
+\item Theorem: $E(A+B) = E(A) + E(B)$ and $E(cA) = cE(A)$. 
+\item Prove it.
+\end{itemize}
+\section*{Application}
+\begin{itemize}
+\item Consider a random permutation?
+\item What does this mean?  Card shuffling!
+\item How many fixed points?
+\item Techincal definition: $\sum x m(x)$ requires inclusion /
+exclusion and lots of pretty math.
+\item What is the expected number of fixed points in the first
+positoin?  Easy, 1/n.
+\item Now add them up!
+\item I love this book!  Ross also does these permutations--but he
+doesn't do linearity of expectation until the end of the book.
+\end{itemize}
+\section*{Debreifing}
+\begin{itemize}
+\item Three key ideas:
+\begin{itemize}
+\item Linearity of expectation
+\item Linearity of expectation
+\item Linearity of expectation
+\end{itemize}
+\item Ok, how about:
+\begin{itemize}
+\item Linearity of expectation
+\item Indicator variables
+\item "Fundamental mystery of probability" 
+\end{itemize}
+\end{itemize}
+
+\section*{Closing: Linearity of expectation rules}
+\begin{itemize}
+\item Alternative defintions of expectation:
+\begin{itemize}
+\item Ours: $E(X) = \sum x m(x)$
+\item Integration 1: $E(X) = \int x f(x) dx$ = limit of Riemann sums
+\item Integration 1: $E(X) = \int x dF(x)$
+\item Measure theory: $E(X) = \lim \sum x P(x < X < x+\epsilon)$ =
+Lebegue integral
+\end{itemize}
+\item All satisfy fundemential mystery of probability
+\item All map the space of random variables to the real line
+\begin{itemize}
+\item Think of all possible (nice) random variables
+\item We can put them in a vector space
+\item Cool! it is infinite diminsional
+\item Expectation then is a linear operator on this space
+\item Can be thought of then as an inner product: $<1,X>$
+\end{itemize}
+\end{itemize}
+
+
+\end{document}
