@@ -27,5 +27,6 @@ all_pdf: $(SOURCES:.Rnw=.pdf)
 
 install: all
 	-git commit -a -m "updating to gosset."
+	git pull	
 	git push
 	ssh go "cd public_html;git pull;cd teaching/510/;make"
