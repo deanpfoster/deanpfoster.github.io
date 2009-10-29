@@ -1,0 +1,158 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+\title{Handout: Whittle}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+
+
+\section*{Story: Exec ed}
+
+\begin{itemize}
+\item 2 to 1 odds \$million (don't take)
+\item 2 to 1 odds \$1 (take)
+\item Real people take big best in market, but not class
+\end{itemize}
+
+\section*{Conditional Expectation}
+Goal: understand deeply conditional expectation.
+\section*{Guiding principles}
+\begin{itemize}
+\item Small bets (no constraints)
+\item Actions (not beliefs)
+\item repeated (counts not frequencies)
+\end{itemize}
+
+No free lunch:Fair price means you can't get rich.
+
+\section*{Price $\pi$ too low means buy}
+
+\begin{eqnarray*}
+-\pi & - & \hbox{price we pay} \\
+X_i - \pi &=& \hbox{one round winnings} \\
+\sum_i (X_i - \pi) &=& \hbox{total winnings} \\
+\sum_i (X_i - \pi)
+ &=&(X_1 - \pi) + (X_2 - \pi) + \cdots\\
+ &=&(a - \pi)\#(X's = a) + (b - \pi)\#(X's = a) +\cdots + (c - \pi)\#(X's = a) \\
+ &\approx&\sum (v_i - \pi)n P(X = v_i) \\
+ &=&n E(X) - n\pi \\
+ &=&n (E(X) - \pi) \\
+\end{eqnarray*}
+which is a large number if $\pi < E(X)$.  So we would get infinitely
+rich. Never happens in economics.
+
+Theorem: $\pi \ge E(X)$.
+
+Do other side, via shorting.
+
+\section*{Sign of $X_i$}
+
+\begin{eqnarray*}
+-\pi & - & \hbox{price we pay (when we bet)} \\
+X_i - \pi &=& \hbox{one round winnings (when we bet)} \\
+(X_i - \pi)I_{X_i > 0} &=& \hbox{one round winnings} \\
+\sum_i (X_i - \pi)I_{X_i > 0} &=& \hbox{total winnings} \\
+&\vdots& \\
+ &=&n (E(X I_{X > 0}) - \pi P(X > 0)) 
+\end{eqnarray*}
+which must be zero. So, $ \pi = E(X I_{X > 0})/P(X > 0)$. 
+
+Name: $\pi = E(X|\{X > 0 \})$.
+
+\section*{Given set $X \in S$}
+
+\begin{eqnarray*}
+-\pi & - & \hbox{price we pay (when we bet)} \\
+X_i - \pi &=& \hbox{one round winnings (when we bet)} \\
+(X_i - \pi)I_{X_i \in S} &=& \hbox{one round winnings} \\
+\sum_i (X_i - \pi)I_{X_i \in S} &=& \hbox{total winnings} \\
+&\vdots& 
+\end{eqnarray*}
+So, $\pi = E(X|\{X \in S \}) = E(X I_{\{X \in S\}})/P(\{X \in S\})$. 
+
+\section*{Given set ${\cal S}$}
+
+What if ${\cal S}$ is some other set?  It might depend on things
+besides $X$ for example.  
+
+\begin{eqnarray*}
+-\pi & - & \hbox{price we pay (when we bet)} \\
+X_i - \pi &=& \hbox{one round winnings (when we bet)} \\
+(X_i - \pi)I_{{\cal S}} &=& \hbox{one round winnings} \\
+\sum_i (X_i - \pi)I_{\cal  S} &=& \hbox{total winnings} \\
+&\vdots&  \\
+E((X_i - \pi)I_{\cal S}) & = & 0
+\end{eqnarray*}
+So, $\pi = E(X|\{X \in S \}) = E(X I_{\cal S})/P({\cal S})$. 
+
+Similar $E(X|\{X \in S^c \}) =  E(X I_{{\cal S}^c})/P({\cal S}^c)$.
+
+\section*{Lots of actions}
+
+If we see $S$ we really have a lot of possible actions:
+
+\centerline{
+\begin{tabular}{c|c|l}
++1 &   +1  &  always buy \\
+-1 &   -1  &  always sell \\
++1 &   0   &  buy on $\cal S$ \\
+-1 &   0   &  sell on $\cal S$ \\
+$\vdots$ & $\vdots$ & \\
+0 & 0 & not interesting? Why?
+\end{tabular}}
+Call the action we take $S$.  Then:
+\begin{eqnarray*}
+-\pi_i A_i & - & \hbox{price we pay} \\
+(X_i - \pi_i)A_i &=& \hbox{one round winnings} \\
+\sum_i (X_i - \pi_i)A_i &=& \hbox{total winnings} \\
+&\vdots&  \\
+E((X - \pi)A) & = & 0
+\end{eqnarray*}
+Note, $X$, $\pi$, $A$ are all random!  We can't compute $\pi$ yet.
+\begin{displaymath}
+E((X - \pi)A)  =  E((X - \pi)A I_S) +  E((X - \pi)A I_{{\cal S}^c})
+\end{displaymath}
+By thinking of different actions, we see that both of these should
+ individually be zero. Let's think of $E((X - \pi)A I_S)$ in its
+ ``summation'' format.  It says on those days when ${\cal S}$ occurs, the sum
+ should be zero.  But on those days, $A$ is fixed and so it $\pi$.  So
+on those days, $\pi = E(X|{\cal S})$.  Likewise on those days where
+${\cal S}^c$ occurs,  $\pi = E(X|{\cal S}^c)$.  How can $\pi$ take on
+two different values?  It should!  Its random!  So,
+
+\begin{displaymath}
+\pi = \left\{
+\begin{array}{ll}
+E(X|{\cal S})     & \hbox{if $\cal S$ occurs} \\
+E(X|{\cal S}^c)   & \hbox{if ${\cal S}^c$ occurs} 
+\end{array}
+\right.
+\end{displaymath}
+This random $\pi$ is called: $E(X|\{S,S^c\}$.  Or if we think of the
+sigma field ${\cal F} = \{\empty, S, S^c, \Omega\}$, then it is often
+written as: $E(X|{\cal F})$.
+
+\section*{Final definition}
+The $E(X|{\cal F} = \pi$ where $\pi$ is a random variable such that:
+\begin{enumerate}
+\item The value of $\pi$ can be determined if you observe a set from
+${\cal F}$.
+\item For all sets $A \in {\cal F}$, we have:
+\begin{displaymath}
+E((X  - \pi) I_A) = 0.
+\end{displaymath}
+\end{enumerate}
+
+
+\end{document}
