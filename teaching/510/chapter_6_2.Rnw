@@ -1,0 +1,116 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+\title{Chapter 6.2 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item questions from handout?
+\item Homework questions?
+\end{itemize}
+
+
+
+\section*{Complete space of random variables}
+
+\begin{itemize}
+\item Remimber that aproach to random variables, that I promissed not
+to mention?  Ok, here is another story from it.
+\item Current story: $\Omega, {\cal F}, P$ and then ${\cal X} = \{X:$
+such that X is a ${\cal F}$ measurable fuction on $\Omega\}$.
+\item Alternative story, ${\cal X}$ is a set of random variables
+\begin{itemize}
+\item Define $E()$ as linear
+\item Not very interesting--all you can do is add stuff up and convert
+to new units
+\item Would like to take $\sin()$, $\log()$, etc.
+\item Cool fact: All interesting functions can be approximated by
+polynomials.  Stone-Weierstrass theorem.
+\item But a polynomial is just ``sums'' and ``times'' of random variables
+\item So to talk about a polynomial we already know how to talk about
+sums, we need to add ``times''
+\item If $X$, $Y$ are random variables, we add $XY$ to our list of
+random variables
+\item But we need to be able to talk about $E()$ still.  So, we have
+to talke about $E(XY)$.  If we can do this, we can do anything.  Why?
+\item $Y = X^2 = XX$, so $Z = X^3 = XY$, so $X^4 = XY$ and $X^5 = YZ$,
+etc.
+\item So if we can do $E(XY)$ we are golden!  This is what we will
+consider today.
+\end{itemize}
+\end{itemize}
+
+\section*{Variance}
+\begin{itemize}
+\item Easy definition $V(X) = \sum_x (x - E(X))^2 P(X=x)$
+\item Pretty defn: $V(X) = E((X- E(X))^2)$
+\end{itemize}
+
+\section*{Units of variance?}
+\begin{itemize}
+\item Suppose $X$ is height of random student (measured in meters)
+\item Variance is an aveage of height squared (measured in square
+meters)
+\item The SI unit for area is hectors
+\item So what does it intuitively mean when I say that the variance of
+the heights of students is  300 micro-hectors?
+\end{itemize}
+\section*{SD is easier to use}
+\begin{itemize}
+\item Alternative: standard deviation
+\item $D(X) = \sqrt{V(X)}$
+\end{itemize}
+\section*{A few properties}
+\begin{itemize}
+\item $V(X) = E(X^2) - (EX)^2$
+\item $V(aX) = a^2 V(x)$
+\item $V(a + X) = V(X)$
+\end{itemize}
+\section*{Products of random variables}
+\begin{itemize}
+\item $C(X,Y) = E((X - E(X))(Y - E(Y)))$
+\item Acts like a matrix
+\item Two key facts from which all else follows:
+\begin{itemize}
+\item $C(X,\cdot)$ is linear
+\item $C(X,Y) = C(Y,X)$
+\end{itemize}
+\end{itemize}
+
+\section*{Independent random variables}
+\begin{itemize}
+\item If $X$ and $Y$ are independent: $E(XY) = E(X)E(Y)$.
+\item If $X$ and $Y$ are independent, then so are $X-a$ and $Y-b$.
+\item So $E(X-E(X)) =0$ and hence for independnent random variables
+$C(X,Y) = 0$.
+\end{itemize}
+
+\section*{Variance addition formula}
+For independnent random variables
+\begin{eqnarray*}
+V(X+Y) & = & C(X+Y,X+Y) \\
+       & = & C(X,X) + C(Y,Y) + C(X,Y) + C(Y,X) \\
+       & = & C(X,X) + C(Y,Y) + 2 C(X,Y) \\
+       & = & C(X,X) + C(Y,Y) + 0 \\
+       & = & V(X) + V(Y)
+\end{eqnarray*}
+
+\section*{E and V of sum of many RV}
+
+
+If $X_i$ are IID, $V(\sum X_i) = \sum V(X_i) = n V(X)$.
+
+Also $E(\sum X_i) = n E(X)$.
+
+\section*{Binomial distribution mean and variance}
+
+mean = $p$ variance = $pq$.  all else follows.
+
+\end{document}
