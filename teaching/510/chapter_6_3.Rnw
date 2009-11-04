@@ -1,0 +1,70 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+\title{Chapter 6.3 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item collect homework
+\end{itemize}
+
+
+\section*{Story 1: distances for cities}
+
+\begin{itemize}
+\item How similar are Philly and SF?
+\item List lots, then no two cities are close
+\item List too few (say just latitude) and the NYC and madrid are the same
+\item A good distance keeps things close--but not too close
+\end{itemize}
+
+\section*{Story 2: distances for RV}
+
+
+\begin{itemize}
+\item All RV. sprinkle dots for non-negative integer valued
+\item add negative ones
+\item add more discrete one
+\item Say using L1 norm, space is large, but we can do better
+\item Say, E(X-Y) is about zero and $E(X-Y)^2$ is about zero, then
+they are close
+\item work out this means $E|X-Y|^2$.
+\item theorem: close imples means about the same
+\item fact: discrete are dense in all variables
+\item often: discrete are countable (makes a nice space)
+\item So can define $E(X)$ for all variables by simply taking limit
+\item We can then duck integration!
+\end{itemize}
+
+\section*{Expectation for continuous RV}
+
+\begin{itemize}
+\item definition with integration
+\item linearity (proof omitted, see book, which also omits the proof)
+\item Do example: x is triangle say
+\end{itemize}
+
+\section*{Expectation of product of independent}
+prove theorem
+
+try it for combinations of a square: X,Y uniform, Y vs X+Y not
+independent product rule doesn't work.
+
+\section*{Define variance}
+Work out details for normal and cauchy
+
+\section*{IID again}
+
+do sum, average and z normalization
+
+\section*{Close}
+
+all just like discrete
+\end{document}
