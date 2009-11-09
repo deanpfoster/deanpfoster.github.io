@@ -1,0 +1,96 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+\title{Chapter 7.1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Homework questions?
+\end{itemize}
+
+
+
+\section*{Many faces of conditional expectation}
+
+There are many ways to define conditional expectation:
+\begin{itemize}
+
+\item $E(Y|X=x) = \sum_x x P(Y=x|X=x)$ (or $E(Y|X=x) = \int_x x f(Y=x|X=x) dx$)
+\item $E(Y|X) = g(X)$ such that $g(x) = E(Y|X=x)$
+\item $E(Y|X) = g(X)$ such that $E(g(X)H(X)) = E(YH(X))$
+\item Fair price: (small bets, repeated many times, actions)
+\item Best forecast: $E(Y|X) = g(X)$ such that for all $h()$ we have
+$E(Y-h(X))^2 \ge= E(Y - g(X))^2$
+\item Covariance gives us a new one.
+\end{itemize}
+Define $E(\cdot|X) = X cov(X,X)^{-1} cov(X,\cdot)$ 
+\begin{itemize}
+\item Technical condition: $A X = X^2$ for some matrix $A$.
+\begin{itemize}
+\item example $X = \{0,1\}$
+\item example $X = [Z,Z^2,Z^3,\ldots,Z^k]$ where $k$ is the number of
+discrete values $Z$ takes on
+\end{itemize}
+\item In statistics, called regression
+\item For homework you checked that $EX cov(X,X)^{-1} cov(X,Y) = E(Y)$. 
+\item Check that it works: 
+\begin{eqnarray*}
+E(Y|X) & = & X cov(X,X)^{-1} cov(X,Y) \\
+g(x) & = & x cov(X,X)^{-1} cov(X,Y) \\
+E(g(X)h(X))& = & \sum h_i E(g(X)X^i) \\
+           & = & \sum h_i E(X cov(X,X)^{-1} cov(X,Y) X^i) \\
+           & = & \sum h_i E(X^{i+1} cov(X,X)^{-1} cov(X,Y)) \\
+           & = & \sum h_i E(A^{i} X cov(X,X)^{-1} cov(X,Y)) \\
+           & = & \sum h_i A^{i} E(X cov(X,X)^{-1} cov(X,Y)) \\
+           & = & \sum h_i A^{i} E(Y) \\
+\end{eqnarray*}
+YIKES!!!
+\end{itemize}
+
+
+\section*{Sums of discrete random variables}
+
+Consider $X$, $Y$ independent discrete random variables.  Let $Z = X +
+Y$. What is the distribution of $Z$?
+
+\begin{eqnarray*}
+P(Z = z) & = & \sum_{x+y=z} P(X = x, Y = y) \\
+ & = & \sum_{x} P(X = x, Y = z - x) \\
+ & = & \sum_{x} P(X = x) P(Y = z - x)
+\end{eqnarray*}
+
+Pretty for integer valued random variables.  Define $m_x, m_y$ and
+$m_z$ as the distributions then:
+\begin{displaymath}
+m_z(j)  =  \sum_{k} m_x(k) m_y(z - x)
+\end{displaymath}
+
+Curious fact: Sums of any finite integer valued random look the same.
+
+\section*{Sums of continuous random variables}
+
+same idea:
+\begin{displaymath}
+(f*g)(z) = \int f(z-y) g(y) dy  = \int f(x) g(z-y) dx
+\end{displaymath}
+
+\begin{itemize}
+\item uniform goes to triangle
+\item exponential is a gamma
+\item gamma goes to gamma: parameters add.  Now we have an excuse as
+to why gamma is defined as it is: $\Gamma_n(x) = (\Gamma_a \star
+\Gamma_b)(x)$. 
+\item normal goes to normal: means add, variances add
+\item Cauchy goes to Cauchy ($1/\pi(1+x^2)$)
+\item Average of Cauchy goes to SAME Cauchy
+\end{itemize}
+
+
+\end{document}
