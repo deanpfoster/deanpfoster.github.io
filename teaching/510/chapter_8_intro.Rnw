@@ -1,0 +1,154 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 8 intro}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item
+\end{itemize}
+
+
+\section*{Markov's inequality: why}
+
+Definition of expectation comes from probability.
+
+How do you compute a probability from an expectation?
+\begin{itemize}
+\item working backwards--like division
+\item Expectation is linear, probability is linear, just ``invert''
+the matrix that relates them.
+\item harder, but more useful, find a bound
+\end{itemize}
+
+\section*{Markov's inequality: motivation}
+
+Let's ask Gretchen:  Suppose I have 10 kids, and the average number of
+blocks per kid is 6.5.  What maximal amount any one kid has? (65) What
+is the probability of a kid choosen at random to have more than 65
+blocks? (zero)  Ok, how about 64 blocks?
+
+\section*{Imprtant to do with blocks and not money}
+
+The average wealth saved by my 10 friends is \$10,000.  What is the
+maximum?  \$200k I say? Ah, several of my friends are in debt hence
+negative savings.
+
+\section*{Statement and proofs:}
+
+If, $X \ge 0$, then $P(X > M) < E(X)/M$.  
+
+Proofs:
+\begin{itemize}
+\item Draw balance beam and optimize
+\item Consider the random variable $Y = M I_{X > M}$.  $Y \le X$, so
+$EY < EX$.
+\item $EX = \int_0^\infty x f(x) dx \ge \int_M^\infty x f(x) dx \ge
+\int_M^\infty M f(x) dx = P(X > M)$.
+\end{itemize}
+
+
+\section*{Chebeychev's inequality}
+
+Let $X = (Y - E(Y))^2$.  Then $X \ge 0$ so markov applies.
+
+\begin{theorem}
+$P(|Y - E(Y)|^2 > M) \le E(Y-E(Y))^2/M$
+\end{theorem}
+
+Even that theorem wouldn't get a new name.  But lets do a subsitution
+of $k = \sqrt{M}$.
+\begin{theorem}[Chebeychev]
+$P(|Y - E(Y)| > k) \le Var(Y)/k^2$
+\end{theorem}
+
+\section*{Exponetial inequality}
+
+Let $X = e^Y$.  Then $X \ge 0$, so markov applies.
+
+\begin{theorem} Let $M(1) = E(e^{Y})$, then 
+\begin{displaymath}
+P(Y > k) \le M(1)e^{-k}
+\end{displaymath}
+\end{theorem}
+\begin{itemize}
+\item $M(s) = E(e^{sY})$.  So new theorem
+\begin{displaymath}
+P(Y > k) \le M(s)e^{-sk}
+\end{displaymath}
+\end{itemize}
+
+\section*{Reminder about sums of random variables}
+
+Let $X_i$ be a sequecne of IID random variables.  Let $S =
+\sum_{i=1}^n X_i$.  Then:
+\begin{eqnarray*}
+E(S) & = & n E(X) \\
+Var(S) & = & n Var(X) \\
+M_S(1) & = & M_X(1)^n
+\end{eqnarray*}
+If the RHS's exist.
+
+\section*{Application}
+Plug in the blanks:
+\begin{eqnarray*}
+P(S > nk) & \le & E(X)/k   \quad \hbox{ if $X \ge 0$} \\
+P(|S - n\mu| > k) & \le & n Var(X)/k^2 \\
+P(S > k) & \le & M_X(1)^{-k/n}
+\end{eqnarray*}
+
+But that is too easy.  Let's build it up by hand.
+
+\section*{Gambling}
+
+\begin{itemize}
+\item The setup:
+\begin{itemize}
+\item Suppose round $i$ you bet $\epsilon$ fraction of your wealth on
+gamble $Y_i$.
+\item If it is a fair bet, then your gain is $\epsilon W
+E(Y)$ (which is a ranodm variable!) or just zero.
+\item Suppose your
+initial wealth is 1.
+\item What is your expected wealth at time $T$? Also
+1. 
+\end{itemize}
+\item So, by markov $P(W > k) \le 1/k$.
+\item Converting to sums:
+\begin{itemize}
+\item  But if your bet either pays out or
+ doesn't pay out.
+\item Let $S$ be the number of times it pays out.
+\item Then $W  = (1 + \epsilon a)^S(1 - \epsilon b)^{n-S}$.
+\end{itemize}
+\item Plugging in:
+\begin{eqnarray*}
+P(W > k) &= &P((1 + \epsilon a)^S(1 - \epsilon b)^{n-S} > k) \\
+& = & P(\left(\frac{1 + \epsilon a}{1 - \epsilon}\right)^S(1 - \epsilon b)^{n} > k) \\
+& = & P(\alpha^S > k(1 - \epsilon b)^{-n}) \\
+& = & P(S \log(\alpha) >\log(k(1 - \epsilon b)^{-n})) \\
+& = & P(S >\log(k(1 - \epsilon b)^{-n})/ \log(\alpha)) \\
+& \le & 1/k
+\end{eqnarray*}
+Writing this differently, let 
+\begin{eqnarray*}
+v& =& \log(k(1 - \epsilon b)^{-n})/ \log(\alpha) \\
+\log(\alpha) v& =& \log(k(1 - \epsilon b)^{-n}) \\
+\alpha^v& =& k(1 - \epsilon b)^{-n} \\
+(1 - \epsilon b)^{n}\alpha^v& =& k 
+\end{eqnarray*}
+So,
+\begin{displaymath}
+P(S > v) \le \alpha^{-v}/(1 - \epsilon b)^n
+\end{displaymath}
+\end{itemize}
+\end{document}
