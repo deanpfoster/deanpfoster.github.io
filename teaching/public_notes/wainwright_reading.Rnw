@@ -10,7 +10,7 @@
 \author{Dean P Foster}
 \maketitle
 
-\section*{Review of regression}
+\section{Review of regression}
 
 Facts one should know about doing regression:
 \begin{itemize}
@@ -28,7 +28,7 @@ $p \approx 2^n$.  Clearly exact orthogonality is only possible up to
 size $n$.
 \end{itemize}
 
-\section*{Implications}
+\section{Implications}
 \begin{itemize}
 \item If the model we want has diminsion $k$ which is bigger than
  $O(n/log(p))$ variables, there will be a random model that fits
@@ -37,9 +37,9 @@ size $n$.
 \item Needing to search might make this worse.
 \end{itemize}
 
-\section*{Now on to Wainwright's paper}
+\section{Now on to Wainwright's paper}
 
-\section*{Introduction: L0 vs L1}
+\section{Introduction: L0 vs L1}
 \begin{itemize}
 \item Goal: low diminsional recovery
 \item Solution: good fit with few's variables
@@ -47,27 +47,27 @@ size $n$.
 \item Aproximation: Relax to L1
 \item This is equation 3 and 4
 \end{itemize}
-\section*{previous work}
+\section{previous work}
 \begin{itemize}
 \item equation 5: amazingly, regression heuristics help here
 \item If you can get close using random vectors, you can make it exact
 by adding in $n$ more small vectors
 \end{itemize}
-\section*{Gausian model}
+\section{Gausian model}
 \begin{itemize}
 \item $X_{ij} \sim N(0,1)$
 \item good way of generating almost orthoganal vectors
 \end{itemize}
-\section*{Our contribution}
+\section{Our contribution}
 \begin{itemize}
 \item equation 6: crude recovery of the $\beta$'s not just the
 subspace. 
 \end{itemize}
-\section*{Figure 1}
+\section{Figure 1}
 \begin{itemize}
 \item Note: it gets sharper and sharper on rescalled axis.  So only
 the ``mean'' is right--not the ``SD''.
 \end{itemize}
 
-\section*{Section II: Primal-Dual witnsess construciton}
+\section{Section II: Primal-Dual witnsess construciton}
 \end{document}
