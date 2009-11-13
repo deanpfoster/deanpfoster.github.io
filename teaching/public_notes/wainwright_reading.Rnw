@@ -3,6 +3,8 @@
 \SweaveOpts{prefix.string=.figures/chapter5}
 \usepackage{wrapfig}
 \usepackage{graphicx}
+
+
 \begin{document}
 \title{Reading group discussion of Wainwright's ``Sharp thresholds''}
 \author{Dean P Foster}
