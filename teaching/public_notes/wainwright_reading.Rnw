@@ -1,0 +1,71 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+\title{Reading group discussion of Wainwright's ``Sharp thresholds''}
+\author{Dean P Foster}
+\maketitle
+
+\section*{Review of regression}
+
+Facts one should know about doing regression:
+\begin{itemize}
+\item Fact: Adding $p$ variables to a $n$ observation regression will
+generate a perfect fit.
+\item Heuristic:  Adding one variable will improve R-squared by $1/n$
+on average.
+\item Fact: $\Phi^{-1}(1/p) \approx \sqrt{2 log p}$
+\item Fact: $\Delta R^2 = t^2/n$
+\item Heuristic: Best feature out of $p$ improves $R^2$ by $2
+log(p)/n$.
+\item Fact: Random vectors in $\Re^n$ are typically orthognal
+\item Heuristic: One can ``hope'' for aproximate orthogonality up to
+$p \approx 2^n$.  Clearly exact orthogonality is only possible up to
+size $n$.
+\end{itemize}
+
+\section*{Implications}
+\begin{itemize}
+\item If the model we want has diminsion $k$ which is bigger than
+ $O(n/log(p))$ variables, there will be a random model that fits
+ better with fewer variables.
+\item This is what is called a threshold.
+\item Needing to search might make this worse.
+\end{itemize}
+
+\section*{Now on to Wainwright's paper}
+
+\section*{Introduction: L0 vs L1}
+\begin{itemize}
+\item Goal: low diminsional recovery
+\item Solution: good fit with few's variables
+\item Problem: NP hard
+\item Aproximation: Relax to L1
+\item This is equation 3 and 4
+\end{itemize}
+\section*{previous work}
+\begin{itemize}
+\item equation 5: amazingly, regression heuristics help here
+\item If you can get close using random vectors, you can make it exact
+by adding in $n$ more small vectors
+\end{itemize}
+\section*{Gausian model}
+\begin{itemize}
+\item $X_{ij} \sim N(0,1)$
+\item good way of generating almost orthoganal vectors
+\end{itemize}
+\section*{Our contribution}
+\begin{itemize}
+\item equation 6: crude recovery of the $\beta$'s not just the
+subspace. 
+\end{itemize}
+\section*{Figure 1}
+\begin{itemize}
+\item Note: it gets sharper and sharper on rescalled axis.  So only
+the ``mean'' is right--not the ``SD''.
+\end{itemize}
+
+\section*{Section II: Primal-Dual witnsess construciton}
+\end{document}
