@@ -70,4 +70,60 @@ the ``mean'' is right--not the ``SD''.
 \end{itemize}
 
 \section{Section II: Primal-Dual witnsess construciton}
+
+Constructs properties around the optimum point.  We have enought
+statistics to cover--that I'm going to skip the optimization.
+
+\section{III: Determinsitic designs}
+
+Equation 14a, and 15:
+\begin{itemize}
+\item Recall $\hat{\beta} = (X'X)^{-1} X'Y$ for least squares regression
+\item equation 15 then says: Every regression equation to predict
+every left out variable has all its beta's less than 1.
+\item Totally weird as far as L2 matrix concepts go.
+\item Problem: what if incoherence parameter $\gamma < 0$:
+\begin{itemize}
+\item  the shadow larger than the object (Think starwars 1).
+\item $X_{fake} = 2 * X_{real}$ doesn't work since now fake is same as
+real
+\item  $X_{fake} = 2 * X_{real} + noise$ -- this shadow is
+dangerious.  It moves things closer at a lower $\beta$ cost
+\end{itemize}
+\end{itemize}
+
+Theorem 1:
+\begin{itemize}
+\item equation 15 keeps the shadows away
+\item equation 16 keeps the truth from being too colinear
+\item equation 17 keeps the impostors out of the equation
+\end{itemize}
+Then statement (a) says we don't over fit.
+
+equation (b) requires a strong signal--and it then says we don't under
+fit. 
+
+\section{Necessary conditions}
+
+Theorem 2:
+
+\begin{itemize}
+\item equation 19 says we have a long shadow for a beta we care about
+\item equation 20 then says we will use that beta instead.
+\end{itemize}
+
+\section{Skip to bottom of 2192}
+
+Typical Oracle results have a $\log(p)$ term in them. 
+
+This holds here.
+
+\section{Skip to figure 2}
+
+same shape.  same ideas.  Notice, steeper as sample sizes increases.
+So he only is capturing the cross point--not the shape of the
+transition. 
+
+
+
 \end{document}
