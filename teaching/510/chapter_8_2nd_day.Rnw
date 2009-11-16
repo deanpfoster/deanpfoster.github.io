@@ -1,0 +1,213 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 8: Law of Large numbers}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Homework questions?
+\end{itemize}
+
+
+\section*{Patience}
+
+Keynes: ``In the long run, we're all dead.''
+
+Singularity: ``Maybe.''
+
+If $\Omega_M = 6$, the universe will crush itself in 15 billion years.
+
+If $\Omega_M > 1$, sometime we will get crushed.
+
+Proton's decay maybe at $10^{33}$ years.
+
+(Measured value is about .05 to .3, so no crush iminent.)
+
+Heat death: $10^{100}$ years.
+
+Not even close to the limit.  Let's think of a really big number
+compared to $10^{100}$, how about $100*10^{100} = 10^{102}$.  Lots
+more where that came from.
+
+\section*{Limit theorem: Law of large numbers}
+
+We want to talk about a limit theorems. 
+
+\begin{theorem}[SLLN] $\lim \overline{X}_n = \mu$, where $\overline{X}_n
+= \sum^n X_i/n$ and $X_i$ are IID and $E(X) = \mu$.
+\end{theorem}
+
+Problem:  Why does it matter?  Won't we be dead before it comes into
+play? 
+
+\section*{Sample paths}
+
+What does $r_n \to r_\infty$ mean?
+\begin{itemize}
+\item Statement about where $r_n$ isn't found.
+\item Excludes two rectangles
+\item Plot on ``arc-tan scale''
+\item Draw $\epsilon$ / $\delta$ statement of limit
+\end{itemize}
+
+\section*{Pictures of average}
+
+\begin{itemize}
+\item Sketch picture using whole black board
+\item Compress using arc-tan say
+\item Draw arbitary boxes.
+\item Where do these boxes lie?  Hard question.
+\item Picture via top half of ``log / log'' plot
+\item Ah--nice straight line, almost
+\end{itemize}
+\begin{theorem}[Iterated logorithm] IID, $\mu = 0$, $\sigma$ finite: 
+\begin{displaymath}
+\lim \sup \overline{X}_n /
+(\sigma \sqrt{2 n \log(\log n)}) = 1
+\end{displaymath}
+\end{theorem}
+
+\section*{Key insight}
+
+\begin{itemize}
+\item Useful to give concrete bounds at fixed times
+\item Can't say ``always''
+\item So give probability at fixed time
+\item Most often stated as ``weak law''
+\end{itemize}
+
+\section*{Two versions of weak law}
+
+\begin{theorem}[WLLN] $P(|\overline{X}_n - \mu| \ge \epsilon) \to 0$
+(if IID, $\sigma < \infty$, $\mu = E(X)$)
+\end{theorem}
+
+Proof: 
+\begin{itemize}
+\item $V(\overline{X}_n) = \sigma^2/n$
+\item $E(\overline{X}_n) = \mu$
+\item $P(|\overline{X}_n - \mu| \ge \epsilon) < \sigma^2/(n
+\epsilon^2) \to 0$
+\end{itemize}
+
+qed
+
+\begin{theorem}[Concrete] $P(|\overline{X}_n - \mu| \ge \epsilon) \le \sigma^2/(n\epsilon^2)$
+(if IID, $\sigma < \infty$, $\mu = E(X)$)
+\end{theorem}
+
+\section*{Cauchy}
+
+$f(x) = 1/\pi(1+x^2)$
+
+
+\section*{Conclusions: Good limits / bad limits}
+
+Theorem: All population models which have a cap on the total size of
+the population, will go extenct at some point.
+
+Proof: Model has a chance of each individual dieing.  If they all die
+at the exact same time extention occurs.  The probabily of that
+one dies is $\epsilon > 0$.  The probability that all die is
+$\epsilon^n$.  So, the probabilty of making  it past
+time $T$ is less than $(1-\epsilon^n)^{T} \to 0$.
+
+\begin{itemize}
+\item Not interesting since there is a lot of interesting stuff that
+can happen before limit sets in
+\item other effects will make an interesting story first
+\item Model will break down long before limit sets in
+\end{itemize}
+
+Good limit:
+\begin{itemize}
+\item Ideally concrete bounds
+\item Model holds up to expected time of limit being approximately true
+\item Other effects don't take over first
+\end{itemize}
+
+Conclusions:
+\begin{itemize}
+\item Law of large number as typically stated is ambigious about
+whether it is a good limit or a bad limit
+\item Concrete version shows it to be a good limit
+\item Weak law is very good limit theorem
+\end{itemize}
+
+
+
+
+\section*{Un used material}
+
+
+
+\section*{Recall:}
+
+Let $X_i$ be a sequecne of IID random variables.  Let $S =
+\sum_{i=1}^n X_i$.  Then:
+\begin{eqnarray*}
+E(S) & = & n E(X) \\
+Var(S) & = & n Var(X) \\
+M_S(1) & = & M_X(1)^n
+\end{eqnarray*}
+
+
+
+
+
+
+
+
+\section*{Gambling}
+
+\begin{itemize}
+\item The setup:
+\begin{itemize}
+\item Suppose round $i$ you bet $\epsilon$ fraction of your wealth on
+gamble $Y_i$.
+\item If it is a fair bet, then your gain is $\epsilon W
+E(Y)$ (which is a ranodm variable!) or just zero.
+\item Suppose your
+initial wealth is 1.
+\item What is your expected wealth at time $T$? Also
+1. 
+\end{itemize}
+\item So, by markov $P(W > k) \le 1/k$.
+\item Converting to sums:
+\begin{itemize}
+\item  But if your bet either pays out or
+ doesn't pay out.
+\item Let $S$ be the number of times it pays out.
+\item Then $W  = (1 + \epsilon a)^S(1 - \epsilon b)^{n-S}$.
+\end{itemize}
+\item Plugging in:
+\begin{eqnarray*}
+P(W > k) &= &P((1 + \epsilon a)^S(1 - \epsilon b)^{n-S} > k) \\
+& = & P(\left(\frac{1 + \epsilon a}{1 - \epsilon}\right)^S(1 - \epsilon b)^{n} > k) \\
+& = & P(\alpha^S > k(1 - \epsilon b)^{-n}) \\
+& = & P(S \log(\alpha) >\log(k(1 - \epsilon b)^{-n})) \\
+& = & P(S >\log(k(1 - \epsilon b)^{-n})/ \log(\alpha)) \\
+& \le & 1/k
+\end{eqnarray*}
+Writing this differently, let 
+\begin{eqnarray*}
+v& =& \log(k(1 - \epsilon b)^{-n})/ \log(\alpha) \\
+\log(\alpha) v& =& \log(k(1 - \epsilon b)^{-n}) \\
+\alpha^v& =& k(1 - \epsilon b)^{-n} \\
+(1 - \epsilon b)^{n}\alpha^v& =& k 
+\end{eqnarray*}
+So,
+\begin{displaymath}
+P(S > v) \le \alpha^{-v}/(1 - \epsilon b)^n
+\end{displaymath}
+\end{itemize}
+\end{document}
