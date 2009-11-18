@@ -1,0 +1,128 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 8: Law of Large numbers}
+\author{Dean P Foster}
+\maketitle
+
+
+\section{Administrivia}
+
+\begin{itemize}
+\item Yes, we have class next wed
+\item Next homework can be delayed if you like
+\item But there will be one the next weekend.  So don't delay very
+long! 
+\end{itemize}
+
+
+\section{All shapes look the same}
+
+Tomography:  (X-ray) Shadows on the wall.
+
+Problem: Matrix filled with zeros and 1's.  Know row and column sums.
+Can you figure out where the 1's are?
+
+\begin{itemize}
+\item Example where it looks possible (say a circle)
+\item Example where it isn't: 0,1,1,0 matrix
+\item But if you had more, you could figure it out.
+\end{itemize}
+
+Cool theorem: 1 diminsional x-rays are enough to figure out any
+matrix.  (Where the x-rays are in all possible directions.)
+
+It gets more interesting in 3-dimisions.  
+
+But, what about n dimensions?  
+
+Bummer theorem: All 1 dimensional x-rays of any high dimensional
+object looks the same.  Namely a normal distribution.
+
+Modify: (ALMOST) all 1 dimensional x-rays of any (standard position,
+ compact) high dimensional object looks (ALMOST) the same.  Namely a
+ normal distribution.
+
+\section{Chapter 9: CLT}
+
+Let $X_i$ be IID, consider: $S_n = \sum^n X_i$, $\overline{X} = S_n/n$
+and $S^*_n = (T_n - n \mu)/\sqrt{n}\sigma$.  Then
+\begin{tabular}{rcc}
+                &   mean             &   Variance       \\
+$S_n$           &  $n\mu$            &   $n\sigma^2$    \\
+$\overline{X}_n$ &  $\mu$          &   $\sigma^2/n$    \\
+$S_n/\sqrt{n}$   &  $\mu \sqrt{n}$       &$\sigma^2$ \\
+$S^*_n$         &  $0$          &   $1$    \\
+\end{tabular}
+
+Shapes: $S_n$ spread way out.  $\overline{X}_n \approx \mu$.  But what
+about $S^*_n$?  It neither diverges nor converges.
+
+
+\section{Binomial}
+
+If each $X_i$ is as simple as possible it would take on only one
+value.  (Trivial case.)  BUt then $\sigma = 0$ and we are hozed.  So
+try two values: Now we have a binomial.
+
+But we know what the binomial looks like.  We have a formula.  So it
+will allow us to understand what $S^*_n$ looks like in one case.
+
+\section{Looking at the shape of the binomial function}
+
+Draw pictures.
+
+Approach \#1: Use Sterlings formula and start computing.  Great fun for
+calculational types.  (Gauss used to find all the primes in given 100
+digit runs: say between 213500 and 213600. So everyone's idea of fun
+is different.)
+
+Aproach \#2 (Pittman): Use thought!
+
+Hope: $S^*_n$ looks like a density.  But what density?
+\begin{itemize}
+\item It can't be discrete (since number too small)
+\item Need $P(a < S^*_n < b)$ since density might not exist
+\item So what does that look like?
+\end{itemize}
+Look at binomial:
+\begin{displaymath}
+f(x) = {n \choose x} p^x (1-p)^{n-x}
+\end{displaymath}
+Looks messy.  BUt let's look at the log:
+\begin{displaymath}
+log f(x) = log({n \choose x}) + x log(p) + (n-x) log(1-p)
+\end{displaymath}
+now tate the ``derivative''
+\begin{displaymath}
+log f(x) - log f(x-1) = log((n-x)/x) +   log(p)- log(1-p)
+\end{displaymath}
+which we can now expand near $(n-x)/x \approx p/(1-p)$
+\begin{displaymath}
+log f(x) - log f(x-1) = log((n-x)p/x(1-p)) = ... = -(x - np)/npq
+\end{displaymath}
+Now integrate back up to get $log f(x)$.
+
+\section{Usefulness}
+
+Statistics: Don't know $\mu$.  Do know $\overline{X}$.  Can use one to
+estimate the other.  What does this mean?
+
+Do confidence intervals.  
+
+State what it is mathematically.
+
+\section{Conclusion}
+
+All shapes look normal.
+
+All statistics are normal.
+
+Understand it!
+
+\end{document}
