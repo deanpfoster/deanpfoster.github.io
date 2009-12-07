@@ -71,6 +71,32 @@ Hard way:
 \item $\mu_n = (n-1) \mu_{n-2}$.
 \end{itemize}
 
+\subsection{CLT}
+
+Linear is good (for independent RV):
+
+\begin{displaymath}
+\log(g_{X+Y}(s)) = \log(g_{X}(s)) + \log(g_{Y}(s)) 
+\end{displaymath}
+Some more semi-linearity:
+\begin{displaymath}
+\log(g_{aX}(s)) = \log(g_{X}(as)) 
+\end{displaymath}
+But this isn't a linear function--just plays one on TV.
+
+
+So, define $S = \sum X_i$, then
+
+\begin{displaymath}
+\log(g_{S}(s)) = n log(g_{X}(s))
+\end{displaymath}
+
+\begin{itemize}
+\item avergae then looks like $E(X)$
+\item normalized average looks like first 2 derivatives of $g(x)$
+\item But all functions look the same near zero.  (Or at least most do)
+\end{itemize}
+
 
 
 \end{document}
