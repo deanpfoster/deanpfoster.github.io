@@ -1,0 +1,76 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 10.3: CLT}
+\author{Dean P Foster}
+\maketitle
+
+
+\section{Administrivia}
+
+\begin{itemize}
+\item By special request: Homework due friday.
+\end{itemize}
+
+
+\section{Story: Integration}
+
+\begin{itemize}
+\item Reimann sum
+\item Lebegue sum
+\item Henstock-Kurzweil integral: 
+\begin{itemize}
+\item I say, the integral is $v$
+\item You say, no--that is off by $\epsilon$
+\item I say, no, any Reimann sum with gauge less than $\delta(x)$ is
+with in epsilon
+\item You say, no, try this partition--oops, you are right.
+\end{itemize}
+\end{itemize}
+
+
+\section{10.3: Generating functions}
+
+Good definitions:
+\begin{itemize}
+\item moment generating function: $g_X(s) = E(e^{sX})$
+\begin{itemize}
+\item ``Defined'' for all random variables
+\item But might not be pretty
+\end{itemize}
+\item regular generating function: $h_X(z) = E(z^{X}) = \sum z^i
+P(X=i)$ is a polynomial for NNIVRVs.
+\item charecteristic function:  $\kappa_X(\tau) = E(e^{i \tau X})$
+\item Unfortunately, requires $E()$
+\end{itemize}
+Bad definitions:
+\begin{itemize}
+\item $g(s) = \sum e^{xs} f(x)$
+\item $g(s) = \int e^{xs} f(x)$
+\item $g(s) = \int e^{xs} f(x)$
+\item $g(s) = \int e^{xs} f(x)$
+\item $\kappa(s) = \int e^{xs} f(x)$
+\end{itemize}
+
+\subsection{Example: exp random variable}
+
+$f(x) = \lambda e^{-\lambda x}$.  $g(t) = \lambda/(\lambda - t)$
+
+\subsection{Example: Normal}
+
+$f(x) = 1/\sqrt{2 \pi}e^{-x^2/2}$.  then: $g(t) = e^{t^2/2}$
+
+Hard way:
+\begin{itemize}
+\item $\mu_n = (1/\sqrt{2\pi}\int x^n e^{-x^2/2}dx = \int_0^\infty u^{n/2-1}e^{-u}dx$
+\item $\mu_n = (n-1) \mu_{n-2}$.
+\end{itemize}
+
+
+
+\end{document}

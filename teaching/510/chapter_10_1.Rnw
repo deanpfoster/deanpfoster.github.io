@@ -1,0 +1,142 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 10: Generating functions}
+\author{Dean P Foster}
+\maketitle
+
+
+\section{Administrivia}
+
+\begin{itemize}
+\item Collect homework.  next one due friday.
+\end{itemize}
+
+
+\section{Formal exponentials}
+
+\begin{itemize}
+\item What is $e^x$?  Many definitions.
+\item One nice one is as a power series: $e^x = 1 + x + x^2/2 +\cdots
++ x^i/i! + \cdots$.
+\item Only need three things:
+\begin{itemize}
+\item Add two objects
+\item Multiply two objects
+\item divide by a constant
+\end{itemize}
+\item So exponentials can be defined for many objects that it wouldn't
+normally make sense to define them for
+\item Any algebra works (Yea, like what's an example of an algebra?)
+\item Weird example: Lie algebra (i.e. 3-D vectors, + obvious, * is
+cross product)
+\item Nice example: Matrixes
+\begin{itemize}
+\item M + N defined
+\item M * N defined
+\item aM defined
+\item so $e^M$ is defined
+\end{itemize}
+\end{itemize}
+
+
+\section{Guess my random variable}
+\begin{itemize}
+\item I'm thinking of a random variable which takes on two values, and
+its mean is .5.  What is it?
+\begin{itemize}
+\item No--not necessarilly coin toss (-1/+2  also works)
+\end{itemize}
+\item I'm thinking of a random variable which takes on two values, and
+its mean is 0 and its variance is 1.  What is it?
+\begin{itemize}
+\item No, not +1/-1.  Could also be +10/-.1 with probabilities about
+.01 and .99.
+\end{itemize}
+\item I'm thinking of a random variable which takes on two values, and
+its mean is 0 and its variance is 1 and $E(X^3) = 0$.  What is it?
+\begin{itemize}
+\item Finally, we can do it.  Call the positive value x, and the
+negative value y
+\begin{enumerate}
+\item $p +q = 1$
+\item $px = qy $
+\item $px^2 + qy^2 = 1$
+\item $px^3 = qy^3$
+\end{enumerate}
+ So, $x^2 = y^2$. by 2 and 4.  Hence $x^2 = 1$ by 1 and 3.  So $x = 1$
+and $y = -1$.
+\end{itemize}
+\item Called the moment problem
+\item Harder with 3 different values.
+\item Really hard with lots of values
+\item Provably impossible with an infinite number of values (so you
+need more equations, we get them from complex numbers)
+\end{itemize}
+
+\section{Exponential moments}
+
+$E(e^X)$ is useful for bounding probabilities.  Nice mathematics.  But
+limited due to only one thing to study.  So consider $Y = a X$.  This
+is less limited.  
+
+\section{Chapter 10: definition of generating functions}
+
+Define the ``moment generating function:''
+\begin{displaymath}
+g(t) = E(e^{tX}) = \cdots = \sum e^{tx} p(x)
+\end{displaymath}
+From $g(t)$ we get both moments (via derivatives) and probabilities
+(via solving a large number of equations).
+
+Formal aproach: $d^n/dt^n g(t) |_{t=0} = \mu_n$.
+
+\section{Examples}
+Do Poisson and geometric.
+
+(check: g(poisson) = $e^{\lambda(e^t-1)}$, g(geometric) = $pe^t/(1 - qe^t)$
+
+\section{Existance}
+
+$e^x$ is a big number.  If you average them, maybe it won't be finite?
+Yikes! 
+
+Example, geometric for $t = 3$, $p = .5$ and $q = .5$.  Didn't we
+solve this?  Yea, but it isn't really right unless $t$ is small.  
+
+So to avoid large numbers, keep $x$ small.  One thing we care about is
+taking derivatves at zero--so we want it defined ther at least.
+
+THeorem: For discrete random variables with finite range, $g(t)$ is
+well defined, and infiintely differentiable. 
+
+Proof: $\mu_k \le M^k$.  Now compute.
+
+\section{Inverse}
+
+For discrete random variables with finite range, from $g$ we can
+compute $p$.
+
+\section{Cute trick}
+
+look at $g(log z)$ instead of $g(s)$.  Call this the ``ordinary
+generating function.''  $h(z) = g(log(z))$.
+
+\begin{itemize}
+\item $h(z) = E(z^X) = \sum z^x p(x)$
+\end{itemize}
+So computing derivatives of $h(z)$ will recover the values of $x$ and
+their probabilities.
+
+\section{Properties}
+\begin{itemize}
+\item INDEPENDENT sums work nicely
+\item linear combinations work
+\end{itemize}
+
+\end{document}
