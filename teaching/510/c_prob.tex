@@ -1,0 +1,1510 @@
+\documentclass[14pt]{extarticle}
+
+\newcommand{\parnote}[1]{%
+  \setlength{\marginparwidth}{.75in} 
+  \setlength{\marginparsep}{.1in} 
+  \marginpar{\raggedright\small\bf #1}}
+
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{claim}{Claim}
+\newtheorem{correlary}{Correlary}
+\newtheorem{example}{Example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   This is the ``referenced Problem'' homework macros.  Hopefully
+%   they will be easier to use then they were to write!  The idea is
+%   that a homework problem can be shoved in the text to hopefully be
+%   solved as one is reading the chapter.  But, if you want to assign
+%   homework problems, it is nice to have them easy to find.  So, at
+%   the end of the chapter, they page they are actually on will be
+%   referred.  Here is a sample:
+%
+%\begin{textHW}
+%\item[foo] The first in text problem.
+%\item[bar] A modification on the above problem.
+%\end{textHW}
+%
+%
+%\begin{HW}
+%\item Normal homework question at end of chapter.
+%\item \seepage{foo}
+%\item \seepage{bar}
+%\end{HW}
+%
+%
+\newcounter{homeworkcounter}
+\renewcommand{\thehomeworkcounter}{%
+  \fbox{\bf\thechapter.\arabic{homeworkcounter}}%
+  }
+\newenvironment{textHW}{
+  \noindent\rule{\textwidth}{1pt}%
+  \begin{list}{}{
+      \setlength{\labelwidth}{1cm}
+      \setlength{\labelsep}{0.3cm}
+      \setlength{\leftmargin}{1.3cm}
+      \setlength{\rightmargin}{1cm}
+      \setlength{\parsep}{0.5ex plus0.2ex minus0.1ex}
+      \setlength{\topsep}{1pt plus3pt minus1pt}
+      \setlength{\itemsep}{0ex plus0.2ex} 
+      \renewcommand{\makelabel}[1]{\label{thw:##1}{\ref{##1}}}
+      \sl}}%
+  {\end{list}\rule{\textwidth}{1pt}}
+\newcommand{\seepage}[1]{
+    \label{#1} 
+    See page \pageref{thw:#1}. 
+  }
+\newenvironment{HW}{
+  \begin{list}{\thehomeworkcounter\hfill}{
+      \usecounter{homeworkcounter}
+      \setlength{\labelwidth}{1cm}
+      \setlength{\labelsep}{0.3cm}
+      \setlength{\leftmargin}{1.3cm}
+      \setlength{\rightmargin}{1cm}
+      \setlength{\parsep}{0.5ex plus0.2ex minus0.1ex}
+      \setlength{\itemsep}{0ex plus0.2ex} \sl}}%
+  {\end{list}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%       this macro will count for you.  To start it, use \startI.
+%       To print out the numbers 1,2,3, use \I,\I,\I.
+%
+\newcounter{deanscounter}
+\newcommand{\I}{\arabic{deanscounter}\stepcounter{deanscounter}}
+\newcommand{\startI}{\setcounter{deanscounter}{1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newcommand{\notes}{\index{personal notes}\notesft}
+\newcommand{\notes}{}
+
+\newcommand{\ROW}{\hbox{R\raisebox{-.2ex}{\sex \symbol{204}}W}}
+% USED to be -.9ex for column
+\newcommand{\COLUMN}{\hbox{C\raisebox{-1.1ex}{\sex \symbol{202}}LUMN}}
+\newcommand{\row}{\ROW}
+\newcommand{\column}{\COLUMN}
+\newcommand{\Row}{\ROW}
+\newcommand{\Column}{\COLUMN}
+
+\makeindex
+\index{Games!zero-sum|see{zero-sum games}}
+
+
+\begin{document}
+
+ 
+\section{Probability} 
+\label{chap:probability}
+ 
+    \section{Story: The Three Philosophers}
+
+
+Consider three philosophers Abby, Beta, and Carol, or just A, B and C
+for short.  These three philosophers work for a King who now regrets
+having hired them.  To recover from his error, he lines them up in a
+row where C stands behind B who stands behind A.  On each head is
+placed either a red or a white hat (50/50 probability of each).
+Philosopher C can see what color hat both A and B are wearing.
+Philosopher B can see what color hat A is wearing.  But, philosopher A
+can't see any of the hats.  Philosopher A is blind.  So she
+volentereed to be in the front since she wouldn't be able to see the
+others hats even if she stood behind them.
+
+The King is trying to eradicate philosophers from his domain.
+Obviously if the king merely killed the three philosophers, he would
+be violating their tenure contracts.  He has to give them at least a
+chance of success.  So he is going to ask them to name their own hat
+color without looking at it.  He will let any of the philosophers live
+who can correctly determine the color of her own hat.
+\footnote{Guessing is out of the question for the philosophers. Not
+  only would being wrong be worse than death, but the King's torturer
+  is looking forward to making sure guessing doesn't pay!} To be
+``fair'' the King will either tell all three philosophers that all of
+them are wearing white hats or that at least one of them is wearing a
+red hat.  (The King figures that if he is lucky he will be able to
+kill all three philosophers.)  The King figures that only 1/8 of the
+time will he be unlucky and have to let them all go.
+
+After the hats have been randomly selected and placed on their heads,
+the king gleefully says:
+
+\begin{quote}
+  \begin{description}
+  \item[King:] {\it At least one of you has a red hat.}  What is the color
+    of your own hat?
+  \item[Philosopher A:] I don't know.
+  \item[Philosopher B:] I don't know.
+  \item[Philosopher C:] I don't know.
+  \item[King:] Okay, take them out and kill them.
+  \item[Philosopher A:] Wait, ask us again.
+  \item[King:] I don't see how that will help except by delaying your
+    deaths by a few seconds, but I'm willing.  Do you know the color of
+    your hat?
+  \item[Philosopher A:] No.
+  \item[Philosopher B:] No.
+  \item[Philosopher C:] No.
+  \item[King:] Okay, take them out and kill them.
+  \item[Philosopher A:] Wait, ask us one more time.
+  \item[King:] We are not amused. But, since this will obviously be
+    your last request, ever, we will grant your wish.  Do you know the
+    color of your hat?
+  \item[Philosopher A:] YES!  
+  \end{description}
+\end{quote}
+
+
+What color is Philosopher A's hat?  This is usually asked as a puzzle.
+In other words, you are supposed to think hard and solve it without
+using any of the years of mathematics you might have had.  This
+section will change that.  It will provide the mathematical tools to
+solve this problem.
+
+The usual sample space is shown in %
+\begin{figure*}[htp]
+  \setlength{\fboxrule}{.1mm}
+  \setlength{\fboxsep}{1ex}
+  \fbox{\parbox{\textwidth}{
+      \vspace{3ex}
+  \centerline{
+  \setlength{\unitlength}{1in}
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.1){\framebox(2,1.5)[lt]{}}
+    \put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+  \end{picture}}
+\caption[sample space]{The sample space showing the three events of
+  interest to the three Philosophers.  $R_A$ is the event Philosopher
+  A is wearing a red hat.  $R_B$ and $R_C$ are the events Philosopher
+  B and C are wearing red hats.}
+\label{fig:ss}
+}}
+\end{figure*}%
+Figure \ref{fig:ss} where the event $R_A$ means Philosopher A
+has a red hat and likewise for $R_B$ and $R_C$.  %
+\begin{figure*}[htp]
+  \setlength{\fboxrule}{.1mm}
+  \setlength{\fboxsep}{1ex}
+  \fbox{\parbox{\textwidth}{
+      \vspace{3ex}
+  \centerline{
+  \setlength{\unitlength}{1in}
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.1){\framebox(2,1.5)[lt]{}}
+    \put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){}}
+    \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){}}
+    \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){}}
+    \put(.6,.6){\makebox(0,0){\scriptsize 0}}
+    \put(1,.6){\makebox(0,0){\scriptsize 4}}
+    \put(.7,1.1){\makebox(0,0){\scriptsize 1}}
+    \put(1.3,1.1){\makebox(0,0){\scriptsize 2}}
+    \put(1,1.1){\makebox(0,0){\scriptsize 3}}
+    \put(1,.95){\makebox(0,0){\scriptsize 7}}
+    \put(.85,.85){\makebox(0,0){\scriptsize 5}}
+    \put(1.15,.85){\makebox(0,0){\scriptsize 6}}
+  \end{picture}}
+\caption[Simple Events]{The sample space showing the 8 simple events of equal
+  probability. Event 0 is often called the ``outside'' by freshmen.
+  Probabilists call it $R_A^c \cap R_B^c  
+  \cap R_C^c$.  In either case, it is the event that the King hopes
+  doesn't happen since he will have to tell them that no one has a red
+  hat and all three will be set free.}
+\label{fig:simpleEvents}}}
+\end{figure*}%
+Figure \ref{fig:simpleEvents} shows each of the eight simple events
+numbered $\{0,1,2,\ldots,7\}$.\footnote{This crazy number scheme comes from a binary
+  representation of the red hats.}  
+
+\paragraph{Review of notation:}  Four useful symbols are:  $\cup, \cap, A^c,
+  \emptyset$.\label{def:emptyset}  Each is defined below:
+\begin{itemize}
+\item The collection of the four simple
+events $\{1,3,5,7\}$ are called a complex event $R_A$.  In other
+words, all simple events for which philosoher A has a red hat.  If we
+are interested in the event of either philosopher A having a red hat, or
+B having a red hat or both, we will write $R_A \cup R_B$.
+\label{def:union}.  So, the event of at least one of the three having
+a red hat is $R_A \cup R_B \cup R_C$.  
+\item If we want to talk about philosopher A having a white hat, we
+  will instead talk about philosopher A {\it not} having a red hat.
+  This is known as complementation: $R_A^c$.
+\item So, if we wanted to talk about none of the philosophers having a
+  red hat, we would write: $(R_A \cup R_B \cup R_C)^c$.  Or by using
+  the symbol for intersection $R_A^c \cap R_B^c \cap
+  R_C^c$.\footnote{This is known as De Morgan's law.}  So the
+  intersection $R_A \cap R_B$ is the set of simple events which are in
+  both sets, namely: $\{3,7\}$.\label{def:intersection}
+\item Our last symbol is the empty set: $\emptyset$.  In other words,
+  $\{ \}$. 
+\end{itemize}
+
+
+Before the King says ``At least one of you has a red hat.''  each
+philosopher has a partition ($\sigma$-field for the
+  statistically pure) which she can observe. %
+\begin{figure*}[htp]
+  \setlength{\fboxrule}{.1mm} \setlength{\fboxsep}{1ex}
+  \fbox{\parbox{\textwidth}{ \vspace{3ex} \setlength{\unitlength}{1in}
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thinlines \put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thinlines \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+
+    \put(0,0){\makebox(2,-.3){\parbox{1.5in}{\begin{center}Philosopher
+          A\\(Blind)\end{center}}}} 
+  \end{picture}
+  \hfill
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thicklines\put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thinlines \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+    \put(0,0){\makebox(2,-.3){\parbox{2.5in}{\begin{center}Philosopher
+          B\\(Standing Behind A)\end{center}}}} 
+
+  \end{picture}
+  \hfill
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thicklines\put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thicklines\put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+    \put(0,0){\makebox(2,-.3){\parbox{2.5in}{\begin{center}Philosopher
+          C\\(Standing behind B)\end{center}}}} 
+  \end{picture}
+  \vspace{3ex}
+  \caption[Knowledge sets]{Before the King says ``At least one of you
+    has a red hat.''  each philosopher has a partition ($\sigma$-field
+    for the statistically pure) which she can observe. 
+
+    The Venn diagrams show what each philosopher knows before the
+    king says anything.  Recall A is blind and so she sees nothing, B
+    sees A's hat, and C sees both A's and B's hats.}
+  \label{fig:sigmafields}
+}}
+\end{figure*}%
+These are shown in figure \ref{fig:sigmafields}.  The King tells them
+whether or not event 0 occurs. (see figure \ref{fig:outside}).  %
+\begin{figure*}[htp]
+  \setlength{\fboxrule}{.1mm}
+  \setlength{\fboxsep}{1ex}
+  \fbox{\parbox{\textwidth}{
+      \vspace{3ex}
+  \setlength{\unitlength}{.5in}
+  \hfill
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thinlines \put(.8,1){\circle*{.75}}
+    \thinlines \put(1.2,1){\circle*{.75}}
+    \thinlines \put(1,.75){\circle*{.75}}
+  \end{picture}
+  \hspace*{\fill}
+
+  \caption[King's information]{When the King says either ``all of you
+    have white hats,'' or ``at least one of you has a red hat,'' he is
+    communicating the above set. (white = ``all white'', Black =
+    ``$\ge$ 1 red'')}
+  \label{fig:outside}}}
+\end{figure*}%
+Thus, this set is added to each of their partitions.  Their
+partitions change to % 
+\begin{figure*}[htp]
+  \setlength{\fboxrule}{.1mm} \setlength{\fboxsep}{1ex}
+  \fbox{\parbox{\textwidth}{ \vspace{3ex} \setlength{\unitlength}{1in}
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thinlines \put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thinlines \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+
+    \put(0,0){\makebox(2,-.3){\parbox{1.5in}{\begin{center}Philosopher
+          A\\(Blind)\end{center}}}} 
+  \end{picture}
+  \hfill
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thicklines\put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thinlines \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+    \put(0,0){\makebox(2,-.3){\parbox{2.5in}{\begin{center}Philosopher
+          B\\(Standing Behind A)\end{center}}}} 
+
+  \end{picture}
+  \hfill
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thicklines\put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thicklines\put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+    \put(0,0){\makebox(2,-.3){\parbox{2.5in}{\begin{center}Philosopher
+          C\\(Standing behind B)\end{center}}}} 
+  \end{picture}
+  \vspace{3ex}
+  \caption[Philosophers information after the king speaks.]{Three Venn
+    diagrams showing what each philosopher knows 
+    after the king tells them whether or not at least one of them has
+    a Red hat.  {\notes Note: Needs hand work.  Draw in
+    outside outlines.}}
+  \label{fig:sigmafields2}}}
+\end{figure*}%
+Figure \ref{fig:sigmafields2}.  
+
+Only if the King says that everyone is wearing a white hat, will
+either Philosopher A or B know the color of her hat. Since everyone
+already knows this fact, no-one learns anything when either
+Philosopher A or B speaks.  Thus the partitions don't change when
+either Philosopher A or B speaks.
+
+Notice that C can figure out the color of her hat under two
+circumstances.  First if the king says everyone is wearing a white hat
+(event 0 in figure \ref{fig:simpleEvents} or the ``all white'' event
+in Figure \ref{fig:outside}).  Second, if the King says that at least
+one of them is wearing a red hat (which he in fact says), and C can
+see two white hats, then she knows that she is wearing a red hat
+(event 4 in figure \ref{fig:simpleEvents}).  So, when Philosopher C
+says, ``No,'' both Philosophers A and B learn that event 4 didn't
+occur.\footnote{They of course already know event 0 didn't occur from
+  the King's first statement.} So, their partitions get updated.
+Figure \ref{fig:afterC} shows A's and B's new partitions.
+
+\begin{figure*}[htp]
+  \setlength{\fboxrule}{.1mm}
+  \setlength{\fboxsep}{1ex}
+  \fbox{\parbox{\textwidth}{
+      \vspace{3ex}
+  \setlength{\unitlength}{1in}
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thinlines \put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thinlines \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+
+    \put(0,0){\makebox(2,0){Philosopher A}}
+  \end{picture}
+  \hfill
+  \begin{picture}(2,1.5)
+    \thicklines
+    \put(0,.2){\framebox(2,1.5)[lt]{}}
+    \thicklines\put(.8,1){\circle{.75}}\put(.4,1.3){\makebox(0,0){$R_A$}}
+    \thinlines \put(1.2,1){\circle{.75}}\put(1.6,1.3){\makebox(0,0){$R_B$}}
+    \thinlines \put(1,.75){\circle{.75}}\put(1,.35){\makebox(0,0){$R_C$}}
+    \put(0,0){\makebox(2,0){Philosopher B}}
+  \end{picture}
+  \hfill
+  \quad
+  \caption[After C speaks]{Venn diagrams showing what philosopher A and B know
+    after the C speaks. 
+
+    {\notes Note: Needs hand work.  Draw in outside outlines.  Draw in
+      boundary of event 4.}}
+  \label{fig:afterC}}}
+\end{figure*}%
+\pagebreak %added for two column mode
+Note that since C knows more than either A or B, C will never learn
+anything from A or B.  Thus, C will always say ``No,'' once she says
+no for the first time.  This is why we don't need to show C's
+partition in Figure \ref{fig:afterC}.\footnote{This is proved in
+  homework problem \ref{hw:proof_king_claims}.} 
+
+At this point, philosopher A knows that events 1,2,3,5,6,7 might have
+occurred.  She can see that her probability of having a red hat is now
+4/6ths, but she still doesn't know the color of her hat.  So, she says
+``No'' in the second round.  But, B will say ``Yes,'' if events 2 or 6
+occur, and ``No'' otherwise.  So, when B says ``No,'' A learns that 1,
+3, 5, or 7 have occurred, or in other words that her hat is Red.  Thus,
+we can now answer the original puzzle, by saying that the color of
+Philosopher A's hat is Red!
+
+\begin{textHW}
+\item[hw:final_sigma_field] Draw Philosopher A's final partition.
+\item[hw:philosophers] What is the probability that each of the three
+  philosophers lives?  Hint: For each of the 8 points in the sample
+  space, determine the sequence of ``yes/no'' answers.  (Assume that
+  the game continues even after the first ``yes.'')
+\item[hw:allSeeingPhilosophers]  Instead of lining up the philosophers in
+  a row, put them in a circle.  Thus, we have three philosophers who
+  can all look at each others hats.  Now reanalyze the problem.  Still
+  have the King ask each in turn.
+\item[hw:philanders] {\notes Philandering island where all the wives
+    know about each other's spouse, but not about their own.
+    Missionary says: ``At least one of you is a philanderer.''  On
+    the $n$'th day, all the wives throw out their spouses.}
+\item[hw:sumproduct] {\notes The sum and produce problem.  Don't have
+    them work it out, merely phrase it as a knowledge situation.
+    Maybe have them write a computer program which solves it.}
+\item[hw:generals] {\notes Coordinating generals and a killable
+    messenger.  After 20 times back and forth, we still can't act!}
+\item[hw:usedCar] Bidding for a used car where owner knows exact value to
+  owner, and buyer knows value to buyer is 50\% more than that of
+  owner.  Value to buyer is uniform $[ 0,1 ]$. What should the buyer
+  bid?
+\end{textHW}
+ 
+    \section{Probabilistic concepts}
+\label{sec:cond_prob_partitions}
+
+The rest of this chapter will investigate how to represent
+mathematically the ``King'' story.  We will have to represent
+``knowledge,'' probability, and many other concepts.
+
+\vspace{4ex}
+
+
+One half of the time the King puts a white hat on Philosopher A (the
+blind one) and one half the time he puts a red hat.  This is
+summarized by $P(R_A) = 1/2$.  After the King says ``At least one of you
+has a red hat,'' we can still say that 1/2 of the time the King put a
+Red hat on Philosopher A.  Thus, {\em after} the King speaks, $P(R_A)$
+still equals $1/2$.\footnote{Yes, this is correct --- the 4/7 is the
+  conditional probability.  Hopefully this will get clearer!}
+  This fact is no longer interesting --- we know more.
+The goal of conditional probability is to capture this extra
+knowledge. 
+
+Suppose the King actually has 2400 philosophers.  So, on each of 800
+days, he calls in three of them and randomly places hats on their
+heads.  On 100 of those days, the King says: ``All of you have white
+hats,'' and on 700 of those days the King says: ``At least one of you
+has a red hat.''  When Philosopher A hears the King speak, she is no
+longer interested in the 800 total days, but now she is interested in
+the 700 days which might have occurred.  On 400 of those days, she is
+wearing a red hat, so the important probability to her is this 400/700
+or $4/7$ths.  This $4/7$ is called the {\it conditional probability} of
+Philosopher A wearing a red hat.
+
+But, now think of Philosopher C.  She also has a probability of A
+wearing a red hat.  But, in this case, she knows the answer!  So, on
+the simple events (see Figure \ref{fig:simpleEvents}) 1, 3, 5 and 7
+she says the probability of Philosopher A's hat being red is one.  On
+events 0, 2, 4, and 6, she says the probability of Philosopher A's hat
+being red is zero.
+
+Thus, we have the probability that Philosopher A's hat is red as: 0,
+1/2, 4/7, or 1.  We need a notation which will distinguish these
+various numbers.  There are three things which control which answer is
+the one we want: (1) What is the actual truth?  (2) Whose knowledge we
+are interested in?  (3) What point in time are we interested in?
+These are captured in the following notation:
+\begin{displaymath}
+  P(\overbrace{\hbox{A's hat being Red}}^{\hbox{Event of interest}} |
+  \overbrace{\hbox{Philosopher
+      A}}^{\hbox{Who.}},\underbrace{\hbox{Fig.
+      \ref{fig:sigmafields}}}_{\hbox{When.}})
+  \overbrace{[0]}^{\makebox[0pt][c]{\hbox{Truth.}}} = 1/2
+\end{displaymath}
+Figure \ref{fig:sigmafields} is represents the knowledge at the start
+of the problem.  So, A knows nothing.  Thus her conditional
+probability of her own hat being red is 50/50.  Notice that in fact
+her hat is red (since the truth is being evaluated at the simple event
+0).  But, she doesn't know this.  Said as a single phrase: ``The
+probability of A's hat being red given the knowledge that A has at the
+start of the story when in fact all hats are white equals 1/2.''
+
+Some other examples are:
+\begin{eqnarray*}
+P(R_A | A,\hbox{Fig. \ref{fig:sigmafields}})[1] &=&
+1/2 \\
+P(R_A | A,\hbox{Fig. \ref{fig:sigmafields}})[2] &=&
+1/2 \\
+P(R_A | A,\hbox{Fig. \ref{fig:sigmafields}})[\hbox{any}] &=&
+1/2 \\
+P(R_A | A,\hbox{Fig. \ref{fig:sigmafields2}})[0] &=&
+0 \\
+P(R_A | A,\hbox{Fig. \ref{fig:sigmafields2}})[1] &=&
+4/7 \\
+P(R_A | C,\hbox{Fig. \ref{fig:sigmafields}})[0] &=&
+0 \\
+P(R_A | C,\hbox{Fig. \ref{fig:sigmafields}})[1] &=&
+1
+\end{eqnarray*}
+Notice how the conditional probability depends on each of the possible
+inputs.  So, we can't do away with either the person, time, or truth
+in discussing conditional probability.
+
+An alternative notation for the above is to combine the ``who and
+when'' into one symbol.  For example, instead of conditioning on A's
+knowledge at time Fig. \ref{fig:sigmafields2}, we could write ${\cal
+  F}_{\hbox{A,Fig. \ref{fig:sigmafields2}}}$.  So, 
+\begin{displaymath}
+P(R_A|{\cal  F}_{\hbox{A,Fig. \ref{fig:sigmafields2}}})[1] =  4/7.
+\end{displaymath}
+This ${\cal F}$ is just the partition of knowledge that represents
+what A knows at time Fig. \ref{fig:sigmafields2}. In other words,
+exactly what is drawn in Figure \ref{fig:sigmafields2}.
+
+We need a notation for the truth --- i.e. the simple event which actually
+occurs.  We will call such a point a little omega:
+$\omega$.\label{def:little_omega} The entire sample space will be
+called big omega: $\Omega$. \label{def:sample_space} So, the event
+which actually occurs is $\omega \in \Omega$.
+
+We can now define the general form of conditional probability:
+\begin{displaymath}
+P(A|{\cal F})[\omega]
+\end{displaymath}
+where $A$ is the set of interest, ${\cal F}$ is the $\sigma$-field we
+are conditioning on and $\omega$ is the point we are evaluating it at.
+The way we compute this conditional probability is to find the
+smallest set in ${\cal F}$ which contains the point $\omega$.  Call
+this set $F$.  Then $\omega \in F$ where $F \in {\cal F}$, and $F$ is
+the smallest set in ${\cal F}$ which contains $\omega$.  We then set
+the value of
+\begin{displaymath}
+P(A|{\cal F})[\omega] \equiv \frac{P(A \cap F)}{P(F)}.
+\end{displaymath}
+
+\begin{definition}[Conditional Probability]
+  \label{def:conditional_prob_easy} The conditional probability of a
+  set $A$ given a set $B$ is\footnote{Most people use $P(A|B)$ instead
+    of $P^s(A|B)$.  In fact I'm the only person I know who distinguishes
+    between these two symbols.  The ``s'' is to remind us that we are
+    talking about sets and not $\sigma$-fields.}
+\begin{displaymath}
+P^s(A|B) \equiv \frac{P(A \cap B)}{P(B)}.
+\end{displaymath}
+The conditional probability of a set $A$ given a $\sigma$-field
+${\cal F}$ is 
+\begin{displaymath}
+P^\sigma(A|{\cal F})[\omega] \equiv P(A|F)
+\end{displaymath}
+where $F$ is the smallest set in ${\cal F}$ which contains $\omega$.
+The superscript $\sigma$ is to remind us that we are talking about
+conditioning on a $\sigma$-field.  Often the $\omega$ will be
+dropped and only $P^\sigma(A|{\cal F})$ will be
+written.\footnote{This is following a convention started in computer
+  science.  Arguments which might or might not be included are put in
+  square brackets.  This is kind of an abuse of that concept, but I
+  think it should make things clearer.  So, if we will write a
+  function both with and without its arguments, we will write it $F$
+  and $F[\cdot]$, whereas if we will always write the argument we will
+  write it $F(\cdot)$.}
+\end{definition}
+
+\begin{definition}[Sigma field] \label{def:partition} A
+  $\sigma$-field, or more precisely a partition is a collection of
+ subsets of $\Omega$,  $F_1,F_2,\ldots,F_n$, such that 
+ \begin{itemize}
+ \item $n$ is finite.
+ \item for all $i \ne j$, $F_1$ and $F_2$ are mutually exclusive (i.e.
+   $F_i \cap F_j = \emptyset$).
+ \item The union of all the $F_i$'s is $\Omega$. (i.e. $\cup_{i=1}^n
+   F_i = \Omega$.) 
+ \end{itemize}
+ {\notes should the finite unions of these set also be included?  I.e.
+   the above really defines the generator of a partition.}
+\end{definition}
+
+\begin{textHW}
+\item[hw:conditionals] For each of the Philosophers and each event in
+  Figures \ref{fig:sigmafields2} and \ref{fig:afterC} determine the
+  conditional probability of Philosopher B's hat being red.
+\end{textHW}
+
+As people learn more, the conditional probability of an event will
+often becomes closer to either zero or one.\footnote{See homework
+  \ref{hw:cond_prob_martingale} for a proof of this.} It might happen
+that, with time, the conditional probability reaches either
+zero or one.  At this point the event can be said to be determined.
+We will say that the event is known.  For example, Philosopher C knows
+whether or not A has a red hat.  This is because Philosopher C can
+see A's hat.  Thus, the $P(R_A|\hbox{C, Fig.
+  \ref{fig:sigmafields}})(\omega)$ is either zero or one depending on
+whether event $\omega$ is in $\{ 0,2,4,6\}$ or if $\omega$ is in
+$\{1,3,5,7\}$ respectively.
+
+{\notes Does the above need rewriting?}
+
+On the other hand, before the king speaks, philosopher A doesn't know
+the color of her hat.  This is captured by her probability being
+strictly between zero and one.  After the King speaks, sometimes A
+knows the color of her hat, and sometimes she doesn't.  In particular,
+if and only if the King says all hats are white will she know the
+color of her hat.  Thus, whether A knows something depends on what
+situation the world actually is in.  So, we can't just speak of A
+knowing or not knowing her own hat color --- instead we must speak of A
+knowing her hat color conditional on what event occurred.
+
+ We can now talk about the set where A knows the color of her own
+hat.  We can ask B what is the probability of A's knowing the color of
+A's hat.  If this conditional probability is either zero or one, we
+can say that ``B knows that A knows the color of A's hat.''  This can
+lead to more and more convoluted statements!  But, with the way that
+we have set things up, even the most convoluted statement can be
+broken down into smaller pieces until an answer is determined.
+
+\begin{textHW}
+\item[hw:known_truth] We will write the set of all possible outcomes
+  as $\Omega$.  In other words, the union of events 0, 1, 2,
+  $\ldots$, 7.  Before the King speaks does A know $\Omega$?  Is
+  there any situation where someone wouldn't know $\Omega$?
+\item[hw:know_difficult_truths] Fermat's theorem is either true or
+  false.\footnote{Or, undecidable, but that is another story.}  It is
+  always true or always false.  Thus, it either equals $\Omega$ or
+  equals $\emptyset$.  So, by our definition, philosopher A knows
+  whether Fermat's theorem is true or false.  Does this seem to
+  capture our usual definition of knowledge? {\notes reference Bayes or
+    Bust.}
+\item[hw:other_to_knows] In philosophy, knowledge is defined as
+  ``justified true belief.''  In our setup do we have a way of
+  distinguishing between belief and knowledge?  What would it mean for
+  A to believe her hat is red but for her not to know her hat is red? 
+
+\item[hw:king_and_prob]  The King story of the previous section has
+  the various philosophers learn from what the other philosophers
+  know. In other words, each ``yes'' or ``no'' tells if the
+  conditional probability equals either zero or one.  Let's modify the
+  story so that each philosopher announces the probability of her hat
+  being red.  The king keeps asking them in turn what the probability
+  is 
+  of their own hat being red.  Once someone has a conditional
+  probability of zero or one they know the color of their own hat.  In
+  \ref{hw:philosophers} we saw that  philosopher A will eventually
+  know the color of her hat.  Since in this problem more knowledge is
+  being transferred, it seems reasonable that she will again determine
+  the color of her hat.  To check this, determine on which simple
+  events each philosopher will know the color of her hat at the end of
+  the sequence.  
+
+\item[hw:twohats] Eventually the King gets bored with the above game
+  and comes up with a modification.  He has two Philosophers stand
+  facing each other.  He randomly (with probability 50/50) places a
+  red or a white hat on each of their heads.  He says that if they can
+  determine whether their hats match or not he will let them go free.
+  
+  To give them more information he asks each of them the probability
+  of their hats matching.  What will be the sequence of responses for
+  each possible combination of red and white?
+
+  Now suppose that instead of assigning the hats with equal
+  probability he assigns them with 2/3 probability of being red and
+  1/3 chance of being white.  What will be the sequence of responses
+  for each possible combination of red and white?
+
+\end{textHW}
+ 
+\subsection{Philosopher C knows more than A}
+
+Now that we have an idea of what knowledge is, we can ask if C knows
+more than A?  For example, once the hats have been placed on each
+persons head, C knows whether $R_A$ occured or not, but A doesn't know
+this.  This is also true for the event $R_B$.  If we want to be fancy,
+we can see that it is also true for the event $R_A \cap R_B$.
+Checking each possible event we can not find a single event that A
+knows but that C doesn't know.  Thus we can say that C knows more than
+A. 
+
+The nice thing about our $\sigma$-field representation is that we can
+capture relative knowledge easilly.  If A's partition is ``courser'' than
+C's partition, than C knows more than A.  Courser means that every
+fence in A's partition is also in C's partition.  Said differently, we
+can view A's partition as breaking up the whole space into various
+pieces.  To generate C's partition, all we need do is break up these
+pieces into smaller pieces.  Thus, C's partition is more ``refined.'' 
+
+In the real world it doesn't seem reasonable that we can find two
+people for which C knows everything that A knows.  We would expect
+that there would be at least one fact that A knows that C doesn't
+know.  So, at first brush, it doesn't seem that we will ever see two
+partitions of which one is a refinment of the other.  But, in fact
+this nesting of $\sigma$-fields is very common!
+
+Where the come up is in looking at a single person.  As time
+progresses, we expect people to learn more.  One reasonable model is
+that people never forget something that they once knew.  So if we
+compare what A knows at time 2 compared to what A knows at time 1,
+then we would expect that A-2 knows more than A-1.
+
+This idea is the basis for the entire field of stochastic processes.
+Possible the most important area of modern probability theory.  
+
+For our purporses, we will use this idea when we discuss bayesian
+learning (or more precisely bayesian updating).  Before we do an
+experiment we know some things about the world.  After we do the
+experiment, we learn new things.  So we expect our $\sigma$-field
+after the experiment to be more refined than before the experiment. 
+
+        \subsection{A Random variable}
+%
+
+One of the most important ideas created by  20th century probabilists
+is the idea of a random variable.  The standard examples are things
+like: the height of a student chosen at random from a class room, the
+measured speed of light via a Michelson-Morley experiment, tomorrow's
+price of one share of IBM stock, etc.  Each of these has the property
+of being an unknown random number.
+
+\begin{definition}[Random Variable] \label{def:random_variable} A
+  random variable is a function which assigns a number to each
+  $\omega$ in $\Omega$.  Capital letters will usually be used to
+  represent random variables: $X[\omega], Y[\omega]$, etc.  These
+  will usually be written in shorthand as just $X$ and $Y$, etc.
+\end{definition}
+
+We have already met one random variable.  Conditional probability is a
+random variable.  That is to say, for each value of $\omega$ we assign
+a number $P^\sigma(A|{\cal F})[\omega]$ which is the value of the
+random variable.  Notice that $P^s(A|B)$ is {\em not} a random
+variable since it is just a number and doesn't depend on $\omega$.
+
+If we had each philosopher give a number (like 1 for ``yes'' and 0 for
+``no'') instead of actually saying ``yes'' or ``no,'' then we would
+view their actions as random variables.  In other words, for each
+point in the sample space, the value would be either zero or one.
+ 
+        \subsection{Natural $\sigma$-fields}
+
+When Philosopher A hears Philosopher C speak, she learns something.
+In other words, Philosopher A's $\sigma$-field gets enriched.  It is
+now a finer partition.  We did this updating process by hand in the
+first section of this chapter.  But, we want a more automatic way of
+doing it.  
+
+Suppose A knows $\sigma$-field ${\cal F}_1$ and she then also learns
+$\sigma$-field ${\cal G}$.  Then she know knows both
+$\sigma$-fields.  What this entails is that some of the set she
+previously knew has now been fractured into subsets.  If we think of
+a partition as being a set of fences, A has the fences corresponding
+to those of ${\cal F}_1$ and also the fences corresponding to those of ${\cal
+  G}$.  We call this knowledge ${\cal F}_1 \vee {\cal G}$.  Obviously
+the resulting object is a collection of fences, and so it is a
+partition or just another $\sigma$-field.  So, to summarize, we
+would say that ${\cal F}_2 = {\cal F}_1 \vee {\cal G}$ where ${\cal
+  F}_2$ is A's knowledge after learning ${\cal G}$. 
+
+So, if A observes a new $\sigma$-field we know how to update her
+knowledge.  But, what if she observes a new random variable?  We need
+a way of translating from random variables to $\sigma$-fields.  This
+will be done with the $\sigma$ operator.  Consider a random variable
+$X[\omega]$ which takes on five values: $1,2,3,4$ or, $5$.  There is
+a set of all $\omega$ for which $X[\omega]$ equals 1.  Call this
+set $A_1$.  Likewise there is a set where $X[\omega]$ equals 2. Call
+this $A_2$.  Proceed likewise to $A_5$.  Now if we consider the
+partition generated by $A_1,\ldots,A_5$ then we have a
+$\sigma$-field.  This $\sigma$-field is called
+$\sigma(X[\omega])$. 
+
+\begin{textHW}
+\item[hw:cond_prob_equiv] If we have a set $B$ we can define
+  $\sigma(B)$ to be the $\sigma$-field consisting of just $B$ and
+  not $B$.  With this definition can we do away with the definition
+  $P^s(A|B)$ by using $P^\sigma(A|\sigma(B))$ instead?  
+\end{textHW}
+
+So, we can now update A's knowledge.  If she knows ${\cal F}_1$ and
+then observes the random variable $X[\omega]$ she now knows ${\cal
+  F}_2 \equiv {\cal F}_1 \vee \sigma(X[\omega])$.  Thus we can see
+that Philosopher A views the actions taken by Philosopher C as random
+variables which are used to update her $\sigma$-field.
+
+The next section will discuss how C should view her own actions.
+
+\begin{textHW}
+\item[hw:cond_is_RV] {\notes have them work with Conditional probability is a random variable}
+
+\item[hw:functions_of_RV] {\notes Functions of random variables}
+\end{textHW}
+
+
+
+    \section{$\sigma$-fields and all that*}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnote[1]{The star means this section is mostly mathematics.  It
+may be skipped without losing the main thread of the book.}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+%
+This section will make the ideas of the previous section even more
+mathematical.  This extra notational precision isn't necessary for the
+rest of the book --- I'm just including it, because I love measure theory.
+Actually, it will be used occasionally, so it isn't entirely
+gratuitous.  Of course, if you are planning on skipping ``gray''
+material later, none of this excessive mathematics will be seen again.
+
+Most of this section is designed to ``refresh'' your memory of measure
+theory.    The only exceptions to
+this are the last two sections which discuss mathematical ideas of common
+knowledge and a new idea of consistent sub-$\sigma$-fields (which are
+an outgrowth of conditional independence).  So, if your measure theory
+is current, read quickly the first few sections or skip to sections
+\ref{sec:math_CK} on page \pageref{sec:math_CK} and
+\ref{sec:math_cond_indep} on page \pageref{sec:math_cond_indep}.
+
+In the previous sections we have used the idea that a partition is a
+special case of a $\sigma$-field.  Thus, we have defined random
+variables, conditional probability, the natural $\sigma$-field and
+many other things in terms of partitions.  As long as the sample space
+$\Omega$ under discussion is finite, the simpler definitions given
+above are correct.  But, when $\Omega$ is an arbitrary space we need
+to be more careful with our definitions.
+ 
+        \subsection{Defining a $\sigma$-field*}
+%
+        Probability theory is the study of $(\Omega,{\cal F},P)$.
+        $\Omega$ is called the sample space and can be any set of
+        points $\omega$. $P$ is the probability measure which will be
+        discussed later.  So, we will start our discussion with ${\cal
+          F}$, the $\sigma$-field which must satisfy the following:
+\begin{definition}[$\sigma$-field] \label{def:sigma_field} ${\cal F}
+  \subset 2^\Omega$, a collection of sets, is called a $\sigma$-field if
+  \begin{enumerate}
+  \item If $A \in {\cal F}$ then  $A^c \in {\cal F}$. (Where $A^c =
+    \Omega - A$.) 
+  \item If $A \in {\cal F}$ and $B \in {\cal F}$ then  $A \cap B \in
+    {\cal F}$. (Where $A \cap B$ is the intersection of $A$ and $B$.) 
+  \item If $A_1, A_2, \ldots$ is a sequence of sets all of which are
+    in ${\cal F}$ then $\bigcap\limits_{i=1}^{\infty} A_i \in {\cal F}$.
+\end{enumerate}
+\end{definition}
+If the last condition above doesn't hold, then ${\cal F}$ is a field,
+but not a $\sigma$-field.
+
+\begin{textHW}
+\item[hw:empty_set_in_F] Prove that if ${\cal F}$ is a
+  $\sigma$-field, then the empty set is in ${\cal F}$.
+\item[hw:trivial_sigma_field] What is the smallest collection of sets
+  which is a valid $\sigma$-field?  This is called the trivial
+  $\sigma$-field. 
+\item[hw:partition] Show that any partition is a $\sigma$-field.
+  (Note: You will have to come up with a precise definition of a
+  partition.)
+\item[hw:powerSet] Show that for any $\Omega$ the power set of
+  $\Omega$ is a $\sigma$-field.  (Recall that the power set is the
+  set of all subsets of $\Omega$.)
+\end{textHW}
+        \subsection{Measurability}
+%
+
+ \begin{definition}[``vee''] \label{def:vee} The least
+   $\sigma$-field which contains the union of ${\cal F}_1$ and ${\cal
+     F}_2$ is called ${\cal F}_1 \vee {\cal F}_2$.  The intersection
+   of two $\sigma$-fields is called $ {\cal F}_1 \wedge {\cal F}_2$
+   (it always exists --- see homework \ref{hw:intersection_fields}).
+ \end{definition}
+ 
+{\notes Define Completeness (sets of measure zero) ?}
+ 
+\begin{textHW}
+\item[hw:intersection_fields] Show that the intersection of two
+  $\sigma$-fields is also a $\sigma$-field.  Find an example of
+  two $\sigma$-fields for which their  union isn't a
+  $\sigma$-field. 
+\item[hw:closed_sigma_fields] Show that an arbitrary intersection of
+  $\sigma{}$-fields is a $\sigma{}$-field.
+\item[hw:extension] Show that for any set of sets ${\cal A}$, there
+  exist a least $\sigma$-field ${\cal F}$ which contains ${\cal A}$.
+  {\notes requires the axiom of choice?}
+\end{textHW}
+
+
+\begin{definition}[Measurable] $X[\omega]$ is measurable with
+  respects to ${\cal F}$ if for all $x$, the set $A_x \equiv
+  \{\omega|X[\omega] \le x\}$ is in ${\cal F}$.  
+\end{definition}
+
+\begin{definition}[Natural $\sigma$-field]
+  \label{def:natural_sigma_field} The natural $\sigma$-field of a
+  random variable is the least $\sigma$-field for which it is
+  measurable.  This $\sigma$-field is called
+  $\sigma(X[\omega])$. 
+\end{definition}
+
+We will write the fact that $X[\omega]$ is measurable with respects
+to ${\cal F}$ as $\sigma(X[\omega]) \subseteq {\cal F}$.  
+
+\begin{textHW}
+\item[hw:borel] {\notes Define Borel set.}  Let ${\cal A}$ be the set
+  of interval subsets of the real line.  Let ${\cal B}$ be the set of
+  Borel sets.  Show that $\sigma({\cal A}) = \sigma({\cal B})$. 
+
+  {\notes isn't this the definition of Borel? ? ?}
+ 
+
+\item[hw:natural_exist] Show that the natural $\sigma$-field exists
+  and is unique.  Use this to justify the notation
+  $\sigma(X[\omega]) \subseteq {\cal F}$ for measurable.
+\end{textHW}
+ 
+        \subsection{Measures}
+%
+We now turn to the study of the probability measure $P$.
+
+\begin{definition}[Probability measure] $P(\cdot)$ is a probability
+  measure over the $\sigma$-field ${\cal F}$, if:
+  \begin{enumerate}
+  \item $P(A)$ is defined and non-negative for all $A \in {\cal F}$,
+  \item $P(A) + P(B) = P(A \cup B)$ if $A,B \in {\cal F}$ and $A
+    \cap B = \emptyset$,
+  \item $P(\Omega) = 1$,
+  \item Suppose $A_1 \subseteq A_2 \subseteq A_3 \ldots $ and each
+    $A_i$ is in ${\cal F}$, then $\lim\limits_{i \to \infty} P(A_i)
+    = P(A_\infty)$ where $A_\infty = \bigcup\limits_{i=1}^\infty
+    A_i$. 
+  \end{enumerate}
+\end{definition}
+If only the first three conditions hold, then $P(\cdot)$ is called a
+finite probability measure.  We will discuss some of the advantages
+and disadvantages of finite probability measures in section
+\ref{sec:phil_prob} on page \pageref{sec:phil_prob}.  At that time
+we will also discuss other modifications of our basic probability
+definition.  For now, we will use this classical definition since it
+appears to have the easiest and most developed mathematics.
+
+\begin{textHW}
+\item[hw:empty_set_is_0] Prove that if $P(\cdot)$ is a probability
+  measure then $P(\emptyset) = 0$.  Prove that if $P(A) \in {\cal
+    F}$ then $P(A) + P(A^c) = 1$.
+\item[hw:sum] Prove that 
+\begin{displaymath}
+\sum_{i=1}^{\infty}P(A_i) = P(\cup_{i=1}^{\infty} A_i).
+\end{displaymath}
+if $A_i \cap A_j = \empty$ for $i \ne j$.  Which axioms did you need?
+\item[hw:quantumMechanics] Quantum mechanics isn't a probability space.
+  \begin{itemize}
+  \item Consider three events: $A$, $B$, and $C$
+  \item The natural $\sigma$-field has 8 simple events.
+  \item The natural $\sigma$-field contains a total of $2^8 = 256$
+    elements 
+  \item Consider the following collection of sets:
+    \begin{eqnarray*}
+      {\cal Q} &= &\{\emptyset,\Omega,A,B,C,A^c,B^c,C^c, \\
+      & & AB,AB^c,A^cB,A^cB^c, \\
+      & & BC,BC^c,B^cC,B^cC^c, \\
+      & & AC,AC^c,A^cC,A^cC^c \}
+    \end{eqnarray*}
+  \item  Obviously ${\cal Q}$ isn't a $\sigma$-field since it
+    contains $A,B,C$, but not the the entire $\sigma$-field generated
+    by these three events
+  \item Now assign measures as follows: 
+    \begin{eqnarray*}
+    \mu(\emptyset) &=& 0 \\
+    \mu(\Omega) &=& 1 \\
+    \mu(A)= \mu(A^c) &=& 1/2 \\
+    \mu(B)= \mu(B^c) &=& 1/2 \\
+    \mu(C)= \mu(C^c) &=& 1/2 \\
+    \mu(AB^c) = \mu(A^cB) & =& 1/2 \\
+    \mu(AB) = \mu(A^cB^c) &= &0 \\
+    \mu(BC^c) = \mu(B^cC) &= &1/2 \\
+    \mu(BC) = \mu(B^cC^c) &= & 0 \\
+    \mu(AC^c) = \mu(A^cC) & = & 1/2 \\
+    \mu(AC) = \mu(A^cC^c) & = & 0 
+  \end{eqnarray*}
+\item This  measure satisfies additivity, complementarity, and
+  zero-measure for the empty set.
+  \item But, it can not be extended to the entire $\sigma$-field 
+  \item This actually is the way things work in quantum mechanics.  
+  \item Consider observing two complementary (?) things, like location
+    and speed.  Each can be measured by a physical
+    measurement.\footnote{In particular, a photon is bounced off the
+      particle.  If a high energy photon is used, the location is
+      determined exactly, but then the particle goes flying off in a
+      random direction and so has unknown velocity.  On the other
+      hand, if a low energy photon is used, it doesn't disturb the
+      particle and so the speed can be measured.  But, these low energy
+      photons don't generate a precise location of the particle.
+      Thus, you can measure either velocity, or location, but not both.}
+  \item In order for the measure $\mu$ to extend to a probability
+    measure, it must satisfy what are called the ``Bell inequalities.''
+  \item Tests have been made, and the Bell equations are not
+    satisfied. 
+  \end{itemize}
+\item[hw:complex_measures] Suppose $P(\cdot)$ took values in the
+  complex plane.  {\notes gee, now what!}
+\end{textHW}
+ 
+        \subsubsection{Expectations}
+
+Some of the most powerful theorems in mathematics are created by
+changing an object from one type into another.  For example G\" odel's
+theorem is basically a way of translating a proof into an integer.  We
+will discuss a more prosaic translation here.
+
+If we have a set $A$ in ${\cal F}$ we create the indicator function of
+this set by assigning the value one to all points in $A$ and zero to
+all points outside $A$.  This generates a random variable called
+$I_A[\omega]$.  Obviously $I_A[\omega]$ is measurable with
+respect to ${\cal F}$.  
+
+For our first trick using indicator functions let's define a new
+operator, called expectation.  Define 
+\begin{equation}
+\label{eqn:exp_as_prob}      
+E(I_A) \equiv P(A)
+\end{equation}
+Now if we were truly pure mathematicians we would say let
+$E(\cdot)$ be the linear functional over positive random variables
+which is the extension to the equation \ref{eqn:exp_as_prob}.
+Hopefully, if we were truly pure mathematicians this would provide
+us with some intuition --- but it doesn't work for me.  If it works for
+you, feel free to skip to the next paragraph!
+
+The most natural way of defining $E(\cdot)$ is as the $\int
+X[\omega] dP(\omega)$.  This then pushes the definition on to real
+analysis --- what is a lebegue-Stilches(sp!) integral?  Before abandoning
+this approach, let's at least use if for some easy cases.  Suppose that
+$\Omega$ is a finite (or countable) set and ${\cal F}$ is the power
+set of $\Omega$.  Then $dP(\omega) = P(\omega)$. So,
+\begin{displaymath}
+E(X) = \sum_{\omega \in \Omega} X[\omega] P(\omega)
+\end{displaymath}
+Obviously, we need to restrict $X[\omega]$ to be positive so that
+the order of the sum doesn't matter.  We can always write $X[\omega]
+= X^+[\omega] - X^-[\omega]$ where $X^+ \equiv X \vee 0$ and
+$X^- = (-X) \vee 0$.  So, if at most one of $E(X^+)$ and $E(X^-)$
+is infinity, we can subtract these two expectations and get a value
+for $E(X)$.  If both are infinite, then it is best to call the
+resulting difference ``undefined.''
+
+{\notes do it for discrete valued Random variables.
+
+define it as sup $EX* = EX$ where $X*$ are discrete random variables
+which are almost surely less than or equal to $X$.}
+
+{\notes how long can I put off defining expectation!  Look up a good
+  definition.}
+ 
+        \subsection{Conditional Probability}
+ 
+%
+Our previous definition of conditional probability
+(\ref{def:conditional_prob_easy} on page
+\pageref{def:conditional_prob_easy}) is not all that easy to
+generalize to arbitrary $\sigma$-fields.  Often a $\sigma$-field
+can be written as a limit of partitions.  In this case, we can just
+take the limit of the conditional probabilities defined for each
+partition to define a conditional probability for the limiting
+$\sigma$-field.  But even this generalization isn't good enough for
+many $\sigma$-fields.  We need to start from scratch.
+
+\begin{definition}[Conditional Probability]
+  \label{def:conditional_prob} The random variable $P^\sigma(A|{\cal
+    F})[\omega]$ is the conditional probability of $A$ given ${\cal
+    F}$ if 
+  \begin{enumerate}
+  \item $P^\sigma(A|{\cal F})[\omega]$ is measurable with respect to
+    ${\cal F}$.  (In symbols: $\sigma(P^\sigma(A|{\cal F})[\omega] )
+    \subseteq {\cal F}$.  Isn't mathematical notation easier?)
+  \item for all $F \in {\cal F}$
+  \begin{equation}
+    E\left(P(A|{\cal F})I_F\right) = P(A \cap F).
+    \label{eqn:cond_prob}
+  \end{equation}
+Equivalently, $\int_F \left(P(A|{\cal F})[\omega] - I_A)
+dP(\omega)\right) = 0$. 
+\end{enumerate}
+\end{definition}
+
+
+\begin{textHW}
+\item[hw:cond_probs_equal] Show that for partitions, the definition
+  \ref{def:conditional_prob}  agrees with
+  \ref{def:conditional_prob_easy} on page 
+  \pageref{def:conditional_prob_easy}.
+\item[hw:cond_prob_unique] Show that if two random variables satisfy
+  definition   \ref{def:conditional_prob}  then they are equal except
+  on a set of measure zero.
+\item[hw:cond_prob_martingale] {\notes something about conditional
+    probabilities converging to zero or one as time goes on.
+    Martingales enter some place.}
+\end{textHW}
+ 
+        \subsection{The smoothing theorem*}
+%
+
+{\notes smoothing theorem}
+\begin{definition}[Conditional Expectation] \label{def:conditional_expectation}
+\end{definition}
+
+\begin{textHW}
+\item[hw:easySmoothing] {\notes Find $E(X|Y)$ for some discrete set.  Find
+    $E(X)$ and show it equals $E(E(X|Y))$.  Now define a new measure
+    over $X,Y$.  Show $E_\mu(E_\lambda(X|Y)) = E_\mu(X)$ if
+    $X|Y$ has the same distribution under both $\mu$ and
+    $\lambda$.}
+\end{textHW}
+ 
+    \section{Common Knowledge}
+
+
+\begin{textHW}
+\item[hw:dean_ed_rick] 
+Consider the following scenario:
+\begin{itemize}
+\item Dean leaves the room.
+\item While he is gone, Edward flips a coin: 
+  \begin{itemize}
+  \item If it lands heads, Rick rolls a 4 sided dice (so that Ed can't
+    see the outcome) and hides the dice under a cup
+  \item If it lands tails, Edward rolls a 4 sided dice (so that Rick
+    can't see the outcome) and hides the dice under a cup
+  \end{itemize}
+\item Dean comes back in the room and peeks under the cup to see what
+  the 4 sided dice shows.
+\end{itemize}
+Draw the sample space for this experiment.  Draw the $\sigma$-field
+of each of the three participants.  Call these $\sigma$-fields
+${\cal F}_D$, ${\cal F}_E$ and ${\cal F}_R$.  Define the set $A$ to be
+getting a 3 on the 4 sided dice.
+\begin{enumerate}
+\item Find the common knowledge $\sigma$-field between Dean and
+  Edward (${\cal F}_D \wedge {\cal F}_E$)
+\item Find the common knowledge $\sigma$-field between Edward and
+  Rick. 
+\item Find ${\cal F}_D \vee {\cal F}_E$ and ${\cal F}_E \vee {\cal
+    F}_R$.
+\item On what set does each of the three know $A$ to be true?  Know
+  $A$ to be false?  Know whether $A$ occurred? Do any of these
+  three people always know whether $A$ occurred?
+\item What is the probability that Dean knows $A$ to be true?  What is
+  the set where Dean knows $A$ to be true?  What is the probability
+  that Ed knows ``Dean knows $A$ is true'' to be true?   What is the
+  probability that Rick knows that ``Ed knows `Dean knows $A$ is
+  true' to be true'' to be true?
+\item The above three questions can be written in the following shorthand:
+  \begin{eqnarray*}
+    P(P^\sigma(A|{\cal  F}_D) = 1) & = & ? \\
+    P(P^\sigma(P^\sigma(A|{\cal  F}_D) = 1|{\cal F}_E)) & = & ? \\
+    P(P^\sigma(P^\sigma(P^\sigma(A|{\cal  F}_D) = 1|{\cal
+      F}_E)|{\cal F}_R) & = & ? 
+  \end{eqnarray*}
+  Interpret the following statements:
+  \begin{eqnarray*}
+    P(P^\sigma(A|{\cal F}_D) \in \{0,1\}) & = & 1 \\
+    P(P^\sigma(A|{\cal F}_E) \in \{0,1\}) & = & 1/2 \\
+    P(P^\sigma(A|{\cal F}_E) = 1) & = & 1/2 \\
+    P(P^\sigma(P^\sigma(A|{\cal F}_E) \in \{0,1\}|{\cal F}_D) \in
+    \{0,1\}) & = & 0 \\ 
+    P(P^\sigma(P^\sigma(A|{\cal F}_E) \in \{0,1\}|{\cal F}_R) \in
+    \{0,1\}) & = & 1 
+  \end{eqnarray*}
+\end{enumerate}
+\end{textHW}
+
+\begin{definition}[Common Knowledge] \label{def:common_knowledge}
+  Define the common knowledge $\sigma$-field as the intersection of all
+  the individual $\sigma$-fields.  
+\end{definition}
+
+${\cal F}_{\hbox{CK}}= {\cal F}_D \wedge {\cal F}_E \wedge {\cal F}_R$.
+
+
+\begin{textHW}
+\item[hw:baby_smoothing] {\notes Do some sort of example to show
+    smoothing theorem for a 2x2 Venn diagram.}
+\item[hw:threeCoins] Consider three events: $H_1$, $H_2$, and $MATCH$.
+  $H_1$ and $H_2$ are two independent coin tosses.  $MATCH$ is one if
+  the two coins are the same, otherwise it is zero.  In other words:
+  \begin{eqnarray*}
+    P(H_1=1,H_2=1,MATCH=1) & = & 1/4 \\
+    P(H_1=1,H_2=0,MATCH=0) & = & 1/4 \\
+    P(H_1=0,H_2=1,MATCH=0) & = & 1/4 \\
+    P(H_1=0,H_2=0,MATCH=1) & = & 1/4 
+  \end{eqnarray*}
+  and every other outcome has zero probability.  Suppose the first
+  player observes $H_1$ and the second player observes $H_2$.  Show that it
+  is common knowledge that $P(MATCH=1|{\cal F}_1) = 1/2$.  If player 1
+  announces his probability, then player 2 updates her probability and
+  announces it, and then player 1 updates his probability, etc, what
+  is the value that this will converge to?  Is this the same as
+  $P(MATCH=1|{\cal F}_1 \vee {\cal F}_2)$?
+\end{textHW}
+ 
+        \subsection{Common Knowledge with $\sigma$-fields*}
+\label{sec:math_CK}
+  
+
+  \begin{itemize}
+  \item Definition: Dean always knows whether $A$ occurred or not is to
+    say that $P\left(E^D(I_A) \in \{0,1\}\right) = 1$.
+  \item Theorem: If it is common knowledge at $\omega$ that $P(A|{\cal
+      F}_{\hbox{row}}) = p_r$ and $P(A|{\cal F}_{\hbox{col}}) = p_c$
+    then $p_r = p_c$.
+
+    Proof:  Let $\omega \in S_r \subset \{\omega|P(A|{\cal
+      F}_{\hbox{row}}) = p_r\}$, and $\omega \in S_c \subset
+    \{\omega|P(A|{\cal F}_{\hbox{col}}) = p_c\}$, such that $S_r \in
+    {\cal F}_{CK}$ and $S_c \in {\cal F}_{CK}$.  Let $S = S_r \cap
+    S_c$.  By properties of $\sigma$-fields, $S$ is in ${\cal
+      F}_{CK}$.  Then, $$P(A|S) = E(I_{A}|S) = E(E(I_{A}|{\cal
+      F}_{\hbox{row}})|S) = E(p_r|S) = p_r.$$ Likewise
+    $$P(A|S) = E(E(I_{A}|{\cal F}_{\hbox{col}})|S) = E(p_c|S) = p_c.$$
+    So, $p_r = p_c$.  \hfill q.e.d.
+  \end{itemize}
+
+\begin{textHW}
+\item[hw:proof_king_claims] {\notes Prove the claims made in the first
+    section.  In particular
+    \begin{itemize}
+    \item If A knows more than B, then A can't learn from B's actions.
+    \item 
+    \item 
+    \end{itemize}}
+\end{textHW}
+
+        
+ 
+        \subsection{Conditional independence*}
+\label{sec:math_cond_indep}
+%
+\begin{definition} \label{def:independence} Events $A$ and $B$ are
+  conditionally independent given ${\cal F}$ if $P(A \cap B|{\cal F})
+  = P(A|{\cal F})P(B|{\cal F})$.
+\end{definition}
+
+\begin{definition} We will say that $\sigma$-fields ${\cal A}$ and ${\cal
+    B}$ are conditionally independent, given ${\cal F}$, if for all $A
+  \in {\cal A}$ and all $B \in {\cal B}$, $A$ and $B$ are
+  conditionally independent given ${\cal F}$.
+\end{definition}
+
+We will write conditional independence as $A \bot B|{\cal F}$
+\label{def:bot} for sets and ${\cal A} \bot {\cal B} | {\cal F}$ for
+$\sigma$-fields. 
+{\notes define produce spaces.}
+
+\vspace{3ex}
+ 
+
+
+
+\begin{definition}  $\sigma$-fields $({\cal F}_1,{\cal
+    G}_1)$ are called consistent sub-$\sigma$-fields of $({\cal
+    F}_2,{\cal G}_2)$, if:
+  \begin{itemize}
+  \item ${\cal F}_1 \subset {\cal F}_2$, and ${\cal G}_1 \subset {\cal G}_2$,
+  \item $({\cal G}_1 \bot {\cal F}_2)|{\cal F}_1$, and
+  \item $({\cal F}_1 \bot {\cal G}_2)|{\cal G}_1$.
+  \end{itemize}
+\end{definition}
+
+\begin{lemma}   $\sigma$-fields $({\cal F}_1,{\cal
+    G}_1)$ are consistent sub-$\sigma$-fields of $({\cal F}_2,{\cal
+    G}_2)$, iff:
+  \begin{itemize}
+  \item ${\cal F}_1 \subset {\cal F}_2$, and ${\cal G}_1 \subset {\cal G}_2$,
+  \item $\forall F \in {\cal F}_1 \quad F|{\cal G}_1 = F|{\cal G}_2$
+    and 
+  \item $\forall G \in {\cal G}_1 \quad G|{\cal F}_1 = G|{\cal F}_2$.
+  \end{itemize}
+\end{lemma}
+
+\begin{textHW}
+\item[hw:consistent:factorization] Let $\Omega$ be a discrete set.  Let
+  $({\cal F}_1, {\cal G}_1)$ be consistent sub-$\sigma$-fields for
+  $({\cal F}_2, {\cal G}_2)$.  
+
+  {\sloppy \notes walk them through finding a factorization}
+
+  {\sloppy \notes do other direction also.}
+
+\item[hw:commonKnowledge] Show that if $Y \in {\cal F}_A$ and $Y \in
+  {\cal F}_B$ then $Y$ is in the common knowledge $\sigma$-field.
+\item[hw:limits] Consider two $\sigma$-fields ${\cal F}_A$ and ${\cal
+    F}_B$.  Suppose that $X_1$ is ${\cal F}_A$ measurable.  Define
+  $Y_1 = E(X_1|{\cal F}_B)$.  Now define $X_{i+1} = E(Y_i|{\cal F}_A)$
+  and $Y_{i+1} = E(X_{i+1}|{\cal F}_B)$.  Let $X_\infty = \lim_{i \to
+    \infty} X_i$.  Show that $X_\infty = Y_\infty$ and that they are
+  both measurable with respect to the common knowledge
+  $\sigma$-field.
+\item[hw:trivial_is_consistent] Show that the trivial $\sigma$-field is
+  always a consistent sub-$\sigma$-field.
+\item[hw:CK_is_consistent] Show that the common knowledge $\sigma$-field
+  is always a consistent sub-$\sigma$-field. 
+\item[hw:subsubconsistency]  Consider the following statements:
+  \begin{enumerate}
+  \item ${\cal F}_1 \subseteq {\cal F}_2 \subseteq
+    {\cal F}_3$ and ${\cal G}_1 \subseteq {\cal G}_2 \subseteq
+    {\cal G}_3$ 
+  \item $({\cal F}_1,{\cal G}_1)$ are consistent sub-$\sigma$-fields
+    for $({\cal F}_2,{\cal G}_2)$. 
+  \item $({\cal F}_1,{\cal G}_1)$ are consistent sub-$\sigma$-fields
+    for $({\cal F}_3,{\cal G}_3)$. 
+  \item $({\cal F}_2,{\cal G}_2)$ are consistent sub-$\sigma$-fields
+    for $({\cal F}_3,{\cal G}_3)$. 
+  \end{enumerate}
+  Show that 1 and 3 imply 2.  Find an example which satisfies 1 and 2
+  but not 3.
+\item[hw:find_all_combinations]  There are 8 possibilities for statements
+  2,3,4 being correct.  For each of the 8 possibilities, either find
+  an example, or show that it is impossible for such an example to
+  exist. 
+\end{textHW}
+
+
+    \section{Bivariate Normal: Regression}
+
+Suppose Rob and Carol have gone through school together for many
+years.  Since they went to a progressive elementary school they
+learned how to collect statistics in first grade.  Since that time
+they have collected all the test scores that the two of them have
+taken in school.  Both are typical average normal students.  So, if we
+plot either of their collection of grades, they look like a normal
+distribution.  In fact, if we plot their joint distribution we get a
+scatter plot which looks like a joint bivariate normal distribution
+(see figure \ref{fig:bivariateNormal}).  Sometimes they both do well,
+sometimes they both do poorly.  Very seldom does one get a 100 while
+the other gets a 50.  It isn't that they cheat, but merely that if it
+is an easy exam both do well, and if it is a hard exam neither does
+well.
+
+\begin{figure*}[htp]
+\fbox{\parbox{\textwidth}{
+\centerline{\fbox{\parbox{5in}{\vspace{3ex}
+\vspace{1in}
+  \centerline{make up data for scatter plot.}
+  \centerline{Show regression lines for both directions.}
+\vspace{1in}
+}}}
+
+\index{Normal!Bivariate}
+\caption[Bivariate Normal]{{\bf Bivariate normal.}  Notice that both
+students think that when they do well the other student should do well
+also.  Likewise if Rob does poorly, he thinks Carol will do poorly
+also.   These two forecasts are drawn as regression lines.}
+\label{fig:bivariateNormal}
+}}
+\end{figure*}
+
+{\notes Outline:
+\begin{itemize}
+\item Let Rob's score be X and Carol's score be Y
+\item Discuss regression functions
+\item Discuss regression to the mean
+\item Discuss relationship between observing X and ${\cal F}_X$.  So,
+we can write $E(Y|X)$ or $E(Y|{\cal F}_X)$
+\item What does Rob expect Carol to get?
+\item What does Carol expect Rob to expect Carol to get?
+\item If we repeated enough we'd get to the mean
+\item Regression is the single most used statistical concept, so we will
+discuss it from 6 different perspective (at least!) 
+\item Define a \label{def:normal} normal distribution! 
+\end{itemize}
+}
+
+
+\begin{textHW}
+\item[hw:King:equivalence] Prove that the two sample spaces discussed for
+  the King example are in fact equivalent.
+\item[hw:subsigmafield:equivalence] Prove that if $(\Omega,{\cal F},P)
+  \equiv (\Omega',{\cal F}',P')$ and ${\cal G} \subset {\cal F}$,
+  then there exists a $\sigma$-field ${\cal G}'$ such that
+  $(\Omega,{\cal G},P) \equiv (\Omega',{\cal G}',P')$.
+\item[hw:factorization] Let $\Omega = [0,1] \times [0,1]$ and let
+  ${\cal F}$ be the borel measurable sets, and $P$ be the lebegue
+  measure.
+  \begin{itemize}
+  \item \label{hw:factorization:X} Define the random variable $X$ to
+    be
+    $$X = \frac{\omega_1}{\omega_1 + \omega_2}.$$ 
+    Let ${\cal G}$ be the natural $\sigma$-field of $X$.  Find a
+    simple equivalent probability space for $X$.
+  \item \label{hw:factorization:Y} Define the random variable $Y$ to
+    be
+    $$Y = \omega_1 + \omega_2.$$ 
+    Let ${\cal H}$ be the natural $\sigma$-field of $Y$.  Find a
+    simple equivalent probability space for $Y$.
+  \item Find the joint distribution for $X,Y$.  Show that they are
+    independent. 
+  \item Multiply the probability spaces generated in
+    (\ref{hw:factorization:X}) and (\ref{hw:factorization:Y}).  Show
+    the resulting object is equivalent to $(\Omega,{\cal F},P)$.
+  \end{itemize}
+\end{textHW}
+ 
+
+
+    \section{Homework}
+%
+\begin{HW}
+
+\item \seepage{hw:final_sigma_field}
+\item \seepage{hw:philosophers}
+\item \seepage{hw:allSeeingPhilosophers}
+\item \seepage{hw:philanders}
+\item \seepage{hw:sumproduct}
+\item \seepage{hw:generals}
+\item \seepage{hw:usedCar}
+
+\item \seepage{hw:conditionals}
+
+\item \seepage{hw:known_truth}
+\item \seepage{hw:know_difficult_truths}
+\item \seepage{hw:other_to_knows}
+\item \seepage{hw:king_and_prob}
+\item \seepage{hw:twohats}
+
+\item \seepage{hw:cond_prob_equiv}
+
+\item \seepage{hw:cond_is_RV}
+\item \seepage{hw:functions_of_RV}
+
+
+\item \seepage{hw:dean_ed_rick}
+
+\item \seepage{hw:baby_smoothing}
+\item \seepage{hw:threeCoins}
+
+\item \seepage{hw:empty_set_in_F}
+\item \seepage{hw:trivial_sigma_field}
+\item \seepage{hw:partition}
+\item \seepage{hw:powerSet}
+
+\item \seepage{hw:intersection_fields}
+\item \seepage{hw:closed_sigma_fields}
+\item \seepage{hw:extension}
+\item \seepage{hw:natural_exist}
+
+\item \seepage{hw:borel}
+
+\item \seepage{hw:empty_set_is_0}
+\item \seepage{hw:sum}
+\item \seepage{hw:quantumMechanics}
+\item \seepage{hw:complex_measures}
+
+\item \seepage{hw:cond_probs_equal}
+\item \seepage{hw:cond_prob_unique}
+\item \seepage{hw:cond_prob_martingale}
+
+\item \seepage{hw:easySmoothing}
+
+\item \seepage{hw:proof_king_claims}
+
+\item \seepage{hw:consistent:factorization}
+
+\item \seepage{hw:commonKnowledge}
+\item \seepage{hw:limits}
+\item \seepage{hw:trivial_is_consistent}
+\item \seepage{hw:CK_is_consistent}
+\item \seepage{hw:subsubconsistency}
+\item \seepage{hw:find_all_combinations}
+
+\item \seepage{hw:King:equivalence}
+\item \seepage{hw:subsigmafield:equivalence}
+\item \seepage{hw:factorization}
+
+\item \seepage{hw:drunk_driver}
+\item \seepage{hw:drunk_driver_bad_home}
+
+\end{HW}
+
+
+
+
+
+  \end{document}
+
+
