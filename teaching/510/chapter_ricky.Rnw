@@ -1,0 +1,104 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapterRicky}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter Game Theory}
+\author{Dean P Foster}
+\maketitle
+
+
+\section{Administrivia}
+
+\begin{itemize}
+\item Homework problem 8.
+\end{itemize}
+
+
+\section{Story: Philosphers}
+
+
+\section{Common knowledge}
+
+\begin{itemize}
+\item ${\bf A}$ is common knowledge if ${\bf A} \in {\cal F}$ and ${\bf A} \in {\cal G}$.
+\item Set of such sets is a sigma-algebra
+\item It is all facts everyone knows
+\item Sequential aproach:
+\begin{itemize}
+\item $E(X|{\cal F})$  My guess as to $X$
+\item $E(E(X|{\cal F})|{\cal G})$  Your guess of my guess of $X$
+\item $E(E(E(X|{\cal F})|{\cal G})|{\cal F})$  My guess of your guess of my guess of $X$
+\item Limit? A comon knowledege guess
+\item Theorem: Limit converges (Robert Aumann, Nobel prize, 2005)
+\end{itemize}
+\end{itemize}
+
+
+Example:
+\begin{itemize}
+\item Layer 0: Alice likes flowers.
+\item Layer 1: Bob knows that Alice likes flowers.
+\item Layer 2: Carol knows that Bob knows that Alice likes flowers.
+\item Layer 3: Dave knows Carol knows that Bob knows that Alice likes
+flowers.
+\item Explain why Dave asks Carol on a date when the two of them see
+Bob carrying some flowers.
+\item Answer:
+\begin{itemize}
+\item Carol likes Bob.
+\item Carol doesn't like flowers.
+\item Dave knows that Carol likes Bob.
+\end{itemize}
+\end{itemize}
+Problem: come up with a layer 4 example.
+
+
+\section{Rational Decisions}
+
+\begin{itemize}
+\item Knowlege: ${\cal F}$
+\item Utility: $U(x)$: random function
+\item Action: Random variable $A$ which is ${\cal F}$ measurable
+\item Rational: $E(U(A)|{\cal F}) \ge E(U(B)|{\cal F})$ for all $B \in
+{\cal F}$.
+\item Alternative definition: $A = \arg\max_a E(U(a)|{\cal F})$
+\end{itemize}
+
+\section{More than one player}
+
+\begin{itemize}
+\item Each has own utility, $U_i()$
+\item Each has own knowledge: ${\cal F}_i$
+\item Each is individually rational: $A_i = \arg\max_a E(U_i(a)|{\cal F_i})$
+\end{itemize}
+
+\section{Equilibrium}
+
+\begin{itemize}
+\item If all players are rational, it is called an equilibrium.
+\item Basis of game theory.
+\end{itemize}
+
+
+\section{No trade theorem}
+
+\begin{itemize}
+\item A trade occurs on a common knowledge set
+\item The trade itself incurs at least a small amount of cost
+(i.e. transactions costs)
+\item If sellers utility is minus buyers utility, then no trade. 
+\item Proof: For trade
+\begin{eqnarray*}
+E(U(A)) & \ge & 0 \\
+E(U(A)) & = & E(E(U(A)|{\cal F} \vee {\cal G})) \\
+E(U(A)|{\cal F} \vee {\cal G}) & > & \epsilon \\
+E(U(A)|{\cal F} \vee {\cal G}) & < & -\epsilon \\
+\end{eqnarray*}
+\end{itemize}
+
+
+\end{document}
