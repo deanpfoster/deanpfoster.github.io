@@ -36,19 +36,26 @@ while(<HOME>)
     {
 	if(m/randomImg/)
 	{
-	    if(rand() < .2)
+	    if(rand() < .8)
 	    {   # lemmon hill
 		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
 	    }
 	    else
 	    {
-		if(rand() < .1)
+		if(rand() < .2)
 		{  # weather
 		    print '<a href="http://forecast.weather.gov/MapClick.php?w0=t&w2=wc&w3=sfcwind&w4=sky&w5=pop&w6=rh&w8=rain&w9=snow&w10=fzg&w11=sleet&AheadHour=47&Submit=Submit&FcstType=graphical&textField1=39.95250&textField2=-75.16570&site=all"><img src="http://images.intellicast.com/WeatherImg/RadarLoop/bgm_None_anim.gif" border=0 Align="left"> </a>';
 		}
 		else
-		{   # SP over 200 years
-		    print '<a href="http://www.dailykos.com/story/2008/12/2/102214/940/743/668445"><IMG SRC="SP_from_1825.jpg" Align="left" border=0 alt="SP from 1825"></a>';
+		{   
+		    if(rand() < .8)
+		    {
+		print '<a href="photos/kayaking_NC/"> <img src="dean_ocoee_ender-800.jpg" border=0, Align="left"></A>';
+		    }
+		    else
+		    {      # SP over 200 years
+			print '<a href="http://www.dailykos.com/story/2008/12/2/102214/940/743/668445"><IMG SRC="SP_from_1825.jpg" Align="left" border=0 alt="SP from 1825"></a>';
+		    }
 		}
 	    }
 	}
