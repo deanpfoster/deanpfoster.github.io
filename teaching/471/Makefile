@@ -1,22 +1,22 @@
 ################################################################################
 #
 #
-#                          GENERATING HTML FROM LATEX
+#                          GENERATING OUTPUT from Rnw 
 #
 #
 ################################################################################
 
-##################################################################################################
-#
 
-
-SOURCES = $(wildcard *.tex)
+SOURCES = $(wildcard *.Rnw)
 
 all: all_html all_pdf
 
-all_html: $(SOURCES:.tex=.tex.html)
+all_html: $(SOURCES:.Rnw=.tex.html)
 
-all_pdf: $(SOURCES:.tex=.pdf)
+all_pdf: $(SOURCES:.Rnw=.pdf)
+
+%.tex: %.Rnw
+	R CMD Sweave $^
 
 %.tex.html: %.tex
 	touch $@
@@ -30,3 +30,9 @@ all_pdf: $(SOURCES:.tex=.pdf)
 install: all
 	scp -p *.pdf      go:public_html/teaching/471/
 	scp -p *.tex.html go:public_html/teaching/471/
+	-git commit -a -m "updating to gosset."
+	git pull	
+	git push
+	ssh go "cd public_html;git pull;cd teaching/471/;make"
+
+
