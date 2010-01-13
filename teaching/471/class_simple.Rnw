@@ -6,6 +6,14 @@
 \maketitle
 (\href{class_doglegs.pdf}{pdf version})
 
+%
+%  Notes from 2009:
+%
+%     Worked pretty well.
+%     Ran about 10 minutes short.
+%
+
+
 \section*{Story time: Dan Willingham, the Cog Psyc}
  
 \begin{itemize}
@@ -27,15 +35,15 @@
 \item with cards: the rule is, red on one side means, even number on
 the other side.  Which do you check:
 \begin{itemize}
-\item A red card?
+\item A red card? 
 \item An even card?
-\item An odd card
+\item An odd card?  % about 3/4 got these right
 \end{itemize}
 \item with people: Drink means over 21.  Which do you check:
 \begin{itemize}
 \item A drinker?
-\item An old person?
-\item A young person?
+\item An old person?  
+\item A young person?  % 100% got these three questions right
 \end{itemize}
 \end{itemize}
 so try to tell stories
