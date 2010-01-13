@@ -6,10 +6,11 @@
 
 (\href{class_doglegs.pdf}{pdf version})
 
-\title{Story time: \href{http://www.amazon.com/Why-Dont-Students-Like-School/dp/0470279303/ref=sr_1_1?ie=UTF8&s=books&qid=1263385854&sr=1-1}{Why students don't like school}}
+\title{Story time: Willingham, the Cog Psyc}
  
 \begin{itemize}
 \item Willingham: Professor of cognitive psychology at Harvard
+\item \href{http://www.amazon.com/Why-Dont-Students-Like-School/dp/0470279303/ref=sr_1_1?ie=UTF8&s=books&qid=1263385854&sr=1-1}{Why students don't like school}
 \item We know lots about psychology now
 \item amazingly little about education:
 \begin{itemize}
@@ -29,9 +30,30 @@ interesting.  So no need for it to have a connected theme
 \end{itemize}
 
 
+\title{Admistrivia}
+
+\begin{itemize}
+\item homework / ``cases'' project and a final 
+\item Wave grading and interactions
+  \begin{itemize}
+  \item Make a wave and invite me and Sivan to it
+  \item This will be our way of communicating between the three of us
+  \end{itemize}
+\item Books
+  \begin{itemize}
+  \item  Introductory Statistics with R by Peter Dalgaard, 2nd edition, ISBN 978-0-387-79053-4, Springer 2008.
+  \item  Linear Models with R by Julian J. Faraway, ISBN 1-58488-425-8, Chapman \& Hall/CRC Press 2005. 
+  \end{itemize}
+\item Software R
+  \begin{itemize}
+  \item Allow other software--but recommend R
+  \item Its free, available on OS X/Linux/windows.
+  \item It is what production level statisticians use
+  \end{itemize}
+\end{itemize}
 
 
-\title{Fitting using broken sticks}
+\title{Todays Topic: Fitting using broken sticks}
 
 \section{Review of the standard linear model}
 
