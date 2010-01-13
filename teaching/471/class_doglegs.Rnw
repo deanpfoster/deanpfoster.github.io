@@ -3,10 +3,10 @@
 \begin{document}
 
 \title{Class: Doglegs}
-
+\maketitle
 (\href{class_doglegs.pdf}{pdf version})
 
-\title{Story time: Willingham, the Cog Psyc}
+\section*{Story time: Willingham, the Cog Psyc}
  
 \begin{itemize}
 \item Willingham: Professor of cognitive psychology at Harvard
@@ -30,7 +30,7 @@ interesting.  So no need for it to have a connected theme
 \end{itemize}
 
 
-\title{Admistrivia}
+\section*{Admistrivia}
 
 \begin{itemize}
 \item homework / ``cases'' project and a final 
@@ -52,7 +52,7 @@ interesting.  So no need for it to have a connected theme
   \end{itemize}
 \end{itemize}
 
-\title{Todays Topic: Fitting using broken sticks}
+\section*{Todays Topic: Fitting using broken sticks}
 
 \section{Review of the standard linear model}
 
