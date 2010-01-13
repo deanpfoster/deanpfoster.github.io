@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{hyperref}
+\begin{document}
+
+\title{Class: Taylor}
+\maketitle
+(\href{class_doglegs.pdf}{pdf version})
+
+\section*{Story time: Hildebrand and instgant feed back}
+
+
+
+
+
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item Who doesn't have a wave yet?
+\end{itemize}
+
+\section*{Todays Topic: When Taylor fails}
+
+Taylor (\href{http://en.wikipedia.org/wiki/Brook_Taylor}{wiki}) tells
+us that ``everything'' can be approximated by a linear equation.  So
+if there is a true relationship between $Y$ and $x$ that is
+non-linear, then we could say 
+\begin{displaymath}
+E(Y|x) = f(x)
+\end{displaymath}
+(This is yet another cryptic for of our main equation.  It could be
+written as $Y = f(x) + \epsilon$ to make it look more like our
+previous equation.)  So Taylor's theorem says that
+\begin{displaymath}
+E(Y|x) \approx \alpha + \beta x
+\end{displaymath}
+and even tells us what $\alpha$ and $\beta$ are.  
+
+In this more enlighted age, we no longer believe all functions are
+basically polynomials on steriods.  They can be very weird.  So
+Taylors naive idea of all functions being linear is no longer held
+true.  But not to worry, in the modern age we can quote Littlewood who
+said, that {\it almost} all functions are {\it almost} locally
+linear. 
+
+So what isn't linear?  Jumps, and bends.
+
+\section{Create your own fit}
+
+In most setting, your best bet is still to keep things smooth by using
+polynomials.  This is done in JMP by asking it to fit a polynomial for
+you.  Hopefully you have seen this already.  
+
+
+\end{document}

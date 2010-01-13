@@ -5,3 +5,4 @@ class_*.pdf
 *.out
 *dvi
 assignment*.pdf
+class_*.tex
