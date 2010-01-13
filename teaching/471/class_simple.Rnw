@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[14pt]{extarticle}
 \usepackage{hyperref}
 \begin{document}
 
@@ -6,7 +6,7 @@
 \maketitle
 (\href{class_doglegs.pdf}{pdf version})
 
-\section*{Story time: Willingham, the Cog Psyc}
+\section*{Story time: Dan Willingham, the Cog Psyc}
  
 \begin{itemize}
 \item Willingham: Professor of cognitive psychology at Harvard
@@ -22,10 +22,27 @@
 \item For example: He pushes stories
 \begin{itemize}
 \item People relate to humans with special hardware in their brain
-(cards vs lier), so try to tell stories 
+(cards vs liar):
+\begin{itemize}
+\item with cards: the rule is, red on one side means, even number on
+the other side.  Which do you check:
+\begin{itemize}
+\item A red card?
+\item An even card?
+\item An odd card
+\end{itemize}
+\item with people: Drink means over 21.  Which do you check:
+\begin{itemize}
+\item A drinker?
+\item An old person?
+\item A young person?
+\end{itemize}
+\end{itemize}
+so try to tell stories
 \item People pay attention at start of class--new stuff is always
-interesting.  So no need for it to have a connected theme
-\item People like closure--so each class should provide a conclusion
+interesting.  So no need for it to have a connected theme.
+\item Hence when I start classes with a short story, blam Dan, the cognitive
+psychologist.  
 \end{itemize}
 \end{itemize}
 
@@ -36,6 +53,7 @@ interesting.  So no need for it to have a connected theme
 \item homework / ``cases'' project and a final 
 \item Wave grading and interactions
   \begin{itemize}
+\item I've always done it myself in the past
   \item Make a wave and invite me and Sivan to it
   \item This will be our way of communicating between the three of us
   \end{itemize}
@@ -49,7 +67,8 @@ interesting.  So no need for it to have a connected theme
   \item Allow other software--but recommend R
   \item Its free, available on OS X/Linux/windows.
   \item It is what production level statisticians use
-  \item I'll give a short introduction to R after class on Monday
+  \item I'll give a short introduction to R after class Monday week.
+\item No hard copy this year.
   \end{itemize}
 \end{itemize}
 
