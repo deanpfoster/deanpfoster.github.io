@@ -2,7 +2,7 @@
 \usepackage{hyperref}
 \begin{document}
 
-\title{Class: Doglegs}
+\title{Class: Taylor}
 \maketitle
 (\href{class_doglegs.pdf}{pdf version})
 
@@ -52,7 +52,7 @@ interesting.  So no need for it to have a connected theme
   \end{itemize}
 \end{itemize}
 
-\section*{Todays Topic: Fitting using broken sticks}
+\section*{Todays Topic: Simple linear regression}
 
 \section*{Review of the standard linear model}
 
@@ -131,21 +131,5 @@ previous equation.)  So Taylor's theorem says that
 E(Y|x) \approx \alpha + \beta x
 \end{displaymath}
 and even tells us what $\alpha$ and $\beta$ are.  
-
-In this more enlighted age, we no longer believe all functions are
-basically polynomials on steriods.  They can be very weird.  So
-Taylors naive idea of all functions being linear is no longer held
-true.  But not to worry, in the modern age we can quote Littlewood who
-said, that {\it almost} all functions are {\it almost} locally
-linear. 
-
-So what isn't linear?  Jumps, and bends.
-
-\section{Create your own fit}
-
-In most setting, your best bet is still to keep things smooth by using
-polynomials.  This is done in JMP by asking it to fit a polynomial for
-you.  Hopefully you have seen this already.  
-
 
 \end{document}
