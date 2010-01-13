@@ -28,7 +28,7 @@ all_pdf: $(SOURCES:.Rnw=.pdf)
 	
 
 install: all
-	scp -p *.pdf      go:public_html/teaching/471/
+	scp -p class_*.pdf go:public_html/teaching/471/
 	scp -p *.tex.html go:public_html/teaching/471/
 	-git commit -a -m "updating to gosset."
 	git pull	
