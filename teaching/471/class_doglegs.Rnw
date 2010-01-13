@@ -6,6 +6,31 @@
 
 (\href{class_doglegs.pdf}{pdf version})
 
+\title{Story time: \href{http://www.amazon.com/Why-Dont-Students-Like-School/dp/0470279303/ref=sr_1_1?ie=UTF8&s=books&qid=1263385854&sr=1-1}{Why students don't like school}}
+ 
+\begin{itemize}
+\item Willingham: Professor of cognitive psychology at Harvard
+\item We know lots about psychology now
+\item amazingly little about education:
+\begin{itemize}
+\item Perry preschool project is still a state of the art education experiment
+\item There are few other good controlled experiments
+\end{itemize}
+\item But we can use what we know about psychology to inform education
+\item That is the aproach of this book
+\item For example: He pushes stories
+\begin{itemize}
+\item People relate to humans with special hardware in their brain
+(cards vs lier), so try to tell stories 
+\item People pay attention at start of class--new stuff is always
+interesting.  So no need for it to have a connected theme
+\item People like closure--so each class should provide a conclusion
+\end{itemize}
+\end{itemize}
+
+
+
+
 \title{Fitting using broken sticks}
 
 \section{Review of the standard linear model}
