@@ -52,7 +52,6 @@ interesting.  So no need for it to have a connected theme
   \end{itemize}
 \end{itemize}
 
-
 \title{Todays Topic: Fitting using broken sticks}
 
 \section{Review of the standard linear model}
