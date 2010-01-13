@@ -54,7 +54,7 @@ interesting.  So no need for it to have a connected theme
 
 \section*{Todays Topic: Fitting using broken sticks}
 
-\section{Review of the standard linear model}
+\section*{Review of the standard linear model}
 
 The standard linear regression model is:
 \begin{displaymath}

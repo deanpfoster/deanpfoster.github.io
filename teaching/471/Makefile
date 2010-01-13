@@ -28,11 +28,12 @@ all_pdf: $(SOURCES:.Rnw=.pdf)
 	
 
 install: all
-	scp -p class_*.pdf go:public_html/teaching/471/
-	scp -p *.tex.html go:public_html/teaching/471/
-	-git commit -a -m "updating to gosset."
 	git pull	
+	-git commit -a -m "updating to gosset."
 	git push
-	ssh go "cd public_html;git pull;cd teaching/471/;make"
+	ssh go "cd public_html;git pull"
+#	scp -p class_*.pdf go:public_html/teaching/471/
+#	scp -p *.tex.html go:public_html/teaching/471/
+	ssh go "cd public_html/teaching/471/;make"
 
 
