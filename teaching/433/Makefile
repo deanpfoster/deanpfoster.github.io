@@ -27,6 +27,9 @@ all_pdf: $(SOURCES:.tex=.pdf)
 	pdflatex $^
 	
 
-install: all
-	scp -p *.pdf      go:public_html/teaching/471/
-	scp -p *.tex.html go:public_html/teaching/471/
+install: 
+	git pull	
+	-git commit -a -m "updating to gosset."
+	git push
+	ssh go "cd public_html;git pull"
+	ssh go "cd public_html/teaching/433/;make"
