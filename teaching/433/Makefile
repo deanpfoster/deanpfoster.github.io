@@ -27,7 +27,7 @@ all_pdf: $(SOURCES:.tex=.pdf)
 	pdflatex $^
 	
 
-install: all
+install: 
 	git pull	
 	-git commit -a -m "updating to gosset."
 	git push
