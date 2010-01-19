@@ -112,5 +112,8 @@ Want to fit a bent-stick.  That is our goal today.  So something like:
 \end{itemize}
 
 \section{More graceful doglegs}
+\begin{itemize}
+\item 
+\end{itemize}
 
 \end{document}
