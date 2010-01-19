@@ -74,11 +74,43 @@ you.  Hopefully you have seen this already.
 
 \section{So it isn't linear: Doglegs}
 
-Want to fit a bent-stick.  That is our goal today.
+Want to fit a bent-stick.  That is our goal today.  So something like:
+<<bentstick,fig=TRUE>>=
+  x <- seq(1:100)
+  large.x <- (x > 50)
+  deviation <- (x - 50) * large.x
+  y = x + 5 * deviation
+  plot(x,y,type="l")
+@ 
 
+\section{Work through generating a bent stick with the class}
 
+\begin{itemize}
+\item Introduce indicator functions
+\item Introduce logic connectives
+\item Talk about deviations / corrections
+\end{itemize}
 
+\section{How to fit?}
 
+\begin{itemize}
+\item Fitting is via multiple regression
+<<regression,fig=TRUE>>=
+  y = x + 5 * deviation + 30 *rnorm(100)
+  plot(x,y)
+  summary(lm(y ~ x + deviation))
+  fit <- lm(y ~ x + deviation)$fit
+  lines(x,fit)
+@ 
 
+\end{itemize}
+
+\section{Why use doglegs?}
+\begin{itemize}
+\item Look impressive
+\item Easy to interpret
+\end{itemize}
+
+\section{More graceful doglegs}
 
 \end{document}
