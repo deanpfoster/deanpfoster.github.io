@@ -144,7 +144,7 @@ Want to fit a bent-stick.  That is our goal today.  So something like:
 \end{itemize}
 \end{itemize}
 
-section{Called smoothing}
+\section{Called smoothing}
 
 \end{itemize}
 
