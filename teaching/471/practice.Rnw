@@ -1,0 +1,58 @@
+\documentclass[10pt]{extarticle}
+\usepackage{hyperref}
+\begin{document}
+
+\title{Practice in R}
+\maketitle
+(\href{practice.pdf}{pdf version})
+
+
+\section{FIrst week}
+
+Let's look at a simple data set from your first regression class here
+ at Penn. First get some data.  For me, I use the command line, just
+ like your grandfather used:
+\begin{verbatim}
+ wget http://www-stat.wharton.upenn.edu/~waterman/fsw/datasets/txt/Cleaning.txt
+\end{verbatim}
+You of course have this new fangled deviced called a mouse--so use it!  Now start R.
+First read in the file:
+<<step1,eval=FALSE>>=
+read.table("Cleaning.txt")
+@ 
+%
+Oops, that generates too much output, and doesn't put it anywhere.
+So let's assign all this mess to a data frame.
+<<step2,eval=FALSE>>=
+clean = read.table("Cleaning.txt")
+@ 
+%
+Just look at what we have by typing ``clean'' again.  Oops--we have
+the first row with the names of the variables in it.  So let's try again: 
+<<step3,eval=TRUE>>=
+clean = read.table("Cleaning.txt",header=TRUE)
+@ 
+%
+NOTE: We could have avoided some pain here if we had read the
+documentation ahead of time.  A quick reminder of how to use a
+function is to use ``?read.table''.  But in general, the text book/
+the web / google provides better documentation.
+
+Checking with ``clean'' shows we only have numbers.  How happy can
+you get?!? Now for the fun part, let's run a regression.
+<<step4>>=
+lm(clean$RoomsClean ~ clean$NumberOfCrews)
+@ 
+%
+Kinda a different world view than JMP.  It just gives the minimal
+amount of output possible.  So to see a bit more, try
+<<step5>>=
+summary(lm(clean$RoomsClean ~ clean$NumberOfCrews))
+@ 
+%
+That should look very similar to other tables you have seen.  But what
+of pictures?  Well, let's do a plot:
+<<step5,fig=TRUE>>=
+plot(lm(clean$RoomsClean ~ clean$NumberOfCrews))
+@ 
+\end{document}
