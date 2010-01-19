@@ -2,54 +2,150 @@
 \usepackage{hyperref}
 \begin{document}
 
-\title{Class: Taylor}
+\title{Class: piecewise linear / Bent stick / doglegs}
 \maketitle
 (\href{class_doglegs.pdf}{pdf version})
 
 \section*{Story time: Hildebrand and instgant feed back}
 
-
-
-
+\begin{itemize}
+\item Dave Hildebrand changed how we taught statistics
+\begin{itemize}
+\item Pushed communication
+\item Eliminated much unimportant mathematics
+\item Pushed live computer in the class room
+\end{itemize}
+\item He had 100's of undergrads show up at his funeral
+\item He pushed the idea of instant feedback in teaching
+\item Ask some of the students each class for feedback on the lecture
+\item Opinion polls
+\begin{itemize}
+\item Was the lecture too fast or too slow?
+\item Suppose 2/3's think it is too fast.  If we asked 10 students, the SE =
+$\sqrt{pq/n}$ or about \Sexpr{round(sqrt(.66 * .33 / 10),2)}. % = .15
+Thus a typical interval would be about say, [.3,.9].  Kinda useless.
+\item Even With 50 students, SE =  \Sexpr{sqrt(.66 * .33 / 50)} the SE
+would not distingush 66\% from 50\% very often.
+\end{itemize}
+\item Solution: Have a question with millions of answers.  We call
+that language.
+\item Questions:
+\begin{itemize}
+\item What was the most important concept today?
+\item What idea was most confusing?
+\item What will you remimber the longest?
+\end{itemize}
+\item Now a small sample can be useful.
+\item Pass out sample instant feedback page
+\end{itemize}
 
 
 \section*{Admistrivia}
 
 \begin{itemize}
 \item Who doesn't have a wave yet?
+\item Pass out ``Who are you?''
 \end{itemize}
 
 \section*{Todays Topic: When Taylor fails}
 
-Taylor (\href{http://en.wikipedia.org/wiki/Brook_Taylor}{wiki}) tells
-us that ``everything'' can be approximated by a linear equation.  So
-if there is a true relationship between $Y$ and $x$ that is
-non-linear, then we could say 
-\begin{displaymath}
-E(Y|x) = f(x)
-\end{displaymath}
-(This is yet another cryptic for of our main equation.  It could be
-written as $Y = f(x) + \epsilon$ to make it look more like our
-previous equation.)  So Taylor's theorem says that
-\begin{displaymath}
-E(Y|x) \approx \alpha + \beta x
-\end{displaymath}
-and even tells us what $\alpha$ and $\beta$ are.  
-
-In this more enlighted age, we no longer believe all functions are
-basically polynomials on steriods.  They can be very weird.  So
-Taylors naive idea of all functions being linear is no longer held
-true.  But not to worry, in the modern age we can quote Littlewood who
+Taylor doesn't always work.  
+\begin{itemize}
+\item Analytic functions it works for
+\item nice functions it works for
+\item measurable functions it ``almost'' works for
+\item  But not to worry, in the modern age we can quote Littlewood who
 said, that {\it almost} all functions are {\it almost} locally
 linear. 
+\item But it can break
+\end{itemize}
 
-So what isn't linear?  Jumps, and bends.
+Nasty stuff:
+\begin{itemize}
+\item Jumps (notice it is pretty almost everywhere)
+\item piecewise linear function (again with the almost everywhere)
+\end{itemize}
 
-\section{Create your own fit}
+\section{So it isn't linear: still use Taylor}
 
 In most setting, your best bet is still to keep things smooth by using
 polynomials.  This is done in JMP by asking it to fit a polynomial for
 you.  Hopefully you have seen this already.  
 
+\section{So it isn't linear: Doglegs}
+
+Want to fit a bent-stick.  That is our goal today.  So something like:
+<<bentstick,fig=TRUE>>=
+  x <- seq(1:100)
+  large.x <- (x > 50)
+  deviation <- (x - 50) * large.x
+  y = x + 5 * deviation
+  plot(x,y,type="l")
+@ 
+
+\section{Work through generating a bent stick with the class}
+
+\begin{itemize}
+\item Introduce indicator functions
+\item Introduce logic connectives
+\item Talk about deviations / corrections
+\end{itemize}
+
+\section{How to fit?}
+
+\begin{itemize}
+\item Fitting is via multiple regression
+<<regression,fig=TRUE>>=
+  y = x + 5 * deviation + 30 *rnorm(100)
+  plot(x,y)
+  summary(lm(y ~ x + deviation))
+  fit <- lm(y ~ x + deviation)$fit
+  lines(x,fit)
+@ 
+
+\end{itemize}
+
+\section{Why use doglegs?}
+\begin{itemize}
+\item Look impressive
+\item Easy to interpret
+\end{itemize}
+
+\section{More than one dogleg}
+\begin{itemize}
+\item What does it take to add two doglegs?
+\item Simple: just more variables
+\item Location of bends called "knots"
+\end{itemize}
+
+\section{More graceful doglegs}
+\begin{itemize}
+\item To get the first deriviatve to match
+\item Draw picture
+\item Figure out equation: (i.e. deviation squared)
+\item Fitting as before:
+<<regression,fig=TRUE>>=
+  plot(x,y)
+  deviation2 = deviation**2
+  fit2 <- lm(y ~ x + deviation2)$fit
+  lines(x,fit2)
+@ 
+
+\section{Putting it all together}
+\begin{itemize}
+\item Called splines
+\item Add as many knots as you like
+\item Fit the whole thing in a regression
+\item Lots of choices
+\begin{itemize}
+\item number of knots
+\item degree (piece wise linear, quadradic, cubic)
+\item rules for significance
+\end{itemize}
+\end{itemize}
+
+\section{Called smoothing}
+
+\end{itemize}
 
 \end{document}

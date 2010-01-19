@@ -58,7 +58,16 @@ used it in previous classes.
 <ul>
   <li> <a href="berk_dogleg.pdf">Richard Berk</a>
   <li> <a href="berndt_chapter_2.pdf">Berndt chapter 2</a>
-  <li> Dalgaard: 2.4 and 6.1 (in the first edition: 1.6 and 5.1)
+  <li> Dalgaard: 2.4 and 6.1 (in the previous edition: 1.6 and 5.1)
+</ul>
+
+<h2>Current practice</h2>
+I'll keep a <a href="practice.html">page</a> about the current R
+practice you should be doing.
+<ul>
+  <li> fire up R (first week's practice)
+  <li> make doglegs (second week's practice)
+>>>>>>> 0317377af7dacfc24a0546c38b48879478543df9:teaching/471/index.html
 </ul>
 
 <H2>Schedule </h2>
@@ -68,17 +77,32 @@ used it in previous classes.
     <ul>
       <li> Admistrivia: course goals, prerequisites
       <li> handout: <a href="berndt_chapter_2.pdf">Berndt chapter 2</a>
-      <li> readings: 
+      <li> readings:
+         <ul>
+          <li> <a href="berk_dogleg.pdf">Richard Berk</a>
+          <li> <a href="berndt_chapter_2.pdf">Berndt chapter 2</a>
+          <li> Dalgaard: 2.4 and 6.1 (version 2 it is 1.6 and 5.1)
+        </ul>
       <li> Try this it at home:
        <ul> 
          <li> Let's walk through running a simple linear regression using R
-         <li> Read Dalgaard: 1.6 and 5.1
          <li> Grab a data set, say <a href="http://www-stat.wharton.upenn.edu/~waterman/fsw/datasets/txt/Cleaning.txt">cleaning crews</a>
          <li> Now run a regression to fit this dataset (i.e. lm(RoomsClean ~ NumberOfCrews))
          <li> Now rerun it without using the intercept term (i.e. lm(RoomsClean ~ NumberOfCrews) - 1)
        </ul>
-      <li> Lecture notes: (<a href="class_simple.tex.html">.html</a>)
-and (<a href="class_simple.Rnw">.Rnw</a>)
+      <li> Lecture notes:
+        <ul>
+        <li> (<a href="class_simple.pdf">.pdf</a>) I'll link to these
+off of the title of the class.
+        <li> (<a href="class_simple.tex.html">.html</a>) This allows a
+quick view--but not as accurate.  Many things get messed up in the
+conversion to html.
+        <li> (<a href="class_simple.Rnw">.Rnw</a>) This is the
+original file that generates all the notes.  It is what I edit to
+create them.  It is a hybrid between latex and R.  If you are thinking
+about persuing a PhD in statistics--you should do your homework in
+this format.
+       </ul>
     </ul>
 </ul>
 
@@ -86,34 +110,42 @@ and (<a href="class_simple.Rnw">.Rnw</a>)
 <ul>
    <li> Jan 18: No class
    <li> Jan 19: Stop by Sivan's office hours for a quick introduction (12:30-1:30)
-   <li> Jan 20: <a href="class_dog_legs.pdf">Doglegs</a> 
+   <li> Jan 20: <a href="class_doglegs.pdf">Doglegs</a> 
     <ul>
       <li> Lecture notes: (<a href="class_doglegs.tex.html">.html</a>)
 and (<a href="class_doglegs.Rnw">.Rnw</a>)
     <li> <a href="berk_dogleg.pdf">Richard Berk</a>
-    </ul>
-to R
+    <li> Do this at home:
+      <ul>
+      <li> Make a dogleg
+      <li> Run a multiple regression on your orginal X and this new
+dogleg
+     <li> plot the resulting fit
+      <li> Now make a 2nd dogleg, and fit two bends
+      <li> Finally, square your dogleg to make a smooth bend
+      <li> <a href="practice.pdf">details</a> 
+  </ul>
 </ul>
 
 
 <ul>
-  <li> 27: The residuals
+  <li> 25: The residuals
     <ul>
        <li> <a href="class_residuals.tex.html">notes</a> (<a href="class_residuals.pdf">.pdf</a>)
        <li> The t required for many t-tests (<a href="required_z_for_many_tests.jmp">.jmp</a>)
       <li> Stick around afterwards for an introduction to R
     </ul>
-  <li> Jan 27: 4:30 Introduction to R
+  <li> Jan 25: 4:30 Introduction to R
     <ul>
      <li> In F65. 
      <li> bring your laptops!
     </ul>
-  <li> Jan 29: <a href="class_standard_errors.tex.html">standard errors</a>
+  <li> Jan 27: <a href="class_standard_errors.tex.html">standard errors</a>
 </ul>
 
 
 <ul>
-  <li> Jan 29: <a href="class_bootstrap.tex.html">Bootstrap</a>
+  <li> Feb ?: <a href="class_bootstrap.tex.html">Bootstrap</a>
     <ul>
       <li> <a href="class_bootstrap.tex.html">class notes</a>
       <li> You should now have finished reading chapter 2 of Berndt.
@@ -291,7 +323,7 @@ hedge funds</a>
 <em>
 <p align=right>
 <!-- hhmts start -->
-Last modified: Mon Jan 18 17:58:51 EST 2010
+Last modified: Tue Jan 19 13:07:44 EST 2010
 <!-- hhmts end -->
 </p>
 </em>
