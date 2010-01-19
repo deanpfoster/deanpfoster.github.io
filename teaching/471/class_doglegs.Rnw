@@ -2,7 +2,7 @@
 \usepackage{hyperref}
 \begin{document}
 
-\title{Class: Taylor}
+\title{Class: piecewise linear / Bent stick / doglegs}
 \maketitle
 (\href{class_doglegs.pdf}{pdf version})
 
@@ -75,6 +75,8 @@ you.  Hopefully you have seen this already.
 \section{So it isn't linear: Doglegs}
 
 Want to fit a bent-stick.  That is our goal today.
+
+
 
 
 
