@@ -36,6 +36,7 @@ that language.
 \item What will you remimber the longest?
 \end{itemize}
 \item Now a small sample can be useful.
+\item Pass out sample instant feedback page
 \end{itemize}
 
 
@@ -43,41 +44,39 @@ that language.
 
 \begin{itemize}
 \item Who doesn't have a wave yet?
-\item Pass out background questions:
-
+\item Pass out ``Who are you?''
 \end{itemize}
 
 \section*{Todays Topic: When Taylor fails}
 
-Taylor (\href{http://en.wikipedia.org/wiki/Brook_Taylor}{wiki}) tells
-us that ``everything'' can be approximated by a linear equation.  So
-if there is a true relationship between $Y$ and $x$ that is
-non-linear, then we could say 
-\begin{displaymath}
-E(Y|x) = f(x)
-\end{displaymath}
-(This is yet another cryptic for of our main equation.  It could be
-written as $Y = f(x) + \epsilon$ to make it look more like our
-previous equation.)  So Taylor's theorem says that
-\begin{displaymath}
-E(Y|x) \approx \alpha + \beta x
-\end{displaymath}
-and even tells us what $\alpha$ and $\beta$ are.  
-
-In this more enlighted age, we no longer believe all functions are
-basically polynomials on steriods.  They can be very weird.  So
-Taylors naive idea of all functions being linear is no longer held
-true.  But not to worry, in the modern age we can quote Littlewood who
+Taylor doesn't always work.  
+\begin{itemize}
+\item Analytic functions it works for
+\item nice functions it works for
+\item measurable functions it ``almost'' works for
+\item  But not to worry, in the modern age we can quote Littlewood who
 said, that {\it almost} all functions are {\it almost} locally
 linear. 
+\item But it can break
+\end{itemize}
 
-So what isn't linear?  Jumps, and bends.
+Nasty stuff:
+\begin{itemize}
+\item Jumps (notice it is pretty almost everywhere)
+\item piecewise linear function (again with the almost everywhere)
+\end{itemize}
 
-\section{Create your own fit}
+\section{So it isn't linear: still use Taylor}
 
 In most setting, your best bet is still to keep things smooth by using
 polynomials.  This is done in JMP by asking it to fit a polynomial for
 you.  Hopefully you have seen this already.  
+
+\section{So it isn't linear: Doglegs}
+
+Want to fit a bent-stick.  That is our goal today.
+
+
 
 
 \end{document}
