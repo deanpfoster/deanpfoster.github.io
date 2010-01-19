@@ -131,6 +131,20 @@ Want to fit a bent-stick.  That is our goal today.  So something like:
   lines(x,fit2)
 @ 
 
+\section{Putting it all together}
+\begin{itemize}
+\item Called splines
+\item Add as many knots as you like
+\item Fit the whole thing in a regression
+\item Lots of choices
+\begin{itemize}
+\item number of knots
+\item degree (piece wise linear, quadradic, cubic)
+\item rules for significance
+\end{itemize}
+\end{itemize}
+
+section{Called smoothing}
 
 \end{itemize}
 
