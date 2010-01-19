@@ -111,9 +111,27 @@ Want to fit a bent-stick.  That is our goal today.  So something like:
 \item Easy to interpret
 \end{itemize}
 
+\section{More than one dogleg}
+\begin{itemize}
+\item What does it take to add two doglegs?
+\item Simple: just more variables
+\item Location of bends called "knots"
+\end{itemize}
+
 \section{More graceful doglegs}
 \begin{itemize}
-\item 
+\item To get the first deriviatve to match
+\item Draw picture
+\item Figure out equation: (i.e. deviation squared)
+\item Fitting as before:
+<<regression,fig=TRUE>>=
+  plot(x,y)
+  deviation2 = deviation**2
+  fit2 <- lm(y ~ x + deviation2)$fit
+  lines(x,fit2)
+@ 
+
+
 \end{itemize}
 
 \end{document}
