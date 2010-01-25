@@ -1,0 +1,29 @@
+
+I very much enjoyed meeting with you yesterday, especially our
+conversation on the problem of part of speech tagging.  It sounds like
+you and Sham are looking at some interesting ways of tackling the
+problem using CCA.  I do think multilevel Markov chain models are
+interesting to consider.  I dug up a couple of references that might
+be relevant to the models you are interested in.
+
+A model with an unbounded number of Markov chain levels:
+
+http://www.gatsby.ucl.ac.uk/~heller/ihhmm.pdf
+
+Seminal work on hierarchical HMMs, though I think the Bayesian
+nonparametric paper above uses a potentially more appropriate variant:
+
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.88.7940&rep=rep1&type=pdf
+
+Kevin Murphy's thesis that summarizes a number of HMM variants (pre-2002) in Chapter 2:
+
+http://people.cs.ubc.ca/~murphyk/Thesis/thesis.html
+
+Also, I really appreciate your hosting the pre-dinner cocktails!  I am
+glad we had a chance to chat in this less formal setting.
+
+Looking forward to seeing you again in the future.
+
+Best,
+
+Emily Fox
