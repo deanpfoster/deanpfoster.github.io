@@ -46,6 +46,8 @@ that language.
 \begin{itemize}
 \item Who doesn't have a wave yet?
 \item Pass out ``Who are you?''
+\item You should do most of homework 1 this weekend.  I haven't
+discussed it.  It is stuff you should know how to do already.  
 \end{itemize}
 
 \section*{Todays Topic: When Taylor fails}
