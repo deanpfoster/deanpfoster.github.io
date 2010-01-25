@@ -67,6 +67,7 @@ practice you should be doing.
 <ul>
   <li> fire up R (first week's practice)
   <li> make doglegs (second week's practice)
+  <li> residuals (3rd week's practice)
 </ul>
 
 <H2>Schedule </h2>
@@ -82,13 +83,6 @@ practice you should be doing.
           <li> <a href="berndt_chapter_2.pdf">Berndt chapter 2</a>
           <li> Dalgaard: 2.4 and 6.1 (version 2 it is 1.6 and 5.1)
         </ul>
-      <li> Try this it at home:
-       <ul> 
-         <li> Let's walk through running a simple linear regression using R
-         <li> Grab a data set, say <a href="http://www-stat.wharton.upenn.edu/~waterman/fsw/datasets/txt/Cleaning.txt">cleaning crews</a>
-         <li> Now run a regression to fit this dataset (i.e. lm(RoomsClean ~ NumberOfCrews))
-         <li> Now rerun it without using the intercept term (i.e. lm(RoomsClean ~ NumberOfCrews) - 1)
-       </ul>
       <li> Lecture notes:
         <ul>
         <li> (<a href="class_simple.pdf">.pdf</a>) I'll link to these
@@ -132,9 +126,16 @@ dogleg
     <ul>
        <li> <a href="class_residuals.tex.html">notes</a> (<a href="class_residuals.pdf">.pdf</a>)
        <li> The t required for many t-tests (<a href="required_z_for_many_tests.jmp">.jmp</a>)
-      <li> Stick around afterwards for an introduction to R
+<li> Do this at home
+  <ul>
+  <li> Save the regressions from a linear model (model = lm(y $~$
+x) then resid <- model$residuals should work)
+  <li> Make a histogram of the residuals, and a qqplot.  (Bonus if you
+can glue them together.)
+  <li> Plot the residuals vs $X$.
+  <li> Fit a polynomial to them.  Are the coefficients signficant?
+  </ul>
     </ul>
-  <li> Jan 25: 4:30 MOVED TO WEDNESDAY (job interview)
   <li> Jan 27: <a href="class_standard_errors.tex.html">standard errors</a>
   <li> Jan 27: 4:30 Introduction to R
     <ul>
@@ -323,7 +324,7 @@ hedge funds</a>
 <em>
 <p align=right>
 <!-- hhmts start -->
-Last modified: Thu Jan 21 11:49:16 EST 2010
+Last modified: Mon Jan 25 14:43:22 EST 2010
 <!-- hhmts end -->
 </p>
 </em>
