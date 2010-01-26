@@ -1,6 +1,8 @@
 \documentclass[10pt,a4paper]{article}
 
 \usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath,amsfonts,bm,rotating}
 
 \begin{document}
 
@@ -17,16 +19,15 @@ Course No. Stat 433 \\
 \begin{itemize}
 
     \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
-    questions which were problematic to most of the class.}
+    questions which were the most problematic for the class.}
     \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
-    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations, and not just
     final answers. Points will be deducted if partial solutions
     are submitted.}
-    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
-    Write your name and email on top of the first page.}
-    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
-    grading please email: sivana@wharton.upenn.edu
-}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Make sure that your work is readable/understandable.  If necessary, skip every other line.  In addition, please {\bf staple} your homework.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{If you notice a typo in the solution file or have a problem with the homework
+    grading, please come by my office hours, or email me (entine4@wharton.upenn.edu)}
+
 \end{itemize}
 
 
@@ -42,10 +43,7 @@ Cov(X,Y) &=& Cov(U+W,V-W) \\
 
 Since U,W and V are all independent their covariances are all
 zeros. Since $ Cov(W,W)=Var(W)$ this yields the above result.
-
-\begin{eqnarray*}
-\\
-\end{eqnarray*}
+\bigskip
 
 \textbf{Page 61 Question 2}\\
  Let X be a random variable which counts the number of heads we get after tossing
@@ -63,61 +61,38 @@ P(X=2|X+Y=4)&=&\frac{P(X=2,Y=2)}{P(X+Y=4)}\\
  \end{eqnarray*}
 
 \newpage
-\textbf{Page 62 Question 2 Part c}\\
-Since everyone correctly solved the first two parts of this
-question we will only concentrate on the third part.
 
-Unfortunately, this problem does lend itself to easy analysis.  In
-other words, it is hard to write it out as conditional probabilities.
-Instead, we need to go back to our definition of probability--namely
-count of events divided by total counts.
+\textbf{Page 63 Question 6}\\
+First note that 
+\[P(X=x,N=n)=P(N=n)P(X=x|N=n)=\frac{1}{2}(1-\frac{1}{2})^{n-1}\binom{n}{x}\left(\frac{1}{2}\right)^n\]
+Thus:
+\[P(X=0)=P(X=0,N=1)+P(X=0,N=2)+\ldots\]
+\[= \sum^{\infty}_{n=1}(\frac{1}{2})^{2n}\binom{n}{0}=\sum^{\infty}_{n=1}(\frac{1}{4})^n\]
+This is a simple geometric series, so
+\[P(X=0)=\frac{\frac{1}{4}}{1-\frac{1}{4}}=\frac{3}{4}\]
 
-So if we think of there being alot of families, say $n$ of them, we
- can compute the number of sons altogether as $n E(X)$ where $X$ is a
- random variable counting the number of boys in a family.  Now if we
-let $Z$ be the expected number of sons in a family who have a sister,
-the number of sons in the population who have a sister will be close
-to $n E(Z)$.  So our answer then is approximately $n E(Z)/(n E(X))$
-which will be close to $E(Z)/E(X)$ if there are a lot of families.  So
-this is the answer we are looking for.
+$P(X=1)$ is computed similarly:
+\[P(X=1)=\sum^{\infty}_{n=1}n(\frac{1}{4})^n\]
+There are a few ways to compute this sum, here is one of the niftier ones.  Let $f(x)=\sum^{\infty}_{n=0}x^n=\frac{1}{1-x}$.  Differentiation both sides, we get
+\[\sum^{\infty}_{n=0}nx^{n-1}=\frac{1}{(1-x)^2}\]
+Multiplying both sides by x, we get:
+\[\sum nx^n=\frac{x}{(1-x)^2}\]
+Letting $x=\frac{1}{4}$, we get $P(X=1)=\frac{\frac{1}{4}}{(1-\frac{1}{4})^2}=\frac{4}{9}$.
+\bigskip
 
-\begin{eqnarray*}
-E(X) &=& \sum_{i=0}^3 i P(X=i)\\
-&=& 0 \cdot \frac{1}{2}+ 1 \cdot \frac{1}{4}+ 2 \cdot \frac{1}{8} + 3 \cdot \frac{1}{8} \\
-&=& \frac{7}{8}
-\end{eqnarray*}
 
-\begin{eqnarray*}
-E(Z) &=&  0 \cdot \frac{1}{2}+ 1 \cdot \frac{1}{4}+ 2 \cdot \frac{1}{8} + 0 \cdot \frac{1}{8} \\
-&=& \frac{1}{2}
-\end{eqnarray*}
-So the probability of having a sister for a random boy is $4/7$.  This
-means the probability of not having a sister is $3/7$.  This describes
-the distribution of sisters for a random boy.  Notice that using a
-similar argument, the probability that a random girl having a sister
-is $\frac{0}{(7/8)}$ which is zero.
 
-We can use the same analysis to find the number of brothers.  But it
-takes a bit more work since there is the possibility of having zero,
-one or two brothers.  Let $W_0$ be the number of sons who
-have no brothers, $W_1$ be the number who have one brother and $W_2$
-be the number who have 2 brothers.  Then our probability distribution
-we are after is $P(\hbox{number of brothers} = i) = E(W_i)/E(X)$.  
+\textbf{Page 64 Question 10 Part c}\\
+Since almost everyone correctly answered the first two parts of this
+question, we will only concentrate on the third part.
 
-\begin{eqnarray*}
-E(W_0) &=&  0 \cdot \frac{1}{2}+ 1 \cdot \frac{1}{4}+ 0 \cdot \frac{1}{8} + 0 \cdot \frac{1}{8} \\
-&=& \frac{2}{8}\\
-E(W_1) &=&  0 \cdot \frac{1}{2}+ 0 \cdot \frac{1}{4}+ 2 \cdot \frac{1}{8} + 0 \cdot \frac{1}{8} \\
-&=& \frac{2}{8}\\
-E(W_2) &=&  0 \cdot \frac{1}{2}+ 0 \cdot \frac{1}{4}+ 0 \cdot \frac{1}{8} + 3 \cdot \frac{1}{8} \\
-&=& \frac{3}{8}\\
-\end{eqnarray*}
-So our distribution is $P(0) = 2/7$, $P(1) = 2/7$ and $P(2) = 3/7$.
+This one is tricky, but here's a good way of going about it.  By selecting a boy, you are conditioning on his family having at least one boy.  Thus, 
+\[P(G)=0, P(BG)=\frac{\frac{1}{4}}{\frac{1}{2}}=\frac{1}{2}, P(BBG)=\frac{1}{4}, P(BBB)=\frac{1}{4}\]
+Now consider a small population (of families with boys) which contains these types of families in the proportions given above.  The simplest example is:
+\[\{BG\}, \{BG\}, \{BBG\},\{BBB\}\]
+The chance of selecting at random any particular boy is $\frac{1}{7}$.  Since four boys are in families containing 1 sister, P(1 sister)$=\frac{4}{7}$, and thus P(0 sisters)$=\frac{3}{7}$
 
-Please notice that since these are both distribution functions the
-probabilities add up to one. This was a common mistake with some
-students. Also there is no relevance as to which brother you are
-sampling, i.e. the first, the second or the third.
+The exact same logic holds for finding the probability distribution function for the number of brothers a particular boy has.  P(0 brothers)=P(selecting boy from BG)=$\frac{2}{7}$, P(1 brother)=P(boy from BBG)=$\frac{2}{7}$, and P(2 brothers)=$\frac{3}{7}$.
 
 \end{flushleft}
 \end{document}
