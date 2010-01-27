@@ -143,7 +143,7 @@ abline(lm(newy ~ newx)$coef)
 @ 
 Compare the coeffients:
 <<>>=
-summary(lm(y ~ x,weights=1/x))
+summary(lm(y ~ x,weights=1/x^2))
 summary(lm(newy ~ newx))
 summary(lm(y ~ x, weights=I(1/x^2)))
 @ 
