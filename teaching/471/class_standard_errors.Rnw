@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[14pt]{extarticle}
 
 \usepackage{hyperref}
 
@@ -116,7 +116,7 @@ weights in this case are $1/x$.
 
 There are two ways of doing a weighted least squares. 
 \begin{itemize}
-\item  First, you can ask R to simply use a column of $1/x$ as
+\item  First, you can ask R to simply use a column of $1/x^2$ as
 weights. Sample hetroskadastic data with evil LS line:
 <<fig=TRUE>>=
 x <- 1:20
@@ -127,7 +127,7 @@ abline(lm(y ~ x)$coef)
 Now with the weighted line:
 <<fig=TRUE>>=
 plot(x,y)
-abline(lm(y ~ x,weights = 1/x)$coef)
+abline(lm(y ~ x,weights = 1/x^2)$coef)
 @ 
 This is nice since the equation it generates will still use $\alpha$
 and $\beta$ as we have been using them in the equations already.  
@@ -141,11 +141,14 @@ newy = y/x
 plot(newx,newy)
 abline(lm(newy ~ newx)$coef)
 @ 
-Compare the coeffients:
+Compare the coeffients: 
 <<>>=
-summary(lm(y ~ x,weights=1/x^2))
+summary(lm(y ~ x, weights=1/x^2))
 summary(lm(newy ~ newx))
-summary(lm(y ~ x, weights=I(1/x^2)))
+@ 
+To check that $1/x$ is the wrong weights:
+<<>>=
+summary(lm(y ~ x,weights=1/x))
 @ 
 
 
