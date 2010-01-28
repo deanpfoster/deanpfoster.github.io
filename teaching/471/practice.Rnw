@@ -63,7 +63,7 @@ Now for the fun part--let's get the back to the original scale.
 plot(x,y)
 lines(x,exp(predict(loglog)))
 @ 
-
+Probably not what we wanted.  
 \end{itemize}
 
 \section{Residuals}
