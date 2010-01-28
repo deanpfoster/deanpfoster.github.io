@@ -3,36 +3,42 @@
 \begin{document}
 \title{Assignment 2: Computer exercises}
 
-These exercises are to show you computer techniques.  So do simple
- prints to confirm that they worked for you.
+These exercises are to show you computer techniques.  Do simple prints
+ to confirm that they worked for you.  Give us your
+ R script also.  Look at the help file Sivan created for suggestions
+ on R commands.  (\href{homework_2_help.R}{.R})
 
 \begin{enumerate}
 \item Dogleg construction and analysis:
 \begin{enumerate}
 \item Spend 20 minutes trying to find a new historical temperature
 series.  (If you can't find one, use New Hampshire which was discussed
-in class.).   Fit it using a dogleg at 1900 and print it.
+in class.).   Fit it using a dogleg at 1900 and print it. (Model 1)
+\item Play around with loess.smooth to get a variety of different
+possible smooths of your series.  The idea is to find one that looks
+like a straight line, and one that looks like a ``connect the dots''
+pictures and one that you actually like.  
 \item Create doglegs for 1800 and 1700 also (and 1600 if you have
 it).  Fit a multiple regression to these.  Find a smooth that looks
-close to your fit.  Print both predictions on one graph. 
+close to your fit.  Print both predictions on one graph.  (Model 2)
 \item Fit simple regressions to all of your dog legs and save the
 predictions.  Compute an average prediction (pred1 + pred2 + pred3 +
 pred4)/4.  Find a smooth that looks close to the average prediction.
-Print both predictions on the same graph.
+Print both predictions on the same graph. (Model 3)
 \item Fit a 3rd degree polynomial to your data.  As usual, find a
 smooth that looks similar to your 3rd degree polynomial.  Print both
-predictions. 
+predictions. (Model 4)
 \end{enumerate}
 
-\item Predictions: Insert an artifical row with a date of 2100 into
-your historical data table.  Leave the temperature field blank.  For
-each of the 4 models you created above, predict the temperature at
+\item Predictions:  You can predict a point by adding a fake row to
+your data set (see Sivan's example) or by a command similar to:
+<<eval=FALSE>>=
+  predict(model,data.frame(year=2100),se.fit=TRUE)
+@ 
+For each of the 4 models you created above, predict the temperature at
 2100.   For the first, second and 4th model, you should be able to
-also save a prediction interval.  Which of these 3 intervals makes the
-most dramatic claim about temperature?  (HINT: for the polynomial, you
-can make pretty pictures using ``fit y by x''.  But, to save the
-prediction intervals, you need to do a full ``fit model'' and make
-your own polynomial.)
+create a prediction interval.  Which of these 3 intervals makes the
+most dramatic claim about temperature?  
 
 \item Residuals: Create residuals from your favorite model of
 temperature above.  
@@ -46,7 +52,7 @@ temperature above.
 \item residuals vs any other columns you might have in your data table
 \item etc
 \end{itemize}
-\item Using the $1/20^2, 1/21^2, 1/22^2$... rule, which of the
+\item Using the $1/21^2, 1/22^2, 1/23^2$... rule, which of the
 above tests (if any) show problems with the data?  (see the class
 \href{class_residuals.tex.html}{notes} on residuals for discussion of
 this methodology.) 
@@ -55,10 +61,6 @@ this methodology.)
 
 \item Hetroskadasticity: Do a regression of income vs ``number of
 Runs''. (aka X3) from the \href{http://www4.stat.ncsu.edu/~boos/var.select/baseball.html}{baseball data}.
-(BTW, I changed it to use RUNS instead of ERA since there is no ERA
-data in the dataset I have.  If you used some other variable instead
-of runs, you don't need to switch to runs.  Just answer what would be
-a sensiable question for your variable of choice.)
 \begin{enumerate}
 \item Simple regression:
 \begin{itemize}
@@ -82,8 +84,8 @@ this isn't easy--it will take a bit of calculation.  Ask in class.)
 \item Weighted least squares:  Do a model of income/RUNS vs 1/RUNS:
 \begin{itemize}
 \item  Save the residuals.  Check if they are hetroskadastic.
-\item Using the weighted regression feature in JMP, run this
-regression as a weighted regression.  You should get the exact same
+\item Use the ``weight ='' parameter in the lm() of R to run a
+weighted regression.  You should get the exact same 
 coefficients and standard errors.  If not, try it again using
 $1/RUNS^2$ as your weighting instead of $1/RUNS$.
 \item For a player who has an  of 100, how many more dollars would
@@ -91,8 +93,8 @@ he earn if he increased it to 101?  Give a confidence interval.
 \end{itemize}
 \item Bootstrap a simple regression.
 \begin{itemize}
-\item Do at least 10 bootstrap recalcuations of your estimate of
-slope.  From these compute a standard deviation.
+\item Use the bootstrap command to estimate the accuracy of the slope
+on the linear regression model for income vs runs.
 \item For a player who has an RUNS of 100, how many more dollars would
 he earn if he increased it to 101?  Give a confidence interval based
 on your bootstrap standard deviation.
