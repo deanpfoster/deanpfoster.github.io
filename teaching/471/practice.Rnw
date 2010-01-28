@@ -61,7 +61,7 @@ abline(loglog$coef)
 Now for the fun part--let's get the back to the original scale. 
 <<fig=TRUE>>=
 plot(x,y)
-lines(x,predict(loglog))
+lines(x,exp(predict(loglog)))
 @ 
 
 \end{itemize}
