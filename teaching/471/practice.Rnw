@@ -51,7 +51,7 @@ summary(lm(newy ~ newx))
 summary(lm(y ~ x,weights=1/x))
 @ 
 \item Log-log on log-log scale
-<<>>=
+<<fig=TRUE>>=
 logY = log(y)
 logX = log(x)
 loglog <- lm(logY ~ logX)
@@ -59,7 +59,7 @@ plot(logX, logY)
 abline(loglog$coef)
 @ 
 Now for the fun part--let's get the back to the original scale. 
-<<>>=
+<<fig=TRUE>>=
 plot(x,y)
 lines(x,predict(loglog))
 @ 
