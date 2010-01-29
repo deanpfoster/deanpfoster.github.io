@@ -1,6 +1,7 @@
 # To make remarks use the pound sign in fornt of the line
 # One more important thing -- R is case sensitive so be careful!
 
+
 # Asking for help -- just use the question mark and the name of the command 
 # or use the help() command
 ?read.table
@@ -15,12 +16,18 @@ ind<-1:10           # create a vector with the numbers 1 through 10
 x1<-rep(3,9)        # create a vector containing the number 3 -- 9 times
 x2<-rep(1:3,2)      # create a vector with the sequence 1,2,3 repeated twice
 x3<-c(1,2,3,4)      # create a vector with the numbers 1 2 3 4
-x4<-("big","gid","sig") # create a vector of strings
+x4<-c("big","gid","sig") # create a vector of strings
 
 x4[1]          # access the first element in the vector
 x4[-2]         # display all elements in this vector except the second one
 x2[1:2]        # display only the first and second elements in the vector
 x2[c(-1,-4)]   # display all the elements except for the first and fourth
+
+# Vectors can be used in arithmetic expressions, in which case the operations are performed
+# element by element.
+x1+2     # add 2 to each element in x1
+x3*3     # multiply each element in x3 by 3 
+sqrt(x3) # square-root each element in x4
 
 
 #####################################################################
@@ -53,13 +60,14 @@ sub.data<-data[ind,]
 sub.data
 
 
-# I would like to add some dates to the data set because it makes it more convenient..
-# months will contain the month that corresponds to each of the data points. 
-# Basically it is a vector containing the number 1 through 12, 10 times. 
-# For each of the 10 years we have each of the months 
+# I would like to add some dates to the data set because it's more
+# convenient.. months will contain the month that corresponds to each of 
+# the data points. Basically it is a vector containing the number 1 through
+# 12, 10 times. For each of the 10 years we have each of the months 
 months<-rep(1:12,10)
 
-# years is going to contain the year that corresponds to each of the data points.
+# years is going to contain the year that corresponds to each of the 
+# data points.
 years<-c(rep(1978,12),rep(1979,12),rep(1980,12),rep(1981,12),rep(1982,12),
 rep(1983,12),rep(1984,12),rep(1985,12),rep(1986,12),rep(1987,12))
 
@@ -85,7 +93,15 @@ market.sd^2
 market.var
 
 # now lets plot the time series
-plot(market[,"market.return"],type="l",ylab="Monthly Market Return")
+plot(market[,"market.return"],type="l",ylab="Monthly Market Return",col="red")
+
+# if you want the x-axis to make more sense...
+time<-seq(1978,1988,by=1/12)
+
+# just get rid of the last entery which 1988 (we only have data until the end of 1987)
+time<-time[-121]
+
+plot(time,market[,"market.return"],type="l",ylab="Monthly Market Return",col="red")
 
 # Upload the risk free return -- the return on 30-day US Treasury bills 
 # we will skip the first line since it is not really a header nor data
@@ -127,18 +143,23 @@ abline(a=results$coef[1],b=results$coef[2],col="red")
 summary(results)
 
 # add some diagnostic plots
+par(mfrow=c(2,2)) # take a look at all four plots on the same figure. Create a matrix of plots
 plot(results)
 
 
 # two more remarks that might be helpful...
 
 # lets say you want to exculde one row from the data set -- line 29 for example
-tmp.mrp<-mrp[-29,]
+tmp.market<-market[-29,]
 
 # if you want to create a binary variable which takes the values 1 and zero
 # for example a variable that takes the value one when the data corresponds
 # to October,1980 and zero otherwise
 
-bi.variable<-as.numeric(years==1980 & months==10)
+indicator.variable<-as.numeric(years==1980 & months==10)
+
+# if you want to locate which row corresponds to this date then..
+row.no<-which(years==1980 & months==10)
+market[row.no,]
 
 # Good luck! and you can always email for help. 
