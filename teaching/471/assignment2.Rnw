@@ -97,14 +97,9 @@ he earn if he increased it to 101?  Give a confidence interval.
 \end{itemize}
 \item Bootstrap a simple regression.
 \begin{itemize}
-<<<<<<< HEAD:teaching/471/assignment2.tex
-\item YEA!   R DOES THIS WELL!!!!  (FIX)
-\item Do at least 10 bootstrap recalcuations of your estimate of
-slope.  From these compute a standard deviation.
-=======
+\item YEA!   R DOES THIS WELL!!!!  See Sivan's code, or more details here.
 \item Use the bootstrap command to estimate the accuracy of the slope
 on the linear regression model for income vs runs.
->>>>>>> 35108a37e70e984a9ee12b4c7948bfe272fba8c1:teaching/471/assignment2.Rnw
 \item For a player who has an RUNS of 100, how many more dollars would
 he earn if he increased it to 101?  Give a confidence interval based
 on your bootstrap standard deviation.
