@@ -15,6 +15,8 @@ all_html: $(SOURCES:.Rnw=.tex.html)
 
 all_pdf: $(SOURCES:.Rnw=.pdf)
 
+all_R: $(SOURCES:.Rnw=.R)
+
 %.tex: %.Rnw
 	R CMD Sweave $^
 
