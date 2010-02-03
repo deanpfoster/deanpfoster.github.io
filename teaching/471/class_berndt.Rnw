@@ -48,38 +48,49 @@ market.raw <- market.ex + riskfree[-1]       # dump leading missing value
 The market and apple over time:
 
 <<echo=FALSE>>=
+
 apple.ex   <- Data[-1,"apple.excess"];                # fix time scale, since 1981
 apple.miss <- is.na(apple.ex)
 apple.ex   <- apple.ex[(!apple.miss)]
 market.ex <- market.ex[(!apple.miss)]
 time <- time[(!apple.miss)]
+
 @ 
 
 \noindent
 \hspace{-1.5in}
 <<fig=TRUE,width=4, height=4>>=
+
   plot(market.ex ~ time)
+
 @ 
 <<fig=TRUE,echo=FALSE,width=4, height=4>>=
+
 plot(apple.ex ~ time)
+
 @ 
 
 Apple vs Market:
 <<echo=FALSE,fig=TRUE,width=4, height=4 >>=
+
  plot(apple.ex ~ market.ex)
+
 @ 
 
 Summary statistics:
 <<echo=FALSE>>=
+
 summary(apple.ex)
 summary(market.ex)
 mean.apple <- mean(apple.ex)
 mean.market <- mean(market.ex)
 mean.apple
 mean.market
+
 @ 
 Portfolios:
 <<echo=FALSE>>=
+
 fraction <- .3
 port = fraction * apple.ex / mean.apple + (1 - fraction) * market.ex / mean.market
 summary(port)
@@ -88,6 +99,7 @@ summary(port)
 
 Variance plot:
 <<echo=FALSE>>=
+
 fractions <- seq(-1 , 2 , .01);
 mean.port <- 0 * fractions
 var.port <- 0 * fractions                                                
@@ -97,12 +109,20 @@ for(i in 1:(length(fractions)))
     mean.port[i] <- mean(portfolio)
     var.port[i] <- var(portfolio)
   }
+
+# samples <- sample(1:length(apple.ex)
+#    portfolio <- fractions[i] * apple.ex[samples] / mean.apple + (1 - fractions[i]) * market.ex[samples] / mean.market
+
+
 @ 
+
 
 THe mean should be constant:
 \centerline{%
 <<fig=TRUE,echo=FALSE,height=3, width=3>>=
+
   plot(fractions, mean.port,type="l")
+
 @ 
 }
 Example of white space rule!  THis is a useless graph!
@@ -112,17 +132,18 @@ But not the variance: (with blowup):
 \noindent
 \hspace{-1.5in}
 <<fig=TRUE,echo=FALSE,width=3,height=3>>=
+
   plot(fractions, var.port,type="l")
+
 @ 
 <<fig=TRUE,echo=FALSE,width=3,height=3>>=
+
   plot(fractions[(fractions < 1.1) & (fractions > .8)],
        var.port[(fractions < 1.1) & (fractions > .8)],
        xlab = "fraction",
        ylab = "var",
        type="l")
+
 @ 
-
-
-
 
 \end{document}
