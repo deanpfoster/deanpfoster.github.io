@@ -24,9 +24,80 @@
 
 \begin{document}
 \SweaveOpts{prefix.string=.figures/capm}
-\title{CAPM: Berndt discussion}
+\title{CAPM: Berndt CAPM}
 \author{Dean Foster}
 \maketitle
+
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Dice: who have done dice already?
+\item It will take you about one hour (including a less than one page write up). 
+\end{itemize}
+
+\section{Story: Pair programming}
+\begin{itemize}
+\item Mythical man month
+\item ``If you double the number of programmers the amount of time it
+takes doubles.'' Huh?
+\item Invention of {\em Extreme Programming.}  
+\begin{itemize}
+\item Always have working code
+\item Always modify working code to make it simplier
+\item Small changes and lots of testing
+\end{itemize}
+\item One Version is called {\em pair programming}
+\begin{itemize}
+\item Person who ``knows'' the code doesn't have the typewriter
+\item Person who ``knows'' the code can only make suggestions
+\item By the end of a day working together--the other person knows the code
+\end{itemize}
+\item Lots of experimental data on how effective pair programming is.
+Not as many controlled experiments as there should be.  Oh well.
+\end{itemize}
+
+\section{Class notes}
+
+\begin{itemize}
+\item  variance / sd
+\item variance vs covariance
+\item Pictures
+\item  variance formula for sums
+\item covariance of x with x is variance of x
+\end{itemize}
+
+\section{CAPM without risk free}
+\begin{itemize}
+\item  eq (2.5) $r_p = \sum w_j r_j$
+\item eq (2.6) variance formula
+\item suppose $w_j$ is small.  In other words, consider adding a small amount to an existing portfolio
+\item  how does r change
+\item how does variance change
+\item  if variances of two investments agree then r's must agree
+\item  Better: if variance of a $\le$ variance of b, then return of a $\le$ return b
+\item  But what if variances aren't equal?
+\end{itemize}
+\section{CAPM with risk free (scaling variances)}
+
+\begin{itemize}
+\item need to scale investments
+\item need to sell (borrow) something to finance new investment
+\item actual return is: $r_k -r_f$
+\item Now we can scale to get marginal variances to match
+\item  bingo: we have an equation describing returns vs marginal variance
+\item $(r_k -r_f)/s_{kp}$ is constant for all possible investments
+\item  a bounce per buck argument
+\end{itemize}
+\section{Using the market to set the constant}
+\begin{itemize}
+\item  equation holds if market
+\item  generates CAPM equation (2.16)
+\end{itemize}
+\section{Doing statistics}
+\begin{itemize}
+\item  regression view of equation
+\end{itemize}
 
 
 <<readdata, eval=TRUE, echo=FALSE>>=
@@ -97,6 +168,8 @@ for(i in 1:(length(fractions)))
 mean.port
 @ 
 
+\section{White space rule example! (mention feedback forms}
+
 THe mean should be constant:
 <<fig=TRUE>>=
   plot(fractions, mean.port)
@@ -110,7 +183,9 @@ Blowup:
   plot(fractions[(fractions < 1.1) & (fractions > .8)], var.port[(fractions < 1.1) & (fractions > .8)])
 @ 
 
+<<eval=FALSE>>=
 
+@ 
 
 
 \end{document}
