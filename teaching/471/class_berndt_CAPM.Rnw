@@ -31,7 +31,7 @@
 
 <<readdata, eval=TRUE, echo=FALSE>>=
 
-Data <- read.csv("monthly_finance.csv");  
+Data <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/monthly_finance.csv");  
 # the following will list names.  It is useful for debugging
 # names(Data)
 
