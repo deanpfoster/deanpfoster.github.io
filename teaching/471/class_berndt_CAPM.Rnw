@@ -129,12 +129,16 @@ time <- time[(!apple.miss)]
 @ 
 
 <<fig=TRUE>>=
+
 plot(apple.ex ~ time)
+
 @ 
 
 Apple vs Market:
 <<fig=TRUE>>=
+
  plot(apple.ex ~ market.ex)
+
 @ 
 
 Summary statistics:
@@ -156,6 +160,7 @@ summary(port)
 
 Variance plot:
 <<>>=
+
 fractions <- seq(-1 , 2 , .01);
 mean.port <- 0 * fractions
 var.port <- 0 * fractions                                                
@@ -166,6 +171,7 @@ for(i in 1:(length(fractions)))
     var.port[i] <- var(portfolio)
   }
 mean.port
+
 @ 
 
 \section{White space rule example! (mention feedback forms}
@@ -183,7 +189,31 @@ Blowup:
   plot(fractions[(fractions < 1.1) & (fractions > .8)], var.port[(fractions < 1.1) & (fractions > .8)])
 @ 
 
+Dean's version of the final code:
+
 <<eval=FALSE>>=
+
+fractions <- seq(-1 , 2 , .01);
+
+
+best <- rep(0,100)
+for(j in 1:100)
+  {
+    samples <- sample(1:length(apple.ex),replace=TRUE)
+    var.port <- 0 * fractions
+    apple.resample <- apple.ex[samples]
+    market.resample <- market.ex[samples]
+    for(i in 1:(length(fractions)))
+      {
+        portfolio <- fractions[i] * apple.resample / mean.apple + (1 - fractions[i]) * market.resample / mean.market
+        var.port[i] <- var(portfolio)
+      }
+    best[j] <- fractions[var.port == min(var.port)]
+  }
+hist(best)
+@ 
+
+
 
 @ 
 
