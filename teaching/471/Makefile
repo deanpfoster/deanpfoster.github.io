@@ -18,6 +18,9 @@ all_pdf: $(SOURCES:.Rnw=.pdf)
 %.tex: %.Rnw
 	R CMD Sweave $^
 
+%.R: %.Rnw
+	R CMD Stangle $^
+
 %.tex.html: %.tex
 	touch $@
 	rm $@
