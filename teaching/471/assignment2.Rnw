@@ -24,11 +24,7 @@ close to your fit.  Print both predictions on one graph.  (Model 2)
 \item Fit simple regressions to all of your dog legs and save the
 predictions.  Compute an average prediction (pred1 + pred2 + pred3 +
 pred4)/4.  Find a smooth that looks close to the average prediction.
-<<<<<<< HEAD:teaching/471/assignment2.tex
-Print both predictions on the same graph.  (FIX FOR R--USE SMOOTH / BANDWIDTH)
-=======
 Print both predictions on the same graph. (Model 3)
->>>>>>> 35108a37e70e984a9ee12b4c7948bfe272fba8c1:teaching/471/assignment2.Rnw
 \item Fit a 3rd degree polynomial to your data.  As usual, find a
 smooth that looks similar to your 3rd degree polynomial.  Print both
 predictions. (Model 4)
