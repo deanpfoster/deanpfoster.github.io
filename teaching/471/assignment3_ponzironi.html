@@ -47,20 +47,21 @@ VW you just created.  Now generate a plots of the whole time
 	      to come by silly indices like the DOW for long time
 	      series.)  What is the R-sqrd?   Impressive or not?
 	      </p>
-	 <li> Get both your time series plot and your regression up on
-	      screen at the same time.  Now use a brush to brush the
-	      points on the time series graph and watch what is
-	      happening on the regression graph.  Does it appear
-	      random?  To see this as a static graph, plot the
-	      residuals vs. time.  Do they appear as a shot-gun
-	      pattern?
+	 <li> This is time series data.  So one way to check if the
+residuals are independent is to simply see if they track each other.
+So convert your standard plot of residuals vs age45 to a "line" plot.
+This will connect successive residuals.  Does this appear random?  To
+check it, resample once the residuals once and replot.  Any
+difference?  (This isn't the best test--but it does show the
+signficant difference that indpendent residuals would have)
 	      </p>
 	 <li> Create a column of last years residuals.  (This is
 	      called lagging a variable.  You can do it in JMP by
 	      using a subscript of row-1.)  Plot last years residuals (X)
 	      vs. this years residuals (Y).  If they were independent you
 	      would not see any pattern at all.  Describe what you
-	      see.
+	      see.  (This shows the same science as the previous
+plots, but is more sensitive.)
 	      </p>
 	 <li> To fix this problem with the residuals, compute the
 	      difference of the log(VW).  (This generates a log
@@ -81,12 +82,12 @@ VW you just created.  Now generate a plots of the whole time
 	      generate a table that has differences in the log(VW) and
 	      differences in each of the age variables.  In about 30
 	      minutes you could do this in JMP by creating 80 new
-	      columns like dif(Age0,1), dif(Age1,1), etc.  Or you can
-	      do it much more "efficiently" by dumping it into a
-	      spread sheet, and doing it all at one time.  (Estimate
-	      time 45 minutes, but some have done it in less than 5
-		minutes.)  For those using R--this is your opertunity to show
-off--this should be easy to do.
+	      columns like dif(Age0,1), dif(Age1,1), etc.  BUT, we are
+in R now.  So it is a simple command there. Suppose D is your data
+frame, then D[-1,] doesn't have the first row.  Likewise D[-n,]
+doesn't have the last row if n is the number of rows.  So if you
+subtract these: DIF = D[-1,] - D[-n,] you now have a data.frame of
+differences.  
        </p>
 
        <ol type = a>
@@ -97,8 +98,7 @@ off--this should be easy to do.
 	      dif(age45) do the best?  What is
 	      the p-value for this variable?  Is it significant?
 	      </p>
-	 <li> Now let stepwise regression run to completion.  (For JMP
-users use the default settings, for R users, use the AIC=2 default
+	 <li> Now let stepwise regression run to completion.  (I.e. use the AIC=2 default
 setting.)  What is
 	      the best R-squared you can find?  You might as well use
 	      both the dif(age) variables, and the age
@@ -137,9 +137,9 @@ setting.)  What is
        cut out your graph and use it in class to communicate much of
        the point of your story.  You may want to put other graphs and
        discussions in an appendix.  Aim for less than 2 pages of
-       text.  The editor might decide to use only the first few
-       paragraphs of your story, so make sure you put your key points
-       early! 
+       text.  The editor might decide to use only the <a href="http://www.mielks.org/whatshappening/President_s_Goals/Public_Relations/08pr6.doc">
+       first few paragraphs</a> of your story, so make sure you put your key points
+       early!
        </p>
 
 
