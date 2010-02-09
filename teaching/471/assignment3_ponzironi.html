@@ -5,15 +5,12 @@
 <P>
 <CENTER><H1> Assignment on Ponzironi. (Individual) </H1></CENTER>
 <P>
-<P>
-<CENTER><H1> (This will change for this years class) </H1></CENTER>
-<P>
-
 <p>
 Write up the discussion question carefully.  The other questions can
 be answered in as minimal a fashion as you can.  You don't have to
 clean up graphs and output for any of the questions but the discussion
-question.
+question.  Of course, any graph worth printing is worth a sentence of
+discussion.  
 
 <IMG SRC="http://www.businessweek.com/2000/00_13/art13/a13mac64.gif",
 ALIGN="RIGHT" BORDER=0>
@@ -185,11 +182,44 @@ find it and give it to you in class.)
 bootstrap to understand several issues in portfolios.  First look at
 the <a href="class_berndt_CAPM.R">R code</a> from my lecture notes on
 <a href="class_berndt_CAPM.pdf"> Bernt</a> (This is my version of the
-pair programming I did with Sivan).
-   <li>
+pair programming I did with Sivan).  Let's start by looking at the
+classic CAPM:
+   <ol>
      <li> Sharp argues that a mean/SD is a nice thing to look at.
 Find the combination of Domino and Market which has the best mean/SD.
-     <li> Resample and rerun your analysis as a bootstrap.
+     <li> Resample and rerun your analysis as a bootstrap.  Does it
+seem that adding Domino's to a market prortfolio improves things?
+   </ol>
+Now let's figure out whether it makes sense to leverage the market.
+The question is, what fraction of your wealth should you put into the
+market?  Some argue for about 50%, others something like 100%-age.  I
+argue that you should have at least 100%, and since leverage is so
+expensive, you should have 100% exactly.  Let's see if that pans out.
+  <ol>
+    <li> In terms of CPI adjusted value, what does the long term
+growth rate of the market look like?  For this, you might want to use
+the cumprod command.  For example, to mutiply up the market returns
+use something like: cumprod(1 + MARKET).
+    <li> Now try different leverages between say 0 and 3 and see what
+the long term growth rate is for each of these.  Generate a plot of
+long term growth vs leverage amount.  (You need to make sure the rest
+of your money is in cash, so it should look something like cumprod(1 +
+leverage*(Market) + (1 - leverage)*RISKFREE - CPI).  What is the best
+growth rate?
+    <li> Pick a time frame, say 20 years, 50 years, our as much as we
+have data, say 80 years.  Resample and generate a new growth rate vs
+leverage curve.  Did the optimum change very much?
+    <li> Pick an amount of leverage that you think is a "good idea."
+Now resample many times and compute the final wealth of a portfolio
+that uses your choosen leverage.  At the same time compute the final
+wealth of the 100% market portfolio.  You now have lots of different
+worlds--in each world you have your final wealth under two different
+situations.  Plot these against each other?  Which looks better?
+Maybe take logs?  Which looks better?  (You might find it useful to
+add an abline(0,1) i.e. the 45% line.)  How often does your portfolio
+beat the market?
+  </ol>
+
 
 </ol>      
 
