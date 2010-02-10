@@ -5,20 +5,15 @@
 <P>
 <CENTER><H1> Assignment on Ponzironi. (Individual) </H1></CENTER>
 <P>
-<P>
-<CENTER><H1> (THis will change for this years class) </H1></CENTER>
-<P>
-
-
-
-(NOTE: email me if you can't find the data and I'll post it.  I was in
-a hurry when I put this together for this year.)
-
 <p>
 Write up the discussion question carefully.  The other questions can
 be answered in as minimal a fashion as you can.  You don't have to
 clean up graphs and output for any of the questions but the discussion
-question.
+question.  Of course, any graph worth printing is worth a sentence of
+discussion.  
+
+<IMG SRC="http://www.businessweek.com/2000/00_13/art13/a13mac64.gif",
+ALIGN="RIGHT" BORDER=0>
 
 <ol>
   <li> This problem will have you reanalyze Dent's data.  I will walk
@@ -49,20 +44,21 @@ VW you just created.  Now generate a plots of the whole time
 	      to come by silly indices like the DOW for long time
 	      series.)  What is the R-sqrd?   Impressive or not?
 	      </p>
-	 <li> Get both your time series plot and your regression up on
-	      screen at the same time.  Now use a brush to brush the
-	      points on the time series graph and watch what is
-	      happening on the regression graph.  Does it appear
-	      random?  To see this as a static graph, plot the
-	      residuals vs. time.  Do they appear as a shot-gun
-	      pattern?
+	 <li> This is time series data.  So one way to check if the
+residuals are independent is to simply see if they track each other.
+So convert your standard plot of residuals vs age45 to a "line" plot.
+This will connect successive residuals.  Does this appear random?  To
+check it, resample once the residuals once and replot.  Any
+difference?  (This isn't the best test--but it does show the
+signficant difference that indpendent residuals would have)
 	      </p>
 	 <li> Create a column of last years residuals.  (This is
 	      called lagging a variable.  You can do it in JMP by
 	      using a subscript of row-1.)  Plot last years residuals (X)
 	      vs. this years residuals (Y).  If they were independent you
 	      would not see any pattern at all.  Describe what you
-	      see.
+	      see.  (This shows the same science as the previous
+plots, but is more sensitive.)
 	      </p>
 	 <li> To fix this problem with the residuals, compute the
 	      difference of the log(VW).  (This generates a log
@@ -83,12 +79,12 @@ VW you just created.  Now generate a plots of the whole time
 	      generate a table that has differences in the log(VW) and
 	      differences in each of the age variables.  In about 30
 	      minutes you could do this in JMP by creating 80 new
-	      columns like dif(Age0,1), dif(Age1,1), etc.  Or you can
-	      do it much more "efficiently" by dumping it into a
-	      spread sheet, and doing it all at one time.  (Estimate
-	      time 45 minutes, but some have done it in less than 5
-		minutes.)  For those using R--this is your opertunity to show
-off--this should be easy to do.
+	      columns like dif(Age0,1), dif(Age1,1), etc.  BUT, we are
+in R now.  So it is a simple command there. Suppose D is your data
+frame, then D[-1,] doesn't have the first row.  Likewise D[-n,]
+doesn't have the last row if n is the number of rows.  So if you
+subtract these: DIF = D[-1,] - D[-n,] you now have a data.frame of
+differences.  
        </p>
 
        <ol type = a>
@@ -99,8 +95,7 @@ off--this should be easy to do.
 	      dif(age45) do the best?  What is
 	      the p-value for this variable?  Is it significant?
 	      </p>
-	 <li> Now let stepwise regression run to completion.  (For JMP
-users use the default settings, for R users, use the AIC=2 default
+	 <li> Now let stepwise regression run to completion.  (I.e. use the AIC=2 default
 setting.)  What is
 	      the best R-squared you can find?  You might as well use
 	      both the dif(age) variables, and the age
@@ -139,9 +134,9 @@ setting.)  What is
        cut out your graph and use it in class to communicate much of
        the point of your story.  You may want to put other graphs and
        discussions in an appendix.  Aim for less than 2 pages of
-       text.  The editor might decide to use only the first few
-       paragraphs of your story, so make sure you put your key points
-       early! 
+       text.  The editor might decide to use only the <a href="http://www.mielks.org/whatshappening/President_s_Goals/Public_Relations/08pr6.doc">
+       first few paragraphs</a> of your story, so make sure you put your key points
+       early!
        </p>
 
 
@@ -182,6 +177,49 @@ find it and give it to you in class.)
 	      seems to predict well.
        </ol>
        </p>
+
+<li> Bootstrap question: This question will walk you through using the
+bootstrap to understand several issues in portfolios.  First look at
+the <a href="class_berndt_CAPM.R">R code</a> from my lecture notes on
+<a href="class_berndt_CAPM.pdf"> Bernt</a> (This is my version of the
+pair programming I did with Sivan).  Let's start by looking at the
+classic CAPM:
+   <ol>
+     <li> Sharp argues that a mean/SD is a nice thing to look at.
+Find the combination of Domino and Market which has the best mean/SD.
+     <li> Resample and rerun your analysis as a bootstrap.  Does it
+seem that adding Domino's to a market prortfolio improves things?
+   </ol>
+Now let's figure out whether it makes sense to leverage the market.
+The question is, what fraction of your wealth should you put into the
+market?  Some argue for about 50%, others something like 100%-age.  I
+argue that you should have at least 100%, and since leverage is so
+expensive, you should have 100% exactly.  Let's see if that pans out.
+  <ol>
+    <li> In terms of CPI adjusted value, what does the long term
+growth rate of the market look like?  For this, you might want to use
+the cumprod command.  For example, to mutiply up the market returns
+use something like: cumprod(1 + MARKET).
+    <li> Now try different leverages between say 0 and 3 and see what
+the long term growth rate is for each of these.  Generate a plot of
+long term growth vs leverage amount.  (You need to make sure the rest
+of your money is in cash, so it should look something like cumprod(1 +
+leverage*(Market) + (1 - leverage)*RISKFREE - CPI).  What is the best
+growth rate?
+    <li> Pick a time frame, say 20 years, 50 years, our as much as we
+have data, say 80 years.  Resample and generate a new growth rate vs
+leverage curve.  Did the optimum change very much?
+    <li> Pick an amount of leverage that you think is a "good idea."
+Now resample many times and compute the final wealth of a portfolio
+that uses your choosen leverage.  At the same time compute the final
+wealth of the 100% market portfolio.  You now have lots of different
+worlds--in each world you have your final wealth under two different
+situations.  Plot these against each other?  Which looks better?
+Maybe take logs?  Which looks better?  (You might find it useful to
+add an abline(0,1) i.e. the 45% line.)  How often does your portfolio
+beat the market?
+  </ol>
+
 
 </ol>      
 

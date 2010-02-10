@@ -32,7 +32,7 @@ lines(time,y.pred,col="red",lwd=2)
 # we want to fit cubic splines -- just square the splines
 square.spline<-lm.data[,"spline"]^2
 cubic.lm.data<-cbind(lm.data,square.spline)
-cubic.lm.res=lm(temp~time+spline+square.spline,data=cubic.lm.data)
+cubic.lm.res=lm(temp~time+square.spline,data=cubic.lm.data)
 
 # add the fitted line to the plot
 lines(time,cubic.lm.res$fitted,col="orange",lwd=2)
@@ -41,17 +41,18 @@ lines(time,cubic.lm.res$fitted,col="orange",lwd=2)
 # span is the parameter that controls how smooth is the curve
 # smaller values of span will make the line more wiggly and higher
 # values will make the line more straight.
-lines(loess.smooth(time,temp,span=0.3),col="blue",lwd=2)
+lines(loess.smooth(time,temp,span=0.3),col="purple",lwd=2)
 
 # fit a 3-degree polynomial
 poly.fit<-lm(temp~poly(time,degree=3,raw=TRUE))
 
 # add the line of predictions
-lines(time,poly.fit$fitted,col="purple",lwd=2)
+lines(time,poly.fit$fitted,col="red",lwd=2)
 
 # add a legend to the plot so it will be more readable
-legend(x=1650,y=0.4,c("Spline Fit","Cubic Spline Fit","Smooth Fit","Polynomial Fit"),
-lwd=2,col=c("red","orange","blue","purple"))
+legend(x=1650,y=0.4,c("Spline Fit","Cubic Spline Fit","Smooth Fit",
+"Polynomial Fit"),
+lwd=2,col=c("red","orange","purple","red"))
 
 
 
@@ -73,8 +74,14 @@ lm.res=lm(temp~time,data=lm.data,weights=1/time^2)
 
 # now for boostrap
 
+# this is the original linear model
+lm.res=lm(temp~time+spline,data=lm.data)
+
+
 # number of boostrap samples
 n.boot<-1000
+
+# number of rows in each bootstrap is the same as the original sample number of rows
 n.rows<-dim(lm.data)[1]
 
 # we are going to keep the beta from each of the boostraps
@@ -82,9 +89,11 @@ bootstrap.beta<-rep(NA, n.boot)
 
 
 for(i in 1:n.boot){
-ind<-sample(1:n.rows,n.rows,replace = TRUE) # you sample the row numbers with replacement
+ind<-sample(1:n.rows,n.rows,replace = TRUE) # you sample the row 
+#numbers with replacement
 boot.data<-lm.data[ind,] # this is the boostrap sample
-boot.lm.res=lm(temp~time+spline,data=boot.data) # run the regression with this data
+ # run the regression with this data
+boot.lm.res=lm(temp~time+spline,data=boot.data)
 bootstrap.beta[i]<-boot.lm.res$coef[2]  # you only need the slope of "time"
 }
 
@@ -94,10 +103,12 @@ hist(bootstrap.beta,breaks=100)
 
 # you want the 95% confidence interval
 
-lower.value<-bootstrap.beta[0.025*n.boot]
-upper.value<-bootstrap.beta[0.975*n.boot]
+# compute the sd of the boostrapped betas and that the estimated SE
 
-lower.value
-upper.value
+se.beta<-sd(bootstrap.beta)
+
+# compute lower and upper confidence values
+upper.conf<-lm.res$coef[2]+se.beta*qnorm(0.975)
+lower.conf<-lm.res$coef[2]+se.beta*qnorm(0.025)
 
 

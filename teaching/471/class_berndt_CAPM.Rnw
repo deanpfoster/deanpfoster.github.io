@@ -100,120 +100,231 @@ Not as many controlled experiments as there should be.  Oh well.
 \end{itemize}
 
 
+
+\section*{Domino Sugar: a bootstrapping example}
+
+Domino Sugar was one of the original 12 companies in the DOW.  So
+let's track it over time to get a feel for what a long series looks
+like.  This also removes most issues of selection bias since we could
+only pick one company out of 12 total instead of 1 out of 5000 current
+companies and then working backwards.
+
 <<readdata, eval=TRUE, echo=FALSE>>=
 
-Data <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/monthly_finance.csv");  
+#    ##########################################################
+#    #
+#    # Reading the files locally if you have them downloaded
+#    #
+#    ##########################################################
+#
+#    sugar <- read.csv("domino_sugar.csv");  
+#    tbills <- read.csv("tbills-inflation.csv");  
+#
+#    ##########################################################
+#    #
+#    # Reading the web. 
+#    #
+#    ##########################################################
+
+     sugar  <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv");  
+     tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
+
+@ 
+ 
+Now for some black magic: Let's merge these two data files together.
+<<>>=
+
+both <- merge(sugar,tbills,by.x="DATE",by.y="caldt")
+sugar[1:10,]
+tbills[1:10,]
+both[1:10,]
+
+@ 
+
+Now to make up our variables:
+<<>>=
+
 # the following will list names.  It is useful for debugging
 # names(Data)
 
-time       <- Data[-1,"Year"]
-market.ex  <- Data[-1,"Excess.Return..S.P.500"]       # dump leading missing value
-riskfree <-  Data$t30ret
-riskfree.cum <- cumprod(1 + riskfree[-1])
-market.raw <- market.ex + riskfree[-1]       # dump leading missing value
+time       <- both$DATE
+market     <- both$vwretd       # dump leading missing value
+riskfree   <- both$t30ret
+domino     <- both$RET                # fix time scale, since 1981
+cpi        <- both$cpiret
+market.ex  <- market - riskfree
+domino.ex  <- domino - riskfree
 
 @ 
 
-The market over time:
-<<fig=TRUE>>=
-  plot(market.ex ~ time)
-@ 
+Classic CAPM plot:
+<<echo=FALSE,fig=TRUE,width=4, height=4 >>=
 
-Apple over time:
-<<>>=
-apple.ex   <- Data[-1,"apple.excess"];                # fix time scale, since 1981
-apple.miss <- is.na(apple.ex)
-apple.ex   <- apple.ex[(!apple.miss)]
-market.ex <- market.ex[(!apple.miss)]
-time <- time[(!apple.miss)]
-@ 
-
-<<fig=TRUE>>=
-
-plot(apple.ex ~ time)
-
-@ 
-
-Apple vs Market:
-<<fig=TRUE>>=
-
- plot(apple.ex ~ market.ex)
+ plot(domino.ex ~ market.ex)
 
 @ 
 
 Summary statistics:
-<<>>=
-summary(apple.ex)
-summary(market.ex)
-mean.apple <- mean(apple.ex)
-mean.market <- mean(market.ex)
-mean.apple
-mean.market
+
+<<echo=FALSE>>=
+
+clean <- data.frame(time,  market = market.ex   ,  domino = domino.ex  ,  cpi)
+clean <- clean[!(is.na(clean$domino)),]
+clean <- clean[!(is.na(clean$market)),]
+
 @ 
 Portfolios:
-<<>>=
+<<echo=FALSE>>=
+
 fraction <- .3
-port = fraction * apple.ex / mean.apple + (1 - fraction) * market.ex / mean.market
-summary(port)
+portfolio = fraction * clean$domino / mean(clean$domino) + (1 - fraction) * clean$market / mean(clean$market)
+summary(portfolio)
 
 @ 
 
 Variance plot:
-<<>>=
+<<echo=FALSE>>=
 
 fractions <- seq(-1 , 2 , .01);
 mean.port <- 0 * fractions
 var.port <- 0 * fractions                                                
 for(i in 1:(length(fractions)))
   {
-    portfolio <- fractions[i] * apple.ex / mean.apple + (1 - fractions[i]) * market.ex / mean.market
-    mean.port[i] <- mean(portfolio)
-    var.port[i] <- var(portfolio)
+    portfolio = fractions[i] * clean$domino / mean(clean$domino) + (1 - fractions[i]) * clean$market / mean(clean$market)
+    mean.port[i] <- mean(portfolio,na.rm=TRUE)
+    var.port[i] <- var(portfolio,na.rm=TRUE)
   }
-mean.port
 
 @ 
 
-\section{White space rule example! (mention feedback forms}
 
 THe mean should be constant:
-<<fig=TRUE>>=
-  plot(fractions, mean.port)
+\centerline{%
+<<fig=TRUE,echo=FALSE,height=3, width=3>>=
+
+  plot(fractions, mean.port,type="l")
+
 @ 
-But not the variance:
-<<fig=TRUE>>=
-  plot(fractions, var.port)
-@ 
-Blowup:
-<<fig=TRUE>>=
-  plot(fractions[(fractions < 1.1) & (fractions > .8)], var.port[(fractions < 1.1) & (fractions > .8)])
+}
+(Example of white space rule!  This is a useless graph!)
+
+Some variances are better than others:
+
+\noindent
+\hspace{-1.5in}
+<<fig=TRUE,echo=FALSE,width=3,height=3>>=
+
+  plot(fractions, var.port,type="l")
+
 @ 
 
-Dean's version of the final code:
+So our ``optimum'' is at:
+<<echo=FALSE>>=
 
-<<eval=FALSE>>=
+opt.fraction <- fractions[var.port == min(var.port)]
+cat("Optimum point of original data: ", opt.fraction , "\n" );
 
+@ 
+
+But is the truely different than zero?  Let's use a bootstrap to tell.
+
+<<echo=TRUE>>=
+
+#####################################################################
+#
+# First define the parameters that will control our program
+#
+#####################################################################
 fractions <- seq(-1 , 2 , .01);
-
-
-best <- rep(0,100)
-for(j in 1:100)
-  {
-    samples <- sample(1:length(apple.ex),replace=TRUE)
+repeats <- 100
+num.rows <- dim(clean)[1]
+#####################################################################
+#
+# Now say where we will put the output
+#
+#####################################################################
+opt <- rep(0,repeats)
+#####################################################################
+#
+# Time for our actual bootstrap loop
+#
+#####################################################################
+for(j in 1:repeats)
+{
+    samples <- sample(1:num.rows,replace=TRUE)  # generate which rows to keep
+    boot <- clean[samples,]                     # collect those rows into data.frame called boot
+    #####################################################################
+    #
+    #   The following is the same we used before to compute the optimum
+    #
+    #####################################################################
+    mean.port <- 0 * fractions
     var.port <- 0 * fractions
-    apple.resample <- apple.ex[samples]
-    market.resample <- market.ex[samples]
     for(i in 1:(length(fractions)))
-      {
-        portfolio <- fractions[i] * apple.resample / mean.apple + (1 - fractions[i]) * market.resample / mean.market
-        var.port[i] <- var(portfolio)
-      }
-    best[j] <- fractions[var.port == min(var.port)]
-  }
-hist(best)
+     {
+       portfolio <- fractions[i] * boot$domino/mean(boot$domino) + (1 - fractions[i]) * boot$market / mean(boot$market)
+       mean.port[i] <- mean(portfolio,na.rm=TRUE)
+       var.port[i] <- var(portfolio,na.rm=TRUE)
+     }
+    opt[j] = fractions[var.port == min(var.port)]  # Collect up the output
+ }
 @ 
 
+Now we can see how much larger our bootstrap estimate is compared to
+our "true" estimate.  This is the same relationship we expect our
+estimator to have to the truth:
+  
+<<fig=TRUE>>=
+hist(opt - opt.fraction)
+@ 
 
+\section*{Figuring out what the optimum actually is}
+
+We can collect other statistics besides the optimum point. We could
+also compute the alpha of the bootstrap regression.  Here is the exact
+same code but now it collects up lots of other output.
+
+<<echo=FALSE,fig=TRUE>>=
+
+cat("Optimum point of original data: ",fractions[var.port == min(var.port)],"\n")
+fractions <- seq(0 , 1.2 , .001);
+repeats <- 100
+results <- data.frame(row.names=1:100)
+for(j in 1:repeats)
+{
+    samples <- sample(1:(dim(clean)[1]),replace=TRUE)
+    mean.port <- 0 * fractions
+    var.port <- 0 * fractions
+    boot <- clean[samples,]
+    for(i in 1:(length(fractions)))
+     {
+       portfolio <- fractions[i] * boot$domino/mean(boot$domino) + (1 - fractions[i]) * boot$market / mean(boot$market)
+       mean.port[i] <- mean(portfolio,na.rm=TRUE)
+       var.port[i] <- var(portfolio,na.rm=TRUE)
+     }
+  results$opt[[j]] = fractions[var.port == min(var.port)]
+# Other statistics
+  results$Vd[[j]] = var(boot$domino / mean(boot$domino))
+  results$Vm[[j]] = var(boot$market / mean(boot$market))
+  results$C[[j]] = cov(boot$domino / mean(boot$domino), boot$market / mean(boot$market))
+ }
+hist(results$opt)
+
+@ 
+
+Now we can play around with the results data.frame as much as we
+like.  So the ``best'' column is an aproximation to what fraction you
+should put into the stock.  This is seen by the following plot almost
+being a straight line:
+<<optBest,fig=TRUE>>=
+# d(var.port)/d(fraction) = d(p^2 Vd + 2 C p (1-p) + (1-p)^2 VM)/dp
+#                         = 2 p Vd + 2(1 - 2p) C  - 2(1-p) VM
+#                       0 = 2 p Vd + 2 C - 4p C  - 2 Vm + 2 p Vm
+#                       0 = 2p(Vd - 2 C + Vm) + 2(C - VM)
+#                       p = (VM - C)/(VD - 2 C + VM)
+results$best =  (results$Vm - results$C)/(results$Vd - 2 *results$C + results$Vm)
+
+plot(results$opt ~ results$best)
 
 @ 
 
