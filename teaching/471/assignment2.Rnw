@@ -86,7 +86,7 @@ this isn't easy--it will take a bit of calculation.  Ask in class.)
 \item  Save the residuals.  Check if they are hetroskadastic.
 \item Use the ``weight ='' parameter in the lm() of R to run a
 weighted regression.  You should get the exact same 
-coefficients and standard errors.  If not, try it again using
+coefficients and standard errors as you got in the income/RUNS model.  If not, try it again using
 $1/RUNS^2$ as your weighting instead of $1/RUNS$.
 \item For a player who has an  of 100, how many more dollars would
 he earn if he increased it to 101?  Give a confidence interval. 
