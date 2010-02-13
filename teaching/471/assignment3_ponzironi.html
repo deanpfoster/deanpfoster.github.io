@@ -30,8 +30,8 @@ link</a>).  The data can be downloaded
        <ol type=a>
 	 <li> Generate a plot that matches the business week plot as
 	      well as possible.  (i.e. use as close to the same years
-	      as he uses.)  Use the VW (which is included in the
-dataset) instead of the DOW.  You will need to multiply the VW returns
+	      as he uses.)  Use the "returns" (which is included in the
+dataset) instead of the DOW.  You will need to multiply the RETURNS
 together to generate the VW series itself.  Then take the log of the
 VW you just created.  Now generate a plots of the whole time
 	      series.  Does his model seem to do well in the first
@@ -92,8 +92,9 @@ differences.
 	      predict the VW returns.  Run a stepwise regression of
 	      the VW returns on dif(age0), up to dif(age80).  Have it
 	      do one step and it will add a single variable.  Did
-	      dif(age45) do the best?  What is
-	      the p-value for this variable?  Is it significant?
+	      dif(age45) do the best?  What is the p-value for this
+              variable?  Is it significant? (I'll insert some code
+here eventually.  SO check back for hints on how to run step().
 	      </p>
 	 <li> Now let stepwise regression run to completion.  (I.e. use the AIC=2 default
 setting.)  What is
@@ -104,11 +105,11 @@ setting.)  What is
 	 <li> Possible it isn't just he population itself that
 	      matters, but interactions between different ages.  So
 	      generate a model that has all of the ages in it and all
-	      of the products between different ages in it.  (One way,
-	      to do this is to highlight all the ages and then use the
-	      macro button for "response surface".)  Change the
-	      p-value to enter to a small value and also change
-	      the p-value to leave.  Now run the model.  How high an
+	      of the products between different ages in it. You can
+use the magic of the formula by using "y ~ (age10+age11+age12)^2" to
+generate all the interactions for age10,11, and 12.   Switch the AIC
+to be 2*log(p) where p is the number of variables and interactions
+that could be in the model.  Now run the model.  How high an
 	      R-squared do you get?  Your final model should look
 	      pretty impressive in terms of t-statistics.  Is this the
 	      case?  But, are your p-values impressive from a
@@ -206,8 +207,8 @@ long term growth vs leverage amount.  (You need to make sure the rest
 of your money is in cash, so it should look something like cumprod(1 +
 leverage*(Market) + (1 - leverage)*RISKFREE - CPI).  What is the best
 growth rate?
-    <li> Pick a time frame, say 20 years, 50 years, our as much as we
-have data, say 80 years.  Resample and generate a new growth rate vs
+    <li> Pick a time frame, say 20 years, 50 years, or as much as we
+have data, say 80 years.  Resample (once) and generate a new growth rate vs
 leverage curve.  Did the optimum change very much?
     <li> Pick an amount of leverage that you think is a "good idea."
 Now resample many times and compute the final wealth of a portfolio
