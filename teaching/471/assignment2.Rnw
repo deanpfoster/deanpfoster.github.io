@@ -4,8 +4,9 @@
 \title{Assignment 2: Computer exercises}
 
 These exercises are to show you computer techniques.  Do simple prints
- to confirm that they worked for you.  Give us your
- R script also.  Look at the help file Sivan created for suggestions
+ to confirm that they worked for you and short write ups.  So no
+detailed descriptions, but a sentence here and there is nice.  (Include your
+ R script.)  Look at the help file Sivan created for suggestions
  on R commands.  (\href{homework_2_help.R}{.R})
 
 \begin{enumerate}
