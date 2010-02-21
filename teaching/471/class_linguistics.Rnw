@@ -206,17 +206,24 @@ federal$freq.c   <- c(lapply(federal$words,function(t){sum(t == "<c>")}),recursi
 federal$freq.of  <- c(lapply(federal$words,function(t){sum(t == "of")}),recursive=TRUE) / federal$num.words
 federal$freq.to  <- c(lapply(federal$words,function(t){sum(t == "to")}),recursive=TRUE) / federal$num.words
 federal$freq.p   <- c(lapply(federal$words,function(t){sum(t == "<p>")}),recursive=TRUE) / federal$num.words
+federal$freq.and <- c(lapply(federal$words,function(t){sum(t == "and")}),recursive=TRUE) / federal$num.words
+federal$freq.in  <- c(lapply(federal$words,function(t){sum(t == "in")}),recursive=TRUE) / federal$num.words
+federal$freq.a   <- c(lapply(federal$words,function(t){sum(t == "a")}),recursive=TRUE) / federal$num.words
+federal$freq.be  <- c(lapply(federal$words,function(t){sum(t == "be")}),recursive=TRUE) / federal$num.words
 @ 
 
 <<results=tex>>=
 xtable(summary(lm(training01 ~ num.words + 
                         freq.the  + freq.c + freq.of + freq.to + freq.p,
                         data=federal)))
-
 @ 
 
-
-
+Or with lots of variables
+<<results=tex>>=
+xtable(summary(lm(training01 ~ num.words + 
+                        freq.the  + freq.of + freq.to + freq.and + freq.in + freq.a + freq.be,
+                        data=federal)))
+@ 
 
 
 \end{document}
