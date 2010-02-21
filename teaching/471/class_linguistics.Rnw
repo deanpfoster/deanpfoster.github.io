@@ -124,8 +124,7 @@ articles will use them differently based on topic
 Let's replicate some of this work:
 
 <<reading in data>>=
-x <- read.csv("/home/foster/public_html/teaching/471/federal_clean.csv",header=FALSE)
-names(x) <- c("number","author","text")
+x <- read.csv("federalist.csv",header=FALSE)
 @ 
 
 
