@@ -122,7 +122,7 @@ articles will use them differently based on topic
 \subsection*{Methodolgy}
 
 Counting words:
-
+linguistics
 
 
 
