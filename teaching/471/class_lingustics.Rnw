@@ -1,0 +1,132 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+
+\title{Class: Lingustics introduction}
+\maketitle
+(\href{class_lingustics.pdf}{pdf version})
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item R-weave introduction after class
+\end{itemize}
+
+\section*{Story time: Colorless green ideas sleep furiously.}
+
+\subsection*{Noam Chomsky}
+\begin{itemize}
+\item Studied at U Penn
+\item Works at MIT
+\item writes more than anyone else in the world!  
+\item Most cited author (alive) (Only 7th when he dies: Marx, Lenin,
+ Shakespere, Aristotal, God, Plato, Freud)
+\end{itemize}
+
+\subsection*{Mitch Marcus}
+\begin{itemize}
+\item Studied at MIT
+\item Works at Penn
+\item Almost never writes papers--but still was president of
+Lingustics society?  How?  His students!
+\end{itemize}
+
+\subsection*{The two aproaches}
+\begin{itemize}
+\item Chomsky builds a huge computer program to process language
+\item Marcus builds a trivial statistical model
+\item Chomsky ruled lingustics for 40 years (1950 - 1990)
+\item Variations of Marcus' statistical models now are used:
+\begin{itemize}
+\item IBM's speech understanding system
+\item Best parsers in the world
+\item my current research
+\end{itemize}
+\end{itemize}
+
+\section*{Todays Topic: Lingustic data analysis}
+
+\subsection*{Classical statistics is numbers}
+\begin{itemize}
+\item Originally we coded Men = 1, women = 0
+\item Then we coded Men = ``M'' and women = ``W''
+\item more recently we started: listing company = ``Evil empire'', owner = ``Bill Gates''
+\item More and more lingustic like data
+\item We can have whole paragraphs in data files now
+\begin{itemize}
+\item Medical records have human diagnostics attached
+\item Billing records have transripts of previous exchanges
+\item Purchase patterns have comments on who purchased what
+\item reputation isn't just measured in ``stars'' but also in short sentences
+\end{itemize}
+\end{itemize}
+
+\subsection*{Sample problems}
+\begin{itemize}
+\item Big problems
+\begin{itemize}
+\item machine translation
+\item Google queries
+\item machine reading (i.e. language understanding)
+\item author identification
+\end{itemize}
+\item Applications in science:
+\begin{itemize}
+\item finding related articles on a topic (MEDLINE)
+\end{itemize}
+\item Business applications:
+\begin{itemize}
+\item sentiment analysis 
+\item email sorting (filter email to billing vs. sales)
+\end{itemize}
+\end{itemize}
+
+\subsection*{How to get started}
+
+\begin{itemize}
+\item What can we do with statistics?
+\begin{itemize}
+\item we count
+\item we average
+\item We build probabilistic models
+\end{itemize}
+\item how can this help?
+\end{itemize}
+
+\subsection*{Example: author identification}
+
+(Frederick Mosteller and David L. Wallace. Inference and Disputed
+Authorship: The Federalist. Addison-Wesley, Reading, Mass., 1964.)
+
+\begin{itemize}
+\item Who wrote the federalist papers? (85 in all)
+\item Offical write: Publius
+\item Most likely though:
+\begin{itemize}
+\item Hamilton
+\item Madison
+\item Jay
+\end{itemize}
+\item Can't go by the ``ideas'' since many were new and so couldn't be
+realated to the individual authors
+\item Use of grammer and syntax! (Or more accurately word counts)
+\item Look at the distribution of words:
+\begin{itemize}
+\item Can't use ``freedom'' and ``government'' since the different
+articles will use them differently based on topic
+\item Can use ``the'', ``this'', ``that''!  
+\end{itemize}
+\end{itemize}
+
+\subsection*{Methodolgy}
+
+Counting words:
+
+
+
+
+
+
+
+\end{document}
