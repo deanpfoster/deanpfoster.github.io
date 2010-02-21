@@ -1,7 +1,17 @@
 \documentclass[14pt]{extarticle}
 \renewcommand{\baselinestretch}{1.2}
 \usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% defining some commands that I like:
+%
+%                       \dpf   \note    \DOC    \TESTING
+%
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.3,0,.5}
+\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
+\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+
 \begin{document}
+
 
 \title{Class: Lingustics introduction}
 \maketitle
@@ -121,12 +131,89 @@ articles will use them differently based on topic
 
 \subsection*{Methodolgy}
 
-Let's replicate some of this work:
-
+Let's replicate Mosteller and Wallace.  First we need to read in all
+the words:
 <<reading in data>>=
-x <- read.csv("federalist.csv",header=FALSE)
+federal <- read.csv("federalist.csv",header=TRUE)
+@ 
+\note{Notice: I spent an hour preprocessing this in an editor to make it a
+bit easier for R to deal with. So for example I put titles for the 3
+columns.}
+<<>>=
+names(federal)
+@ 
+Now let's use R to split this into ``words.''  There are smarter ways
+of doing this, but for now we will do the most trivial:
+<<>>=
+federal$words <- strsplit(as.character(federal$text)," ")
+federal$num.words <- c(lapply(federal$words,length),recursive=TRUE)
+federal$num.char <- c(lapply(federal$text,nchar),recursive=TRUE)
+@ 
+To see what we have done, let's look at the 10th row:
+<<>>=
+federal$number[[10]]
+federal$author[[10]]
+federal$num.words[[10]]
+federal$words[[10]][1:40]
 @ 
 
+Now a messy way of generating a variable to do the regression on.
+  (I'm sure Sivan will have a better way.)  We know some of the
+ authors but we don't konw them all:
+
+<<>>=
+codes <- c(NA, "HAM", "mad")
+federal$training <- codes[1 + (federal$author == "HAMILTON") + 2 * (federal$author == "MADISON")]
+federal$training01 <- (federal$training == "HAM")
+@ 
+Now let's check that we have done something sensiable
+<<>>=
+federal[1:30,c("author","training","training01")]
+@ 
+
+Ok, finally we can try a trivial regression.  If we think like a
+statistician, about all we can do is count the number of charecters /
+words in the document.  THis isn't very predictive:
+<<results=tex>>=
+require("xtable")
+regr <- lm(training01 ~ num.words+num.char,data=federal)
+xtable(summary(regr))
+@ 
+Even knowing the R-squared is $\Sexpr{round(summary(regr)$r.squared,2)}$
+doesn't help.  So let's think like a linguistist:
+
+<<>>=
+all.words = c(federal$words,recursive=TRUE)
+counts = table(all.words)
+sort(counts[which(counts > 1600)])
+@ 
+
+So the most common words are:
+<<results=tex,echo=FALSE>>=
+pretty <- data.frame(sort(counts[which(counts > 1600)]))
+names(pretty) <- c("count")
+xtable(pretty)
+@ 
+
+<<>>=
+federal$freq.the <- c(lapply(federal$words,function(t){sum(t == "the")}),recursive=TRUE) / federal$num.words
+@ 
+
+We can repeat this for the other most common words.
+
+<<echo=FALSE>>=
+federal$freq.c   <- c(lapply(federal$words,function(t){sum(t == "<c>")}),recursive=TRUE) / federal$num.words
+federal$freq.of  <- c(lapply(federal$words,function(t){sum(t == "of")}),recursive=TRUE) / federal$num.words
+federal$freq.to  <- c(lapply(federal$words,function(t){sum(t == "to")}),recursive=TRUE) / federal$num.words
+federal$freq.p   <- c(lapply(federal$words,function(t){sum(t == "<p>")}),recursive=TRUE) / federal$num.words
+@ 
+
+<<results=tex>>=
+xtable(summary(lm(training01 ~ num.words + 
+                        freq.the  + freq.c + freq.of + freq.to + freq.p,
+                        data=federal)))
+
+@ 
 
 
 
