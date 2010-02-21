@@ -220,10 +220,13 @@ xtable(summary(lm(training01 ~ num.words +
 
 Or with lots of variables
 <<results=tex>>=
-xtable(summary(lm(training01 ~ num.words + 
+regr <- lm(training01 ~ num.words + 
                         freq.the  + freq.of + freq.to + freq.and + freq.in + freq.a + freq.be,
-                        data=federal)))
+                        data=federal)
+xtable(summary(regr))
 @ 
 
+Even knowing the R-squared is $\Sexpr{round(summary(regr)$r.squared,2)}$
+doesn't help.  So let's think like a linguistist:
 
 \end{document}
