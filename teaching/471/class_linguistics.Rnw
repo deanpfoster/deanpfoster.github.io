@@ -165,6 +165,7 @@ Now a messy way of generating a variable to do the regression on.
 codes <- c(NA, "HAM", "mad")
 federal$training <- codes[1 + (federal$author == "HAMILTON") + 2 * (federal$author == "MADISON")]
 federal$training01 <- (federal$training == "HAM")
+colors <- c("red","white","black","gray","blue")[federal$author]
 @ 
 Now let's check that we have done something sensiable
 <<>>=
@@ -213,12 +214,14 @@ federal$freq.be  <- c(lapply(federal$words,function(t){sum(t == "be")}),recursiv
 @ 
 
 <<results=tex>>=
-xtable(summary(lm(training01 ~ num.words + 
+regr <- lm(training01 ~ num.words + 
                         freq.the  + freq.c + freq.of + freq.to + freq.p,
-                        data=federal)))
+                        data=federal)
+xtable(summary(regr))
 @ 
-
-Or with lots of variables
+The R-squared has improved to
+$\Sexpr{round(summary(regr)$r.squared,2)}$. We seem to be on a
+roll--let's try a few more:
 <<results=tex>>=
 regr <- lm(training01 ~ num.words + 
                         freq.the  + freq.of + freq.to + freq.and + freq.in + freq.a + freq.be,
@@ -226,7 +229,11 @@ regr <- lm(training01 ~ num.words +
 xtable(summary(regr))
 @ 
 
-Even knowing the R-squared is $\Sexpr{round(summary(regr)$r.squared,2)}$
-doesn't help.  So let's think like a linguistist:
-
+Ah, now we hvae a respectable R-squared:
+$\Sexpr{round(summary(regr)$r.squared,2)}$.  Let's see how well it
+predicts. 
+<<fig=TRUE>>=
+predictions <- predict(regr,newdata=federal)
+plot(predictions ~ federal$number , pch=16 , col=colors)
+@ 
 \end{document}
