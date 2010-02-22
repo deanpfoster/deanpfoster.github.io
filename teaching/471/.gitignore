@@ -10,3 +10,6 @@ class_*.tex
 class_*.R
 practice.R
 assignment2.R
+.Rhistory
+sample.R
+sample.Rnw
