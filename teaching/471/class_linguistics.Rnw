@@ -111,12 +111,76 @@ Authorship: The Federalist. Addison-Wesley, Reading, Mass., 1964.)
 
 \begin{itemize}
 \item Who wrote the federalist papers? (85 in all)
-\item Offical write: Publius
+\item Offical writer: Publius
 \item Most likely though:
 \begin{itemize}
-\item Hamilton
+\item Hamilton:
+\begin{quotation}
+AFTER an unequivocal experience of the inefficacy of the
+ subsisting federal government, you are called upon to deliberate on
+ a new Constitution for the United States of America. The subject
+ speaks its own importance; comprehending in its consequences
+ nothing less than the existence of the UNION, the safety and welfare
+ of the parts of which it is composed, the fate of an empire in many
+ respects the most interesting in the world. It has been frequently
+ remarked that it seems to have been reserved to the people of this
+ country, by their conduct and example, to decide the important
+ question, whether societies of men are really capable or not of
+ establishing good government from reflection and choice, or whether
+ they are forever destined to depend for their political
+ constitutions on accident and force. If there be any truth in the
+ remark, the crisis at which we are arrived may with propriety be
+ regarded as the era in which that decision is to be made; and a
+ wrong election of the part we shall act may, in this view, deserve
+ to be considered as the general misfortune of mankind.
+\end{quotation}
 \item Madison
+\begin{quotation}
+AMONG the numerous advantages promised by a wellconstructed
+ Union, none deserves to be more accurately developed than its
+ tendency to break and control the violence of faction. The friend
+ of popular governments never finds himself so much alarmed for their
+ character and fate, as when he contemplates their propensity to this
+ dangerous vice. He will not fail, therefore, to set a due value on
+ any plan which, without violating the principles to which he is
+ attached, provides a proper cure for it. The instability,
+ injustice, and confusion introduced into the public councils, have,
+ in truth, been the mortal diseases under which popular governments
+ have everywhere perished; as they continue to be the favorite and
+ fruitful topics from which the adversaries to liberty derive their
+ most specious declamations. The valuable improvements made by the
+ American constitutions on the popular models, both ancient and
+ modern, cannot certainly be too much admired; but it would be an
+ unwarrantable partiality, to contend that they have as effectually
+ obviated the danger on this side, as was wished and expected.
+ Complaints are everywhere heard from our most considerate and
+ virtuous citizens, equally the friends of public and private faith,
+ and of public and personal liberty, that our governments are too
+ unstable, that the public good is disregarded in the conflicts of
+ rival parties, and that measures are too often decided, not
+ according to the rules of justice and the rights of the minor party,
+ but by the superior force of an interested and overbearing majority.
+ However anxiously we may wish that these complaints had no
+ foundation, the evidence, of known facts will not permit us to deny
+ that they are in some degree true. It will be found, indeed, on a
+ candid review of our situation, that some of the distresses under
+ which we labor have been erroneously charged on the operation of our
+ governments; but it will be found, at the same time, that other
+ causes will not alone account for many of our heaviest misfortunes;
+ and, particularly, for that prevailing and increasing distrust of
+ public engagements, and alarm for private rights, which are echoed
+ from one end of the continent to the other. These must be chiefly,
+ if not wholly, effects of the unsteadiness and injustice with which
+ a factious spirit has tainted our public administrations.
+\end{quotation}
 \item Jay
+\begin{quote}
+WHEN the people of America reflect that they are now called upon
+ to decide a question, which, in its consequences, must prove one of
+ the most important that ever engaged their attention, the propriety
+ of their taking a very comprehensive, as well as a very serious,
+ view of it, will be evident.
+\end{quote}
 \end{itemize}
 \item Can't go by the ``ideas'' since many were new and so couldn't be
 realated to the individual authors
@@ -128,6 +192,8 @@ articles will use them differently based on topic
 \item Can use ``the'', ``this'', ``that''!  
 \end{itemize}
 \end{itemize}
+
+
 
 \subsection*{Methodolgy}
 
