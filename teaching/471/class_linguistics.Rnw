@@ -9,6 +9,7 @@
 \usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.3,0,.5}
 \newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
 \newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+\SweaveOpts{prefix.string=.figures/linguistics}
 
 \begin{document}
 
@@ -351,11 +352,14 @@ bit of futzing we can figure out that 1 = Hamilton, etc.  So now we
 can make our predictions for each article.
 
 
-<<fig=TRUE,echo=FALSE>>=
+<<preds,include=FALSE,fig=TRUE,echo=FALSE>>=
 predictions <- predict(regr,newdata=federal)
 plot(predictions ~ federal$number , pch=16 , col=colors)
 abline(.5,0)
 @ 
+\begin{center}
+\includegraphics[width=3in]{.figures/linguistics-preds}
+\end{center}
 
 \newpage
 \section*{Other models}
