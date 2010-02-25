@@ -228,10 +228,25 @@ Maybe take logs?  Which looks better?  (You might find it useful to
 add an abline(0,1) i.e. the 45% line.)  How often does your portfolio
 beat the market?
   </ol>
-
-
 </ol>      
-
 <P>
+<CENTER><H2> Note on long run growth rates</H2></CENTER>
+There are several way so of computing the long run growth rate.  The
+BEST is to find what equivalent fixed growth rate would generate the
+same wealth at the end of the day.  So the formulat would be ln(W)/t
+if you start with 1 dollar and end up with W dollars after t time
+periods.  This is easy to compute using the computer--so it is a good
+answer.
+<p>
+If you are doing it by hand, or are playing around with portfolios,
+the above definition isn't easy to work with.  So we approximate it by
+E(r) - var(r)/2, where r is the one period return.  This will get
+almost the same answer as above.
+<p>
+Finally, with a bit of mathematics, we can see that the object we
+really care about is, E(ln(1+r)).  This suggest that if you have a
+string of returns you can use mean(log(1+r)) in R if you like.
+
+
 </BODY>
 </HTML>
