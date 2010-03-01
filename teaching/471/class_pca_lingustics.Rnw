@@ -82,18 +82,51 @@ correct this.
 
 \subsection*{Science aside}
 
-Relationship between blood presure and heart attacks
+Relationship between blood presure and heart attacks see
+(\href{blood_presure.pdf}{``Blood presure and long term Coranary heart
+disease...'', EHJ 2000})
 \begin{itemize}
 \item $Y$ = chance of death
 \item $X$ = blood presure
+\item Look at the data. There is a weak relationship in a plot of
+death rate with single cuff reading of blood presure.
+\item But looking at an average of 3 blood presure readings and you
+get a steeper relationship.
+\item So DON'T TAKE YOUR BLOOD PRESURE MORE THAN ONCE!!!  (just kidding.)
 \item What is the real relationship?
-\item A 50 point drop in blood presure
+\item A 50 point increase in blood presure will double your chance of
+death.
+\begin{itemize}
+\item 1/500 chance per year
+\item For reference, driving a car 100k miles is the same risk
+(2.8/100 million miles)
+\item Same as smoking 30 cigarette's a day
+\end{itemize}
+\item So rule of thumb: 1 pt blood presure = 1 cigarette/day = 1 mile
+walking less walking/day = 10 miles driving/day
 \end{itemize}
 
 
+\subsection*{Idea: distance to line in any direction}
 
+\begin{itemize}
+\item So, if you scale X and Y to make their errors correct, you can
+look for the distance to the line as your best fit
+\begin{itemize}
+\item For regression--X gets spread out.
+\item for errors in variables, X compressed, so steeper
+\end{itemize}
+\item This fit is called the First Principle Component
+\end{itemize}
 
+\subsection*{PCA}
 
+How do you describe a pancake?
+\begin{itemize}
+\item You need two diminsions to say where it is.
+\item These are the first two principle components
+\item In high diminsion, there are many
+\end{itemize}
 
 
 \subsection*{Methodolgy}
