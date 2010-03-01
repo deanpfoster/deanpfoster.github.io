@@ -128,7 +128,20 @@ How do you describe a pancake?
 \item In high diminsion, there are many
 \end{itemize}
 
+\subsection*{A PCA you have already seen}
+Consider all the stocks.  What is the thing that is close to every
+ stock?  Called the VW (aka ``the market.'')  You can actually do
+ this.  Grab 100s of stock returns and compute the PCA on them.  It
+ will look very close to the VW index itself.  (We used to do this in
+621--but not any longer.) 
 
+\subsection*{Ok, what about words?}
+
+Reduces the dimision greatly.  
+
+
+
+\newpage
 \subsection*{Methodolgy}
 
 Look at the .R file for details on how we read in the federalist
