@@ -80,6 +80,16 @@ correct this.
 \item $\hat{\beta} = \hat{\beta}_{ls} \frac{var(\hat{X})}{var(X)}$
 \end{itemize}
 
+\subsection*{Science aside}
+
+Relationship between blood presure and heart attacks
+\begin{itemize}
+\item $Y$ = chance of death
+\item $X$ = blood presure
+\item What is the real relationship?
+\item A 50 point drop in blood presure
+\end{itemize}
+
 
 
 
