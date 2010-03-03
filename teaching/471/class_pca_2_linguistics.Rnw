@@ -170,14 +170,14 @@ variables to our data.frame.
     federal[[my.name]] <- c(lapply(federal$words,function(t){sum(t == w)}),recursive=TRUE) / federal$num.words
   }
 
-variables <- c(11:85)
+few.variables <- c(11:85)
+variables <- c(11:200)
 pcs <- prcomp(federal[,variables])$rotation
-
-variable.S <- c(11:20)
-pc.S <- prcomp(federal[,variable.S])$rotation
 
 @ 
 \section*{The components themselves}
+
+The first PC (loadings):
 
 <<compoents,fig=TRUE>>=
 
@@ -186,6 +186,8 @@ colors <- c("red","white","black","gray","blue")[federal$author]
 plot(federal$pc1, pch=16 , col=colors)
 
 @ 
+
+The 2nd PC (loadings):
 
 <<compoent2,fig=TRUE>>=
 
@@ -196,9 +198,17 @@ plot(federal$pc2, pch=16 , col=colors)
 
 @ 
 
+The weights thesemves (PC1):
 <<loadings, fig=TRUE>>=
 
 plot(pcs[,1])
+
+@ 
+
+The weights thesemves (PC2):
+<<loadings, fig=TRUE>>=
+
+plot(pcs[,2])
 
 @ 
 
