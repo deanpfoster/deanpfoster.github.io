@@ -213,7 +213,10 @@ expensive, you should have 100% exactly.  Let's see if that pans out.
     <li> In terms of CPI adjusted value, what does the long term
 growth rate of the market look like?  For this, you might want to use
 the cumprod command.  For example, to mutiply up the market returns
-use something like: cumprod(1 + MARKET).
+use something like: cumprod(1 + MARKET).  (NOTE: there are several
+month missing around the 1980's and late 1990's, so the length of time
+you are running on isn't just 2010 - 1920 since there are so many
+missing points.) 
     <li> Now try different leverages between say 0 and 3 and see what
 the long term growth rate is for each of these.  Generate a plot of
 long term growth vs leverage amount.  (You need to make sure the rest
