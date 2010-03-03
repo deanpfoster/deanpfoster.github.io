@@ -33,6 +33,66 @@ principle components
 \item Higher dimistions?
 \end{itemize}
 
+\section*{Story: Regression to the mean}
+\begin{itemize}
+\item Stephen Stiegler (you may of heard of his father)
+\item ``The history of statistics in 1933.''
+\item Reviews book by Secrist
+\begin{itemize}
+\item Most winners lose in second round
+\item Good companies go bad
+\item Everything is falling apart
+\item We should do something about it!
+\item Moral decay!
+\end{itemize}
+\item Steve argues that this is a water shed year for statistics since
+this book was eveserated in two journals that are alive and kicking
+today.
+\item Idea called ``regression to the mean.''  Known to Galton
+\end{itemize}
+\section*{PCA's via regression}
+\subsection*{Wrong way regressions}
+
+Idea: slope = correlation * ratio of standard deviations
+
+So to turn a regression around, you keep the correlation the same,
+just change the ratio.  
+
+Very counter-intuitive
+
+\subsection*{Using it for PCA's}
+\begin{itemize}
+\item Suppose we want to find components $C$ for a dataset $X$
+\item Idea: if we had the first PCA, how would we use it?  We could
+estimate the $\beta$'s in the following useful regression:
+\begin{displaymath}
+X_{ij} = \beta_i C_j + \sigma \epsilon_{ij}
+\end{displaymath}
+NOTE: the $\epsilon$'s are IID, ``normal zero-one's''.
+\item But we don't know the first PCA.  No problem, suppose we knew
+the $\beta$'s.  Then we could use the regression equation to say that: 
+\begin{displaymath}
+C_{j} = \beta_i X_{ij} + \hbox{noise}
+\end{displaymath}
+There are many such equations.  Each is equaly accurate.  So use:
+\begin{displaymath}
+C_{j} = \frac{\sum_{i=1}^k \beta_i X_{ij}}{k}
+\end{displaymath}
+where $k$ is the number of $X$'s.
+\item Both easy!  So use ``fixed point idea.''  Just iterate.
+\end{itemize}
+
+\subsection*{What do we get?}
+
+\begin{itemize}
+\item We find a $C$ which is a linear combination of the $X$'s and it
+is close to all of them.  This is exactly what we want.
+\item We can now take ALL these residuals and repeat the process.
+This gets a 2nd principle component
+\item Continuing in this fashion we can get more and more.
+\end{itemize}
+
+
 \subsection*{Ok, what about words?}
 
 Reduces the dimision greatly.  
@@ -102,7 +162,7 @@ variables to our data.frame.
 
 <<pcs,echo=FALSE>>=
 
-  top.words <- counts[1:80,]
+  top.words <- counts[1:200,]
 
   for(w in as.character(top.words$words))
   {
@@ -111,16 +171,44 @@ variables to our data.frame.
   }
 
 variables <- c(11:85)
-pcs <- princomp(federal[,variables])$loadings
+pcs <- prcomp(federal[,variables])$rotation
+
+variable.S <- c(11:20)
+pc.S <- prcomp(federal[,variable.S])$rotation
 
 @ 
+\section*{The components themselves}
+
+<<compoents,fig=TRUE>>=
+
+federal$pc1 <- as.matrix(federal[,variables]) %*% pcs[,1]
+colors <- c("red","white","black","gray","blue")[federal$author]
+plot(federal$pc1, pch=16 , col=colors)
+
+@ 
+
+<<compoent2,fig=TRUE>>=
+
+federal$pc2 <- as.matrix(federal[,variables]) %*% pcs[,2]
+federal$pc3 <- as.matrix(federal[,variables]) %*% pcs[,3]
+colors <- c("red","white","black","gray","blue")[federal$author]
+plot(federal$pc2, pch=16 , col=colors)
+
+@ 
+
+<<loadings, fig=TRUE>>=
+
+plot(pcs[,1])
+
+@ 
+
+\section*{Predictions}
 
 Finally, let's predict using the first principle component:
 
 <<plotForecast,fig=TRUE>>=
 
 colors <- c("red","white","black","gray","blue")[federal$author]
-federal$pc1 <- as.matrix(federal[,variables]) %*% pcs[,1]
 regr <- lm(federal$training01 ~ federal$pc1)
 predictions <- predict(regr,newdata=federal)
 plot(predictions ~ federal$number , pch=16 , col=colors)
@@ -132,8 +220,6 @@ Or using the first 3 principle components:
 
 <<multipleRegression,fig=TRUE>>=
 
-federal$pc2 <- as.matrix(federal[,variables]) %*% pcs[,2]
-federal$pc3 <- as.matrix(federal[,variables]) %*% pcs[,3]
 regr <- lm(federal$training01 ~ federal$pc1 + federal$pc2 + federal$pc3)
 predictions <- predict(regr,newdata=federal)
 plot(predictions ~ federal$number , pch=16 , col=colors)
@@ -141,6 +227,25 @@ abline(.5,0)
 
 @ 
 
+<<multipleRegression,fig=TRUE>>=
+
+federal$pc4 <- as.matrix(federal[,variables]) %*% pcs[,4]
+federal$pc5 <- as.matrix(federal[,variables]) %*% pcs[,5]
+federal$pc6 <- as.matrix(federal[,variables]) %*% pcs[,6]
+federal$pc7 <- as.matrix(federal[,variables]) %*% pcs[,7]
+federal$pc8 <- as.matrix(federal[,variables]) %*% pcs[,8]
+federal$pc9 <- as.matrix(federal[,variables]) %*% pcs[,9]
+regr <- lm(federal$training01 ~ federal$pc1 + federal$pc2 + federal$pc3
+           +federal$pc4 + federal$pc5 + federal$pc6 +federal$pc7 + federal$pc8 + federal$pc9 )
+predictions <- predict(regr,newdata=federal)
+plot(predictions ~ federal$number , pch=16 , col=colors)
+abline(.5,0)
+
+@ 
+
+
+
+\section*{Why bother?}
 
 If we instead used all the variables, it would look something like:
 
@@ -153,5 +258,8 @@ plot(predictions ~ federal$number , pch=16 , col=colors)
 abline(.5,0)
 
 @ 
+
+So we have a disaster if we don't do PCA's!
+
 
 \end{document}
