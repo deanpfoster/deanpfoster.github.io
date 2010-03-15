@@ -6,10 +6,7 @@
 %
 %                       \dpf   \note    \DOC    \TESTING
 %
-\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.3,0,.5}
-\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
-\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
-\SweaveOpts{prefix.string=.figures/linguistics}
+\SweaveOpts{prefix.string=.figures/project}
 
 \begin{document}
 
