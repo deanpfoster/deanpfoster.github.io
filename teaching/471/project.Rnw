@@ -1,5 +1,4 @@
 \documentclass[14pt]{extarticle}
-\renewcommand{\baselinestretch}{1.2}
 \usepackage{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % defining some commands that I like:
@@ -25,7 +24,7 @@ The Project will consist of a sequence of deliverables:
 \end{itemize}
 Each will be discussed below
 
-\section*{Proposal}
+\section{Proposal}
 For the proposal, you need to do the following:
 \begin{itemize}
 \item Make a wave which has the members of your group on it (along
@@ -38,7 +37,7 @@ you might learn from your analysis and how you might analyse your
 data. 
 \end{itemize}
 
-\section*{Previous work (literature review)}
+\section{Previous work (literature review)}
 
 Look and see who has done work similar to your poposal.  Your goal is
 to find about 5 similar studies.  These might be from books, the web,
@@ -48,17 +47,17 @@ to fall in to the same traps that they fell into.
 At this point, you should also have found your data.  So provide
 summary statistics about your data set.
 
-\section*{Data analysis}
+\section{Data analysis}
 This is the easy part--it is just statistics!  Write up a discussion
 of what your data analysis consists of with graphs and tables.
 Basically this will become your appendix to your final paper.  So it
 is fine to discuss ``how'' you did stuff.  
 
-\section*{Presentation}
+\section{Presentation}
 You will give a 10 minute talk about your results.   (I'll discuss
 more details later.)
 
-\section*{Final paper}
+\section{Final paper}
 Write up your talk as a paper.   (Again, more details later.)
 
 \end{document}
