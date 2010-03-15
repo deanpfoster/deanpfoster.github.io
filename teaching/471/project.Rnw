@@ -1,0 +1,67 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% defining some commands that I like:
+%
+%                       \dpf   \note    \DOC    \TESTING
+%
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.3,0,.5}
+\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
+\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+\SweaveOpts{prefix.string=.figures/linguistics}
+
+\begin{document}
+
+
+\title{Final project}
+\maketitle
+(\href{project.pdf}{pdf version})
+
+The Project will consist of a sequence of deliverables:
+\begin{itemize}
+\item Proposal
+\item Summary of previous work
+\item Data analysis
+\item Presentation
+\item Final paper
+\end{itemize}
+Each will be discussed below
+
+\section*{Proposal}
+For the proposal, you need to do the following:
+\begin{itemize}
+\item Make a wave which has the members of your group on it (along
+with Sivan and Dean.)  Your group should have 2 or 3 people in it.  (If
+you can prove you are autistic, then you can work by yourself.)
+\item Write a one paragraph summary of what you would like to do for
+your project.
+\item Your summary should address where you expect to find data, what
+you might learn from your analysis and how you might analyse your
+data. 
+\end{itemize}
+
+\section*{Previous work (literature review)}
+
+Look and see who has done work similar to your poposal.  Your goal is
+to find about 5 similar studies.  These might be from books, the web,
+or papers.  The idea is to learn from their mistakes so you don't have
+to fall in to the same traps that they fell into.
+
+At this point, you should also have found your data.  So provide
+summary statistics about your data set.
+
+\section*{Data analysis}
+This is the easy part--it is just statistics!  Write up a discussion
+of what your data analysis consists of with graphs and tables.
+Basically this will become your appendix to your final paper.  So it
+is fine to discuss ``how'' you did stuff.  
+
+\section*{Presentation}
+You will give a 10 minute talk about your results.   (I'll discuss
+more details later.)
+
+\section*{Final paper}
+Write up your talk as a paper.   (Again, more details later.)
+
+\end{document}
