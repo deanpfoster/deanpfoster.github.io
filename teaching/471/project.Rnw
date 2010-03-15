@@ -15,14 +15,16 @@
 (\href{project.pdf}{pdf version})
 
 The Project will consist of a sequence of deliverables:
-\begin{itemize}
+\begin{enumerate}
 \item Proposal
 \item Summary of previous work
 \item Data analysis
 \item Presentation
 \item Final paper
-\end{itemize}
-Each will be discussed below
+\end{enumerate}
+Each will be discussed below.  I'll keep updating this file as I think
+of things to instruct you about and as people ask questions.  So check
+back here before you start each new piece of the project.
 
 \section{Proposal}
 For the proposal, you need to do the following:
