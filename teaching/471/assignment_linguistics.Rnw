@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\begin{document}
+\section*{Assignment 4: PCA's and lingustics}
+
+% (\href{assignment4.pdf}{pdf version})  the html is unreadable
+
+\begin{enumerate}
+
+\item This problem will have you compute some PCA's for the market.
+  We will first have to download the data.
+
+Here is your mission:
+\begin{enumerate}[step 1:]
+\item Log onto
+\href{http://wrds.wharton.upenn.edu/}{http://wrds.wharton.upenn.edu/},
+the Wharton data server.
+\item Go to the CRSP section. (This is data from Chicago).
+\item Read the blurb, but don't get too distracted.  We want the menu
+on the left here.  So pick the induces and deciles link.
+\item Now follow the monthly link to the actual data manufacturing page
+\item Grab data starting from 1925, grab all 10 deciles.  Tic the box
+to generate both returns and values.  Grab the
+value weighted return (with dividends).  Also grab the SP500 returns.
+Finally tell it to generate a csv file.
+\item Submit your request and you are off and running.  It should read
+easily into R.
+\item But while you are here, switch to the ``Treasury and inflation''
+menu and save some 30 day t-bills and inflation.
+\item Now merge these two data set together.  Check that the dates line up.
+\item Now correct each of the 10 deciles to reflect the 30day tbill.
+(I.e. create 10 new columns for which you have subtracted out the tbill.)
+\end{enumerate}
+Now that you have your data in a file, let's start analysing it.  (If
+you have problems with the above steps, send me an email and I can
+either provide you with help, or the actual data file.)
+\begin{enumerate}
+\item First confirm that this makes sense.  We know that the top
+deciles should look a lot like the SP500 since they are the 500 biggest
+stocks.  The question is, are the big stocks in Cap1ret or in
+Cap10ret?  So make a plot of both of these vs the SP500 returns.
+Which seems to match the SP500 better?  Read the documentation and
+confirm these are the big stocks.
+\item Now make a scatter plot matrix of all 10 deciles.  They are all
+highly correlated.  You can confirm this via brushing.
+\item Ask R to compute the principle components (prcomp).    Is
+this something you could buy?  (I.e. is there a constant term in it?)
+Play around with the ``center'' and ``scale'' function to end up with
+things you can buy.
+\item You now have 10 principle components that are tradable assets.
+Are any of them things you would want to buy?  Look at the means of
+each of them and test the hypothesis that their mean is zero.  Which
+look significant if any?  (Don't forget to use some sort of correction for
+your 10 tests.)
+\item The first principle component is what is driving most of the 10
+deciles.  So what is it exactly?  To understand it, run a regression
+of the 10 deciles (as X's) on this component (be sure to remove the
+intercept since we don't want it in the regression).  This will tell
+us how much weight each of the deciles correspond to in this principle
+component.  What does this component seem to be?  Does this justify it
+having a no-trivial return?
+\item Make a scatter-plot of your first few principle components.  Do
+they look different than the deciles?
+\end{enumerate}
+
+
+\item Lingustics:
+
+\end{enumerate}
+
+\end{document}
