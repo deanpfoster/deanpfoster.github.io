@@ -1,0 +1,97 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% defining some commands that I like:
+%
+%                       \dpf   \note    \DOC    \TESTING
+%
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.3,0,.5}
+\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
+\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+\SweaveOpts{prefix.string=.figures/linguistics}
+
+\begin{document}
+
+
+\title{Class: Rare counts}
+\maketitle
+(\href{class_lingustics_good_turing.pdf}{pdf version})
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Lingustics introduction after class wednesday
+\item Project proposals due Monday
+\end{itemize}
+
+\section{Story}
+\begin{itemize}
+\item Thomas Cover's compression scheme
+\begin{itemize}
+\item hirer undergrads and have them bet on the next letter
+\item Pay enough that they care
+\item They compress langauge really well!
+\item Best compression rate: about 90\% removal
+\item kinda expensive
+\end{itemize}
+\item Using LZ(W) for compression only shortens it by about 70\%
+(called ``redundency'')
+\item Million dollar prize for compressing WIKI by a factor of 10.  It
+would require understanding the entire wikipedia.
+\end{itemize}
+
+\section{Day 1: Colorless green ideas sleep furiously.}
+
+\begin{itemize}
+\item example of POS
+\item Describe \href{http://en.wikipedia.org/wiki/Hidden_Markov_model}{hidden markov model}
+\item Add more hidden states
+\item starts looking like a
+\href{http://en.wikipedia.org/wiki/Conditional_random_field}{conditional
+random field}.
+\item Yikes, it gets confusing, let's try another approach
+\end{itemize}
+
+\section{MLE}
+\begin{itemize}
+\item In previous stat classes, you learned that a ``good'' estimator
+for a fraction is $X/n$ where $X$ is the number of successes
+\begin{itemize}
+\item The SE is $\sqrt{p(1-p)/n}$
+\item But since we don't konw $p$, we use $\hat{p} = X/n$ instead
+\item So the ``SE'' is $\sqrt{\hat{p}(1-\hat{p})/n}$
+\end{itemize}
+\item But when $X$ is zero, we get less than desirable results:
+\begin{itemize}
+\item $\hat{p} = 0$
+\item SE = 0
+\item So it REALLY is zero!  (But this is wrong)
+\end{itemize}
+\end{itemize}
+\section{Better method: Confidence interval}
+\begin{itemize}
+\item If $X$ is zero, what values might $p$ be?  
+\begin{itemize}
+\item Clearly, $p=0$ is a good possiblity.  It generates an $X=0$ with
+``high'' probability.  (namely probablitiy = 1)
+\item Whereas $p=.5$ isn't a good possiblity since it generates $X=0$
+with probably  $2^{-n}$ which is really really small.
+\item But $p = 3/n$ isn't too bad.  It generates an acceptable chance
+of getting $X = 0$, namely $P(X=0)= (1-3/n)^n \approx (e^{-3/n})^n =
+e^{-3} \approx .05$.
+\item So, $p$'s between zero and $3/n$ can all generate an $X=0$ with
+resonability probability
+\end{itemize}
+\item So any estimator between 0 and $3/n$ is a good possibility.
+So, the largest is $3/n.$  Let's use that.
+\item But often, as many as 40\% of the words are ``unique'' and hence
+weren't seen before.
+\item So the probability of any one of them would be estimated at
+3/n.  Multiplying this by 40\%, and we assign a probability of 1.2 to
+the collection of ``unique'' words!  A bit high.
+\end{itemize}
+\section{Information thoeory}
+
+
+\end{document}
