@@ -16,7 +16,7 @@
 
 \title{Class: Rare counts}
 \maketitle
-(\href{class_lingustics_good_turing.pdf}{pdf version})
+(\href{class_linguistics_good_turing.pdf}{pdf version})
 
 \section{Admistrivia}
 
