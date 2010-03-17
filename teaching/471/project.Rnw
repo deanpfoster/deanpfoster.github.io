@@ -17,7 +17,7 @@
 The Project will consist of a sequence of deliverables:
 \begin{enumerate}
 \item Proposal
-\item Summary of previous work
+\item Literature review
 \item Data analysis
 \item Presentation
 \item Final paper
@@ -48,6 +48,8 @@ to fall in to the same traps that they fell into.
 
 At this point, you should also have found your data.  So provide
 summary statistics about your data set.
+
+I'll say more about what to turn in in a few days.
 
 \section{Data analysis}
 This is the easy part--it is just statistics!  Write up a discussion
