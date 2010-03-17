@@ -91,7 +91,82 @@ weren't seen before.
 3/n.  Multiplying this by 40\%, and we assign a probability of 1.2 to
 the collection of ``unique'' words!  A bit high.
 \end{itemize}
-\section{Information thoeory}
+\section{A model}
+
+Let $P(X_{ij}=1) = 1 - P(X_{ij}=0) = p_i$ be ``Bernulli''
+trials for each $i$.  We want to estimate the $p_i$.
+\begin{itemize}
+\item $i$ = word ``type''
+\item $j$ = word ``token''
+\item Define $M = $ number of different $p_i$'s.
+\item Define $N_i = \sum_{j} X_{ij}$
+\item Define $N$ as the maximal number possible
+\item Define $M_k =$ number of $i$'s which have exactly $N_i = k$.
+\item MLE: $\hat{p}_i = N_i/N$.  (Good if $N_i \gg 1$.  Say, $N_i >
+20$.)
+\item Problem: has problems if $N_i = 0$
+\item CI: $[0,3/N]$ is a 95\% CI for $p$ if $N_i = 0$.
+\item Problem: if 40\% are zero, then the total probability assigned
+to the ``zeros'' are 1.2.  Which is bigger than 1.  Oops.
+\end{itemize}
+
+\section{Information thoeory: LZ77}
+
+\begin{itemize}
+\item LW77, the first and pretty much ``best'' compression scheme
+(think edsil)
+\item Most find it too hard to program--so it hasn't been used as
+much.
+\item Gives location of previous match and how long a match it is.
+\item Theorem: (Lempel, Ziv, 77) LZ77 generates as short a code as any 
+finite state autatmata.
+\item NOTE: Not quite the same as: ``LZ77 generates as short a code as
+the best finite state autatmata.'' Since the best would just say,
+``use the wiki version 231.343.45 version.''
+\item But what if it has never see a word before? It can instead say,
+``NEW WORD.''  And then tell you what it is.
+\end{itemize}
+
+\section{``New'' word trick in statistics}
+\begin{itemize}
+\item Look at the last 1000 words.  What fraction were never seen
+before? Call this ``$\hat\nu$'' (=new, really bad pun).
+\item What is a good estimate of the next word being new? $\hat\nu$!
+\item There are a total of $M_0$ words types that haven't been seen
+before.
+\item Each of these are equally likely to be the missing word.
+\item So, $\hat{p}_i = \hat\nu/M_0$ if $N_i = 0$.
+\item What is a better $\hat\nu$ estimate?  Use all the data: $\hat\nu
+= M_1/M$.
+\item So, $\hat{p}_i = \frac{M_1/M}{M_0}$ if $N_i = 0$
+\end{itemize}
+
+\section{An ``almost new'' word trick}
+\begin{itemize}
+\item How about all those words we have only seen once?
+\item Look at the last 1000 words and estimate how many of them have
+come up, call this $\hat\nu$.
+\item Each of these are equally likely to be the missing word.
+\item So, $\hat{p}_i = \hat\nu/M_1$ if $N_i = 1$.
+\item What is a better $\hat\nu$ estimate?  Use all the data: $\hat\nu
+= M_2/M$. NO! Double bananas!
+\begin{quote}
+Story of 3 kids, a bunch of banana's and birth control.
+\end{quote}
+$\hat\nu = 2 M_2/M$.
+\item So, $\hat{p}_i = 2 \frac{M_2/M}{M_1}$ if $N_i = 1$
+\end{itemize}
+\section{You get the idea}
+\begin{itemize}
+\item General case: $\hat{p}_i = (k+1) \frac{M_{k+1}/M}{M_k}$ if $N_i = k$
+\item Called the Good-Turing estimator
+\item Mathematics model: $p_i \tilde \pi$ where $\pi$ is called the
+prior.  So $p_i$ is a random variable.  Then we want to estimate
+$E(p_i|X_i)$.  We do this by first estimating $\pi$ and then computing
+the conditional expectation.  Good-Turing showed that the resulting
+esimator is exactly as given above.
+\end{itemize}
+
 
 
 \end{document}
