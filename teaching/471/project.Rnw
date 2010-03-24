@@ -39,7 +39,7 @@ you might learn from your analysis and how you might analyse your
 data. 
 \end{itemize}
 
-\section{Previous work (literature review)}
+\section{Previous work (literature review) (due Mar 31)}
 
 Look and see who has done work similar to your poposal.  Your goal is
 to find about 5 similar studies.  These might be from books, the web,
@@ -63,7 +63,7 @@ that is coming along.
 \end{description}
 
 
-\section{Data analysis}
+\section{Data analysis (due Apr 12)}
 This is the easy part--it is just statistics!  Write up a discussion
 of what your data analysis consists of with graphs and tables.
 Basically this will become your appendix to your final paper.  So it
