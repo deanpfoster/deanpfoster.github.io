@@ -46,16 +46,30 @@ to find about 5 similar studies.  These might be from books, the web,
 or papers.  The idea is to learn from their mistakes so you don't have
 to fall in to the same traps that they fell into.
 
-At this point, you should also have found your data.  So provide
-summary statistics about your data set.
+At this point, you should also have found your data.
 
-I'll say more about what to turn in in a few days.
+\begin{description}
+\item[quotes] So I will have some idea what you have learned from each
+ of these sources, extract a useful quote from each source.  (Or
+ several quotes.)  Alternatively, a graph could be used.  Then provide
+ a citation for where you got the quote from.  If there isn't a good
+ quote to steal, then you will have to resort to writing your own
+ summary of what you learned.
+\item[Data] Show us a bit about what your data looks like.  For
+ example, show us summary statistics, means, variances, variable
+ names.  Feel free to attach the data file--but we won't look at it.
+If you are still in the process of collecting your data, tell us how
+that is coming along.
+\end{description}
+
 
 \section{Data analysis}
 This is the easy part--it is just statistics!  Write up a discussion
 of what your data analysis consists of with graphs and tables.
 Basically this will become your appendix to your final paper.  So it
-is fine to discuss ``how'' you did stuff.  
+is fine to discuss ``how'' you did stuff.  As usual, figures should
+have captions and be discussed.  Give us as little output as you feel
+is necessary to support your story.
 
 \section{Presentation}
 You will give a 10 minute talk about your results.   (I'll discuss
