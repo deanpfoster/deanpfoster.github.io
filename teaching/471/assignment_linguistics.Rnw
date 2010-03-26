@@ -88,7 +88,10 @@ but that would be ``cheating.''
 \item After you download it, you can read it into R with the scan
 command.  Or you can read it directly via the command:
 <<reading>>=
-alice <- scan("http://www.gutenberg.org/files/11/11.txt",what="character",quote="",skip=25)
+alice <- scan("http://www.gutenberg.org/files/11/11.txt",
+              what="character",
+              quote="",
+              skip=25)
 @ 
 This command reads the whole file in as a vector of ``words.''  If you
 try it without the \verb\quote=""\ it will read all the quoted material
@@ -96,7 +99,7 @@ as single words.  Probably not what we want.  The file starts with a
 blurb about this file not being copywrited--so we should skip the
 first 25 lines or so.
 \item First we will look at the frequency of the words themselves.
-\begin{enumerate}[Ziff step 1:]
+\begin{enumerate}[(i)]
 \item Using the table command get the counts of the various words.
   Now sort them by frequency.  What are the 10 most common words?  Are
  they significantly different than the 10 most common words in the
@@ -113,63 +116,75 @@ observation.
 federalist papers?  How about the wikipedia Ziff slope?  Is there a
 story here?
 \end{enumerate}
-\item Let's see how well you predict words compared to how well google
-predicts words.  
+\item I mentioned in class, that prediction and data compression are
+the same thing.  So this part will have you consider three different
+compression schemes: By hand, By ZIP, and by google-2-grams.
+Basically you will need to look at a sequence of words:
+\begin{quote}
+ ``I'm late! I'm late! For a very important \_\_\_\_''
+\end{quote}
+and fill in the missing word.  You will first do it by hand, and then
+by compression and finally by google.
 \begin{enumerate}[LZ 1:]
-\item First pick locations at random in the text.  First determine how
+\item First pick a location at random in the text.\footnote{Determine how
  many words there are and then generate a random index from 1 up to
- the last possible word.  Now print out the previous say 20 words or
+ the last possible word.}  Now print out the previous 20 words or
 so.  Write down several possible next words.  What probability do you
-give to each of these words?  Ok, look at which word actually occured?
-What probability did you give to this word? So
-for example, I choose the index
+give to each of these words?  Now, look at which word actually occured?
+What probability did you give to this word? 
+
+Here are the R commands to do an example.   Choose the index
 <<random>>=
 index <- round(runif(1)*24384)
 index
 @ 
-Then if we look at these words:
+Then look at the the preceeding words are:
 <<words>>=
-cat(alice[(index-10):(index-1)])
+cat(alice[(index-20):(index-11)],
+    "\n",
+    alice[(index-10):(index-1)])
 @ 
-For example what word do you think comes next in the above example? 
-In my random draw, the words were ``I'm late! I'm late! For a very
-important \_\_\_\_''.\footnote{For the purists, this actually doesn't
-occur in the original text--but only in the Disney version.}
-The problem is to fill in the missing word.  So one might guess the
-words: event, date, meeting, activity.  Now you give probabilities to
-each of these, say P(event) = .1, P(date) = .4, P(meeting) = .2,
-P(activity) = .1.  Note these probabilities don't add up to one since
-I should also have probabilities for other words that I haven't
-bothered to write down.  Now look and see the correct word is:
+Now guess the next word. The correct answer is:
 <<answer>>=
 alice[index]
 @ 
-For the example I'm using the correct word is ``date'' which I
-assigned a probability of $.4$.  Do this 10 times.  How often was one
-of the words you guessed the correct word?
+
+In the example I started with: ``I'm late! I'm late! For a very
+ important \_\_\_\_''.\footnote{For the purists, this actually doesn't
+ occur in the original text--but only in the Disney version.}  One
+ might guess the words: event, date, meeting, activity.  Now you give
+ probabilities to each of these, say P(event) = .1, P(date) = .4,
+ P(meeting) = .2, P(activity) = .1.  Note these probabilities don't
+ add up to one since I should also have probabilities for other words
+ that I haven't bothered to write down.  Now look and see the correct
+ word is.  For the example I'm using the correct word is
+ ``date'' which I assigned a probability of $.4$.  
+
+Repeat this with 10 different words.  How often was one of the words
+you guessed the correct word?  
 \item Compute the average of the log probabilities for your guesses.
 Assume that any time you missed the word altogether, you should have
 in fact used a longer list which eventually would have included the
 correct word.  So give yourself a probability of say, 1/24384 for that
 word.  The average of your log probabilities is called the
 ``entropy.'' Entropy is usually measured in ``bits'' which mean base
-2.  So use log base 2 for this step.
+2.  So use log base 2 for this step.\footnote{You can assign the base
+in R, or you can use the formula, $log_2(x) = log(x)/log(2)$.}
 \item Compare your entropy to the LZ compression scheme.  You can do
-this noting that the ZIP version is 59k bytes at Guttenberg.  What does your
-total entropy look like?  (Number of words times number average
-entropy per word.)
+ this noting that the ZIP version is 59k bytes at Guttenberg.  What
+ does your total entropy look like?  (Use the total number of words
+ times number average entropy per word as an estimate.)
 \item Now we want to make a prediction of the next word based on the
  \href{google}{goole} n-gram data set.  I have made up an easier set
  of data to work so you don't have to process those gigabytes of
  compressed data (look \href{easy_google}{here} for it.) First look up
  the previous word in the google 1-gram file.  For my example, it is
  ``important'' which occurs 119695314 times.  Now look up the actual
- word pair that occured in the 2-gram file.  For my example, it is
- ``important date'' which occured 35885 times.  So the probability is
- 35885/119695314, or about 1/3000.  So I did much better than google
- did.  (Yea, I cherry picked the quote by using one I had memorized.)
-  How does google do on your 10 words?  What entropy would it give to
- the entire file?
+ two-gram word pair that occured.  For my example, it is ``important
+ date'' which occured 35885 times.  So the probability is
+ 35885/119695314, or about 1/3000.  How does google do on forecasting
+the probability of the 10 words you came up with?  How would you
+estimate the entropy goolge would do for the entire file?
 \item (Bonus) Write a R script that will compute the log(probability)
 of each word based on the google 2-gram data set.  What is the final
 entropy?  Does it do better than LZ compression?
