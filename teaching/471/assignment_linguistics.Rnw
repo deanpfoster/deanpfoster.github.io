@@ -158,14 +158,17 @@ this noting that the ZIP version is 59k bytes at Guttenberg.  What does your
 total entropy look like?  (Number of words times number average
 entropy per word.)
 \item Now we want to make a prediction of the next word based on the
-google n-gram data set.  First look up the previous word in the google
-1-gram file.  For my example, it is ``important'' which occurs
-119695314 times.  Now look up the actual word pair that occured in the
-2-gram file.  For my example, it is ``important date'' which occured
-35885 times.  So the probability is 35885/119695314, or about 1/3000.
-So I did much better than google did.  (Yea, I cherry picked the quote
-by using one I had memorized.)  How does google do on your 10 words?
-What entropy would it give to the entire file?
+ \href{google}{goole} n-gram data set.  I have made up an easier set
+ of data to work so you don't have to process those gigabytes of
+ compressed data (look \href{easy_google}{here} for it.) First look up
+ the previous word in the google 1-gram file.  For my example, it is
+ ``important'' which occurs 119695314 times.  Now look up the actual
+ word pair that occured in the 2-gram file.  For my example, it is
+ ``important date'' which occured 35885 times.  So the probability is
+ 35885/119695314, or about 1/3000.  So I did much better than google
+ did.  (Yea, I cherry picked the quote by using one I had memorized.)
+  How does google do on your 10 words?  What entropy would it give to
+ the entire file?
 \item (Bonus) Write a R script that will compute the log(probability)
 of each word based on the google 2-gram data set.  What is the final
 entropy?  Does it do better than LZ compression?
