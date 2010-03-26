@@ -104,7 +104,7 @@ first 25 lines or so.
   Now sort them by frequency.  What are the 10 most common words?  Are
  they significantly different than the 10 most common words in the
  federalist papers?  Does this seem resonable?
-\item Now we will make the classic Ziff plot.  We want a plot of the
+\item Now we will make the classic Zipf plot.  We want a plot of the
 log of the frequency of the word (or just the log count) vs the log of
 the index of the word.
 \item Add a regression line to this plot.  Yikes!  It seems to miss
@@ -113,7 +113,7 @@ don't ``fit the line'' all that well and the last bunch.  So fit a
 line which uses something like the 10'th through the 1000'th
 observation.
 \item Is the slope you compute similar to the one computed for the
-federalist papers?  How about the wikipedia Ziff slope?  Is there a
+federalist papers?  How about the wikipedia Zipf slope?  Is there a
 story here?
 \end{enumerate}
 \item I mentioned in class, that prediction and data compression are
