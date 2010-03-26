@@ -87,11 +87,13 @@ but that would be ``cheating.''
 \item After you download it, you can read it into R with the scan
 command.  Or you can read it directly via the command:
 <<reading>>=
-alice <- scan("http://www.gutenberg.org/files/11/11.txt",what="character",quote="")
+alice <- scan("http://www.gutenberg.org/files/11/11.txt",what="character",quote="",skip=25)
 @ 
 This command reads the whole file in as a vector of ``words.''  If you
 try it without the \tty{quote=""} it will read all the quoted material
-as single words.  Probably not what we want.
+as single words.  Probably not what we want.  The file starts with a
+blurb about this file not being copywrited--so we should skip the
+first 25 lines or so.
 \item First we will look at the frequency of the words themselves.
 \begin{enumerate}[Ziff step 1:]
 \item Using the table command get the counts of the various words.
