@@ -1,253 +1,140 @@
-\documentclass[landscape]{slides}
-
-\RequirePackage[normalem]{ulem} %DIF PREAMBLE
-\usepackage{simplemargins,graphicx}
-\usepackage{amsmath}
-\setleftmargin{1in}
-\setrightmargin{-2.25in}
-\settopmargin{0.05in}
-\setbottommargin{3in}
-
-\author{{\bf Dean Foster}\\ University of Pennsylvania\\ $\quad$ \\ and \\
-$\quad$ \\ {\bf Sham
-Kakade} \\ TTI}
-\title{Regression and Calibration}
-\date{\today}
-
-\raggedright
-
-\usepackage{graphicx}
-\usepackage{amsmath}
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
-
-\usepackage{color}
-
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\usepackage{Sweave}
 \begin{document}
-\newcommand{\foilhead}[1]{\newpage\centerline{\color{red} \bf #1}}
 
+
+\title{Class: Calibration}
 \maketitle
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Two questions}
-
+There are several versions of notes for calibration:
 \begin{itemize}
-\item Why should Least squares regression predict the future? 
-\item Can one be calibrated?
+\item These notes as in a \href{class_calibration.pdf}{pdf version}.
+\item The R commands from this file
+\item Notes targeted at \href{calibration.pdf}{JMP}.
 \end{itemize}
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Least squares regression (1801)}
-\begin{itemize}
-\item In 1801 Ceres (an asteroid) was found for 3 month and then lost
-\item On reading this, Gauss used the 24 observations to predict where
-it could be found. 
-\item The search area is quadratic in accuracy
-\item Hence least squares regression was born
-\end{itemize}
-{\bf  Question:} Why should least squares on past data predict
-the future?
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Calibration: A form of unbiasedness (1992)}
-
-"Suppose in a long (conceptually infinite) sequence of weather
- forecasts, we look at all those days for which the forecast
- probability of precipitation was, say, close to some given value $p$
- and then determine the long run proportion $f$ of such days on which
- the forecast event (rain) in fact occurred.  If $f=p$ the forecaster
- may be termed well calibrated." Dawid [1982]
-
-A minimal condition for performance
-\begin{itemize}
-\item On sequence: 0 1 0 1 0 1 0 ...
-\item A constant forecast of .5 is calibrated
-\item A constant forecast of .6 is not calibrated
-\end{itemize}
-{\bf  Question:} Can calibration be guaranteed?
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Answering the regression question}
-\begin{itemize}
-\item Predict $y_t$ by $\hat{y}_t = \theta_t \cdot x_t$, using ridge
-regression.
-\begin{displaymath}
-\theta_t = \arg\min_\theta\sum_{i=1}^{t-1}\lVert\theta\cdot x_i-y_i\rVert^2 + \lVert\theta\rVert^2
-\end{displaymath}
-(Clip predictions if outside range of possible values)
-\item Guarantee: for all $\theta$ and all sequences
-\begin{displaymath}
-\sum_{t=1}^T\lVert\hat{y}_t - y_t\rVert^2 \le \sum_{t=1}^T\lVert\theta\cdot x_t -
-y_t\rVert^2 + \lVert \theta \rVert^2 + \frac{d}{2} \log T
-\end{displaymath}
-(Foster '91, Vovk '01, Azoury \& Warmuth '01)
-\item  The ``Hannan regret'' is sublinear
-\end{itemize}
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Weirdness}
-\begin{itemize}
-\item Plot of $y_t - \hat{y}_t$ vs $X_i$ should not have a pattern
-\item called ``normal equations'' in regression:
-\begin{displaymath}
-\hbox{corr}(Y,Y-\hat{Y}) = 0
-\end{displaymath}
-\item This doesn't hold for the on-line version
-\item It holds traditionally because $\hat{y} = X\hat{beta}$ so we
-consider it in our model.
-\item $\hat{y}$ is NOT in our on-line model.
-\end{itemize}
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Where is our best regression variable?}
-\begin{itemize}
-\item Key idea of ``follow the leader'' is that $\hat{y}_t = \sum X_i
-\hat{\beta}_{i,t}$ is a good forecast of $y_t$.
-\item But the $\hat{\beta}$'s keep changing
-\item So, this ``signal'' is not in our model.
-\item Cute trick: Add $\hat{y}_{t-1}$ as a regression variable
-\end{itemize}
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Normal equations now hold}
-\begin{itemize}
-\item correlation of $y_t - \hat{y}_t$ vs $X_i$ will be zero
-\end{itemize}
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Answering the calibration question}
-\begin{itemize}
-\item Sequential prediction: $y_t$ is forecast by $\hat{y}_t$
-\item Calibration, can be interpreted as saying that
-\begin{displaymath}
-\frac{1}{T} \sum_{t=1}^T (y_t - \hat{y}_t) \; w(\hat{y}_t) \to 0 
-\end{displaymath}
-for all $w()$.
-\begin{itemize}
-\item {\bf Last class: No!}  Oakes (1985)  without randomization.
-\item {\bf This class: Yes!} Foster and Vohra ({\color{red}\sout{1992}} 1997) with randomization.
-\end{itemize}
-\end{itemize}
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Trick: Use $\hat Y$ as a regression variable}
-\begin{itemize}
-\item Normally this would be silly: $\hat Y = \sum \hat \beta X$.
-\item So $\hat Y$ would be redundent
-\item But, $\hat\beta$ depends on $t$
-\item So there isn't any one $\hat\beta$ to use.
-\item Hence $\hat Y$ is truely a new ``feature.''
-\end{itemize}
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Oops..}
-\begin{itemize}
-\item But we don't know $\hat Y$?
-\item Solution 1: Fixed point
-\begin{itemize}
-\item Clipping makes $\hat Y$ bounded
-\item Maps from simply connected spaces to themselves have fixed
-points (Nash)
-\item Use this fixed point
-\end{itemize}
-\end{itemize}
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\foilhead{Or just use algebra}
+\section{Admistrivia}
 
 \begin{itemize}
-\item Solution 2: algebra
-\begin{itemize}
-\item We have $\hat Y$'s in the past, so we can do the regression
-\item This gives us an equation with $\hat Y$ on both sides.
-\item Solve it.
-\end{itemize}
+\item Quotes and data due
+\item Homework questions?
 \end{itemize}
 
+\section{Calibration notes}
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Let's first grab some data about how sales are related to how many feet of display are made.
 
-\foilhead{Relationship of normal equations to prediction}
-\begin{itemize}
-\item For each regression variable, $x_i$
-\begin{displaymath}
-\sum_{t=1}^T x_{i,t} (y_t - \hat{y}_t) \to 0
-\end{displaymath}
-(Proof: otherwise $\hat{y} + \epsilon x_{i}$
-would be a better forecast than $\hat{y}$.)
-\item Key idea: what if $x_{i,t} = w_i(\hat{y}_t)$?  Then
-\begin{displaymath}
-\frac{1}{T} \sum_{t=1}^T w_i(\hat{y}_t) (y_t - \hat{y}_t) \to 0
-\end{displaymath}
-\begin{itemize}
-\item We are calibrated against this $w_i()$.
-\item Need to be calibrated against many $w_i()$'s (call them $\vec{w}()$).
-\item Fixed point: $\hat{y}_t = \theta_{t-1} \cdot \vec{w}(\hat{y}_t)$.
-\end{itemize}
-\end{itemize}
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{Schunk}
+\begin{Sinput}
+> display <- read.table("http://www-stat.wharton.upenn.edu/~waterman/fsw/datasets/txt/Display.txt", 
++     header = TRUE)
+> names(display)
+\end{Sinput}
+\begin{Soutput}
+[1] "DisplayFeet" "Sales"      
+\end{Soutput}
+\end{Schunk}
+Let's take a first look at the data:
 
-\foilhead{Weaker test functions}
-\begin{itemize}
-\item All bounded functions is not a nice space
-\begin{itemize}
-\item Too rich (i.e.  Uncountable-dimensional Banach space.)
-\item No fixed points
-\end{itemize}
-\item Alternative: Use continuous functions with basis of continuous functions.
-\item New definition: {\em Weak calibration}, means 
-\begin{displaymath}
-\frac{1}{T} \sum_{t=1}^T (y_t - \hat{y}_t) \; w(\hat{y}_t) \to 0
-\end{displaymath}
-for all $w()$ which are continuous function.
-\end{itemize}
+\begin{Schunk}
+\begin{Sinput}
+> plot(display$Sales ~ display$DisplayFeet)
+> regr <- lm(Sales ~ DisplayFeet, data = display)
+> abline(regr$coef)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{.figures/calibration-basicplot}
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Doesn't look all that good.  But, hey the $R^2 = 0.711975$
+is great and the coeficients have a good fit:
 
-\foilhead{Algorithm for getting calibration from regression}
-\begin{itemize}
-\item Pick family of continuous functions $w_i()$ which form a basis
-for the L2 bounded functions. 
-\item Use $w_i(\hat{y}_t)$ as regression variables
-\item use regression to fit historical data
-\item Solve fixed point equation for forecast next round
-\end{itemize}
-\begin{theorem}[Foster and Kakade 2005]
-The above procedure will be weakly calibrated.
-\end{theorem}
+% latex table generated in R 2.8.1 by xtable 1.5-5 package
+% Wed Mar 31 14:42:51 2010
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 93.0323 & 18.2278 & 5.10 & 0.0000 \\ 
+  DisplayFeet & 39.7565 & 3.7695 & 10.55 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{Schunk}
+\begin{Sinput}
+> poly <- lm(Sales ~ poly(DisplayFeet, 5), data = display)
+\end{Sinput}
+\end{Schunk}
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{Schunk}
+\begin{Sinput}
+> xtable(summary(poly))
+\end{Sinput}
+% latex table generated in R 2.8.1 by xtable 1.5-5 package
+% Wed Mar 31 14:42:51 2010
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 268.1300 & 5.5764 & 48.08 & 0.0000 \\ 
+  poly(DisplayFeet, 5)1 & 544.1254 & 38.2297 & 14.23 & 0.0000 \\ 
+  poly(DisplayFeet, 5)2 & -191.8805 & 38.2297 & -5.02 & 0.0000 \\ 
+  poly(DisplayFeet, 5)3 & 86.7360 & 38.2297 & 2.27 & 0.0286 \\ 
+  poly(DisplayFeet, 5)4 & -124.3232 & 38.2297 & -3.25 & 0.0023 \\ 
+  poly(DisplayFeet, 5)5 & 7.4251 & 38.2297 & 0.19 & 0.8470 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\end{table}\end{Schunk}
 
-\foilhead{Roads to calibration}
+Compute the F by hand
 
-\begin{itemize}
+\begin{Schunk}
+\begin{Sinput}
+> smallerR2 <- summary(regr)$r.squared
+> biggerR2 <- summary(poly)$r.squared
+> F <- ((biggerR2 - smallerR2)/4)/((1 - biggerR2)/poly$df.residual)
+\end{Sinput}
+\end{Schunk}
 
-\item Can one be calibrated? No.
-\begin{itemize}
-\item Only using britle definition
-\end{itemize}
-\item Can one be calibrated? Yes.
-\begin{itemize}
-\item Many solutions now.
-\item As a game (Sergiu Hart)
-\item Via Blackwell's approchability (the 3rd magic trick)
-\item Via exponential smooth (homework)
-\item Today, via regression
-\end{itemize}
-\end{itemize}
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+we can get the p-value from R:
+\begin{Schunk}
+\begin{Sinput}
+> df(10.2, 4, poly$df.residual)
+\end{Sinput}
+\begin{Soutput}
+[1] 7.621355e-06
+\end{Soutput}
+\end{Schunk}
+
+\section{Or from R directly}
+
+Using some magic of the anova command:
+
+\begin{Schunk}
+\begin{Sinput}
+> xtable(anova(regr, poly))
+\end{Sinput}
+% latex table generated in R 2.8.1 by xtable 1.5-5 package
+% Wed Mar 31 14:42:51 2010
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{lrrrrrr}
+  \hline
+ & Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\ 
+  \hline
+1 & 45 & 119774.47 &  &  &  &  \\ 
+  2 & 41 & 59921.84 & 4 & 59852.64 & 10.24 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\end{table}\end{Schunk}
+
+
 \end{document}
