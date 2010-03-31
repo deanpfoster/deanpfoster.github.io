@@ -185,7 +185,7 @@ in R, or you can use the formula, $log_2(x) = log(x)/log(2)$.}
  35885/119695314, or about 1/3000.  How does google do on forecasting
 the probability of the 10 words you came up with?  How would you
 estimate the entropy goolge would do for the entire file?
-\item (Bonus) Write a R script that will compute the log(probability)
+\item (Bonus) Write a R script that will compute the -log(probability)
 of each word based on the google 2-gram data set.  What is the final
 entropy?  Does it do better than LZ compression?
 \end{enumerate}
