@@ -178,11 +178,12 @@ in R, or you can use the formula, $log_2(x) = log(x)/log(2)$.}
  \href{google}{goole} n-gram data set.  I have made up an easier set
  of data to work so you don't have to process those gigabytes of
  compressed data (look \href{google/easy_google}{here} for
-it.) If you want to read this into R you will find the files
-google/easy\_one and google/easy\_two will read in with less trouble.
-\footnote{Or you can use Sivan's magic of:
+it.) \footnote{If you want to read this into R you will find the files
+google/easy\_one and google/easy\_two will read in with less trouble. 
+Or you can use Sivan's magic of:\\
 \texttt{
-one.gram $<-$ read.delim("easy\_google",nrow=3160,header=FALSE)}
+one.gram $<-$ read.delim("easy\_google",nrow=3160,header=FALSE)}\\
+or for two grams\\
 \texttt{
 two.gram $<-$ read.delim("easy\_google",skip=3160,header=FALSE)
 }}
