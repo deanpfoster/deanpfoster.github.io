@@ -177,7 +177,16 @@ in R, or you can use the formula, $log_2(x) = log(x)/log(2)$.}
 \item Now we want to make a prediction of the next word based on the
  \href{google}{goole} n-gram data set.  I have made up an easier set
  of data to work so you don't have to process those gigabytes of
- compressed data (look \href{easy_google}{here} for it.) First look up
+ compressed data (look \href{google/easy_google}{here} for
+it.) If you want to read this into R you will find the files
+google/easy\_one and google/easy\_two will read in with less trouble.
+\footnote{Or you can use Sivan's magic of:
+\texttt{
+one.gram $<-$ read.delim("easy\_google",nrow=3160,header=FALSE)}
+\texttt{
+two.gram $<-$ read.delim("easy\_google",skip=3160,header=FALSE)
+}}
+First look up
  the previous word in the google 1-gram file.  For my example, it is
  ``important'' which occurs 119695314 times.  Now look up the actual
  two-gram word pair that occured.  For my example, it is ``important
