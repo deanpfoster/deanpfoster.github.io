@@ -113,8 +113,8 @@ don't ``fit the line'' all that well and the last bunch.  So fit a
 line which uses something like the 10'th through the 1000'th
 observation.
 \item Is the slope you compute similar to the one computed for the
-federalist papers?  How about the wikipedia Zipf slope?  Is there a
-story here?
+federalist papers?  How about the wikipedia Zipf slope?  (You will
+have to read off the slope by hand.) Is there a story here?
 \end{enumerate}
 \item I mentioned in class, that prediction and data compression are
 the same thing.  So this part will have you consider three different
