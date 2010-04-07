@@ -54,7 +54,9 @@ At this point, you should also have found your data.
  several quotes.)  Alternatively, a graph could be used.  Then provide
  a citation for where you got the quote from.  If there isn't a good
  quote to steal, then you will have to resort to writing your own
- summary of what you learned.
+ summary of what you learned.  You might find google scholar useful
+for searching for papers about your topic.  Using ``science citation''
+is considered better form--but much more difficult to use.
 \item[Data] Show us a bit about what your data looks like.  For
  example, show us summary statistics, means, variances, variable
  names.  Feel free to attach the data file--but we won't look at it.
@@ -71,9 +73,38 @@ is fine to discuss ``how'' you did stuff.  As usual, figures should
 have captions and be discussed.  Give us as little output as you feel
 is necessary to support your story.
 
+An important part of data analysis is the actual claim you are making.
+  So write a one sentence statement of what you show.  It is the claim
+ that you will have substantiated by the end of your research.  The
+hard part is to compress it to one sentence that makes and isn't a
+run-on-sentence.
+
 \section{Presentation}
-You will give a 10 minute talk about your results.   (I'll discuss
-more details later.)
+You will give a 10 minute talk about your results.
+\begin{description}
+\item[Handout] 
+  Tufte argues that
+powerpoint is evil.\footnote{See the
+\href{http://norvig.com/Gettysburg/making.html}{Gettysburg address}
+done as a power point.  Tufte took this and wrote an entire book about
+it: The Cognitive Style of PowerPoint.}  He argues you should have a
+handout and focus attention on handout instead of on the powerpoint
+slides.  But I won't force you to fly blind without powerpoint!  But,
+I will expect a one page handout.  The point is if anyone actually
+wants to know more about what you talked about they should be able to
+follow up.  This means you should have your contact information.  It
+also means you {\em might} want to have your citations listed also.
+But only if they tell a lot of your story.
+\item[Practice] Do your talk a few times ahead of time to check
+timing.  You will be surprized at how short 10 minutes is.
+\item[Key point] I won't have instant feed back forms for each
+speaker--but keep that concept in mind.  You want one of your fellow
+students to be able to echo your key point at the end of class.  If
+they were to answer, ``Yea, didn't you talk something about
+baseball?''  You lose.  If they answer, ``Oh, yea, you showed catchers
+are over paid.'' You win!
+\end{description}
+
 
 \section{Final paper}
 Write up your talk as a paper.   (Again, more details later.)
