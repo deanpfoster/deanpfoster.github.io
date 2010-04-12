@@ -1,0 +1,29 @@
+\documentclass[14pt]{extarticle} % 14, 17, 20 all exist
+\usepackage{hyperref}
+
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
+\newcommand{\tech}[1]{\noindent{\textcolor{red}{\{{\bf technical note:} \em #1\}}}}
+\usepackage{xypic}
+
+\renewcommand{\baselinestretch}{1.4}
+\begin{document}
+\title{Still Paranoid?}
+\maketitle
+
+\section{Admistrivia}
+\begin{itemize}
+\item data analysis is now due 
+\item Next week, we'll have in class presentations
+\begin{itemize}
+\item 12 minute presentations.
+\item (Aim for 10, at 12, you will be cut off in mid-sentence. which
+is very anoying for everyone!)
+\item Handout is necessary
+\item Powerpoint / Beamer is optional
+\item The target audence is your fellow students.
+\item Each student should provide two ``instant feedbacks'' for two
+ different presentations.
+\end{itemize}
+\end{itemize}
+
+\end{document}
