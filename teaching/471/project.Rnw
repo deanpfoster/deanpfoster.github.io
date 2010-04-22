@@ -107,6 +107,60 @@ are over paid.'' You win!
 
 
 \section{Final paper}
-Write up your talk as a paper.   (Again, more details later.)
+Write up your talk as a paper in less than 8 pages.  The idea is to
+ communicate your main ideas and not the details of the statistics.
+  You picked your project because it was an interesting question you
+ wanted to study--that should be the primary focus of your paper.
+  Here is a suggested format to use: (Even if you don't follow this
+ format completely, only the first 8 pages of your paper will be read!
+  If you make it a really tiny font--then not even 8 pages will be
+ read!  So we are talking 11 or 12 point, resonable spacing, wide
+ margins, and still only 8 pages.)
+\begin{itemize}
+\item Abstract / executive summary: Write a one paragraph summary of
+your key findings.  In science, this is called an abstract, in
+business it is an executive summary.  In either case, the abstract
+should be readable by a very general audience.  Think of it as an
+advertisment for your paper.  It should be easy to read--but still
+have the main conclusions you draw.  This section is self contained.
+
+\item Introduction (2 page max): This should  describe the problem you are
+solving.  It is a good place to put the quotes you found.  You should
+describe what question you are answering, what other people have found
+and where you got your data.
+
+\item Methods (4 page max): This should describe how you analyzed your
+data.  Another good student in the class should be able to read it and
+in about a week reproduce the conclusions.  The key thing is you can
+expect the reader to work a bit.  You don't have to say, ``using the
+lm command...''  So the idea is to leave enough bread crumbs so that
+someone can follow your analysis.  But you don't have to build an
+interstate highway for them.  This is where you put your favorite two
+or three graphs and one or two tables.  Each should be discussed and
+each should be necessary.  If you can replace a graph with a few words
+of text (i.e. ``the residuals were normal'') then the graph shouldn't
+be included.  But if the graph tells a cool story--then it is
+necessary. 
+
+\item Conclusions (1 page max): The difference between the conclusions
+and the abstract is that the abstract is written for a general
+audience.  The conclusions are written for experts.  So you can assume
+they understand regression, statistics, NBA, or whatever you need.  So
+with that audience in mind, in a short paragraph or two, say what you
+have learned.
+
+\item Appendix (as many pages as you like): No one reads this.  But
+since electronic data is so cheap now adays--feel free to include it.
+You can dump scaterplot matrixes here.  You can dump regression
+output.  Maybe R code (but that probably should be in a different file
+since that will mean you don't have to convert it to word).  Basically
+this is the material that you spent hours generating and don't have
+the heart to kill.  In the real world this is a two step process.
+Step 1: put the junk into the appendix.  Step 2: after a few months,
+read your own paper again and realize the appendix is unimportant and
+so delete it.  
+
+\end{itemize}
+
 
 \end{document}
