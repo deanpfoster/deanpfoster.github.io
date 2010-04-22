@@ -106,7 +106,7 @@ are over paid.'' You win!
 \end{description}
 
 
-\section{Final paper}
+\section{Final paper (two files: pdf plus R}
 Write up your talk as a paper in less than 8 pages.  The idea is to
  communicate your main ideas and not the details of the statistics.
   You picked your project because it was an interesting question you
@@ -152,8 +152,7 @@ have learned.
 \item Appendix (as many pages as you like): No one reads this.  But
 since electronic data is so cheap now adays--feel free to include it.
 You can dump scaterplot matrixes here.  You can dump regression
-output.  Maybe R code (but that probably should be in a different file
-since that will mean you don't have to convert it to word).  Basically
+output.  (R code should be in a different file.)  Basically
 this is the material that you spent hours generating and don't have
 the heart to kill.  In the real world this is a two step process.
 Step 1: put the junk into the appendix.  Step 2: after a few months,
