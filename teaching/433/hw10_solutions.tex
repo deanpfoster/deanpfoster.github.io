@@ -15,19 +15,18 @@ Course No. Stat 433 \\
 
 \textcolor[rgb]{0.98,0.00,0.00}{Comments from the grader:}
 \begin{itemize}
-
     \item \textcolor[rgb]{0.98,0.00,0.00}{These are only partial solutions.  We selected
-    questions which were problematic to most of the class or are of particular interest.}
-    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 50.}
-    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations and not only
-    final answers. Points will be deducted if partial solutions
+    questions which were the most problematic for the class.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{The maximum grade for this homework assignment is 10.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Your solution should contain explanations, and not just
+    final answers. Points will be deducted if partial solutions.
     are submitted.}
-    \item \textcolor[rgb]{0.98,0.00,0.00}{Please save a copy of your work and submit the original.
-    Write your name and email on top of the first page.}
-    \item \textcolor[rgb]{0.98,0.00,0.00}{if you notice a typo in the solution file or have a problem with the homework
-    grading please email: sivana@wharton.upenn.edu
-}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{Make sure that your work is readable/understandable.  If necessary, skip every other line.  Clearly circle your answers.  In addition, please {\bf staple} your homework.}
+    \item \textcolor[rgb]{0.98,0.00,0.00}{If you notice a typo in the solution file or have a problem with the homework
+    grading, please come by my office hours, or email me (entine4@wharton.upenn.edu)}
+
 \end{itemize}
+
 
 
 \begin{flushleft}
@@ -139,10 +138,18 @@ conditional cumulative distribution function and take the
 derivative with respect to x.
 
 
-
 \begin{eqnarray*}
 \\
 \end{eqnarray*}
+
+\textbf{Question 4.6c}\\
+\begin{eqnarray*}
+P(W_2<w)=1-P(\mbox{All Ui's } >w)-P(\mbox{exactly 1 Ui } > w)\\
+=1 - \frac{(1-w)^5}{t^5} - \frac{5w(1-w)^4}{t^5}\\
+\end{eqnarray*}
+Differentiating with respect to w gives us the density function
+\[f(w)=\frac{20w(1-w)^4}{t^5}\]
+
 
 \textbf{Question 4.8}\\
 
@@ -158,7 +165,7 @@ E(Z(t)|N(t))&=& E(\sum_{k=1}^{N(t)} \theta_k (t)) \\
 \end{eqnarray*}
 
 Hence, $E(Z(t))=E( E(\xi_1) \frac{N(t)}{\alpha t} \cdot
-(1-e^{-\alpha t}) )=\frac{\lambda t E(\xi_1)}{\alpha t}
+(1-e^{-\alpha t}) )=\frac{\lambda  E(\xi_1)}{\alpha }
 (1-e^{-\alpha t}) $
 
 \begin{eqnarray*}
