@@ -1,6 +1,5 @@
 \documentclass{article}
 \usepackage{simplemargins}
-\setbottommargin{0in}
 \settopmargin{.5in}
 
 % Deans New Commands
@@ -55,6 +54,7 @@ persective.
 \item This is still a new class.
 \item The class started out with pure econometrics in 1990.
 \item Now it is a lot of machine learning.
+\item What do people like?  So I need to take a poll.
 \item Since machine learning is new--I'm curious as to what you liked
 and what yout think will be important.
 \item We will do a few think /pair / share questions about the class. 
@@ -64,7 +64,7 @@ and what yout think will be important.
 
 \begin{itemize}
 \item Which module did you learn from the most?  Which will you carry
-forward to your future life?
+forward to your future life?  
 \begin{itemize}
 \item Dog legs and fitting curves
 \item Bootstrap and SE
@@ -78,29 +78,39 @@ forward to your future life?
 
 \section*{Second question: Homework}
 \begin{itemize}
-\item Which homework had the best ``value?''  I.e. you learned the
-most per hour?
+\item Which homework had the best ``value?''  
+\begin{itemize}
+\item Which did you learned the most per hour?
+\item Which was the most fun?
 \item Which could you do the faster now?  (I.e. they would
 take you 1/10 the time now compared to your first run.)  This is one
 measure of learning.
+\end{itemize}
 \item Which should be cut / lengthened?
 \end{itemize}
 
 \section*{Third question: R}
 \begin{itemize}
-\item I introduced R this semester.  Having used it for a semester, do
-you think you will use it in the future?
+\item I introduced R this semester.
+\item Having used it for a semester, do you think you will use it in
+ the future?
 \item If you had to analyse a data set, would you prefer R or JMP?
 \item Did you use either of the books on R?  
 \end{itemize}
 
-\section*{Project vs Homework}
+\section*{Last question: Project vs Homework}
+\begin{itemize}
+\item Last year I had 1.5 more homeworks than this year, but no
+project.  This provided a more focussed setting.  But also meant it
+was more restrictive.
+
+\item Should I do a project or extra homeworks next year?
 \begin{itemize}
 \item Which did you get more out of the project or the homework?
-\item Last year I had 1.5 more homeworks than this year, but no
-project.  Which do you think is a better idea.
+\item Did you feel lost on your project?    Which step I focus on more
+next year: proposal, quote, presentation, writeup?
 \end{itemize}
-
+\end{itemize}
 
 
 \end{document}
