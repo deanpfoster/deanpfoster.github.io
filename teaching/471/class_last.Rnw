@@ -41,6 +41,11 @@
 \begin{itemize}
 \item I want to thank you for being a lovely class.  You have worked
 hard and learned a lot.
+\item All most all of the material we covered is new material.  So it
+hasn't been class tested that much.
+\item Most classical teaching consists of teaching stuff you saw in
+classes (i.e. calculus.)  So it is hard for me know see it from your
+persective. 
 \end{itemize}
 
 
