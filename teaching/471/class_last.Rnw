@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[14pt]{extarticle}
 \usepackage{simplemargins}
 \settopmargin{.5in}
 

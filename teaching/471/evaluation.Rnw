@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{simplemargins}
+\settopmargin{.5in}
+
+% Deans New Commands
+\usepackage[usenames]{color}
+\definecolor{mypurple}{rgb}{.3,0,.5}
+\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
+\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+%\newcommand{\dpf}[1]{}
+%\newcommand{\note}[1]{}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %                                                                          %
+% %                                                                          %
+% %                  B E G I N     D O C U M E N T                           %
+% %                                                                          %
+% %                                                                          %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\begin{document}
+\section*{Questions}
+
+\paragraph{(1) Topics:}  Which topic did you learn the most from?
+(Dog legs and fitting curves /  Bootstrap and SE /  CAPM (ala Berndt)
+/ Ponzironi (ala Foster) / Linguistic data /  Risk inflation and big
+stepwise regressions / Paranoid statistics)
+
+\vspace{4in}
+
+
+\paragraph{(2) Homeworks:} Which did you learn the most from? (Bernt,
+Residuals, Ponzironi, linguistics, paranoia)
+
+\newpage
+
+\paragraph{(3) R:} Keep R or go back to JMP?
+
+\vspace{4in}
+
+
+\paragraph{(4) Project vs Homework:} Which would have more value, a project
+or more homework?
+
+\end{document}
