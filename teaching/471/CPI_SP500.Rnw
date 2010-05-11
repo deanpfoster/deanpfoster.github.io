@@ -52,6 +52,7 @@ Reading:
 #    #
 #    ##########################################################
 
+# there are many years missing around 1985.  Grab something newer!
      sugar  <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv");  
      tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
 
@@ -68,13 +69,22 @@ cleaning:
 
 m <- function(x,n)
  {
-   c(rep(0,n),x[(n+1):(length(x))]);
+   c(rep(0,n),x[1:(length(x)-n)]);
  }
                                                 
+smooth <- function(x,n)
+  {
+    result <- x
+    for(i in 1:(n-1))
+      result <- result + m(x,i)
+    return(result/n)
+  }
+
+
 
 clean <- data.frame(date=both$DATE,  market = both$vwretd   , cpi = both$cpiret, riskfree = both$t30ret)
 
-clean$cpi.smooth <- (clean$cpi + m(clean$cpi,1) + m(clean$cpi,2) + m(clean$cpi,3) + m(clean$cpi,4) + m(clean$cpi,5))/6
+clean$cpi.smooth <- smooth(clean$cpi,12)
 clean <- clean[!(is.na(clean$riskfree)),]
 clean <- clean[!(is.na(clean$cpi)),]
 clean <- clean[!(is.na(clean$market)),]
@@ -178,10 +188,18 @@ Let's use a 6 month rolling smooth:
   
 <<CPIsmooth,fig=TRUE,echo=FALSE>>=
 
-plot(cpi, cpi.smooth)
+plot(time, cpi.smooth)
 
 
 @ 
+
+<<simple2,echo=FALSE,results=tex>>=
+
+
+xtable(summary(lm((market - cpi.smooth) ~ cpi.smooth)),caption="Real returns on the market vs 6 month rolling CPI.  Addressing the question of whether the market can hedge inflation.  Looks like the \"inflation is bad\" model wins here.")
+
+@ 
+
 
 
 
