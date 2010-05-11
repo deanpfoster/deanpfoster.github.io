@@ -12,7 +12,7 @@
 
 \section{Assignment 5: Paranoia}
 
-(\href{assignment5.pdf}{pdf version}) 
+(\href{assignment_paranoia.pdf}{pdf version}) 
 
 \subsection{Three friends}
 
