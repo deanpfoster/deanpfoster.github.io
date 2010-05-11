@@ -25,7 +25,7 @@
 \pagestyle{empty}
 
 \begin{document}
-\section*{Questions}
+\section*{Class Evaluation Questions}
 
 \paragraph{(1) Topics:}  Which topic did you learn the most from?
 (Dog legs and fitting curves /  Bootstrap and SE /  CAPM (ala Berndt)
@@ -42,7 +42,7 @@ Residuals, Ponzironi, linguistics, paranoia)
 
 \paragraph{(3) R:} Keep R or go back to JMP?
 
-\vspace{4in}
+\vspace{4.5in}
 
 
 \paragraph{(4) Project vs Homework:} Which would have more value, a project
