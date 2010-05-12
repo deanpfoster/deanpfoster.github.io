@@ -67,7 +67,7 @@ both <- merge(vw,tbills,by.x="caldt",by.y="caldt")
 
 @ 
 cleaning:
-<<echo=FALSE>>=
+<<functions,echo=FALSE>>=
 
 m <- function(x,n)
  {
@@ -81,8 +81,9 @@ smooth <- function(x,n)
       result <- result + m(x,i)
     return(result/n)
   }
+@ 
 
-
+<<cleaning,echo=FALSE>>=
 
 clean <- data.frame(date=both$caldt,  market = both$vwretd   , cpi = both$cpiret, riskfree = both$t30ret)
 
@@ -104,8 +105,9 @@ time       <- clean$date
 market     <- clean$market       # dump leading missing value
 riskfree   <- clean$riskfree
 #domino     <- clean$RET                # fix time scale, since 1981
-cpi        <- clean$cpi
+cpi.raw     <- clean$cpi
 cpi.smooth <- clean$cpi.smooth
+cpi <- cpi.smooth
 market.ex  <- market - riskfree
 #domino.ex  <- domino - riskfree
 
