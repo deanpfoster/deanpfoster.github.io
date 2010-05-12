@@ -1,0 +1,221 @@
+\documentclass{article}
+
+
+% Deans New Commands
+\usepackage[usenames]{color}
+\definecolor{mypurple}{rgb}{.3,0,.5}
+\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
+\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+%\newcommand{\dpf}[1]{}
+%\newcommand{\note}[1]{}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %                                                                          %
+% %                                                                          %
+% %                  B E G I N     D O C U M E N T                           %
+% %                                                                          %
+% %                                                                          %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\SweaveOpts{prefix.string=.figures/cpi-sp500}
+\title{CPI vs SP500}
+\author{Dean Foster}
+\maketitle
+\dpf{Quick summary: CPI isn't useful for making investment decisions.
+But the market isn't a perfect hedge against inflation.  So we are
+both right.}
+
+
+
+
+Reading:
+<<readdata, eval=TRUE, echo=FALSE>>=
+
+#    ##########################################################
+#    #
+#    # Reading the files locally if you have them downloaded
+#    #
+#    ##########################################################
+#
+#    sugar <- read.csv("domino_sugar.csv");  
+#    tbills <- read.csv("tbills-inflation.csv");  
+#
+#    ##########################################################
+#    #
+#    # Reading the web. 
+#    #
+#    ##########################################################
+
+# there are many years missing around 1985.  Grab something newer!
+     sugar  <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv");  
+     tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
+
+@ 
+Merging: 
+<<merging,echo=FALSE>>=
+# Now for some black magic: Let's merge these two data files together.
+
+both <- merge(sugar,tbills,by.x="DATE",by.y="caldt")
+
+@ 
+cleaning:
+<<echo=FALSE>>=
+
+m <- function(x,n)
+ {
+   c(rep(0,n),x[1:(length(x)-n)]);
+ }
+                                                
+smooth <- function(x,n)
+  {
+    result <- x
+    for(i in 1:(n-1))
+      result <- result + m(x,i)
+    return(result/n)
+  }
+
+
+
+clean <- data.frame(date=both$DATE,  market = both$vwretd   , cpi = both$cpiret, riskfree = both$t30ret)
+
+clean$cpi.smooth <- smooth(clean$cpi,12)
+clean <- clean[!(is.na(clean$riskfree)),]
+clean <- clean[!(is.na(clean$cpi)),]
+clean <- clean[!(is.na(clean$market)),]
+clean <- clean[(clean$date > 19700000),]
+                                                
+@ 
+naming: 
+<<naming,echo=FALSE>>=
+
+#Now to make up our variables:
+# the following will list names.  It is useful for debugging
+# names(Data)
+
+time       <- clean$date
+market     <- clean$market       # dump leading missing value
+riskfree   <- clean$riskfree
+#domino     <- clean$RET                # fix time scale, since 1981
+cpi        <- clean$cpi
+cpi.smooth <- clean$cpi.smooth
+market.ex  <- market - riskfree
+#domino.ex  <- domino - riskfree
+
+@ 
+
+<<>>=
+
+@ 
+cleaning:
+
+Let's consider the asset which buy's more MARKET when the CPI is large
+ and holds less when it is small.  The ``inflation is bad'' theory would
+ suggest this is something we don't want to do and hence should have a
+negative alpha.
+
+<<capmREGR,echo=FALSE,results=tex>>=
+
+require("xtable")
+
+xtable(summary(lm(market.ex * cpi ~ market.ex)))
+
+@ 
+So we don't seem to show that changing our holdings as a function of
+CPI would generate any useful returns. 
+
+ But, some people don't buy CAPM, so let's do a simplier analysis.
+  How about just looking at the market returns (corrected for CPI) vs
+ CPI.  This doesn't tell us what action to take--but at least it
+should point out that we are getting less real returns during high CPI
+years than low CPI years.  So the ``inflation is bad'' model would
+suggest this has a negative slope.
+
+<<simple1,echo=FALSE,results=tex>>=
+
+xtable(summary(lm((market.ex - cpi) ~ I(cpi))))
+
+@ 
+Bummer!  Chalk one up for the evil inflation model.  But, maybe no.
+This model here is:
+
+\begin{displaymath}
+R_{market} - R_{free} - CPI = \alpha + \beta CPI + \epsilon
+\end{displaymath}
+we have effectively corrected twice.  Since we aren't doing CAPM, we
+shouldn't be thinking about tradable assets--just real returns.  So
+lets try:
+\begin{displaymath}
+R_{market} - CPI = \alpha + \beta CPI + \epsilon
+\end{displaymath}
+
+<<simple2,echo=FALSE,results=tex>>=
+
+
+xtable(summary(lm((market - cpi) ~ cpi)),caption="Real returns on the market vs CPI.  Addressing the question of whether the market can hedge inflation.  Looks like the \"inflation is bad\" model wins here.")
+
+@ 
+
+
+
+<<simple2,echo=FALSE,results=tex>>=
+
+xtable(summary(lm((market) ~ cpi)),caption="This is almost significant in REAL (uninflated) dollars.  BUt not quite.")
+
+@ 
+
+\section{What's the point of R without graphs?}
+
+Let's start by looking at the data a bit.  Here is the riskfree rate over time
+<<riskFree,fig=TRUE,echo=FALSE>>=
+plot(time, riskfree)
+@ 
+
+Now for the CPI.  Why are these so weird?
+
+<<CPI,fig=TRUE,echo=FALSE>>=
+
+plot(time, cpi)
+
+@ 
+
+Let's use a 6 month rolling smooth:
+  
+<<CPIsmooth,fig=TRUE,echo=FALSE>>=
+
+plot(time, cpi.smooth)
+
+
+@ 
+
+<<simple2,echo=FALSE,results=tex>>=
+
+
+xtable(summary(lm((market - cpi.smooth) ~ cpi.smooth)),caption="Real returns on the market vs 6 month rolling CPI.  Addressing the question of whether the market can hedge inflation.  Looks like the \"inflation is bad\" model wins here.")
+
+@ 
+
+
+
+
+
+How close are CPI and RiskFree?
+
+<<riskFreeVScpi,echo=FALSE,results=tex>>=
+xtable(summary(lm(cpi ~ riskfree)),caption="CPI regressed on risk free.")
+@ 
+
+<<riskFreePlotCPI,echo=FALSE,fig=TRUE>>=
+
+plot(cpi ~ riskfree)
+abline(lm(cpi ~ riskfree)$coef)
+
+@ 
+
+
+\end{document}
