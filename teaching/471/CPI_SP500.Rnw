@@ -53,15 +53,17 @@ Reading:
 #    ##########################################################
 
 # there are many years missing around 1985.  Grab something newer!
-     sugar  <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv");  
-     tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
+#     vw     <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/vw.csv");  
+     vw     <- read.csv("vw.csv");  
+#     tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
+     tbills <- read.csv("tbills-inflation.csv");  
 
 @ 
 Merging: 
 <<merging,echo=FALSE>>=
 # Now for some black magic: Let's merge these two data files together.
 
-both <- merge(sugar,tbills,by.x="DATE",by.y="caldt")
+both <- merge(vw,tbills,by.x="caldt",by.y="caldt")
 
 @ 
 cleaning:
@@ -82,7 +84,7 @@ smooth <- function(x,n)
 
 
 
-clean <- data.frame(date=both$DATE,  market = both$vwretd   , cpi = both$cpiret, riskfree = both$t30ret)
+clean <- data.frame(date=both$caldt,  market = both$vwretd   , cpi = both$cpiret, riskfree = both$t30ret)
 
 clean$cpi.smooth <- smooth(clean$cpi,12)
 clean <- clean[!(is.na(clean$riskfree)),]
