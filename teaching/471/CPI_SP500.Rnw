@@ -27,9 +27,10 @@
 \title{CPI vs SP500}
 \author{Dean Foster}
 \maketitle
-\dpf{Quick summary: CPI isn't useful for making investment decisions.
-But the market isn't a perfect hedge against inflation.  So we are
-both right.}
+
+\dpf{Quick summary: High CPI is a buy signal as far as CAPM is
+concerned.  Contemperanious relationship between returns and CPI are
+unconviencing over either one year periods or over 5 year periods. }
 
 
 
