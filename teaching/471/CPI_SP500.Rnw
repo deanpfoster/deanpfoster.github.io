@@ -191,9 +191,23 @@ s <- summary(recent.model)
 
 Just to make sure there isn't any funny stuff going on, let's look at a plot: (current stuff in red). 
 
+The market seems weird.  Let's see a plot of what it really is:
+
+<<fig=TRUE>>=
+
+plot(market ~ time,xlab="time", ylab="raw market",main="monthly returns")
+@ 
+<<fig=TRUE>>=
+
+plot(market.year ~ time.year,xlab="time", ylab="raw
+market",col=color.year,pch=symbol.year,main="yearly returns")
+@ 
+
+
+
 <<yearFig,echo=FALSE,fig=TRUE>>=
 
-plot(market.year - cpi.year ~ cpi.year,xlab="CPI", ylab="Real Return",col=color.year,pch=symbol.year)
+plot(market.year - cpi.year ~ cpi.year,xlab="CPI", ylab="Real Return",col=color.year,pch=symbol.year,main="yearly (contemperanious)")
 abline(model$coef)
 abline(recent.model$coef,col="red",lw=4)
 @ 
@@ -220,7 +234,7 @@ Just to make sure there isn't any funny stuff going on, let's look at a plot: (c
 
 <<year5Fig,echo=FALSE,fig=TRUE>>=
 
-plot(market.5year - cpi.5year ~ cpi.5year,xlab="CPI", ylab="Real Return",col="white")
+plot(market.5year - cpi.5year ~ cpi.5year,xlab="CPI", ylab="Real Return",col="white",main="5 year (contempornaious)")
 text(market.5year - cpi.5year ~ cpi.5year,labels=time.5year,col=color.5year)
 abline(model$coef)
 
@@ -232,14 +246,14 @@ Let's look at some time series.
 
 Let's start by looking at the data a bit.  Here is the riskfree rate over time
 <<riskFree,fig=TRUE,echo=FALSE>>=
-plot(time, riskfree)
+plot(time, riskfree,main="monthly")
 @ 
 
 Now for the CPI.  Why are these so weird?
 
 <<CPI,fig=TRUE,echo=FALSE>>=
 
-plot(time, cpi.raw)
+plot(time, cpi.raw,main="monthly CPI")
 
 @ 
 
@@ -247,7 +261,7 @@ Let's try annual data:
   
 <<CPIsmooth,fig=TRUE,echo=FALSE>>=
 
-plot(time.year, cpi.year,col=color.year,pch=symbol.year)
+plot(time.year, cpi.year,col=color.year,pch=symbol.year,main="Yearly CPI")
 
 @ 
 
@@ -255,7 +269,7 @@ And now by 5 year groups:
   
 <<CPIsmooth,fig=TRUE,echo=FALSE>>=
 
-plot(time.5year, cpi.5year,col=color.5year,pch=symbol.5year)
+plot(time.5year, cpi.5year,col=color.5year,pch=symbol.5year,main="5 year")
 
 @ 
 
