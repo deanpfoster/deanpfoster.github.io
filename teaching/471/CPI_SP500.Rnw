@@ -27,9 +27,10 @@
 \title{CPI vs SP500}
 \author{Dean Foster}
 \maketitle
-\dpf{Quick summary: CPI isn't useful for making investment decisions.
-But the market isn't a perfect hedge against inflation.  So we are
-both right.}
+
+\dpf{Quick summary: High CPI is a buy signal as far as CAPM is
+concerned.  Contemperanious relationship between returns and CPI are
+unconviencing over either one year periods or over 5 year periods. }
 
 
 
@@ -53,23 +54,30 @@ Reading:
 #    ##########################################################
 
 # there are many years missing around 1985.  Grab something newer!
-     sugar  <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv");  
-     tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
+#     vw     <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/vw.csv");  
+     vw     <- read.csv("vw.csv");  
+#     tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
+     tbills <- read.csv("tbills-inflation.csv");  
 
 @ 
 Merging: 
 <<merging,echo=FALSE>>=
 # Now for some black magic: Let's merge these two data files together.
 
-both <- merge(sugar,tbills,by.x="DATE",by.y="caldt")
+both <- merge(vw,tbills,by.x="caldt",by.y="caldt")
 
 @ 
-cleaning:
-<<echo=FALSE>>=
+functions: 
+<<functions,echo=FALSE>>=
 
 m <- function(x,n)
  {
-   c(rep(0,n),x[1:(length(x)-n)]);
+   c(rep(NA,n),x[1:(length(x)-n)]);
+ }
+
+future <- function(x,n)
+ {
+   c(x[(n+1):(length(x))],rep(NA,n));
  }
                                                 
 smooth <- function(x,n)
@@ -80,15 +88,24 @@ smooth <- function(x,n)
     return(result/n)
   }
 
+future_smooth <- function(x,n)
+  {
+    result <- x
+    for(i in 1:(n-1))
+      result <- result + future(x,i)
+    return(result/n)
+  }
+@ 
+cleaning:
+<<cleaning,echo=FALSE>>=
 
+clean <- data.frame(date=both$caldt,  market = both$vwretd   , cpi = both$cpiret, riskfree = both$t30ret)
 
-clean <- data.frame(date=both$DATE,  market = both$vwretd   , cpi = both$cpiret, riskfree = both$t30ret)
-
-clean$cpi.smooth <- smooth(clean$cpi,12)
 clean <- clean[!(is.na(clean$riskfree)),]
 clean <- clean[!(is.na(clean$cpi)),]
 clean <- clean[!(is.na(clean$market)),]
-clean <- clean[(clean$date > 19700000),]
+#clean <- clean[(clean$date > 19700000),]
+
                                                 
 @ 
 naming: 
@@ -98,21 +115,33 @@ naming:
 # the following will list names.  It is useful for debugging
 # names(Data)
 
-time       <- clean$date
+time       <- as.numeric(clean$date/10000)
 market     <- clean$market       # dump leading missing value
 riskfree   <- clean$riskfree
-#domino     <- clean$RET                # fix time scale, since 1981
-cpi        <- clean$cpi
-cpi.smooth <- clean$cpi.smooth
+cpi.raw     <- clean$cpi
+cpi.smooth <- future_smooth(cpi.raw,12)
+cpi.future <- future_smooth(cpi.raw,60)
+cpi <- cpi.smooth
 market.ex  <- market - riskfree
-#domino.ex  <- domino - riskfree
+
+# cute trick brought to you by Sivan
+market.year   <- tapply(market,  round(time),sum)
+cpi.year      <- tapply(cpi.raw, round(time),sum)
+riskfree.year <- tapply(riskfree,round(time),sum)
+time.year     <- round(tapply(time,    round(time),mean))
+color.year    <- c("black","red")[1 + (time.year > 1970)]
+symbol.year    <- c(1,16)[1 + (time.year > 1970)]
+
+market.5year   <- 12 * tapply(market,  round(time/5),mean)
+cpi.5year      <- 12 * tapply(cpi.raw, round(time/5),mean)
+riskfree.5year <- 12 * tapply(riskfree,round(time/5),mean)
+time.5year     <- round(tapply(time,    round(time/5),mean))
+color.5year    <- c("black","red")[1 + (time.5year > 1970)]
+symbol.5year    <- c(1,16)[1 + (time.5year > 1970)]
+
 
 @ 
-
-<<>>=
-
-@ 
-cleaning:
+data!
 
 Let's consider the asset which buy's more MARKET when the CPI is large
  and holds less when it is small.  The ``inflation is bad'' theory would
@@ -123,75 +152,166 @@ negative alpha.
 
 require("xtable")
 
-xtable(summary(lm(market.ex * cpi ~ market.ex)))
+s <- summary(lm(market.ex * cpi.smooth ~ market.ex))
+     xtable(s,
+	    caption=paste("Testing CAPM by looking at the past 12 months.  Look at alpha.\\",
+			s$call[2])
+       )
 
 @ 
+
 So we don't seem to show that changing our holdings as a function of
 CPI would generate any useful returns. 
 
- But, some people don't buy CAPM, so let's do a simplier analysis.
-  How about just looking at the market returns (corrected for CPI) vs
- CPI.  This doesn't tell us what action to take--but at least it
-should point out that we are getting less real returns during high CPI
-years than low CPI years.  So the ``inflation is bad'' model would
-suggest this has a negative slope.
+\section{Simple relationship}
 
-<<simple1,echo=FALSE,results=tex>>=
-
-xtable(summary(lm((market.ex - cpi) ~ I(cpi))))
-
-@ 
-Bummer!  Chalk one up for the evil inflation model.  But, maybe no.
-This model here is:
-
-\begin{displaymath}
-R_{market} - R_{free} - CPI = \alpha + \beta CPI + \epsilon
-\end{displaymath}
-we have effectively corrected twice.  Since we aren't doing CAPM, we
-shouldn't be thinking about tradable assets--just real returns.  So
-lets try:
-\begin{displaymath}
-R_{market} - CPI = \alpha + \beta CPI + \epsilon
-\end{displaymath}
-
-<<simple2,echo=FALSE,results=tex>>=
+Let's look at how CPI is related to returns.  So let's look at "real
+returns" over a year vs CPI for that year.
+<<year,echo=FALSE,results=tex>>=
 
 
-xtable(summary(lm((market - cpi) ~ cpi)),caption="Real returns on the market vs CPI.  Addressing the question of whether the market can hedge inflation.  Looks like the \"inflation is bad\" model wins here.")
+model <- lm(market.year - cpi.year ~ cpi.year);
+recent.model <- lm(market.year[time.year > 1970] - cpi.year[time.year > 1970] ~ cpi.year[time.year > 1970]);
+
+s <- summary(model)
+     xtable(s,
+	    caption=paste("Simple regression of real market on CPI (annual).  Look at slope.\\",
+			s$call[2])
+       )
+
+s <- summary(recent.model)
+     xtable(s,
+	    caption=paste("(Recent data) Simple regression of real market on CPI (annual).  Look at slope.\\",
+			s$call[2])
+       )
+
 
 @ 
 
 
+Just to make sure there isn't any funny stuff going on, let's look at a plot: (current stuff in red). 
 
-<<simple2,echo=FALSE,results=tex>>=
+The market seems weird.  Let's see a plot of what it really is:
 
-xtable(summary(lm((market) ~ cpi)),caption="This is almost significant in REAL (uninflated) dollars.  BUt not quite.")
+<<fig=TRUE>>=
+
+plot(market ~ time,xlab="time", ylab="raw market",main="monthly returns")
+@ 
+<<fig=TRUE>>=
+
+plot(market.year ~ time.year,xlab="time", ylab="raw
+market",col=color.year,pch=symbol.year,main="yearly returns")
+@ 
+
+
+
+<<yearFig,echo=FALSE,fig=TRUE>>=
+
+plot(market.year - cpi.year ~ cpi.year,xlab="CPI", ylab="Real Return",col=color.year,pch=symbol.year,main="yearly (contemperanious)")
+abline(model$coef)
+abline(recent.model$coef,col="red",lw=4)
+@ 
+
+So what about the past 39 year?  Is that signficant?
+
+
+Ok, what about 5 years of data.
+
+<<year5,echo=FALSE,results=tex>>=
+
+
+model <- lm(market.5year - cpi.5year ~ cpi.5year)
+s <- summary(model)
+     xtable(s,
+	    caption=paste("Simple regression of real market on CPI (5 year).  Look at alpha.\\",
+			s$call[2])
+       )
 
 @ 
 
-\section{What's the point of R without graphs?}
+
+Just to make sure there isn't any funny stuff going on, let's look at a plot: (current stuff in red). 
+
+<<year5Fig,echo=FALSE,fig=TRUE>>=
+
+plot(market.5year - cpi.5year ~ cpi.5year,xlab="CPI", ylab="Real Return",col="white",main="5 year (contempornaious)")
+text(market.5year - cpi.5year ~ cpi.5year,labels=time.5year,col=color.5year)
+abline(model$coef)
+
+@ 
+
+\section{General plots}
+
+Let's look at some time series.
 
 Let's start by looking at the data a bit.  Here is the riskfree rate over time
 <<riskFree,fig=TRUE,echo=FALSE>>=
-plot(time, riskfree)
+plot(time, riskfree,main="monthly")
 @ 
 
 Now for the CPI.  Why are these so weird?
 
 <<CPI,fig=TRUE,echo=FALSE>>=
 
-plot(time, cpi)
+plot(time, cpi.raw,main="monthly CPI")
 
 @ 
 
-Let's use a 6 month rolling smooth:
+Let's try annual data:
   
 <<CPIsmooth,fig=TRUE,echo=FALSE>>=
 
-plot(time, cpi.smooth)
-
+plot(time.year, cpi.year,col=color.year,pch=symbol.year,main="Yearly CPI")
 
 @ 
+
+And now by 5 year groups:
+  
+<<CPIsmooth,fig=TRUE,echo=FALSE>>=
+
+plot(time.5year, cpi.5year,col=color.5year,pch=symbol.5year,main="5 year")
+
+@ 
+
+
+\section{Weird relationships}
+
+
+
+But, some people don't buy CAPM, so let's do a simplier analysis.  How
+  about just looking at the market returns (corrected for CPI) vs CPI.
+  This doesn't tell us what action to take--but at least it should
+  point out that we are getting less real returns during high CPI
+  years than low CPI years.  So the ``inflation is bad'' model would
+  suggest this has a negative slope.  Namely, the $\beta$ in the
+  following regression should be negative:
+
+\begin{displaymath}
+R_{market} - CPI = \alpha + \beta CPI + \epsilon
+\end{displaymath}
+
+But which CPI to use?  The raw is weird.  Mike is curious about the
+future CPI.  So let's actually use the FUTURE 5 years of CPI.  So we
+are assuming you know the future CPI--does that help predict your
+overall returns?
+
+<<simple2,echo=FALSE,results=tex>>=
+
+
+xtable(summary(lm((market - cpi.smooth) ~ cpi.future)),caption="(Market - CPI) regressed on 5 years of future CPI.  If the slope is significantly negative--\"inflation is bad\" has been vindicated.  If it is zero--we fail to reject CPI doesn't matter.") 
+
+@ 
+
+Alternatively, we could do a more typical analysis by using the past 12 months:
+
+<<simple2,echo=FALSE,results=tex>>=
+
+
+xtable(summary(lm((market - cpi.smooth) ~ cpi.smooth)),caption="(Market - CPI) regressed on past 12 months CPI.  If the slope is significantly negative--\"inflation is bad\" has been vindicated.  If it is zero--we fail to reject CPI doesn't matter.") 
+
+@ 
+
+\section{What's the point of R without graphs?}
 
 <<simple2,echo=FALSE,results=tex>>=
 
