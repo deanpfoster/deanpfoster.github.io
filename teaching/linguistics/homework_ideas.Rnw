@@ -3,11 +3,90 @@
 \usepackage{enumerate}
 
 \begin{document}
-\section*{Homework}
+\section*{Homework 1: Regular expressions}
 
 \begin{enumerate}
+\item Read chapters 1 and 2 from JM.  
+\item From the book JM: 2.1, 2.4, 2.8
+
+\item Statistical analysis of two regular expressions.  What do the
+following two regular expressions do:
+\begin{enumerate}
+\begin{verbatim}
+(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+\end{verbatim}
 
 \item 
+\begin{verbatim}
+{
+  \\b
+  # Match the leading part (proto://hostname, or just hostname)
+  (
+    # http://, or https:// leading part
+    (https?)://[-\\w]+(\\.\\w[-\\w]*)+
+  |
+    # or, try to find a hostname with more specific sub-expression
+    (?i: [a-z0-9] (?:[-a-z0-9]*[a-z0-9])? \\. )+ # sub domains
+    # Now ending .com, etc. For these, require lowercase
+    (?-i: com\\b
+        | edu\\b
+        | biz\\b
+        | gov\\b
+        | in(?:t|fo)\\b # .int or .info
+        | mil\\b
+        | net\\b
+        | org\\b
+        | [a-z][a-z]\\.[a-z][a-z]\\b # two-letter country code
+    )
+  )
+
+  # Allow an optional port number
+  ( : \\d+ )?
+
+  # The rest of the URL is optional, and begins with /
+  (
+    /
+    # The rest are heuristics for what seems to work well
+    [^.!,?;''\\'<>()\[\]\{\}\s\x7F-\\xFF]*
+    (
+      [.!,?]+ [^.!,?;''\\'<>()\\[\\]\{\\}\s\\x7F-\\xFF]+
+    )*
+  )?
+}ix
+\end{verbatim}
+\end{enumerate}
+Now you could read them and understand them.  But that would be
+cheating--this is a statistics course!  So test them against a bunch
+of strings and see if you and figure out what are legal and what
+aren't legal strings.  Once you a theory, come up with some directed
+tests.  So for example, if you think it is a parse for LAST NAME,
+comma, FIRST NAME, then give it some examples that cause it to match
+like, ``Washington, George'' and ``Mannard Smith, John'' both of which
+are legal and something like, ``H. P. Lovecraft'' which wouldn't be
+legal since it is in the wrong order.  
+
+Now that you have an idea of what these are searching for, grab a
+large piece of text (say 1 million words or so) and count how many
+matches there are to both of these regular expressions.
+
+\end{enumerate}
+
+\section{Homework 2: Words}
+
+\begin{enumerate}
+\item Read chapter 3 and 4? of JM
+\item JM: 3.5 and 3.6, 3.10.
+\item JM: 4.2-4.7
+\end{enumerate}
+
+\section{Homework 2: authorship}
+
+\begin{enumerate}
+\item JM: 4.10.
+\end{enumerate}
+
+
+
 
 \item  We will analyse the text called ``Alice in
 Wonderland.'' First we want to grab it down from the Gutenberg
