@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\begin{document}
+\section*{Homework}
+
+\begin{enumerate}
+
+\item 
+
+\item  We will analyse the text called ``Alice in
+Wonderland.'' First we want to grab it down from the Gutenberg
+project.  They have collected up over 30,000 books that you can read
+or play with.  So surf for the Gutenberg project and find an ascii
+version of Alice in wonderland that you can download.  If that doesn't
+work, you can just click on
+\href{http://www.gutenberg.org/files/11/11.txt}{http://www.gutenberg.org/files/11/11.txt},
+but that would be ``cheating.''
+
+\begin{enumerate}
+\item After you download it, you can read it into R with the scan
+command.  Or you can read it directly via the command:
+<<reading>>=
+alice <- scan("http://www.gutenberg.org/files/11/11.txt",
+              what="character",
+              quote="",
+              skip=25)
+@ 
+This command reads the whole file in as a vector of ``words.''  If you
+try it without the \verb\quote=""\ it will read all the quoted material
+as single words.  Probably not what we want.  The file starts with a
+blurb about this file not being copywrited--so we should skip the
+first 25 lines or so.
+\item First we will look at the frequency of the words themselves.
+\begin{enumerate}[(i)]
+\item Using the table command get the counts of the various words.
+  Now sort them by frequency.  What are the 10 most common words?  Are
+ they significantly different than the 10 most common words in the
+ federalist papers?  Does this seem resonable?
+\item Now we will make the classic Zipf plot.  We want a plot of the
+log of the frequency of the word (or just the log count) vs the log of
+the index of the word.
+\item Add a regression line to this plot.  Yikes!  It seems to miss
+most of the data.  We can eliminate the first 10 words since they
+don't ``fit the line'' all that well and the last bunch.  So fit a
+line which uses something like the 10'th through the 1000'th
+observation.
+\item Is the slope you compute similar to the one computed for the
+federalist papers?  How about the wikipedia Zipf slope?  (You will
+have to read off the slope by hand.) Is there a story here?
+\end{enumerate}
+\item I mentioned in class, that prediction and data compression are
+the same thing.  So this part will have you consider three different
+compression schemes: By hand, By ZIP, and by google-2-grams.
+Basically you will need to look at a sequence of words:
+\begin{quote}
+ ``I'm late! I'm late! For a very important \_\_\_\_''
+\end{quote}
+and fill in the missing word.  You will first do it by hand, and then
+by compression and finally by google.
+\begin{enumerate}[LZ 1:]
+\item First pick a location at random in the text.\footnote{Determine how
+ many words there are and then generate a random index from 1 up to
+ the last possible word.}  Now print out the previous 20 words or
+so.  Write down several possible next words.  What probability do you
+give to each of these words?  Now, look at which word actually occured?
+What probability did you give to this word? 
+
+Here are the R commands to do an example.   Choose the index
+<<random>>=
+index <- round(runif(1)*24384)
+index
+@ 
+Then look at the the preceeding words are:
+<<words>>=
+cat(alice[(index-20):(index-11)],
+    "\n",
+    alice[(index-10):(index-1)])
+@ 
+Now guess the next word. The correct answer is:
+<<answer>>=
+alice[index]
+@ 
+
+In the example I started with: ``I'm late! I'm late! For a very
+ important \_\_\_\_''.\footnote{For the purists, this actually doesn't
+ occur in the original text--but only in the Disney version.}  One
+ might guess the words: event, date, meeting, activity.  Now you give
+ probabilities to each of these, say P(event) = .1, P(date) = .4,
+ P(meeting) = .2, P(activity) = .1.  Note these probabilities don't
+ add up to one since I should also have probabilities for other words
+ that I haven't bothered to write down.  Now look and see the correct
+ word is.  For the example I'm using the correct word is
+ ``date'' which I assigned a probability of $.4$.  
+
+Repeat this with 10 different words.  How often was one of the words
+you guessed the correct word?  
+\item Compute the average of the log probabilities for your guesses.
+Assume that any time you missed the word altogether, you should have
+in fact used a longer list which eventually would have included the
+correct word.  So give yourself a probability of say, 1/24384 for that
+word.  The average of your log probabilities is called the
+``entropy.'' Entropy is usually measured in ``bits'' which mean base
+2.  So use log base 2 for this step.\footnote{You can assign the base
+in R, or you can use the formula, $log_2(x) = log(x)/log(2)$.}
+\item Compare your entropy to the LZ compression scheme.  You can do
+ this noting that the ZIP version is 59k bytes at Guttenberg.  What
+ does your total entropy look like?  (Use the total number of words
+ times number average entropy per word as an estimate.)
+\item Now we want to make a prediction of the next word based on the
+ \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/google}{goole}
+n-gram data set.  I have made up an easier set 
+ of data to work so you don't have to process those gigabytes of
+ compressed data (look
+\href{http://gosset.wharton.upenn.edu/~foster/teaching/471/google/easy_google}{here}
+for 
+it.) \footnote{If you want to read this into R you will find the files
+google/easy\_one and google/easy\_two will read in with less trouble. 
+Or you can use Sivan's magic of:\\
+\texttt{
+one.gram $<-$ read.delim("easy\_google",nrow=3160,header=FALSE)}\\
+or for two grams\\
+\texttt{
+two.gram $<-$ read.delim("easy\_google",skip=3160,header=FALSE)
+}}
+First look up
+ the previous word in the google 1-gram file.  For my example, it is
+ ``important'' which occurs 119695314 times.  Now look up the actual
+ two-gram word pair that occured.  For my example, it is ``important
+ date'' which occured 35885 times.  So the probability is
+ 35885/119695314, or about 1/3000.  How does google do on forecasting
+the probability of the 10 words you came up with?  How would you
+estimate the entropy goolge would do for the entire file?
+\item (Bonus) Write a R script that will compute the -log(probability)
+of each word based on the google 2-gram data set.  What is the final
+entropy?  Does it do better than LZ compression?
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
