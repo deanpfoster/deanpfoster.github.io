@@ -21,11 +21,11 @@ $YourProfile{'YourAge'} = $profile{'age'};
 
 
 if($profile{'sex'} eq 'male') { 	
-$YourProfile{'YourSex'} = 0;
+    $YourProfile{'YourSex'} = 0;
 }
-	else {
-	$YourProfile{'YourSex'} = 1;
-	};
+else {
+    $YourProfile{'YourSex'} = 1;
+};
 
 
 
@@ -647,21 +647,21 @@ else {
 	}
 
 if($profile{'depression'} eq 'am not') {
-	$YourProfile{'YourDepression'} = 0;
-	}
+    $YourProfile{'YourDepression'} = 0;
+}
 elsif($profile{'depression'} eq 'am') {
-	$YourProfile{'YourDepression'} = 1;
-	}
+    $YourProfile{'YourDepression'} = 1;
+}
 else {
-	$YourProfile{'YourDepression'} = -1;
-	}
+    $YourProfile{'YourDepression'} = -1;
+}
 
 
 
 if ($profile{'sexualpartner'} eq '') { 
-$YourProfile{'YourSexualPartner'} = -1; }
+    $YourProfile{'YourSexualPartner'} = -1; }
 else {
-$YourProfile{'YourSexualPartner'} = $profile{'sexualpartner'};
+    $YourProfile{'YourSexualPartner'} = $profile{'sexualpartner'};
 }
 
 
