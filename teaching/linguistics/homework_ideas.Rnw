@@ -69,6 +69,8 @@ Now that you have an idea of what these are searching for, grab a
 large piece of text (say 1 million words or so) and count how many
 matches there are to both of these regular expressions.
 
+
+
 \end{enumerate}
 
 \section{Homework 2: Words}

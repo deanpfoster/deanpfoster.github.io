@@ -1,0 +1,133 @@
+\documentclass[14pt,letterpaper]{extarticle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  You need to make a directory called .figures.  With that and the following
+%  command, you can avoid cluttering the directory with lots of .eps and .pdf files.
+%  (make sure you create the directory first--or you will get a weird error message.)
+%
+\SweaveOpts{prefix.string=.figures/homework_practice}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%       These are the packages that I currently consider cool.
+%       Most likely they aren't used in any given file, so if you
+%       are having trouble with your latex not finding it--try just
+%       commenting the offending one out.
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[scriptsize,bf]{caption}
+\usepackage{wrapfig}
+\usepackage{amsmath,amssymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%    To generate a real latex file from this file.  First run Sweave:
+%
+%            R CMD Sweave sample.Rnw 
+%
+%    Now you should have a latex file called 
+%
+%           sample.tex
+%
+%    From here--you are on your own.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% defining some commands that I like:
+%
+%                       \dpf   \note    \DOC    \TESTING
+%
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.3,0,.5}
+\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
+\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+\newcommand{\DOC}[2]{\newcommand{#1}{\textcolor{red}{\large#2}}}
+\newcommand{\TESTING}[1]{\textcolor{red}{\large#1}}
+%
+%  To minimize output, uncomment the following
+%    \renewcommand{\dpf}[1]{}\renewcommand{\note}[1]{}\renewcommand{\DOC}[2]{}\renewcommand{\TESTING}[1]{}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\title{Homework helpers}
+\author{Dean}
+\maketitle
+
+\section{Homwork 1: Regular expressions}
+
+The most basic regular expression is simply to say ``yes'' or ``no''
+to the question of does a regular expression exist in a string.  Here
+is the most primative syntax in R:
+
+<<grep,echo=TRUE,eval=FALSE>>=
+
+if(length(grep("d","abcdefg")) != 0)
+  print("d was found");
+
+if(length(grep("z","abcdefg")) != 0)
+{
+        print("z was found") 
+} else
+{
+ print("z was not found");
+}
+
+@ 
+
+This would generate:
+<<output,echo=FALSE,eval=TRUE>>=
+<<grep>>
+@ 
+
+The stupid syntax for ``length'' is so that it will think of the
+second argument to be searched as a vector.
+<<regexp,echo=TRUE,eval=FALSE>>=
+
+if(regexpr("d","abcdefg") == 1)
+  print("d was found");
+
+if(regexpr("z","abcdefg") == 1)
+{
+        print("z was found") 
+} else
+{
+ print("z was not found");
+}
+
+@ 
+
+This would generate:
+<<output,echo=FALSE,eval=TRUE>>=
+<<regexp>>
+@ 
+
+
+
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%    Putting these at the end of the file seems to make ess work better
+%
+%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "sample.tex" 
+%%% End: 
