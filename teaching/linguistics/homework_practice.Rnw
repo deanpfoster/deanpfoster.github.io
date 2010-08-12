@@ -68,7 +68,7 @@
 \author{Dean}
 \maketitle
 
-\section{Homwork 1: Regular expressions}
+\section{Homwork 1: Grep and Regular expressions}
 
 The most basic regular expression is simply to say ``yes'' or ``no''
 to the question of does a regular expression exist in a string.  Here
@@ -76,16 +76,9 @@ is the most primative syntax in R:
 
 <<grep,echo=TRUE,eval=FALSE>>=
 
-if(length(grep("d","abcdefg")) != 0)
-  print("d was found");
+grep("d","abcdefg")
 
-if(length(grep("z","abcdefg")) != 0)
-{
-        print("z was found") 
-} else
-{
- print("z was not found");
-}
+grep("z","abcdefg")
 
 @ 
 
@@ -94,27 +87,49 @@ This would generate:
 <<grep>>
 @ 
 
-The stupid syntax for ``length'' is so that it will think of the
-second argument to be searched as a vector.
-<<regexp,echo=TRUE,eval=FALSE>>=
+To put this into an if-then-else is a pain in the butt since it thinks
+of them as lists.  So you can also do:
 
-if(regexpr("d","abcdefg") == 1)
-  print("d was found");
 
-if(regexpr("z","abcdefg") == 1)
+<<grep2,echo=TRUE,eval=FALSE>>=
+
+grep("d",c("a","bcd","efgh","dog"))
+
+@ 
+Which will tell you the index of the words where ``d'' occured:
+<<output,echo=FALSE,eval=TRUE>>=
+<<grep2>>
+@ 
+
+So to put it into an if-then-else you need to convert the list of
+indexes to a boolean.  Length is an embarsing way of doing it:
+<<grepIfThenElse,echo=TRUE,eval=TRUE>>=
+
+if(length(grep("d","abcde")) == 1)
 {
-        print("z was found") 
+  print("d was found")
 } else
 {
- print("z was not found");
+  print("Not found");
 }
-
 @ 
 
-This would generate:
-<<output,echo=FALSE,eval=TRUE>>=
-<<regexp>>
+Other useful commands are: 
+\begin{itemize}
+\item regexpr: (same as grep?)
+\item gsub: allows editing strings using regular expressins
+\item sedit: From the package Hmisc, it is a clone of the unix command
+sed.
+\item nchar: tells you how long a string is.  What do you guess the
+each of the following return:
+<<>>=
+  nchar("abc")
+  nchar("\\\\")
 @ 
+\end{itemize}
+
+
+
 
 
 

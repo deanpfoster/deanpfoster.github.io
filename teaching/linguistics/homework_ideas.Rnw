@@ -9,14 +9,20 @@
 \item Read chapters 1 and 2 from JM.  
 \item From the book JM: 2.1, 2.4, 2.8
 
-\item Statistical analysis of two regular expressions.  What do the
-following two regular expressions do:
+\item Statistical analysis of two regular expressions.  Consider the
+following two regular expressions do.  
 \begin{enumerate}
+\item First Regex:
 \begin{verbatim}
 (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
 \end{verbatim}
-
-\item 
+(Note, if you have trouble getting that to run, you can try the
+following which is a much watered down version which is in R format:
+<<>>=
+reg1 <- "[a-z0-9]+(\\.[a-z0-9]+)*(@[a-z0-9\\.]+)?"
+@ 
+)
+\item Second Regex:
 \begin{verbatim}
 {
   \\b
@@ -85,10 +91,6 @@ matches there are to both of these regular expressions.
 
 \begin{enumerate}
 \item JM: 4.10.
-\end{enumerate}
-
-
-
 
 \item  We will analyse the text called ``Alice in
 Wonderland.'' First we want to grab it down from the Gutenberg
@@ -218,5 +220,5 @@ of each word based on the google 2-gram data set.  What is the final
 entropy?  Does it do better than LZ compression?
 \end{enumerate}
 \end{enumerate}
-
+\end{enumerate}
 \end{document}
