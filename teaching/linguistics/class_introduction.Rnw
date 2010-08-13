@@ -1,0 +1,26 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/calibration}
+
+\title{Class: Introduction}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Quotes and data due
+\item Homework questions?
+\end{itemize}
+
+\section{Introduction: Examples}
+
+\begin{itemize}
+\item Google Flu: 
+\end{itemize}
+
+
+
+
+\end{document}
