@@ -220,5 +220,10 @@ of each word based on the google 2-gram data set.  What is the final
 entropy?  Does it do better than LZ compression?
 \end{enumerate}
 \end{enumerate}
+\item (Chapter 4) Find an approximation to the perplexity based on the
+entropy.  (see page JM:96 for PP measure.)
+\item (n-grams) Estimate how many words a day you hear or read.  From
+this, estimate how many words you will process in your life time.  How
+many lifetimes worth of data are in the google n-gram database?
 \end{enumerate}
 \end{document}
