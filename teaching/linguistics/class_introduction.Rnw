@@ -78,7 +78,7 @@ worth.  So we can start finding the same patterns that humans can
 encrypt in language.
 \end{itemize}
 
-\sectdion{The bright and beautiful future}
+\section{The bright and beautiful future}
 
 \begin{itemize}
 \item In 1951 Turing wrote his piece on smart computers.  He said in
@@ -98,6 +98,5 @@ dollars (2009 estimate).
 desk.  In 25 years, your ``ipod'' will have that much memory.
 \item So, peg the singularity at 2029 for a first guess.  
 \end{itemize}
-
 
 \end{document}

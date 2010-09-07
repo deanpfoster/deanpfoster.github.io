@@ -1,0 +1,27 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/projects}
+
+\title{Project ideas}
+\maketitle
+
+\begin{description}
+\item[GREP / FSA] Read 
+\begin{itemize}
+\item Sham Kakade and Tong Zang's paper on linear
+time methods for estimating HMM,
+\item Papademetrious' paper on learning FSA
+\end{itemize}
+and build a linear method for estimating FSA's.  What conditions are
+necessary for your method to work?
+\item[Backoff] Build a statistical motivated replacement for the
+backoff algorithm.  The idea is that instead of arbitarilly using a
+fixed rule for deciding when to backoff to the previous empirical
+probability, use a dynamic rule.  You can motivate this from either a
+Bayesian, frequentist, or even individual sequence perspective.  Run
+both the traditional backoff algorithm and your algorithm over some
+text to see how it performs.
+\end{description}
+\end{document}
