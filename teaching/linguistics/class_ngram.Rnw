@@ -10,7 +10,7 @@
 \section{Admistrivia}
 
 \begin{itemize}
-\item
+\item I'll post homework this weekend.
 \end{itemize}
 
 
@@ -105,7 +105,8 @@ PP(W) \equiv P(w_1 w_2 \cdots w_n)^{1/n}
 \begin{displaymath}
 PP(W) \equiv \sqrt[n]{\prod P(w_{i+1}|w_i)}
 \end{displaymath}
-
+\item I'll ask you in homework to relate this to the entropy.  (I'll
+post this weekend some homework to practice with.)
 \end{itemize}
 
 \section{Statistics to the rescue}
