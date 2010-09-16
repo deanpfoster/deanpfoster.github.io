@@ -1,0 +1,91 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Regular expressions}
+\maketitle
+
+% \section{Admistrivia}
+
+% \begin{itemize}
+% \item
+% \end{itemize}
+
+\section{Regular expressions: key idea}
+
+\begin{itemize}
+\item \verb#rm *.*# We all know what it means
+\item regular expressions are a generalization of this
+\item Idea is to capture a pattern
+\item Basic tool in most string handling.  Like a vector in math.
+Everything starts here.
+\end{itemize}
+
+\section{We have seen this before}
+\begin{itemize}
+\item What is the expected time until you see ``abracadabra'' in a
+collection of random letters? 
+\begin{itemize}
+\item Naive: $26^{11}$
+\item Correct: $26^{11}+26^{4}+26$
+\item Best proof: martingales
+\item For our purposes: Markov chains
+\end{itemize}
+\item Look at interesting points: ``'',''a'',''ab'',''abr'',''abra'',...,''abracadabra''
+\item Solution: nodes and labelled edges between them
+\item Basically a DFA
+\item Goal: write down a DFA without all the graphical structure
+\end{itemize}
+
+\section{Regular expression language}
+\begin{itemize}
+\item Problem: look for \verb#\begin{itemize}# and
+\verb#\end{itemize}# pairs.
+\item Subproblem: look for \verb#\begin{itemize}#.  Since \verb#\# is
+the escape character in regular expressions, we have to escape it.
+\item So: \verb#\\begin{itemize}#.
+\item Note: How to type this in the shell?  you need to escape the
+escapes.  So 4 in all!
+\item So to match pairs:  \verb#\\begin{itemize}.*\\end{itemize}#.
+\item Oops: Doesn't quite work.  But might be good enough.
+\end{itemize}
+
+\section{Relationship to DFA}
+\begin{itemize}
+\item Consider \verb#(here|there)#.  It matches either ``here'' or
+``there''.
+\item Equivalent DFA: Two paths: (1) here (2) there.
+\item Alternative form: Two paths (1) t (2) empty, then ``here''.
+\item But what about a \verb#.*# in the middle?
+\begin{itemize}
+\item try: \verb#a.*b#.
+\item same as: \verb#a[^b]*b#. (as far as yes/no is concerned)
+\item Need to match a, then a cycle of non-''b'''s followed by a b.
+\end{itemize}
+\item So a DFA has to figure out the magic.
+\end{itemize}
+\section{Relationship to NFA}
+\begin{itemize}
+\item NFA allows more than one direction
+\item have more than one path.
+\item Requires doing search
+\end{itemize}
+
+\section{Where do you find regex?}
+\begin{itemize}
+\item Linux: grep / egrep / sed, etc
+\item emacs: but then it has everything
+\item perl: built on regex
+\item R: included
+<<grep,echo=TRUE,eval=TRUE>>=
+
+grep("d","abcdefg")
+
+grep("z","abcdefg")
+
+@ 
+\end{itemize}
+
+\end{document}
