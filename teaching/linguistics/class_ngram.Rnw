@@ -89,6 +89,25 @@ different  statistics--just like words do!
 information theory (Adi did stuff on this), and also lingustics 
 \end{itemize}
 
+\section{Perplexity}
+
+\begin{itemize}
+\item likelihoods get too small to be useful
+\item log likelihoods still have a sample size dependency and deal
+with logs which are always a mystery.
+\item good answer is perplexity!  Geometric mean of the conditional
+probability.
+\item Raw definition:
+\begin{displaymath}
+PP(W) \equiv P(w_1 w_2 \cdots w_n)^{1/n}
+\end{displaymath}
+\item For markov
+\begin{displaymath}
+PP(W) \equiv \sqrt[n]{\prod P(w_{i+1}|w_i)}
+\end{displaymath}
+
+\end{itemize}
+
 \section{Statistics to the rescue}
 
 \begin{itemize}
