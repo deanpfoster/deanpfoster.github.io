@@ -1,0 +1,109 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Ngrams (chapter 4)}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item
+\end{itemize}
+
+
+\section{Story: map / reduce}
+
+\begin{itemize}
+\item Google's main tool is called map-reduce
+\begin{itemize}
+\item Split the web up into 10k pieces 
+\item Assign one computer to each piece
+\item Run map code on each computer
+\item combine results with ``reduce code''
+\end{itemize}
+\item Why we care
+\begin{itemize}
+\item As long as ``map code'' is the slow step, this works really well
+\item Massivly parallel.  Unfortunately, it is the future of computering.
+\item So we will have to start doing it soon.
+\end{itemize}
+\item Example: counting all words on the web
+\begin{itemize}
+\item Entire web now about a 10 trillion words
+\item Kinda large for one computer
+\item But easy for 10k.  Each only has to manage {\em only} a billion words.
+\item So counting how often ``foo'' occurs would only take a few
+seconds on each computer
+\item Now adding up these counts is only a few seconds
+\item So to count the number of occurance of ``foo'' is a matter of
+seconds, rather than hours.
+\end{itemize}
+\end{itemize}
+
+\section{Ngrams of what?}
+
+\subsection{Sample problem: Spell checking / grammar checking}
+\begin{itemize}
+\item French define their language, so correct usage is ``by the book.''
+\item Hebrew have a combinatorial language, so correct usage is
+``computed.''  (Aside: and also by the book.)
+\item English is by usage: When most people switch from the ``Everyone
+pick up their pencil'' to ``everyone pick up his/her pencil.'' the
+previous is considered ungramatical.
+\item So unusual usage can be considered bad grammer, bad spelling,
+poor usuage in English.
+\item Problem: We need examples of common usage
+\end{itemize}
+
+\subsection{Mathematical sequences}
+\begin{itemize}
+\item A sequence is well defined in mathematics
+\item Example: My SS\# starts the same way as Lucas numbers sequence
+\item See
+\href{http://www.research.att.com/~njas/sequences/Seis.html}{OEIS} 
+\item But for words not so easy
+\end{itemize}
+
+\subsection{Types / lemmas / stems / disfluencies}
+\begin{itemize}
+\item In voice: do we count ``um'' and ``ah'''s?  They have noticably
+different  statistics--just like words do!
+\item Other disfluencies?
+\item Incorrect spellings?  Do we correct?
+\item Equivalent forms: Data = datum? fox = foxes?
+\item punctuation?  Capitalization?
+\item (Read chapter 3)
+\end{itemize}
+
+\section{K-state markov chains}
+
+\begin{itemize}
+\item Markov chain: $P(X_t | X_{t-1}, X_{t-2}, X_{t-3}, \ldots) = P(X_t | X_{t-1})$
+\item 2-state Markov chain: $P(X_t | X_{t-1}, X_{t-2}, X_{t-3}, \ldots) = P(X_t | X_{t-1},X_{t-2})$
+\item Not used often in probability since you can just let $Y_t =
+(X_{t},X_{t-1})$ and now it is a regular Markov chain
+\item Common in Economics (learning theory that I've worked on),
+information theory (Adi did stuff on this), and also lingustics 
+\end{itemize}
+
+\section{Model: assume language is a k-state markov chain}
+\begin{itemize}
+\item If language were a k-state markov chain, we could estimate it
+using a $k+1$ gram data set
+\item Shorter grams have better statistics
+\begin{itemize}
+\item We have execellent data on bigrams.
+\item We have good data on tri-grams
+\item But we have bad information on 8 grams--they just are too rare.
+\end{itemize}
+\item Longer grams provide better information
+\begin{itemize}
+\item Topics can't be determined locally
+\item Even he vs she can't be determined locally
+\item Much structure isn't local (or at least not bigram local)
+\end{itemize}
+\end{itemize}
+\end{document}
