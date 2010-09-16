@@ -89,25 +89,6 @@ different  statistics--just like words do!
 information theory (Adi did stuff on this), and also lingustics 
 \end{itemize}
 
-\section{Model: assume language is a k-state markov chain}
-\begin{itemize}
-\item If language were a k-state markov chain, we could estimate it
-using a $k+1$ gram data set
-\item Shorter grams have better statistics
-\begin{itemize}
-\item We have execellent data on bigrams.
-\item We have good data on tri-grams
-\item But we have bad information on 8 grams--they just are too rare.
-\end{itemize}
-\item Longer grams provide better information
-\begin{itemize}
-\item Topics can't be determined locally
-\item Even he vs she can't be determined locally
-\item Much structure isn't local (or at least not bigram local)
-\end{itemize}
-\end{itemize}
-\end{document}
-
 \section{Statistics to the rescue}
 
 \begin{itemize}
@@ -128,7 +109,7 @@ Rao-Blackwellization.
 \end{itemize}
 \item Putting it all together we get:
 \begin{displaymath}
-c^* = (c+1) \frac{N_{c+1)}{N_c}
+c^* = (c+1) \frac{N_{c+1}}{N_c}
 \end{displaymath}
 where $N_c$ is the number of n-grams that occur $c$ times.  $c$ is the
 count of the word under consideration.  $c^*$ is the ``improved''
@@ -139,4 +120,28 @@ $c^* \equiv \lambda$.   This is exactly the right answer!
 the MLE.
 \end{itemize}
 
+\section{Model: assume language is a k-state markov chain}
+\begin{itemize}
+\item If language were a k-state markov chain, we could estimate it
+using a $k+1$ gram data set
+\item Shorter grams have better statistics
+\begin{itemize}
+\item We have execellent data on bigrams.
+\item We have good data on tri-grams
+\item But we have bad information on 8 grams--they just are too rare.
+\end{itemize}
+\item Longer grams provide better information
+\begin{itemize}
+\item Topics can't be determined locally
+\item Even he vs she can't be determined locally
+\item Much structure isn't local (or at least not bigram local)
+\end{itemize}
+\end{itemize}
+
 \section{First real statistics problem: called backoff}
+
+\begin{itemize}
+\item next time!
+\end{itemize}
+
+\end{document}
