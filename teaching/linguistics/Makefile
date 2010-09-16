@@ -39,6 +39,6 @@ install: all
 	ssh go "cd public_html;git pull"
 #	scp -p class_*.pdf go:public_html/teaching/471/
 #	scp -p *.tex.html go:public_html/teaching/471/
-	ssh go "cd public_html/teaching/471/;make"
+	ssh go "cd public_html/teaching/linguistics/;make"
 
 
