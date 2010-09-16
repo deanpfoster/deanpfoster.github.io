@@ -107,3 +107,36 @@ using a $k+1$ gram data set
 \end{itemize}
 \end{itemize}
 \end{document}
+
+\section{Statistics to the rescue}
+
+\begin{itemize}
+\item How do we deal with low counts?
+\item Example: Shakespeare's language is different than google
+\begin{itemize}
+\item Can't use google n-grams
+\item Can use Shakespeare's n-grams
+\item Take $n=1$ for now
+\item What is the probably distribution of next work in new sonnet?
+\end{itemize}
+\item Walk through Good-Turing using Shakespeare
+\begin{itemize}
+\item Look at previous sonnet: what was the frequency of new words?
+\item Use that to estimate frequency here!
+\item But which was the previous sonnet?  ``bootstrap'' or
+Rao-Blackwellization. 
+\end{itemize}
+\item Putting it all together we get:
+\begin{displaymath}
+c^* = (c+1) \frac{N_{c+1)}{N_c}
+\end{displaymath}
+where $N_c$ is the number of n-grams that occur $c$ times.  $c$ is the
+count of the word under consideration.  $c^*$ is the ``improved''
+count of this word.
+\item Example: $N$ follows Poisson exactly with mean $\lambda$.  Then
+$c^* \equiv \lambda$.   This is exactly the right answer!
+\item Only if the prior distribution of $\lambda$ is flat will we use
+the MLE.
+\end{itemize}
+
+\section{First real statistics problem: called backoff}
