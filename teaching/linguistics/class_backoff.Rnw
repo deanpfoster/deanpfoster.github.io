@@ -14,7 +14,22 @@
 \end{itemize}
 
 
-\section*{Story: ??}
+\section*{Story: Simultanious discoveries (Book: 1.6.7)}
+
+Who invented the calculus? Newton or Libnetz?
+\begin{itemize}
+\item My first three papers:
+\begin{itemize}
+\item Scooped by 50 years (Pool adjacent violators)
+\item Scooped by 30 years (by von Neuman)
+\item Scopped by 3 months (point in polygon)
+\end{itemize}
+\item I figured I was almost doing research then!
+\item But it keeps happening to me and everyone else
+\item ``Pity the scientist who discovers the already discovered.'' NYT.
+\end{itemize}
+
+
 
 \section*{Backoff}
 
@@ -29,9 +44,9 @@ contexts?
 \item . . .
 \item With nothing: Use base rate
 \end{itemize}
-\item Example: ``We can do this ???'' will have lots of examples 5
+\item Example: ``We can do this \_\_\_\_'' will have lots of examples 5
 grams. 
-\item Example: `Twas brillig, and the slithy toves...'
+\item Example: `Twas brillig, and the slithy toves \_\_\_\_'
 \begin{verbatim}
 was brillig, and the slithy toves
   Did gyre and gimble in the wabe:
@@ -39,7 +54,7 @@ All mimsy were the borogoves,
   And the mome raths outgrabe.
 \end{verbatim}
 So back off to base rate.  Hence we guess very likely words next.
-like ``A'', ``the'', ... ``did''
+like ``A'', ``the'', ... , ``did''
 \end{itemize}
 
 \section*{Interpolation}
@@ -52,7 +67,7 @@ like ``A'', ``the'', ... ``did''
 \item Begs the question as to how to pick the $\lambda$'s.  The books
 solution is ``cross validation.''  I.e. DUCK!
 \item But a strong statement is that the $\lambda$'s depend only on
-the history--not the current word.  Is this right?
+the history--not the current word.  Is this right?  Katz says no.
 \end{itemize}
 
 
@@ -64,35 +79,106 @@ counts.
 \item Not real helpful for zero counts though, since it basically
 gives base rates (Could this be improved by thinking of different
 ``models'' for each context?)
-\item So backoff until you have some data to actually use.  BUt since
+\item So backoff until you have some data to actually use.  But since
 we are now using the word to be forecast we have to worry about
 probabilities summing to 1 or not.
-\item Example.  COnsider the words x,y,z in order:
+\item Example.  Consider the words x,y,z in order:
 \begin{eqnarray*}
-\hat{P}_2(z|x,y) &=& P^*(z|x,y) \hbox{if $C(x,y,z) > 0$} \\
-\hat{P}_2(z|x,y) &=& \alpha_2(x,y) \hat{P}_1(z|y) \hbox{otherwise} \\
-\hat{P}_1(z|y) &=& P^*(z|y) \hbox{if $C(y,z) > 0$} \\
-\hat{P}_1(z|y) &=& \alpha_1(y) \hat{P}_0(z) \hbox{otherwise} \\
+\hat{P}_2(z|x,y) &=& 
+\left\{
+\begin{array}{ll}
+P^*(z|x,y) & \hbox{if $C(x,y,z) > 0$} \\
+\alpha_2(x,y) \hat{P}_1(z|y) & \hbox{otherwise} 
+\end{array}
+\right. \\
+\hat{P}_1(z|y) &=& 
+\left\{
+\begin{array}{ll}
+P^*(z|y) & \hbox{if $C(y,z) > 0$} \\
+\alpha_1(y) \hat{P}_0(z)& \hbox{otherwise} 
+\end{array}
+\right. \\
 \hat{P}_0(z) &=&  P^*(z)  
 \end{eqnarray*}
+\item $P^*$ is now the good / turing probability.
+\item (NOTE: I'm changing things from the book.  I think it is right.
+Or at least it should be!)
 \end{itemize}
+
 \subsection*{Normalization}
 
-
-\section*{Models for backoff}
-
 \begin{itemize}
-\item Variable length Markov chain
-\item LZW
-\item Compression
+\item Bayesian model generates proper predictions for zero events.
+This is just Good / Turing.
+\item But it uses a constant to fill in.
+\item What Katz does is refill-in these zeros by using the weaker
+contexts.
+\item So $\alpha$ is the total probability estimate of getting any
+zero count item.
 \end{itemize}
 
-\section*{Compression = probabilistic forecasting}
 
-\section*{First real statistics problem: called backoff}
+\section*{Alternative models for backoff}
 
 \begin{itemize}
+\item Lots of similar results in information theory
+\begin{itemize}
+\item Variable length Markov chain
+\item Context tree algorithm
+\item LZW
+\item Other compression algorithms
+\end{itemize}
+\item Let me describe a few of them
+\end{itemize}
+
+\section*{Good prediction means good compression}
+
+\begin{itemize}
+\item Good prediction implies good codes
+\item Primative form: Huffman codes
+\item Fancy form: Arithmetic codes
+\item Idea: random code book
+\begin{itemize}
+\item We have probabilty for each string
+\item Sample a string, call it string 1
+\item Sample another string, call it string 2
+\item ...
+\item (skip repeats if you like)
+\item Tell someone the index of when the true string is sampled
+\item Theorem: about $1/p$, hence about $- \log(p)$ bits.
+\end{itemize}
+\end{itemize}
+
+\section*{Markov chains for good prediction}
+\begin{itemize}
+\item Nice model is a $k$-state Markov chain
+\item Theorem: LZ compression is as well as any $k$-state Markov
+chain.
+\item Variable length Markov chains are nice models
+\item Theorem: LZ compresses as well a variable length Markov chain.
+\end{itemize}
+
+\section*{Good compression implies good prediction}
+
+\begin{itemize}
+\item Kraft identity: $\sum 2^{-\hbox{code length}} \le 1$
+\item So treat $ 2^{-\hbox{code length}}$ as a probability
+\item Allows converting any compression scheme into a probability
+forecasting scheme.
+\item Bob and I realized we could use this idea plus LZ to come up
+ with a universal prediction algorithm.  We started writing up a
+ paper--only to find that it had already won an award for best
+ paper--the year before.  Their only error was the list of authors--we
+ weren't on it.  So, yet another simutanious discovery.
+\end{itemize}
+
+
+\section*{A more principled solution?}
+
+\begin{itemize}
+\item Backoff is our first real statistics problem
 \item Room for lots of real statistical thinking here
+\item Thesis anyone?
 \end{itemize}
 
 
