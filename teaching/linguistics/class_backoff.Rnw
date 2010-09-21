@@ -1,0 +1,92 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Backoff (sections 4.6 and 4.7)}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item I've posted homework this weekend.
+\end{itemize}
+
+
+\section*{Story: ??}
+
+\section*{Backoff}
+
+Problem: Some contexts are full, others empty.  How to deal with empty
+contexts? 
+
+\begin{itemize}
+\item Naive solution: Use best context available.
+\begin{itemize}
+\item If you have 5 grams, use them, otherwise
+\item If you have 4 grams, use them, otherwise
+\item . . .
+\item With nothing: Use base rate
+\end{itemize}
+\item Example: ``We can do this ???'' will have lots of examples 5
+grams. 
+\item Example: `Twas brillig, and the slithy toves...'
+\begin{verbatim}
+was brillig, and the slithy toves
+  Did gyre and gimble in the wabe:
+All mimsy were the borogoves,
+  And the mome raths outgrabe.
+\end{verbatim}
+So back off to base rate.  Hence we guess very likely words next.
+like ``A'', ``the'', ... ``did''
+\end{itemize}
+
+\section*{Interpolation}
+
+\begin{itemize}
+\item ``0'' / ``1'' context seems stupid statistically
+\item Better would be to have smooth rounding
+\item General method: $\hat{P}(w_n|w_{n-1},\cdots) = \lambda_0(w's)
+\hat{P}(w_n) + \lambda_1(w's) \hat{P}(w_n|w_{n-1}) + \cdots$
+\item Begs the question as to how to pick the $\lambda$'s.  The books
+solution is ``cross validation.''  I.e. DUCK!
+\item But a strong statement is that the $\lambda$'s depend only on
+the history--not the current word.  Is this right?
+\end{itemize}
+
+
+\section*{Katz backoff}
+
+\begin{itemize}
+\item Simple improvement: Use Good / Turing for the really low
+counts.
+\item Not real helpful for zero counts though, since it basically
+gives base rates (Could this be improved by thinking of different
+``models'' for each context?)
+\item So backoff until you have some data to actually use.  BUt since
+we are now using the word to be forecast we have to worry about
+probabilities summing to 1 or not.
+\end{itemize}
+
+\subsection*{Normalization}
+
+
+\section*{Models for backoff}
+
+\begin{itemize}
+\item Variable length Markov chain
+\item LZW
+\item Compression
+\end{itemize}
+
+\section*{Compression = probabilistic forecasting}
+
+\section*{First real statistics problem: called backoff}
+
+\begin{itemize}
+\item Room for lots of real statistical thinking here
+\end{itemize}
+
+
+\end{document}
