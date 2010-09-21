@@ -67,8 +67,15 @@ gives base rates (Could this be improved by thinking of different
 \item So backoff until you have some data to actually use.  BUt since
 we are now using the word to be forecast we have to worry about
 probabilities summing to 1 or not.
+\item Example.  COnsider the words x,y,z in order:
+\begin{eqnarray*}
+\hat{P}_2(z|x,y) &=& P^*(z|x,y) \hbox{if $C(x,y,z) > 0$} \\
+\hat{P}_2(z|x,y) &=& \alpha_2(x,y) \hat{P}_1(z|y) \hbox{otherwise} \\
+\hat{P}_1(z|y) &=& P^*(z|y) \hbox{if $C(y,z) > 0$} \\
+\hat{P}_1(z|y) &=& \alpha_1(y) \hat{P}_0(z) \hbox{otherwise} \\
+\hat{P}_0(z) &=&  P^*(z)  
+\end{eqnarray*}
 \end{itemize}
-
 \subsection*{Normalization}
 
 
