@@ -57,15 +57,51 @@ the crutches of $m()$ and $f()$.  Will replace them with more set theory.
 have to get rid of uncountable unions.
 \end{itemize}
 
+\section*{Side board:rules from set theory}
+
+Distributed
+\begin{displaymath}
+A \cap (B \cup C) = (A \cap B) \cup (A \cap C)
+\end{displaymath}
+Named rule: demorgan
+\begin{displaymath}
+(A \cup B)^c = A^c \cap B^c
+\end{displaymath}
+
+
 \section*{Algebras and Finitely additive probability}
 
 \begin{itemize}
-\item Finite unions and inteserections
-\item Define axioms on P directly
-\item Give axioms and example theorem.
+\item Finite unions and inteserections define algebra
+\item Sample theorem: $A \cap B^c \in {\cal A}$
+\item Define axioms on P over algebra
+\item Sample theorem: $P(A) = P(A \cap B) + P(A \cap B^c)$
 \end{itemize}
 
-\section*{2 x 2 table of life?  I forgot it}
+\section*{Countable additivity}
+
+\begin{itemize}
+\item countable unions are in $\cal A$
+\item countable additivity (obvious by name)
+\item countalbe additivity, careful definition: $A_1, A_2, A_3,
+\ldots$ all in $\cal A$ and for any $i \ne j$, we have $A_i \cap A_j =
+\empty$.  Then let $U = \cup_{i=1}^{\infty} A_i$, we have
+\begin{itemize}
+\item $U \in \cal A$
+\item $P(U) = \sum_{i=1}^\infty P(A_i)$
+\end{itemize}
+
+\end{itemize}
+
+\section*{2 x 2 table of cool stuff}
+
+\begin{itemize}
+\item Row 1: Algebras / Finite $\Omega$
+\item Row 2: $\sigma$-Algebras / infinite $\Omega$
+\item Col 1: finite additivity / discrete math
+\item Col 2: Countable additivity
+\item All row three: all sets / $2^\Omega$
+\end{itemize}
 
 \section*{Concluding examples}
 
