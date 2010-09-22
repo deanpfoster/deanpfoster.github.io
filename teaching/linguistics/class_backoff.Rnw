@@ -75,7 +75,16 @@ probabilities summing to 1 or not.
 \hat{P}_1(z|y) &=& \alpha_1(y) \hat{P}_0(z) \hbox{otherwise} \\
 \hat{P}_0(z) &=&  P^*(z)  
 \end{eqnarray*}
+(Note: There are slight changes from the book.  I'm using what
+{\em should} be done, not necessarilly what either Katz or others have
+said to do.)
+\item The $P^*()$ are defined using Good / Turing.  That is a proper
+probabilitic model.  It assigns intellegent probabilities to unseen
+events.  We can sum over all these unseen events and call that total
+$\alpha()$.  This keeps the probabilities summing to 1.
 \end{itemize}
+
+
 \subsection*{Normalization}
 
 
