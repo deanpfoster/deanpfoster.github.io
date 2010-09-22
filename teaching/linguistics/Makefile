@@ -26,7 +26,7 @@ all_R: $(SOURCES:.Rnw=.R)
 %.tex.html: %.tex
 	touch $@
 	rm $@
-	cat class_header $^ class_footer > $@
+	cat class_header $^ class_footer | sed "s/section\*/section/" > $@
 	
 %.pdf: %.tex
 	pdflatex $^
