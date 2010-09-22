@@ -100,9 +100,14 @@ P^*(z|y) & \hbox{if $C(y,z) > 0$} \\
 \right. \\
 \hat{P}_0(z) &=&  P^*(z)  
 \end{eqnarray*}
+(Note: There are slight changes from the book.  I'm using what
+{\em should} be done, not necessarilly what either Katz or others have
+said to do.)
+\item The $P^*()$ are defined using Good / Turing.  That is a proper
+probabilitic model.  It assigns intellegent probabilities to unseen
+events.  We can sum over all these unseen events and call that total
+$\alpha()$.  This keeps the probabilities summing to 1.
 \item $P^*$ is now the good / turing probability.
-\item (NOTE: I'm changing things from the book.  I think it is right.
-Or at least it should be!)
 \end{itemize}
 
 \subsection*{Normalization}
