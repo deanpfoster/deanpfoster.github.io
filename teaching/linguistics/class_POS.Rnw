@@ -13,6 +13,40 @@
 \item 
 \end{itemize}
 
+\section*{Story: Colorless green ideas sleep furiously.}
+
+\subsection*{Noam Chomsky}
+\begin{itemize}
+\item Studied at U Penn
+\item Works at MIT
+\item Writes more than anyone else in the world!  
+\item Most cited author (alive) (Only 7th when he dies: Marx, Lenin,
+ Shakespere, Aristotal, God, Plato, Freud)
+\end{itemize}
+
+\subsection*{Mitch Marcus}
+\begin{itemize}
+\item Studied at MIT
+\item Works at Penn
+\item Almost never writes papers--but still was president of
+Lingustics society?  How?  Good students! And a few good papers.
+\item Example project: Penn Tree Bank.
+\end{itemize}
+
+\subsection*{The two aproaches}
+\begin{itemize}
+\item Chomsky builds a model of language
+\item Marcus uses trivial statistical model
+\item Chomsky ruled lingustics for 40 years (1950 - 1990)
+\item Variations of Marcus' statistical models now are used:
+\begin{itemize}
+\item IBM's speech understanding system
+\item Best parsers in the world
+\item my current research
+\end{itemize}
+\end{itemize}
+
+
 
 \section*{POS: open vs closed}
 
@@ -36,7 +70,7 @@ Key distinction: open class vs. closed class.
 \item[auxiliary verbs] may, can
 \item[particles] up, down
 \item[numerals] one, two, yikes, not to infinity?
-\end{itemize}
+\end{description}
 
 \subsection*{Open classes}
 
