@@ -20,8 +20,12 @@
 \item Studied at U Penn
 \item Works at MIT
 \item Writes more than anyone else in the world!  
+\begin{itemize}
 \item Most cited author (alive) (Only 7th when he dies: Marx, Lenin,
- Shakespere, Aristotal, God, Plato, Freud)
+Shakespere, Aristotal, God, Plato, Freud)
+\end{itemize}
+\item Built complex model of language
+\item Most famous for 5 words: Colorless green ideas sleep furiously.
 \end{itemize}
 
 \subsection*{Mitch Marcus}
@@ -30,22 +34,9 @@
 \item Works at Penn
 \item Almost never writes papers--but still was president of
 Lingustics society?  How?  Good students! And a few good papers.
-\item Example project: Penn Tree Bank.
+\item Uses simple statistical models (HMM say)
+\item Most famous for 1 million words: Penn Tree Bank.
 \end{itemize}
-
-\subsection*{The two aproaches}
-\begin{itemize}
-\item Chomsky builds a model of language
-\item Marcus uses trivial statistical model
-\item Chomsky ruled lingustics for 40 years (1950 - 1990)
-\item Variations of Marcus' statistical models now are used:
-\begin{itemize}
-\item IBM's speech understanding system
-\item Best parsers in the world
-\item my current research
-\end{itemize}
-\end{itemize}
-
 
 
 \section*{POS: open vs closed}
@@ -130,9 +121,66 @@ General methods of taggers:
 
 \section*{Rule based}
 
-\section*{HMM based}
+\subsection*{Algorithm:}
+\begin{itemize}
+\item Give multiple tags from a dictionary
+\item Use rules to eliminate stupid tag sequences
+\end{itemize}
 
-\section*{Transformation based}
+\subsection*{Generally Hand coded}
+\begin{itemize}
+\item Rules are written by hand.
+\item Most (90\%) types are unique -- so dictionary gets them right
+\item Almosts most tokens (40\%) are ambiguous -- so dictionary is just a guess
+\item Huh? rare words are unique, common words have many meanings / usages.
+\item Rules have good data on either side and hence work well
+\end{itemize}
+
+\subsection*{Can be statistical}
+Probabilistic rule systems exist
+
+
+\section*{HMM based}
+\begin{itemize}
+\item POS are ``hidden'' states
+\item Each token is drawn conditionally on POS
+\item POS follows Markov chain
+\item Goal: find the most likely POS sequence for a sentence
+\item Method: Viterbi / forward-backwards / EM
+\item Example:
+\begin{itemize}
+\item Secretariat is expected to RACE tomorrow.
+\item Secretariat/NNP is/BEZ expected/TO to/VB RACE/NN* tomorrow/NR.
+\item ``Race'' is most often a noun.  So this is a first-pass tagging.
+\item But, $P(NN|TO) = .0047$ where as $P(VB|TO) = .83$
+\item So the Markov rules adjust the final probability of 99.9\% in
+favor of VB.  A better tag here.
+\end{itemize}
+\item We'll talk about HMM's next time
+\end{itemize}
+
+\section*{Transformation based (aka statistics)}
+
+\begin{itemize}
+\item First pass: label POS via dictionary look up.  Pick best one.
+\item Second pass: use neighboring POS to improve current POS
+\item Repeat with better neighbors
+\item Regression on ``Y-hats'' from neighbors
+\item Can be done using statistics
+\item Note: Lisha (one of our PhD students) did a bit of
+ y-on-the-right-hand-side a few years ago
+\end{itemize}
+
+\section*{Stanford POS tagger}
+\begin{itemize}
+\item Uses 4 on each side
+\item A log-linear model (i.e. logistic / multiple logistic)
+\item see
+(\href{http://nlp.stanford.edu/~manning/papers/tagging.pdf}{Toutanova, Klein, Manning, Yoram})
+for details.
+\item Acts kinda like HMM combined with transformation
+\end{itemize}
+
 
 \section*{Evaluation of performance}
 
@@ -145,8 +193,11 @@ model gets 85\% accurate.  Just look the word up in a dictionary.
 better than 10 years ago.
 \item What is ground truth:
 \begin{itemize}
-\item What humans tag things as
-\item The Stanford log-linear POS tagger
+\item What humans tag things as (Note: expensive.  Humans can do 3000
+words per hour.  Or about a penny a word.  It takes one month of
+training--so not so easy to use Mechnical Turk.)
+\item The Stanford log-linear POS tagger (15,000 words per second.  Or
+about a penny per million.  97\% accurate.)
 \end{itemize}
 \end{itemize}
 
