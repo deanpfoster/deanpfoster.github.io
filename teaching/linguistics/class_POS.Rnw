@@ -1,0 +1,121 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: POS (chapter 5)}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+
+\section*{POS: open vs closed}
+
+Key distinction: open class vs. closed class.
+\begin{itemize}
+\item Open class is ``infinite''
+\item Closed class is ``finite''
+\item More accurately, we have good lists for closed class
+\item For example, there are only three articles (a form of
+ determiner) in English: ``a'', ``an'' and ``the''.
+\item There are an infinite number of proper nouns.
+\end{itemize}
+
+\subsection*{Examples of closed classes}
+
+\begin{description}
+\item[prepositions]  prepositions: on, under
+\item[determiners] a, an, the, this, that
+\item[pronouns] he, she, I, others
+\item[conjunctions] and, or
+\item[auxiliary verbs] may, can
+\item[particles] up, down
+\item[numerals] one, two, yikes, not to infinity?
+\end{itemize}
+
+\subsection*{Open classes}
+
+\begin{description}
+\item[noun]
+\item[verbs]
+\item[adjetives]
+\item[adverbs] 
+\end{description}
+
+\subsection*{Irregular verbs: open or closed class}
+
+\begin{itemize}
+\item There are only about 50 irregular verbs.
+\item So is it a closed class?  Kinda: but not really.  Maybe it
+ depends on what you are doing with them.
+\item Certainly, if you are learning English, it is a closed class
+ worth memorizing.
+\item Basically they are historic artifacts from a previous grammar.
+  So they once were regular.  Only a few verbs out of an infinite set
+ made it past the great vowel shift.
+\end{itemize}
+
+\subsection*{The difference between open and closed}
+
+Closed class words are sometimes called {\em function} words.
+(I.e. think operators in mathematics)
+\begin{itemize}
+\item Hence have ideoscratic usages (think of all the ways we use
+``$+$'' in mathematics)
+\item Can have hand coded rules since they are finite
+\end{itemize}
+
+Open class words are often called {\em content} words.  There are
+ words that you know and will only hear / read about 100 times in your
+ entire life.  Hard to list all of them, but they follow regular rules
+typically. 
+
+\subsection*{But what are the 85 classes of English words?}
+
+\begin{itemize}
+\item Like the normal table--it appears on the front cover of the
+book.
+\item Also ``grep'' help is there
+\item So we are now at the ``+/- two SD'' level into linguistics.
+Just kidding!
+\end{itemize}
+
+\section*{Taggers}
+
+General methods of taggers:
+\begin{itemize}
+\item Rule based: i.e. hand coding
+\item HMM based: i.e. a probabilistic model
+\item Transformation based tagging: i.e. ``y-hat on the RHS'' and regression
+\end{itemize}
+
+\section*{Rule based}
+
+\section*{HMM based}
+
+\section*{Transformation based}
+
+\section*{Evaluation of performance}
+
+Wow, that tagger is 97.25\% accurate!
+\begin{itemize}
+\item Is this good or bad?
+\item Yea, its good!  Sounds pretty impressive.  But then, an naive
+model gets 85\% accurate.  Just look the word up in a dictionary.
+\item Boo its bad!  People got 97\% a while ago--so this isn't much
+better than 10 years ago.
+\item What is ground truth:
+\begin{itemize}
+\item What humans tag things as
+\item The Stanford log-linear POS tagger
+\end{itemize}
+\end{itemize}
+
+
+
+\end{document}
