@@ -1,0 +1,115 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: HMM (chapter 6)}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item Turn in homework sometime soon
+\end{itemize}
+
+
+\section*{HMM}
+
+Definition (Notation by Sham not the book)
+\begin{itemize}
+\item $h_t$ hidden state ($1$ to $m \approx 100$)
+\item $x_t$ observed state ($1$ to $n \approx 10^6$)
+\item $T \in \Re^{m \times m}$ is the transtion matrix
+\item $O \in \Re^{m \times n}$ is the observation matrix
+\end{itemize}
+
+\subsection*{Likelihood (6.3)}
+
+\begin{displaymath}
+P(x_{1:t}) = \sum_h \prod O_{h_i,x_i} \prod T_{h_i,h_{i+1}}
+\end{displaymath}
+Yikes!
+
+Better, compute $P(h_t|x_t,x_{t-1},\ldots)$ from
+$P(h_t|x_{t-1},\ldots)$.  This requires summing over possible previous
+states.  Called ``Forward'' algorithm.
+
+\subsection*{Recovering hidden state (6.4)}
+
+Use Vitebi algoritm.  Read the book.
+
+\subsection*{Forward / backward algorithm (6.5)}
+
+AKA EM algorithm.  
+
+Basically use Vitebi to fill in states.  Then use the empirical state
+transtions to figure out transition probabilties.
+
+\section*{Sham}
+
+\section*{New likelihood}
+
+Define $A_x = T diag(O_{x,1},\ldots,O_{x,m})$
+
+Lemma 1:
+
+\begin{displaymath}
+P(x_{1:t}) = 1^t A_{x_t}A_{x_{t-1}}\cdots A_{x_1} \pi_0
+\end{displaymath}
+
+\begin{itemize}
+\item Duck hidden states!
+\item Makes it all linear
+\item If we can estimate the $A_{x}$'s, we are done
+\end{itemize}
+
+\section*{Grams}
+
+Define the one / two and three grams as:
+\begin{eqnarray*}
+(P_1)_i & = & Pr(x_1 = i) \\
+(P_{2,1})_{ij} & = & Pr(x_2 = i, x_1 = j) \\
+(P_{3,x,1})_{ij} & = & Pr(x_3 = i, x_2 = x, x_1 = j)
+\end{eqnarray*}
+Goal:  Write $A$ in terms of these $P$'s.  We can estimate these $P$
+``easilly.''
+\begin{itemize}
+\item Problem: with million words, we need a trillion observations?
+\item Solution: data reduction to subspace
+\end{itemize}
+
+\section*{Dictionary}
+
+If we had a good dictionary, we could write each word as a vector.
+So if $U$ translated observed states into vectors we could define:
+\begin{displaymath}
+D_{2,1} = U^T P_{2,1} U
+\end{displaymath}
+as a new empirical transition matrix.  Also,
+\begin{displaymath}
+D_{2,x,1} = U^T P_{3,x,1} U
+\end{displaymath}
+If $U$ were $n \times k$ for some small $k$ these would be much
+smaller matrixes.  We could estimate them with much less date.
+
+You can find such a dictionary on sobolev in \verb#/data/pretty#.
+I'll talk about them a bit on Friday.
+
+\section*{Finding $U$ for our dictionary}
+
+We can determine $U$ by doing a SVD on $P_{2,1}$.
+
+\begin{eqnarray*}
+\vec{b}_1 & = & U^t P_1 \\
+\vec{b}_\infty & = & (P^T_{2,1} U)^+ P_1 \\
+B_x & = & (U^T P_{3,x,1})(U^T P_{2,1})^+
+\end{eqnarray*}
+
+lemma 3:
+\begin{displaymath}
+Pr(x_{1:t}) = \vec{b}^T_\infty B_{x_t} B_{x_{t-1}}\cdots B_{x_1} \vec{b}_1
+\end{displaymath}
+
+
+\end{document}
