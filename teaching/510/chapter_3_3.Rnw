@@ -11,23 +11,46 @@
 Exam after fall break. (PhD's ask, whats fall break?  Its the day we
 cancel monday's class.)
 
-\section*{Identify the new deck}
 
-Tell commandant, you can identify the sprite of groups.  You can solve the
-following problem:
+\section*{So why was binomial theorem my favorite?}
+From it you learn about
 \begin{itemize}
-\item He plays poker with one deck of cards
-\item He opens a new deck and shuffles it
+\item statistics (see book)
+\item $e = (1 + 1/n)^n$
+\item finance $(1 + \epsilon)^n$
+\item inclusion - exclusion (I didn't konw this one before)
+\item WINNER!
 \end{itemize}
-You will tell which deck played with by poker and which only had the
-carma of him on it.  How do you do it?
+
+\section*{Story time: A little randomness goes a long way}
+
+Newton's billard table with one unknown particle leads to noise.
 \begin{itemize}
-\item He gives you decks
-\item You play ``find the rising sequences'' solitare game (called new
-age solitare in the book)
-\item It wins with the new deck (most of the time) and ties with the
-poker deck.  
+\item Angle of strike is angle of direction
+\item Assume zero friction
+\item Balls keep going and going and going
+\item How accurately can we forecast it?
+\begin{itemize}
+\item Clearly if I hold a magnet next to table (and balls contain
+iron) then I can confuse a forecast.
+\item I have less control if I hold a brick (all that matters is gravity)
 \end{itemize}
+\item Theory says: predictions aregood for ever if you know everything
+\item But what if you don't know the brick?
+\item What if the brick is very far away? (Alpha centuria)
+\item What if the brick is very small? (one atom)
+\item Poll: How long? 
+\begin{itemize}
+\item Life of universe?
+\item 1000 years
+\item 1 year
+\item 1 day
+\item 1 minute
+\end{itemize}
+\item Closest answer: 1 minute (true answer about 2 minutes, but it
+depends on how fast you hit the balls, etc)
+\end{itemize}
+{\bf Moral: Randomness is everywhere -- even in a Newtonian universe.}
 
 
 \section*{How many times should you do a real shuffle?}
@@ -146,11 +169,29 @@ previous defintion to all measures.)
 
 For card shuffling: distance $\approx 52/2^n$ for $n$ shuffles
 
+
+
+\section*{Identify the new deck}
+
+Tell commandant, you can identify the sprite of groups.  You can solve the
+following problem:
+\begin{itemize}
+\item He plays poker with one deck of cards
+\item He opens a new deck and shuffles it
+\end{itemize}
+You will tell which deck played with by poker and which only had the
+carma of him on it.  How do you do it?
+\begin{itemize}
+\item He gives you decks
+\item You play ``find the rising sequences'' solitare game (called new
+age solitare in the book)
+\item It wins with the new deck (most of the time) and ties with the
+poker deck.  
+\end{itemize}
+
 \section*{so about that commandant?}
 
 You are looking for the rising sequence hearts and clubs.  If he
 shuffled 7 or fewer times, it will show up in the new deck before the
 falling sequence.
-
-
 \end{document}
