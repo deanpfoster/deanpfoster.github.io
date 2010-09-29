@@ -17,36 +17,6 @@ necessarilly understandable to students.
 
 
 
-\section*{Story time}
-
-Newton's billard table with one unknown particle leads to noise.
-\begin{itemize}
-\item Angle of strike is angle of direction
-\item Assume zero friction
-\item Balls keep going and going and going
-\item How accurately can we forecast it?
-\begin{itemize}
-\item Clearly if I hold a magnet next to table (and balls contain
-iron) then I can confuse a forecast.
-\item I have less control if I hold a brick (all that matters is gravity)
-\end{itemize}
-\item Theory says: predictions aregood for ever if you know everything
-\item But what if you don't know the brick?
-\item What if the brick is very far away? (Alpha centuria)
-\item What if the brick is very small? (one atom)
-\item Poll: How long? 
-\begin{itemize}
-\item Life of universe?
-\item 1000 years
-\item 1 year
-\item 1 day
-\item 1 minute
-\end{itemize}
-\item Closest answer: 1 minute (true answer about 2 minutes, but it
-depends on how fast you hit the balls, etc)
-\end{itemize}
-{\bf Moral: Randomness is everywhere -- even in a Newtonian universe.}
-
 \section*{Continuous conditional probability}
 
 Table form of random variables:
