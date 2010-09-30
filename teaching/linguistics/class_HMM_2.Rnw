@@ -46,6 +46,19 @@ Pr(x_{1:t}) = \vec{b}^T_\infty B_{x_t} B_{x_{t-1}}\cdots B_{x_1} \vec{b}_1
 \end{displaymath}
 \end{itemize}
 
+\section*{Easy case: observed = real}
+\begin{itemize}
+\item Ignore $U$ (i.e. make it an dentity)
+\item Equations reduce to:
+\begin{eqnarray*}
+\vec{b}_1 & = & P_1 =\pi_0 \\
+P^T_{2,1} \vec{b}_\infty & = & P_1 \\
+P_{2,1} B_x & = & P_{3,x,1}
+\end{eqnarray*}
+\item Our $A_x$ is then simply $T_{x.}$.  The transition probabilites
+associated with state $x$
+\end{itemize}
+
 \section*{Estimating $P$'s}
 
 \begin{itemize}
@@ -62,7 +75,15 @@ pairs.'' We don't need that much.
 \item Only enough to see ``all
 singletons.''  So need to fill up our one-grams.  But not fill up our
 two grams.
-\item Called $n_0(\epsilon)$ -- see all but $\epsilon$ missing dat
+\item Called $n_0(\epsilon)$ -- see all but $\epsilon$ missing
+fraction of the data.
+\end{itemize}
+
+\section*{Main theorem}
+
+\begin{itemize}
+\item 
+\end{itemize}
 
 
 
