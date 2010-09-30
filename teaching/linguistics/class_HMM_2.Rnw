@@ -1,0 +1,72 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: HMM 2}
+\maketitle
+
+\section*{Admistrivia}
+\begin{itemize}
+\item Does anyone have an obligation at 4:30?  Could we sometime hold
+class from 3-6 so we could go to interesting talks in CS?
+\end{itemize}
+
+
+\section*{HMM: review from last time}
+
+\begin{itemize}
+\item $h_t$ hidden state ($1$ to $m \approx 100$)
+\item $x_t$ observed state ($1$ to $n \approx 10^6$)
+\item $T \in \Re^{m \times m}$ is the transtion matrix
+\item $O \in \Re^{m \times n}$ is the observation matrix
+\item 
+Define $A_x = T diag(O_{x,1},\ldots,O_{x,m})$ then (
+Lemma 1):
+\begin{displaymath}
+P(x_{1:t}) = 1^t A_{x_t}A_{x_{t-1}}\cdots A_{x_1} \pi_0
+\end{displaymath}
+\item Define the one / two and three grams as:
+\begin{eqnarray*}
+(P_1)_i & = & Pr(x_1 = i) \\
+(P_{2,1})_{ij} & = & Pr(x_2 = i, x_1 = j) \\
+(P_{3,x,1})_{ij} & = & Pr(x_3 = i, x_2 = x, x_1 = j)
+\end{eqnarray*}
+\item Compute $U$ by doing a SVD on $P_{2,1}$.
+\item 
+\begin{eqnarray*}
+\vec{b}_1 & = & U^t P_1 \\
+\vec{b}_\infty & = & (P^T_{2,1} U)^+ P_1 \\
+B_x & = & (U^T P_{3,x,1})(U^T P_{2,1})^+
+\end{eqnarray*}
+\item (lemma 3:)
+\begin{displaymath}
+Pr(x_{1:t}) = \vec{b}^T_\infty B_{x_t} B_{x_{t-1}}\cdots B_{x_1} \vec{b}_1
+\end{displaymath}
+\end{itemize}
+
+\section*{Estimating $P$'s}
+
+\begin{itemize}
+\item Estimate $P$ empirically--call them $\hat{P}$.
+\item SVD $P_{2,1}$ to generate $\hat{U}$.
+\item Compute $\hat{b}$ and $\hat{B}$ by plug-in.
+\end{itemize}
+
+\section*{Data requirements}
+
+\begin{itemize}
+\item  Naive estimate, something like $n^2$ observations to generate ``all
+pairs.'' We don't need that much.
+\item Only enough to see ``all
+singletons.''  So need to fill up our one-grams.  But not fill up our
+two grams.
+\item Called $n_0(\epsilon)$ -- see all but $\epsilon$ missing dat
+
+
+
+
+
+
+\end{document}
