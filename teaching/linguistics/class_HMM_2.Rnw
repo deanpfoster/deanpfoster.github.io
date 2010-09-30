@@ -34,7 +34,7 @@ P(x_{1:t}) = 1^t A_{x_t}A_{x_{t-1}}\cdots A_{x_1} \pi_0
 (P_{3,x,1})_{ij} & = & Pr(x_3 = i, x_2 = x, x_1 = j)
 \end{eqnarray*}
 \item Compute $U$ by doing a SVD on $P_{2,1}$.
-\item 
+\item Key definitions of $B$'s:
 \begin{eqnarray*}
 \vec{b}_1 & = & U^t P_1 \\
 \vec{b}_\infty & = & (P^T_{2,1} U)^+ P_1 \\
@@ -44,19 +44,36 @@ B_x & = & (U^T P_{3,x,1})(U^T P_{2,1})^+
 \begin{displaymath}
 Pr(x_{1:t}) = \vec{b}^T_\infty B_{x_t} B_{x_{t-1}}\cdots B_{x_1} \vec{b}_1
 \end{displaymath}
-\end{itemize}
+\item Idea: try it for MM without the hidden:
+(Ignore $U$ -- i.e. make it an identity)
+\begin{displaymath}
+P_1 = \pi
+\end{displaymath}
+by defintion.  
+\begin{displaymath}
+P_1 = 1^T P_{2,1}
+\end{displaymath}
+ What is $P_{2,1}$?
+\begin{displaymath}
+P_{2,1} = T \cdot diag(\pi)
+\end{displaymath}
+So,
+\begin{displaymath}
+\vec{b}^T_\infty = P_1^T P_{2,1}^{-1} = 1^T P_{2,1} P_{2,1}^{-1} = 1^T
+\end{displaymath}
+What about $P_{3,x,1}$:
+\begin{displaymath}
+P_{3,x,1} = T \delta_x \delta_x^T P_{21}
+\end{displaymath}
+But since in this context $A_x = T \delta_x \delta_x^T$ we get
+\begin{displaymath}
+P_{3,x,1} = A_x P_{21}
+\end{displaymath}
+So compute $A_x = P_{3,x,1} P_{2,1}^{-1}$.
 
-\section*{Easy case: observed = real}
-\begin{itemize}
-\item Ignore $U$ (i.e. make it an dentity)
-\item Equations reduce to:
-\begin{eqnarray*}
-\vec{b}_1 & = & P_1 =\pi_0 \\
-P^T_{2,1} \vec{b}_\infty & = & P_1 \\
-P_{2,1} B_x & = & P_{3,x,1}
-\end{eqnarray*}
-\item Our $A_x$ is then simply $T_{x.}$.  The transition probabilites
+ Our $A_x$ is then simply $T_{x.}$.  The transition probabilites
 associated with state $x$
+
 \end{itemize}
 
 \section*{Estimating $P$'s}
@@ -67,7 +84,18 @@ associated with state $x$
 \item Compute $\hat{b}$ and $\hat{B}$ by plug-in.
 \end{itemize}
 
-\section*{Data requirements}
+\section*{``State'' update}
+
+\begin{displaymath}
+\hat{b}_{t+1} = \hat{B}_x \hat{b}_t / \hat{b}^T_\infty \hat{B}_x \hat{b}_t 
+\end{displaymath}
+these recursive updates allow us to predict the observed values with:
+\begin{displaymath}
+P(x_t|\hat{b}_t) \sim \hat{b}^T_\infty \hat{B}_{x_t} \hat{b}_t
+\end{displaymath}
+
+
+\section*{Main results}
 
 \begin{itemize}
 \item  Naive estimate, something like $n^2$ observations to generate ``all
@@ -77,13 +105,33 @@ singletons.''  So need to fill up our one-grams.  But not fill up our
 two grams.
 \item Called $n_0(\epsilon)$ -- see all but $\epsilon$ missing
 fraction of the data.
+\item Theorem: With sufficient data:
+\begin{displaymath}
+\sum_{x_{1:t}} |P(x_{1:t}) - \hat{P}(x_{1:t})| \le \epsilon
+\end{displaymath}
+\item Basically a L1 over the entire distribution.
 \end{itemize}
 
-\section*{Main theorem}
+\section*{Measuring conditional probability}
 
 \begin{itemize}
-\item 
+\item Note: if $P(x) \sim Q(x)$ doesn't mean $P(x|y) \sim Q(x|y)$. The
+evil divide by zero problem!
+\item Trick: weight by the probability of your conditioning set.
+\item Problem with trick: end up with L1.
+\item Better trick: use squares, logs, squares-of-square-roots etc.
 \end{itemize}
+
+\section*{KL for conditoinal probability}
+\begin{itemize}
+\item Now condition: rapid mixing
+
+\item $(A_x)_{ij} \ge \alpha > 0$
+\item If $N$ is big enough then the KL of the conditional probability
+is small.
+\item Namely: $E( log(P(x_t|\cdot) / log(\hat{P}(x_t|\cdot))$
+\end{itemize}
+
 
 
 
