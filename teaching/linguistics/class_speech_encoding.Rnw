@@ -10,9 +10,109 @@
 \section{Admistrivia}
 
 \begin{itemize}
-\item start on homework 2
+\item Start on homework 2.
 \end{itemize}
 
+\section{The telephone}
+\begin{itemize}
+\item Thoughts are QM which is analog
+\item Words are digital
+\item Sound is analogue
+\item encoded to digital packets by phone
+\item carried by wire as analogue
+\end{itemize}
 
+\section{Basic physics: limists of encoding}
+
+\begin{itemize}
+\item Shannon theory:
+\begin{displaymath}
+C = B log_2 ( 1 + S/N)
+\end{displaymath}
+C = bits per second (hence log base 2).  B is bandwidth (in per
+seconds).  
+\item Nyquest:
+\begin{displaymath}
+f_p \le 2 B
+\end{displaymath}
+Can be thought of either as dot-dashes in Morse code, or as coding
+alalog to digital. 
+\item Humans are trying to solve the same questions using much less
+quality equiptment
+\end{itemize}
+
+\section{What does the human equiptment look like?}
+
+Tools we use:
+\begin{itemize}
+\item Nasal
+\item Labial
+\item dental
+\item alveolar (ridge behind teath)
+\item Palatal (from palate) roof of mouth
+\item Velar (soft palate)
+\item Glottal (for stops)
+\end{itemize}
+Different consonants often touch at different places.
+
+Different vowels are constricted at different places.
+
+\section{Vowel space}
+
+page 223
+
+\section{Notation}
+
+IPA and ARPAbet.
+
+\section{Aside why can't spelling make sense?}
+
+Visit ``speech accent archive''
+
+Look at notation
+
+\section{Alternative: bad mathematical representations}
+
+\begin{itemize}
+\item Wave form (hard to visualize)
+\item Spectrogram (hard to define--i.e. redundent overlapping windows)
+\item Wavelets would be a good alternative--but discrete time--so not
+shift invariant.
+\item No good answer
+\end{itemize}
+
+\section{The correct model}
+
+\begin{itemize}
+\item What is the mouth doing?
+\item Where is the tongue?
+\item etc
+\item From these, build model of ``gestural phonology''
+\item Helps build in transitions that are difficult
+\end{itemize}
+
+\section{Automatic speech generation (i.e. computers talking)}
+
+First puzzle: convert text to phonemes:
+\begin{itemize}
+\item 1750 is pronounced differently if it is a date, a password, a
+dollar amount, a number of people, etc.
+\item Names don't follow standard rules--so need to be memorized
+\end{itemize}
+
+Second puzzle: stringing these together:
+\begin{itemize}
+\item Easy--just memorize each phoneme
+\item Totally ugly!  It sounds like a 1970's computer
+\item Better: memorize pairs of phonemes
+\item Now it is hard to glue them together
+\end{itemize}
+Third puzzle: Making it sound human
+\begin{itemize}
+\item Humans change phonemes by context (due to physical constraints)
+\item Humans change phonemes by importance (due to modeling the reciever)
+\item Humans change phonemes to slow themselves down (due to stupitidy
+/ disfluencies)
+\end{itemize}
 
 \end{document}

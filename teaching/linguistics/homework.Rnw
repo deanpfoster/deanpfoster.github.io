@@ -79,18 +79,21 @@ matches there are to both of these regular expressions.
 
 \end{enumerate}
 
-\section{Homework 2: Words}
+\section{Homework 2: N-grams}
 
 \begin{enumerate}
-\item Read chapter 3 and 4? of JM
+\item Read chapter 3 - 4 of JM.
 \item JM: 3.5 and 3.6, 3.10.
-\item JM: 4.2-4.7
+\item JM: 4.2, 4.3, 4.4, 4.5, 4.6, 4.7
 \end{enumerate}
 
-\section{Homework 2: authorship}
+\section{Homework 3: More n-grams}
 
 \begin{enumerate}
-\item JM: 4.10.
+
+\item Read chapter 5 - 6 of JM.
+\item Read the spectral paper on HMM's
+\item JM: problem 4.10.
 
 \item  We will analyse the text called ``Alice in
 Wonderland.'' First we want to grab it down from the Gutenberg
