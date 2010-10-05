@@ -10,7 +10,7 @@
 \section{Admistrivia}
 
 \begin{itemize}
-\item Start on homework 2.
+\item Do on homeworks 2 and 3.
 \end{itemize}
 
 \section{The telephone}

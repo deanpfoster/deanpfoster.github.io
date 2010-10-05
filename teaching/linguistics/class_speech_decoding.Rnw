@@ -1,0 +1,19 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Speech decoding (chapter 9 \& 10)}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\end{itemize}
+
+\section{A statistical approach to ``wreck a nice beach''}
+
+
+
+\end{document}
