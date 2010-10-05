@@ -1,0 +1,18 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Speech encoding (chapter 7 \& 8)}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item start on homework 2
+\end{itemize}
+
+
+
+\end{document}
