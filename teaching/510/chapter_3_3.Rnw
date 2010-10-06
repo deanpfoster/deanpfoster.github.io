@@ -8,21 +8,8 @@
 
 \section*{Administrivia}
 
-Exam after fall break. (PhD's ask, whats fall break?  Its the day we
-cancel monday's class.)
 
-
-\section*{So why was binomial theorem my favorite?}
-From it you learn about
-\begin{itemize}
-\item statistics (see book)
-\item $e = (1 + 1/n)^n$
-\item finance $(1 + \epsilon)^n$
-\item inclusion - exclusion (I didn't konw this one before)
-\item WINNER!
-\end{itemize}
-
-\section*{Story time: A little randomness goes a long way}
+\section*{Dynamica systems}
 
 Newton's billard table with one unknown particle leads to noise.
 \begin{itemize}
@@ -51,6 +38,7 @@ iron) then I can confuse a forecast.
 depends on how fast you hit the balls, etc)
 \end{itemize}
 {\bf Moral: Randomness is everywhere -- even in a Newtonian universe.}
+Or A little randomness goes a long way.
 
 
 \section*{How many times should you do a real shuffle?}
@@ -91,6 +79,38 @@ simulation.  Turns out to be about sqrt(n))
 
 After one shuffle, it is bigger than n/2.  So not random!
 
+
+\section*{Second day continue with the following}
+
+\section*{Discuss betting}
+
+motivate L-1 distance
+
+mention other distances
+
+\section*{What does the variational distance look like?}
+
+\begin{displaymath}
+||f_X - u|| \equiv \frac12 \sum_{\omega \in \Omega} |f_X(\omega) - u(\omega)|
+\end{displaymath}
+for two discrete measures $f$ and $u$.  (Note: can be extended by
+previous defintion to all measures.)
+
+For card shuffling: distance $\approx 52/2^n$ for $n$ shuffles
+
+\section*{discuss labeling cards as you shuffle}
+and how this allows unshuffling
+
+\section*{More than one way to unshuffle}
+
+you can use these labels to unshuffle a multihand shuffle
+
+\section*{52 card pickup shuffle}
+
+If you did a 64-shuffle and they all happened to be in different
+piles, you have 52 card pick up.  It is now random.
+
+
 \section*{multi-armed shuffling}
 
 Three piles.  shuffle together.  Easier with more hands.  
@@ -103,10 +123,6 @@ together.  Cut it.  2-shuffle the other side.  Now there are 4 piles
 that are sorted.  Bottom card is random from each of the 4 piles.
 Etc. 
 
-\section*{52 card pickup shuffle}
-
-If you did a 64-shuffle and they all happened to be in different
-piles, you have 52 card pick up.  It is now random.
 
 \section*{First coupling idea}
 
@@ -124,50 +140,6 @@ of any one of them is about $2^T * (52/2^T) * (51/2^T) \approx 52*51/2^T$.
 \item So need new method to describe how close we are
 \end{itemize}
 
-
-\section*{Sub-problem: What is random any way? (Dean deals bridge)}
-Computer shuffling:
-
-$U_1, U_2, U_3, \ldots$ transforms into $X_1, X_2, X_3, \ldots$ where
-$X_1 \in \{1,\ldots,52\}$, $X_2 \in \{1,\ldots,51\}$, $X_3 \in
-\{1,\ldots,50\}$, $\ldots$.  This is a ideal shuffle.  It is boring.
-
-\begin{itemize}
-\item When I did this back in 1982, the uniforms only had 16 bit
-precesion, so there were only 64k of them.
-\item Hence there were only 64k different deals.
-\item Does it matter?
-\begin{itemize}
-\item No, it would still generate a life time of interesting bridge to play.
-\item Yes, if you memorized the 64k different hands, you could play as
-if you could see the other hands.  You would win much more often than
-chance suggests you should.
-\end{itemize}
-How should we measure this?
-\begin{itemize}
-\item Let ${\cal A}$ be a set
-\item Let $P({\cal A})$ be the probability under randomization
-\item Let $Q({\cal A})$ be the probability under IBM simulation
-\item Let $\Delta({\cal A}) = |P{\cal A}) - Q{\cal A})|$ be the
-deviation for set ${\cal A}$
-\item If $\Delta({\cal A}) = 1$, its bad
-\item if $\Delta({\cal A}) = 0$, its good.
-\item There exists a set ${\cal A}$ for which $\Delta({\cal A})
-\approx 1$.  How close? $1 - \frac{64k}{52!}$
-\end{itemize}
-\item Worst case called variational distance
-\end{itemize}
-
-
-\section*{What does the variational distance look like?}
-
-\begin{displaymath}
-||f_X - u|| \equiv \frac12 \sum_{\omega \in \Omega} |f_X(\omega) - u(\omega)|
-\end{displaymath}
-for two discrete measures $f$ and $u$.  (Note: can be extended by
-previous defintion to all measures.)
-
-For card shuffling: distance $\approx 52/2^n$ for $n$ shuffles
 
 
 
