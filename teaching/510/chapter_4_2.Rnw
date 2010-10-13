@@ -9,10 +9,7 @@
 \section*{Administrivia}
 
 \begin{itemize}
-\item Exam 2 weeks from today
-\item I put up teaching notes on the web.  Let me know if you find
-them useful.  I didn't write them with students in mind--so they aren't
-necessarilly understandable to students.
+\item Exam 1 weeks from today
 \end{itemize}
 
 
