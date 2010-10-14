@@ -1,0 +1,72 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Context free (chapter 12 \& 16)}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Another homework for your joy and pleasure
+\end{itemize}
+
+
+\section{Rewrite rules}
+
+\begin{itemize}
+\item General symbols:
+\begin{itemize}
+\item A, B, C: rules / states
+\item a, b, c: terminals (actual words / symbols)
+\item $\alpha$, $\beta$, $\gamma$: mixture of the above
+\end{itemize}
+\item Examples of rewrite rules: (regular)
+\begin{displaymath}
+A \rightarrow aB
+\end{displaymath}
+context free:
+\begin{displaymath}
+A \rightarrow aAb
+\end{displaymath}
+context sensitive:
+\begin{displaymath}
+aAb \rightarrow axByb
+\end{displaymath}
+\begin{displaymath}
+cAd \rightarrow axCyb
+\end{displaymath}
+\end{itemize}
+
+
+\section{General rewrite rules}
+\begin{itemize}
+\item Allow anything: called a mathematical proof.
+\begin{itemize}
+\item Rules are syntax of next step of proof
+\item apply rules until theorem results
+\item Many rules shrink size of known facts
+\item Good theorems have long proofs and short statements
+\item Requires a Turing machine to ``check'' it
+\item Defining example: $\forall a >0,b > 0,c >0, n>2 \quad a^n + b^n \ne c^n$.
+\item Name: Recursively enumeratable
+\end{itemize}
+\item Only allow rules that lengthen statements
+\begin{itemize}
+\item Can be implemented in memory = O(final result)
+\item But might be slow
+\item Defining example: $a^n b^m c^n d^m$
+\item Name: Context sensitive
+\end{itemize}
+\item Only allow rules that look like:$A \rightarrow \alpha$
+\begin{itemize}
+\item Defining example:
+\item Name: Context free. 
+\end{itemize}
+\end{itemize}
+
+
+
+\end{document}
