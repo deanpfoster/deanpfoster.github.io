@@ -56,14 +56,21 @@ cAd \rightarrow axCyb
 \item Only allow rules that lengthen statements
 \begin{itemize}
 \item Can be implemented in memory = O(final result)
-\item But might be slow
-\item Defining example: $a^n b^m c^n d^m$
+\item But might be slow (but only exponential in worst case)
+\item Requires a fixed length tape on a Turing machine
+\item Defining example: $a^n b^m c^n d^m$ (requires remimbering counts)
 \item Name: Context sensitive
 \end{itemize}
 \item Only allow rules that look like:$A \rightarrow \alpha$
 \begin{itemize}
-\item Defining example:
+\item Defining example: $a^n b^n$ (requires counting)
+\item Requires a pushdown stack
 \item Name: Context free. 
+\end{itemize}
+\item Only allow rules like $A \rightarrow Bx$.
+\begin{itemize}
+\item Can be implemented by a regular expression
+\item Name: reqular language
 \end{itemize}
 \end{itemize}
 
