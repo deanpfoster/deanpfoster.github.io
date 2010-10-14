@@ -229,4 +229,17 @@ entropy.  (see page JM:96 for PP measure.)
 this, estimate how many words you will process in your life time.  How
 many lifetimes worth of data are in the google n-gram database?
 \end{enumerate}
+
+\section{Homework 4: Speech recognition}
+
+\begin{itemize}
+\item page 247: 7.2.
+\item Listen to a few people from accent archive.  Pick one word,
+(i.e. snake) and listen to how different people pronounce it.  See if
+you can figure out how a new person will pronounce it before you hit
+``play.''  Try it for 3 new people and tell me if you feel you can get
+them right.
+\item page 334: 9.5.
+\end{itemize}
+
 \end{document}
