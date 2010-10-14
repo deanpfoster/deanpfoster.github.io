@@ -74,6 +74,50 @@ cAd \rightarrow axCyb
 \end{itemize}
 \end{itemize}
 
+\section{Proofs}
+\begin{itemize}
+\item To see how to prove a language is in some class, read chapter 16.
+\end{itemize}
+
+
+\section{So where do natural languages fall? (read 12)}
+
+\subsection{A constituent}
+
+\begin{itemize}
+\item Phrases that act like each other should be considered similar
+\item Noun phrases: ``Shaul the cat,'' ``he,'' ``The neighbors dog,''
+``George W. Bush.''
+\item Idea: we can drop-in these in similar slots
+\item Sentence = NounPhrase , VerbPhrase.
+\item $S \rightarrow NP \quad VP$
+\item Tree structure captured by HOW you use the rules
+\item Generally think of as context free
+\end{itemize}
+
+\subsection{Samples}
+
+\begin{itemize}
+\item $NP \rightarrow (Det) (Card) ... Nominal$
+\end{itemize}
+
+\section{Context free trees}
+
+\subsection{Using rules: Generation vs parsing}
+\begin{itemize}
+\item Generation of sentences: using rules to generate sample sentences.
+\item Parsing sentence: Given a sentence, mark up symbols
+\end{itemize}
+
+\section{Treebank}
+\begin{itemize}
+\item Penn has a large collection of sentence that are parsed
+\item Can be searched to find out how often rules are used
+\item Lots of data!
+\end{itemize}
+
+
+
 
 
 \end{document}
