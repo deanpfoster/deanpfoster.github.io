@@ -1,0 +1,98 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Parsing (chapter 13)}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item HW 2 due Thursday and HW 3 next tuesday?
+\item HW 1 collected today
+\item HW 4 is posted.  Due in 2 weeks.
+\end{itemize}
+
+\section*{Why parse?}
+
+What is the advantage of generating a parse tree over simple POS?
+\begin{itemize}
+\item POS is easy HMM and fast (it is a local problem)
+\item Parsing is difficult
+\item But, knowing whether it is ``man bites dog'' vs ``dog bites
+man'' is important.
+\item Finding the ``subject'' is not a local property.
+\item Hence must parse the entire sentence.
+\end{itemize}
+
+\section*{Naive methods}
+
+Top down vs bottom up.  Do example.
+
+
+\section*{Trick from Fubinichi}
+
+\begin{displaymath}
+f(n) = f(n-1) + f(n-2)
+\end{displaymath}
+Try a calculation:
+\begin{eqnarray*}
+f(10) &= &f(9) + f(8) \\
+ &= & (f(8) + f(7)) + (f(7)+f(6)) \\
+ & = & ((f(7)+f(6) + (f(6)+f(5)) + ((f(6)+f(5) + f(5)+f(4))\\
+&=& \ldots
+\end{eqnarray*}
+It will have about a thousand terms when we are done!  Here is a
+``cute trick'':
+\begin{eqnarray*}
+f(10) &= &f(9) + f(8) \\
+f(9) &= & f(8) + f(7) \\
+f(8) &= & f(7) + f(6) \\
+f(7) &= & f(6) + f(5) \\
+f(6) &= & f(5) + f(4) \\
+&=& \ldots
+\end{eqnarray*}
+Now only 10 equations in 10 unknowns.  Solve it by back subsitution.
+Called ``caching'' in computer science.
+
+\section*{What should we cache?}
+\begin{itemize}
+\item Any sequence of words can possibly equal a ``term''
+\item So mark each possible sequence with any term it might equal.
+\item Simple recursion: Check all subdivisions and see if it makes up
+a new term.
+\item A total of $n^2$ possible points to cache
+\item Each takes at most $n$ time to compute if it is one of the $k$
+possible terms
+\item Total complexity: $n^3 k$
+\item Called CKY
+\end{itemize}
+
+\section*{Table form}
+
+\begin{itemize}
+\item Words across the top.  
+\item upper right hand corner is target
+\item ``POS'' on diagonal (they are now cached)
+\end{itemize}
+
+\section*{Variation: Earley and Chart}
+\begin{itemize}
+\item Different orders of evaluation
+\item Allows slightly more intellegence
+\item Even a little context can come in
+\item But most sentence parsing is still $n^3$ with real systems.
+\end{itemize}
+
+\section*{Probabilistic models}
+
+\begin{itemize}
+\item Easy to add probabilities to divisions
+\item Called ``statistical parsing''
+\item Well discuss it Collins' version of it next time
+\item So please read 13 and 14 to prepare for next class
+\end{itemize}
+
+\end{document}
