@@ -1,0 +1,42 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Statistical parsing}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item Chompsky is talking friday (2pm) at the eastern lingustics
+meetings (held locally)
+\item Todays material is from ``Parameter Estimation for Statistical
+Parsing Models: Theory and Practice of Distribution-Free Methods'' by
+Michael Collins. 
+\end{itemize}
+
+\section*{Probabilistic CFG}
+
+\begin{itemize}
+\item Context free grammar epitomizes independence of surounding material
+\item Likewise a probabilistic CFG builds in independence
+\item But it isn't as natural--since it isn't making pass / fail statements.
+\item So PCFG are dogmatically independent
+\item Regular CFG say the correct model is ``absolutely continuous''
+we respect to the independent distribution
+\end{itemize}
+
+\section*{Example}
+\begin{itemize}
+\item Figure 1: S->BC (with B->aa C->aa).  S->C (with C->aaa). S->B
+(with B->a).
+\item Equally likely
+\item Estimate on arbitarilly large amounts of data--and we don't
+recover the truth
+\item We estimate the closest Independent model
+\end{itemize}
+
+
+\end{document}
