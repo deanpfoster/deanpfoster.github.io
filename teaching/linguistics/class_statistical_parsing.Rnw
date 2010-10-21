@@ -35,7 +35,96 @@ we respect to the independent distribution
 \item Equally likely
 \item Estimate on arbitarilly large amounts of data--and we don't
 recover the truth
-\item We estimate the closest Independent model
+\item We estimate the closest independent model
+\end{itemize}
+
+\section*{Solutions: Models vs Fits}
+\begin{itemize}
+\item First approach: better probabilistic model
+\begin{itemize}
+\item Conditional random fields
+\item build in dependencies
+\item Enter the land of MLE and ``bayesian'' conditional probability
+statements 
+\end{itemize}
+\item Second approach: Fit rather than model
+\begin{itemize}
+\item People call regression a model.  But this is stupid.
+\item Models are strong statements about what is and isn't the case
+\item Models should be falsifiable.  The CAN be wrong
+\item regression is never ``wrong.''  It just needs more variables.
+\end{itemize}
+\end{itemize}
+
+\section*{Predicting the parse}
+\begin{itemize}
+\item Treat the parse as ``Y'' and the sentence as ``X''
+\item Run a ``regression''
+\item Crazy multi-diminsional!
+\end{itemize}
+
+\section*{Revisit PCFG}
+\begin{itemize}
+\item We can write down the likilihood as:
+\begin{displaymath}
+P(T|\alpha,\theta) = \prod_{r \in R} p(r|\theta)^{c(T,\alpha,r)}
+\end{displaymath}
+where $T$ is the parse tree, $\theta$ are our parameters, $R$ is the
+set of production rules, $c()$ is the count of the number of such
+rules in our tree, $\alpha$ is the sentence to be parsed.
+\item This is an exponential family.  Not one that Larry might
+recognize though.
+\begin{displaymath}
+\log(P(T|\alpha,\theta)) = \sum_r \phi(T,\alpha) \theta
+\end{displaymath}
+where we have now identifies $\theta_r = \log p(r|\theta)$.
+\end{itemize}
+\section*{Positive and negative instances}
+\begin{itemize}
+\item We can now think of the following regression problem.
+\begin{itemize}
+\item Look at the top 2 suggests made by say a PCFG
+\item Only consider sentence for which the true parse is one of these two
+\item Try to predict which one is the correct parse
+\item We can think of $\phi(T_1,\alpha) - \phi(T_2,\alpha)$ as
+regression variables.
+\item The slope then is an estimate of $\theta$.
+\item Now we are doing a regular logistic regression.
+\end{itemize}
+\item New ``model'' created by adding new features
+\end{itemize}
+
+\section*{Using such a model}
+
+\begin{itemize}
+\item Factored code
+\item Search is now sold sepeartely from fitting
+\item We can't estimate any trees -- only good trees.
+\item Advantage is we can now add new features without having to
+modify our search algorithm
+\item Disadvantage: we don't really have a probabilistic model over
+all trees--just trees that are contenders for being the right parse
+\end{itemize}
+
+\section*{It could all go bad}
+\begin{itemize}
+\item Problem: really bad trees might beat some of the good trees
+\item we haven't ever trained on them
+\item so the question we learn is ``how to improve a parse'' not what
+the right parse is
+\end{itemize}
+
+
+\section*{More from Collins' paper}
+
+\begin{itemize}
+\item He also discusses 
+\begin{itemize}
+\item max margin
+\item perceptron algorithm
+\item support vector machines
+\item boosting
+\end{itemize}
 \end{itemize}
 
 
