@@ -1,0 +1,155 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: FOPC}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item collect homework
+\item HW 3 due next week
+\item Please let me know what your project ideas are if you haven't
+done so already
+\end{itemize}
+
+\section*{Meaning}
+
+\begin{itemize}
+\item Language is ambiguous as a representation
+\begin{itemize}
+\item ``The children ate the cake with their hands.''
+\item ``The children ate the cake with blue frosting.''
+\end{itemize}
+\item Want a uniform interfact:
+\begin{itemize}
+\item hands $\to$ ate
+\item hands $\to$ cake
+\end{itemize}
+\item One way is to modify the grammar toe a lexicalized parser,
+(i.e. use ``head nouns'')
+\item Alternative, map language into a more precise format: say mathematics
+\end{itemize}
+
+\section*{All of 1980's AI in 3 minutes or less}
+
+\begin{itemize}
+\item cyc: represent all knowledge in one framework.  Doglass Lenant.
+\item understant ``to sit'' has slots for
+\begin{itemize}
+\item who sits
+\item On what
+\item has properties like stable equilbrium, low energy..
+\item what can sit
+\end{itemize}
+\item ``frames'' have stylized bits of knowledge that you can plug
+with information.
+\item graphs with named links can represent information in a computer
+nicely.
+\item FOPC: first order predicate calculus also works
+\item All deterministic, digital, logical
+\end{itemize}
+
+\section*{We'll only do FOPC / lambda calculus}
+
+\begin{itemize}
+\item Quick review:
+\begin{itemize}
+\item Key symbols: $\forall$, $\exists$, $\vee$, $\wedge$, $\neg$
+\item terms: $x$, $y$, $z$
+\item predicates: $F(x,y)$
+\item translate: $(\forall X) man(X) \rightarrow mortal(X)$ into
+English (or more accurately Greek):  All men are mortal.
+\end{itemize}
+\item It's a calculus, so it has rules: $A$, and $A \rightarrow B$
+implies $B$.
+\item Advantage of having a calculus is that now two different
+derivations from a sentence can be proven to be equivalent (maybe)
+\item THEOREM: $man(Socraties) \rightarrow mortal(Socroties)$
+\item lambda: $\lambda.x.P(x)$ allows defining new predicates
+\item If you haven't read about lambda calculus--you should.  It's
+cool, deep, and has a nice implementation in a language called {\em lisp}.
+\end{itemize}
+
+\section*{Problem: write down a list of predicates}
+
+\begin{itemize}
+\item Two aproaches:
+\begin{itemize}
+\item many detailed predicates, few definitions
+\begin{itemize}
+\item One predicate per word sense
+\item cyc approach
+\item close to natural language
+\end{itemize}
+\item small number of predicates, lots of defintions of derived
+``pseudo'' predicates 
+\begin{itemize}
+\item more like math
+\item each word has a definition as a lambda expression
+\end{itemize}
+\end{itemize}
+\item For our sentence: ``Jill ate the cake with her hands.''
+\begin{itemize}
+\item ate${}_{17}$(jill,cake,hands)
+\item $\exists x$ action(x,eating) $\wedge$ actor(x,children) $\wedge$
+($\exists y$ helper(x,y) $\wedge$ typeof(y,hands))
+\end{itemize}
+
+\end{itemize}
+
+
+\section*{How to automate this?}
+
+\begin{itemize}
+\item Attach ``logical rules'' to our ``syntatic rules.''
+\item Called semantic attachment
+\item So, $S \to NP VP$ gets mapped to $(\exists X,Y) acts(Y,X) \wedge
+NP(X) \wedge VP(Y)$.
+\item In notation:So, $A \to \alpha \beta \ldots \gamma \quad
+\{f(\alpha.sem, \beta.sem, \ldots, gamma.sem)\}$
+\item semantics is a ``rewrite'' rule into a programming language, or
+other calculus
+\item Same thing as is done in ``YACC''
+\item Total pain in the butt: three languages going at the same time
+\end{itemize}
+
+\section*{Time holds a special place in our hearts}
+
+\begin{itemize}
+\item Many papers have been written about how to represent ``time''
+\item clearly important: built into tenses in most languages (ok,
+maybe many!)
+\item English has both perfect and simple time lines:
+\begin{itemize}
+\item perfect past: (event), (reference), (utterance)
+\item simple past: (event=reference), (utterance)
+\item present:(event=reference=utterance)
+\end{itemize}
+\item Read: Douglass Adams quote
+
+\end{itemize}
+
+
+\section*{Theorem provers}
+
+\begin{itemize}
+\item Once we have it all represented in FOPC, we can prove theorems
+\item Typically we prove contradictions
+\begin{itemize}
+\item ALl birds fly.
+\item Tweety bird is a bird.
+\item Tweety doesn't fly.
+\item therefore: 0 = 1.
+\end{itemize}
+\item People start modifying the logic then
+\item Fuzzy logic allows ``sort of true'' statements
+\item Non-monotonic logic allows resolving contradictions
+\item Probability not much help--since no easy way to add independence
+\end{itemize}
+
+
+\end{document}
