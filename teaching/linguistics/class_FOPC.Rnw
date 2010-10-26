@@ -130,7 +130,7 @@ maybe many!)
 \item present:(event=reference=utterance)
 \end{itemize}
 \item Read: Douglass Adams quote
-
+%http://fuckyeahdouglasadams.tumblr.com/post/368908721/the-grammar-of-time-travel
 \end{itemize}
 
 
