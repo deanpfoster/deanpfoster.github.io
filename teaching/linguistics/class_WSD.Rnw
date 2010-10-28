@@ -1,0 +1,116 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: WSD}
+\maketitle
+
+\section*{Porter stemmer}
+
+Why is R close to red?
+\begin{itemize}
+\item called has stem call
+\item fitted has stem fit(t)
+\item based has stem bas-
+\item Hence: Red has stem R!
+\end{itemize}
+Porter stemmer does this automatically.  Crude but still useful. 
+
+
+\section*{Lemma's in linguistics}
+
+A correct stem is called a lemma
+\begin{itemize}
+\item lemma ``sing(verb)'' contains:
+\begin{itemize}
+\item sing
+\item sang
+\item singing
+\item sung
+\item etc
+\end{itemize}
+\item lemma ``bird(noun)'' contains:
+\begin{itemize}
+\item birds
+\item bird
+\item but not birding
+\end{itemize}
+\item Problem: discover the lemma
+\item Fairly easy in English, more interesting in Arabic (and more
+profitable)
+\item This provides one grouping of words--other groupings are possible 
+\end{itemize}
+
+\section*{Relationships between words}
+
+Words can be related by many different semantic connectives:
+\begin{itemize}
+\item Homonym: spelled the same, mean different
+\begin{itemize}
+\item Polysemous: many meanings for one homonym
+\item monosemous: only one meaning (List of such words are availiable)
+\end{itemize}
+\item metonymy: ``metaphore'' like usage, ``The White House said...''
+\item synomym: two lemmas with same meaning: couch/sofa
+\item antonym: opposites
+\item Superordinate: superset
+\item hyponym: subset
+\item sounds:
+\begin{itemize}
+\item homophone (to, two, too)
+\item homograph (bass fish, bass fiddle)
+\end{itemize}
+\end{itemize}
+
+\section*{Gramatical check for two meanings}
+
+Passing the zeugma test:
+\begin{itemize}
+\item I can bake bread
+\item I can bake cakes
+\item I can bake bread and cakes.
+\end{itemize}
+Flunking the zeugma test:
+\begin{itemize}
+\item I can serve time (in jail)
+\item I can serve drinks
+\item I can serve balls (say in tennis ball)
+\item But I can't serve time, drinks, and balls.
+\end{itemize}
+
+\section*{Disambiguation}
+
+\begin{itemize}
+\item tuna, Salmon, bass
+\item violin, cello, bass
+\item Nice word since we don't have to say ``bass${}^1$'' and ``bass${}^2$''
+\end{itemize}
+
+\section*{Databases}
+\subsection*{WordNet}
+
+\begin{itemize}
+\item 100k nouns (1.23 meanings per noun)
+\item 11k verbs  (2.16 meanings per verb)
+\item 22k adjectives
+\item 4k adverbs
+\end{itemize}
+
+alternatives: PropBank (provides roles) and FrameNet (provides slots)
+
+\subsection*{line-hard-serve database}
+\begin{itemize}
+\item 4000 examples each of line (noun), hard (adj) and serve (verb)
+\item Alternatives: ``interest'' dtabase (2300 examples)
+\end{itemize}
+
+\subsection*{Senseval}
+\begin{itemize}
+\item Three versions
+\item 34 + 73 + 57 different words are disambiguated
+\end{itemize}
+
+
+\end{document}
