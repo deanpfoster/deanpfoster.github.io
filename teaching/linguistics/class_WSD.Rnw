@@ -88,6 +88,20 @@ Flunking the zeugma test:
 \item Nice word since we don't have to say ``bass${}^1$'' and ``bass${}^2$''
 \end{itemize}
 
+\section*{As POS}
+\begin{itemize}
+\item Treate it as POS tagging
+\item Simply a million tags
+\item This being cruel to our computers: they will barf
+\item Maybe possible bad with a combinatorial hidden state:
+\begin{itemize}
+\item have a hidden state which is a vector of properties
+\item each evoloves independently
+\item high diminsional hidden state
+\item but few parameters to estimate
+\end{itemize}
+\end{itemize}
+
 \section*{Databases}
 \subsection*{WordNet}
 
@@ -110,6 +124,59 @@ alternatives: PropBank (provides roles) and FrameNet (provides slots)
 \begin{itemize}
 \item Three versions
 \item 34 + 73 + 57 different words are disambiguated
+\end{itemize}
+
+\subsection*{Pseudowords}
+\begin{itemize}
+\item Make your own database
+\item replace all occurances of either banana or door with a single
+token: banana-door
+\item Now disambiguate the merged word
+\item Harder: merge cat-dog
+\item Hardest: merge house-home
+\end{itemize}
+
+\subsection*{Parallel corpora}
+\begin{itemize}
+\item Use French-English traslations of government documents from Canada
+\item If ``bank'' has two different words in french, they will be
+translated differently
+\item You don't even have to align them perfectly
+\item Hexapala (6 languages for the bible)
+\item Also ``Europarl'' for Dutch, German, Swedish, Greek, Italian, etc
+\item Basically your very own Rosseta Stone (it had three languages)
+\end{itemize}
+
+\section{Lesk algorithm}
+
+The simple Lesk algorithm: 
+\begin{itemize}
+\item Count co-occurances of words in each definition with words in
+sentence.
+\item Majority vote
+\end{itemize}
+
+The original Lesk algorithm:
+\begin{itemize}
+\item Think of words in definition as being neighbors.  Now use
+neighbors of neighbors.
+\end{itemize}
+
+Improved Lesk algorithm:
+\begin{itemize}
+\item Weighted ``least squares''
+\item Weighting called IDF: for inverse document frequency
+\item 1 / number of documents word occurs in
+\item Typically logged
+\item Sometimes TF/IDF is used: this looks at the frequency of the
+word itself also
+\end{itemize}
+
+Statistical answers:
+\begin{itemize}
+\item Many improvements possible
+\item I'll let you think of some on your own.
+\item So read: all of 19, and 20.1, 20.2,20.3, 20.4.  
 \end{itemize}
 
 
