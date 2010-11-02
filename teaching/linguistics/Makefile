@@ -9,7 +9,7 @@
 
 SOURCES = $(wildcard *.Rnw)
 
-all: all_html all_pdf all_R
+all: all_html all_pdf all_R CCA_talk_slides.pdf
 
 all_html: $(SOURCES:.Rnw=.tex.html)
 
