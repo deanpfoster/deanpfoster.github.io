@@ -20,3 +20,6 @@ buja-pca.tex
 *.R
 assignment_linguistics.tex
 auto
+*.nav
+*.snm
+*.toc
