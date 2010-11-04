@@ -79,7 +79,7 @@ matches there are to both of these regular expressions.
 
 \end{enumerate}
 
-\section{Homework 2: N-grams}
+\section*{Homework 2: N-grams}
 
 \begin{enumerate}
 \item Read chapter 3 - 4 of JM.
@@ -87,7 +87,7 @@ matches there are to both of these regular expressions.
 \item JM: 4.2, 4.3, 4.4, 4.5, 4.6, 4.7
 \end{enumerate}
 
-\section{Homework 3: More n-grams}
+\section*{Homework 3: More n-grams}
 
 \begin{enumerate}
 
@@ -230,7 +230,7 @@ this, estimate how many words you will process in your life time.  How
 many lifetimes worth of data are in the google n-gram database?
 \end{enumerate}
 
-\section{Homework 4: Speech recognition}
+\section*{Homework 4: Speech recognition}
 
 \begin{itemize}
 \item page 247: 7.2.
