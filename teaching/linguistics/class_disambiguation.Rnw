@@ -35,7 +35,9 @@ name.  Showing linguists are better at naming things than statisticians.)
 Claim: Once sense per collocation:
 
 \begin{itemize}
-\item 
+\item fish correlates with base
+\item Probably doesn't correlate with both senses
+\item So assume it is a disambiguator
 \end{itemize}
 
 
