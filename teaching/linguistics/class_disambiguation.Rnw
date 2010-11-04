@@ -1,0 +1,57 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Disambiguation}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item collect homework 3
+\end{itemize}
+
+\section*{Bootstrapping from ``truth''}
+
+(Recall Bootstrap was a term before it was taken up by statistics. The
+original usage mean, ``pulling yourself up by your bootstraps.''  It
+really has little to do with Efron's idea--but alot to do with today's
+name.  Showing linguists are better at naming things than statisticians.)
+
+\begin{itemize}
+\item Start with small hand labelled data set
+\begin{itemize}
+\item I.e. mechnical turk
+\item I.e. Dictinoary attack using Lesk
+\end{itemize}
+\item Now label all words in corpus
+\item Now add the ``easy to label'' data to the already labelled set
+\end{itemize}
+
+\section*{Bootstrapping from nothing}
+
+Claim: Once sense per collocation:
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+
+Claim: Most words have only one meaning in a given discourse.  
+
+\begin{itemize}
+\item Most articles will either be talking about money and hence bank
+means a store, or talking about dirt and so bank means an incline of mud.
+\item 
+Counter example: ``In the fish playing music painting, the salmon
+ played the base, the tuna played the trumpet, and the base played the
+ flute.''
+\end{itemize}
+
+
+
+
+
+\end{document}
