@@ -246,7 +246,27 @@ them right.
 
 \begin{itemize}
 \item (Nov 8) One page description of what you propose to do.
+\begin{itemize}
+\item Provide a thesis sentence.  This is a single statement of what
+it is you would like to show.  It might be ``I will replicate the analysis in
+such-and-such a paper.'' Or it might be ``I will investiage the CCA
+connection between abstracts and references of papers taken from NIPS
+2008.''
+\item Provide a paragraph of back ground material.
+\item Provide a paragraph of what you will be doing.
+\end{itemize}
 \item (Nov 15) References section.  What papers are related to your project?
+\begin{itemize}
+\item If you are replicating an existing paper, then you should
+freshen the references.  What has been done that is more current?
+\item If you are striking out on your own, you should identify the two
+or three papers that are closest to your work and also give the 10 or
+so other papers that you ran into along the way.
+\item In either case, give a one sentence statement of what you got
+from the paper.  Write this with yourself as the target audience--not
+me.  So if I find these statements confusing--that is fine.  As long
+as you don't!
+\end{itemize}
 \item (Nov 22) If you are doing data, show some parsed examples
 of your text that you can read in.
 \item (Nov 29) If you are doing data, give your statistical analysis
