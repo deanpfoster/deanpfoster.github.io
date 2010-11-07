@@ -242,4 +242,17 @@ them right.
 \item page 334: 9.5.
 \end{itemize}
 
+\section{Final Project}
+
+\begin{itemize}
+\item (Nov 8) One page description of what you propose to do.
+\item (Nov 15) References section.  What papers are related to your project?
+\item (Nov 22) If you are doing data, show some parsed examples
+of your text that you can read in.
+\item (Nov 29) If you are doing data, give your statistical analysis
+of your data.
+\item (Dec 10) In class presentation and paper due.
+\end{itemize}
+
+
 \end{document}
