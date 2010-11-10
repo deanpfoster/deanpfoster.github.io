@@ -8,26 +8,37 @@
 
 \section*{Administrivia}
 
-Exam after fall break. (PhD's ask, whats fall break?  Its the day we
-cancel monday's class.)
 
-\section*{Identify the new deck}
+\section*{Dynamica systems}
 
-Tell commandant, you can identify the sprite of groups.  You can solve the
-following problem:
+Newton's billard table with one unknown particle leads to noise.
 \begin{itemize}
-\item He plays poker with one deck of cards
-\item He opens a new deck and shuffles it
-\end{itemize}
-You will tell which deck played with by poker and which only had the
-carma of him on it.  How do you do it?
+\item Angle of strike is angle of direction
+\item Assume zero friction
+\item Balls keep going and going and going
+\item How accurately can we forecast it?
 \begin{itemize}
-\item He gives you decks
-\item You play ``find the rising sequences'' solitare game (called new
-age solitare in the book)
-\item It wins with the new deck (most of the time) and ties with the
-poker deck.  
+\item Clearly if I hold a magnet next to table (and balls contain
+iron) then I can confuse a forecast.
+\item I have less control if I hold a brick (all that matters is gravity)
 \end{itemize}
+\item Theory says: predictions aregood for ever if you know everything
+\item But what if you don't know the brick?
+\item What if the brick is very far away? (Alpha centuria)
+\item What if the brick is very small? (one atom)
+\item Poll: How long? 
+\begin{itemize}
+\item Life of universe?
+\item 1000 years
+\item 1 year
+\item 1 day
+\item 1 minute
+\end{itemize}
+\item Closest answer: 1 minute (true answer about 2 minutes, but it
+depends on how fast you hit the balls, etc)
+\end{itemize}
+{\bf Moral: Randomness is everywhere -- even in a Newtonian universe.}
+Or A little randomness goes a long way.
 
 
 \section*{How many times should you do a real shuffle?}
@@ -68,6 +79,38 @@ simulation.  Turns out to be about sqrt(n))
 
 After one shuffle, it is bigger than n/2.  So not random!
 
+
+\section*{Second day continue with the following}
+
+\section*{Discuss betting}
+
+motivate L-1 distance
+
+mention other distances
+
+\section*{What does the variational distance look like?}
+
+\begin{displaymath}
+||f_X - u|| \equiv \frac12 \sum_{\omega \in \Omega} |f_X(\omega) - u(\omega)|
+\end{displaymath}
+for two discrete measures $f$ and $u$.  (Note: can be extended by
+previous defintion to all measures.)
+
+For card shuffling: distance $\approx 52/2^n$ for $n$ shuffles
+
+\section*{discuss labeling cards as you shuffle}
+and how this allows unshuffling
+
+\section*{More than one way to unshuffle}
+
+you can use these labels to unshuffle a multihand shuffle
+
+\section*{52 card pickup shuffle}
+
+If you did a 64-shuffle and they all happened to be in different
+piles, you have 52 card pick up.  It is now random.
+
+
 \section*{multi-armed shuffling}
 
 Three piles.  shuffle together.  Easier with more hands.  
@@ -80,10 +123,6 @@ together.  Cut it.  2-shuffle the other side.  Now there are 4 piles
 that are sorted.  Bottom card is random from each of the 4 piles.
 Etc. 
 
-\section*{52 card pickup shuffle}
-
-If you did a 64-shuffle and they all happened to be in different
-piles, you have 52 card pick up.  It is now random.
 
 \section*{First coupling idea}
 
@@ -102,55 +141,29 @@ of any one of them is about $2^T * (52/2^T) * (51/2^T) \approx 52*51/2^T$.
 \end{itemize}
 
 
-\section*{Sub-problem: What is random any way? (Dean deals bridge)}
-Computer shuffling:
 
-$U_1, U_2, U_3, \ldots$ transforms into $X_1, X_2, X_3, \ldots$ where
-$X_1 \in \{1,\ldots,52\}$, $X_2 \in \{1,\ldots,51\}$, $X_3 \in
-\{1,\ldots,50\}$, $\ldots$.  This is a ideal shuffle.  It is boring.
 
+\section*{Identify the new deck}
+
+Tell commandant, you can identify the sprite of groups.  You can solve the
+following problem:
 \begin{itemize}
-\item When I did this back in 1982, the uniforms only had 16 bit
-precesion, so there were only 64k of them.
-\item Hence there were only 64k different deals.
-\item Does it matter?
+\item He plays poker with one deck of cards
+\item He opens a new deck and shuffles it
+\end{itemize}
+You will tell which deck played with by poker and which only had the
+carma of him on it.  How do you do it?
 \begin{itemize}
-\item No, it would still generate a life time of interesting bridge to play.
-\item Yes, if you memorized the 64k different hands, you could play as
-if you could see the other hands.  You would win much more often than
-chance suggests you should.
+\item He gives you decks
+\item You play ``find the rising sequences'' solitare game (called new
+age solitare in the book)
+\item It wins with the new deck (most of the time) and ties with the
+poker deck.  
 \end{itemize}
-How should we measure this?
-\begin{itemize}
-\item Let ${\cal A}$ be a set
-\item Let $P({\cal A})$ be the probability under randomization
-\item Let $Q({\cal A})$ be the probability under IBM simulation
-\item Let $\Delta({\cal A}) = |P{\cal A}) - Q{\cal A})|$ be the
-deviation for set ${\cal A}$
-\item If $\Delta({\cal A}) = 1$, its bad
-\item if $\Delta({\cal A}) = 0$, its good.
-\item There exists a set ${\cal A}$ for which $\Delta({\cal A})
-\approx 1$.  How close? $1 - \frac{64k}{52!}$
-\end{itemize}
-\item Worst case called variational distance
-\end{itemize}
-
-
-\section*{What does the variational distance look like?}
-
-\begin{displaymath}
-||f_X - u|| \equiv \frac12 \sum_{\omega \in \Omega} |f_X(\omega) - u(\omega)|
-\end{displaymath}
-for two discrete measures $f$ and $u$.  (Note: can be extended by
-previous defintion to all measures.)
-
-For card shuffling: distance $\approx 52/2^n$ for $n$ shuffles
 
 \section*{so about that commandant?}
 
 You are looking for the rising sequence hearts and clubs.  If he
 shuffled 7 or fewer times, it will show up in the new deck before the
 falling sequence.
-
-
 \end{document}

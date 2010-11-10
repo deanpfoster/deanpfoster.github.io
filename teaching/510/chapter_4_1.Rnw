@@ -89,7 +89,7 @@ P(B) = P(B|A)
 \end{displaymath}
 Wouldn't life be nice?  Called independence.
 
-What power in a word.  ``Events $A_1, A_2, A_3,\ldots,A_n$ are
+What power in a word.  ``Events'' $A_1, A_2, A_3,\ldots,A_n$ are
 independent if
 \begin{eqnarray*}
 P(A_1 \cap A_2) & = & P(A_1)P(A_2) \\

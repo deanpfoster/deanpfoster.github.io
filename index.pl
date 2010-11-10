@@ -45,7 +45,8 @@ while(<HOME>)
 	    };
 	    if(!$done && ($r < .5))
 	    {  # weather
-		print '<a href="http://forecast.weather.gov/MapClick.php?w0=t&w2=wc&w3=sfcwind&w4=sky&w5=pop&w6=rh&w8=rain&w9=snow&w10=fzg&w11=sleet&AheadHour=47&Submit=Submit&FcstType=graphical&textField1=39.95250&textField2=-75.16570&site=all"><img src="http://images.intellicast.com/WeatherImg/RadarLoop/bgm_None_anim.gif" border=0 Align="left"> </a>';
+
+		print '<a href="http://forecast.weather.gov/MapClick.php?w0=t&w2=wc&w3=sfcwind&w4=sky&w5=pop&w6=rh&w8=rain&w9=snow&w10=fzg&w11=sleet&AheadHour=47&Submit=Submit&FcstType=graphical&textField1=39.95250&textField2=-75.16570&site=all"><img src="http://images.intellicast.com/WxImages/RadarLoop/shd_None_anim.gif" border=0 Align="left"> </a>';
 		$done = 1;
 	    };
 	    if(!$done && ($r < .8))

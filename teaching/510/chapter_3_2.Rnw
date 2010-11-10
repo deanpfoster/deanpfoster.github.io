@@ -12,7 +12,17 @@
 Homework questions?
 
 
-\section*{Intro story?}
+\section*{Game: what is the most important theorem in all of mathematics?}
+
+Game we played at the mathematics department:
+\begin{itemize}
+\item Intromediate value theorem
+\item central limit theorem
+\item binomial theorem
+\item Taylor's theorem
+\end{itemize}
+
+
 
 \section*{Definition}
 \begin{itemize}

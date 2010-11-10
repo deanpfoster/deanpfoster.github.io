@@ -1,0 +1,123 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Context free (chapter 12 \& 16)}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Another homework for your joy and pleasure
+\end{itemize}
+
+
+\section{Rewrite rules}
+
+\begin{itemize}
+\item General symbols:
+\begin{itemize}
+\item A, B, C: rules / states
+\item a, b, c: terminals (actual words / symbols)
+\item $\alpha$, $\beta$, $\gamma$: mixture of the above
+\end{itemize}
+\item Examples of rewrite rules: (regular)
+\begin{displaymath}
+A \rightarrow aB
+\end{displaymath}
+context free:
+\begin{displaymath}
+A \rightarrow aAb
+\end{displaymath}
+context sensitive:
+\begin{displaymath}
+aAb \rightarrow axByb
+\end{displaymath}
+\begin{displaymath}
+cAd \rightarrow axCyb
+\end{displaymath}
+\end{itemize}
+
+
+\section{General rewrite rules}
+\begin{itemize}
+\item Allow anything: called a mathematical proof.
+\begin{itemize}
+\item Rules are syntax of next step of proof
+\item apply rules until theorem results
+\item Many rules shrink size of known facts
+\item Good theorems have long proofs and short statements
+\item Requires a Turing machine to ``check'' it
+\item Defining example: $\forall a >0,b > 0,c >0, n>2 \quad a^n + b^n \ne c^n$.
+\item Name: Recursively enumeratable
+\end{itemize}
+\item Only allow rules that lengthen statements
+\begin{itemize}
+\item Can be implemented in memory = O(final result)
+\item But might be slow (but only exponential in worst case)
+\item Requires a fixed length tape on a Turing machine
+\item Defining example: $a^n b^m c^n d^m$ (requires remimbering counts)
+\item Name: Context sensitive
+\end{itemize}
+\item Only allow rules that look like:$A \rightarrow \alpha$
+\begin{itemize}
+\item Defining example: $a^n b^n$ (requires counting)
+\item Requires a pushdown stack
+\item Name: Context free. 
+\end{itemize}
+\item Only allow rules like $A \rightarrow Bx$.
+\begin{itemize}
+\item Can be implemented by a regular expression
+\item Name: reqular language
+\end{itemize}
+\end{itemize}
+
+\section{Proofs}
+\begin{itemize}
+\item To see how to prove a language is in some class, read chapter 16.
+\end{itemize}
+
+
+\section{So where do natural languages fall? (read 12)}
+
+\subsection{A constituent}
+
+\begin{itemize}
+\item Phrases that act like each other should be considered similar
+\item Noun phrases: ``Shaul the cat,'' ``he,'' ``The neighbors dog,''
+``George W. Bush.''
+\item Idea: we can drop-in these in similar slots
+\item Sentence = NounPhrase , VerbPhrase.
+\item $S \rightarrow NP \quad VP$
+\item Tree structure captured by HOW you use the rules
+\item Generally think of as context free
+\end{itemize}
+
+\subsection{Samples}
+
+\begin{itemize}
+\item $NP \rightarrow (Det) (Card) ... Nominal$
+\end{itemize}
+
+\section{Context free trees}
+
+\subsection{Using rules: Generation vs parsing}
+\begin{itemize}
+\item Generation of sentences: using rules to generate sample sentences.
+\item Parsing sentence: Given a sentence, mark up symbols
+\end{itemize}
+
+\section{Treebank}
+\begin{itemize}
+\item Penn has a large collection of sentence that are parsed
+\item Can be searched to find out how often rules are used
+\item Lots of data!
+\end{itemize}
+
+
+
+
+
+\end{document}

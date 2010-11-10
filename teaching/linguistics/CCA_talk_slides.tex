@@ -1,0 +1,628 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  %\useoutertheme{infolines}
+  % or ...
+
+  %\setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amsopn}
+%\usepackage{epsfig}
+\usepackage{graphicx}
+%\usepackage{ifthen}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+
+% --- Macros ---
+% **** IF YOU WANT TO DEFINE ADDITIONAL MACROS FOR YOURSELF, PUT THEM HERE:
+
+
+\newcommand{\eps}{{\epsilon}}
+\newcommand{\argmax}{{\rm argmax}}
+\newcommand{\argmin}{{\rm argmin}}
+\newcommand{\Expct}{{\mathbb E}}
+
+\newcommand{\xnu}{x^{(\nu)}}
+\newcommand{\xone}{x^{(1)}}
+\newcommand{\xtwo}{x^{(2)}}
+
+\newcommand{\Xnu}{X^{(\nu)}}
+\newcommand{\Xone}{X^{(1)}}
+\newcommand{\Xtwo}{X^{(2)}}
+
+\newcommand{\Bnu}{B^{(\nu)}}
+\newcommand{\Bone}{B^{(1)}}
+\newcommand{\Btwo}{B^{(2)}}
+
+\newcommand{\betanu}{\beta^{(\nu)}}
+\newcommand{\betaone}{\beta^{(1)}}
+\newcommand{\betatwo}{\beta^{(2)}}
+
+\newcommand{\fnu}{f^{(\nu)}}
+\newcommand{\fone}{f^{(1)}}
+\newcommand{\ftwo}{f^{(2)}}
+
+\newcommand{\gnu}{g^{(\nu)}}
+\newcommand{\gone}{g^{(1)}}
+\newcommand{\gtwo}{g^{(2)}}
+
+\newcommand{\betahat}{\widehat{\beta}}
+\newcommand{\betahatnu}{\widehat{\beta}^{(\nu)}}
+\newcommand{\betahatone}{\widehat{\beta}^{(1)}}
+\newcommand{\betahattwo}{\widehat{\beta}^{(2)}}
+\newcommand{\fhatnu}{\widehat{f}^{(\nu)}}
+\newcommand{\fhatone}{\widehat{f}^{(1)}}
+\newcommand{\fhattwo}{\widehat{f}^{(2)}}
+\newcommand{\fhat}{\widehat{f}}
+
+\newcommand{\loss}{{\rm loss}}
+
+\newtheorem{assumption}{Assumption}
+
+\title{Multi-View Regression via Canonincal Correlation Analysis}
+\author{Dean P. Foster \\ 
+U. Pennsylvania\\ $\quad$ \\ (Sham M. Kakade of TTI) }
+\date{}
+
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+
+\begin{document}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+  \titlepage
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+\frametitle{Model and background}
+
+\begin{displaymath}
+(\forall i \le n) \quad\quad y_i = \sum_{i=j}^p X_{ij} \beta_j +
+\epsilon_i \quad \epsilon_i \sim_{\hbox{iid}} N(0,\sigma^2) 
+\end{displaymath}
+\begin{overprint}
+
+% % % 
+\onslide<1>
+Data mining and Machine learning: $p \gg n$
+
+% % % 
+\onslide<2>
+
+Can't fit model if $p \gg n$:
+
+  \begin{itemize}
+\item Trick: assume most $\beta_i$ are in fact zero
+\item Variable selection:
+\begin{displaymath}
+\hat{\beta}_i^{\hbox{RIC}} =
+ \left\{\begin{array}{ll}
+            0 & \hbox{if } |\hat{\beta}_i| \le SE_i \sqrt{2 \log p} \\
+            \hat{\beta}_i & \hbox{otherwise}
+        \end{array}
+  \right.
+\end{displaymath}
+\item Basically just stepwise regression and Bonferroni
+\begin{itemize}
+\item Can be justified by ``risk ratios'' (Donoho and Johnstone '94, Foster and George '94)
+\end{itemize}
+\end{itemize}
+
+% % % 
+
+\onslide<3>
+
+I've played with lots of alternatives:
+\begin{itemize}
+\item FDR instead of RIC:
+\begin{itemize}
+\item $\sqrt{2 \log p} \to \sqrt{2 \log (p/q)}$
+\item empirical Bayes (George and Foster, 2000)
+\item Cauchy prior (Foster and Stine, 200x)
+
+\end{itemize}
+\item regression $\to$ logistic regression
+\item IID $\to$ independence
+\item independence $\to$ block independence (with Dongyu Lin)
+\end{itemize}
+
+% % % 
+
+\onslide<4>
+
+Where do this many variables come from?
+\begin{itemize}
+\item Missing value codes
+\item Interactions
+\item Transformations
+\item Example (with Bob)
+\begin{itemize}
+\item Personal Bankruptcy
+\item 350 basic variables
+\item all interactions, missing value codes, etc lead to 67,000 variables
+\item about 1 million clustered cases
+\item Ran stepwise logistic regression using FDR
+\end{itemize}
+\end{itemize}
+
+% % % 
+
+\onslide<5> 
+Summary of current state of the art:
+\begin{itemize}
+\item We can generate many non-linear $X$'s
+\item We can select the good ones large lists
+\item Isn't the problem ``solved''?
+\end{itemize}
+
+\onslide<6>
+There is always room for finding new $X$'s
+
+
+\end{overprint}
+\end{frame}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+\frametitle{New features}
+
+
+\begin{itemize}
+\item Current methods of finding $X$'s are non-linear
+\item Can we find ``new'' linear combinations of existing
+$X$'s?
+\begin{itemize}
+\item Hope, use linear theory
+\item Hope, fast CPU
+\item Hope, new theory
+\end{itemize}
+\end{itemize}
+\pause
+\begin{itemize}
+\item Yes, with semi-supervised learning
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+\frametitle{Semi-supervised}
+Semi-supervised learning is:
+\begin{itemize}
+\item $Y$'s are expensive 
+\item $X$'s are cheap
+\item We get $n$ rows of $Y$
+\item But also $m$ free rows of just $X$'s
+\item Called, semi-supervised learning
+\item Can this help?
+\end{itemize}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+ \frametitle{Usual data table for data mining}
+\begin{displaymath}
+\left[\begin{array}{c}
+         \quad \\
+          Y \\
+          \quad \\
+          (n \times 1) \\
+          \quad 
+\end{array}
+\right] 
+\left[\begin{array}{c}
+         \quad \\
+          \quad\quad X \quad\quad \\
+          \quad \\
+          (n \times p) \\
+          \quad 
+\end{array}
+\right] 
+\end{displaymath}
+with $p \gg n$
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+
+\begin{frame}
+ \frametitle{With unlabeled data}
+
+$m$ rows of unlabeled data:
+\begin{displaymath}
+\begin{array}{c}
+\left[\begin{array}{c}
+         \quad \\
+          Y \\
+          \quad \\
+          n \times 1 \\
+          \quad 
+\end{array}
+\right] 
+\\
+\quad\\
+\quad\\
+\quad\\
+\quad
+\end{array}
+\quad
+\left[\begin{array}{c}
+         \quad \\
+          \quad\quad X \quad\quad \\
+          \quad \\
+          (n+m) \times p \\
+          \quad \\
+          \quad \\
+          \quad \\
+          \quad \\
+          \quad \\
+\end{array}
+\right] 
+\end{displaymath}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+ \frametitle{With alternative X's}
+
+$m$ rows of unlabeled data, and two sets of equally useful $X$'s:
+\begin{displaymath}
+\begin{array}{c}
+\left[\begin{array}{c}
+         \quad \\
+          Y \\
+          \quad \\
+          n \times 1 \\
+          \quad 
+\end{array}
+\right] 
+\\
+\quad\\
+\quad\\
+\quad\\
+\quad
+\end{array}
+\quad
+\left[\begin{array}{c}
+         \quad \\
+          \quad\quad X \quad\quad \\
+          \quad \\
+          (n+m) \times p \\
+          \quad \\
+          \quad \\
+          \quad \\
+          \quad \\
+          \quad \\
+\end{array}
+\right] 
+\quad
+\left[\begin{array}{c}
+         \quad \\
+          \quad\quad Z \quad\quad \\
+          \quad \\
+          (n+m) \times p \\
+          \quad \\
+          \quad \\
+          \quad \\
+          \quad \\
+          \quad \\
+\end{array}
+\right] 
+\end{displaymath}
+
+With: $m \gg n$
+
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+  \frametitle{Examples}
+
+\begin{itemize}
+\item Person identification
+\begin{itemize}
+\item Y = identity
+\item X = Profile photo
+\item Z = front photo
+\end{itemize}
+\item Topic identification (medline)
+\begin{itemize}
+\item Y = topic
+\item X = abstract
+\item Z = text
+\end{itemize}
+\item The web:
+\begin{itemize}
+\item Y = classification
+\item X = content (i.e. words)
+\item Z = hyper-links
+\end{itemize}
+\item We will call these the multi-view setup
+\end{itemize}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+  \frametitle{A Multi-View Assumption}
+Define
+\begin{eqnarray*}
+\sigma_x^2 &=& E[Y - E(Y|X)]^2\\
+\sigma_z^2 &=& E[Y - E(Y|Z)]^2\\
+\sigma_{x,z}^2 &=& E[Y - E(Y|X,Z)]^2
+\end{eqnarray*}
+(Assume conditional expectations are linear)
+\begin{assumption} Y,X, and Z
+satisfy the $\alpha$-multiview assumption if:
+\begin{eqnarray*}
+\sigma_x^2 &\le& \sigma_{x,z}^2(1 + \alpha)\\
+\sigma_z^2 &\le& \sigma_{x,z}^2(1 + \alpha)
+\end{eqnarray*}
+\end{assumption}
+\begin{itemize}
+\item In other words, $\sigma_x^2 \approx \sigma_z^2 \approx \sigma_{x,z}^2$
+\item Views $X$ and $Z$ are redundant (i.e. highly collinear)
+\end{itemize}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+  \frametitle{The Multi-View Assumption in the Linear Case}
+
+  \begin{itemize}
+  \item The views are redundant.
+  \item Satisfied if each view predict Y well.
+  \item No conditional independence assumptions (i.e. Bayes nets)
+  \item No coordinates, norm, eigenvalues, or dimensionality assumptions.
+  \end{itemize}
+
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+\frametitle{Both estimators are similar}
+\begin{Lemma} Under the $\alpha$-multiview assumption
+\begin{displaymath}
+E[ (E(Y|X) - E(Y|Z))^2 ] \le 2 \alpha \sigma^2
+\end{displaymath}
+\end{Lemma}
+\begin{itemize}
+\item Idea: find directions in $X$ and $Z$ that are highly correlated 
+\item CCA solves this problem already!
+\end{itemize}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+
+\frametitle{What if we run CCA on $X$ and $Z$?}
+
+CCA = canonical correlation analysis
+\begin{itemize}
+\item Find the directions that are most highly correlated
+\item Very close to PCA (principal components analysis)
+\item Generates coordinates for data
+\item End up with canonical coordinates for both $X$'s and $Z$'s
+\item Numerically an Eigen-value problem
+\end{itemize}
+
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+
+\frametitle{CCA form}
+
+Running CCA on $X$ and $Z$ generates a coordinate space for both of
+them.  We will call this ``CCA form.''
+
+\pause
+
+\begin{definition} $X_i$, and $Z_j$, are in CCA form if
+\begin{itemize}
+\item $X_i$ are orthonormal
+\item $Z_i$ are orthonormal
+\item $X_i^T Z_j = 0$ for $i \ne j$
+\item $X_i^T Z_i = \lambda_i$, $\lambda_1 \ge \lambda_2 \ge \cdots \ge
+\lambda_p \ge 0$
+\end{itemize}
+\end{definition}
+
+(This is the output of running CCA on the original $X$'s and $Z$'s.)
+
+\end{frame}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+	\frametitle{CCA form as a covariance matrix}
+
+\Large
+\[
+\Sigma =\left[ 
+\begin{array}{ccc}
+\Sigma_{XX} &  \vline & \Sigma_{XZ} \\
+\hline 
+\Sigma_{ZX} & \vline & \Sigma_{ZZ}
+\end{array}
+\right]
+\rightarrow
+\left[ 
+\begin{array}{ccc}
+\textrm{I} &  \vline & D \\
+\hline 
+D & \vline & \textrm{I}
+\end{array}
+\right]
+\]
+\normalsize
+
+The \emph{canonical correlations} are $\lambda_i$:
+
+\large
+\[
+D =\left[ 
+\begin{array}{cccc}
+\lambda_1 &  0 & 0 & \ldots \\
+0 & \lambda_2& 0 & \ldots \\
+0 & 0 & \lambda_3 & \ldots \\
+\vdots & \vdots & \vdots & \vdots \\
+\end{array}
+\right]
+\]
+\normalsize
+
+
+\end{frame}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+  \frametitle{The Main Result}
+
+  \begin{theorem} Let $\hat{\beta}$ be the Ridge regression estimator
+ with weights induced by the CCA.  Then
+  \[
+  \hbox{Risk}(\hat{\beta}) \le \left(5\alpha+ \frac{\sum \lambda_i^2}{n}\right)\sigma^2
+  \]
+  \end{theorem}
+\begin{overprint}
+
+
+\onslide<2>
+
+CCA-ridge regression is to minimize least squares plus a penalty of: 
+  \[
+\sum_i \frac{1-\lambda_i}{\lambda_i} \beta_i^2
+  \]
+
+\begin{itemize}
+\item Large penalties in the less correlated directions.
+\item $\lambda_i$'s are the correlations
+\item A shrinkage estimator.
+\end{itemize}
+% % % 
+
+\onslide<3>
+% % % 
+
+Recall $\alpha$ is the multiview property:
+\begin{eqnarray*}
+\sigma_x^2 &\le& \sigma_{x,z}^2(1 + \alpha)\\
+\sigma_z^2 &\le& \sigma_{x,z}^2(1 + \alpha)
+\end{eqnarray*}
+So
+\begin{itemize}
+\item $5 \alpha$ is the bias
+\item $\frac{\sum \lambda_i^2}{n}$ is variance
+\end{itemize}
+
+% % % 
+
+\end{overprint}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+\frametitle{Doesn't fit my style}
+\begin{itemize}
+\item I like feature selection!
+\item On to theorem 2
+\end{itemize}
+\end{frame}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\begin{frame}
+  \frametitle{Alternative version}
+
+
+\begin{theorem}
+For $\hat{\beta}$  be the CCA-testimator:
+\[
+Risk(\hat{\beta}) \le \left(2\sqrt{\alpha}+ \frac{d}{n}\right)\sigma^2
+\]
+where $d$ is the number of
+$\lambda_i$ for which $\lambda_i \ge 1-\sqrt{\alpha}$.
+\end{theorem}
+\begin{overprint}
+
+\onslide<1>
+$\quad$
+% % % 
+
+\onslide<2>
+
+The CCA testimator:
+  
+  \begin{equation}
+    \label{eq:threshold_estimator}
+    \betahat_i = \left \{ 
+      \begin{array}{cl}
+        \textrm{MLE}(\beta_i)  & \quad {\rm if } \,\,
+        \lambda_i \ge 1-\sqrt{\alpha} \\
+        0 & \quad {\rm else}
+      \end{array}
+    \right.
+  \end{equation}
+
+\onslide<3>
+
+Do we need to know $\alpha$?
+\begin{itemize}
+\item We can try features in order
+\item Use promiscuous rule to add variables (i.e. AIC)
+\item Will do as well as theorem, and possibly much better
+\item Doesn't mix all that well with stepwise regression
+\end{itemize}
+
+\end{overprint}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+
+\begin{frame}
+	\frametitle{Conclusions}
+
+\begin{itemize}
+\item Trade off between two theorems?
+\item  Logistic regression? (in progress with John Blitzer)
+\item Experimental work?  \pause Soon!
+\end{itemize}
+ 
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+ 
+\end{document}
+
+
+
+
+

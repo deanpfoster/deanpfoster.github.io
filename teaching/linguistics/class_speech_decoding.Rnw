@@ -1,0 +1,159 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Speech decoding (chapter 9 \& 10)}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item nothing yet
+\end{itemize}
+
+
+\section{How hard a problem to solve?}
+
+\begin{itemize}
+\item Trival: recognize ``Rex'' (1920)
+\item Easy: recognize ``yes'' vs ``no''
+\item harder: recognize 0-10.
+\item very hard: recognize English with careful speaker.
+\item Impossible: conversational english: LVCSR (Large vocabulary
+continuous speech recognition)
+\end{itemize}
+
+\section{A statistical approach to ``wreck a nice beach''}
+
+\begin{itemize}
+\item First step: signal processing
+\item Second step: statistics
+\item I'll focus mostly on the first step--since that is what we don't
+understand.
+\item Driving force:
+\begin{itemize}
+\item ``mimic'' human ears / vocal cords
+\item Not really--but getting a better match will help
+\item If $|f - g| \le \epsilon$ is our approximation, we want it to be
+at human resolution.
+\end{itemize}
+\end{itemize}
+
+\section{7 step program}
+\begin{enumerate}
+\item balance energy (preemphasis)
+\item windowize
+\item FFT
+\item Mel: transform X and Y by logs
+\item Cepstrum (FFT back)
+\item sample (low end)
+\item time derivatives
+\end{enumerate}
+
+
+\subsection{Preemphasis}
+
+Balance energy: down weight low frequency.
+
+
+\subsection{Windowize}
+\begin{itemize}
+\item Chop into overlapping windows
+\item Introduces artifacts
+\item Use ``rounded'' windows to avoid some agregious artifacts
+\end{itemize}
+
+\subsection{FFT}
+
+\begin{itemize}
+\item Yea, something we already know
+\item Remimber: Tukey did this first--so it counts as classical
+statistics.  (Just kidding.)
+\end{itemize}
+
+\subsection{Mel filter}
+
+\begin{itemize}
+\item $mel(f) =  \log(1 + f/700)$, where $f = $ frequency.
+\item basically linear for $f < 700$
+\item log like for large $f$
+\item Also log energy scale. (square it first)
+\end{itemize}
+
+\subsection{Cepstrum: FFT}
+
+\begin{itemize}
+\item (sepc)trum $\to$ (ceps)trum (reversing first 4 letters)
+\item Introduced in sesmography
+\item Totally adhoc
+\item Gets at the ``shape'' of the spectrum but losses the
+fundemential overtones.
+\item ``Shape'' is captured by low frequency terms of FFT.
+\end{itemize}
+
+\subsection{Sample}
+\begin{itemize}
+\item Use first 12 coefficients
+\end{itemize}
+
+\subsection{Deltas}
+\begin{itemize}
+\item Add in a total energy variable (and now there are 13)
+\item Take time derivatives. (and now there are 26)
+\item Take 2nd time derivatives (for a final count of 39)
+\end{itemize}
+
+\section{Clustering:Old style}
+\begin{itemize}
+\item Cluster these variables to generate ``phone'' signatures.
+\item Called vector quantization
+\item leads to a discrete space HMM
+\item Use standard code for HMM
+\end{itemize}
+
+\section{Use information directly: Modern}
+\begin{itemize}
+\item Can still do HMM: just use a normal likelihood
+\item Alternative: CRF, SVM, NN, etc
+\item Plays well with Sham and Danny's approach
+\begin{itemize}
+\item They work hard to get the dictionary into a small space
+\item The acustic material we have done already did that
+\item So use these features as the linear map they generate
+\end{itemize}
+\end{itemize}
+
+\section{HMM tricks}
+\begin{itemize}
+\item Dynamic time warping: didn't work so well
+\item Simply repeat the state over and over: works well
+\item Forces an exponential distribution
+\item Easy to fix: just have two states which emit the same vector
+\item Breaks Sham and Danny's theory--oops.  Good research problem
+then! 
+\end{itemize}
+
+\section{Including more information: say trigrams}
+
+\begin{itemize}
+\item Not all sequences of phones are equally likely
+\item build phones out of words.
+\item build words out of trigrams.
+\item Compute likelihood of resulting hypothesis
+\end{itemize}
+
+
+\section{A* algorithm}
+\begin{itemize}
+\item Build tree of all sentences
+\begin{itemize}
+\item Develop sequentially
+\item Uses language model as we go along
+\end{itemize}
+\item Compute likelihood of each sentence
+\item Expand the winners
+\end{itemize}
+
+\end{document}

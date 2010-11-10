@@ -229,28 +229,28 @@ print &HtmlPrintLine;
 }
 
 
-if ($checkboxes{'sexualcheck'} eq 'ON') {
-%YourProfile = %YourProfileOriginal;
-$YourProfile{'YourSexualPartner'} = 0;
-$YourProfile{'YourCondomUse'} = 0;
-local(@YourRisks) = gettable();
-local(%Constants) = getconstants();
-local(%RelativeRisks) = getchoicerisk(%RelativeRisks);
-local(%RelativeRisks) = getdemographicsrisk(%RelativeRisks);	
-local(@YourRisks) = calcchoice(@YourRisks);
-local(@YourRisks) = calcdemographics(@YourRisks);
-local(%Results) = calclife(%Results);
-$difference7 = $Results{'YourLifeExpectancy'} - $checkboxes{'originallife'};
-if ($YourProfileOriginal{'YourSexualPartner'} ne 0) {
-print 'If you do not have any sexual partner, your life expectancy would be ';
-print sprintf("%.2f", $difference7);
-print ' years longer';
-}
-else {
-print 'Not having any sexual partner has minimized your risk of AIDS';
-}
-print &HtmlPrintLine;
-%YourProfile = %YourProfileOriginal;
+    if ($checkboxes{'sexualcheck'} eq 'ON') {
+	%YourProfile = %YourProfileOriginal;
+	$YourProfile{'YourSexualPartner'} = 0;
+	$YourProfile{'YourCondomUse'} = 0;
+	local(@YourRisks) = gettable();
+	local(%Constants) = getconstants();
+	local(%RelativeRisks) = getchoicerisk(%RelativeRisks);
+	local(%RelativeRisks) = getdemographicsrisk(%RelativeRisks);	
+	local(@YourRisks) = calcchoice(@YourRisks);
+	local(@YourRisks) = calcdemographics(@YourRisks);
+	local(%Results) = calclife(%Results);
+	$difference7 = $Results{'YourLifeExpectancy'} - $checkboxes{'originallife'};
+	if ($YourProfileOriginal{'YourSexualPartner'} ne 0) {
+	    print 'If you do not have any sexual partner, your life expectancy would be ';
+	    print sprintf("%.2f", $difference7);
+	    print ' years longer';
+	}
+	else {
+	    print 'Not having any sexual partner has minimized your risk of AIDS';
+	}
+	print &HtmlPrintLine;
+	%YourProfile = %YourProfileOriginal;
 }
 
 

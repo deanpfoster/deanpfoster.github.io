@@ -115,35 +115,5 @@ Under this model, we can comput the probability of the next winner
 being the red horse.
 
 
-\subsection{Proper scoring rules}
-
-({\em Management Science}, {\bf Vol. 40}, No. 11. (1994), pp. 1395-1405.)
-
-A proper scoring rule is one for which it is rational to tell the
-truth if you know it.
-
-Examples:
-\begin{itemize}
-\item Quadratic:
-\begin{displaymath}
-\hbox{loss}(p,X) = (p - X)^2
-\end{displaymath}
-\item log:
-\begin{displaymath}
-\hbox{loss}(p,X) = -log(p)X - log(1-p)(1-X)
-\end{displaymath}
-\item Weird:
-\begin{displaymath}
-\hbox{loss}(p,X) = \frac{1 - X- p}{\sqrt{1 - 2p - p^2}}
-\end{displaymath}
-\item General:
-\begin{displaymath}
-\hbox{loss}(p,X) = \int_0^1  \hbox{\bf loss}_a(p,X) w(a) da
-\end{displaymath}
-for some $w(\cdot)\ge 0$.
-\end{itemize}
-
-
-
 
 \end{document}

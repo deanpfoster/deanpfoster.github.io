@@ -1,0 +1,169 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Introduction}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Lots of homework: mostly R, some math.
+\item Final project (ideally a partial paper replication or even a
+full paper replication): Analysis and write up and presentation of some
+lingustic data.  If you have a particular domain in mind, talk to me
+soon and we can start connecting you with data.  I'll be leaving town
+on the last day of class, so either have the project done by then, or
+it will have to wait until I return on the first day of spring
+semester.
+\item Book: JM = {\em Speech and Language processing} by Jurafsky and Martin.
+\item Readings will be mostly listed on the web (along with my
+teaching notes).  I'll almost certainly forget to mention readings in
+class.  For example, I'll probably not get around to saying, ``You
+should read the chapters 1,2 and 4 this weekend.''
+\end{itemize}
+
+\section{Introduction: Example (Flu)}
+
+\begin{itemize}
+\item Classic epidemology: count number of cases doctors report for
+flu each week.
+\begin{itemize}
+\item Model speed of reporting (different for different areas)
+\item Predict growth to make up for delay in data
+\item Make forecast of current level of flu
+\end{itemize}
+\item Google Flu: 
+\begin{itemize}
+\item Take searches for ``flu'' as ground truth
+\item Look for phrases that correlate with it: runny nose, etc
+\item Count the number of searches for these terms
+\item Don't bother with delay since you have daily/hourly searches
+\end{itemize}
+\end{itemize}
+
+\section{Introduction: General cases}
+
+\begin{itemize}
+\item Medical: machine reading of reports.
+\item Credit cards: Machine reading bills and predicting fraud / bankruptcy.
+\item Biology: Machine reading of abstracts to find which genes
+are discussed in the article.
+\item Education: Machine reading of course evaluations.
+\item Teaching: Automatic writing of questions for reading
+compreshension.  OK, this maybe more statistical use in lingustics
+rather than the other way around.  So let's turn to those.
+\item Call center (``you are on a recorded line.'')
+\item Call handling (google information)
+\end{itemize}
+
+\section{Statistics in lingustics}
+
+\begin{itemize}
+\item Best voice recognition are based on probabilistic models
+\item Best POS taggers are statistical
+\item Parsing use statistics now adays
+\item Word disambiguation / word meaning are statistical
+\item We are in the ``Rise of Machine learning'' era according to JM. 
+\end{itemize}
+
+\section{Why now?}
+
+\begin{itemize}
+\item Chomsky didn't use data
+\item In 70s/80s, people might train systems on 50k words.  Similar to
+expecting a baby to talk at age, 5 hours.
+\item Now we can process a billion words.  Close to a lifetime's
+worth.  So we can start finding the same patterns that humans can
+encrypt in language.
+\end{itemize}
+
+\section{The bright and beautiful future}
+
+\begin{itemize}
+\item In 1951 Turing wrote his piece on smart computers.  He said in
+50 years we would have smart computers.  Hence the title of the Arthor
+C Clark book: {\em2001: A space Odyssey.} ``I'm sorry Dave, I'm
+afraid I can't do that.'' 
+\item Understand text is the final problem in science: once it can be
+solved, computers will start to be really smart.  (Suppose you had the
+time to read the entire Wikipedia and understand the whole thing.
+That is the starting point of any intellegent computer.)
+\item Turing guess was a shot in the dark.  Now we have better
+estimates of human memory: say about $10^{15}$ bits, or $10^{14}$
+bytes, or 100 TeraBytes (Or TibiBytes for the purists).  You can buy
+Terabyte disks now.  A terabyte of memory would be about one thousand
+dollars (2009 estimate).
+\item In 20 years, you will have about 100 Terabyte computers on your
+desk.  In 25 years, your ``ipod'' will have that much memory.
+\item So, peg the singularity at 2029 for a first guess.  
+\end{itemize}
+
+\newpage
+\section{Unix tools: Finding the most common words in Alice in Wonderland}
+
+The following is a classic text for unix tools for linguistic analysis:
+\href{http://stts.se/egrep_for_linguists/egrep_for_linguists.html}{egrep\_for\_linguists.html}.
+
+Let's figure out some statistics for
+\href{alice_in_wonderland.txt}{Alice in Wonderland}.
+\begin{itemize}
+\item We can look at the first few words:
+\begin{verbatim}
+head <alice_in_wonderland.txt
+\end{verbatim}
+\item Or the last few
+\begin{verbatim}
+tail <alice_in_wonderland.txt
+\end{verbatim}
+\item Or see more:
+\begin{verbatim}
+tail -100 <alice_in_wonderland.txt
+\end{verbatim}
+\item Using the tr command (use \verb#man tr# to see help).
+\begin{verbatim}
+tr " " "#" alice_in_wonderland.txt
+\end{verbatim}
+\item Yikes that is a lot of output
+\begin{verbatim}
+tr " " "#" alice_in_wonderland.txt |tail -100
+\end{verbatim}
+\item Ok, one word per line
+\begin{verbatim}
+tr " " "\n" alice_in_wonderland.txt |tail -100
+\end{verbatim}
+\item Now we can \verb#sort# it and use \verb#uniq -c# to get word
+frequency
+\begin{verbatim}
+tr " " "\n" alice_in_wonderland.txt |sort | uniq -c | tail -100
+\end{verbatim}
+\item And for the most common words:
+\begin{verbatim}
+tr " " "\n" alice_in_wonderland.txt |sort | uniq -c | tail -100
+\end{verbatim}
+\end{itemize}
+\section{How about bi-grams?}
+We need two more tricks.  A ``lag'' operator, namely 
+\verb#tail --lines=+2# and a \verb#paste# command to glue two files
+together.  This leads to the following command: 
+\begin{verbatim}
+paste <(tr " " "\n" < alice_in_wonderland.txt)    \
+      <(tr " " "\n" <alice_in_wonderland.txt|tail --lines=+2)   \
+       |sort |uniq -c |sort -n |tail -100
+\end{verbatim}
+This uses some cute stuff from zsh.  We could do it more simply with
+the following:
+\begin{verbatim}
+tr " " "\n" < alice_in_wonderland.txt > word_per_line.tmp
+tail --lines=+2 word_per_line.tmp > lag_word_per_line.tmp
+paste word_per_line.tmp lag_word_per_line.tmp > bigrams.tmp
+sort bigrams.tmp | uniq -c | sort -n > frequent_bigrams
+rm word_per_line.tmp
+rm lag_word_per_line.tmp
+rm bigrams.tmp
+tail - 100 frequent_bigrams
+\end{verbatim}
+
+\end{document}

@@ -1,0 +1,190 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Backoff (sections 4.6 and 4.7)}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item I've posted homework this weekend.
+\end{itemize}
+
+
+\section*{Story: Simultanious discoveries (Book: 1.6.7)}
+
+Who invented the calculus? Newton or Libnetz?
+\begin{itemize}
+\item My first three papers:
+\begin{itemize}
+\item Scooped by 50 years (Pool adjacent violators)
+\item Scooped by 30 years (by von Neuman)
+\item Scopped by 3 months (point in polygon)
+\end{itemize}
+\item I figured I was almost doing research then!
+\item But it keeps happening to me and everyone else
+\item ``Pity the scientist who discovers the already discovered.'' NYT.
+\end{itemize}
+
+
+
+\section*{Backoff}
+
+Problem: Some contexts are full, others empty.  How to deal with empty
+contexts? 
+
+\begin{itemize}
+\item Naive solution: Use best context available.
+\begin{itemize}
+\item If you have 5 grams, use them, otherwise
+\item If you have 4 grams, use them, otherwise
+\item . . .
+\item With nothing: Use base rate
+\end{itemize}
+\item Example: ``We can do this \_\_\_\_'' will have lots of examples 5
+grams. 
+\item Example: `Twas brillig, and the slithy toves \_\_\_\_'
+\begin{verbatim}
+was brillig, and the slithy toves
+  Did gyre and gimble in the wabe:
+All mimsy were the borogoves,
+  And the mome raths outgrabe.
+\end{verbatim}
+So back off to base rate.  Hence we guess very likely words next.
+like ``A'', ``the'', ... , ``did''
+\end{itemize}
+
+\section*{Interpolation}
+
+\begin{itemize}
+\item ``0'' / ``1'' context seems stupid statistically
+\item Better would be to have smooth rounding
+\item General method: $\hat{P}(w_n|w_{n-1},\cdots) = \lambda_0(w's)
+\hat{P}(w_n) + \lambda_1(w's) \hat{P}(w_n|w_{n-1}) + \cdots$
+\item Begs the question as to how to pick the $\lambda$'s.  The books
+solution is ``cross validation.''  I.e. DUCK!
+\item But a strong statement is that the $\lambda$'s depend only on
+the history--not the current word.  Is this right?  Katz says no.
+\end{itemize}
+
+
+\section*{Katz backoff}
+
+\begin{itemize}
+\item Simple improvement: Use Good / Turing for the really low
+counts.
+\item Not real helpful for zero counts though, since it basically
+gives base rates (Could this be improved by thinking of different
+``models'' for each context?)
+\item So backoff until you have some data to actually use.  But since
+we are now using the word to be forecast we have to worry about
+probabilities summing to 1 or not.
+\item Example.  Consider the words x,y,z in order:
+\begin{eqnarray*}
+\hat{P}_2(z|x,y) &=& 
+\left\{
+\begin{array}{ll}
+P^*(z|x,y) & \hbox{if $C(x,y,z) > 0$} \\
+\alpha_2(x,y) \hat{P}_1(z|y) & \hbox{otherwise} 
+\end{array}
+\right. \\
+\hat{P}_1(z|y) &=& 
+\left\{
+\begin{array}{ll}
+P^*(z|y) & \hbox{if $C(y,z) > 0$} \\
+\alpha_1(y) \hat{P}_0(z)& \hbox{otherwise} 
+\end{array}
+\right. \\
+\hat{P}_0(z) &=&  P^*(z)  
+\end{eqnarray*}
+(Note: There are slight changes from the book.  I'm using what
+{\em should} be done, not necessarilly what either Katz or others have
+said to do.)
+\item The $P^*()$ are defined using Good / Turing.  That is a proper
+probabilitic model.  It assigns intellegent probabilities to unseen
+events.  We can sum over all these unseen events and call that total
+$\alpha()$.  This keeps the probabilities summing to 1.
+\item $P^*$ is now the good / turing probability.
+\end{itemize}
+
+\subsection*{Normalization}
+
+\begin{itemize}
+\item Bayesian model generates proper predictions for zero events.
+This is just Good / Turing.
+\item But it uses a constant to fill in.
+\item What Katz does is refill-in these zeros by using the weaker
+contexts.
+\item So $\alpha$ is the total probability estimate of getting any
+zero count item.
+\end{itemize}
+
+
+\section*{Alternative models for backoff}
+
+\begin{itemize}
+\item Lots of similar results in information theory
+\begin{itemize}
+\item Variable length Markov chain
+\item Context tree algorithm
+\item LZW
+\item Other compression algorithms
+\end{itemize}
+\item Let me describe a few of them
+\end{itemize}
+
+\section*{Good prediction means good compression}
+
+\begin{itemize}
+\item Good prediction implies good codes
+\item Primative form: Huffman codes
+\item Fancy form: Arithmetic codes
+\item Idea: random code book
+\begin{itemize}
+\item We have probabilty for each string
+\item Sample a string, call it string 1
+\item Sample another string, call it string 2
+\item ...
+\item (skip repeats if you like)
+\item Tell someone the index of when the true string is sampled
+\item Theorem: about $1/p$, hence about $- \log(p)$ bits.
+\end{itemize}
+\end{itemize}
+
+\section*{Markov chains for good prediction}
+\begin{itemize}
+\item Nice model is a $k$-state Markov chain
+\item Theorem: LZ compression is as well as any $k$-state Markov
+chain.
+\item Variable length Markov chains are nice models
+\item Theorem: LZ compresses as well a variable length Markov chain.
+\end{itemize}
+
+\section*{Good compression implies good prediction}
+
+\begin{itemize}
+\item Kraft identity: $\sum 2^{-\hbox{code length}} \le 1$
+\item So treat $ 2^{-\hbox{code length}}$ as a probability
+\item Allows converting any compression scheme into a probability
+forecasting scheme.
+\item Bob and I realized we could use this idea plus LZ to come up
+ with a universal prediction algorithm.  We started writing up a
+ paper--only to find that it had already won an award for best
+ paper--the year before.  Their only error was the list of authors--we
+ weren't on it.  So, yet another simutanious discovery.
+\end{itemize}
+
+
+\section*{A more principled solution?}
+
+\begin{itemize}
+\item Backoff is our first real statistics problem
+\item Room for lots of real statistical thinking here
+\item Thesis anyone?
+\end{itemize}
+
+
+\end{document}

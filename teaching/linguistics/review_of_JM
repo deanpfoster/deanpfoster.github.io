@@ -1,0 +1,51 @@
+Here is Peter Norvig's review of the text.
+     	      	       
+		       Inbox		X	
+							
+ 
+Reply
+ 
+|
+Lyle ungar	
+The previous best book on NLP was James Allen's (1995), which was considered ...
+    
+10:02 AM (11 hours ago)
+Lyle ungarLoading...	
+10:02 AM (11 hours ago)
+Lyle ungar
+ to Dean
+ 
+show details 10:02 AM (11 hours ago)
+     
+The previous best book on NLP was James Allen's (1995), which was
+considered ambitious at the time because it covered syntax, semantics
+and some pragmatics. But Martin and Jurafsky is far more ambitious,
+because it covers speech recognition as well, and has far expanded
+coverage of language generation and translation. It also covers the
+great advances in statistical techniques that have marked the last
+decade. It is a beautiful synthesis that will reward the experienced
+expert in the field with new insights and new connections in the form
+of historical notes that are not well known. And it is well-written
+and clear enough that even the beginning student can follow it
+through. Before this book, you would have had to read Allen's book,
+Charniak's short book on statistical NLP, something on speech
+recognition, and something else on generation and translation. Like
+squeezing clowns into a circus car, Jurafsky and Martin somehow,
+improbably, manage to squeeze this all into one book, but in a way
+that is elegant and holds together perfectly; not at all the
+hodge-podge that one might expect. I expect that this book will be
+seen as one of the landmarks that pushes the field forward.
+
+It's worth comparing this book to the other recent NLP text: Manning
+and Shutze. Jurafsky and Martin cover much more ground, including many
+aspects that are ignored by Manning and Schutze. So if you want a
+general overview of natural language, if you want to know about the
+syntax of English, or the intricacies of dialog, if you are teaching
+or taking a general NLP course, then Jurafsky and Martin is the one
+for you. But if your needs are more focused on the algorithms for
+lower-level text processing with statistical techniques, or if you
+want to build a specific practical application, then Manning and
+Schutze is far more comprehensive and likely to have your answer. If
+you're a serious student or professional in NLP, you just have to have
+both.
+

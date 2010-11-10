@@ -1,0 +1,154 @@
+\documentclass[12pt,twocolumn]{extarticle} % 14, 17, 20 all exist
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\usepackage{simplemargins}
+\setbottommargin{.5in}
+\setleftmargin{.25in}
+\setrightmargin{.25in}
+\settopmargin{.5in}
+
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
+\newcommand{\tech}[1]{\noindent{\textcolor{red}{\{{\bf technical note:} \em #1\}}}}
+\usepackage{xypic}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\pagestyle{empty}
+\begin{document}
+\title{Loss Functions and calibration}
+\author{Dean Foster}
+\maketitle
+\section*{Proper scoring rules}
+
+({\em Management Science}, {\bf Vol. 40}, No. 11. (1994), pp. 1395-1405.)
+
+A proper scoring rule is one for which it is rational to tell the
+truth if you know the truth.
+
+Examples for binary data (i.e. the two horse race):
+\begin{itemize}
+\item Quadratic:
+\begin{displaymath}
+\hbox{loss}(p,X) = (p - X)^2
+\end{displaymath}
+\item log:
+\begin{displaymath}
+\hbox{loss}(p,X) = -log(p)X - log(1-p)(1-X)
+\end{displaymath}
+\item Weird:
+\begin{displaymath}
+\hbox{loss}(p,X) = \frac{1 - X- p}{\sqrt{1 - 2p - p^2}}
+\end{displaymath}
+\item Classification loss:
+\begin{eqnarray*}
+\hbox{\bf loss}_a(p,X) &= & aI_{p > a}(1-X) + (1-a)I_{p \le a}X \\
+\end{eqnarray*}
+\item General:
+\begin{displaymath}
+\hbox{loss}(p,X) = \int_0^1  \hbox{\bf loss}_a(p,X) w(a) da
+\end{displaymath}
+for some $w(\cdot)\ge 0$.
+\end{itemize}
+
+\subsection*{Each sold seperately?}
+\begin{itemize}
+\item Why different estimators: Bad borrowing of strength.
+\item A raft of papers: one paper per loss function.
+\item Even more papers: Do it for more than a two-horse race.
+\end{itemize}
+
+\section*{The Calibration fix}
+
+
+
+\vspace{1in} 
+
+insert pictures here
+
+\newpage
+
+\subsection*{The value of calibration}
+
+\begin{itemize}
+\item A log-loss optimal forecast that is calibrated has good
+ behaviour for any proper scoring rule.
+\item A Least Squares optimal forecast that is calibrated has good
+behaviour for any proper scoring rule.
+\end{itemize}
+
+\subsection*{Regression case in detail}
+
+\begin{theorem}
+Predict $y_t$ by $\hat{y}_t = \theta_t \cdot x_t$, using ridge
+regression.
+\begin{displaymath}
+\theta_t = \arg\min_\theta\sum_{i=1}^{t-1}|\theta\cdot x_i-y_i|^2 + |\theta|^2
+\end{displaymath}
+(Clip predictions if outside range of possible values)
+
+Guarantee: for all $\theta$ and all sequences
+\begin{displaymath}
+\sum_{t=1}^T|\hat{y}_t - y_t|^2 \le \sum_{t=1}^T|\theta\cdot x_t -
+y_t|^2 + | \theta  |^2 + \frac{d}{2} \log T
+\end{displaymath}
+\end{theorem}
+\begin{itemize}
+\item Regression on the past achieves good future forecasts.
+\item Theorem (Foster 1991): Let $\beta_t$ be regression on all the
+ data up to time $t$.  Forecasts $\hat{y}_{t+1} = \beta_t X_{t+1}$.
+  Then this forecast has about the same quadratic error as any fixed
+ forecast.
+\end{itemize}
+
+\subsection*{Applying regression to calibration}
+
+\begin{itemize}
+\item Note: $\hat{y}_{t+1}$ is knowable at time $t+1$.  So we could
+use it for prediction.  Weird!
+\item Trick: Add to the regression: $\hat{y}_{t+1}$ and
+ $\hat{y}^2_{t+1}$ (and more polynomial terms if you like).
+\item Theorem (Foster and Kakade 2008): The calibration plot will look
+ linear.
+\end{itemize}
+
+\newpage
+\subsection*{References}
+
+\subsubsection*{Calibration history}
+
+\begin{itemize}
+\item Dawid asked whether calibration existed: Dawid, A. P. (1985)
+  ``The well calibrated Bayesian.'' {\it JASA}.
+\item Oakes answered no: Oakes, D. (1985) ``Self-calibrating priors do
+  not exist,'' {\it JASA}.
+\end{itemize}
+
+\subsubsection*{Paranoid investing}
+
+\begin{itemize}
+\item Cover developed these ideas through out the 80's.  He actually
+  proves a much stronger results.  A very clean presentation is in:
+  Cover, Thomas (1991) ``Universal Portfolios,'' {\it Mathematical
+    Finance}.
+\item The cool investment proof is due to: Blum, Avrim and Adam
+  Kalai. (1997) ``Universal portfolios with and without transaction
+  costs,'' COLT.
+\end{itemize}
+
+\subsubsection*{Paranoide regression}
+
+\begin{itemize}
+\item Foster, Dean  (1991) ``A worst Case Analysis of Prediction,'' {\it
+  Annals of Statistics,} {\bf 19}, 1084-1090.
+\end{itemize}
+
+\subsubsection*{Calibration: No regret}
+\begin{itemize}
+\item The first proof of calibration: Foster, D. and R.  Vohra (1998)
+ ``Asymptotic Calibration,'' {\it Biometrika}, 379 - 390.
+\item Today's proof: Foster, D and S Kakade (2006) ``Calibration
+ via regression,'' IEEE Information theory workshop.
+\end{itemize}
+
+
+\end{document}

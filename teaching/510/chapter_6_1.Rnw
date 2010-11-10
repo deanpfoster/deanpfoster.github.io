@@ -70,8 +70,7 @@ exclusion and lots of pretty math.
 \item What is the expected number of fixed points in the first
 positoin?  Easy, 1/n.
 \item Now add them up!
-\item I love this book!  Ross also does these permutations--but he
-doesn't do linearity of expectation until the end of the book.
+\item I love this book!
 \end{itemize}
 \section*{Debreifing}
 \begin{itemize}

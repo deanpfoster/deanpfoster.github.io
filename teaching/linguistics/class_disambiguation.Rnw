@@ -1,0 +1,158 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Disambiguation}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item collect homework 3
+\end{itemize}
+
+\section*{Bootstrapping from ``truth''}
+
+(Recall Bootstrap was a term before it was taken up by statistics. The
+original usage mean, ``pulling yourself up by your bootstraps.''  It
+really has little to do with Efron's idea--but alot to do with today's
+name.  Showing linguists are better at naming things than statisticians.)
+
+\begin{itemize}
+\item Start with small hand labelled data set
+\begin{itemize}
+\item I.e. mechnical turk
+\item I.e. Dictinoary attack using Lesk
+\end{itemize}
+\item Now label all words in corpus
+\item Now add the ``easy to label'' data to the already labelled set
+\end{itemize}
+
+\section*{Bootstrapping from nothing}
+
+Claim: Once sense per collocation:
+
+\begin{itemize}
+\item fish correlates with base
+\item Probably doesn't correlate with both senses
+\item So assume it is a disambiguator
+\end{itemize}
+
+
+Claim: Most words have only one meaning in a given discourse.  
+
+\begin{itemize}
+\item Most articles will either be talking about money and hence bank
+means a store, or talking about dirt and so bank means an incline of mud.
+\item 
+Counter example: ``In the fish playing music painting, the salmon
+ played the base, the tuna played the trumpet, and the base played the
+ flute.''
+\end{itemize}
+
+\section*{Word net}
+
+\begin{itemize}
+\item You can also build up relationships via word-net simularity graphs
+\item Count how many arc are between words to get an idea of how close
+they are
+\end{itemize}
+
+
+\section*{Distributional simularity}
+
+Firth (1957) ``You shall know a word by the company it keeps!''
+
+\begin{itemize}
+\item Count frequencies of words
+\item Words with similar frequencies are ``close'' to each other
+\end{itemize}
+
+\subsection*{Contexts to use}
+
+\begin{itemize}
+\item local context
+\begin{itemize}
+\item Google n-grams
+\item generates grammar like results
+\item Good for POS
+\end{itemize}
+\item ``global'' context
+\begin{itemize}
+\item say paragraph or article
+\item No POS informatin
+\item gets more at meaning? 
+\end{itemize}
+\end{itemize}
+
+\subsection*{Is a feature useful?}
+\begin{itemize}
+\item Classical: information theory
+\begin{itemize}
+\item mutual information: $I(X,Y) = E(\log(p(X,Y)/p(X)p(Y)))$
+\item Nice theory, information theory does an extra average generally
+compared to statistics.  
+\end{itemize}
+\item Hot new trick: t-test (1999)
+\item OK to put in too many features--we can weed them out later
+\end{itemize}
+
+\subsection*{Distance measures}
+How far are two vectors?
+\begin{itemize}
+\item L2
+\begin{itemize}
+\item very classical
+\item for frequencies, makes a .4 vs .5 as big 0 vs .1
+\item Driven by the biggest difference
+\end{itemize}
+\item L1
+\begin{itemize}
+\item Similar problems: but not as outlier prone
+\end{itemize}
+\item Trick: normalize vectors first
+\begin{itemize}
+\item L2 distance is no related to the cosine of angle
+\item called cosine measure
+\item $\vec{x}\cdot\vec{y}/|x| |y|$
+\end{itemize}
+\item Dice: $2 \sum min(x_i,y_i)/\sum(x_i + y+i)$
+\end{itemize}
+
+\subsection*{And the winner is?}
+
+t-test to pick features followed by dice to measure simularity. 
+
+
+\section*{Quality measures}
+
+\begin{itemize}
+\item Usual two by two table: $G$ is guess, $A$ is truth
+\item Rows are correct answers, columns are guesses
+\item How to measure accuracy?
+\item Single numbers
+\begin{itemize}
+\item loss function (requires knowing goal)
+\item chi-square (utility free)
+\item accuracy: $P(G \cap A) + P(G^c \cap A^c)$
+\item Area under the ROC curve
+\end{itemize}
+\item Two numbers: precision recall
+\begin{itemize}
+\item precision: $P(A|G)$
+\item recall: $P(G|A)$
+\end{itemize}
+\item Whole curves
+\begin{itemize}
+\item ROC curve
+\item lift chart
+\item calibration curve ($P(A|G)$)
+\end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}

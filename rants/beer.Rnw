@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\begin{document}
+The following is from www.realbeer.com
+
+<<one,echo=FALSE>>=
+
+b <- read.csv("realbeer.csv")
+b$score = 3.2/4 * 12 * 28.34 * b$AlcoholPercent * 7 / b$Calories
+require("xtable")
+
+@ 
+
+<<two,results=tex>>=
+
+xtable(b[,c(1,2,6)])
+
+@ 
+
+\end{document}
+
