@@ -110,4 +110,45 @@ $[_{time}$ Friday $]$ $[_{ORG?}$ it $]$ has increased fairs by
 ... $[_{ORG}$ United $]$, a unit of $[_{ORG}$ UAL Corp.$]$, said the
 increase... 
 
+\section*{What is the value?}
+
+Tom Mitchel's talk (last Tuesday):
+\begin{itemize}
+\item Extracting facts, like ``United is a unit of UAL''
+\item Extracting events, ``raised fair.''
+\item Extracting complex relationships: 
+\begin{itemize}
+\item called Script / frame
+\item Shank's stuff
+\item Fare-rase attempt:
+\begin{itemize}
+\item Lead airline: united airlines
+\item amount: \$6
+\item efectgive date: 2006-10-26
+\item Followers: American Airlines, Delta
+\end{itemize}
+\end{itemize}
+\item Generally extracting triple:
+\begin{itemize}
+\item A owns B
+\item A is mayor of B
+\item etc
+\end{itemize}
+\item Automatically fill a database with such ``knowledge''
+\end{itemize}
+
+\section*{Need everything we have talked about so far}
+
+\begin{itemize}
+\item REG expressions are useful for taking apart names
+\item POS tagging with ``ORG''
+\item Parsing to identify tripple relationships
+\item Synonym finding to get alternate form of triples
+\item (OK, no speech!)
+\end{itemize}
+
+\section*{Statistics problem version}
+
+Discuss wiki disambiguation.  Or leave for another day.
+
 \end{document}
