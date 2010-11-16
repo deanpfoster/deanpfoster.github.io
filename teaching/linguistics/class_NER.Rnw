@@ -1,0 +1,113 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: NERPOS (chapter 22)}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item proposals / abstracts?
+\end{itemize}
+
+\section*{Naming of names}
+
+\begin{itemize}
+\item What I tell my undergrads when teaching statistics:
+\begin{itemize}
+\item In statistics everything has two names (i.e. RMSE / s)
+\item And every name refers to two things (mean = X-bar, expectation)
+\item Its stupid!  Just deal with it.
+\end{itemize}
+\item English is similar
+\end{itemize}
+
+\section*{NER}
+
+\begin{itemize}
+\item Problem: Identify who/what a reference is to.
+\item Subproblem: What is a reference?
+\begin{itemize}
+\item Dr. Who should be parsed together as one word, as should
+\begin{itemize}
+\item Apple Inc. 
+\item Mr. president
+\item Barack Obama
+\end{itemize}
+\item Usually done as marking Start, Iside and Outside of references.
+(You don't need a end, since you can compute it from other changes.)
+\item Like a POS problem sort of.
+\end{itemize}
+\item Subproblem: Where does the reference point?
+\begin{itemize}
+\item Barack, Obama, Mr. President, Camander and cheif, are all the
+same reference
+\item Apple, ``Apple, Inc'', Apple Computing are all the same
+\end{itemize}
+\end{itemize}
+
+\section*{Mild alternative}
+
+\begin{itemize}
+\item Similar to the pronoun reference problem
+\item That ``that,'' that that ``that'' is referring to is not that
+that that that that refers to.
+\item Search ``had had had'' on wiki.
+\item In general, ``he'' or ``she'' is just like ``Apple, Inc''  It is
+a reference to something that needs to be disambiguated
+\end{itemize}
+
+\section*{Parsing NER}
+
+\begin{itemize}
+\item Good tricks are language specific
+\begin{itemize}
+\item Capitilizations in written English (not useful in spoken)
+\item Inc, Mr, Ms, etc in English
+\item All caps, or weird caps (eBay)
+\item Case markers in other languages?
+\end{itemize}
+\item Entropy rules
+\begin{itemize}
+\item Two items that gotogether way to frequently might be a single
+name
+\item Curious problem: How would you statistically figure out
+``words'' in continuously run together text?
+\end{itemize}
+\item Nick names
+\begin{itemize}
+\item If you find ``Microsoft Inc'' which your rules tell you is an
+entity, then look for words that co-occur with it, ``MS,'' ``M\$'',
+``evil empire'' etc
+\item Morphology of names might be useful: Microsoft Inc can be
+shorten to Microsoft.
+\end{itemize}
+\end{itemize}
+
+\section*{POS for NER}
+
+Two possible ways of marking up NER:
+\begin{itemize}
+\item Broad brush: person, place or thing?
+\item Laser focus: SS\# of person
+\end{itemize}
+
+Broad brush is like a POS tag:
+\begin{itemize}
+\item People are ``active'' agents.  So they go with active verbs.
+\item locations are objects.  They go with ``to Washington'' kind of constructs.
+\end{itemize}
+
+\section*{What it looks like at the end}
+
+page 734 for marked up example:
+
+``Citing high fule prices, $[_{ORG}$ United Airlines$]$ said
+$[_{time}$ Friday $]$ $[_{ORG?}$ it $]$ has increased fairs by
+... $[_{ORG}$ United $]$, a unit of $[_{ORG}$ UAL Corp.$]$, said the
+increase... 
+
+\end{document}
