@@ -1,0 +1,15 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: mFRD (Paper with Bob)}
+\maketitle
+
+\section*{Admistrivia}
+
+
+\section*{mFDR}
+
+\end{document}
