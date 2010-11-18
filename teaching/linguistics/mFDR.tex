@@ -1,0 +1,428 @@
+\documentclass{beamer}
+
+
+
+%\usetheme{CambridgeUS}
+\usetheme{default}
+\useoutertheme{default}
+\useinnertheme{circles}
+\usecolortheme{crane}
+%\usecolortheme{wolverine}
+\setbeamertemplate{navigation symbols}{}
+
+% \usefonttheme[onlylarge]{structuresmallcapsserif}
+
+
+\institute[U Penn]{
+   Department of Statistics, the Wharton School\\
+   Department of Computer and Information Science\\
+   University of Pennsylvania
+}
+
+\date[JSM, 2008]{Joint Statistics Meeting, Denver, August 2008}
+
+\title[Alpha investing controls mFDR]{Alpha Investing: A new multiple hypothesis testing procedure
+that controls mFDR}
+\author[Foster]{{\bf Dean Foster}\\ 
+{\em dean@foster.net}\\
+\and
+{\bf Robert Stine} \\ 
+{\em stine@wharton.upenn.edu}
+}
+
+
+\begin{document}
+\frame[plane]{\maketitle}
+%-------------------------------------------------------------------------
+\begin{frame}[t]
+\frametitle{ Questions  }
+%-------------------------------------------------------------------------
+\begin{description}
+
+\item[ Credit scoring ] \ \\
+  Who will repay the loan?  Who will declare bankruptcy?
+  
+\item[ Images ] \ \\
+  Is this a picture of a face?
+  
+\item[ Genomics ] \ \\
+  Does a pattern of genes predict higher risk of a disease?
+
+\item[ Text processing ] \ \\
+  Disambiguation of word sense.
+\vspace{2em}
+\onslide<2->{
+\item[These are great statistics problems, so... ] \ \\
+  Why not use our workhorse, regression?  \\
+  Its familiar with diagnostics available.}
+\end{description}
+\end{frame}
+
+\begin{frame}[t]
+%-------------------------------------------------------------------------
+\frametitle{ Talk goal}
+%-------------------------------------------------------------------------
+\vspace{1in}
+\begin{block}{}
+This talk will address one problem in regression: over fitting
+\end{block}
+
+\end{frame}
+
+\begin{frame}[t]
+%-------------------------------------------------------------------------
+\frametitle{ Regression Models can be rich in structure}
+%-------------------------------------------------------------------------
+\begin{description}
+
+\item[ Basic structure ] \ \
+  \begin{itemize}
+    \item $n$ {\bf independent} observations of $m$ features
+    \item $q$ predictors in model
+          $$ E(Y) = \beta_0 + \beta_1 X_1 + \cdots + \beta_q X_q $$
+  \end{itemize}
+\uncover<2->{
+\item[ Lots of features ] 
+  \begin{itemize}
+    \item Bankruptcy had 67,000 features
+    \item We now run a million
+  \end{itemize}}
+\uncover<3->{
+\item[  Lots of hypotheses ] 
+\begin{itemize}
+\item Need to avoid over fitting.
+\item The hypothesis $\beta_i =0$ is almost always correct
+\item Rejecting it leads to over fitting
+\end{itemize}
+}
+\end{description}
+\end{frame}
+
+%-------------------------------------------------------------------------
+\begin{frame}[t]
+\frametitle{Hypothesis test point of view}
+%-------------------------------------------------------------------------
+  \begin{itemize}
+  
+        \item Collection of $m$ {\bf null} hypotheses 
+                        $$H_1, H_2, \ldots, H_m, \ldots $$
+                 specify values of parameters $\theta_j$ ($H_j: \theta_j = 0$).
+                
+        \item Tests produce p-values $p_1, \;p_2, \ldots, p_m, \ldots$
+        
+        \item Reject $H_j$ if  $p_j$ is smaller than $\alpha_j$
+                 $$R(m) = \sum_j R_j , \quad 
+                      R_j = \left\{ \begin{array}{cc} 
+                              1 & \mbox{ if } p_j<\alpha_j \cr
+                              0 & \mbox{otherwise}
+                              \end{array}\right. $$
+                              
+        \item How to control the \textbf{un}observed number of incorrect rejections?
+                     $$ V^{\alert{\theta}}(m) = \sum V^{\alert{\theta}}_j , \quad
+                         V^\theta_j = \left\{ \begin{array}{cc} 
+                                          1 & \mbox{ if } p_j < \alpha_j \mbox{ but } \theta_j = 0 \cr
+                                          0 & \mbox{otherwise}
+                                           \end{array}\right. $$
+                     
+  \end{itemize}
+\end{frame}
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{frame}[t]
+\frametitle{Several different Criteria}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+    \begin{itemize}
+    
+        \item Family-wise error rate, the probability for \textbf{any} incorrect rejection
+                               $$FWER(m) = P(V^\theta(m)>0)$$
+                 
+\uncover<2->{
+        \item {\bf FDR:} False discovery rate, 
+                        $$FDR(m) = E\left(\frac{V^\theta(m)}{R(m)}\right) $$}
+                  
+\uncover<3->{
+        \item {\bf mFDR:} Marginal false discovery rate, the ratio of expected counts
+                          $$mFDR_{\alert{\eta}}(m)
+                              = \frac{E\;V^\theta(m)}{E\;R(m) \alert{+ \eta}} $$
+         }
+  \end{itemize}
+\end{frame}
+
+
+
+%-------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Picking cutoffs}
+%-------------------------------------------------------------------------
+    \begin{itemize}
+    
+        \item Bonferroni (alpha-spending) controls $FWER(m) < \alpha$.
+                 $$ \mbox{Reject } H_j  \mbox{ if } p_j < \alpha_j $$
+(with $ \sum_j \alpha_j \le \alpha$.)
+                 
+        \item Benjamini-Hochberg ``step-down''  controls $FDR(m) < \alpha$ \\
+                      $$ \mbox{Reject } H_{(j)}  \mbox{ if } p_{(j)} < \alert{j} \alpha/m $$
+                 (ordereding based on p-values $p_{(1)} < p_{(2)} < \cdots < p_{(m)}$.)
+\uncover<2->{
+   \item Alpha investing: combines both
+\begin{itemize}
+\item Use alpha-spending as a base model
+\item Borrow strength as Benjamini-Hochberg does
+\end{itemize}
+}                  
+  \end{itemize}
+  \end{frame}
+
+%-------------------------------------------------------------------------
+\begin{frame}
+\frametitle{ Alpha-Investing Rules }
+%-------------------------------------------------------------------------
+\begin{description}
+
+\item[Sequentially tests hypotheses]  alpha left to spend is
+called your $\alpha$-wealth, called $W(j)$.
+
+\uncover<2->{
+\item[Budget constraint] $\alpha_j \le W(j-1)$.}
+
+\uncover<3->{
+\item[New Wealth]  Wealth goes up when something is found, and down otherwise
+  $$   W(j) \approx W(j-1) - \alpha_j  \uncover<4->{ +
+     \left\{ \begin{array}{cc}
+                \omega  & \mbox{ if } p_j \le \alpha_j  \;,\cr
+                0     & \mbox{ if } p_j > \alpha_j   \;.
+             \end{array} \right.}
+  $$
+}
+\uncover<5->{
+\item[Parameters] $W(0)$ and $\omega$ control the behavior
+}
+\end{description}
+\end{frame}
+
+
+%-------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Alpha-Investing Uniformly Controls mFDR}
+%-------------------------------------------------------------------------
+
+\begin{definition}[Uniform control of mFDR]
+   A test procedure {\em uniformly controls} 
+   $mFDR_\eta$ at level $\alpha$ if for any finite stopping time $T$,  
+   $$ \sup_\theta
+   \frac{E_\theta \left(V^\theta(T)\right)}
+     {E_\theta \left(R(T) \right) + \eta } < \alpha $$
+\end{definition}
+
+\only<2>{
+ Stop early: Do you care about every hypothesis that's rejected, 
+                 or are you most interested in the first few?
+                 \begin{itemize}
+                   \item Scientist studies first 10 genes identified from micro-array.
+                   \item What is FDR when stopped early?  Don't know.
+                   \item We do know mFDR.
+                 \end{itemize}
+}
+
+\only<3>{
+In regression stopping early consists of running your program until
+you need the results and then hitting ``break''.}
+
+\only<4>{
+\vspace{2em}
+\begin{theorem}
+    Any alpha-investing rule with initial alpha-wealth
+    $W(0) \le \alpha  \eta$ and pay-out $\omega \le \alpha$ uniformly controls
+    mFDR$_\eta$ at level $\alpha$.
+   \end{theorem}     }
+ 
+\vspace{3in}
+$\quad$
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+\begin{frame}[label=martingale]
+\frametitle{Why control mFDR rather than FDR?}
+%-------------------------------------------------------------------------
+
+  $$FDR(m) \approx E\left(\frac{V^\theta(m)}{R(m)}\right)
+      \qquad
+       mFDR_\eta(m) = \frac{E\;V^\theta(m)}{E\;R(m) + \eta} $$
+ 
+ \begin{itemize}
+  
+    \item They produce similar control in the type of problems 
+             we consider, as shown in simulation.
+             \hyperlink{fdrsim}{\beamergotobutton{See simulation results}}
+\uncover<2->{  
+    \item By controlling a ratio of means, we are able to identify a martingale:
+}    
+  \end{itemize}
+\uncover<2->{  
+  \begin{lemma}
+    The process \
+    $$ A(j) = \alpha R(j) - V^\theta(j) + \eta \, \alpha - W(j) $$
+    is a sub-martingale \\
+    $$ E(A(j) \;|\ A(j-1),\ldots,A(1)) \ge A(j-1) \;. $$
+  \end{lemma}
+  }
+ \end{frame}
+
+
+
+%-------------------------------------------------------------------------
+\begin{frame}[t]
+\frametitle{Back to Regression}
+%-------------------------------------------------------------------------
+\begin{itemize}
+\item Procedure is useful since it allows freedom but maintains control
+\item Any order of variables will still control mFDR
+\item Any spending rule will still control mFDR
+\uncover<2->{
+\item Just don't spend more than you have!}
+\uncover<3->{
+\vspace{2em}
+\item And its faster too...}
+
+\end{itemize}
+
+\end{frame}
+%-------------------------------------------------------------------------
+\begin{frame}[t]
+\frametitle{Speed comparison}
+%-------------------------------------------------------------------------
+\begin{tabular}{r|c|c|c}
+                  & stepwise with sweep & stepwise   & alpha investing \\ \hline
+add variable      & $qm$                & $q^2$      & $q^2$ \\ \hline
+look for variable & $mn$                & $mnq$      &
+\only<1>{$qn$}\only<2->{$n + O(q^2)$}   \\ \hline   
+number of looks   & $q$                 & $q$        & $m$
+\end{tabular}
+
+\only<2>{
+\vspace{2em} 
+Using Dongyu Lin's speed up hack
+}.
+
+
+\only<3->{
+\vspace{2em}
+\begin{itemize}
+\item For random order of variables total CPU is the same
+\item Win comes from
+\begin{itemize}
+\item Putting good variables first
+\item Dynamically changing the order of the variables
+\item Not going through all the variables (e.g. if $m = \infty$)
+\end{itemize}
+\item Empirically it is much faster 
+\begin{itemize}
+\item stepwise: trying 67,000 variables takes months
+\item alpha spending: trying 1 million variables takes a day
+\end{itemize}
+\end{itemize}}
+
+\vspace{2in}
+$\quad$
+
+\end{frame}
+
+
+\begin{frame}[t]
+%-------------------------------------------------------------------------
+\frametitle{ Going Further }
+%-------------------------------------------------------------------------
+\begin{description}
+
+\item[In for a penny, in for a pound] \ \\
+  mFDR and alpha-investing provide framework for testing a {\it stream}
+  of hypotheses using {\it several} investing rules.
+
+\item[Multiple predictor streams] \ \
+  \begin{itemize}
+     \item Start with raw variables as basic stream.
+     \item Once select $X_1$ and $X_2$, try $X_1 * X_2$.
+  \end{itemize}  
+
+\item[Auction = Multiple alpha-investing rules] \ \\
+  \begin{itemize}
+   \item  Two rules, one for $X$'s and second for interactions.
+   \item  Each starts with wealth $\alpha/2$. \\
+   \item  Easy to wager more for $m$ $X$'s than $m^2$ interactions.
+   \item  Best strategy accumulates wealth, makes most choices.
+  \end{itemize}
+
+\item[It works!] \ \\
+  \begin{itemize}
+    \item Have run auctions through 1,000,000 predictors.
+    \item Finds linear effects {\em and} high-order interactions.
+  \end{itemize}
+\end{description}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Conclusions: alpha investing offers user control}
+\begin{itemize}
+\item order of variables
+\begin{itemize}
+\item No need for prior, order is strong enough
+\item With less information simply divide into streams
+\item If no information, random works also
+\end{itemize}
+\item Bidding rule
+\begin{itemize}
+\item How much to reinvest at each step
+\item A universal bidding scheme exist
+\end{itemize}
+\item Initial parameters
+\begin{itemize}
+\item How much wealth to start with.
+\item How much to reinvest
+\item Asymptotically these aren't important decisions
+\end{itemize}
+\end{itemize}
+\end{frame}
+%-------------------------------------------------------------------------
+\begin{frame}[t]
+\frametitle{  Thank you! }
+\end{frame}
+
+%-------------------------------------------------------------------------
+\begin{frame}[label=fdrsim]
+\frametitle{FDR is close to mFDR}
+\begin{columns}
+  
+    \column[T]{5cm}
+      Simulation of tests
+       \begin{itemize}
+          \item $m=200$ hypotheses
+          \item Proportion $\pi_1$ false
+          \item Spike--and--slab mixture \\
+                   $ \mu_j  = \left\{ \begin{array}{l} 
+                          N(0,2\log m)   \cr 
+                           0                         \cr
+                      \end{array} \right. $
+         \item 10,000 replications
+       \end{itemize}
+
+       Procedures
+       \begin{itemize}
+         \item {\color{green} Naive},  {\color{blue} Bonferroni},\\
+                  BH step-down,\\
+                 {\color{red} wBH with oracle}
+         \item Solid: FDR \\
+                  Dashed: mFDR
+       \end{itemize}
+     \hyperlink{martingale}{\beamerreturnbutton{Return}}
+
+     \column[T]{5cm}
+%       \includegraphics[height=6.2cm]{figure1.pdf}
+\end{columns}
+\end{frame}
+  
+
+\end{document} %==========================================================
+
