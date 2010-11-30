@@ -1,0 +1,119 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: Question answering (chapter 23)}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item Status reports?
+\end{itemize}
+
+\section*{Who is John Galt?}
+
+\begin{itemize}
+\item Goal: Automatic question answering
+\item Incoperates all that we have discussed so far
+\item General approach:
+\begin{itemize}
+\item Find documents that are related to the question
+\item extract relevant information from documents
+\item generate answer (often via template)
+``John Galt was born on <birthdate> in <birthlocation>.  He is famous
+for <significationfactoid>....''
+\end{itemize}
+\item We will take each of these in turn
+\end{itemize}
+
+\section*{Information retrival: I.e. Google}
+
+\subsection*{What we do}
+\begin{itemize}
+\item If we are building such a system, we will send queries to google
+to get back pages
+\item They have a nice API to support this
+\item THey are willing to accept several 1000 queries a day before
+they want money
+\end{itemize}
+
+\subsection*{What they do}
+\begin{itemize}
+\item How do you do this by hand? (or for your new internet startup company)
+\item Easist aproach is the vector method
+\end{itemize}
+
+\subsubsection*{Vectors}
+
+`Who is John Galt?''
+\begin{itemize}
+\item represent as a vector with all zeros and 4 ones in it
+\item represent each document as a vector of counts
+\item How close are these two vectors?
+\end{itemize}
+
+\subsubsection*{cosine}
+
+How close are two vectors?
+
+\begin{itemize}
+\item Longer articles and shorter articles should be normalized to
+same length
+\item This leads to a cosine metric.
+\begin{displaymath}
+||X - Y||^2 = ||X||^2 + ||Y||^2 - 2 X^t Y
+\end{displaymath}
+So if we have normalized $||Y|| = 1$ and we use the same $X$ over and
+over again, minimizing $||X - Y/\sqrt{||Y||}||$ is the same as
+maximizing $X^t Y/\sqrt{||Y||}||$.
+\end{itemize}
+
+\subsubsection*{IDF}
+\begin{itemize}
+\item But, ``who'' and ``Is'' are uninteresting, ``John'' isn't that
+useful either, but ``Galt'' is now a winner.
+\begin{itemize}
+\item n(``who'') = 4.4 B
+\item n(``is'') =  11 B
+\item n(``john'') = 1 B
+\item n(``galt'') = .022 B
+\end{itemize}
+\item But the spread is even richer.  THe ``who'''s are spread all
+over the web, whereas the ``Galt'' are highly concentrated.  So a
+article which has one ``Galt'', probably has 10 ``Galt'''s.
+\item Idea of document frequency.  Rare document words are a
+fingerprint for a document.
+\item Called IDF.  Typically log'ed for stability
+\end{itemize}
+
+\subsubsection*{Putting it together}
+\begin{itemize}
+\item TF/IDF: Term frequency / inverse document frequency
+\item Then use cosine
+\item Grab top hits
+\end{itemize}
+
+\subsection*{Better top hits}
+
+Cool idea: Spread out top hits to cover different topics / pages.
+  David and Ben discussed this a few weeks ago in MLunch.  Instead of
+sampling based on the TF/IDF, sample based on the determinant of
+closeness of top hit documents.
+
+  Next semester, those who want to continue in this direction, should
+ try to attend both MLunch and CLunch.  Free food and good talks (at
+ least some of the time) and good connections.
+
+\section*{Factoid questions}
+
+Continue with section 23.2 and rest of chapter...
+
+
+
+
+
+
+\end{document}
