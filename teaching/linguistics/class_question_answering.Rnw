@@ -109,7 +109,49 @@ closeness of top hit documents.
 
 \section*{Factoid questions}
 
-Continue with section 23.2 and rest of chapter...
+Cool idea
+\begin{itemize}
+\item Search for ``Gandhi 1869'' or ``Gandhi 1869 birth''
+\item You will find 100's of different ways of describing the fact
+that Gandhi was born in 1869.
+\item These can now be used as patterns for finding other birthdates
+\item Deep CCA: 
+
+left vector has
+\begin{itemize}
+\item Gandhi 1869
+\item Lincoln 1809
+\item JFK 1917
+\item ...
+\end{itemize}
+Right vectors:
+\begin{itemize}
+\item born on
+\item <person> (\#\#\#\# - \#\#\#\#)
+\item JFK 1917
+\item In May of 1962, Marilyn Monroe helped to celebrate President
+John F. Kennedy's 45th birthday at a spectacular party in Madison
+Square Garden.
+\item ...
+\end{itemize}
+\item CCA between concepts and syntax
+\end{itemize}
+
+\section*{Template answers}
+
+We then want to generate answers like, ``<person> was born in
+<year>''.  If we can summarize information well enough, we can force
+it to generate sentences of this nature.  Currently, this doesn't work
+so well.  Alternatively, we can view it as a ``fill in the blank.''
+This now is at least interesting statistics.  Converts the problem
+into a ``cloze'' question.
+
+\section*{Cloze data}
+
+on sobolev, we have lots of ``the'' vs ``her'' fill in the blanks.
+These are very simple close questions.  But we have to be able to
+solve these before we solve the harder stuff.
+
 
 
 
