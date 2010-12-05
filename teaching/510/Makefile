@@ -14,6 +14,8 @@ all_html: $(SOURCES:.Rnw=.tex.html)
 
 all_pdf: $(SOURCES:.Rnw=.pdf)
 
+all_answers: $($(wildcard *_answers.tex):.tex=.pdf)
+
 %.tex.html: %.tex
 	touch $@
 	rm $@
