@@ -1,6 +1,9 @@
-\documentclass[10pt]{extarticle}
+\documentclass[14pt]{extarticle}
 \usepackage{hyperref}
+\renewcommand{\baselinestretch}{1.3}
+
 \begin{document}
+
 
 \title{Class: Taylor}
 \maketitle
@@ -104,8 +107,7 @@ but by the end, I want you all to have moved a bit towards the middle.
 I'll present more mathematics and data analysis since that is what I
 know best.  
 
-\newpage
-
+\vspace{2em}
 \section*{Todays Topic: Simple linear regression}
 
 \section*{Review of the standard linear model}
@@ -198,7 +200,7 @@ Then use residuals to decide if it is good enough.
 \end{itemize}
 
 
-\newpage
+\vspace{4em}
 
 \section*{Practice}
 
