@@ -6,14 +6,6 @@
 \maketitle
 (\href{class_doglegs.pdf}{pdf version})
 
-%
-%  Notes from 2009:
-%
-%     Worked pretty well.
-%     Ran about 10 minutes short.
-%
-
-
 \section*{Story time: Dan Willingham, the Cog Psyc}
  
 \begin{itemize}
@@ -59,11 +51,11 @@ psychologist.
 
 \begin{itemize}
 \item homework / ``cases'' project and a final 
-\item Wave grading and interactions
+\item Email statistics.assignments@gmail.com for questions and turning
+in assignmens
   \begin{itemize}
-\item I've always done it myself in the past
-  \item Make a wave and invite me and Sivan to it
-  \item This will be our way of communicating between the three of us
+  \item Both Sathya and I get messages sent here.  So that way you get
+ahold of who ever is currently on line sooner.
   \end{itemize}
 \item Books
   \begin{itemize}
@@ -75,10 +67,44 @@ psychologist.
   \item Allow other software--but recommend R
   \item Its free, available on OS X/Linux/windows.
   \item It is what production level statisticians use
-  \item I'll give a short introduction to R after class Monday week.
-\item No hard copy this year.
+  \item Friday at noon, Sathya will give an intro to using R.  (And
+our computer (Anand) person will be there to help load it if you have problems.)
   \end{itemize}
 \end{itemize}
+
+\section*{The triangle of statistics}
+
+Statistics has three major pieces
+\begin{itemize}
+\item mathematics
+\item data analysis (i.e. science)
+\item communication
+\end{itemize}
+To be good, you need all three (or at least two of the three).  Doing
+only one isn't as powerful:
+\begin{itemize}
+\item only mathematics: Terrance Tao, maybe the smartest guy on the
+planet.  I would have recommended him for the genious award--but he
+already has one.
+\item only data analysis: called ``masters level statistician.''
+Employable at big pharm.  But low pay.
+\item only communication: Called bloggers.  Basically unpaid!
+\end{itemize}
+My goal is to make sure you can make more money than any of these pure
+states!
+
+So
+\begin{itemize}
+\item MBA's closer to communication
+\item math undergrads closer to math corner
+\item stat concentrators, closer to data analysis corner
+\end{itemize}
+but by the end, I want you all to have moved a bit towards the middle.
+
+I'll present more mathematics and data analysis since that is what I
+know best.  
+
+\newpage
 
 \section*{Todays Topic: Simple linear regression}
 
@@ -143,12 +169,20 @@ Y_i = \alpha + \beta x_i + \epsilon_i \quad \epsilon_i \sim_{iid}
 N(0,\sigma^2)
 \end{displaymath}
 \end{itemize}
-\section{Is linear good enough?}
+\section*{Is linear good enough?}
 
-Taylor (\href{http://en.wikipedia.org/wiki/Brook_Taylor}{wiki}) tells
-us that ``everything'' can be approximated by a linear equation.  So
-if there is a true relationship between $Y$ and $x$ that is
-non-linear, then we could say 
+\subsection*{The triangle answers}
+\begin{itemize}
+\item Communication: Littlewood's principle: ``Almost all functions
+are almost continuous almost everywhere.''  And from
+Stone-Weierstrass, all continuous functions are aproximately equal to
+a polynomial.  And all polynomials look like lines if you investigate
+them close enough to a zero.
+\item Mathematics: Taylor
+ (\href{http://en.wikipedia.org/wiki/Brook_Taylor}{wiki}) tells us
+ that ``everything'' can be approximated by a linear equation.  So if
+ there is a true relationship between $Y$ and $x$ that is non-linear,
+ then we could say
 \begin{displaymath}
 E(Y|x) = f(x)
 \end{displaymath}
@@ -159,8 +193,14 @@ previous equation.)  So Taylor's theorem says that
 E(Y|x) \approx \alpha + \beta x
 \end{displaymath}
 and even tells us what $\alpha$ and $\beta$ are.  
+\item Data analysis: Linear is esiest to look at--so start there.
+Then use residuals to decide if it is good enough.
+\end{itemize}
 
-\section{Practice}
+
+\newpage
+
+\section*{Practice}
 
 First get the data.  For me, I use the command line, just like your grandfather used: 
 \begin{verbatim}
