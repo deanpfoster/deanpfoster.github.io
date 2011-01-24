@@ -8,6 +8,10 @@
 
 (\href{class_residuals.pdf}{pdf version})
 
+\section*{Admistirivia}
+
+second R review thursday at 5pm
+
 \section{Visual tests for residuals}
 
 Most testing of residuals is done by looking at plots.  This is fast
