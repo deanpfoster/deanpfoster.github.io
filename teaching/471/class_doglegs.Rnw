@@ -5,7 +5,7 @@
 
 \title{Class: Doglegs /piecewise linear / Bent stick}
 \maketitle
-(\href{class_doglegs.pdf}{pdf version})
+(\href{http://gosset.wharton.upenn.edu/~foster/teaching/471/class_doglegs.pdf}{online version})
 
 \section*{Story time: Hildebrand and instgant feed back}
 
@@ -44,7 +44,6 @@ that language.
 \section*{Admistrivia}
 
 \begin{itemize}
-\item Who doesn't have a wave yet?
 \item Pass out ``Who are you?''
 \item You should do most of homework 1 this weekend.  I haven't
 discussed it.  It is stuff you should know how to do already.  
