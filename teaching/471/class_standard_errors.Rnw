@@ -96,6 +96,10 @@ many log(dollars) is a log(hit) worth?''  If this sounds resonable to
 you, then you are definitely an economists:  A slope between
 log(Y) and log(x) is called the elasticity.
 
+\paragraph{Intrinsically linear models}  Cobb / Douglass production
+functions are a cool example of a linear model that doesn't look like
+a linear model:  log(output) = log(labor) + log(capital) etc...
+
 \paragraph{Weighted least squares:} Alternatively, we can do weighted
 least squares.  If we believe that the errors scale with $x$, then we
 could write our model precisely as:
