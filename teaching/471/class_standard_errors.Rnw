@@ -124,11 +124,13 @@ y <- 10 + x *(3 +rnorm(20))
 plot(x,y)
 abline(lm(y ~ x)$coef)
 @ 
+
 Now with the weighted line:
 <<fig=TRUE>>=
 plot(x,y)
 abline(lm(y ~ x,weights = 1/x^2)$coef)
 @ 
+
 This is nice since the equation it generates will still use $\alpha$
 and $\beta$ as we have been using them in the equations already.  
 \item Second, you can create the two new variables $Y/x$ and $1/x$ and
@@ -140,12 +142,14 @@ newx = 1/x
 newy = y/x
 plot(newx,newy)
 abline(lm(newy ~ newx)$coef)
-@ 
+@
+ 
 Compare the coeffients: 
 <<>>=
 summary(lm(y ~ x, weights=1/x^2))
 summary(lm(newy ~ newx))
 @ 
+
 To check that $1/x$ is the wrong weights:
 <<>>=
 summary(lm(y ~ x,weights=1/x))
