@@ -12,6 +12,20 @@
 
 second R review thursday at 5pm
 
+\section*{Last time}
+\begin{itemize}
+\item Fit plus residuals
+\item last time: fit
+\begin{itemize}
+\item doglegs (single)
+\item doglegs (smooth)
+\item doglegs (multiple)
+\item spline (multiple and smooth)
+\item connect the dots (too many multiple)
+\end{itemize}
+\item Today--the other half:residuals
+\end{itemize}
+
 \section{Visual tests for residuals}
 
 Most testing of residuals is done by looking at plots.  This is fast

@@ -7,7 +7,7 @@
 \maketitle
 (\href{http://gosset.wharton.upenn.edu/~foster/teaching/471/class_doglegs.pdf}{online version})
 
-\section*{Story time: Hildebrand and instgant feed back}
+\section*{Story time: Hildebrand and instant feed back}
 
 \begin{itemize}
 \item Dave Hildebrand changed how we taught statistics

@@ -27,11 +27,9 @@ of things to instruct you about and as people ask questions.  So check
 back here before you start each new piece of the project.
 
 \section{Proposal}
-For the proposal, you need to do the following:
+For the proposal, you need to do the following Email us who is going
+to be in your group.  (2 or 3 people.)  Include the following:
 \begin{itemize}
-\item Make a wave which has the members of your group on it (along
-with Sivan and Dean.)  Your group should have 2 or 3 people in it.  (If
-you can prove you are autistic, then you can work by yourself.)
 \item Write a one paragraph summary of what you would like to do for
 your project.
 \item Your summary should address where you expect to find data, what
