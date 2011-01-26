@@ -46,7 +46,8 @@ that language.
 \begin{itemize}
 \item Pass out ``Who are you?''
 \item You should do most of homework 1 this weekend.  I haven't
-discussed it.  It is stuff you should know how to do already.  
+discussed it.  It is stuff you should know how to do already.  The
+main issue is using R to do it.
 \end{itemize}
 
 \section*{Todays Topic: When Taylor fails}
@@ -64,8 +65,10 @@ linear.
 
 Nasty stuff:
 \begin{itemize}
-\item Jumps (notice it is pretty almost everywhere)
+\item Jumps (notice it is still ``smooth'' almost everywhere)
 \item piecewise linear function (again with the almost everywhere)
+\item exerce for math types: Show $f$ is piecewise linear iff $f'$ is
+piecewise constant.
 \end{itemize}
 
 \section{So it isn't linear: still use Taylor}
