@@ -6,6 +6,16 @@
 
 \title{Class: bootstrap}
 
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item Anand might be sick--so no office hours today.  He will hold
+subsitute office hours on Tuesday from 3 - 5.
+\end{itemize}
+
+\section*{Suggested readings}
+
 (\href{class_bootstrap.pdf}{pdf version})
 
 Suggested readings
