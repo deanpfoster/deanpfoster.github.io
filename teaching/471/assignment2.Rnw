@@ -13,7 +13,8 @@ detailed descriptions, but a sentence here and there is nice.  (Include your
 \item Dogleg construction and analysis:
 \begin{enumerate}
 \item Spend 20 minutes trying to find a new historical temperature
-series.  (If you can't find one, use New Hampshire which was discussed
+series.  (If you can't find one, use \href{nh-temp-series.txt}{New
+Hampshire} which was discussed 
 in class.).   Fit it using a dogleg at 1900 and print it. (Model 1)
 \item Play around with loess.smooth to get a variety of different
 possible smooths of your series.  The idea is to find one that looks
