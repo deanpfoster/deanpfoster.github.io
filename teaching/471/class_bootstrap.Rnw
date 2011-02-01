@@ -1,10 +1,20 @@
-\documentclass{article}
+\documentclass[14pt]{extarticle}
 
 \usepackage{hyperref}
 
 \begin{document}
 
 \title{Class: bootstrap}
+
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item Anand might be sick--so no office hours today.  He will hold
+subsitute office hours on Tuesday from 3 - 5.
+\end{itemize}
+
+\section*{Suggested readings}
 
 (\href{class_bootstrap.pdf}{pdf version})
 
@@ -53,7 +63,7 @@ Now we could compute $SD(\hat\beta)$.  This would be the true standard
 error of $\hat\beta$.
 \begin{itemize}
 \item In an ideal world, (i.e. under the normal linear model) then this
-would be the number that JMP would print out as the standard error of
+would be the number that R would print out as the standard error of
 $\hat\beta$.
 \item If $\hat\beta$ is unbiased, (i.e. nothing correlates with the
 errors) then this $SD$ will tell us how far $\hat\beta$ is from the
@@ -96,10 +106,11 @@ and copy it
 \end{itemize}
 
 If you are in a programming langauge, you can write the above as a
-simple compute algorithm (say in R).  But what to do if you are using
-JMP? 
+simple compute algorithm (say in R).  
 
-\section{Faking bootstrap in JMP}
+\section{Faking bootstrap in Excel}
+
+But what to do if you are using Excel? 
 
 How many times will the first row be duplicated in the data set?  On
 average the number of times, will be one.  If this weren't true, the
@@ -122,7 +133,7 @@ probability class, you will recognize this as a poisson distribution.
 
 So we want to duplicate the first row a poisson(1) number of times.  
 
-JMP bootstrap
+Excel bootstrap
 \begin{itemize}
 \item Create a column called ``bootstrap counts''
 \item Use the formula editor to insert {\bf Random Poisson(1)}
