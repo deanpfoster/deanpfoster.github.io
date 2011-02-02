@@ -1,6 +1,7 @@
-\documentclass{article}
+\documentclass[14pt]{extarticle}
 
 
+\renewcommand{\baselinestretch}{1.2}
 % Deans New Commands
 \usepackage[usenames]{color}
 \definecolor{mypurple}{rgb}{.3,0,.5}
@@ -109,7 +110,7 @@ like.  This also removes most issues of selection bias since we could
 only pick one company out of 12 total instead of 1 out of 5000 current
 companies and then working backwards.
 
-<<readdata, eval=TRUE, echo=FALSE>>=
+<<readdata, eval=TRUE, echo=TRUE>>=
 
 #    ##########################################################
 #    #
@@ -158,7 +159,7 @@ domino.ex  <- domino - riskfree
 @ 
 
 Classic CAPM plot:
-<<echo=FALSE,fig=TRUE,width=4, height=4 >>=
+<<echo=TRUE,fig=TRUE,width=4, height=4 >>=
 
  plot(domino.ex ~ market.ex)
 
@@ -166,7 +167,7 @@ Classic CAPM plot:
 
 Summary statistics:
 
-<<echo=FALSE>>=
+<<echo=TRUE>>=
 
 clean <- data.frame(time,  market = market.ex   ,  domino = domino.ex  ,  cpi)
 clean <- clean[!(is.na(clean$domino)),]
@@ -174,7 +175,7 @@ clean <- clean[!(is.na(clean$market)),]
 
 @ 
 Portfolios:
-<<echo=FALSE>>=
+<<echo=TRUE>>=
 
 fraction <- .3
 portfolio = fraction * clean$domino / mean(clean$domino) + (1 - fraction) * clean$market / mean(clean$market)
@@ -183,7 +184,7 @@ summary(portfolio)
 @ 
 
 Variance plot:
-<<echo=FALSE>>=
+<<echo=TRUE>>=
 
 fractions <- seq(-1 , 2 , .01);
 mean.port <- 0 * fractions
@@ -199,27 +200,28 @@ for(i in 1:(length(fractions)))
 
 
 THe mean should be constant:
-\centerline{%
-<<fig=TRUE,echo=FALSE,height=3, width=3>>=
+
+
+<<fig=TRUE,echo=TRUE,height=3, width=3>>=
 
   plot(fractions, mean.port,type="l")
 
 @ 
-}
+
 (Example of white space rule!  This is a useless graph!)
 
 Some variances are better than others:
 
 \noindent
 \hspace{-1.5in}
-<<fig=TRUE,echo=FALSE,width=3,height=3>>=
+<<fig=TRUE,echo=TRUE,width=3,height=3>>=
 
   plot(fractions, var.port,type="l")
 
 @ 
 
 So our ``optimum'' is at:
-<<echo=FALSE>>=
+<<echo=TRUE>>=
 
 opt.fraction <- fractions[var.port == min(var.port)]
 cat("Optimum point of original data: ", opt.fraction , "\n" );
@@ -284,7 +286,7 @@ We can collect other statistics besides the optimum point. We could
 also compute the alpha of the bootstrap regression.  Here is the exact
 same code but now it collects up lots of other output.
 
-<<echo=FALSE,fig=TRUE>>=
+<<echo=TRUE,fig=TRUE>>=
 
 cat("Optimum point of original data: ",fractions[var.port == min(var.port)],"\n")
 fractions <- seq(0 , 1.2 , .001);
