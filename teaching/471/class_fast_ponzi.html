@@ -194,46 +194,45 @@ be impressed by a p-value of .05.
        Hence we can't fake as good performace.  
 </ul> 
 
-<H2>Why read a mutual fund prospectus?</h2>
+<h2>CAPM</h2>
+
+<H3>Summary so far</h3>
 <ul>
-  <li> An alternative to using options to bound the loss is to read
-       the prospectus.
+  <li> Bonferonni p-value = n * regular p-value.
+  <li> Worry about unseen crashes (trick: add 3 disasters to your
+data, principle: use Markov from my paper).
+  <li> Correct for risk since.
        <p>
-  <li> A mutual fund who can use leverage can generate larger swings.
-       <p>
-  <li> If only stocks can be purchased, downsides can be much lower
-       <p>
-  <li> If only big stock can be purchase and they must be diversified,
-       then the downside is lower still.
-</ul>
+       <ul>
+	 <li> long run growth rate = mean - variance / 2
+	 <li> optimal amount of one investment: alpha/MSE
+	 <li> Figure of merit: alpha<sup>2</sup>/MSE = alpha<sup>2</sup>/RMSE<sup>2</sup>
+       </ul>
+</uL>
 
-<h2>Buy side: the three disasters rule</h2>
+<H3>Everyone wants in on the action</H3>
+
 <ul>
-  <li>  Determine what a total disaster would be by one of the
-       following methods:  (listed best to worst)
-       <p>
-       <ol>
-	 <li> Use actual options then the downside is legally
-	      determined
-	 <li> Use active trading.  Assume you monitor the value of the
-	      fund and anytime it drops by X% you sell.  You don't buy
-	      again until next period.  Charge yourself Y% for
-	      transaction costs AND how much it might have dropped
-	      past X%.  Ideally this requires using tic-by-tic data.
-	 <li> Estimate a disaster drop by reading the prospectus.  How
-	      bad might things go?
-	 <li> Use -100% as the definition of a disaster
-       </ol>
-       <p>
-  <li> Make a column of empirical returns
-       <p>
-  <li> Add three disasters to this column
-       <p>
-  <li> Test if the average return for this column is higher than
-       expected.  
+  <li> Notice, if alpha > 0, everone wants to buy
+  <li> Notice, if alpha < 0, everone wants to sell
+  <li> Hence price is not in equilibrium unless alpha = 0
 </ul>
-
-
+<h2>Putting it all together</h2>
+<ul>
+  <li> Figure of merit: R = alpha<sup>2</sup>/MSE
+  <li> Growth of log optimal portfolio increases by R/2
+  <li> It takes 4/R years to statistically prove this investment is
+       profitable using out-of-sample data
+       <ul>
+	 <li> Find an R of 1, and CAPM is dead in 4 years
+	 <li> Find an R of .01 and CAPM is indistinqushable from
+	      "better model" for next 400 years
+	 <li> For reference: T-bills vs. cash has R =
+	      (.03/.01)<sup>2</sup> = 9 (takes several months to prove better)
+	 <li> For reference: Market vs. t-bills has R =
+	      (.07/.2)<sup>2</sup> = .12 (takes 30 years to prove)
+       </ul>
+</ul>
 
 
 
@@ -245,7 +244,7 @@ be impressed by a p-value of .05.
 <em>
 <p align=right>
 <!-- hhmts start -->
-Last modified: Wed Feb 16 14:22:47 EST 2011
+Last modified: Wed Feb 16 14:30:00 EST 2011
 <!-- hhmts end -->
 </em>
 </body>
