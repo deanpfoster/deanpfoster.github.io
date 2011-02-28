@@ -1,0 +1,138 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% defining some commands that I like:
+%
+%                       \dpf   \note    \DOC    \TESTING
+%
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.3,0,.5}
+\newcommand{\dpf}[1]{\noindent{\textcolor{mypurple}{\{{\bf dpf:} \em #1\}}}}
+\newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
+\SweaveOpts{prefix.string=.figures/linguistics}
+
+\begin{document}
+
+
+\title{Class: Block data}
+\maketitle
+(\href{class_block_data.pdf}{pdf version})
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item Stepwise regression / hw 3 discussion after class today
+\end{itemize}
+
+\section*{So how many observations do we have?}
+
+\begin{itemize}
+\item Linguistics has big data
+\item Google has the entire web ($10^{12}$ words)
+\item I've got Gutenberg ($10^{9}$ words)
+\item How many observations is this?
+\end{itemize}
+
+
+\section*{Sandwich estimator}
+\begin{itemize}
+\item Regression is nothing more then a weighted average
+\item $\hat{beta} = \sum w_i Y_i$
+\item So, block it into independent pieces and use classical
+statistics: $\hat{beta} = \sum_{block} \sum_i w_i Y_i = \sum_{block}
+Z_{block}$.
+\item All done with matrixes.  The resulting estimator of the standard
+error looks like a sandwich:
+
+\end{itemize}
+
+\section*{Block resampling}
+
+Simulation of block error structure:
+
+<<model>>=
+
+number.blocks <- 10
+observations.per.block <- 100
+n <- number.blocks * observations.per.block
+{
+  block <- rep(seq(1:number.blocks),observations.per.block)
+  block.error <- 10 * rnorm(number.blocks)
+  block.X <- rnorm(number.blocks)
+  individual.error <- rnorm(n)
+  X <- 3 * block.X[block] + rnorm(n)
+  Y <- 14 + 0 * X + block.error[block] + individual.error
+}
+summary(lm(Y ~ X))
+
+@ 
+
+Note: Curiously, if the $X$'s don't have any block effect then we get
+good performance with the linear model.  The reason is that $X$ and
+the error are independent.  This is actually more important than that
+the errors themselves are independent.
+
+<<bootstrap>>=
+
+resamples <- 250
+estimates <- matrix(0,nrow=resamples,ncol=2)
+for(i in 1:resamples)
+  {
+    resampled.blocks <- sample(number.blocks,size=number.blocks,replace=TRUE)
+    fakeX <- vector()
+    fakeY <- vector()
+    for(j in 1:number.blocks)
+      {
+        fakeX <- append(fakeX,X[block == resampled.blocks[j] ])
+        fakeY <- append(fakeY,Y[block == resampled.blocks[j] ])
+      }
+    estimates[i,] <- coef(lm(fakeY ~ fakeX))
+  }
+summary(estimates)
+
+@ 
+
+Looking at the histogram, we see it is negative about 1/2 the time.
+So we don't even get the sign right.  The SE is closer to +/- 1 than
+to .1 which is what lm gets.
+
+<<fig=TRUE>>=
+
+hist(estimates[,2])
+
+@ 
+
+
+\section*{Tukey's method: IID}
+\begin{itemize}
+\item We know how to analyse IID data
+\item Make your data look IID
+\item Each row should be IID!
+\item Got the concept?
+\end{itemize}
+
+\subsection*{doesn't matter what you put in a row}
+\begin{itemize}
+\item Your $X$ variable might take some calculation
+\item Your $Y$ might not be obvious
+\item But no matter how much you bury in them, if they are independent
+rows, you are happy to use classical statistics
+\end{itemize}
+
+\subsection*{For linguistics: Like Guttenburg}
+\begin{itemize}
+\item block by books at least
+\item Better block by author
+\item Better block by genera / publication date
+\item Probably blocking by ``fiction'' vs ``non-fiction'' might be too
+much.
+\begin{itemize}
+\item But maybe not
+\item Anything you believe is real should appear in both
+\item POS's are the same
+\item Sentence structure is basically the same, etc
+\end{itemize}
+
+\end{itemize}
+
+\end{document}
