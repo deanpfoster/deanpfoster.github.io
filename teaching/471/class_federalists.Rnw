@@ -135,6 +135,23 @@ print(xtable(summary(regr.word.length)),floating=F,size="small")
 It has an R-squareds of
 $\Sexpr{round(summary(regr.word.length)[["r.squared"]],2)}$.
 
+We can also see this by color coding the dots:
+
+<<fig=TRUE,echo=FALSE>>=
+
+  colors <- c("red","white","black","gray","blue")[federal$author]
+
+  plot(federal$num.char ~ federal$num.words, col=colors)
+
+@ 
+
+And maybe even more clearly:
+
+<<fig=TRUE,echo=FALSE>>=
+
+  plot(federal$num.char/federal$num.words ~ federal$num.words, col=colors)
+
+@ 
 
 
 \subsection*{Thinking like a linguist}
