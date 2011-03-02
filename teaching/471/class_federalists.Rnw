@@ -43,25 +43,31 @@ names(federal)
 Now let's use R to split this into ``words.''  There are smarter ways
 of doing this, but for now we will do the most trivial:
 <<>>=
+
 federal$words <- strsplit(as.character(federal$text)," ")
 federal$num.words <- c(lapply(federal$words,length),recursive=TRUE)
-federal$num.char <- c(lapply(federal$text,nchar),recursive=TRUE)
+federal$num.char <- c(lapply(as.character(federal$text),nchar),recursive=TRUE)
+
 @ 
 Now a messy way of generating a variable to do the regression on.
   (I'm sure Sivan will have a better way.)  We know some of the
  authors but we don't know them all:
 
 <<>>=
+
 codes <- c(NA, "HAM", "mad")
 federal$training <- codes[1 + (federal$author == "HAMILTON") + 2 * (federal$author == "MADISON")]
 federal$training01 <- (federal$training == "HAM")
+
 @ 
 Now let's check that we have done something sensiable:
 
 <<results=tex,echo=FALSE>>=
+
 r <-as.matrix(federal[c(1,2,3,6,10,15:19,45,55),c("author","training","training01")])
 require("xtable")
 print(xtable(r),NA.string="NA",floating=F,size="small")
+
 @ 
 
 \\
@@ -69,16 +75,68 @@ print(xtable(r),NA.string="NA",floating=F,size="small")
 
 Ok, finally we can try a trivial regression.  If we think like a
 statistician, about all we can do is count the number of charecters /
-words in the document.  This isn't very predictive:
+words in the document.  This acutally works pretty well:
 
 \begin{center}
 <<results=tex,echo=FALSE>>=
+
 regr <- lm(training01 ~ num.words+num.char,data=federal)
 print(xtable(summary(regr)),floating=F,size="small")
 @ 
 \end{center}
-Even knowing the R-squared is $\Sexpr{round(summary(regr)[["r.squared"]],2)}$
-doesn't help.  
+The R-squared is $\Sexpr{round(summary(regr)[["r.squared"]],2)}$.
+Notice, neither words nor characters by themselves is very useful with
+only words
+\begin{center}
+<<results=tex,echo=FALSE>>=
+regr.words <- lm(training01 ~ num.words,data=federal)
+print(xtable(summary(regr.words)),floating=F,size="small")
+@ 
+\end{center}
+Or only with the character counts:
+\begin{center}
+<<results=tex,echo=FALSE>>=
+regr.char <- lm(training01 ~ num.char,data=federal)
+print(xtable(summary(regr.char)),floating=F,size="small")
+@ 
+\end{center}
+
+THey have R-squareds of
+$\Sexpr{round(summary(regr.words)[["r.squared"]],2)}$ and
+$\Sexpr{round(summary(regr.char)[["r.squared"]],2)}$ respectively. 
+
+\subsection*{Aside: super additive R-squareds}
+
+Notice the R-squared is super additive.
+\begin{itemize}
+\item We can explain why $R^2(Y|X+Z) < R^2(Y|X) + R^2(Y|Z) $ by
+colinearity.
+\item We can explain why $R^2(Y|X+Z) = R^2(Y|X) + R^2(Y|Z) $ if $X$
+and $Y$ are independent.
+\item But how do we generate super additivity?
+\end{itemize}
+
+A model here works nicely:
+\begin{itemize}
+\item Define $num.char/num.word$ as word.length
+\item Suppose authorship is related to to word.length
+\item Suppose authorship is not related document length
+\item But, suppose document length varries alot
+\item Then number words varries, number of characters varies, and
+neither predicts Y
+\end{itemize}
+We can test this by regressing on $num.char/num.words)$:
+\begin{center}
+<<results=tex,echo=FALSE>>=
+regr.word.length <- lm(training01 ~ I(num.char/num.words),data=federal)
+print(xtable(summary(regr.word.length)),floating=F,size="small")
+@ 
+\end{center}
+It has an R-squareds of
+$\Sexpr{round(summary(regr.word.length)[["r.squared"]],2)}$.
+
+
+
 \subsection*{Thinking like a linguist}
 
 So let's think like a linguistist.  Content words (``freedom'',
