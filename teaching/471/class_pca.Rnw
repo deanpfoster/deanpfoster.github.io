@@ -23,7 +23,28 @@
 \begin{itemize}
 \item Friday is concentration day for Wharton students.  You too can
 be a statistician!
-\item Short assignment on evolution for next Monday.
+\item Assignments
+\begin{itemize}
+\item  Short assignment on evolution for next Monday.
+\item  Major assignment on PCA and lingustics in R.
+\item  The last assignment will be mostly mathematics.  The goal is to
+keep it short--but help you learn the last 5 lectures by doing
+examples of what I'll be talking about in class.
+\end{itemize}
+\item So your primary goal for the 2nd half of the class, is your
+project!
+\begin{itemize}
+\item \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/project.tex.html}{assignment
+in html}) (\href{http://gosset.wharton.upenn.edu/~foster/teaching/471/project.tex.html}{.pdf})
+\item There will be four deliverables:
+\begin{enumerate}
+\item Proposal
+\item Literature review
+\item Data analysis
+\item Presentation
+\end{enumerate}
+You may work in groups of size 2 or 3.
+\end{itemize}
 \end{itemize}
 
 \section*{Story time: Lens model}
