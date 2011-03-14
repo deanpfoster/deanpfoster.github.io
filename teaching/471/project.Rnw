@@ -37,7 +37,7 @@ For the proposal, you need to email us
 a description of you you will collect it.
 \end{enumerate}
 
-\section{Previous work (literature review) (due Mar 31)}
+\section{Previous work (literature review)}
 
 Look and see who has done work similar to your poposal.  Your goal is
 to find about 5 similar studies.  These might be from books, the web,
@@ -63,7 +63,7 @@ that is coming along.
 \end{description}
 
 
-\section{Data analysis (due Apr 12)}
+\section{Data analysis}
 This is the easy part--it is just statistics!  Write up a discussion
 of what your data analysis consists of with graphs and tables.
 Basically this will become your appendix to your final paper.  So it
