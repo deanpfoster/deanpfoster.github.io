@@ -21,7 +21,8 @@
 \section*{Admistrivia}
 
 \begin{itemize}
-\item Homework due wednesday
+\item Friday is concentration day for Wharton students.  You too can
+be a statistician!
 \end{itemize}
 
 \section*{Story time: Lens model}
@@ -29,7 +30,7 @@
 \item Show people: SATs, GPAs, teacher evaluations, field.
 \item Ask to predict 1st year grades in school, call these $\hat{y}$.
 \item Now use linear regression to estimate these fits: call these $\hat{\hat{y}}$.
-\item Which is smaller? $\sum (Y - \hat{y})^2$ or $\sum (Y - \hat{hat{y}})^2$?
+\item Which is smaller? $\sum (Y - \hat{y})^2$ or $\sum (Y - \hat{\hat{y}})^2$?
 \item Weird fact: linear model is better!
 \item Humans are noisy and non-linear when they shouldn't be.
 (I.e. This guy is going into english, who cares about the SAT-math?
@@ -38,6 +39,7 @@ written?)
 \item citation: Hirsh, Hommond, Hirsh, 1964, and Tucker 1964.
 \end{itemize}
 
+{\bf MORAL:} Linear works much better than is believable!
 
 \section*{Todays Topic: PCA}
 
