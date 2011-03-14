@@ -23,6 +23,7 @@
 \begin{itemize}
 \item Friday is concentration day for Wharton students.  You too can
 be a statistician!
+\item Short assignment on evolution for next Monday.
 \end{itemize}
 
 \section*{Story time: Lens model}
