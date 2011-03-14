@@ -94,7 +94,7 @@ also means you {\em might} want to have your citations listed also.
 But only if they tell a lot of your story.
 \item[Practice] Do your talk a few times ahead of time to check
 timing.  You will be surprized at how short 10 minutes is.
-\item[Key point] You will get instant feed back forms from several of
+\item[KeyPoint] You will get instant feed back forms from several of
 your fellow students.  You want one of your fellow
 students to be able to echo your key point at the end of class.  If
 they were to answer, ``Yea, didn't you talk something about
@@ -103,7 +103,7 @@ are over paid.'' You win!
 \end{description}
 
 
-\section{Final paper (two files: .pdf plus .R}
+\section{Final paper (two files: .pdf plus .R)}
 Write up your talk as a paper in less than 8 pages.  The idea is to
  communicate your main ideas and not the details of the statistics.
   You picked your project because it was an interesting question you
