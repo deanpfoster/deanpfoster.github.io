@@ -20,22 +20,22 @@ The Project will consist of a sequence of deliverables:
 \item Literature review
 \item Data analysis
 \item Presentation
-\item Final paper
 \end{enumerate}
 Each will be discussed below.  I'll keep updating this file as I think
 of things to instruct you about and as people ask questions.  So check
 back here before you start each new piece of the project.
 
 \section{Proposal}
-For the proposal, you need to do the following Email us who is going
-to be in your group.  (2 or 3 people.)  Include the following:
-\begin{itemize}
-\item Write a one paragraph summary of what you would like to do for
-your project.
-\item Your summary should address where you expect to find data, what
-you might learn from your analysis and how you might analyse your
-data. 
-\end{itemize}
+For the proposal, you need to email us  
+\begin{enumerate}
+\item who is going to be in your group.  (2 or 3 people.)
+\item Title of your project
+\item A one paragraph summary of what your project is. (You might
+ discuss what you might learn from your analysis and how you might
+ analyse your data.)
+\item Pointers to where you will get your data (i.e. from the web) or
+a description of you you will collect it.
+\end{enumerate}
 
 \section{Previous work (literature review) (due Mar 31)}
 
@@ -87,16 +87,15 @@ powerpoint is evil.\footnote{See the
 done as a power point.  Tufte took this and wrote an entire book about
 it: The Cognitive Style of PowerPoint.}  He argues you should have a
 handout and focus attention on handout instead of on the powerpoint
-slides.  But I won't force you to fly blind without powerpoint!  But,
-I will expect a one page handout.  The point is if anyone actually
+slides.  So I will expect you to have a one page handout.  The point is if anyone actually
 wants to know more about what you talked about they should be able to
 follow up.  This means you should have your contact information.  It
 also means you {\em might} want to have your citations listed also.
 But only if they tell a lot of your story.
 \item[Practice] Do your talk a few times ahead of time to check
 timing.  You will be surprized at how short 10 minutes is.
-\item[Key point] I won't have instant feed back forms for each
-speaker--but keep that concept in mind.  You want one of your fellow
+\item[Key point] You will get instant feed back forms from several of
+your fellow students.  You want one of your fellow
 students to be able to echo your key point at the end of class.  If
 they were to answer, ``Yea, didn't you talk something about
 baseball?''  You lose.  If they answer, ``Oh, yea, you showed catchers
@@ -104,7 +103,7 @@ are over paid.'' You win!
 \end{description}
 
 
-\section{Final paper (two files: pdf plus R}
+\section{Final paper (two files: .pdf plus .R}
 Write up your talk as a paper in less than 8 pages.  The idea is to
  communicate your main ideas and not the details of the statistics.
   You picked your project because it was an interesting question you
