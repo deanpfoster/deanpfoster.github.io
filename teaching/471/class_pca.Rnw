@@ -23,6 +23,8 @@
 \begin{itemize}
 \item Friday is concentration day for Wharton students.  You too can
 be a statistician!
+\item Follow friday at noon--Sathya will give the final R session
+(this one on lingustics)
 \item Assignments
 \begin{itemize}
 \item  Short assignment on evolution for next Monday.
