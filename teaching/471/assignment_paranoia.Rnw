@@ -64,7 +64,7 @@ as your better friend wins.
   Unfortunately, he doesn't really read the problem description very
  well and so thinks the problem uses compounding.  
 
- He defines $A_t = 1 + a_t$ and has everone starts out with one dollar.
+ He defines $A_t = 1 + a_t$ and has everone start out with one dollar.
   Hence each round $A_t = 1$ or $A_t = 1.01$ depending on whether
  friend A wins nothing or friend A wins a penny.  He then computes the
  log growth rate of this compound series.  So he is optimizing
@@ -78,19 +78,5 @@ from our good friend Taylor: $\log(1+\epsilon) \approx 1 +
 can use that $|\log(1+\epsilon) - \epsilon| \le \epsilon^2$ if
 $\epsilon < .1$.}
 \end{enumerate}
-We can now put this all together: Your financial accountant then
- suggest you use the usual combination scheme for compound growth.
-  Namely, $w_t = A_t/(A_t+B_t)$.  Clearly this is a legal investment
- scheme, but does it have horse race properties.  Define $C_t = 1 +
- c_t$.  By the graph you made we see that $\log \prod C_t \approx \sum c_t$.
- From the finance argument given in class
-\begin{displaymath}
-\frac{\log \prod C_t}{T} \approx \max(
-\frac{\log \prod A_t}{T}
-\frac{\log \prod B_t}{T})
-\end{displaymath}
-and from your graph we see $\frac{\log \prod C_t}{T} \approx
-\frac{\sum_{t=1}^T c_t}{T}$ and likewise for $a$ and $b$.  Putting these
-all together we see that the average combination is close to the best
-combination.  
+
 \end{document}

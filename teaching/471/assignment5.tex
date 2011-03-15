@@ -34,7 +34,7 @@ just how much you win on each round.  So your problem is:
 \begin{itemize}
 \item Before each race is run, decide who you want to bet for you,
  friend A or friend B.  Call this $w_t$.  (Of course you can be
- wishywashy and got with a fraction of each as long as it adds up to
+ wishywashy and bet a fraction with each as long as it adds up to
  exactly one.)
 \item When the race $t$ is run, friend A will win $a_t$ pennies, and
 friend $B$ will win $b_t$ pennies.
@@ -46,8 +46,8 @@ better of the two average winnings of your two friends.  In other words:
 \begin{displaymath}
 \frac{\sum_{t=1}^T c_t}{T} \approx \max(\frac{\sum_{t=1}^T a_t}{T},\frac{\sum_{t=1}^T b_t}{T})
 \end{displaymath}
-So, no tricks this time.  No compounding.  No logs.  Just the real
-average.  Ok, let's figure out how to do this.
+So, no tricks this time.  No compounding.  No logs.  Just real
+money.  Ok, let's figure out how to do this.
 \begin{enumerate}
 \item If you bet with your friend who has currently won the most, show
 that there is a sequence for which you aren't close to winning as much
@@ -58,40 +58,40 @@ as your better friend wins.
 \item You hire an financal accountant (they are cheap now that
  wallstreet has gone broke) to help you keep track of your pennies.
   Unfortunately, he doesn't really read the problem description very
- well and so thinks we are doing compounding.  
+ well and so thinks the problem uses compounding.
 
- He defines $A_t = 1 + a_t$ and everyone starts out with one dollar.
+ He defines $A_t = 1 + a_t$ and has everone start out with one dollar.
   Hence each round $A_t = 1$ or $A_t = 1.01$ depending on whether
  friend A wins nothing or friend A wins a penny.  He then computes the
- log growth rate of this compound series.  He just thinks of it as
- your final wealth as $A_1 \cdot A_2 \cdots A_t$ which we can call
- $\prod A_t$.  Show that $\log \prod A_t \approx \sum a_t$.
-
-(HINT: The key fact you will need is $\log(1+\epsilon) \approx 1 +
-\epsilon$.  If you want to use a precise statement, you
+ log growth rate of this compound series.  So he is optimizing
+$\log(A_t)$ whereas we actually want to optimize $a_t$.  To see that
+this is about the same thing, make a plot of $\log(A_t)$ vs $a_t$ for
+$a_t$ between zero and .01.  What is the farthest these two are from
+each other?\footnote{For those who have had calculus in the past year
+or two show that $\log \prod A_t \approx \sum a_t$.  You can get this
+from our good friend Taylor: $\log(1+\epsilon) \approx 1 +
+\epsilon$.  For an exact bound, you
 can use that $|\log(1+\epsilon) - \epsilon| \le \epsilon^2$ if
-$\epsilon < .1$)
+$\epsilon < .1$.}
+\end{enumerate}
 
-\item Your financial accountant then suggest you use the usual
- combination scheme for compound growth.  Namely, $w_t =
- A_t/(A_t+B_t)$.  Clearly this is a legal investment scheme, but does
- it have good properties.  Define $C_t = 1 + c_t$ and show that $\log
- \prod C_t \approx \sum c_t$.
-\item Now from the finance argument given in class
+We can now put this all together: Your financial accountant then
+ suggest you use the usual combination scheme for compound growth.
+  Namely, $w_t = A_t/(A_t+B_t)$.  Clearly this is a legal investment
+ scheme, but does it have good horse race properties?  Define $C_t = 1 +
+ c_t$.  By the graph you made we see that $\log \prod C_t \approx \sum c_t$.
+ From the finance argument given in class
 \begin{displaymath}
 \frac{\log \prod C_t}{T} \approx \max(
 \frac{\log \prod A_t}{T}
 \frac{\log \prod B_t}{T})
 \end{displaymath}
-and from the previous part $\frac{\log \prod C_t}{T} \approx
-\frac{\sum_{t=1}^T c_t}{T}$ and likewise for $a$ and $b$.  Put these
-all together and show how close the average combination is to the best
-combination.  In other words, give a bound that says how far the average
-of the $c_t$'s will be from the better of the averages of the $a$'s or
-of the $b$'s.
+and from your graph we see $\frac{\log \prod C_t}{T} \approx
+\frac{\sum_{t=1}^T c_t}{T}$ and likewise for $a$ and $b$.  Putting these
+all together we see that the average combination is close to the best
+combination.  
+
 \end{enumerate}
-
-
 
 
 \subsection{Three friends (for fun)}
