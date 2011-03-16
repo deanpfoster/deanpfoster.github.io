@@ -23,15 +23,7 @@
 \begin{itemize}
 \item article about \href{http://www.wired.com/magazine/2010/02/ff_google_algorithm/all/1}{google}
 \item Rewrote evolution homework last night.  Should be much easier
-now to follow.
-\end{itemize}
-
-
-\begin{itemize}
-\item distance to line in any direction: first principle component
-\item How do you describe a pancake? Distance to a plane, first 2
-principle components
-\item Higher dimistions?
+to follow now.
 \end{itemize}
 
 \section*{Story: Regression to the mean}
@@ -60,6 +52,64 @@ So to turn a regression around, you keep the correlation the same,
 just change the ratio.  
 
 Very counter-intuitive
+
+\section*{Left off last time:}
+
+\begin{itemize}
+\item distance to line in any direction: first principle component
+\item How do you describe a pancake? Distance to a plane, first 2
+principle components
+\item Higher dimistions?
+\end{itemize}
+
+\section*{Where it all started: IQ}
+
+\begin{itemize}
+\item Spearman (research done during 1904-1920)
+\begin{itemize}
+\item rank correlation
+\item psychology, ``G'' in IQ
+\item came up with factor analysis: basicly the same idea as PCA.  We
+will use it for discussion of ideas.
+\end{itemize}
+\end{itemize}
+
+\subsection*{IQ: background}
+
+
+\begin{itemize}
+\item Spearman found grades in various classes correlated
+\item conjectured there was one thing that did it all
+\item called G
+\end{itemize}
+
+\subsection*{What are the class weights?}
+
+\begin{itemize}
+\item classes: Math, English, history, PhEd
+\item weights: .3 M + .4 E + .2 H + 0 PhEd
+\item tells how much each class is realted to IQ
+\item FACT: reaction time is related, motor speed isn't.  Takes care
+to distinguish these two in tests.
+\end{itemize}
+
+\subsection*{What are the individual scores?}
+
+\begin{itemize}
+\item Each student has g = .3 M + .4 E + .2 H + 0 PhEd
+\end{itemize}
+
+\subsection*{Putting them together}
+
+Instead of storing all grades, we can store two things:
+\begin{itemize}
+\item student scores: g
+\item class loading: (.3,.4,.2,0)
+\item Compute estimated grade in math by: g * .3
+\item Compute estimated grade in PhEd by: g * 0
+\item So we get nothing out of PhEd
+\end{itemize}
+
 
 \subsection*{Using it for PCA's}
 \begin{itemize}
