@@ -22,6 +22,8 @@
 
 \begin{itemize}
 \item article about \href{http://www.wired.com/magazine/2010/02/ff_google_algorithm/all/1}{google}
+\item Rewrote evolution homework last night.  Should be much easier
+now to follow.
 \end{itemize}
 
 
