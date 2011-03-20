@@ -48,7 +48,17 @@ plot the function
 \begin{displaymath}
 y = K/(1 + e^{-t})
 \end{displaymath}
-for $t \in [-10,10]$.  Try it for several values of $K$.  Notice that
+for $t \in [-10,10]$.%
+\footnote{%
+This is pretty easy.  Just make up a
+$t$ and your $K$ and then compute your $Y$:\\
+@verb
+t <- seq(-10,10,.01)\\
+K <- 10\\
+y <- K/(1  + exp(-t))
+
+}
+  Try it for several values of $K$.  Notice that
  the function maximizes out at $K$.  So start by guessing a $K$ for
  our data.  Now try
 \begin{displaymath}
