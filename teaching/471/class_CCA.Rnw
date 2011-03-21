@@ -1,0 +1,97 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/CCA}
+
+\title{Class: CCA}
+\maketitle
+
+\section*{Admistrivia}
+
+\begin{itemize}
+\item THursday afternoon will be the R session
+\item Keep your eye on the prize:
+\begin{itemize}
+\item There are often many ways of fitting data
+\item But the goal is to fit the right thing
+\item So in the evolution, statistical plot would be for $y'$
+\item but ``typical representation'' is for $y$
+\item This requires translating back
+\end{itemize}
+\item Next monday: Proposals due.  Email sooner is better.  Just put
+your proposal in an email so it is easier to comment on in a reply.  
+\end{itemize}
+
+\section*{One shot learning}
+
+\subsection*{Discriptors}
+
+\begin{itemize}
+\item POS: Noun / verb
+\item Tone: formal / informal
+\item gender: male / female
+\item sentiment: better / worse
+\item etc
+\end{itemize}
+
+\subsection*{Fill in the blank}
+
+\begin{itemize}
+\item New word comes along
+\item Never seen it before
+\item But, you predict it sould be a ``formal noun''
+\item you now see the word: you can guess some of its value
+\item called ``one shot learning''
+\end{itemize}
+
+\section*{Automatic one-shot-learning}
+
+\begin{itemize}
+\item Plan: If we knew good descriptors for words, we could run a
+ regression and predict these good descriptors.
+\item Now we could predict
+the good descriptors of a new word.  And then ``learn'' these good
+descriptors of a new word.
+\item Problem: we don't know the good descriptors to have them for $X$
+variables. 
+\end{itemize}
+
+\section*{Solution: CCA}
+
+Problem: Many $M$ variables (for movie) and many $S$ variables (for
+sound).  Problem: Find which directions of $M$ can be predicted by $S$
+and which directions of $S$ can be predicted by $M$.
+
+\begin{itemize}
+\item Key fact: $Y$ is correlated with $X$ iff $X$ is correlated with
+$Y$.
+\item If $Var(Y) = Var(X) = 1$, then $E(Y|X) = \rho X$ and $E(X|Y) =
+\rho Y$.
+\item So, the first step is to normalize everything
+\end{itemize}
+
+\section*{Graph of the problem}
+
+\begin{itemize}
+\item Draw circle for $M$ distribution
+\item Draw circle for $S$ distribution
+\item How are they related?  Hard to tell visually!
+\item What would we want? 
+\begin{itemize}
+\item Ideally find direction in $M$ which can be easilly predicted by $S$
+\item This prediction would be some $\beta S$.  So it is a
+``direction'' in $S$.
+\item These two directions (one in $M$ and one in $S$) are then
+correlated.
+\end{itemize}
+\item Optimization question: Which two directions have the maximum
+correlation? 
+\end{itemize}
+
+
+
+
+
+
+\end{document}
