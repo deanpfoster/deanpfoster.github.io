@@ -237,7 +237,9 @@ equation then is:
 \end{displaymath}
 \end{itemize}
 
+\section*{Back to words}
 
+\includegraphics[width=7in]{pretty_4_grams_PH_10k_30-projection.pdf}
 
 
 
