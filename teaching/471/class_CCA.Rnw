@@ -161,10 +161,57 @@ And the winner is:
 layout(matrix(1:2,nr=1),widths=c(5,5),heights=c(5,5))
 plot(M[,1],M[,2],col=color(M,correct.theta))
 plot(S[,1],S[,2],col=color(M,correct.theta),new=FALSE)
+layout(1)
 
 @ 
 
 
+\section{Automatic discover}
+
+R can figure out this best direction for us.  Let's first check that
+these have the right shape.  Namely, they need the same number of rows
+in each view:
+
+<<echo=TRUE>>=
+
+#M and S have the same number of rows
+  dim(M)
+  dim(S)
+
+@ 
+
+Now we can extract the first cannical correlation between $M$ and $S$:
+
+<<echo=TRUE>>=
+
+  c <- cancor(M,S)
+  M.cca1 <- M %*% c$xcoef[,1]
+  S.cca1 <- S %*% c$ycoef[,1]
+
+@ 
+
+Let's see that these directions are highly related:
+
+<<fig=TRUE,echo=FALSE>>=
+
+  shape <- rep(1,n)
+  shape[M.cca1 > 0] <- 16
+  plot(M.cca1, S.cca1, pch=shape)
+
+@ 
+
+\section*{By hand and automatic agree}
+
+We can 
+
+<<>>=
+
+layout(matrix(1:2,nr=1),widths=c(5,5),heights=c(5,5))
+plot(M[,1],M[,2],col=color(M,correct.theta),pch=shape)
+plot(S[,1],S[,2],col=color(M,correct.theta),pch=shape,new=FALSE)
+layout(1)
+
+@ 
 
 
 
