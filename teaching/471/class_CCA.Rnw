@@ -89,6 +89,80 @@ correlated.
 correlation? 
 \end{itemize}
 
+\section*{Pictures}
+
+<<definitions,echo=FALSE>>=
+
+
+rotation <- function(theta)
+{
+  return(matrix(c(sin(theta), cos(theta), -cos(theta), sin(theta)),c(2,2)))       
+}
+
+color <- function(M, theta)
+  {
+    n <- dim(M)[1]
+    colors <- rep("green",n)
+    colors[(M %*% rotation(theta))[,1] > .5] = "blue"
+    colors[(M %*% rotation(theta))[,1] < -.5] = "red"
+    return(colors)
+  }
+
+<<simulation,echo=FALSE>>=
+
+n <- 600
+common <- rnorm(n)
+M <- matrix(c(common,rnorm(n)),c(n,2))
+S <- matrix(c(rnorm(n),common),c(n,2))
+M.rot <- .2  # random basically
+S.rot <- .6
+M <- M %*% rotation(M.rot)
+S <- S %*% rotation(S.rot)
+correct.theta <-  -M.rot
+wrongest.theta <- -M.rot + pi / 2
+
+@ 
+
+Here is the data.  Notice we can't see anything useful!
+  
+<<echo=FALSE,fig=TRUE,width=10,height=5>>=
+
+layout(matrix(1:2,nr=1),widths=c(5,5),heights=c(5,5))
+plot(M[,1],M[,2])
+plot(S[,1],S[,2])
+
+@ 
+
+
+If we color code by a direction in $M$, we don't necessarilly see
+anything in $S$:  
+<<echo=FALSE,fig=TRUE,width=10,height=5>>=
+
+layout(matrix(1:2,nr=1),widths=c(5,5),heights=c(5,5))
+plot(M[,1],M[,2],col=color(M,wrongest.theta))
+plot(S[,1],S[,2],col=color(M,wrongest.theta),new=FALSE)
+
+@ 
+
+But if we get close to the right direction a patern starts showing up: 
+
+<<echo=FALSE,fig=TRUE,width=10,height=5>>=
+
+layout(matrix(1:2,nr=1),widths=c(5,5),heights=c(5,5))
+plot(M[,1],M[,2],col=color(M,correct.theta+.3))
+plot(S[,1],S[,2],col=color(M,correct.theta+.3),new=FALSE)
+
+@ 
+
+And the winner is:
+
+<<echo=FALSE,fig=TRUE,width=10,height=5>>=
+
+layout(matrix(1:2,nr=1),widths=c(5,5),heights=c(5,5))
+plot(M[,1],M[,2],col=color(M,correct.theta))
+plot(S[,1],S[,2],col=color(M,correct.theta),new=FALSE)
+
+@ 
 
 
 
