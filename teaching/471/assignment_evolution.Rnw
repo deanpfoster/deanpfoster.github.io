@@ -110,7 +110,7 @@ dY/dt &=& d(1/(1 + e^{-t})/dt \\
 
  We can use differences to approximate $dY/dt$.  (We did this before
  for the Dent data.)  These differences will be our ``$dY/dt$''.  Now
- use as variables $Y$ and $Y^2$.  We can now fit $diff(Y) = \alpha \beta Y + \gamma Y^2$.  We have now made our model intrinsically
+ use as variables $Y$ and $Y^2$.  We can now fit $diff(Y) = \alpha + \beta Y + \gamma Y^2$.  We have now made our model intrinsically
  linear.  In other words, we can fit it by a regression now.
 \begin{enumerate}
 \item Fit this model.  Work out what $r$ and $K$ are from your fit to
