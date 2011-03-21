@@ -239,8 +239,9 @@ equation then is:
 
 \section*{Back to words}
 
-\includegraphics[width=7in]{pretty_4_grams_PH_10k_30-projection.pdf}
+\includegraphics[width=8in]{pretty_4_grams_PH_10k_30-projection.pdf}
 
+(Blue = nouns, red's = verbs, green = aj0, yellow = unk)
 
 
 \end{document}
