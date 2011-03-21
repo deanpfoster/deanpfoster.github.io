@@ -241,7 +241,10 @@ equation then is:
 
 \centerline{\includegraphics[width=8in]{pretty_4_grams_PH_10k_30-projection.pdf}}
 
-(Blue = nouns, red's = verbs, green = aj0, yellow = unk)
+\begin{itemize}
+\item COLORS: Blue = nouns, red's = verbs, green = aj0, yellow = unk
+\item on 10,000 words
+\end{itemize}
 
 
 \end{document}
