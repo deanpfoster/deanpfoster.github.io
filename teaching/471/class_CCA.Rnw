@@ -216,6 +216,29 @@ layout(1)
 
 @ 
 
+\section*{Some mathematics}
+
+\begin{itemize}
+\item First step is the normalize the data so both $M$ and $S$ have a
+variance-covariance matrix which is the identity.  
+\item Now the best prediction of $M$ given $S$ is simply $\rho S$
+where $\rho$ is the correlation matrix relating $M$ and $S$.
+\item  The best prediction of $S$ given $M$ is simply $\rho^T M$.
+\item For the first CCA we should be back at the starting point.  So,
+key idea is:
+\begin{displaymath}
+\rho \rho^T C =  C
+\end{displaymath}
+where $C$ is the canical correlation.  (It might be a bit smaller, so
+we might have to have a $\lambda \in \Re$ which shrinks it.  So the
+equation then is:
+\begin{displaymath}
+\rho \rho^T C =  \lambda C
+\end{displaymath}
+\end{itemize}
+
+
+
 
 
 \end{document}
