@@ -202,7 +202,10 @@ Let's see that these directions are highly related:
 
 \section*{By hand and automatic agree}
 
-We can 
+We can show both of these at the same time by looking at our original
+data where we have color coded by the ``correct direction'' which we
+discovered by trial-and-error.  We can also provide the ``shape''
+based on the M.cca1.  
 
 <<echo=FALSE,fig=TRUE,width=10,height=5>>=
 
