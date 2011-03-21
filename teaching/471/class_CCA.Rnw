@@ -195,7 +195,7 @@ Let's see that these directions are highly related:
 <<fig=TRUE,echo=FALSE>>=
 
   shape <- rep(1,n)
-  shape[M.cca1 > 0] <- 16
+  shape[M.cca1 > 0] <- 5
   plot(M.cca1, S.cca1, pch=shape)
 
 @ 
@@ -204,7 +204,7 @@ Let's see that these directions are highly related:
 
 We can 
 
-<<>>=
+<<echo=FALSE,fig=TRUE,width=10,height=5>>=
 
 layout(matrix(1:2,nr=1),widths=c(5,5),heights=c(5,5))
 plot(M[,1],M[,2],col=color(M,correct.theta),pch=shape)
