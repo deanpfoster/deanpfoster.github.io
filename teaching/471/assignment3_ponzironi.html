@@ -85,7 +85,7 @@ plots, but is more sensitive.)
 	      analyze than the raw index itself.  So we need to
 	      generate a table that has differences in the log(VW) and
 	      differences in each of the age variables.  In about 30
-	      minutes you could do this in JMP by creating 80 new
+	      minutes you could do this in JMP by creating 76 new
 	      columns like dif(Age0,1), dif(Age1,1), etc.  BUT, we are
 in R now.  So it is a simple command there. Suppose D is your data
 frame, then D[-1,] doesn't have the first row.  Likewise D[-n,]
@@ -97,7 +97,7 @@ differences.
        <ol type = a>
 	 <li> First let's see if age 45 is the best age when trying to
 	      predict the VW returns.  Run a stepwise regression of
-	      the VW returns on dif(age0), up to dif(age80).  Have it
+	      the VW returns on dif(age0), up to dif(age76).  Have it
 	      do one step and it will add a single variable.  Did
 	      dif(age45) do the best?  What is the p-value for this
               variable?  Is it significant? (I'll insert some code

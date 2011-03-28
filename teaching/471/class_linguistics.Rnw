@@ -194,8 +194,6 @@ articles will use them differently based on topic
 \end{itemize}
 \end{itemize}
 
-
-
 \subsection*{Methodolgy}
 
 Let's replicate Mosteller and Wallace.  First we need to read in all

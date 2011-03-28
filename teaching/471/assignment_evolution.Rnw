@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\begin{document}
+\section*{Assignment on evolution}
+
+% (\href{assignment4.pdf}{pdf version})  the html is unreadable
+
+
+The driving model in evolution is the $r,K$-model.\footnote{see
+\href{http://en.wikipedia.org/wiki/K-selection}{http://en.wikipedia.org/wiki/K-selection}.
+for an overview.}  Basically the story is that populations grow
+exponentially (at rate $r$) until they end up reaching their carrying
+capacity ($K$).  So, the population growing curve looks like a
+logistic function.%
+\footnote{see \href{http://en.wikipedia.org/wiki/Logistic_function}{http://en.wikipedia.org/wiki/Logistic\_function}.}
+
+We will fit some data to this model.  Traditionally, one counts the
+ number of lizards on a new island every year over a decade or two.
+  This is interesting biology and important science, but isn't really
+ very interesting when it comes to data analysis.  So we will use a
+ more interesting (but less accurately modeled) data set--namely
+ AIDS/HIV cases in the USA.
+
+One data series for the number of new cases of AIDS from the AVERT
+website%
+\footnote{see
+\href{http://www.avert.org/usa-statistics.htm}{http://www.avert.org/usa-statistics.htm}.
+I couldn't find useful data on the
+\href{http://www.cdc.gov/Hiv/topics/surveillance/resources/factsheets/incidence.htm}{cdc}
+which is where I would expect the best data to be.}
+is attached at the end of this file, or downloadable as a
+\href{assignment_evolution.csv}{csv file}.
+
+
+\begin{enumerate}
+\item We want to fit the function $Y = K/(1+ e^{-r(t - t_{.5})})$ to this
+series. Unfortunately, this is not an intrinsicly linear model.%
+\footnote{We discussed these in class.  If you forgot what they are, I
+found a small discussion here \href{http://pj.freefaculty.org/stat/NonlinearRegression/NonlinearRegression1-1.0.pdf}{http://pj.freefaculty.org/stat/NonlinearRegression/NonlinearRegression1-1.0.pdf}.}
+So it is hard to fit this using a regression.  If you are using R, you
+can fit this as an optimization problem.  But doint so isn't easy.
+
+So we will fit it by ``eye.''  In other words, we will come
+up with a $K$, $r$ and $t_{.5}$ to make the graph look right.  First
+plot the function
+\begin{displaymath}
+y = K/(1 + e^{-t})
+\end{displaymath}
+for $t \in [-10,10]$.%
+\footnote{%
+This is pretty easy.  Just make up a
+$t$ and your $K$ and then compute your $Y$:\\
+@verb
+t <- seq(-10,10,.01)\\
+K <- 10\\
+y <- K/(1  + exp(-t))
+
+}
+  Try it for several values of $K$.  Notice that
+ the function maximizes out at $K$.  So start by guessing a $K$ for
+ our data.  Now try
+\begin{displaymath}
+y = 1/(1 + e^{-(t-t_{.5})})
+\end{displaymath}
+for several values of $t_{.5}$.  Say, -5, 3, and 7.  Notice how the
+ function is at the 1/2 way point when $t=t_{.5}$.  So pick a $t_{.5}$ to
+ match what you think is the 1/2 way point of the data.  Finally look
+ at:
+\begin{displaymath}
+y = K/(1 + e^{-r(t-t_{.5})})
+\end{displaymath}
+where you have picked $K$ to match your carrying capacity, and
+$t_{.5}$ to match your 50\% point and try it with several different
+values of $r$.  Play with $r$ until you get a good match.  Now make a
+plot to include with your homework. Your deliverable here are 4 things:
+\begin{itemize}
+\item $K$
+\item $r$
+\item $t_{.5}$.
+\item Plot of your fit overlaying the plot of the data.
+\end{itemize}
+So for example, if you claim the 50\% time is 1990,
+and the maximum value is 100,000 and it grows by 50\% every year, then you
+are fitting the model $Y = 100000/(1+e^{-.5(t-1990)}$ to your data.
+\item We can actually use regression on this problem if we are
+ creative.\footnote{
+\begin{eqnarray*}
+K/Y -1 &=& e^{-r(t - t_{.5})} \\
+- K dY/Y^2 &=& - r e^{-r(t - t_{.5})} dt\\
+K dY/Y^2 &=&  r e^{-r(t - t_{.5})} dt\\
+ K dY/dt &=&  Y^2 r (K/Y -1) \\
+ K dY/dt &=&  K rY - rY^2 \\
+  dY/dt &=&   rY - (r/K)Y^2 \\
+\end{eqnarray*}
+or without the constants we can do it directly:
+\begin{eqnarray*}
+dY/dt &=& d(1/(1 + e^{-t})/dt \\
+ &=& d(1 + e^{-t})/dt/(1 + e^{-t})^2 \\
+ &=& e^{-t})/(1 + e^{-t})^2 \\
+ &=& (1 + e^{-t})/(1 + e^{-t})^2  - 1/(1 + e^{-t})^2 \\
+ &=& 1/(1 + e^{-t})  - 1/(1 + e^{-t})^2 \\
+ &=& Y - Y^2
+\end{eqnarray*}
+}
+\begin{displaymath}
+  dY/dt =   rY - (r/K)Y^2 
+\end{displaymath}
+
+ We can use differences to approximate $dY/dt$.  (We did this before
+ for the Dent data.)  These differences will be our ``$dY/dt$''.  Now
+ use as variables $Y$ and $Y^2$.  We can now fit $diff(Y) = \alpha + \beta Y + \gamma Y^2$.  We have now made our model intrinsically
+ linear.  In other words, we can fit it by a regression now.
+\begin{enumerate}
+\item Fit this model.  Work out what $r$ and $K$ are from your fit to
+the model.  The true model doesn't have an $\alpha$ in it.  So does the
+$\alpha$ appear to be zero?
+\item You can actually force R to leave off the constant term.  Use
+ ``-1'' in the formula.  Does this change your estimates of $r$ and
+ $K$?  Can you explain why this happens?
+\item Plot the resulting growth curve that this model corresponds to.
+Do you like it better or worse than the curve you came up with by
+fitting it by eye?
+\item (discussion question, say 2 paragraphs total) Are the $r$ and
+ $K$ that you came up with above reasonable?  Does this model make
+ biological sense?  Do they match The fit generated by the some other
+ researchers?
+  (\href{http://www.nlreg.com/aids.htm}{http://www.nlreg.com/aids.htm})
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\section*{Data}
+
+\begin{verbatim}
+year, newCases 
+1981, 500
+1982, 1000
+1983, 3000
+1984, 10000
+1985, 18000
+1986, 25000
+1987, 33000
+1988, 40000
+1989, 45000
+1990, 50000
+1991, 80000
+1992, 80000
+1993, 75000
+1994, 70000
+1995, 60000
+1996, 50000
+1997, 42000
+1998, 40000
+1999, 40000
+2000, 40000
+2001, 40000
+2002, 39000
+2003, 39000
+2004, 38000
+2005, 38000
+2006, 38000
+\end{verbatim}
+
+
+\end{document}
