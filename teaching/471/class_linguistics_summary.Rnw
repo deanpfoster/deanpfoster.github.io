@@ -68,8 +68,59 @@
 \item And it uses a large \href{pretty/pretty_3_grams_PHC_50k_30.csv}{data set}
 \end{itemize}
 
+\subsection*{Why we care?}
+\begin{itemize}
+\item In a prediction problem, using words requires fitting 1 million
+parameters, one for each word.
+\item I'll talk next time about how one might do this--but it is best
+to avoid needing to do it
+\item After our CCA reduction, we have 30 variables.  Use them all and
+fit them all is now easy and accurate.
+\end{itemize}
+
+\subsection*{Random projections}
+\begin{itemize}
+\item Cool mathematics theory about random projections aren't as accurate.
+\item JL theory (Johnson Lindenstrauss lemma)
+\item But doesn't work for linear regression
+\item CCA does about as well as knowing the truth (Theorem Sham and I proved)
+\end{itemize}
 
 
+\section*{Today's use of statistics}
+
+\begin{itemize}
+\item IBM has the current best ASR (automatic speech recogniziation) methods
+\item Just came back from a talk which used this for S2S (speech to
+speech) translation
+\item State of the art: Align by ``union'' or align by ``intersection''
+\item Today's cool idea: try the mean--it works wonders! (Talk at IRCS)
+\item So the area is ripe for statistics
+\end{itemize}
+
+
+\section*{Applications}
+
+\begin{itemize}
+\item Named entity tagging (E.g. Find ``Microsoft'', ``MS'' ,''M\$'',
+``$\mu$soft'', ``MS inc'', etc)
+\begin{itemize}
+\item Necessary for figuring out articles in business
+\item Even in biology: is this a gene?  It has many names and even
+different spellings
+\end{itemize}
+\item Word sense disambiguation
+\begin{itemize}
+\item Which form of ``fast'' do we mean in this context?
+\item extreme form: ``bad'' = ``good'' in this context?
+\end{itemize}
+\item Prediction / compression
+\begin{itemize}
+\item HMM
+\item Fast methods (Sham Kakade's new fast algorithm)
+\item Faster methods (Regression? In progress by Bob Stine)
+\end{itemize}
+\end{itemize}
 
 
 
