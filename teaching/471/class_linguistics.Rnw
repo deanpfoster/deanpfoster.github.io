@@ -194,6 +194,219 @@ articles will use them differently based on topic
 \end{itemize}
 \end{itemize}
 
+\subsection*{Methodolgy}
+
+Let's replicate Mosteller and Wallace.  First we need to read in all
+the words:
+<<reading in data>>=
+
+federal <- read.csv("federalist.csv",header=TRUE)
+
+@ 
+\note{Notice: I spent an hour preprocessing this in an editor to make it a
+bit easier for R to deal with. So for example I added titles for the 3
+columns.}
+
+<<>>=
+
+names(federal)
+
+@ 
+
+Now let's use R to split this into ``words.''  There are smarter ways
+of doing this, but for now we will do the most trivial:
+
+<<>>=
+
+federal$words <- strsplit(as.character(federal$text)," ")
+
+federal$num.words <- c(lapply(as.character(federal$words),length),recursive=TRUE)
+federal$num.char <- c(lapply(as.character(federal$text),nchar),recursive=TRUE)
+
+@ 
+
+Now a messy way of generating a variable to do the regression on.
+ We know some of the authors but we don't know them all:
+
+<<>>=
+
+codes <- c(NA, "HAM", "mad")
+federal$training <- codes[1 + (federal$author == "HAMILTON") + 2 * (federal$author == "MADISON")]
+federal$training01 <- (federal$training == "HAM")
+
+@ 
+Now let's check that we have done something sensiable:
+
+<<results=tex,echo=FALSE>>=
+
+r <-as.matrix(federal[c(1,2,3,6,10,15:19,45,55),c("author","training","training01")])
+require("xtable")
+print(xtable(r),NA.string="NA",floating=F,size="small")
+
+@ 
+
+\\
 
 
+Ok, finally we can try a trivial regression.  If we think like a
+statistician, about all we can do is count the number of charecters /
+words in the document.  This isn't very predictive:
+
+\begin{center}
+<<results=tex,echo=FALSE>>=
+
+regr <- lm(training01 ~ num.words+num.char,data=federal)
+print(xtable(summary(regr)),floating=F,size="small")
+
+@ 
+\end{center}
+Even knowing the R-squared is $\Sexpr{round(summary(regr)[["r.squared"]],2)}$
+doesn't help.  
+\subsection*{Thinking like a linguist}
+
+So let's think like a linguistist.  Content words (``freedom'',
+``liberty'', etc) are related to content.  But function words
+(``the'', ``an'', etc) are related to style.  So let's try the
+frequency of these words to predict authorship.
+
+First we grab all the words together in one place:
+<<>>=
+all.words = c(federal$words,recursive=TRUE)
+@ 
+Now let's count them.
+<<>>=
+counts = table(all.words)
+@ 
+Finally, let's look at the most common such words
+<<>>=
+sort(counts[which(counts > 1600)],decreasing=TRUE)
+@ 
+
+Putting this in a pretty latex table, we see the most common words
+are:
+\begin{center}
+<<results=tex,echo=FALSE>>=
+pretty <- data.frame(sort(counts[which(counts > 1600)]))
+names(pretty) <- c("count")
+print(xtable(pretty),floating=F,size="small")
+@ 
+\end{center}
+
+Now for some R magic.  Let's make a function that will identify whether a words is "the" or not.
+
+<<>>=
+is.the <- function(t){sum(t == "the")}
+is.the(3)
+is.the("three")
+is.the("the")
+@ 
+
+We can use this function now to pick out all the words that are
+infact ``the'' in the text.  Because we are statisticians, we
+normalize by the number of words in the document.
+
+<<keep.source=TRUE>>=
+federal$freq.the <- c(lapply(federal$words,is.the),
+                             recursive=TRUE
+                      ) / federal$num.words
+@ 
+
+We can repeat this for the other most common words.
+
+  \note{We don't actually have to give these new functions names.
+  This makes the file look a bit prettier--albeit a bit more
+ confusing.}
+
+<<echo=FALSE>>=
+federal$freq.c   <- c(lapply(federal$words,function(t){sum(t == "<c>")}),recursive=TRUE) / federal$num.words
+federal$freq.of  <- c(lapply(federal$words,function(t){sum(t == "of")}),recursive=TRUE) / federal$num.words
+federal$freq.to  <- c(lapply(federal$words,function(t){sum(t == "to")}),recursive=TRUE) / federal$num.words
+federal$freq.p   <- c(lapply(federal$words,function(t){sum(t == "<p>")}),recursive=TRUE) / federal$num.words
+federal$freq.and <- c(lapply(federal$words,function(t){sum(t == "and")}),recursive=TRUE) / federal$num.words
+federal$freq.in  <- c(lapply(federal$words,function(t){sum(t == "in")}),recursive=TRUE) / federal$num.words
+federal$freq.a   <- c(lapply(federal$words,function(t){sum(t == "a")}),recursive=TRUE) / federal$num.words
+federal$freq.be  <- c(lapply(federal$words,function(t){sum(t == "be")}),recursive=TRUE) / federal$num.words
+federal$freq.that<- c(lapply(federal$words,function(t){sum(t == "that")}),recursive=TRUE) / federal$num.words
+federal$freq.is  <- c(lapply(federal$words,function(t){sum(t == "is")}),recursive=TRUE) / federal$num.words
+federal$freq.which<- c(lapply(federal$words,function(t){sum(t == "which")}),recursive=TRUE) / federal$num.words
+federal$freq.it  <- c(lapply(federal$words,function(t){sum(t == "it")}),recursive=TRUE) / federal$num.words
+federal$freq.by  <- c(lapply(federal$words,function(t){sum(t == "by")}),recursive=TRUE) / federal$num.words
+@ 
+
+Running a regression on the 5 most common symbols we see that the
+function words are useful, but commas and sentence boundaries
+aren't useful.
+
+\begin{center}
+<<results=tex,echo=FALSE>>=
+regr <- lm(training01 ~ num.words + 
+                        freq.the  + freq.c + freq.of + freq.to + freq.p,
+                        data=federal)
+print(xtable(summary(regr)),floating=F,size="small")
+@ 
+\end{center}
+
+The R-squared has improved to
+$\Sexpr{round(summary(regr)$r.squared,2)}$. We seem to be on a
+roll.  Let's get rid of the punctuation and add a few more words:
+\begin{center}
+<<results=tex,echo=FALSE>>=
+regr <- lm(training01 ~ freq.the  + freq.of + freq.to + freq.and + freq.in + freq.a + freq.be + freq.that + freq.is + freq.which + freq.it + freq.by,
+                        data=federal)
+print(xtable(summary(regr)),floating=F,size="small")
+@ 
+\end{center}
+Ah, now we have a respectable R-squared of $\Sexpr{round(summary(regr)$r.squared,2)}$.  Let's see how well it
+predicts.  First let's come up with some color codes for the various authors:
+<<>>=
+colors <- c("red","white","black","gray","blue")[federal$author]
+@ 
+This relies on the fact that R stores these as {\em level}.  So with a
+bit of futzing we can figure out that 1 = Hamilton, etc.  So now we
+can make our predictions for each article.
+
+
+<<preds,include=FALSE,fig=TRUE,echo=FALSE>>=
+predictions <- predict(regr,newdata=federal)
+plot(predictions ~ federal$number , pch=16 , col=colors)
+abline(.5,0)
+@ 
+\begin{center}
+\includegraphics[width=3in]{.figures/linguistics-preds}
+\end{center}
+
+\newpage
+\section*{Other models}
+
+<<results=tex,echo=FALSE>>=
+regr <- lm(training01 ~ freq.the  + freq.of + freq.to + freq.and + freq.by,
+                        data=federal)
+print(xtable(summary(regr)),floating=F,size="small")
+@ 
+
+\\
+
+With fewer variables the R-squared is a bit lower:
+$\Sexpr{round(summary(regr)$r.squared,2)}$.
+
+   Adding alot of variables improves it:
+   
+<<results=tex,echo=FALSE>>=
+regr <- lm(training01 ~ freq.the  + freq.of + freq.to + freq.and + freq.by +
+           I(sqrt(freq.the))  + I(sqrt(freq.of)) + I(sqrt(freq.to)) + I(sqrt(freq.and)) + I(sqrt(freq.by))
++ number + I(number^2),
+                        data=federal)
+print(xtable(summary(regr)),floating=F,size="small")
+@ 
+
+\\
+
+R-squared is $\Sexpr{round(summary(regr)$r.squared,2)}$.  Let's see how well it
+predicts. 
+
+<<fig=TRUE,echo=FALSE>>=
+predictions <- predict(regr,newdata=federal)
+plot(predictions ~ federal$number , pch=16 , col=colors)
+abline(.5,0)
+@ 
 \end{document}
