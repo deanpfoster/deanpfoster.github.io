@@ -201,36 +201,50 @@ articles will use them differently based on topic
 Let's replicate Mosteller and Wallace.  First we need to read in all
 the words:
 <<reading in data>>=
+
 federal <- read.csv("federalist.csv",header=TRUE)
+
 @ 
 \note{Notice: I spent an hour preprocessing this in an editor to make it a
 bit easier for R to deal with. So for example I added titles for the 3
 columns.}
-<<>>=
-names(federal)
-@ 
-Now let's use R to split this into ``words.''  There are smarter ways
-of doing this, but for now we will do the most trivial:
-<<>>=
-federal$words <- strsplit(as.character(federal$text)," ")
-federal$num.words <- c(lapply(federal$words,length),recursive=TRUE)
-federal$num.char <- c(lapply(federal$text,nchar),recursive=TRUE)
-@ 
-Now a messy way of generating a variable to do the regression on.
-  (I'm sure Sivan will have a better way.)  We know some of the
- authors but we don't know them all:
 
 <<>>=
+
+names(federal)
+
+@ 
+
+Now let's use R to split this into ``words.''  There are smarter ways
+of doing this, but for now we will do the most trivial:
+
+<<>>=
+
+federal$words <- strsplit(as.character(federal$text)," ")
+
+federal$num.words <- c(lapply(as.character(federal$words),length),recursive=TRUE)
+federal$num.char <- c(lapply(as.character(federal$text),nchar),recursive=TRUE)
+
+@ 
+
+Now a messy way of generating a variable to do the regression on.
+ We know some of the authors but we don't know them all:
+
+<<>>=
+
 codes <- c(NA, "HAM", "mad")
 federal$training <- codes[1 + (federal$author == "HAMILTON") + 2 * (federal$author == "MADISON")]
 federal$training01 <- (federal$training == "HAM")
+
 @ 
 Now let's check that we have done something sensiable:
 
 <<results=tex,echo=FALSE>>=
+
 r <-as.matrix(federal[c(1,2,3,6,10,15:19,45,55),c("author","training","training01")])
 require("xtable")
 print(xtable(r),NA.string="NA",floating=F,size="small")
+
 @ 
 
 \\
@@ -242,8 +256,10 @@ words in the document.  This isn't very predictive:
 
 \begin{center}
 <<results=tex,echo=FALSE>>=
+
 regr <- lm(training01 ~ num.words+num.char,data=federal)
 print(xtable(summary(regr)),floating=F,size="small")
+
 @ 
 \end{center}
 Even knowing the R-squared is $\Sexpr{round(summary(regr)[["r.squared"]],2)}$
