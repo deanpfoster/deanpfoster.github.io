@@ -99,10 +99,9 @@ $B_t = \prod^t R_{b,i}$ is the wealth in B.
 \frac{\log \prod R_{a,t}}{T})
 \end{displaymath}
 and from your graph we see $\frac{\log \prod C_t}{T} \approx
- \frac{\sum_{t=1}^T c_t}{T}$ and likewise for $a$ and $b$.  Putting
- these all together we see that the average combination is close to
- the best combination.  Put all this together as a proof of the
- statement (\ref{eq:sum}).
+ \frac{\sum_{t=1}^T c_t}{T}$ and likewise for $a$ and $b$.  So the
+ average combination is close to the product combination.  Put all
+ this together as a proof of equation (\ref{eq:sum}).
 
 
 \subsection{The Gulag: Three friends}
