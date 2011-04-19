@@ -40,9 +40,10 @@ friend $B$ will win $b_t$ pennies.
 
 Your goal is to have your average winnings be about the same as the
 better of the two average winnings of your two friends.  In other words:
-\begin{displaymath}
+\begin{equation}
+\label{eq:sum}
 \frac{\sum_{t=1}^T c_t}{T} \approx \max(\frac{\sum_{t=1}^T a_t}{T},\frac{\sum_{t=1}^T b_t}{T})
-\end{displaymath}
+\end{equation}
 So, no tricks this time.  No compounding.  No logs.  Just real
 money.  Ok, let's figure out how to do this.
 \begin{enumerate}
@@ -100,7 +101,7 @@ $B_t = \prod^t R_{b,i}$ is the wealth in B.
 and from your graph we see $\frac{\log \prod C_t}{T} \approx
 \frac{\sum_{t=1}^T c_t}{T}$ and likewise for $a$ and $b$.  Putting these
 all together we see that the average combination is close to the best
-combination.  
+combination.  Put all this together as a proof of the statement (\ref{eq:sum}).
 
 
 \subsection{The Gulag: Three friends}
