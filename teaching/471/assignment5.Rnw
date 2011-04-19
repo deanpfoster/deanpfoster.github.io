@@ -113,7 +113,8 @@ $Z$.  At time $t$ the wealth of each is $X_t$, $Y_t$ and $Z_t$.  Then
 there is a combination $C_t$ which puts a fraction of its weath in
 each of these three investments at each point in time such that:
 \begin{displaymath}
-\frac{\log(C_T)}{T} \ge \max\left\{\frac{\log A_T}{T}\right\} - \log(3)/T
+\frac{\log(C_T)}{T} \ge \max\left\{\frac{\log X_T}{T}, \frac{\log
+Y_T}{T}, \frac{\log Z_T}{T}\right\} - \log(3)/T
 \end{displaymath}
 \end{theorem}
 In the morning, inspect your proof.  If it isn't cleanly argued, do it
