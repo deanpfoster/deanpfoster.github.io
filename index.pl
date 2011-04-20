@@ -44,20 +44,20 @@ while(<HOME>)
 		$done = 1;
 	    };
 	    if(!$done && ($r < .6))
-	    {  # weather
-
-		print '<a href="http://forecast.weather.gov/MapClick.php?w0=t&w2=wc&w3=sfcwind&w4=sky&w5=pop&w6=rh&w8=rain&w9=snow&w10=fzg&w11=sleet&AheadHour=47&Submit=Submit&FcstType=graphical&textField1=39.95250&textField2=-75.16570&site=all"><img src="http://images.intellicast.com/WxImages/RadarLoop/shd_None_anim.gif" border=0 Align="left"> </a>';
-		$done = 1;
-	    };
-	    if(!$done && ($r < .8))
-	    {   
+	    {   # kayaking
 		print '<a href="photos/kayaking_NC/"> <img src="dean_ocoee_ender-800.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    if(!$done && ($r < .9))
-	    {   
+	    if(!$done && ($r < .8))
+	    {   # patagonia
 		print '<a href="photos"> <img src="patagonia.jpg" border=0, Align="left", 
                        height=856, width=568></A>';
+		$done = 1;
+	    };
+	    if(!$done && ($r < .9))
+	    {  # weather
+
+		print '<a href="http://forecast.weather.gov/MapClick.php?w0=t&w2=wc&w3=sfcwind&w4=sky&w5=pop&w6=rh&w8=rain&w9=snow&w10=fzg&w11=sleet&AheadHour=47&Submit=Submit&FcstType=graphical&textField1=39.95250&textField2=-75.16570&site=all"><img src="http://images.intellicast.com/WxImages/RadarLoop/shd_None_anim.gif" border=0 Align="left"> </a>';
 		$done = 1;
 	    };
 	    if(!$done && ($r < .95))
