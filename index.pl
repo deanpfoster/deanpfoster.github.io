@@ -38,20 +38,15 @@ while(<HOME>)
 	{
 	    my $r = rand();
 	    my $done = 0;
-            if($r < .4)
+            if($r < .3)
 	    {   # lemmon hill
 		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    if(!$done && ($r < .3))
+	    if(!$done && ($r < .6))
 	    {  # weather
 
 		print '<a href="http://forecast.weather.gov/MapClick.php?w0=t&w2=wc&w3=sfcwind&w4=sky&w5=pop&w6=rh&w8=rain&w9=snow&w10=fzg&w11=sleet&AheadHour=47&Submit=Submit&FcstType=graphical&textField1=39.95250&textField2=-75.16570&site=all"><img src="http://images.intellicast.com/WxImages/RadarLoop/shd_None_anim.gif" border=0 Align="left"> </a>';
-		$done = 1;
-	    };
-	    if(!$done && ($r < .7))
-	    {   
-		print '<a href="photos"> <img src="patagonia.jpg" border=0, Align="left", height=428, width=284></A>';
 		$done = 1;
 	    };
 	    if(!$done && ($r < .8))
@@ -60,6 +55,12 @@ while(<HOME>)
 		$done = 1;
 	    };
 	    if(!$done && ($r < .9))
+	    {   
+		print '<a href="photos"> <img src="patagonia.jpg" border=0, Align="left", 
+                       height=856, width=568></A>';
+		$done = 1;
+	    };
+	    if(!$done && ($r < .95))
 	    {   
 		print '<a href="http://www.patspapers.com/blog/item/what_if_everybody_flushed_at_once_Edmonton_water_gold_medal_hockey_game/"> <img src="flush_game.jpg" border=0, Align="left"></A>';
 		$done = 1;
