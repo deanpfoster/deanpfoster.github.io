@@ -13,6 +13,8 @@
 
 \renewcommand{\baselinestretch}{1.2}
 
+\SweaveOpts{prefix.string=.figures/sample}
+
 \pagestyle{empty}
 \begin{document}
 \title{Loss Functions and calibration}
@@ -57,15 +59,6 @@ for some $w(\cdot)\ge 0$.
 \item Even more papers: Do it for more than a two-horse race.
 \end{itemize}
 
-\section*{The Calibration fix}
-
-
-
-\vspace{1in} 
-
-insert pictures here
-
-\newpage
 
 \subsection*{The value of calibration}
 
@@ -99,6 +92,30 @@ y_t|^2 + | \theta  |^2 + \frac{d}{2} \log T
   Then this forecast has about the same quadratic error as any fixed
  forecast.
 \end{itemize}
+
+\newpage
+
+\subsection*{Calibration isn't easy}
+
+
+<<nocalib,echo=FALSE,fig=TRUE,include=FALSE>>=
+
+x<- c(.45,.55)
+y<- c(1,0)
+plot(x,y,xlim=c(0,1),ylim=c(0,1),pch=16)
+
+@ 
+\includegraphics[width=2.5in]{.figures/sample-nocalib}
+
+<<better,echo=FALSE,fig=TRUE,include=FALSE>>=
+
+x<- c(.33,.66)
+y<- c(.66,.33)
+plot(x,y,xlim=c(0,1),ylim=c(0,1),pch=16)
+
+@ 
+\includegraphics[width=2.5in]{.figures/sample-better}
+
 
 \subsection*{Applying regression to calibration}
 
