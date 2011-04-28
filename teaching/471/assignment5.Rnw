@@ -45,7 +45,16 @@ better of the two average winnings of your two friends.  In other words:
 \frac{\sum_{t=1}^T c_t}{T} \approx \max(\frac{\sum_{t=1}^T a_t}{T},\frac{\sum_{t=1}^T b_t}{T})
 \end{equation}
 So, no tricks this time.  No compounding.  No logs.  Just real
-money.  Ok, let's figure out how to do this.
+money.  In other words, if we define
+$A_t = \sum_{t=1}^T a_t$, $B_t = \sum_{t=1}^T B_t$ and  $C_t =
+\sum_{t=1}^T c_t$, then we want
+\begin{equation}
+\label{eq:sum}
+C_T \approx \max(A_T,B_T) + o(T)
+\end{equation}
+So our total winnings should be about the same as the best of our
+other two friends.  Notice--no logs!  So if $C_t = A_t/2$ we consider
+this a failure.  Ok, let's figure out how to do this.
 \begin{enumerate}
 \item If you bet with your friend who has currently won the most, show
 that there is a sequence for which you aren't close to winning as much
