@@ -36,11 +36,10 @@ while(<HOME>)
 	my $jesus = `date -d"yesterday" +"%F"`;
 	$jesus =~ s/\s+$//; 
 	print "HERE\n";
-	print '<img src="http://cdn.nearlyfreespeech.net/jandmstatic/strips/2011-07-13.png">';
 	print "\n";
-	print '<img src="';
+	print '<a href="http://www.jesusandmo.net/"><img src="';
 	print "http://cdn.nearlyfreespeech.net/jandmstatic/strips/" . $jesus. ".png";
-	print '" border=0, Align="right">';
+	print '" border=0, Align="right"></a>';
 	print "\n\n";
 	print $dilbert_magic 
     }
