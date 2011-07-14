@@ -36,7 +36,7 @@ while(<HOME>)
 	my $jesus = `date +"%F"`;
 	$jesus =~ s/\s+$//; 
 	print "HERE\n";
-	pritn '<img src="http://cdn.nearlyfreespeech.net/jandmstatic/strips/2011-02-18.png">';
+	print '<img src="http://cdn.nearlyfreespeech.net/jandmstatic/strips/2011-02-18.png">';
 	print '<img src="';
 	print "http://cdn.nearlyfreespeech.net/jandmstatic/strips/" . $jesus. ".png";
 	print '" border=0, Align="right">';
