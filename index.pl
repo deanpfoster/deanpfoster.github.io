@@ -19,6 +19,9 @@ my $dilbert_img_0000;
 my $dilbert_magic_1 =  img({-src=>'http://dilbert.com/dyn/str_strip/'. $dilbert_img_0000 ,-align=>"right"});
 my $dilbert_magic = "<a href = http://www.dilbert.com/>" . $dilbert_magic_1 . "</a>";
 
+
+
+
 # We have now constructed the link we are looking for.  
 # dilbert_magic looks like: "<a href = http:...> http://www... </a>"
 
@@ -30,6 +33,13 @@ while(<HOME>)
 {
     if(m/statlist/)
     {
+	my $jesus = `date +"%F"`;
+	$jesus =~ s/\s+$//; 
+	print "HERE\n";
+	print '<a href="photos/lemmon_hill"> <img src="';
+	print "http://cdn.nearlyfreespeech.net/jandmstatic/strips/" . $jesus. ".png";
+	print '" border=0, Align="right"></A>';
+	print "\n\n";
 	print $dilbert_magic 
     }
     else 
