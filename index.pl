@@ -31,6 +31,8 @@ open(HOME,"< ./index.html") || die "didn't open";
 
 while(<HOME>)
 {
+    if(m/statlist/)
+    {
 	my $jesus = `date +"%F"`;
 	$jesus =~ s/\s+$//; 
 	print "HERE\n";
@@ -38,8 +40,6 @@ while(<HOME>)
 	print "http://cdn.nearlyfreespeech.net/jandmstatic/strips/" . $jesus. ".png";
 	print '" border=0, Align="right"></A>';
 	print "\n\n";
-    if(m/statlist/)
-    {
 	print $dilbert_magic 
     }
     else 
