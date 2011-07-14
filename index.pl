@@ -33,10 +33,11 @@ while(<HOME>)
 {
     if(m/statlist/)
     {
-	my $jesus = `date +"%F"`;
+	my $jesus = `date -d"yesterday" +"%F"`;
 	$jesus =~ s/\s+$//; 
 	print "HERE\n";
-	print '<img src="http://cdn.nearlyfreespeech.net/jandmstatic/strips/2011-02-18.png">';
+	print '<img src="http://cdn.nearlyfreespeech.net/jandmstatic/strips/2011-07-13.png">';
+	print "\n";
 	print '<img src="';
 	print "http://cdn.nearlyfreespeech.net/jandmstatic/strips/" . $jesus. ".png";
 	print '" border=0, Align="right">';
