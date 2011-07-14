@@ -36,9 +36,9 @@ while(<HOME>)
 	my $jesus = `date +"%F"`;
 	$jesus =~ s/\s+$//; 
 	print "HERE\n";
-	print '<a href="photos/lemmon_hill"> <img src="';
+	print '<img src="';
 	print "http://cdn.nearlyfreespeech.net/jandmstatic/strips/" . $jesus. ".png";
-	print '" border=0, Align="right"></A>';
+	print '" border=0, Align="right">';
 	print "\n\n";
 	print $dilbert_magic 
     }
