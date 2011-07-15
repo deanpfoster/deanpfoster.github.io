@@ -33,6 +33,12 @@ while(<HOME>)
 {
     if(m/statlist/)
     {
+###############################################################################
+# It only is writen once or twice a week.  So something like:
+#    wget http://cdn.nearlyfreespeech.net/jandmstatic/strips/<today magic>.png -O jesus_and_mo-maybe.png -q
+#    mv jesus_and_mo_maybe.png(L0) jesus_and_mo.png   (Zshell magic)
+# put in a cron shell might be nice
+############################################################
 	my $jesus = `date -d"yesterday" +"%F"`;
 	$jesus =~ s/\s+$//; 
 	print "\n";
