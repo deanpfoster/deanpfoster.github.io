@@ -24,6 +24,38 @@
 \item R-weave introduction after class
 \end{itemize}
 
+
+(emailed from bob):
+
+Linguists Out Men Impersonating Women On Twitter
+Posted by timothy on Thursday July 28, @06:58PM 
+from the anything-that-can-be-described-can-be-faked dept.
+Hugh Pickens writes
+``Remember when the Gay Girl in Damascus revealed himself as a
+middle-aged man from Georgia? On a platform like Twitter, which
+doesn't ask for much biographical information, it's easy (and fun!) to
+take on a fake persona but now linguistic researchers have developed
+an algorithm that can predict the gender of a tweeter based solely on
+the 140 characters they choose to tweet. The research is based on the
+idea that women use language differently than men. 'The mere fact of a
+tweet containing an exclamation mark or a smiley face meant that odds
+were a woman was tweeting, for instance,' reports David Zax. Other
+research corroborates these findings, finding that women tend to use
+emoticons, abbreviations, repeated letters and expressions of
+affection more than men and linguists have also developed a list of
+gender-skewed wordsused more often by women including love, ha-ha,
+cute, omg, yay, hahaha, happy, girl, hair, lol, hubby, and
+chocolate. Remarkably, even when only provided with one tweet, the
+program could correctly identify gender 65.9% of the
+                                % time. (PDF). Depending on how
+                                % successful the program is proven to
+                                % be, it could be used for
+                                % ad-targeting, or for
+                                % socio-linguistic research."
+
+
+
+
 \section*{Story time: Colorless green ideas sleep furiously.}
 
 \subsection*{Noam Chomsky}
