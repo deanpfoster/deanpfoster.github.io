@@ -54,9 +54,15 @@ while(<HOME>)
 	{
 	    my $r = rand();
 	    my $done = 0;
-            if($r < .3)
+#            if($r < .28)
+            if($r < .028)
 	    {   # lemmon hill
 		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
+		$done = 1;
+	    };
+            if($r < .3)
+	    {   # evolution
+	      print '<a href="http://chrisblattman.com/files/2011/08/piro-evolution.jpg"> <img src="evolution.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
 	    if(!$done && ($r < .6))
