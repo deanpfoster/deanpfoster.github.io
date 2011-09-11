@@ -1,0 +1,100 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Helms 1 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Grading: midterm and final
+\item Homework is for discussion and learning.  (I'll collect it so
+you can have it corrected--but it is for your benifit.)
+\item So we'll discuss them in class also.
+\item Two books: Helms (from Dover so cheap) and Grinstead and Snell
+(open access so free).
+\item TA: Sathia, (office hours MW2-3)
+\end{itemize}
+
+\subsection*{Why no points for homework?}
+\begin{itemize}
+\item Research shows people are better at self motivation than carrot
+and stick.
+\item Thought about randomization.
+\item Discuss experiment
+\end{itemize}
+
+\section*{What is probability?}
+
+What is probability?
+\begin{itemize}
+\item Who's asking?
+\item Scientist: Most useful answer is a model for the world (i.e. experiments,
+physics, psychology, etc)
+\item Student: Most common answer: counting cards and balls in urns.
+\item Philosopher: A branch of mathematics and logic.
+\end{itemize}
+We'll do all three.  Mostly math though.
+
+\section*{History: long run frequency}
+
+\begin{itemize}
+\item Draw pictures of long run frequency and limits.
+\item Draw picture of weird example: Cauchy, for which no limit exists.
+\item This is why it is useful
+\item This is why you can answer questions via simulation.  (Read
+Grinstead and Snell section 1.1)
+\end{itemize}
+
+\section*{Discrete mathematics: aka counting}
+
+Lovely discussion of bean counting in Feynman's book on QED.  He will
+describe how to set up the stories, and describe the beans.  How you
+count them is now what makes it a hard math problem.  A worth while
+read for winter break. (for undergrads--you grads have to get
+down and write your papers over the summer.)
+
+Why do we care?  Many situations have equally likelily probabilities:
+\begin{itemize}
+\item QM (hence Feynman's quote)
+\item balls in urns
+\item randomized controlled experiments
+\item gambling
+\item basic probability classes
+\end{itemize}
+
+\section*{Counting tricks}
+
+\begin{itemize}
+\item getting dressed as a mathematician: it's all multiplication
+\item any possible order: $n^r$
+\item Cant reuse items: $n_r$
+\end{itemize}
+
+\section*{Birthday problem}
+\begin{itemize}
+\item Wonderful way to torcher MBA's
+\item Bet: what is the chance of getting two birthdays that are the same in
+class?
+\begin{itemize}
+\item Careful of phrasing, not two that agree with MY birthday, but
+any two that agree with each other.
+\end{itemize}
+\item Three answers: (assume class of 30)
+\begin{itemize}
+\item Most basic: 30*30/365.
+\item Better: (30*29/2)/365.
+\item Best: $365_{30}/365^{30}$
+\end{itemize}
+\item Intuitive question (egocentric):
+\end{itemize}
+
+\section*{Bernulli model}
+
+
+
+
+
+\end{document}
