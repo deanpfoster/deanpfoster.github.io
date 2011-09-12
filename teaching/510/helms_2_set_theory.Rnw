@@ -45,7 +45,7 @@ building a model which could be used in Bayesian statistics?
 \item union = ``U''
 \item intersection = ``$\cap$''
 \item complement = ${}^c$ superscript c
-\item empty set = $\empty$, or $\{\}$
+\item emptyset set = $\emptyset$, or $\{\}$
 \item Venn diagrams = ``useful doodles''
 \item $A \cap (B \cup C) = (A \cap B) \cup (A cap C)$
 \end{itemize}
@@ -58,12 +58,12 @@ building a model which could be used in Bayesian statistics?
 
 \section*{Care and feeding of sets}
 \begin{itemize}
-\item $\empty$ vs 0
+\item $\emptyset$ vs 0
 \item $2$ vs $\{2\}$
-\item $\{\empty\}$ means?
+\item $\{\emptyset\}$ means?
 \item Subset vs element of
-\item logic is mean and nasty: $\{\empty,\{\empty\}\}$ has
-$\{\empty\}$ as both an element and a subset.  Yikes!  We don't like
+\item logic is mean and nasty: $\{\emptyset,\{\emptyset\}\}$ has
+$\{\emptyset\}$ as both an element and a subset.  Yikes!  We don't like
 this--so we keep the seperate.
 \item Our trick: only consider subsets of $\Omega$
 \end{itemize}
@@ -72,12 +72,12 @@ this--so we keep the seperate.
 \begin{itemize}
 \item $P(\Omega) = 1$.
 \item $0 \le P(A) \le 1$ for ``all $A \subset \Omega$''
-\item $P(A \cup B) = P(A) + P(B)$ if $A \cap B = \empty$.
+\item $P(A \cup B) = P(A) + P(B)$ if $A \cap B = \emptyset$.
 \end{itemize}
 
 \section*{Do we really have to answer all possible questions?}
 \begin{itemize}
-\item Suppose we only know $P(\empty), P(A), P(A^c), P(\Omega)$.
+\item Suppose we only know $P(\emptyset), P(A), P(A^c), P(\Omega)$.
 \item If we restrict ourselves to these questions, we are consistent
 \item Why isn't this legal? Can't answer $P(B)$.
 \item Let's figure out a way to make it legal.  Called sigma-algebras.
@@ -117,7 +117,7 @@ have to get rid of uncountable unions.
 \item countable additivity (obvious by name)
 \item countalbe additivity, careful definition: $A_1, A_2, A_3,
 \ldots$ all in $\cal A$ and for any $i \ne j$, we have $A_i \cap A_j =
-\empty$.  Then let $U = \cup_{i=1}^{\infty} A_i$, we have
+\emptyset$.  Then let $U = \cup_{i=1}^{\infty} A_i$, we have
 \begin{itemize}
 \item $U \in \cal A$
 \item $P(U) = \sum_{i=1}^\infty P(A_i)$
