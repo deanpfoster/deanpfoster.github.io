@@ -1,47 +1,99 @@
 \documentclass[14pt]{extarticle}
 
 \begin{document}
-\title{Chapter from Helms teaching notes}
+\title{Helms chapter 2 teaching notes}
 \author{Dean P Foster}
 \maketitle
 
 
 \section*{Administrivia}
 
-No hard copy, it is on the web.
-
-It should be available from Dover Publications soon (I couldn't find
-it in 2009).
 
 Homework questions?
 
 
-\section*{Cute problem}
 
-Spike and slab in statistics research
+
 
 \section*{Problem statement}
 
 \begin{itemize}
-\item Three views discussed so far:
+\item Three views:
 \begin{itemize}
 \item Bananch Algebra (too much math)
 \begin{itemize}
 \item Language: $X, Y, Z,$ RV's.  $E(X), X+Y, Y*Z$
 \end{itemize}
-\item Discrete sample space (can't handle continuous)
+\item Discrete sample space i.e. balls in Urns (can't handle continuous)
 \begin{itemize}
 \item language: ${\cal A},  {\cal B}, {\cal C}, \cup, \cap, \Omega,
 \omega, m(\omega), P({\cal A})$
 \end{itemize}
-\item Continuous densities (can't handle discrete)
+\item Continuous densities: i.e. calculus (can't handle discrete)
 \item language: $X, Y, Z, f_X(x), f_Y(y), P(\{X < x\})$
 \end{itemize}
+\item Problem: Spike and slab in statistics research--a little bit of
+both.  Yikes!
 \item Should we start learning functional analysis or give up on
 building a model which could be used in Bayesian statistics?
-\item No, we can extend the sample space model, but we have to drop
-the crutches of $m()$ and $f()$.  Will replace them with more set theory.
+\item No, sample spaces work--if careful. Will replace them with more set theory.
 \end{itemize}
+
+\section*{Basic set theory}
+
+\begin{itemize}
+\item union = ``U''
+\item intersection = ``$\cap$''
+\item complement = ${}^c$ superscript c
+\item empty set = $\empty$, or $\{\}$
+\item Venn diagrams = ``useful doodles''
+\item $A \cap (B \cup C) = (A \cap B) \cup (A cap C)$
+\end{itemize}
+
+\section*{Lots of unions}
+\begin{itemize}
+\item $\cup_{i=1}^n A_i$
+\item $\cap_{i=1}^n A_i$
+\end{itemize}
+
+\section*{Care and feeding of sets}
+\begin{itemize}
+\item $\empty$ vs 0
+\item $2$ vs $\{2\}$
+\item $\{\empty\}$ means?
+\item Subset vs element of
+\item logic is mean and nasty: $\{\empty,\{\empty\}\}$ has
+$\{\empty\}$ as both an element and a subset.  Yikes!  We don't like
+this--so we keep the seperate.
+\item Our trick: only consider subsets of $\Omega$
+\end{itemize}
+
+\section*{Basic idea of concrete probability}
+\begin{itemize}
+\item $P(\Omega) = 1$.
+\item $0 \le P(A) \le 1$ for ``all $A \subset \Omega$''
+\item $P(A \cup B) = P(A) + P(B)$ if $A \cap B = \empty$.
+\end{itemize}
+
+\section*{Do we really have to answer all possible questions?}
+\begin{itemize}
+\item Suppose we only know $P(\empty), P(A), P(A^c), P(\Omega)$.
+\item If we restrict ourselves to these questions, we are consistent
+\item Why isn't this legal? Can't answer $P(B)$.
+\item Let's figure out a way to make it legal.  Called sigma-algebras.
+\end{itemize}
+
+
+
+\section*{Algebras and Finitely additive probability}
+
+\begin{itemize}
+\item Finite unions and inteserections define algebra
+\item Sample theorem: $A \cap B^c \in {\cal A}$
+\item Define axioms on P over algebra
+\item Sample theorem: $P(A) = P(A \cap B) + P(A \cap B^c)$
+\end{itemize}
+
 
 \section*{Need more set theory}
 
@@ -57,26 +109,6 @@ the crutches of $m()$ and $f()$.  Will replace them with more set theory.
 have to get rid of uncountable unions.
 \end{itemize}
 
-\section*{Side board:rules from set theory}
-
-Distributed
-\begin{displaymath}
-A \cap (B \cup C) = (A \cap B) \cup (A \cap C)
-\end{displaymath}
-Named rule: demorgan
-\begin{displaymath}
-(A \cup B)^c = A^c \cap B^c
-\end{displaymath}
-
-
-\section*{Algebras and Finitely additive probability}
-
-\begin{itemize}
-\item Finite unions and inteserections define algebra
-\item Sample theorem: $A \cap B^c \in {\cal A}$
-\item Define axioms on P over algebra
-\item Sample theorem: $P(A) = P(A \cap B) + P(A \cap B^c)$
-\end{itemize}
 
 \section*{Countable additivity}
 
