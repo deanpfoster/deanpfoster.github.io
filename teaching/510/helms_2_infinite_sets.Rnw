@@ -1,0 +1,112 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Helms chapter 2 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+
+Homework questions?
+
+Sathia doesn't have office hours today.  extra on Monday.
+
+
+\section*{Algebras and Finitely additive probability}
+
+review definition of algebra and definitino of finitely additive
+probability. 
+
+
+\section*{Oops: no continuity!}
+
+\begin{itemize}
+\item Suppose $A_1 \subset A_2 \subset A_3 \cdots \subset A_i \subset
+\cdots \subset A_\infty$
+\item What if $A_infty \not\in {\cal A}$?
+\item Then $P(A_1) \le P(A_2) \le P(A_3) \le \cdots \le P(A_i) \le
+P(A_\infty)$
+\item Note: $\pi \equiv lim_{i \to \infty} P(A_i)$ exists.
+\item What if $\pi \ne P(A_infty)$?
+\item For example, suppose $P(A_i) = 0$ for all $i$, but $\pi = 1$.
+Where is the probability?
+\end{itemize}
+
+\section*{Need more set theory}
+
+\begin{itemize}
+\item countable unions of sets: GOOD.  (We can extend our rules nicely)
+\item countable unions of countable unions of sets, still good.
+\item uncountable BAD!
+\begin{itemize}
+\item example, continuous random variables, $P(X < x) = P(\cup_{y < x}
+(X = y))$.
+\end{itemize}
+\item We don't want to be able to ask questions we can't answer, so we
+have to get rid of uncountable unions.
+\end{itemize}
+
+\section*{countable + countable = countable}
+
+\section*{countable * countable = countable}
+
+\section*{Countable additivity}
+
+\begin{itemize}
+\item countable unions are in $\cal A$
+\item countable additivity (obvious by name)
+\item countalbe additivity, careful definition: $A_1, A_2, A_3,
+\ldots$ all in $\cal A$ and for any $i \ne j$, we have $A_i \cap A_j =
+\emptyset$.  Then let $U = \cup_{i=1}^{\infty} A_i$, we have
+\begin{itemize}
+\item $U \in \cal A$
+\item $P(U) = \sum_{i=1}^\infty P(A_i)$
+\end{itemize}
+
+\end{itemize}
+
+\section*{Full definitions of countably additive probability}
+
+\section*{Show continuity (theorem 2.5.3)}
+
+\section*{2 x 2 table of cool stuff}
+
+\begin{itemize}
+\item Row 1: Algebras / Finite $\Omega$
+\item Row 2: $\sigma$-Algebras / infinite $\Omega$
+\item Col 1: finite additivity / discrete math
+\item Col 2: Countable additivity
+\item All row three: all sets / $2^\Omega$
+\end{itemize}
+
+\section*{Concluding examples}
+
+\begin{itemize}
+\item So what's it all good for?
+\item We can do spike and slab now
+\item Same theory for both discrete and continuous.
+\item But even more: a singular ``density''
+\item Consider the following simulation:
+\begin{itemize}
+\item x1 = 0.(toss coin) 0 (toss coin) 1 (toss coin) 1 (toss coin) 0 ...
+\item x2 = 0.0010101001101010101010...
+\item x3 = 0.110101010011010101...
+\end{itemize}
+\item All start with ``0.''
+\item Questions: P(X < 1)? P(X > 0)? hard one P(X < .5) = 1 and not
+.5! Oh, all you modern computer people...
+\item Is it discrete?  No.  P(X = x) = 0 for all x.
+\item Is it continuous?  No, near every x there is a y and an epsilon
+such that $P(X \in (y - \epsilon, y + \epsilon)) = 0$.
+\item Can't be handled by either of our two pervious models.  ``Cantor
+function / Cantor set.''
+\end{itemize}
+
+
+
+
+
+
+\end{document}
