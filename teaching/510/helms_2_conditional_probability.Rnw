@@ -1,0 +1,74 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Helms chapter 2 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+
+
+
+\section*{Review of state so far}
+
+Repeat rules, remind of continuity.
+
+\section*{Bonferroni / Bool's inequality}
+
+\begin{itemize}
+\item $P(\cup A_i) \le \sum P(A_i)$
+\item 1/2 of continuity
+\end{itemize}
+
+
+\section*{What we gain: most distributions are singular}
+
+\begin{itemize}
+\item So what's it all good for?
+\item We can do spike and slab now
+\item Same theory for both discrete and continuous.
+\item But even more: a singular ``density''
+\item Consider the following simulation:
+\begin{itemize}
+\item x1 = 0.(toss coin) 0 (toss coin) 1 (toss coin) 1 (toss coin) 0 ...
+\item x2 = 0.0010101001101010101010...
+\item x3 = 0.110101010011010101...
+\end{itemize}
+\item All start with ``0.''
+\item Questions: P(X < 1)? P(X > 0)? hard one P(X < .5) = 1 and not
+.5! Oh, all you modern computer people...
+\item Is it discrete?  No.  P(X = x) = 0 for all x.
+\item Is it continuous?  No, near every x there is a y and an epsilon
+such that $P(X \in (y - \epsilon, y + \epsilon)) = 0$.
+\item Can't be handled by either sums or by integration.
+\end{itemize}
+
+
+\section*{Inclusion / exclusion identity}
+
+by induction
+
+by binomial theorem
+
+\section*{Independence}
+
+\begin{itemize}
+\item define conditional probability
+\item give equation for independence
+\item great fo model building
+\item build up pieces of independent things to generate a large
+collection of dependent items
+\end{itemize}
+
+
+\section*{Bayes rule}
+
+By pictures and by table and by equation
+
+
+\section*{Paternity testing from book}
+
+
+\end{document}

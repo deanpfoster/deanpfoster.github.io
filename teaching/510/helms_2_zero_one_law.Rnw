@@ -1,0 +1,118 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Helms chapter 2 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Homework questions?
+\item Due Friday
+\end{itemize}
+
+
+
+\section*{Review: What can measure theory do?}
+
+
+\begin{itemize}
+\item So what's it all good for?
+\item We can do spike and slab now
+\item Same theory for both discrete and continuous.
+\item But even more: a singular ``density''
+\item Consider the following simulation:
+\begin{itemize}
+\item x1 = 0.(toss coin) 0 (toss coin) 1 (toss coin) 1 (toss coin) 0 ...
+\item x2 = 0.0010101001101010101010...
+\item x3 = 0.110101010011010101...
+\end{itemize}
+\item All start with ``0.''
+\item Questions: P(X < 1)? P(X > 0)? hard one P(X < .5) = 1 and not
+.5! Oh, all you modern computer people...
+\item Is it discrete?  No.  P(X = x) = 0 for all x.
+\item Is it continuous?  No, near every x there is a y and an epsilon
+such that $P(X \in (y - \epsilon, y + \epsilon)) = 0$.
+\item Can't be handled by either sums or by integration.
+\end{itemize}
+
+\section*{Limits}
+
+\begin{itemize}
+\item lots of limits in probability
+\begin{itemize}
+\item almost sure
+\item in probability
+\item in distribution
+\item converging weakly
+\end{itemize}
+\item Example limit theorem: Borel-Cantelli
+\end{itemize}
+
+\section*{Finitely often}
+
+\begin{itemize}
+\item How woul you express the set of times $A_i$ occured only
+finitely often?
+\item Easier question, how would you express $A_i$ never occurs after
+$j$?
+\item Put these together
+\end{itemize}
+
+\section*{lim sup}
+
+\begin{itemize}
+\item definition of ``infinitely often'' or ``lim sup''
+\begin{displaymath}
+\cup_{k \ge 1} \cap_{j \ge k} A_j^c
+\end{displaymath}
+\end{itemize}
+
+\section*{Theorem statement}
+
+$\{A_i\}_{i=1,\infty}$ is an infinite sequence of independent events:
+\begin{itemize}
+\item if $\sum P(A_i) < \infty$, then $P(i.o.) = 0$.
+\item if $P(A_i) = infty$, then $P(i.o.) = 1$.
+\end{itemize}
+(note: first statement doesn't require independence.)
+
+proof of first statement:
+
+bonferroni on the tail.
+
+\begin{displaymath}
+P(\cap_{j \ge k} A_j^c) = \prod_{j=k}^\infty P(A_j^c)
+\end{displaymath}
+Follows by continuity of probabilities.  (Draw the decreasing set of
+pictures.) 
+
+But, the RHS = 0.  Why? Use log's.
+
+So probability of there being none after any point $k$ is zero.  Hence
+infinitely often.
+
+
+\section*{Application of zero - one}
+
+Think of a modern chip made of now trillions of parts.  Each can fail
+independently of each other.  With a good design, we can built it to
+recover from a small number of errors.  So this means either they
+should all work or all not work.
+
+\section*{Coupon collector (if time)}
+
+often done with bottle caps.  ``have a coke and a smile''.  Each word
+on a differnt cap.  How many cokes do you have to buy to get them all?  
+
+model:
+\begin{itemize}
+\item $N$ differn caps to collect
+\item $n$ number that will be purchased
+\item Define $A_i$ being we failed to collect coupon $i$
+\item Goal: compute $P(\cup A_i)$
+\end{itemize}
+
+\end{document}
