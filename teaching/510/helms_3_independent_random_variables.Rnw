@@ -1,0 +1,100 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Helms chapter 3.3: Independent random variables}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Due Friday
+\end{itemize}
+
+\section*{Independent random variables}
+
+THe work horse of probabilitist modeling is a collection of
+independent random variables:
+\begin{itemize}
+\item clinical trials -- each observation is independent
+\item physics -- location of each gas partical is independent
+\item genetics -- number of children each parent has is independent
+\item astrophysics -- number stars each 100 cubic parsec's piece of a
+galaxy is independent
+\end{itemize}
+
+\section*{Definition}
+
+Random variables $X$ and $Y$ are independent if any set created by
+looking at $X$ is independent of any set created by looking at $Y$.
+\begin{itemize}
+\item Alternatively: only check some of the sets: $A = \{\omega|X <
+x}$ and  $B = \{\omega|Y <
+y}$, then if $P(A \cap B) = P(A)P(B)$ for all values $x$ and $y$, then
+$X$ and $Y$ are independent.
+\item Another alternative:  If $X$ and $Y$ are discrete random
+variables, then check each possible value: $P(X = x_i \cap Y = y_i)
+=P(X = x_i) P(Y = y_i)$ for all values $x_i$ and $y_i$.
+\item Alternatively: write joint distribution as $f_{X,Y}(x,y)$ and
+marginals as  $f_{X}(x)$ and $f_{X}(x)$, then check function values:
+$f_{X,Y}(x,y) = f_{X}(x) f_{Y}(y)$ for all values where $f_{X,Y} \ne
+0$. 
+\end{itemize}
+
+Theorem: All the same!  If one is true, they are all true.
+
+\section*{Magic of indicator variables}
+
+A good trick is to convert sets to random variables.  The trick is
+indicator random variables.  Consider a magic random variable such
+that: 
+\begin{itemize}
+\item $X^2 = X$
+\end{itemize}
+This is wonderful: Then by induction $X^k = X$ also.  So to study
+arbitary polynomials of $X$ we only need to know things about $X$
+itself.  Magic is that $X = 0$ or $X = 1$.
+
+Example: Consider a sequence of bernulli trials: $P(A_i) = p$ and
+$A_i$ are independent.  We can define a sequence of bernulli Random
+Variables by: $X_i = I_{A_i}$.  Now we can reduce statements about all
+these events to mere ``function'': What is $f_{X_1,X_2,\ldots,X_n}()$?
+
+\section*{Sum of two random variables}
+
+In 1930 Kalmagorov invented probability as we know it.  What did they
+do before then?  Just manipulated functions $f(x)$.  For example we
+would write:
+\begin{displaymath}
+X \perp Y
+\end{displaymath}
+to say that two random variables are independent.  Then we could
+consider 
+\begin{displaymath}
+Z = X + Y
+\end{displaymath}
+So what it $P(Z = z)$?  For Non-negative integer value random
+variables we have the formula:
+\begin{displaymath}
+P(Z = z) = \sum_{x=0}^z P(X = x) P(Y = z-x)
+\end{displaymath}
+All of this can be written as functions:
+\begin{displaymath}
+f_Z(z) = \sum_{x=0}^z f_X(x) f_Y(z-x)
+\end{displaymath}
+basically this is so common that many people use the notation
+\begin{displaymath}
+(f*g)(z) = \sum_{x=0}^z f(x) g(z-x)
+\end{displaymath}
+called convolution.  So pre-Kolmogorov, we simply could ONLY talk
+about independent random variables.  But lots of good math was done.
+Very brave!
+
+\section*{Sums of many random variables}
+
+Bernulli trials, binomial, Poisson, negative binomial.
+
+
+
+\end{document}
