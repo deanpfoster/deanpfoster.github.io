@@ -1,0 +1,81 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Helms Section 4.2}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Homework questions? (Due Friday)
+\end{itemize}
+
+
+\section*{Alternative theory}
+
+\begin{itemize}
+\item Let $X, Y, Z$ be members of a set ${\cal X}$
+\item If $X, Y \in {\cal X}$ then $X+Y$ and $XY$ are in $\cal X$
+\item For all $X \in {\cal X}$ we have $E(X)$ defined
+\item There exists a random variable called $1$ such that $1 * X =
+X$. 
+\item $Y \ge 0$ if $Y = X^2$ for some $X$. 
+\item Limit's exists (takes a bit of care to define)
+\item If $Y \ge 0$ then $E(Y) = 0$.
+\item $E(X + Y) = E(X) + E(Y)$.
+\end{itemize}
+We can then define ``sets'' by considering random variables that solve
+$X^2 = X$.  THen define the set $A$ implicitely by $I_A = X$.  So all
+of probability theory can be done without leaving $E()$.    From
+limits we can define generating functions also.
+
+\section*{Properties of expectation}
+
+theorem: $X \ge Y$ implies $E(X) \ge E(Y)$.
+
+Proof: $Z = Y - X$, so $E(Z) \ge 0$.  Yikes!  We need additivity to
+do this.
+
+
+theorem: $E(X+Y) = E(X) + E(Y)$.
+
+proof: ``obvious'' if $X$ and $Y$ are both bounded by $M$.  But what
+ about infinities and close to infinities?  Do them somewhat
+ carefully.  
+
+$E(|X|)$ can always be definited--but it might be infinite.  If it is
+finite, then we can write $|X| = X^+ + X^-$.  These are both
+non-negative, and so well definied and hence finite.  Change signs and
+add up again to get $E(X)$.  So if $E(|X|)$ is finite, everything
+works nicely.
+
+
+\section*{Independence}
+
+Theorem: If $X$ and $Y$ are bounded, then $X$ and $Y$ are independent
+ iff $E(P(X) Q(Y)) = E(P(X)) * E(Q(Y))$ for all polynomials $P$ and
+ $Q$.
+
+(If they aren't bounded, then we have to use functions that keep
+things bounded.  Say, polynomials in $arctan(X)$.)
+
+proof: $\rightarrow$ $P(X)$ and $Q(X)$ are bounded.  Hence $E(|P(X)|)$
+is defined and $P(X)$ and $Q(X)$ are independent random variables.  So
+by $E(AB) = E(A)E(B)$ for independent R.V. we are done.
+
+$\leftarrow$ There exists a polynomial that looks like a step
+function.  (Draw picture) Use this to approximate $F(X)$.  Now by
+our product assumption $P(X \le x \cap Y \le y) = P(X \le x)P(Y \le
+y)$ which is our usual definition of independence.
+
+\section*{define Variance}
+
+\section*{Markov's inequality}
+
+\section*{mean and variance of sums of random variables}
+
+
+
+\end{document}
