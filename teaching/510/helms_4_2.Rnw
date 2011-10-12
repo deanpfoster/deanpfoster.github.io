@@ -70,12 +70,5 @@ function.  (Draw picture) Use this to approximate $F(X)$.  Now by
 our product assumption $P(X \le x \cap Y \le y) = P(X \le x)P(Y \le
 y)$ which is our usual definition of independence.
 
-\section*{define Variance}
-
-\section*{Markov's inequality}
-
-\section*{mean and variance of sums of random variables}
-
-
 
 \end{document}

@@ -1,0 +1,80 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Markov's inequality}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Homework questions? (Due Friday)
+\end{itemize}
+
+
+\section*{From expectation to probabilities}
+
+\begin{itemize}
+\item If you know $E(I_{X < x})$ you know probabilities directly
+\item But what if you don't know this
+\item If you know $E(X^k)$ we can build up lots of information by
+looking at polynomials
+\item This leads to ``sloppy approximations.''
+\item Can you make any solid claims?
+
+\item For example, suppose all you know is $E(X)$?  What probabilty
+questions can you answer?
+\end{itemize}
+
+
+\section*{Markov's inequality}
+ 
+Only assume two things:
+\begin{itemize}
+\item $X \ge 0$
+\item $E(X) = \mu$
+\end{itemize}
+
+Find a bound on $P(X > x)$.
+
+
+PROOFS:
+
+\begin{itemize}
+\item Proof one: by theory (if $Y>0$ then $E(Y) > 0$)
+\item Proof two: By graphics (draw picture of $x I_{X > x}$)
+\item Proof three: by teatertoter example
+\end{itemize}
+
+\section*{Non-negative?}
+
+Hard part is knowing that $X \ge 0$.  So construct that ourselves.
+
+\section*{$X^2 \ge 0$}
+
+Generates a nice tail bound on being generally large.  (Unnamed)
+
+\section*{$(X - \mu)^2 \ge 0$}
+
+called Chebyshev's inequality
+\begin{itemize}
+\item Call $E(X-\mu)^2$ the variance
+\end{itemize}
+
+\section*{$e^{X} \ge 0$}
+
+Called by many different names: Azuma, Huffding, etc.
+
+\section*{Typical application}
+
+Consider sums of IID random variables:
+\begin{itemize}
+\item Compute $E(\sum X)$
+\item Compute $E(\sum X)^2$
+\item Compute $Var(\sum X)^2$
+\item Compute $E(e^{\sum X})$
+\end{itemize}
+
+
+\end{document}
