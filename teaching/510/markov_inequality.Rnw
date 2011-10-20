@@ -1,5 +1,6 @@
 \documentclass[14pt]{extarticle}
 
+\newtheorem{theorem}{Theorem}
 \begin{document}
 \title{Markov's inequality}
 \author{Dean P Foster}
@@ -66,14 +67,35 @@ called Chebyshev's inequality
 
 Called by many different names: Azuma, Huffding, etc.
 
-\section*{Typical application}
 
-Consider sums of IID random variables:
+\section*{Chebeychev's inequality}
+
+Let $X = (Y - E(Y))^2$.  Then $X \ge 0$ so markov applies.
+
+\begin{theorem}
+$P(|Y - E(Y)|^2 > M) \le E(Y-E(Y))^2/M$
+\end{theorem}
+
+Even that theorem wouldn't get a new name.  But lets do a subsitution
+of $k = \sqrt{M}$.
+\begin{theorem}[Chebeychev]
+$P(|Y - E(Y)| > k) \le Var(Y)/k^2$
+\end{theorem}
+
+\section*{Exponetial inequality}
+
+Let $X = e^Y$.  Then $X \ge 0$, so markov applies.
+
+\begin{theorem} Let $M(1) = E(e^{Y})$, then 
+\begin{displaymath}
+P(Y > k) \le M(1)e^{-k}
+\end{displaymath}
+\end{theorem}
 \begin{itemize}
-\item Compute $E(\sum X)$
-\item Compute $E(\sum X)^2$
-\item Compute $Var(\sum X)^2$
-\item Compute $E(e^{\sum X})$
+\item $M(s) = E(e^{sY})$.  So new theorem
+\begin{displaymath}
+P(Y > k) \le M(s)e^{-sk}
+\end{displaymath}
 \end{itemize}
 
 

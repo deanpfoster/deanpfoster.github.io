@@ -1,0 +1,123 @@
+\documentclass[14pt]{extarticle}
+\usepackage{hyperref}
+\SweaveOpts{prefix.string=.figures/chapter5}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 8: Law of Large numbers}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Homework questions?
+\end{itemize}
+
+
+\section*{Patience}
+
+Keynes: ``In the long run, we're all dead.''
+
+Singularity: ``Maybe.''
+
+If $\Omega_M = 6$, the universe will crush itself in 15 billion years.
+
+If $\Omega_M > 1$, sometime we will get crushed.
+
+Proton's decay maybe at $10^{33}$ years.
+
+(Measured value is about .05 to .3, so no crush iminent.)
+
+Heat death: $10^{100}$ years.
+
+Not even close to the limit.  Let's think of a really big number
+compared to $10^{100}$, how about $100*10^{100} = 10^{102}$.  Lots
+more where that came from.
+
+\section*{Limit theorem: Law of large numbers}
+
+We want to talk about a limit theorems. 
+
+\begin{theorem}[SLLN] $\lim \overline{X}_n = \mu$, where $\overline{X}_n
+= \sum^n X_i/n$ and $X_i$ are IID and $E(X) = \mu$.
+\end{theorem}
+
+Problem:  Why does it matter?  Won't we be dead before it comes into
+play? 
+
+\section*{Sample paths}
+
+What does $r_n \to r_\infty$ mean?
+\begin{itemize}
+\item Statement about where $r_n$ isn't found.
+\item Excludes two rectangles
+\item Plot on ``arc-tan scale''
+\item Draw $\epsilon$ / $\delta$ statement of limit
+\end{itemize}
+
+\section*{Pictures of average}
+
+\begin{itemize}
+\item Sketch picture using whole black board
+\item Compress using arc-tan say
+\item Draw arbitary boxes.
+\item Where do these boxes lie?  Hard question.
+\item Picture via top half of ``log / log'' plot
+\item Ah--nice straight line, almost
+\end{itemize}
+\begin{theorem}[Iterated logorithm] IID, $\mu = 0$, $\sigma$ finite: 
+\begin{displaymath}
+\lim \sup \overline{X}_n /
+(\sigma \sqrt{2 n \log(\log n)}) = 1
+\end{displaymath}
+\end{theorem}
+
+\section*{Key insight}
+
+\begin{itemize}
+\item Useful to give concrete bounds at fixed times
+\item Can't say ``always''
+\item So give probability at fixed time
+\item Most often stated as ``weak law''
+\end{itemize}
+
+\section*{Two versions of weak law}
+
+\begin{theorem}[WLLN] $P(|\overline{X}_n - \mu| \ge \epsilon) \to 0$
+(if IID, $\sigma < \infty$, $\mu = E(X)$)
+\end{theorem}
+
+Proof: 
+\begin{itemize}
+\item $V(\overline{X}_n) = \sigma^2/n$
+\item $E(\overline{X}_n) = \mu$
+\item $P(|\overline{X}_n - \mu| \ge \epsilon) < \sigma^2/(n
+\epsilon^2) \to 0$
+\end{itemize}
+
+qed
+
+\begin{theorem}[Concrete] $P(|\overline{X}_n - \mu| \ge \epsilon) \le \sigma^2/(n\epsilon^2)$
+(if IID, $\sigma < \infty$, $\mu = E(X)$)
+\end{theorem}
+
+\section*{Cauchy}
+
+$f(x) = 1/\pi(1+x^2)$
+
+Breaks strong law
+
+\section*{Weirdness distribution}
+
+breaks strong law, but perserves weak law.
+
+\begin{itemize}
+\item $P(X = 2^{2^e}) =P(X = - 2^{2^e}) = k 2^{-2^e}$ for $e = 1,2,3,\ldots$
+\end{itemize}
+
+
+\end{document}

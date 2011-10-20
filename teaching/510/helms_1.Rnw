@@ -15,7 +15,7 @@ you can have it corrected--but it is for your benifit.)
 \item So we'll discuss them in class also.
 \item Two books: Helms (from Dover so cheap) and Grinstead and Snell
 (open access so free).
-\item TA: Sathia, (office hours MW2-3)
+\item TA: Sathya, (office hours MW2-3)
 \end{itemize}
 
 \subsection*{Why no points for homework?}
