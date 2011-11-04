@@ -1,0 +1,92 @@
+\documentclass[14pt]{extarticle}
+\usepackage[margin=0.5in]{geometry}
+
+\renewcommand{\baselinestretch}{1.3}
+\pagestyle{empty}
+\begin{document}
+Dean Foster \hfill {\bf Stat 430: First Midterm Exam} \hfill\today
+\vspace{1em}
+
+\begin{enumerate}
+\item (10 pts) This problem has you show deMorgan's law:
+\begin{itemize}
+\item Draw a Venn diagram of $(A \cup B)^c$.
+\item Draw a Venn diagram of $A^c \cap B^c$.
+\end{itemize}
+Are they the same sets?
+
+\vfill
+
+\item (10 points) Take $\Omega = \{1,2,3,4\}$, and suppose we know that $\{1,3\}$ and
+$\{3,4\}$ are both in the algebra $\cal A$.  Show that $\{1,4\}$ is in $\cal A$.
+
+\vfill
+
+\item (10 points) Suppose $\Omega = \{1,2,3\}$, Give an example of an
+algebra of sets $\cal A$ over $\Omega$ such that $\{1\} \not\in {\cal A}$.
+
+\vfill
+
+\item (10 points) Suppose $\Omega = \{1,2\}$, then clearly it is
+impossible to get the set $\{3\}$.  But, argue why it doesn't make
+sense to say $P(\{3\}) = 0$.
+
+\vfill
+
+\item (20 points) Suppose Tom either takes a taxi or the bus.  To save
+money, he only takes the taxi 1/10 of the time.  When he takes a taxi,
+he is late 20\% of the time, but when he takes the bus he is late 80\%
+of the time.  One morning, Tom, Dick and Harry are scheduled to have a
+meeting.  When, Tom arrives on time Dick says, ``I see you sprung for
+a cab this morning!''  But before Tom can reply, Harry jumps in with
+``Nah, he's too cheap!  I bet he was just lucky!''  
+\begin{enumerate}
+\item What is the probability that Tom took a taxi?
+\item What amounts should Dick and Harry bet to make this fair?
+\item Who is more likely to be right?
+\end{enumerate}
+\newpage
+\item (20 points) Suppose the generating function for the non-negative
+ integer valued random variable $X$ is $E(s^X) = .5 + .2s + .3 s^2$.
+\begin{enumerate}
+\item What is $P(X = 1)$?
+\item What is $E(X)$?
+\item Suppose $Y = \sum_{i=1}^n X_i$ where each $X_i$ is IID with the
+same generating function.  What is the generating function for $Y$,
+and from this find what $P(Y=0)$ is?
+\end{enumerate}
+
+\vfill
+
+\item (15 points) Suppose we have an asset that returns a random amount each
+year.  We will define $R_t$ to be the ratio of the price at the end
+of year $t$ to the price at the beginning of the year.  So after $T$
+years, the total value when you start with a single dollar is:
+\begin{displaymath}
+W_T = \prod_{t=1}^T R_t = R_1 \times R_2 \times R_3 \times \cdots
+\times R_T
+\end{displaymath}
+Assume that the returns are independent and identically distributed. 
+If $E(R_t) = 1.7$ what is the formula for $E(W_T)$?  What will
+$E(W_{20})$ equal?
+
+\vfill
+
+\item (5 points) Let $X_i$ be a Bernulli trial, namely, $P(X_i = 1) =
+ p = 1 - P(X_i = 0)$, where $\{X_i\}_{i=1,n}$ are an IID
+ sequence.  Let $Y = \sum_{i=1}^n X_i$.  Then $Y$ is a Binomial with
+ parameters $p$ and $n$, and hopefully you have written on your cheat
+ sheet that $Var(Y) = np(1-p)$.  Let's check that you wrote this down
+ correctly:
+\begin{enumerate}
+\item Warmup: What is the $var(X_i)$?
+\item Trivia: What is the $cov(X_i,X_j)$ if $i \ne j$?
+\item Real question: What is $var(\sum_{i=1}^n X_i)$?
+\item Bonus: Starting from $P(Y = y) = {n \choose y}p^y(1-p)^{n-y}$
+compute the variance of $Y$.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
+
+
