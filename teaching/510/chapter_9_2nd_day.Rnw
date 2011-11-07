@@ -6,66 +6,70 @@
 \newtheorem{theorem}{Theorem}
 
 \begin{document}
-\title{Chapter 9 of CLT}
+\title{Chapter 9: CLT}
 \author{Dean P Foster}
 \maketitle
 
 
 \section{Administrivia}
 
+\section*{Why does the normal appear?}
+
+Key fact: Normal plus normal is normal.
 \begin{itemize}
-\item Before class, do exercise (about 25 minutes)
+\item true for other things (Binomial, Poisson, Gamma, even Cauchy)
+\item but this one is MORE true
+\item The only one which has $(X+Y)/\sqrt{2}$ having the exact same shape.
+\item So meaningful for averages
 \end{itemize}
 
+\section{Three proofs of the CLT}
 
-\section{Oops}
+\subsection*{Schorohod}
 
-Last week, I said:
+Consider $P(X =x)$ is 1/4 on each of 0,1,10,11.  Can be written as sum
+of two scaled Bernulli's.
 
-Theorem: For a high dimensional spherical cow, almost 1-D projection
-looks normal. 
+General theorem: any distribtuion can be written as a random sum of
+scaled Bernulli's.  (Called Schorohod's embedding theorem.)
+\subsection*{Stone-Weierstraus}
 
-\begin{itemize}
-\item I was wrong.
-\item It was a true statement--but it wasn't a theorem.
-\item Oops.  (edit delete theorem)
-\item So, I went to MIT / MS over the weekend to work with two guys
- and see if we could rectify it.
-\item Now it is not only true--but a theorem.
-\end{itemize}
+We want to show $P(S^* < x)$ looks like a normal.  Make a polynomial
+that looks like $1$ for values less than $x$ and $0$ for values
+bigger.  Now compute expectation!  Only requires computing moments
+which we can do--all be it tediously.
 
+\subsection*{Fourier inversion theorem}
+
+We can compute the generating function of $S^*$.  It looks like a
+blown up version of generating function of the $X$'s.  So only the
+first and second derivatives matter.  Now use the Fourier inversion
+theorem (which was only proven in its most strong form in 1966) to
+figure out what the distribution of $S^*$ is.  NOTE: you need a good
+version of Fourier inversion since it has to hold approximately!
 
 \section{Chapter 9: CLT}
 
-Theorem: $X_i$, IID, then $(\overline{X}_n - \mu)/\sqrt{n\sigma^2}
-\approx N(0,1)$.
-
-What does this theorem mean?
-
-\begin{itemize}
-\item Limit: but of what?
-\item Not the averages.
-\item If we look at pictures, they don't settle down.
-\item It is of probabilities.
-\end{itemize}
-
-What sort of probabilities:
-\begin{itemize}
-\item If $X_i$ are integers, then $\overline{x}$ is discrete, so no
-density exists
-\item Must be over ``large probabilities.''  Ones that don't go to
-zero. 
-\end{itemize}
 
 Theorem: $X_i$, IID, then $\lim_{n \to \infty} P(\overline{X}_n -
- \mu)/\sqrt{n\sigma^2} < z) = \Phi(z)$, if $\mu$ exists, $\sigma$
+ \mu)/\sqrt{\sigma^2/n} < z) = \Phi(z)$, if $\mu$ exists, $\sigma$
 exists and $E(X^3)$ exists.
 
 Concrete theorem:
 
 Theorem: $X_i$, IID, then $|P(\overline{X}_n -
- \mu)/\sqrt{n\sigma^2} < z) - \Phi(z)|  \le .7655 \rho/\sqrt{n}$, 
+ \mu)/\sqrt{\sigma^2/n} < z) - \Phi(z)|  \le .7655 \rho/\sqrt{n}$, 
 where $\rho \equiv E(X^3)/\sigma^3 < \infty$.
+
+\section{Motivates why ``data'' looks normal}
+\begin{itemize}
+\item In early statistics--data was normal--or it was considered wrong
+\item How could you get a way with this?
+\item Most things are multiply determined--hence look like a sum of
+small effects--hence normal
+\item More modern theory says that it doesn't even have to be additive
+for the CLT to hold.
+\end{itemize}
 
 \section{Why so important?}
 That is all the conditions we need.  So can use it for distribtuion we
@@ -87,8 +91,7 @@ measure.  But still $E(X^3) < \infty$.  SO CLT works.
 
 \section{Confidence intervals}
 
-\section{Large deviations}
+Fun pictures of C.I.
 
-\section{Law of the iterated log}
 
 \end{document}
