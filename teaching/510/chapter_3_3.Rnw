@@ -8,6 +8,12 @@
 
 \section*{Administrivia}
 
+\begin{itemize}
+\item homework due next tuesday and following tuesday
+\item Read section 3.1 and 3.2 on your own if you have done so already
+\item We will be reading through 3.3 carefully!
+\item Read Pitman chapter 2 (I posted it today)
+\end{itemize}
 
 \section*{Dynamica systems}
 
