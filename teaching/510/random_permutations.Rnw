@@ -1,0 +1,52 @@
+\documentclass[14pt,letter]{extarticle}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\title{Chapter 3.2 teaching notes}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\section*{Story and puzzle}
+
+\begin{itemize}
+\item 100 prisoners
+\item names in 100 Jars
+\item Must find their own name
+\item Can look in up to 50 of the 100 jars
+\end{itemize}
+
+\subsection*{Bounds}
+\begin{itemize}
+\item Personal success: 50 percent
+\item So, call $A_1, \cdots, A_{n}$ each person being personally success
+\item Goal: min $E\prod A_i$
+\item Bounds: $W = \prod A_i$
+\begin{itemize}
+\item $EW \ge 0$
+\item $EW \le EA_1 = .5$
+\item By independent behaviour we can make $EW = 2^{-n}$.
+\item If $A$'s were correlated, we could do better
+\end{itemize}
+\end{itemize}
+
+\section*{What is a random permutations?}
+
+draw picture of random permutation as bi-partate graph
+
+\section*{Some questions to ask:}
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+
+
+
+
+\section*{Hats}
+Inclusion exclusion on fixed points
+
+\end{document}
