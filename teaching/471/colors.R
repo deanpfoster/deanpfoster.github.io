@@ -1,6 +1,6 @@
 # this version has options to print either 1st and 2nd or 2nd and 3rd PCs
-plot_PC12 = TRUE
-plot_PC23 = FALSE
+plot_PC12 = FALSE
+plot_PC23 = TRUE
 plot_background = TRUE    # and to plot the background or not.
 
 system("touch colors.csv")
