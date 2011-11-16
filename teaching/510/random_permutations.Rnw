@@ -39,6 +39,19 @@ draw picture of random permutation as bi-partate graph
 \section*{Some questions to ask:}
 
 \begin{itemize}
+\item Largest ``Comb'' i.e. an increasing subsequence
+\item Probability of one long cycle
+\item longest cycle: is about .624329988... $n$ (called the
+Golomb-Dickman constant.  Also about the size of the largest prime factor.)
+\item probability of being a derangement
+\item number of fixed points
+\end{itemize}
+
+\section*{Fixed points /  Hats}
+Inclusion exclusion on fixed points
+
+
+\begin{itemize}
 \item 
 \end{itemize}
 
@@ -46,7 +59,5 @@ draw picture of random permutation as bi-partate graph
 
 
 
-\section*{Hats}
-Inclusion exclusion on fixed points
 
 \end{document}
