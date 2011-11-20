@@ -25,6 +25,11 @@ Each will be discussed below.  I'll keep updating this file as I think
 of things to instruct you about and as people ask questions.  So check
 back here before you start each new piece of the project.
 
+\section*{Look at Kaggle.com?}
+
+For an interesting collection of prediction problems, try Kaggle.com.
+
+
 \section{Proposal}
 For the proposal, you need to email us  
 \begin{enumerate}
