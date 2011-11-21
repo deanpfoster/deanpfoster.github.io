@@ -14,7 +14,8 @@
 \section{Administrivia}
 
 \begin{itemize}
-\item Homework problem 8.
+\item No class wednesday.
+\item 
 \end{itemize}
 
 
