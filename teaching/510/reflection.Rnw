@@ -1,0 +1,99 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+\title{Reflection principle}
+\author{Dean P Foster}
+\maketitle
+
+
+\section*{Administrivia}
+
+\begin{itemize}
+\item Added homework from last week
+\end{itemize}
+
+\section*{What do paths look like?}
+
+\begin{itemize}
+\item Might there be jumps when we aren't looking?
+\item Control jumps, if we control the maximum and minimum.
+\item Look at the path-property, $\max_{i=1,n} X_i$.
+\item If $P(\max_{i=1,n} X_i > k)$ is small, then ``jumps'' aren't large.  
+\end{itemize}
+
+\section*{Coupling argument}
+
+\begin{itemize}
+\item Recall the power of coupling:
+\begin{itemize}
+\item Did we use it in this class?  Yikes, I forgot?
+\end{itemize}
+\item Counting maximum paths are hard--put them in one-to-one with
+easy to count paths
+\end{itemize}
+
+\section*{Reflection principle}
+
+\begin{itemize}
+\item Draw picture of two paths that reflect at $M$
+\item  1/2 of all paths that reach $M$ end up above $M$ at the end
+\item The other half endup below $M$.
+\item Hence $P(\max_{i=1,n} X_i > M) = 2 P( X_n > M)$
+\item But this is easy to compute!  Just a Binomial.
+\item We can even use the CLT to get a handle on the probabilities.
+\end{itemize}
+
+\section*{Look at paths over time}
+
+\begin{itemize}
+\item With big time steps, connect the dots of a random walk
+\item These look normal. (VIA CLT.)
+\item But can anything mysterious happen between the large time steps?
+\item Not really, the distribution of the max in any interval looks
+about like the distirbution of the end point
+\item Since the normal then has ``thin tails'' the max does also.
+\end{itemize}
+
+\section*{Doubling times plot: showing the SLLN}
+\begin{itemize}
+\item Do RW on log time scale with log $|$space$|$ scale.
+\item Normal for each epoch.
+\item No exteme behaviour between jumps
+\item Hence we have strong knowledge where the process is.
+\item Adding some math to this provides a proof of the SLLNs
+\end{itemize}
+
+\section*{Return times to zero: proof using reflection principle}
+
+\begin{itemize}
+\item First step is say down
+\item What is the probability of the max ever going above one and
+ending at exactly zero?
+\item Look for reflected paths.  Every path that does above one can be
+split into two--one that ends at zero and one that ends at two.
+\item THese are the probabilities we are after
+\end{itemize}
+
+\section*{Why does the divide by $1/n$ showing up?}
+
+\subsection*{Another symetric group on RW's}
+\begin{itemize}
+\item 3rd argument: rotating a RW
+\item draw sequence of coin tosses
+\item Repeat them again.
+\item Now pick a random point to start with
+\item This generates a random walk
+\end{itemize}
+
+\subsection*{Raising on the last step}
+\begin{itemize}
+\item First step is down.
+\item We now want the probability of staying down, and rising on the
+last step
+\item This means everytime we go around the loop we end up making one
+step up.  This is ${2m -1 \choose n}2^{-2m+1}$
+\item Draw picture.  Only one place out of the $2m-1$ locations is
+where it increases at the last step
+\end{itemize}
+
+\end{document}
