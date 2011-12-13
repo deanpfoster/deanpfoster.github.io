@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\begin{document}
+\section*{510/430H Extra question}
+
+This question is untimed.  You may use any resources you like (books,
+ web searches, computer programs)--but work on your own (so you can't
+ talk to other students, the TA, etc).  If you have questions about
+ interpretation or what should be done, email me and I'll post a new
+ version of the document.  These clarifications should make it easier
+to understand, so reload the page to see if new information is
+available. 
+
+\subsection*{How long does it take an MCMC to converge to
+equilibrium?}
+
+MCMC (Markov chain Monte Carlo) is a popular technology that has swept
+statistics in the past 2 decades.  You might enjoy reading the wiki
+page about it, but that isn't necessary for understanding the
+question.  
+
+For this problem, the Markov chain we will be working with is a simple
+random walk with the probability of going up being 1/2 and the
+probability of going down being 1/2.  The catch, is that instead of
+allowing the system to drift off to infinity, the random walk is being
+done on a circle.  The circle will contain a total of $n$ different
+places that the random walk can be it.  In other words, it is
+basically a clock which has $n$ hours and the clock either advances
+one hour or goes back one hour.
+
+Example: Suppose for example that $n = 100$.  Then this markov chain can be 
+simulated by starting with a regular random walk that is allowed to drift anywhere.
+But if the regular random walk has drifted up to state 3245125 we will
+ignore all but the last do digits and only keep the ``25''.  So when it goes up from
+3245199 to 3245200 we will think of this as going from ``99'' to
+``0.''  (Note: negative numbers need a bit more care and handling--but
+don't really change this intuition.)
+
+The point of doing such a simulation is to generate a random number
+between $0$ and $n-1$.  Clearly this isn't the best way to generate
+such a random number--but theory says that if you run it long enough,
+it will be such a uniform random number.  
+
+So we have the distribution $p_t(i)$ which is the density after runing
+the algorithm for $t$ rounds.  We also have $q(i)$ which is the
+uniform density, i.e. $q(i) = 1/n$ for all $i=0,\ldots,n-1$.  We want
+to figure out how close $p_t$ is to $q$.  We will use the distance
+measure we learned about in chapter 3.3 on card shuffling to describe
+this distance.  Clearly if $t=0$, then $p_1(i) = 0$ for all $i$ not
+equal to zero, and the distance between $p_1(i)$ and $q(i)$ will be
+very close to $1$.  (In fact, it will be $1 - 1/n$.)  But theory says
+that if $t=\infty$ or something really really large, then $p_t$ will
+be very close to the uniform distribution.  So somewhere between $t=0$
+and $t=\infty$ we change from a useless approximation to the uniform
+to a very good one.  The problem asks us to figure out when does this
+occur? 
+
+First to check that you understand the problem:
+
+\begin{itemize}
+\item If you start your simulation at 30 and simulate 100 states,
+there are two ways you can reach the ``zero state.''  Either by coming
+from state 99, or by coming from state 1 (i.e. clockwise or counter
+clockwise).  What is the probability of each of these?  
+\end{itemize}
+
+Now for the real questions:
+\begin{enumerate}
+\item If you simulate such an $n$ state MCMC for a total of $n^2/100$
+ rounds, what is the L1 distance between the simulated distribution
+ and the uniform distribution?  (You can think of $n$ as being very
+ large.)
+\item If you simulate a 101 state MCMC for one million rounds, what is
+the L1 distance between the simulated distribution and the true
+distribution?
+\end{enumerate}
+(Note: there are several ways of answering the above problems.  Some
+ will give approximations, some will give bounds, etc.  There is no
+ definitive correct answer.  But please state what it is you are
+ claiming--both in words, and if possible using mathematics.)
+
+\end{document}
