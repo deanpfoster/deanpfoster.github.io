@@ -1,7 +1,7 @@
 \documentclass[12pt]{extarticle}
 
 \begin{document}
-\section*{510/430H Extra question}
+\section*{510/430H Extra question (version 2)}
 
 This question is untimed.  You may use any resources you like (books,
  web searches, computer programs)--but work on your own (so you can't
