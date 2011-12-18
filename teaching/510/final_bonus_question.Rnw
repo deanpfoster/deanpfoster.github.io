@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{extarticle}
 
 \begin{document}
 \section*{510/430H Extra question}
@@ -74,9 +74,21 @@ Now for the real questions:
 the L1 distance between the simulated distribution and the true
 distribution?
 \end{enumerate}
-(Note: there are several ways of answering the above problems.  Some
- will give approximations, some will give bounds, etc.  There is no
- definitive correct answer.  But please state what it is you are
- claiming--both in words, and if possible using mathematics.)
+
+\paragraph{Possible answers:} There are several ways of answering the above problems:
+ computer, drawing a picture, algebra, coupling, etc.  Some will give
+ approximations, some will give bounds, some will only give good
+ guesses etc.  There is no definitive best answer--some give good
+intuition and others give more accurate claims.  But please state
+ what it is you are claiming--both in words, and if possible using
+ mathematics.
+
+\paragraph{About the $n$, 100, 101:} Ideally I would have had the same
+ state size in each of these three problems.  But for the first
+ problem--I like the simplicity of 100 best.  For the second problem
+ it might be nice to use things like CLT which need $n$ to be large.
+  And for the third problem there is a total anoyance if $n$ is
+ even--so it can't be 100.
+
 
 \end{document}
