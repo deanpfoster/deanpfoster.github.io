@@ -46,9 +46,14 @@ the algorithm for $t$ rounds.  We also have $q(i)$ which is the
 uniform density, i.e. $q(i) = 1/n$ for all $i=0,\ldots,n-1$.  We want
 to figure out how close $p_t$ is to $q$.  We will use the distance
 measure we learned about in chapter 3.3 on card shuffling to describe
-this distance.  Clearly if $t=0$, then $p_1(i) = 0$ for all $i$ not
-equal to zero, and the distance between $p_1(i)$ and $q(i)$ will be
-very close to $1$.  (In fact, it will be $1 - 1/n$.)  But theory says
+this distance.  Clearly if $t=0$, then $p_0(i) = 0$ for all $i$ not
+equal to zero, and the distance between $p_0$ and $q$ will be
+very close to $1$.  (In fact, it will be $1 - 1/n$.\footnote{There are
+two ways of calculating this.  The only place where $p > q$, and its
+probability is $1-1/n$.  So we are done.  Alternatively, we can sum
+over all differences: $\left(|1-1/n - 0| + |0-1/n| +
+\cdots|0-1/n|\right)/2 = (1-1/n + (n-1)/n)/2 = 1 - 1/n$.}
+)  But theory says
 that if $t=\infty$ or something really really large, then $p_t$ will
 be very close to the uniform distribution.  So somewhere between $t=0$
 and $t=\infty$ we change from a useless approximation to the uniform
