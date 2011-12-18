@@ -76,7 +76,7 @@ Now for the real questions:
  and the uniform distribution?  (You can think of $n$ as being very
  large.)
 \item If you simulate a 101 state MCMC for one million rounds, what is
-the L1 distance between the simulated distribution and the true
+the L1 distance between the simulated distribution and the uniform
 distribution?
 \end{enumerate}
 
