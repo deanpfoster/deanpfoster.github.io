@@ -42,7 +42,8 @@ such a random number--but theory says that if you run it long enough,
 it will be such a uniform random number.  
 
 So we have the distribution $p_t(i)$ which is the density after runing
-the algorithm for $t$ rounds.  We also have $q(i)$ which is the
+the algorithm for $t$ rounds.\footnote{In other words, $p_t(i) =
+P(\hbox{being in state $i$ at time $t$}$.}  We also have $q(i)$ which is the
 uniform density, i.e. $q(i) = 1/n$ for all $i=0,\ldots,n-1$.  We want
 to figure out how close $p_t$ is to $q$.  We will use the distance
 measure we learned about in chapter 3.3 on card shuffling to describe
