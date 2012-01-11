@@ -13,7 +13,7 @@
 
 \begin{document}
 
-
+\author{Dean Foster}
 \title{Class: Lingustics introduction}
 \maketitle
 (\href{class_lingustics.pdf}{pdf version})
