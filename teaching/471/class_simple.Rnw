@@ -57,21 +57,24 @@ psychologist.
 \item Email statistics.assignments@gmail.com for questions and turning
 in assignmens
   \begin{itemize}
-  \item Both Sathya and I get messages sent here.  So that way you get
+  \item Both the TA and I get messages sent here.  So that way you get
 ahold of who ever is currently on line sooner.
   \end{itemize}
 \item Books
   \begin{itemize}
   \item  Introductory Statistics with R by Peter Dalgaard, 2nd edition, ISBN 978-0-387-79053-4, Springer 2008.
-  \item  Linear Models with R by Julian J. Faraway, ISBN 1-58488-425-8, Chapman \& Hall/CRC Press 2005. 
+  \item  Linear Models with R by Julian J. Faraway, ISBN
+1-58488-425-8, Chapman \& Hall/CRC Press 2005. 
+  \item Based on discussion with students last year, only one of these
+is recommended.  Which is it?
   \end{itemize}
 \item Software R
   \begin{itemize}
   \item Allow other software--but recommend R
   \item Its free, available on OS X/Linux/windows.
   \item It is what production level statisticians use
-  \item Friday at noon, Sathya will give an intro to using R.  (And
-our computer (Anand) person will be there to help load it if you have problems.)
+  \item Friday at 1pm, Joshua will give an intro to using R.  (And
+our computer person will be there to help load it if you have problems.)
   \end{itemize}
 \end{itemize}
 
