@@ -64,6 +64,16 @@ while(<HOME>)
 	      print '<a href="http://chrisblattman.com/files/2011/08/piro-evolution.jpg"> <img src="evolution.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
+            if(!$done && ($r < .4))
+	    {   # obama
+		print '<a href="http://www.intrade.com/aav2/trading/tradingHTML.jsp?selConID=743474">
+		    <img src="http://data.intrade.com/graphing/closingChart.gif?contractId=743474&intradeChart=true&transBackground=true&transBackground=true" height="225" width="460"
+		    alt="Price for 2012 Presidential Election Winner (Individual) at intrade.com"
+		    title="Price for 2012 Presidential Election Winner (Individual) at intrade.com" border="0"></a>';
+		    $done = 1;
+	    }
+
+
 	    if(!$done && ($r < .6))
 	    {   # kayaking
 		print '<a href="photos/kayaking_NC/"> <img src="dean_ocoee_ender-800.jpg" border=0, Align="left"></A>';
