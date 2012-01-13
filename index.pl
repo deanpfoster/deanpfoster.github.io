@@ -69,7 +69,7 @@ while(<HOME>)
 		print '<a href="http://www.intrade.com/aav2/trading/tradingHTML.jsp?selConID=743474">
 		    <img src="http://data.intrade.com/graphing/closingChart.gif?contractId=743474&intradeChart=true&transBackground=true&transBackground=true" height="225" width="460"
 		    alt="Price for 2012 Presidential Election Winner (Individual) at intrade.com"
-		    title="Price for 2012 Presidential Election Winner (Individual) at intrade.com" border="0"></a>';
+		    title="Price for 2012 Presidential Election Winner (Individual) at intrade.com" border="0"></a><p>Barack Obama to be win';
 		    $done = 1;
 	    }
 
