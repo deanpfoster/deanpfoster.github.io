@@ -9,6 +9,20 @@
 
 \section*{Story time: Publishing books}
 
+\begin{itemize}
+\item Information wants to be free
+\begin{itemize}
+\item I could tell you who said that--but wiki is down today
+\end{itemize}
+\item Accedemics write papers for free
+\item Most musicians (as in numbers) write music for free
+\item Book authors no longer need book publishers
+\item So, copyright is kinda obselete
+\item I'm fairly radical on this and push against comercial publishers in accemia
+\item Mention my two chairs
+\item Melone (is chair from upper east side) Melony is sponsor of bill (from upper east side)
+\end{itemize}
+
 
 
 \section*{Admistrivia}
