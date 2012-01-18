@@ -71,7 +71,7 @@ polynomials.  This is done in R with the command:
 #  fit <- lm(y ~ x + x2 + x3)$fit
 #  lines(x,fit)
 ################################
-  fit <- lm(y ~ x + x**2 + x**3)$fit
+  fit <- lm(y ~ x + I(x**2) + I(x**3))$fit
   lines(x, fit)
 
 @ 
