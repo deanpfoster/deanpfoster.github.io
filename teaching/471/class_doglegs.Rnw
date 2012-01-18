@@ -61,8 +61,8 @@ In most setting, your best bet is still to keep things smooth by using
 polynomials.  This is done in R with the command:
 
 <<fig=TRUE>>=
-  x <- 10 * seq(1:10)
-  y = rnorm(10)
+  x <- 10 * seq(1:20)
+  y = rnorm(20)
   plot(x,y)
 ################################
 #  BY HAND
