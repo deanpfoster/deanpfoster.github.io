@@ -10,8 +10,7 @@
 \section*{Admistrivia}
 
 \begin{itemize}
-\item Anand might be sick--so no office hours today.  He will hold
-subsitute office hours on Tuesday from 3 - 5.
+\item Homework due today.
 \end{itemize}
 
 \section*{Suggested readings}
