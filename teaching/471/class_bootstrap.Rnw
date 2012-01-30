@@ -92,22 +92,22 @@ know which one it is.  So we can simulate this by grabbing a row at
 random.
 
 Procedure for the bootstrap standard error:
-\begin{itemize}
+\begin{enumerate}
 \item Generate a new dataset
 \begin{itemize}
 \item For each row in the new data set, pick a row in the real dataset
 and copy it
-\item Sample with replacement so rows 
+\item Sample with replacement so rows some rows appear twice and some appear once and some not at all.
 \end{itemize}
 \item Compute the $\hat\beta$ on the new dataset
 \item Repeat this 1000s of times
 \item Compute the standard deviation of all the $\hat\beta$'s.
-\end{itemize}
+\end{enumerate}
 
-If you are in a programming langauge, you can write the above as a
-simple compute algorithm (say in R).  
+If you are using R, the above is pretty easy to implement.  We'll do
+details next time using a live programmer!
 
-\section{Faking bootstrap in Excel}
+\section{Faking bootstrap with weights}
 
 But what to do if you are using Excel? 
 
@@ -131,6 +131,8 @@ If you spent too much time memorizing distributions in your last
 probability class, you will recognize this as a poisson distribution. 
 
 So we want to duplicate the first row a poisson(1) number of times.  
+
+\section{Faking bootstrap in Excel}
 
 Excel bootstrap
 \begin{itemize}
