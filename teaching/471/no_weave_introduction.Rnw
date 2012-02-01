@@ -11,8 +11,8 @@
 
 % \usepacke includes a package
 \usepackage{a4wide}   % sets a4 format and uses more space of it than standard
-\usepackage{psfig}    % for ps-figures
-\usepackage{epsfig}   % for eps-figures
+%\usepackage{psfig}    % for ps-figures
+%\usepackage{epsfig}   % for eps-figures
 \usepackage{graphics} % for includegraphics
 \usepackage{graphicx} % for includegraphics
 \usepackage{color}    % enables to use colored text
