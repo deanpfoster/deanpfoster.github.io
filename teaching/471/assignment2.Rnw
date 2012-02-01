@@ -6,8 +6,7 @@
 These exercises are to show you computer techniques.  Do simple prints
  to confirm that they worked for you and short write ups.  So no
 detailed descriptions, but a sentence here and there is nice.  (Include your
- R script.)  Look at the help file Sivan created for suggestions
- on R commands.  (\href{homework_2_help.R}{.R})
+ R script.)  Here are some useful R commands: \href{homework_2_help.R}{.R}.
 
 \begin{enumerate}
 \item Dogleg construction and analysis:
@@ -33,7 +32,7 @@ predictions. (Model 4)
 \end{enumerate}
 
 \item Predictions:  You can predict a point by adding a fake row to
-your data set (see Sivan's example) or by a command similar to:
+your data set (see \href{homework_2_help.R}{samples}.) or by a command similar to:
 <<eval=FALSE>>=
   predict(model,data.frame(year=2100),se.fit=TRUE)
 @ 
@@ -95,7 +94,7 @@ he earn if he increased it to 101?  Give a confidence interval.
 \end{itemize}
 \item Bootstrap a simple regression.
 \begin{itemize}
-\item YEA!   R DOES THIS WELL!!!!  See Sivan's code, or more details here.
+\item YEA!   R DOES THIS WELL!!!!  
 \item Use the bootstrap command to estimate the accuracy of the slope
 on the linear regression model for income vs runs.
 \item For a player who has an RUNS of 100, how many more dollars would

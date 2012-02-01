@@ -9,7 +9,7 @@
 \newcommand{\note}[1]{\noindent{\textcolor{red}{\{{\bf NOTE:} \em #1\}}}}
 %\newcommand{\dpf}[1]{}
 %\newcommand{\note}[1]{}
-
+\usepackage{hyperref}
 
 
 
@@ -31,11 +31,12 @@
 
 
 \section{Admistrivia}
-
 \begin{itemize}
-\item Dice: who have done dice already?
-\item It will take you about one hour (including a less than one page write up). 
+\item Start on next homework.  It walks you through using all the
+ideas we have talked about in class so far.
+\item No writeups necessary.  Just practice R.
 \end{itemize}
+
 
 \section{Story: Pair programming}
 \begin{itemize}
@@ -110,6 +111,14 @@ like.  This also removes most issues of selection bias since we could
 only pick one company out of 12 total instead of 1 out of 5000 current
 companies and then working backwards.
 
+We will use two files:
+\begin{itemize}
+\item \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv}{domino
+sugar}
+\item \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation}{t-bills} 
+\end{itemize}
+     
+  
 <<readdata, eval=TRUE, echo=TRUE>>=
 
 #    ##########################################################
@@ -127,8 +136,8 @@ companies and then working backwards.
 #    #
 #    ##########################################################
 
-     sugar  <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv");  
-     tbills <- read.csv("http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation.csv");  
+     sugar  <- read.csv( "http://gosset.wharton.upenn.edu/~foster/teaching/471/domino_sugar.csv" );  
+     tbills <- read.csv( "http://gosset.wharton.upenn.edu/~foster/teaching/471/tbills-inflation" );  
 
 @ 
  
