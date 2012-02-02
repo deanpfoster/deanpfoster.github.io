@@ -1,0 +1,49 @@
+\documentclass[14pt]{extarticle}
+\begin{document}
+this page intentionally left blank.
+\end{document}
+
+\section*{Story time: Hildebrand and instant feed back}
+
+\begin{itemize}
+\item Dave Hildebrand changed how we taught statistics
+\begin{itemize}
+\item Pushed communication
+\item Eliminated much unimportant mathematics
+\item Pushed live computer in the class room
+\end{itemize}
+\item He had 100's of undergrads show up at his funeral
+\item He pushed the idea of instant feedback in teaching
+\item Ask some of the students each class for feedback on the lecture
+\item Opinion polls
+\begin{itemize}
+\item Was the lecture too fast or too slow?
+\item Suppose 2/3's think it is too fast.  If we asked 10 students, the SE =
+$\sqrt{pq/n}$ or about \Sexpr{round(sqrt(.66 * .33 / 10),2)}. % = .15
+Thus a typical interval would be about say, [.3,.9].  Kinda useless.
+\item Even With 50 students, SE =  \Sexpr{sqrt(.66 * .33 / 50)} the SE
+would not distingush 66\% from 50\% very often.
+\end{itemize}
+\item Solution: Have a question with millions of answers.  We call
+that language.
+\item Questions:
+\begin{itemize}
+\item What was the most important concept today?
+\item What idea was most confusing?
+\item What will you remimber the longest?
+\end{itemize}
+\item Now a small sample can be useful.
+\item Pass out sample instant feedback page
+\end{itemize}
+
+
+\section*{Story time: Media equation}
+
+\begin{itemize}
+\item Relate to ``who are you?''
+\item tell story about othelo and random prompts
+\item tell it still works when pepole know about it...
+\end{itemize}
+
+
+
