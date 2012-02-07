@@ -8,5 +8,5 @@ install:
 	ssh go "cd public_html;git pull"
 	ssh go "cd public_html/mortality;git pull"
 	ssh go "cd public_html/eigenwords;git pull"
-	ssh go "cd teaching/471;git pull;make"
+	ssh go "cd public_html/teaching/471;git pull;make"
 
