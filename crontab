@@ -1,0 +1,4 @@
+# this file is located at ~/public_html/crontab
+
+
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * cd /home/foster/public_html; make >/dev/null
