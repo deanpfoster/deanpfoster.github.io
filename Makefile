@@ -1,4 +1,6 @@
 
+
+
 install: local
 	ssh gosset "cd public_html;git pull"
 	ssh gosset "cd public_html/mortality;git pull"
