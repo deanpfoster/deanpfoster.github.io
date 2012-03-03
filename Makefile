@@ -1,4 +1,4 @@
-default: 
+default: local
 
 install: local
 	ssh gosset "cd public_html;git pull"
