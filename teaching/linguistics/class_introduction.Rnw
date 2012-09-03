@@ -10,19 +10,40 @@
 \section{Admistrivia}
 
 \begin{itemize}
-\item Lots of homework: mostly R, some math.
-\item Final project (ideally a partial paper replication or even a
-full paper replication): Analysis and write up and presentation of some
-lingustic data.  If you have a particular domain in mind, talk to me
-soon and we can start connecting you with data.  I'll be leaving town
-on the last day of class, so either have the project done by then, or
-it will have to wait until I return on the first day of spring
-semester.
+\item Who are you?  Please answer the following questions
+\begin{itemize}
+\item Name, program, degree
+\item Highest stat class taken
+\item Highest lingustics class taken (if any)
+\item What did you hear this class was about?  (Since it wasn't
+announced, I'm curious what the network of students has produced for a
+course description)
+
+\end{itemize}
+\item Readings you should be doing on your own as we go along
+\begin{itemize}
 \item Book: JM = {\em Speech and Language processing} by Jurafsky and Martin.
-\item Readings will be mostly listed on the web (along with my
-teaching notes).  I'll almost certainly forget to mention readings in
-class.  For example, I'll probably not get around to saying, ``You
-should read the chapters 1,2 and 4 this weekend.''
+\item Foundations of statistical natural language processing by Manning and
+Schutze.  (Suggested if you have a weaker statistics background.)
+\item Language log
+\end{itemize}
+\item Lots of homework: mostly R, some math.
+\item Final project: choice of two
+\begin{itemize}
+\item   Paper replication: Analysis and write up and present some
+lingustic data.  If you have a particular domain in mind, talk to me
+soon and we can start connecting you with data.  Basically you should
+mimic some existing paper fairly carefully--but say with new data.
+semester.
+\item Two ``language log'' blog posts and one appendix for one of the posts.
+You can replicate one of his posts (clearly one with data) if you
+like.  The other should be original (or better still, both can be
+original).  For one of the two posts, write up a technical appendix
+looking at the data more statistically than would be meaningful for
+language log.
+\end{itemize}
+Let me know which you plan on doing.  If the language log, you should
+do your first one before Nov 1st and your second one before Dec 12th.
 \end{itemize}
 
 \section{Introduction: Example (Flu)}
