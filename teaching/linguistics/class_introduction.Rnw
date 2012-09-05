@@ -13,8 +13,8 @@
 \item Who are you?  Please answer the following questions
 \begin{itemize}
 \item Name, program, degree
-\item Highest stat class taken
-\item Highest lingustics class taken (if any)
+\item Background in stat
+\item Background in lingustics
 \item What did you hear this class was about?  (Since it wasn't
 announced, I'm curious what the network of students has produced for a
 course description)
@@ -25,7 +25,7 @@ course description)
 \item Book: JM = {\em Speech and Language processing} by Jurafsky and Martin.
 \item Foundations of statistical natural language processing by Manning and
 Schutze.  (Suggested if you have a weaker statistics background.)
-\item Language log
+\item Language log (Liberman's blog)
 \end{itemize}
 \item Lots of homework: mostly R, some math.
 \item Final project: choice of two
