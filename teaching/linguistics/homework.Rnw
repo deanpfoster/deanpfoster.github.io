@@ -3,7 +3,7 @@
 \usepackage{enumerate}
 
 \begin{document}
-\section*{Homework 1: Regular expressions}
+\section*{Homework 1: Regular expressions (due Sept 24 at midnight)}
 
 \begin{enumerate}
 \item Read chapters 1 and 2 from JM.
