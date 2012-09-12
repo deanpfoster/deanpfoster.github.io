@@ -10,25 +10,8 @@
 \section*{Admistrivia}
 
 \begin{itemize}
-\item I've posted homework this weekend.
+\item homework due Monday.
 \end{itemize}
-
-
-\section*{Story: Simultanious discoveries (Book: 1.6.7)}
-
-Who invented the calculus? Newton or Libnetz?
-\begin{itemize}
-\item My first three papers:
-\begin{itemize}
-\item Scooped by 50 years (Pool adjacent violators)
-\item Scooped by 30 years (by von Neuman)
-\item Scopped by 3 months (point in polygon)
-\end{itemize}
-\item I figured I was almost doing research then!
-\item But it keeps happening to me and everyone else
-\item ``Pity the scientist who discovers the already discovered.'' NYT.
-\end{itemize}
-
 
 
 \section*{Backoff}
