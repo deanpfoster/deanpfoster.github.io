@@ -71,6 +71,56 @@ at angle $\theta$ with respect to each other, the ``expected'' angle
 is $\theta$.
 
 
+\section{JL itself}
+
+Now JL is pretty obvious.  We need to sample enough random directions
+such that we can estimate the expected value of the cos of the angle.
+ow apply Bonferoni, and we are done.
+
+\section{Example: Balls / normals}
+
+Consider $IID$ normal vectors in $d$ space.  We actually know the
+distance between any two of these vectors.  If each coordinate is a
+$N(0,1)$, then the distance between two fo them is $\sqrt{2d}$.  This
+will be pretty accurate until we have something like $2^d$ different
+vectors.  So we don't really need $\log(d)$ diminsions to answer the
+distance question--but we DO need them to represent the answer!
+
+\section{Will it work for regression?}
+
+Suppose we $X_i$ which are $d$ different vectors in $d$ dim space,
+each an independent normal.  Suppose $Y \sum B_i X_i/\sqrt{d}$ where
+$B_i$ are IID bernulli trials.  Then $Y$ is also a standard normal.
+If we knew all the distances between these, we woud see that
+$dist(Y,X_i) \approx \sqrt{2d}$ for all $X_i$--whether or not it is
+part of the regression or not.
+
+So, using JL we would need to get a very accurate estimate (within a
+fraction of about $1 + 1/\sqrt{d}$ accuracy.)  This will take about
+all of our $d$ diminsions.
+
+\section{Can JL determine a cluster?}
+
+Suppose we have two clusters, in one coordinate they are about $k$ sd apart.
+
+Can JL determine this direction?  Not really since the distance
+between a point in the same group are $\sqrt{2d}$ away from each other
+but in differnt groups they are $\sqrt{2d + k^2}$ away from each
+other.  So again--we need extreme accuracy.  I.e. $k$ needs to be
+about $\sqrt{d}$ to be seen.
+
+
+\section{Will it work for PCA?}
+
+Suppose the first coordinate is a $N(0,k)$ and all others are
+$N(0,1)$.  Can JL determine this direction?  Not really since the
+distance between a point on the tip of this direction is $\sqrt{2d +
+k^2}$ to other points.  So again--we need extreme accuracy.  I.e. $k$
+needs to be about $\sqrt{d}$ to be seen.
+
+
+\section{Fast matrix factorization}
+
 
 
 
