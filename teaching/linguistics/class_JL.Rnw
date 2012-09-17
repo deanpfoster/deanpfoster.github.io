@@ -11,6 +11,7 @@
 
 \begin{itemize}
 \item Wednesday, Lyle will talk on Eigenwords
+\item Next monday (Sept 24) we will move to R2D2 441.  (Right hand glass conference room in statistics.)
 \end{itemize}
 
 
@@ -121,7 +122,31 @@ needs to be about $\sqrt{d}$ to be seen.
 
 \section{Fast matrix factorization}
 
+What is a random projection anyway?
+\begin{itemize}
+\item Just a matrix multiply
+\item Put data in a matrix $X$ which is $n \times d$
+\item multiply by a random $d \times k$ matrix
+\item Now we are in a $k$ diminsional space
+\end{itemize}
 
+Random projections do not find PCA solutions.
 
+But, if we looked at $(X'X)^{\log(d)}$ then singular values which were
+size 2 are now size $d$.  So a random project will solve it.
+
+New algorithm:
+\begin{itemize}
+\item Pick random matrix $M$
+\item Compute $X'XX'XX'XM$
+\item Now compute SVD of resulting object and it will find the first
+principle component of $X$
+\end{itemize}
+
+This is basically what I call "Tropp"'s algorithm.  It is a fast way of discovering a low rank version of a matrix.
+
+\section{Tropp}
+
+Describe his method and wny we orthgnalize each step.
 
 \end{document}
