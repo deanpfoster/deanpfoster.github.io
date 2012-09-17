@@ -1,0 +1,77 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: JL}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Wednesday, Lyle will talk on Eigenwords
+\end{itemize}
+
+
+\section{Draw some pictures}
+
+30 degrees 
+\begin{itemize}
+\item Draw $d/2$ pairs of axis
+\item Draw $d/2$ vectors with angle 30 degrees
+\item Draw exotic axis: $a$ and $b - \frac{<a,b>}{<a,a>} a$
+\item Question: what angle do I draw?
+\end{itemize}
+
+A few others pairs:
+\begin{itemize}
+\item Draw 120 degree pair
+\item Draw 90 degree pair
+\item Draw random pair: say it looks like 90 degrees on exotic axis
+\end{itemize}
+
+\section{Some necessary math}
+
+\begin{itemize}
+\item Random projects look like normals
+\item Proof:
+\begin{itemize}
+\item Let $X$ be an arbitary vector, and $R$ be a random direction
+(choosen from the surfact of the unit ball)
+\item Rotate axis so that $X$ points in the direction of the first coordinate
+\item Now compute inner product: which is nothing but a random
+projection of a sphere onto the first coordinate
+\item This looks like a normal
+\end{itemize}
+\end{itemize}
+
+
+\section{Trival theorem: Inner product}
+
+What is the angle of the exotic axis in general?
+\begin{itemize}
+\item Easier to compute cosine of angle
+\item $\cos(\theta) = <a,b>/\sqrt{<a,a> <b,b>}$
+\item WOLG assume $<a,a> = <b,b> = 1$.
+\item So we only need $<a,b>$
+\item But, $<a,b> = \sum_{i=1}^{d/2} a_x b_x + a_y b_y =  \sum_{i=1}^{d/2} <a,b>_i$
+\item
+\item NOTE: Each 2-D picture is of two correlated bivariate normals.
+So we can draw them exactly as $a,Z \sim N(0,I)$, and $b =  \rho a + \sqrt{1 -
+\rho^2}  Z$, where $\rho$ is $<a,b>/\sqrt{<a,a> <b,b>}$.
+\end{itemize}
+
+
+
+\section{Theorem: E(JL)}
+
+If we project two vectors down to a random pair of of axis which are
+at angle $\theta$ with respect to each other, the ``expected'' angle
+is $\theta$.
+
+
+
+
+
+\end{document}
