@@ -1,3 +1,4 @@
+*.tex
 *.tex.html
 class_*.pdf
 *.aux
