@@ -17,7 +17,7 @@
 \section*{Backoff}
 
 Problem: Some contexts are full, others empty.  How to deal with empty
-contexts? 
+contexts?
 
 \begin{itemize}
 \item Naive solution: Use best context available.
@@ -28,7 +28,7 @@ contexts?
 \item With nothing: Use base rate
 \end{itemize}
 \item Example: ``We can do this \_\_\_\_'' will have lots of examples 5
-grams. 
+grams.
 \item Example: `Twas brillig, and the slithy toves \_\_\_\_'
 \begin{verbatim}
 was brillig, and the slithy toves
@@ -67,21 +67,21 @@ we are now using the word to be forecast we have to worry about
 probabilities summing to 1 or not.
 \item Example.  Consider the words x,y,z in order:
 \begin{eqnarray*}
-\hat{P}_2(z|x,y) &=& 
+\hat{P}_2(z|x,y) &=&
 \left\{
 \begin{array}{ll}
 P^*(z|x,y) & \hbox{if $C(x,y,z) > 0$} \\
-\alpha_2(x,y) \hat{P}_1(z|y) & \hbox{otherwise} 
+\alpha_2(x,y) \hat{P}_1(z|y) & \hbox{otherwise}
 \end{array}
 \right. \\
-\hat{P}_1(z|y) &=& 
+\hat{P}_1(z|y) &=&
 \left\{
 \begin{array}{ll}
 P^*(z|y) & \hbox{if $C(y,z) > 0$} \\
-\alpha_1(y) \hat{P}_0(z)& \hbox{otherwise} 
+\alpha_1(y) \hat{P}_0(z)& \hbox{otherwise}
 \end{array}
 \right. \\
-\hat{P}_0(z) &=&  P^*(z)  
+\hat{P}_0(z) &=&  P^*(z)
 \end{eqnarray*}
 (Note: There are slight changes from the book.  I'm using what
 {\em should} be done, not necessarilly what either Katz or others have
