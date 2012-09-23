@@ -41,18 +41,14 @@ is supposed to do.  Can you test this guess more accurately?
 \section*{Homework 2: N-grams}
 
 \begin{enumerate}
-\item Read chapter 3 - 4 of JM.
-\item JM: 3.5 and 3.6, 3.10.
-\item JM: 4.2, 4.3, 4.4, 4.5, 4.6, 4.7
-\end{enumerate}
-
-\section*{Homework 3: More n-grams}
-
-\begin{enumerate}
-
-\item Read chapter 5 - 6 of JM.
+\item Pick whether you want to do a paper replication or 2 Language
+log like posts for your final project.  If you want to do a paper
+replication, let me konw what area you might want to do it in.
+\item Read chapter 3 - 6 of JM.
 \item Read the spectral paper on HMM's
-\item JM: problem 4.10.
+
+\item JM: 3.6
+\item JM: 4.4, 4.10.
 
 \item  We will analyse the text called ``Alice in
 Wonderland.'' First we want to grab it down from the Gutenberg
@@ -189,7 +185,7 @@ this, estimate how many words you will process in your life time.  How
 many lifetimes worth of data are in the google n-gram database?
 \end{enumerate}
 
-\section*{Homework 4: Speech recognition}
+\section*{Homework 3: Speech recognition}
 
 \begin{itemize}
 \item page 247: 7.2.
@@ -201,10 +197,13 @@ them right.
 \item page 334: 9.5.
 \end{itemize}
 
-\section{Final Project}
+\section{Final Project (from 2010)}
 
+ For 2012, I'm pushing a paper replication.  But, if anyone picks
+doing a final project rather than language log like posts, I'll write
+up some multiple turn in times like the following:
 \begin{itemize}
-\item (Nov 8) One page description of what you propose to do.
+\item (Nov 8, 2010) One page description of what you propose to do.
 \begin{itemize}
 \item Provide a thesis sentence.  This is a single statement of what
 it is you would like to show.  It might be ``I will replicate the analysis in
@@ -214,7 +213,7 @@ connection between abstracts and references of papers taken from NIPS
 \item Provide a paragraph of back ground material.
 \item Provide a paragraph of what you will be doing.
 \end{itemize}
-\item (Nov 15) References section.  What papers are related to your project?
+\item (Nov 15, 2010) References section.  What papers are related to your project?
 \begin{itemize}
 \item If you are replicating an existing paper, then you should
 freshen the references.  What has been done that is more current?

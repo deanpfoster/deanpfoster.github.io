@@ -22,7 +22,7 @@
 \item carried by wire as analogue
 \end{itemize}
 
-\section{Basic physics: limists of encoding}
+\section{Basic physics: limits of encoding}
 
 \begin{itemize}
 \item Shannon theory:
@@ -41,7 +41,7 @@ alalog to digital.
 quality equiptment
 \end{itemize}
 
-\section{What does the human equiptment look like?}
+\section{What does the human equipment look like?}
 
 Tools we use:
 \begin{itemize}
