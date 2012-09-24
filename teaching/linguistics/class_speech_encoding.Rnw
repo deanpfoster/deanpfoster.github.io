@@ -10,13 +10,17 @@
 \section{Admistrivia}
 
 \begin{itemize}
-\item Do on homeworks 2 and 3.
+\item I posted homework 2.  Due it two weeks.  On n-grams.
 \end{itemize}
 
 \section{The telephone}
+
+Suppose I tell someone my home phone number while talking to them on
+my cell phone:
 \begin{itemize}
-\item Thoughts are QM which is analog
-\item Words are digital
+\item The thoughts are digital 
+\item But are implemented on a analogue computer called the brain
+\item they are then translated into Words (which are digital)
 \item Sound is analogue
 \item encoded to digital packets by phone
 \item carried by wire as analogue
