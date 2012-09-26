@@ -69,8 +69,6 @@ Balance energy: down weight low frequency.
 
 \begin{itemize}
 \item Yea, something we already know
-\item Remimber: Tukey did this first--so it counts as classical
-statistics.  (Just kidding.)
 \end{itemize}
 
 \subsection{Mel filter}
@@ -84,13 +82,22 @@ statistics.  (Just kidding.)
 
 \subsection{Cepstrum: FFT}
 
+
+
 \begin{itemize}
 \item (sepc)trum $\to$ (ceps)trum (reversing first 4 letters)
-\item Introduced in sesmography
+\item Introduced in sesmography 
 \item Totally adhoc
 \item Gets at the ``shape'' of the spectrum but losses the
 fundemential overtones.
 \item ``Shape'' is captured by low frequency terms of FFT.
+\item Quiz: What do thefollowing all have in common?
+\begin{itemize}
+\item "bit"
+\item FFT
+\item Cepstrum
+\end{itemize}
+\item Tukey did them all!
 \end{itemize}
 
 \subsection{Sample}
@@ -117,12 +124,13 @@ fundemential overtones.
 \begin{itemize}
 \item Can still do HMM: just use a normal likelihood
 \item Alternative: CRF, SVM, NN, etc
-\item Plays well with Sham and Danny's approach
+\item Plays well with Sham's methods
 \begin{itemize}
 \item They work hard to get the dictionary into a small space
 \item The acustic material we have done already did that
 \item So use these features as the linear map they generate
 \end{itemize}
+\item Look at 3 or 4th moment
 \end{itemize}
 
 \section{HMM tricks}
