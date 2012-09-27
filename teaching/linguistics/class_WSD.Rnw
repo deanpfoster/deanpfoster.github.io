@@ -97,7 +97,7 @@ Flunking the zeugma test:
 \begin{itemize}
 \item have a hidden state which is a vector of properties
 \item each evoloves independently
-\item high diminsional hidden state
+\item high dimensional hidden state
 \item but few parameters to estimate
 \end{itemize}
 \end{itemize}

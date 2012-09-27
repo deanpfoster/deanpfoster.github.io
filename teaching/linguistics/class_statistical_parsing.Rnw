@@ -60,7 +60,7 @@ statements
 \begin{itemize}
 \item Treat the parse as ``Y'' and the sentence as ``X''
 \item Run a ``regression''
-\item Crazy multi-diminsional!
+\item Crazy multi-dimensional!
 \end{itemize}
 
 \section*{Revisit PCFG}
