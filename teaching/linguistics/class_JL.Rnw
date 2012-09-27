@@ -1,0 +1,152 @@
+\documentclass[14pt]{extarticle}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{hyperref}
+\begin{document}
+\SweaveOpts{prefix.string=.figures/notes}
+
+\title{Class: JL}
+\maketitle
+
+\section{Admistrivia}
+
+\begin{itemize}
+\item Wednesday, Lyle will talk on Eigenwords
+\item Next monday (Sept 24) we will move to R2D2 441.  (Right hand glass conference room in statistics.)
+\end{itemize}
+
+
+\section{Draw some pictures}
+
+30 degrees 
+\begin{itemize}
+\item Draw $d/2$ pairs of axis
+\item Draw $d/2$ vectors with angle 30 degrees
+\item Draw exotic axis: $a$ and $b - \frac{<a,b>}{<a,a>} a$
+\item Question: what angle do I draw?
+\end{itemize}
+
+A few others pairs:
+\begin{itemize}
+\item Draw 120 degree pair
+\item Draw 90 degree pair
+\item Draw random pair: say it looks like 90 degrees on exotic axis
+\end{itemize}
+
+\section{Some necessary math}
+
+\begin{itemize}
+\item Random projects look like normals
+\item Proof:
+\begin{itemize}
+\item Let $X$ be an arbitary vector, and $R$ be a random direction
+(choosen from the surfact of the unit ball)
+\item Rotate axis so that $X$ points in the direction of the first coordinate
+\item Now compute inner product: which is nothing but a random
+projection of a sphere onto the first coordinate
+\item This looks like a normal
+\end{itemize}
+\end{itemize}
+
+
+\section{Trival theorem: Inner product}
+
+What is the angle of the exotic axis in general?
+\begin{itemize}
+\item Easier to compute cosine of angle
+\item $\cos(\theta) = <a,b>/\sqrt{<a,a> <b,b>}$
+\item WOLG assume $<a,a> = <b,b> = 1$.
+\item So we only need $<a,b>$
+\item But, $<a,b> = \sum_{i=1}^{d/2} a_x b_x + a_y b_y =  \sum_{i=1}^{d/2} <a,b>_i$
+\item
+\item NOTE: Each 2-D picture is of two correlated bivariate normals.
+So we can draw them exactly as $a,Z \sim N(0,I)$, and $b =  \rho a + \sqrt{1 -
+\rho^2}  Z$, where $\rho$ is $<a,b>/\sqrt{<a,a> <b,b>}$.
+\end{itemize}
+
+
+
+\section{Theorem: E(JL)}
+
+If we project two vectors down to a random pair of of axis which are
+at angle $\theta$ with respect to each other, the ``expected'' angle
+is $\theta$.
+
+
+\section{JL itself}
+
+Now JL is pretty obvious.  We need to sample enough random directions
+such that we can estimate the expected value of the cos of the angle.
+ow apply Bonferoni, and we are done.
+
+\section{Example: Balls / normals}
+
+Consider $IID$ normal vectors in $d$ space.  We actually know the
+distance between any two of these vectors.  If each coordinate is a
+$N(0,1)$, then the distance between two fo them is $\sqrt{2d}$.  This
+will be pretty accurate until we have something like $2^d$ different
+vectors.  So we don't really need $\log(d)$ diminsions to answer the
+distance question--but we DO need them to represent the answer!
+
+\section{Will it work for regression?}
+
+Suppose we $X_i$ which are $d$ different vectors in $d$ dim space,
+each an independent normal.  Suppose $Y \sum B_i X_i/\sqrt{d}$ where
+$B_i$ are IID bernulli trials.  Then $Y$ is also a standard normal.
+If we knew all the distances between these, we woud see that
+$dist(Y,X_i) \approx \sqrt{2d}$ for all $X_i$--whether or not it is
+part of the regression or not.
+
+So, using JL we would need to get a very accurate estimate (within a
+fraction of about $1 + 1/\sqrt{d}$ accuracy.)  This will take about
+all of our $d$ diminsions.
+
+\section{Can JL determine a cluster?}
+
+Suppose we have two clusters, in one coordinate they are about $k$ sd apart.
+
+Can JL determine this direction?  Not really since the distance
+between a point in the same group are $\sqrt{2d}$ away from each other
+but in differnt groups they are $\sqrt{2d + k^2}$ away from each
+other.  So again--we need extreme accuracy.  I.e. $k$ needs to be
+about $\sqrt{d}$ to be seen.
+
+
+\section{Will it work for PCA?}
+
+Suppose the first coordinate is a $N(0,k)$ and all others are
+$N(0,1)$.  Can JL determine this direction?  Not really since the
+distance between a point on the tip of this direction is $\sqrt{2d +
+k^2}$ to other points.  So again--we need extreme accuracy.  I.e. $k$
+needs to be about $\sqrt{d}$ to be seen.
+
+
+\section{Fast matrix factorization}
+
+What is a random projection anyway?
+\begin{itemize}
+\item Just a matrix multiply
+\item Put data in a matrix $X$ which is $n \times d$
+\item multiply by a random $d \times k$ matrix
+\item Now we are in a $k$ diminsional space
+\end{itemize}
+
+Random projections do not find PCA solutions.
+
+But, if we looked at $(X'X)^{\log(d)}$ then singular values which were
+size 2 are now size $d$.  So a random project will solve it.
+
+New algorithm:
+\begin{itemize}
+\item Pick random matrix $M$
+\item Compute $X'XX'XX'XM$
+\item Now compute SVD of resulting object and it will find the first
+principle component of $X$
+\end{itemize}
+
+This is basically what I call "Tropp"'s algorithm.  It is a fast way of discovering a low rank version of a matrix.
+
+\section{Tropp}
+
+Describe his method and wny we orthgnalize each step.
+
+\end{document}

@@ -3,77 +3,41 @@
 \usepackage{enumerate}
 
 \begin{document}
-\section*{Homework 1: Regular expressions}
+\section*{Homework 1: Regular expressions (due Sept 24 at midnight)}
 
 \begin{enumerate}
-\item Read chapters 1 and 2 from JM.  
+\item Read chapters 1 and 2 from JM.
 \item From the book JM: 2.1, 2.4, 2.8
 
-\item Statistical analysis of two regular expressions.  Consider the
-following two regular expressions do.  
-\begin{enumerate}
-\item First Regex:
+\item Exploritory data analysis is a common thing to do with numbers,
+histograms, box plots, etc.  But, much of this isn't that interesting
+when using words.  So this problem asks you to explore what a regular
+expression actually does by simply running it against a bunch of
+text.
+
+  Consider the following regular expression:
 \begin{verbatim}
 (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
 \end{verbatim}
-(Note, if you have trouble getting that to run, you can try the
-following which is a much watered down version which is in R format:
+I posted a link to the above regex on the index.html page for the
+ class (at the due date in the schedule).  See if you can work with
+ that easier if your cut and paste doesn't work from the pdf.  (You
+ can also grab it out of the Rwn file.)  Darian suggest trying perl =
+ ``TRUE'' as being helpful for getting it to work.  (Note, if you have
+ trouble getting that to run in R, try the following which is a much
+ watered down version:
 <<>>=
 reg1 <- "[a-z0-9]+(\\.[a-z0-9]+)*(@[a-z0-9\\.]+)?"
-@ 
+@
 )
-\item Second Regex:
-\begin{verbatim}
-{
-  \\b
-  # Match the leading part (proto://hostname, or just hostname)
-  (
-    # http://, or https:// leading part
-    (https?)://[-\\w]+(\\.\\w[-\\w]*)+
-  |
-    # or, try to find a hostname with more specific sub-expression
-    (?i: [a-z0-9] (?:[-a-z0-9]*[a-z0-9])? \\. )+ # sub domains
-    # Now ending .com, etc. For these, require lowercase
-    (?-i: com\\b
-        | edu\\b
-        | biz\\b
-        | gov\\b
-        | in(?:t|fo)\\b # .int or .info
-        | mil\\b
-        | net\\b
-        | org\\b
-        | [a-z][a-z]\\.[a-z][a-z]\\b # two-letter country code
-    )
-  )
 
-  # Allow an optional port number
-  ( : \\d+ )?
-
-  # The rest of the URL is optional, and begins with /
-  (
-    /
-    # The rest are heuristics for what seems to work well
-    [^.!,?;''\\'<>()\[\]\{\}\s\x7F-\\xFF]*
-    (
-      [.!,?]+ [^.!,?;''\\'<>()\\[\\]\{\\}\s\\x7F-\\xFF]+
-    )*
-  )?
-}ix
-\end{verbatim}
-\end{enumerate}
-Now you could read them and understand them.  But that would be
+Now you could read it and understand it.  But that would be
 cheating--this is a statistics course!  So test them against a bunch
 of strings and see if you and figure out what are legal and what
-aren't legal strings.  Once you a theory, come up with some directed
-tests.  So for example, if you think it is a parse for LAST NAME,
-comma, FIRST NAME, then give it some examples that cause it to match
-like, ``Washington, George'' and ``Mannard Smith, John'' both of which
-are legal and something like, ``H. P. Lovecraft'' which wouldn't be
-legal since it is in the wrong order.  
-
-Now that you have an idea of what these are searching for, grab a
-large piece of text (say 1 million words or so) and count how many
-matches there are to both of these regular expressions.
+aren't legal strings.  So try it on say a large corpus, for example,
+\href{http://www.cs.cmu.edu/~enron/}{http://www.cs.cmu.edu/~enron/}.
+When you look at what it matches, make a guess as to what the pattern
+is supposed to do.  Can you test this guess more accurately?
 
 
 
@@ -82,18 +46,14 @@ matches there are to both of these regular expressions.
 \section*{Homework 2: N-grams}
 
 \begin{enumerate}
-\item Read chapter 3 - 4 of JM.
-\item JM: 3.5 and 3.6, 3.10.
-\item JM: 4.2, 4.3, 4.4, 4.5, 4.6, 4.7
-\end{enumerate}
-
-\section*{Homework 3: More n-grams}
-
-\begin{enumerate}
-
-\item Read chapter 5 - 6 of JM.
+\item Pick whether you want to do a paper replication or 2 Language
+log like posts for your final project.  If you want to do a paper
+replication, let me konw what area you might want to do it in.
+\item Read chapter 3 - 6 of JM.
 \item Read the spectral paper on HMM's
-\item JM: problem 4.10.
+
+\item JM: 3.6
+\item JM: 4.4, 4.10.
 
 \item  We will analyse the text called ``Alice in
 Wonderland.'' First we want to grab it down from the Gutenberg
@@ -112,7 +72,7 @@ alice <- scan("http://www.gutenberg.org/files/11/11.txt",
               what="character",
               quote="",
               skip=25)
-@ 
+@
 This command reads the whole file in as a vector of ``words.''  If you
 try it without the \verb\quote=""\ it will read all the quoted material
 as single words.  Probably not what we want.  The file starts with a
@@ -151,23 +111,23 @@ by compression and finally by google.
  the last possible word.}  Now print out the previous 20 words or
 so.  Write down several possible next words.  What probability do you
 give to each of these words?  Now, look at which word actually occured?
-What probability did you give to this word? 
+What probability did you give to this word?
 
 Here are the R commands to do an example.   Choose the index
 <<random>>=
 index <- round(runif(1)*24384)
 index
-@ 
+@
 Then look at the the preceeding words are:
 <<words>>=
 cat(alice[(index-20):(index-11)],
     "\n",
     alice[(index-10):(index-1)])
-@ 
+@
 Now guess the next word. The correct answer is:
 <<answer>>=
 alice[index]
-@ 
+@
 
 In the example I started with: ``I'm late! I'm late! For a very
  important \_\_\_\_''.\footnote{For the purists, this actually doesn't
@@ -178,10 +138,10 @@ In the example I started with: ``I'm late! I'm late! For a very
  add up to one since I should also have probabilities for other words
  that I haven't bothered to write down.  Now look and see the correct
  word is.  For the example I'm using the correct word is
- ``date'' which I assigned a probability of $.4$.  
+ ``date'' which I assigned a probability of $.4$.
 
 Repeat this with 10 different words.  How often was one of the words
-you guessed the correct word?  
+you guessed the correct word?
 \item Compute the average of the log probabilities for your guesses.
 Assume that any time you missed the word altogether, you should have
 in fact used a longer list which eventually would have included the
@@ -196,13 +156,13 @@ in R, or you can use the formula, $log_2(x) = log(x)/log(2)$.}
  times number average entropy per word as an estimate.)
 \item Now we want to make a prediction of the next word based on the
  \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/google}{goole}
-n-gram data set.  I have made up an easier set 
+n-gram data set.  I have made up an easier set
  of data to work so you don't have to process those gigabytes of
  compressed data (look
 \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/google/easy_google}{here}
-for 
+for
 it.) \footnote{If you want to read this into R you will find the files
-google/easy\_one and google/easy\_two will read in with less trouble. 
+google/easy\_one and google/easy\_two will read in with less trouble.
 Or you can use Sivan's magic of:\\
 \texttt{
 one.gram $<-$ read.delim("easy\_google",nrow=3160,header=FALSE)}\\
@@ -230,7 +190,7 @@ this, estimate how many words you will process in your life time.  How
 many lifetimes worth of data are in the google n-gram database?
 \end{enumerate}
 
-\section*{Homework 4: Speech recognition}
+\section*{Homework 3: Speech recognition}
 
 \begin{itemize}
 \item page 247: 7.2.
@@ -242,10 +202,13 @@ them right.
 \item page 334: 9.5.
 \end{itemize}
 
-\section{Final Project}
+\section{Final Project (from 2010)}
 
+ For 2012, I'm pushing a paper replication.  But, if anyone picks
+doing a final project rather than language log like posts, I'll write
+up some multiple turn in times like the following:
 \begin{itemize}
-\item (Nov 8) One page description of what you propose to do.
+\item (Nov 8, 2010) One page description of what you propose to do.
 \begin{itemize}
 \item Provide a thesis sentence.  This is a single statement of what
 it is you would like to show.  It might be ``I will replicate the analysis in
@@ -255,7 +218,7 @@ connection between abstracts and references of papers taken from NIPS
 \item Provide a paragraph of back ground material.
 \item Provide a paragraph of what you will be doing.
 \end{itemize}
-\item (Nov 15) References section.  What papers are related to your project?
+\item (Nov 15, 2010) References section.  What papers are related to your project?
 \begin{itemize}
 \item If you are replicating an existing paper, then you should
 freshen the references.  What has been done that is more current?

@@ -10,31 +10,14 @@
 \section*{Admistrivia}
 
 \begin{itemize}
-\item I've posted homework this weekend.
+\item homework due Monday.
 \end{itemize}
-
-
-\section*{Story: Simultanious discoveries (Book: 1.6.7)}
-
-Who invented the calculus? Newton or Libnetz?
-\begin{itemize}
-\item My first three papers:
-\begin{itemize}
-\item Scooped by 50 years (Pool adjacent violators)
-\item Scooped by 30 years (by von Neuman)
-\item Scopped by 3 months (point in polygon)
-\end{itemize}
-\item I figured I was almost doing research then!
-\item But it keeps happening to me and everyone else
-\item ``Pity the scientist who discovers the already discovered.'' NYT.
-\end{itemize}
-
 
 
 \section*{Backoff}
 
 Problem: Some contexts are full, others empty.  How to deal with empty
-contexts? 
+contexts?
 
 \begin{itemize}
 \item Naive solution: Use best context available.
@@ -45,7 +28,7 @@ contexts?
 \item With nothing: Use base rate
 \end{itemize}
 \item Example: ``We can do this \_\_\_\_'' will have lots of examples 5
-grams. 
+grams.
 \item Example: `Twas brillig, and the slithy toves \_\_\_\_'
 \begin{verbatim}
 was brillig, and the slithy toves
@@ -84,21 +67,21 @@ we are now using the word to be forecast we have to worry about
 probabilities summing to 1 or not.
 \item Example.  Consider the words x,y,z in order:
 \begin{eqnarray*}
-\hat{P}_2(z|x,y) &=& 
+\hat{P}_2(z|x,y) &=&
 \left\{
 \begin{array}{ll}
 P^*(z|x,y) & \hbox{if $C(x,y,z) > 0$} \\
-\alpha_2(x,y) \hat{P}_1(z|y) & \hbox{otherwise} 
+\alpha_2(x,y) \hat{P}_1(z|y) & \hbox{otherwise}
 \end{array}
 \right. \\
-\hat{P}_1(z|y) &=& 
+\hat{P}_1(z|y) &=&
 \left\{
 \begin{array}{ll}
 P^*(z|y) & \hbox{if $C(y,z) > 0$} \\
-\alpha_1(y) \hat{P}_0(z)& \hbox{otherwise} 
+\alpha_1(y) \hat{P}_0(z)& \hbox{otherwise}
 \end{array}
 \right. \\
-\hat{P}_0(z) &=&  P^*(z)  
+\hat{P}_0(z) &=&  P^*(z)
 \end{eqnarray*}
 (Note: There are slight changes from the book.  I'm using what
 {\em should} be done, not necessarilly what either Katz or others have
