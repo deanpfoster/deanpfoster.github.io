@@ -10,8 +10,82 @@
 \section*{Admistrivia}
 
 \begin{itemize}
-\item homework due Monday.
+\item Next week Adi will talk on varaible length markov chains, and
+Jordan will talk on HMM's.
+\item I'll be setting up both of their talks this week.
 \end{itemize}
+
+
+\section*{Good prediction means good compression means good models}
+
+Three views:
+\begin{itemize}
+\item Probability: build a good model
+\item Information theory: construct a short code
+\item Statistics: predict
+\end{itemize}
+All three are basically the same.  In particular, if we are using log
+loss. 
+\begin{itemize}
+\item Probability: No loss--just build a good model.  Requires
+statistics to say some models are better than others.
+\item Information theory: loss = code length
+\item Statistics: loss  = $\log(p(observed))$
+\end{itemize}
+
+\section*{Arithmetic coding}
+
+How to convert a probability to a good code.
+
+\begin{itemize}
+\item It is easy to convert a equal probabilty to a code.
+\item Spot ourselfs an extra bit or two.
+\item List the events in order and
+\item . . . 
+\end{itemize}
+
+\section*{Information theory}
+
+\begin{itemize}
+\item Good prediction implies good codes
+\item Primative form: Huffman codes
+\item Fancy form: Arithmetic codes
+\item Idea: random code book
+\begin{itemize}
+\item We have probabilty for each string
+\item Sample a string, call it string 1
+\item Sample another string, call it string 2
+\item ...
+\item (skip repeats if you like)
+\item Tell someone the index of when the true string is sampled
+\item Theorem: about $1/p$, hence about $- \log(p)$ bits.
+\end{itemize}
+\end{itemize}
+
+\section*{Markov chains for good prediction}
+\begin{itemize}
+\item Nice model is a $k$-state Markov chain
+\item Theorem: LZ compression is as well as any $k$-state Markov
+chain.
+\item Variable length Markov chains are nice models
+\item Theorem: LZ compresses as well a variable length Markov chain.
+\end{itemize}
+
+\section*{Good compression implies good prediction}
+
+\begin{itemize}
+\item Kraft identity: $\sum 2^{-\hbox{code length}} \le 1$
+\item So treat $ 2^{-\hbox{code length}}$ as a probability
+\item Allows converting any compression scheme into a probability
+forecasting scheme.
+\item Bob and I realized we could use this idea plus LZ to come up
+ with a universal prediction algorithm.  We started writing up a
+ paper--only to find that it had already won an award for best
+ paper--the year before.  Their only error was the list of authors--we
+ weren't on it.  So, yet another simutanious discovery.
+\end{itemize}
+
+
 
 
 \section*{Backoff}
@@ -117,47 +191,6 @@ zero count item.
 \item Other compression algorithms
 \end{itemize}
 \item Let me describe a few of them
-\end{itemize}
-
-\section*{Good prediction means good compression}
-
-\begin{itemize}
-\item Good prediction implies good codes
-\item Primative form: Huffman codes
-\item Fancy form: Arithmetic codes
-\item Idea: random code book
-\begin{itemize}
-\item We have probabilty for each string
-\item Sample a string, call it string 1
-\item Sample another string, call it string 2
-\item ...
-\item (skip repeats if you like)
-\item Tell someone the index of when the true string is sampled
-\item Theorem: about $1/p$, hence about $- \log(p)$ bits.
-\end{itemize}
-\end{itemize}
-
-\section*{Markov chains for good prediction}
-\begin{itemize}
-\item Nice model is a $k$-state Markov chain
-\item Theorem: LZ compression is as well as any $k$-state Markov
-chain.
-\item Variable length Markov chains are nice models
-\item Theorem: LZ compresses as well a variable length Markov chain.
-\end{itemize}
-
-\section*{Good compression implies good prediction}
-
-\begin{itemize}
-\item Kraft identity: $\sum 2^{-\hbox{code length}} \le 1$
-\item So treat $ 2^{-\hbox{code length}}$ as a probability
-\item Allows converting any compression scheme into a probability
-forecasting scheme.
-\item Bob and I realized we could use this idea plus LZ to come up
- with a universal prediction algorithm.  We started writing up a
- paper--only to find that it had already won an award for best
- paper--the year before.  Their only error was the list of authors--we
- weren't on it.  So, yet another simutanious discovery.
 \end{itemize}
 
 
