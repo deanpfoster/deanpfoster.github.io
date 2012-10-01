@@ -37,11 +37,23 @@ statistics to say some models are better than others.
 
 How to convert a probability to a good code.
 
+\subsection*{Very easy: equally likely}
 \begin{itemize}
 \item It is easy to convert a equal probabilty to a code.
 \item Spot ourselfs an extra bit or two.
-\item List the events in order and
-\item . . . 
+\item List the events in order and just assign bit strings to them
+\end{itemize}
+
+\subsection*{Almost as easy, diadic code books}
+
+\begin{itemize}
+\item Try same trick with unequal probabilities
+\item Now some events have more than one code
+\item Killing off these redundent codes leads to:
+\begin{itemize}
+\item Huffman codes (if you sort by probabilities)
+\item Arithmetic codes (if you don't sort)
+\end{itemize}
 \end{itemize}
 
 \section*{Information theory}
