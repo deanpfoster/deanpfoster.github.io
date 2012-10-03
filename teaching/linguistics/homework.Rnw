@@ -155,13 +155,12 @@ in R, or you can use the formula, $log_2(x) = log(x)/log(2)$.}
  does your total entropy look like?  (Use the total number of words
  times number average entropy per word as an estimate.)
 \item Now we want to make a prediction of the next word based on the
- \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/google}{goole}
+
+ \href{http://gosset.wharton.upenn.edu/~foster/teaching/471/google}{http://gosset.wharton.upenn.edu/~foster/teaching/471/google}
+
 n-gram data set.  I have made up an easier set
  of data to work so you don't have to process those gigabytes of
- compressed data (look
-\href{http://gosset.wharton.upenn.edu/~foster/teaching/471/google/easy_google}{here}
-for
-it.) \footnote{If you want to read this into R you will find the files
+ compressed data\footnote{If you want to read this into R you will find the files
 google/easy\_one and google/easy\_two will read in with less trouble.
 Or you can use Sivan's magic of:\\
 \texttt{
