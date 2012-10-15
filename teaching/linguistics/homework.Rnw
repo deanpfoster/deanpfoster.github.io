@@ -198,8 +198,14 @@ many lifetimes worth of data are in the google n-gram database?
 you can figure out how a new person will pronounce it before you hit
 ``play.''  Try it for 3 new people and tell me if you feel you can get
 them right.
-\item page 334: 9.5.
 \end{itemize}
+
+
+\section*{Homework 4: ...}
+
+
+
+
 
 \section{Final Project (from 2010)}
 
