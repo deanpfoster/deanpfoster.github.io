@@ -1,0 +1,312 @@
+\documentclass[12pt]{article}
+
+
+\title{Corpora used in speech activity detection}
+\author{Neville Ryant}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Overview}
+This data sets contains 10,000 instances from each of 19 speech domains. For each domain, 62 acoustic features were extracted from the signal every 10 ms and for each frame, a speech/nonspeech label assigned based on a human annotation. From the resulting frames, 10,000 were sampled without replacement according to a uniform distribution. 
+
+\section{File Formats}
+The data is provided in two formats:
+    \begin{enumerate}
+        \item {\bf data.txt.gz} \\
+              This is a gzipped plaintext file. After unzipping, the resulting plaintext file can be read into R via
+              \begin{quotation}
+                load.table(`data.txt', header=TRUE, sep=` ');
+              \end{quotation}
+              which will provide a 190,000 row data frame whose first column lists the domain from which the frame was taken, whose second column is a binary variable indicating whether the frame corresponds to a speech segment, and whose remaining columns contain acoustic features.
+
+         \item {\bf data.rda} \\
+               This binary file contains the R dataframe encoded in `data.txt.' To load it into R as the dataframe object `sad.df' execute the following:
+               \begin{quotation}
+                   load(`data.rda');
+               \end{quotation}
+    \end{enumerate}
+
+
+
+\section{Features}
+The following 62 acoustic features are provided:
+\begin{enumerate}
+    \item zcr$\_$wl0.005s \\
+      Zero-crossing rate of signal extracted using a 5 ms analysis window.
+
+    \item zcr$\_$wl0.035s \\
+      Zero-crossing rate of signal extracted using a 35 ms analysis window.
+
+    \item le$\_$0-8000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 0-8000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$0-4000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 0-4000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$4000-8000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 4000-8000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$0-2000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 0-2000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$2000-4000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 2000-4000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$4000-6000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 4000-6000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$6000-8000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 6000-8000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$0-1000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 0-1000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$1000-2000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 1000-2000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$2000-3000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 2000-3000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$3000-4000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 3000-4000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$4000-5000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 4000-5000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$5000-6000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 5000-6000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$6000-7000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 6000-7000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$7000-8000Hz$\_$wl0.005s \\
+      Log-energy of signal in band from 7000-8000 Hz calculated using a 5 ms analysis window.
+
+    \item le$\_$0-8000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 0-8000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$0-4000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 0-4000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$4000-8000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 4000-8000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$0-2000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 0-2000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$2000-4000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 2000-4000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$4000-6000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 4000-6000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$6000-8000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 6000-8000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$0-1000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 0-1000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$1000-2000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 1000-2000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$2000-3000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 2000-3000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$3000-4000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 3000-4000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$4000-5000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 4000-5000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$5000-6000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 5000-6000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$6000-7000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 6000-7000 Hz calculated using a 35 ms analysis window.
+
+    \item le$\_$7000-8000Hz$\_$wl0.035s \\
+      Log-energy of signal in band from 7000-8000 Hz calculated using a 35 ms analysis window.
+
+    \item se$\_$0-8000Hz$\_$wl0.005s \\
+      Shannon entropy of power spectrum of signal in band from 0-8000 Hz (normalized to produce a density) calculated using a 5 ms analysis window. 
+
+    \item se$\_$0-4000Hz$\_$wl0.005s \\
+
+    \item se$\_$4000-8000Hz$\_$wl0.005s \\
+
+    \item se$\_$0-2000Hz$\_$wl0.005s \\
+
+    \item se$\_$2000-4000Hz$\_$wl0.005s \\
+
+    \item se$\_$4000-6000Hz$\_$wl0.005s \\
+
+    \item se$\_$6000-8000Hz$\_$wl0.005s \\
+
+    \item se$\_$0-1000Hz$\_$wl0.005s \\
+
+    \item se$\_$1000-2000Hz$\_$wl0.005s \\
+
+    \item se$\_$2000-3000Hz$\_$wl0.005s \\
+
+    \item se$\_$3000-4000Hz$\_$wl0.005s \\
+
+    \item se$\_$4000-5000Hz$\_$wl0.005s \\
+
+    \item se$\_$5000-6000Hz$\_$wl0.005s \\
+
+    \item se$\_$6000-7000Hz$\_$wl0.005s \\
+
+    \item se$\_$7000-8000Hz$\_$wl0.005s \\
+
+    \item se$\_$0-8000Hz$\_$wl0.035s \\
+
+    \item se$\_$0-4000Hz$\_$wl0.035s \\
+
+    \item se$\_$4000-8000Hz$\_$wl0.035s \\
+
+    \item se$\_$0-2000Hz$\_$wl0.035s \\
+
+    \item se$\_$2000-4000Hz$\_$wl0.035s \\
+
+    \item se$\_$4000-6000Hz$\_$wl0.035s \\
+
+    \item se$\_$6000-8000Hz$\_$wl0.035s \\
+
+    \item se$\_$0-1000Hz$\_$wl0.035s \\
+
+    \item se$\_$1000-2000Hz$\_$wl0.035s \\
+
+    \item se$\_$2000-3000Hz$\_$wl0.035s \\
+
+    \item se$\_$3000-4000Hz$\_$wl0.035s \\
+
+    \item se$\_$4000-5000Hz$\_$wl0.035s \\
+
+    \item se$\_$5000-6000Hz$\_$wl0.035s \\
+
+    \item se$\_$6000-7000Hz$\_$wl0.035s \\
+
+    \item se$\_$7000-8000Hz$\_$wl0.035s \\
+\end{enumerate}
+
+
+\section{Domains selected}
+\begin{enumerate}
+  \item Buckeye corpus
+  \item SCOTUS 2001 term
+  \item TIMIT
+  \item FFMTIMIT
+  \item NTIMIT
+  \item STCTIMIT
+  \item CTIMIT
+  \item WTIMIT
+  \item AMI recordings from NIST RT-05S
+  \item CMU recordings from NIST RT-05S
+  \item ICSI recordings from NIST RT-05S
+  \item NIST recordings from NIST RT-05S
+  \item VT recordings from NIST RT-05S
+  \item Quiet recordings from SPINE1
+  \item Office recordings from SPINE1
+  \item Aircras Carrier CIC recordings from SPINE1
+  \item HUMVEE recordings from SPINE1
+  \item AWACS recordings from SPINE1
+  \item MCE recordings from SPINE 1
+\end{enumerate}
+
+
+\section{Corpora used}
+\begin{enumerate}
+  \item {\bf BUCKEYE} \\
+    \begin{itemize}
+        \item Duration: $\approx$27 hours
+        \item Freq range: 0-8000 Hz
+        \item Summary: \\
+          Buckeye is a corpus of conversational speech collected from 40 native English speakers resident in Columbus, OH. All recordings were conducted using the same head-mounted microphone in a quiet room.
+    \end{itemize}
+
+  \item {\bf SCOTUS 2001 term} \\
+    \begin{itemize}
+        \item Duration: $\approx$74.5 hours
+        \item Freq range: 0-8000 Hz
+        \item Summary: \\
+          These represent the entirety of the recorded output of the 2001 term of the Supreme Court of the United States, segmented into individual speaker turns. 
+    \end{itemize}
+
+
+  \item {\bf TIMIT} \\
+    \begin{itemize}
+        \item Duration: $\approx$5.5 hours
+        \item Freq range: 0-8000 Hz
+        \item Summary:\\
+          TIMIT is a corpus of read speech recorded at TI. Each of 630 native speakers representing 8 major dialects of American English each read 10 sentences. All recording was conducted in sound-treated booth using a close-talking noise-cancelling head-mounted microphone\footnote{Although every attempt was made to keep equipment and recording conditions constant across sessions, I do recall it being mentioned that the location of the recording studio was moved to a different building partway through collection.}.
+    \end{itemize}
+
+  \item {\bf FFMTIMIT} \\
+    \begin{itemize}
+        \item Duration: $\approx$5.5 hours
+        \item Freq range: 0-8000 Hz
+        \item Summary:\\
+          FFMTIMIT contains recordings from the secondary microphone employed during TIMIT data collection. Unlike the primary microphone, the secondary microphone was not head-mounted, but a Breul and Kjaer 0.5'' free-field microphone. Consequently, these recordings contain low-frequency noise not present in TIMIT (primarily from the HVAC system and mechanical vibration trasmitted through the floor of the sounnd booth).
+    \end{itemize}
+
+  \item {\bf NTIMIT} \\
+    \begin{itemize}
+        \item Duration: $\approx$5.5 hours
+        \item Freq range: 0-4000 Hz
+        \item Summary: \\
+          NTIMIT was derived from TIMIT by transmitting the entirety of the corpus through a telephone handset over various channels in the NYNEX network. 
+    \end{itemize}
+
+  \item {\bf STCIMIT} \\
+    \begin{itemize}
+        \item Duration: $\approx$5.5 hours
+        \item Freq range: 0-4000 Hz
+        \item Summary: \\
+          Like NTIMIT, STCTIMIT was derived from TIMIT by retransmission across the telephone network. Unlike NTIMIT, STCTIMIT was procued by passing the entire TIMIT corpus across a single channel in a single call with the result that a single type of channel distortion and noise is present across all files.
+    \end{itemize}
+
+  \item {\bf CTIMIT} \\
+    \begin{itemize}
+        \item Duration: $\approx$3 hours
+        \item Freq range: 0-4000 Hz
+        \item Summary: \\
+          CTIMIT was derived from TIMIT by transmitting 3367 (out of 6300) utterances over cellular telephone channels. Transmission occured in a specially equipped van during a variety of driving conditions across New Hampshire and Massacusetts.
+    \end{itemize}
+
+  \item {\bf WTIMIT} \\
+    \begin{itemize}
+        \item Duration: $\approx$5.5 hours
+        \item Freq range: 0-8000 Hz
+        \item Summary:\\
+          WTIMIT was derived from TIMIT by retransmitting the entire corpus over a 3G AMR-WB network. Consequently, while both CTIMIT and WTIMIT are mobile telephony derivatives, WTIMIT contains wideband speech.
+    \end{itemize}
+
+  \item {\bf 2005 Spring NIST Rich Transcription Eval (RT-05S} \\
+    \begin{itemize}
+        \item Duration: $\approx$29 hours
+        \item Freq range: 0-8000 Hz
+        \item Summary: \\
+          The 2005 Spring NIST Rich Transcription Conference Meeting Evaluation Set consists of portions of meeting speech collected between 2001 and 2005 at 5 sites. From each of five sites, two 12-minute meeting portions were included. Each meeting was recorded from a variety of mikes included head-mounted mikes on each participant, lapel mike, and a variety of farifield microphones and microphone arrays.
+    \end{itemize}
+
+  \item {\bf SPINE1} \\
+    \begin{itemize}
+        \item Duration: $\approx$40.5 hours
+        \item Freq range: 0-8000 Hz
+        \item Summary: \\
+          The Speech in Noisy Environments (SPINE) corpus consists of recordings of military personnel working on a collaborative, Battleship-like task in which they seek and attempt to sink targets. Participants were seated separately in sound-proofed chambers in which previously recorded military environments were reproduced. The resulting corpus represents a variety of handset, vocoder, and transmission channel combinations and 6 noise conditions:
+          \begin{itemize}
+            \item quiet
+            \item office
+            \item aircras carrier CIC
+            \item humvee
+            \item ESA AWACS
+            \item MCE
+          \end{itemize}
+    \end{itemize}
+
+
+\end{enumerate}
+\end{document}
