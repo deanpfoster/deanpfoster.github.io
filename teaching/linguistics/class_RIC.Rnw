@@ -1,0 +1,260 @@
+\documentclass[12pt]{extarticle} % 14, 17, 20 all exist
+\usepackage{hyperref}
+
+\usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
+\newcommand{\tech}[1]{\noindent{\textcolor{red}{\{{\bf technical note:} \em #1\}}}}
+\usepackage{xypic}
+
+\renewcommand{\baselinestretch}{1.4}
+\begin{document}
+\title{RIC: Risk Inflation Criterion}
+\maketitle
+\href{class_RIC.pdf}{pdf version}
+\section{Admistrivia}
+
+\section{Goal}
+Goal, find a good fit/forecast:
+\begin{displaymath}
+\min E(Y_{\hbox{future}} - \hat{Y}_{\hbox{future}})^2
+\end{displaymath}
+The empirical trick, estimate an expectation by an average, so here is an
+``achievable goal:''
+\begin{displaymath}
+\min (1/n)\sum_{i=1}^n(Y_i - \hat{Y}_i)^2
+\end{displaymath}
+Now use the sum of squares trick, (Called Pythagorean theorem to those
+of a historical perspective) and we have as our goal
+\begin{displaymath}
+\min \sum_j t^2_{X_j} + SSE
+\end{displaymath}
+where each $X_j$ is a possible explanatory variable.  \tech{These are
+sequential $t$'s not marginal $t$'s.}
+\subsection*{But what to actually do?}
+This is useful for estimating our error--but it doesn't help us pick a
+model.  So we now need the variable selection trick:
+\begin{displaymath}
+\hbox{estimate $\beta_i$ by} = \left\{ 
+\begin{array}{l@{\quad}l}
+0 & \hbox{some times}\\
+\hat\beta_i & \hbox{other times}
+\end{array}
+\right.
+\end{displaymath}
+But when to do each?
+
+\newpage
+\subsection*{Variable selection}
+Heuristic: If $t_{X_i}$ is large, then estimate $\beta_{X_i}$
+otherwise set it equal to zero.  (Tukey called this a testimator.):
+
+\raisebox{-2em}{$\hbox{estimate $\beta_i$ by} = \left\{ \begin{array}{c} \quad \\ \quad\end{array}\right.$}
+\xymatrix{ 0 & |t_{X_i}| < &c &\\
+\hat\beta_i & |t_{X_i}| \ge &c &\\
+&&&*+[F-,]{\hbox{$c$ is the cutoff}}\ar[ul]\ar[uul]}
+
+(Fun with latex.  I just installed the arrow package, so it isn't
+completely under my control yet.)
+
+How do tell the two estimators apart (a notation issue):
+\begin{displaymath}
+\hat\beta_i = \left\{ 
+\begin{array}{l@{\quad}l}
+0 & |t_{X_i}| < c\\
+\hat\beta_i^{\hbox{mle}} &  |t_{X_i}| \ge c
+\end{array}
+\right.
+\end{displaymath}
+for the classical estimator $\hat\beta_i^{\hbox{mle}}$ or
+ $\hat\beta_i^{\hbox{least squares}}$, or even
+ $\hat\beta_i^{\hbox{JMP${}^{\texttrademark}$}}$ would all work, but the ``maximum
+ likelihood estimator'' name sounds the coolest and so is most often
+ used.
+
+\subsection*{Possible values of cut off}
+Complete table of possible values of the cutoff:
+
+\centerline{\begin{tabular}{r|ll}
+\bf{cut off} & \bf{Name} & \\ \cline{1-2}\cline{1-2}
+c = 0 &  MLE & \note{i.e. overall least squares} \\ \cline{1-2}
+c = 1 &  $\min s^2$ & \note{or Maximized adusted R-squared} \\ \cline{1-2}
+c = 2 &  AIC & \note{default in R}\\ \cline{1-2}
+c = 2 &  CP  &\\ \cline{1-2}
+c = $\log n$ & BIC &\note{where $n$ is the number of samples} \\ \cline{1-2}
+c = $2 \log p$& RIC &\note{where $p$ is the number of variables
+tried} \\ \cline{1-2}
+c = $2 \log (p/q)$ & FDR & \note{where $q$ is the correct number of variables}\\ \cline{1-2}
+c = $\infty$ & ``null'' \\ 
+\end{tabular}}
+
+
+\section{So which to use?}
+
+\subsection*{Permutation idea}
+
+You have $Y$, $X_1$, $X_2$, $\ldots$, $X_p$ in your JMP table.  You
+don't want to include any $X$'s which are noise.  So add a bunch of
+``noise'' X's to your jmp table by permuting the existing $X$'s.  So,
+
+\xymatrix{
+\bf Y, & \hbox{X1, X2, X3, \ldots Xp,} & \hbox{newX1, newX2, newX3, \ldots, newXp}\\
+14, &*+[F]{\quad\quad\quad\quad\quad}\ar[ddddr] & *+[F]{\quad\quad\quad\quad\quad}\\
+10, &*+[F]{\quad\quad\quad\quad\quad}\ar[r] & *+[F]{\quad\quad\quad\quad\quad}\\
+\vdots &  \vdots & \vdots \\
+12, &*+[F]{\quad\quad\quad\quad\quad}\ar[uuur] & *+[F]{\quad\quad\quad\quad\quad}\\
+32, &*+[F]{\quad\quad\quad\quad\quad}\ar[uur] & *+[F]{\quad\quad\quad\quad\quad}\\
+}
+Now regress $Y$ on all the $X$'s, new and old.  If you get a new $X$,
+you know it has no connection to $Y$, so it is noise.  So if you don't
+want any extranious variables, stop as soon as you get a noisy $X$.
+\begin{itemize}
+\item RIC = stop on first noisy variable
+\item MDR = stop when more than .05 of the variables are noisy.
+\end{itemize}
+
+\subsection*{Theoretical idea}
+Back to our original goal, minimize risk:
+\begin{displaymath}
+Risk \equiv \min E(Y_{\hbox{future}} - \hat{Y}_{\hbox{future}})^2
+\end{displaymath}
+Can we prove which of these estimators makes this error the smallest? No.
+\begin{itemize}
+\item Under the null model, using $c=\infty$ is best.
+\item Under a ``rich'' model, using $c=0$ is best.
+\item Under models somewhere in between using $c$ somewhere in between
+is best.
+\item Cross validation might be a good trick here.
+\item \tech{Empirical bayes is an aproach which tries to guess this
+value of $c$ to use, but it still can't prove it is right.}
+\end{itemize}
+
+\section{Stepwise regression reminders}
+\subsection{Overfitting}
+\begin{itemize}
+\item In sample always gets better the longer you run stepwise regression
+\item But out-of-sample might not
+\item Classic ``over fitting curve.''
+\end{itemize}
+\subsection{Where is the minimum?}
+\begin{itemize}
+\item Three stylized models:
+\begin{itemize}
+\item Null is basically right.  (Best is few variables)
+\item All variables are useful. (Best is LS)
+\item All other settings
+\end{itemize}
+\item Which domain are we in? We don't know!
+\end{itemize}
+
+\subsection{Wasting 1/2 your data}
+\begin{itemize}
+\item We could generate these out of sample plots by wasting 1/2 of
+our data.
+\item Called cross validation
+\item The problem is that this is inefficient, and will miss patterns
+that should be found
+\item Goal: do what cross validation does, without paying for it
+\end{itemize}
+
+\subsection*{Risk inflation idea}
+
+Idea: Don't mess up the easy problem.
+\begin{itemize}
+\item If someone can get a real small risk, a good estimator should do
+well also
+\item For hard problems, no one will fault you if you screw up
+\item Easy problems are ones with few parameters, hence they are
+simple, useful and imporant models to understand carefully
+\item Hard problems have lots of parameters, so we don't think about
+them extensively
+\end{itemize}
+Idea: Ockham's razor:
+\begin{itemize}
+\item Do well on small models
+\item Only use big models when forced to
+\end{itemize}
+Both recommend having low error for easy problems.  So let's make the
+``risk'' on easy problem have higher importance. I.e. inflate it and
+make it larger.
+
+\subsection{Risk inflation definition}
+
+The risk inflation of an estimator is its risk compared to the best
+regression model.
+
+Story version: Supposed 20 years later, science knows which variables
+should have been used when you solved your regression problem.
+Looking back on it, you say, ``Gee I wish I'd only used, $X17$ and
+$X23$, that would have been really smart.''  If you had done that,
+your error would have been 50, but instead you used a AIC estimator,
+so your error was 400.  This gives you a risk inflation of 8.
+
+Definition:
+\begin{displaymath}
+RI \equiv \frac{\hbox{Risk}}{\hbox{best Risk}}
+\end{displaymath}
+More symbols, which estimator are we talking about?  ($\hat{\beta}$) Which data set?  ($\beta$)
+\begin{displaymath}
+RI(\hat{\beta},\beta) \equiv \frac{\hbox{Risk}(\hat{\beta},\beta)}{\hbox{best Risk}}
+\end{displaymath}
+What does best mean?
+\begin{displaymath}
+RI(\hat{\beta},\beta) \equiv
+\frac{\hbox{Risk}(\hat{\beta},\beta)}{\displaystyle\min_{\hbox{\scriptsize all $2^p$ models}} \hbox{Risk}(\hat{\beta}^{mle},\beta)}
+\end{displaymath}
+
+\note{We can actually precompute the best:
+\begin{displaymath}
+RI(\hat{\beta},\beta) \equiv \frac{\hbox{Risk}(\hat{\beta},\beta)}{q(\beta)\sigma^2)}
+\end{displaymath}}
+
+
+\centerline{\begin{tabular}{r|l|l}
+\bf{cut off} & \bf{Name} & \bf{Risk Inflation} \\ \hline
+ 0 &  MLE & p \\
+ 1 &  $\min s^2$ & $.8p$ \\
+ 2 &  AIC/Cp & $.57p$ \\
+ $\log n$ & BIC & $\infty$ \\
+ $2 \log p$& RIC & $2 \log p$\\ 
+ $4 \log p$& 2*RIC & $4 \log p$\\ 
+ $6 \log p$& 3*RIC & $6 \log p$\\ 
+ $1 \log p$& .5*RIC & $ \sqrt{p}$\\ 
+ $2 \log (p/q)$ & FDR & best? (open problem) \\
+ $\infty$ & ``null'' & $\infty$ 
+\end{tabular}}
+
+Clearly the ``$\infty$'''s are bad!
+
+\subsection*{Driving force}
+Two issues need to be balanced:
+\begin{itemize}
+\item Over fitting (putting in to many variables)
+\item missing signal
+\end{itemize}
+
+Hence a trade off:
+\begin{itemize}
+\item As you increase your penality, you start missing signal.  So keep penality small.
+\item As you decrease you penality, you start adding zeros.  So keep penality large.
+\end{itemize}
+
+We can graph each of these seperaly.  (see slides)
+
+
+Take home messages from Risk Inflation:
+\begin{itemize}
+\item Stepwise regression can work well
+\item Use $\sqrt{2 \log p}$ 
+\item In JMP, use Prob-to-enter = $1/p$ is a good approximation
+\item Puts in more variables than Bonferroni ($.05/p$).
+\item Lots and lots of variables are fine
+\end{itemize}
+\section{Too many variables for JMP/R}
+
+What if you have too many variables for JMP to handle?  What if there
+are too many for R to handle?  SAS?  
+
+Now we are talking big data.
+
+
+
+\end{document}
