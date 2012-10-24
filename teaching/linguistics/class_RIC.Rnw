@@ -1,4 +1,4 @@
-\documentclass[12pt]{extarticle} % 14, 17, 20 all exist
+\documentclass[14pt]{extarticle} % 14, 17, 20 all exist
 \usepackage{hyperref}
 
 \usepackage[usenames]{color}\definecolor{mypurple}{rgb}{.6,.0,.5}\newcommand{\note}[1]{\noindent{\textcolor{mypurple}{\{{\bf note:} \em #1\}}}}
@@ -11,27 +11,27 @@
 \maketitle
 \href{class_RIC.pdf}{pdf version}
 \section{Admistrivia}
+\begin{itemize}
+\item Sorry about being slow on grading homework
+\item I've been moving to NYC--so behind on lots of stuff
+\end{itemize}
+\section{Game plan for homework 4}
 
-\section{Goal}
-Goal, find a good fit/forecast:
-\begin{displaymath}
-\min E(Y_{\hbox{future}} - \hat{Y}_{\hbox{future}})^2
-\end{displaymath}
-The empirical trick, estimate an expectation by an average, so here is an
-``achievable goal:''
-\begin{displaymath}
-\min (1/n)\sum_{i=1}^n(Y_i - \hat{Y}_i)^2
-\end{displaymath}
-Now use the sum of squares trick, (Called Pythagorean theorem to those
-of a historical perspective) and we have as our goal
-\begin{displaymath}
-\min \sum_j t^2_{X_j} + SSE
-\end{displaymath}
-where each $X_j$ is a possible explanatory variable.  \tech{These are
-sequential $t$'s not marginal $t$'s.}
-\subsection*{But what to actually do?}
-This is useful for estimating our error--but it doesn't help us pick a
-model.  So we now need the variable selection trick:
+Problem of domain adaption.  Examples:
+\begin{itemize}
+\item train on NYT to test on Washington post
+\item train on microphones, test on telephone
+\item train on men, test on women
+\item train on CS jargon, test on wine jargon
+\end{itemize}
+Commonalities in these problems:
+\begin{itemize}
+\item All high dimension
+\item All high signal
+\item all need diminsion reduction
+\end{itemize}
+
+\subsection*{Variable selection}
 \begin{displaymath}
 \hbox{estimate $\beta_i$ by} = \left\{ 
 \begin{array}{l@{\quad}l}
@@ -40,9 +40,12 @@ model.  So we now need the variable selection trick:
 \end{array}
 \right.
 \end{displaymath}
+\begin{itemize}
+\item most of the time zero is a better answer
+\item Sometimes estimation is better answer
+\end{itemize}
 But when to do each?
 
-\newpage
 \subsection*{Variable selection}
 Heuristic: If $t_{X_i}$ is large, then estimate $\beta_{X_i}$
 otherwise set it equal to zero.  (Tukey called this a testimator.):
@@ -218,7 +221,7 @@ RI(\hat{\beta},\beta) \equiv \frac{\hbox{Risk}(\hat{\beta},\beta)}{q(\beta)\sigm
  $4 \log p$& 2*RIC & $4 \log p$\\ 
  $6 \log p$& 3*RIC & $6 \log p$\\ 
  $1 \log p$& .5*RIC & $ \sqrt{p}$\\ 
- $2 \log (p/q)$ & FDR & best? (open problem) \\
+ $2 \log (p/q)$ & FDR & best! \\
  $\infty$ & ``null'' & $\infty$ 
 \end{tabular}}
 
