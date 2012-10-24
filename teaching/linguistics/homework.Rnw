@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{hyperref}
-\usepackage{enumerate}
+\usepackage{enumitem}
 
 \begin{document}
 \section*{Homework 1: Regular expressions (due Sept 24 at midnight)}
@@ -79,7 +79,7 @@ as single words.  Probably not what we want.  The file starts with a
 blurb about this file not being copywrited--so we should skip the
 first 25 lines or so.
 \item First we will look at the frequency of the words themselves.
-\begin{enumerate}[(i)]
+\begin{enumerate}[label=(\roman*)]
 \item Using the table command get the counts of the various words.
   Now sort them by frequency.  What are the 10 most common words?  Are
  they significantly different than the 10 most common words in the
@@ -105,7 +105,7 @@ Basically you will need to look at a sequence of words:
 \end{quote}
 and fill in the missing word.  You will first do it by hand, and then
 by compression and finally by google.
-\begin{enumerate}[LZ 1:]
+\begin{enumerate}[label=LZ \arabic*:]
 \item First pick a location at random in the text.\footnote{Determine how
  many words there are and then generate a random index from 1 up to
  the last possible word.}  Now print out the previous 20 words or
@@ -201,7 +201,46 @@ them right.
 \end{itemize}
 
 
-\section*{Homework 4: ...}
+\section*{Homework 4: Speaking or not?}
+
+This homework will have you run some big regressions.  Each row of the
+ data table consists of a recording.  It has been processed so you
+ will not have to deal with .wav files and such.  The puzzle is to
+ figure out whether someone is speaking whether it is just background
+ noise.
+
+\paragraph{Introduction to the data:} Start out by reading Neville
+ Ryant's description of the data.  (Note: He generated this dataset
+ for us to play with.  So if you run into him thank him!)  And opening
+ up the data in R:
+\begin{itemize}
+\item Neville's \href{neville/readme.pdf}{readme.pdf} file.
+\item Neville's \href{neville/data.txt.gz}{gzipped text datafile}.
+\item Neville's \href{neville/data.rda}{R binary file}. (smaller and faster)
+\end{itemize}
+As an exploritory data analysis, see how well you can predict whether
+ there is a speaker in the overall data set.  You can use whatever
+ method you like best.  (I'll assume you are using stepwise regression
+ since that is the easist.)  This then is a single model which
+predicts everyone.
+\begin{enumerate}
+\item What is your RMSE for identifying whether someone is speaking?
+\end{enumerate}
+If these 19 domains were all that existed, this one regression might
+be a fine thing to do.  But in fact, we want to predict on new domains
+not on the ones we already have seen.  So run your script you wrote to
+generate the fit on the entire dataset on each of the 19 domains.
+\begin{enumerate}[resume]
+\item Make a histogram/boxplot of the 19 RMSE's.  Which domain is the
+ easiest?  Which is the hardest?  Is RMSE a fair comparison across
+ these domains?  (Consider the base rate of each domain.)  What is the
+average RMSE?  Why is it lower than the RMSE of your original model?
+\end{enumerate}
+
+\paragraph{The key issue:} Now we want to use a model generated for
+one dataset to predict a different dataset.  So
+
+\paragraph{A possible cure:}
 
 
 
