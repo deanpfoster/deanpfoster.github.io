@@ -25,3 +25,5 @@ auto
 *.snm
 *.toc
 Download
+neville/data.rda
+neville/data.txt.gz
