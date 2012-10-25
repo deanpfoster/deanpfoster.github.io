@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{hyperref}
-\usepackage{enumitem}
+% \usepackage{enumitem}
 
 \begin{document}
 \section*{Homework 1: Regular expressions (due Sept 24 at midnight)}
@@ -67,7 +67,7 @@ but that would be ``cheating.''
 \begin{enumerate}
 \item After you download it, you can read it into R with the scan
 command.  Or you can read it directly via the command:
-<<reading>>=
+<<reading,eval=FALSE>>=
 alice <- scan("http://www.gutenberg.org/files/11/11.txt",
               what="character",
               quote="",
@@ -79,7 +79,7 @@ as single words.  Probably not what we want.  The file starts with a
 blurb about this file not being copywrited--so we should skip the
 first 25 lines or so.
 \item First we will look at the frequency of the words themselves.
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate} % [label=(\roman*)]
 \item Using the table command get the counts of the various words.
   Now sort them by frequency.  What are the 10 most common words?  Are
  they significantly different than the 10 most common words in the
@@ -105,7 +105,7 @@ Basically you will need to look at a sequence of words:
 \end{quote}
 and fill in the missing word.  You will first do it by hand, and then
 by compression and finally by google.
-\begin{enumerate}[label=LZ \arabic*:]
+\begin{enumerate} % [label=LZ \arabic*:]
 \item First pick a location at random in the text.\footnote{Determine how
  many words there are and then generate a random index from 1 up to
  the last possible word.}  Now print out the previous 20 words or
@@ -114,18 +114,18 @@ give to each of these words?  Now, look at which word actually occured?
 What probability did you give to this word?
 
 Here are the R commands to do an example.   Choose the index
-<<random>>=
+<<random,eval=FALSE>>=
 index <- round(runif(1)*24384)
 index
 @
 Then look at the the preceeding words are:
-<<words>>=
+<<words,eval=FALSE>>=
 cat(alice[(index-20):(index-11)],
     "\n",
     alice[(index-10):(index-1)])
 @
 Now guess the next word. The correct answer is:
-<<answer>>=
+<<answer,eval=FALSE>>=
 alice[index]
 @
 
@@ -230,7 +230,7 @@ If these 19 domains were all that existed, this one regression might
 be a fine thing to do.  But in fact, we want to predict on new domains
 not on the ones we already have seen.  So run your script you wrote to
 generate the fit on the entire dataset on each of the 19 domains.
-\begin{enumerate}[resume]
+\begin{enumerate} % [resume]
 \item Make a histogram/boxplot of the 19 RMSE's.  Which domain is the
  easiest?  Which is the hardest?  Is RMSE a fair comparison across
  these domains?  (Consider the base rate of each domain.)  What is the
@@ -246,13 +246,25 @@ one dataset to predict a different dataset.  So
 
 
 
-\section{Final Project (from 2010)}
+\section{Final Project}
 
- For 2012, I'm pushing a paper replication.  But, if anyone picks
-doing a final project rather than language log like posts, I'll write
-up some multiple turn in times like the following:
+Here are the deadlines for the paper replication. 
 \begin{itemize}
-\item (Nov 8, 2010) One page description of what you propose to do.
+\item (Nov 12) What paper do you want to replicate?  Give me a link to
+the paper, and a link to data which you plan on replicating the paper
+using. 
+\item (Nov 19) Freshen the references of this paper.  What has been
+ done that is more current?  Write a sentence summary of each paper
+which is more current than those cited in your replication paper.
+\item (Dec 10) If you want me to read a first draft, then turn one in
+on this date.  If you are feeling brave, wait until the 17th.
+\item (Dec 17) Final draft due.
+\end{itemize}
+
+If you are doiing original research, please follow the following
+schedule: 
+\begin{itemize}
+\item (Nov 12, 2010) One page description of what you propose to do.
 \begin{itemize}
 \item Provide a thesis sentence.  This is a single statement of what
 it is you would like to show.  It might be ``I will replicate the analysis in
@@ -261,24 +273,26 @@ connection between abstracts and references of papers taken from NIPS
 2008.''
 \item Provide a paragraph of back ground material.
 \item Provide a paragraph of what you will be doing.
+\item Provide a link as to where you will find data if you will need it.
 \end{itemize}
-\item (Nov 15, 2010) References section.  What papers are related to your project?
+\item (Nov 19) References section.  What papers are related to your project?
 \begin{itemize}
-\item If you are replicating an existing paper, then you should
-freshen the references.  What has been done that is more current?
-\item If you are striking out on your own, you should identify the two
+\item Identify the two
 or three papers that are closest to your work and also give the 10 or
 so other papers that you ran into along the way.
 \item In either case, give a one sentence statement of what you got
-from the paper.  Write this with yourself as the target audience--not
+from each paper.  Write this with yourself as the target audience--not
 me.  So if I find these statements confusing--that is fine.  As long
 as you don't!
 \end{itemize}
-\item (Nov 22) If you are doing data, show some parsed examples
+\item (Nov 26) If you are doing data, show some parsed examples
 of your text that you can read in.
-\item (Nov 29) If you are doing data, give your statistical analysis
-of your data.
-\item (Dec 10) In class presentation and paper due.
+\item (Dec 3) If you are doing data, give your statistical analysis
+of your data.  We should sit down together and go through your data
+analysis.
+\item (Dec 10) If you want me to read a first draft, then turn one in
+on this date.  If you are feeling brave, wait until the 17th.
+\item (Dec 17) Final draft due.
 \end{itemize}
 
 

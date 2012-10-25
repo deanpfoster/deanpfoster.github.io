@@ -23,7 +23,6 @@
 \usepackage{graphicx}
 \usepackage{enumerate}
 \usepackage[scriptsize,bf]{caption}
-\usepackage{wrapfig}
 \usepackage{amsmath,amssymb}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
