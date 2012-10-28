@@ -1,0 +1,37 @@
+\documentclass[14pt]{extarticle}
+
+\begin{document}
+
+
+<<readData>>=
+
+# Faster
+# data <- load("data.rda")
+# slower
+# data <- read.table("data.txt.gz",header=TRUE)
+# I generated a small table by:
+#    zcat data.txt.gz | head -1000 > small.txt;  zcat data.txt.gz | tail -1000 >> small.txt
+DATA <- read.table("small.txt",header=TRUE)
+names(DATA)
+overall <- lm( isSpeech ~ ., data=DATA)
+summary(overall)$r.squared
+guess.speech <- (overall$fitted.values > .5)
+errors <- (1 - guess.speech) * DATA$isSpeech +  guess.speech * (1 -  DATA$isSpeech)
+
+@
+
+Using the overall regression, we have an mis-clasification rate of
+$\Sexpr{mean(errors)}$.  This isn't all that impressive compared to
+the base rate of $\Sexpr{min(mean(1 - DATA$isSpeech),mean(DATA$isSpeech))}$.
+
+Our goal is to do as well as this on out of sample data.  To see how
+bad it can be, let's predict the last set of data using the first 18. 
+
+<<removeLast>>=
+
+
+@
+
+
+
+\end{document}
