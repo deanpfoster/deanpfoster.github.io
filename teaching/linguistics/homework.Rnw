@@ -203,6 +203,9 @@ them right.
 
 \section*{Homework 4: Speaking or not?}
 
+(I'm still writing this--but if you want to get started early--here
+are the basic instructions.  I've also updated the final project.)
+
 This homework will have you run some big regressions.  Each row of the
  data table consists of a recording.  It has been processed so you
  will not have to deal with .wav files and such.  The puzzle is to
