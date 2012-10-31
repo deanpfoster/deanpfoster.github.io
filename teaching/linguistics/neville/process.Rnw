@@ -1,0 +1,167 @@
+\documentclass[14pt]{extarticle}
+
+\SweaveOpts{prefix.string=.figures/dean}
+
+
+\begin{document}
+
+Reading the data:
+<<readData>>=
+
+load("data.rda")
+names(sad.df)[1:10]
+all <- lm(isSpeech ~ . , data = sad.df)
+
+@
+The r-squared is $100 * \Sexpr{round(summary(all)$r.squared,2)}$\%.
+If we express this as a classification error we get
+<<classificationError,echo=FALSE>>=
+
+all.best.guess <- (all$fitted.values > .5)
+all.errors <- (all.best.guess != sad.df$isSpeech)
+
+@
+mean error rate of $\Sexpr{round(mean(all.errors),2)}$.  But this
+belies the differences between groups:
+<<errorsInGroups>>=
+
+summary(lm(all.errors ~ sad.df$domain - 1))$coef[,1]
+
+@
+
+\subsection*{Better fits are available}
+
+If we use a quadradic surface instead we get something way to slow to
+compute.  So lets try something restricted.  We will fit models in
+each domain (and also throw in an interaction with the main energy zcr
+term).  This is still a fairly large regression, it has 1258
+coefficients in it.  So it takes several minutes to run.  It decreases
+the error from 10\% down to 9\%.
+
+<<quadradic,echo=FALSE,eval=FALSE>>=
+
+quad <- lm(isSpeech ~ . + domain * . + zcr_wl0.005s * . , data = sad.df)
+quad.best.guess <- (quad$fitted.values > .5)
+quad.errors <- (quad.best.guess != sad.df$isSpeech)
+
+@
+% The r-squared is $100 * \ Sexpr{round(summary(quad)$r.squared,2)}$\%
+% which has a mean clasification error rate of
+% $\ Sexpr{round(mean(quad.errors),2)}$.  There is still signficant
+%spread since the standard deviation of these means is
+%  $\ Sexpr{round(sd(summary(lm(quad.errors ~ sad.df$domain -
+% 1))$coef[,1]),2)}$.
+
+\section*{Leaving out a domain}
+
+<<leftOutDomains,echo=FALSE>>=
+
+compute.out.of.sample <- function(X)
+{
+    domain.list <- levels(sad.df$domain)
+    errors <- rep(NA,length(domain.list))
+    names(errors) <- domain.list
+    leave.out.fits <- rep(NA,dim(X)[1])
+
+    for(i in domain.list)
+    {
+        i.indexes <- (sad.df$domain == i)
+        Y <- sad.df$isSpeech
+        Y[i.indexes] <- NA
+        leaveout <- lm(Y ~ X)
+        best.guess <- (leaveout$fitted.values[i.indexes] > .5)
+        leave.out.fits[i.indexes] <- best.guess
+        errors[i] <- mean(best.guess != sad.df$isSpeech[i.indexes])
+        cat("\tError for ", i , " was: ",errors[i],".\n",sep="")
+    }
+    return(errors)
+}
+
+errors <- compute.out.of.sample(sad.df[,c(1,3:(dim(sad.df)[2]))])
+
+@
+
+<<outVSin,fig=TRUE,include=FALSE>>=
+
+x <- summary(lm(all.errors ~ sad.df$domain - 1))$coef[,1]
+plot(x,errors,xlab="using all data",ylab="using other
+domains",col=c("red","blue")[1+ (x > errors)],pch=16)
+abline(0,1)
+
+
+@
+
+In the following graph, I have color coded the ones where the true
+forecasts are better in blue, and all the rest in red.  Basically the
+true forecasts are garbage compared to the insample forecasts.
+
+\includegraphics[6in]{.figures/dean-outVSin}
+
+\section*{Finding a robust model}
+
+Let's try to find a robust model which will perform well reguardless
+of which domains it actually is trained on.  To do that, we want to
+find variables which have about the same coefficient reguardless of
+which domains it is used on.  If we use a streaming feature selection
+method (with alpha spending rather than alpha investing) we get a
+really bad answer if we assume IID:
+
+<<StreamingIID>>=
+
+residuals <- sad.df$isSpeech - mean(sad.df$isSpeech)
+variables.to.try <- 3:(dim(sad.df)[2])
+model <- rep(1,length(residuals))
+
+for(i in variables.to.try[1:30])
+    {
+        number.tried <- length(variables.to.try)
+        orthogonal.variable <- lm(sad.df[,i] ~ model)$residuals
+        statistics <- summary(lm(residuals~orthogonal.variable))$coefficients[2,]
+        p.value <- number.tried * statistics[4]
+        if(p.value < .05)
+            {
+                model <- cbind(model, sad.df[,i])
+                residuals <- lm(sad.df$isSpeech ~ model)$residuals
+                cat("added ",names(sad.df)[i]," with a t-stat of ", statistics[2]," and p-value of ", p.value, " = ", number.tried, "*",statistics[4],"\n")
+            }
+    }
+
+
+@
+The model includes $\Sexpr{dim(model)[2]}$ variables out of only $30$
+that were tried.
+
+But if we don't assume IID, then we get far fewer variables:
+<<StreamingTukey>>=
+
+residuals <- sad.df$isSpeech - mean(sad.df$isSpeech)
+variables.to.try <- 3:(dim(sad.df)[2])
+model <- rep(1,length(residuals))
+for(i in variables.to.try)
+    {
+        number.tried <- length(variables.to.try)
+        orthogonal.variable <- lm(sad.df[,i] ~ model)$residuals
+        statistics <- summary(lm(residuals~orthogonal.variable:sad.df$domain-1))$coefficients[,1]
+        results <- t.test(statistics)
+        p.value <- number.tried * results$p.value
+        if(p.value < .5)
+            {
+                model <- cbind(model, sad.df[,i])
+                residuals <- lm(sad.df$isSpeech ~ model)$residuals
+                cat("added ",names(sad.df)[i]," with a t-stat of ", results$statistic," and p-value of ", p.value, "\n",sep="")
+            }
+        else
+            {
+                cat("\t\t\tgiving up on ",names(sad.df)[i]," which only had a t-stat of ", results$statistic,"\n",sep="")
+            }
+    }
+
+
+@
+Which now includes only $\Sexpr{dim(model)[2]-1}$ variables out of all
+of them (namely $\Sexpr{length(names(sad.df))}$).  Let's see how well
+it does on the out-of-sample game.
+
+
+
+\end{document}
