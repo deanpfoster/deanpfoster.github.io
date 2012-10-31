@@ -59,25 +59,28 @@ quad.errors <- (quad.best.guess != sad.df$isSpeech)
 compute.out.of.sample <- function(X)
 {
     domain.list <- levels(sad.df$domain)
+    Y <- sad.df$isSpeech
+    DATA <- data.frame(X)
+    DATA$Y <- Y
     errors <- rep(NA,length(domain.list))
     names(errors) <- domain.list
     leave.out.fits <- rep(NA,dim(X)[1])
-
     for(i in domain.list)
     {
         i.indexes <- (sad.df$domain == i)
-        Y <- sad.df$isSpeech
-        Y[i.indexes] <- NA
-        leaveout <- lm(Y ~ X)
+        DATA$Y <- Y
+        DATA$Y[i.indexes] <- NA
+        leaveout <- lm(Y ~ ., data = DATA)
         best.guess <- (leaveout$fitted.values[i.indexes] > .5)
         leave.out.fits[i.indexes] <- best.guess
-        errors[i] <- mean(best.guess != sad.df$isSpeech[i.indexes])
+        errors[i] <- mean(best.guess != Y[i.indexes])
         cat("\tError for ", i , " was: ",errors[i],".\n",sep="")
     }
     return(errors)
 }
 
-errors <- compute.out.of.sample(sad.df[,c(1,3:(dim(sad.df)[2]))])
+p <- dim(sad.df)[2]
+errors <- compute.out.of.sample(sad.df[,3:p])
 
 @
 
@@ -95,7 +98,7 @@ In the following graph, I have color coded the ones where the true
 forecasts are better in blue, and all the rest in red.  Basically the
 true forecasts are garbage compared to the insample forecasts.
 
-\includegraphics[6in]{.figures/dean-outVSin}
+\includegraphics[width=6in]{.figures/dean-outVSin}
 
 \section*{Finding a robust model}
 
@@ -155,13 +158,42 @@ for(i in variables.to.try)
                 cat("\t\t\tgiving up on ",names(sad.df)[i]," which only had a t-stat of ", results$statistic,"\n",sep="")
             }
     }
-
+dim(model)
 
 @
 Which now includes only $\Sexpr{dim(model)[2]-1}$ variables out of all
 of them (namely $\Sexpr{length(names(sad.df))}$).  Let's see how well
 it does on the out-of-sample game.
 
+If we plot our new model vs the kitchen sink model, it
+doesn't seem to look so good:
+<<accuracyTukey,fig=TRUE,include=FALSE>>=
 
+errors <- compute.out.of.sample(model)
+
+x <- summary(lm(all.errors ~ sad.df$domain - 1))$coef[,1]
+plot(x,errors,xlab="using all data (and all variables)",ylab="using other
+domains (and few variables)",col=c("red","blue")[1+ (x > errors)],pch=16)
+abline(0,1)
+
+
+@
+
+\includegraphics[6in]{.figures/dean-accuracyTukey}
+
+<<domainAdaption,fig=TRUE,include=FALSE>>=
+
+model.lm <- lm(sad.df$isSpeech ~ model)
+model.best.guess <- (model$fitted.values > .5)
+model.errors <- (model.best.guess != sad.df$isSpeech)
+x <- summary(lm(model.errors ~ sad.df$domain - 1))$coef[,1]
+plot(x,errors,xlab="using all data on robust model",ylab="using other
+domains (and few variables)",col=c("red","blue")[1+ (x > errors)],pch=16)
+abline(0,1)
+
+
+@
+
+\includegraphics[6in]{.figures/dean-accuracyTukey}
 
 \end{document}
