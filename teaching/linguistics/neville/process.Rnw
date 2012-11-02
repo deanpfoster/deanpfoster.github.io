@@ -6,14 +6,15 @@
 \begin{document}
 
 Reading the data:
-<<readData>>=
+<<readData,echo=FALSE>>=
 
 load("data.rda")
 names(sad.df)[1:10]
 all <- lm(isSpeech ~ . , data = sad.df)
 
 @
-The r-squared is $100 * \Sexpr{round(summary(all)$r.squared,2)}$\%.
+
+The r-squared on all the variables is is $100 * \Sexpr{round(summary(all)$r.squared,2)}$\%.
 If we express this as a classification error we get
 <<classificationError,echo=FALSE>>=
 
@@ -29,7 +30,7 @@ summary(lm(all.errors ~ sad.df$domain - 1))$coef[,1]
 
 @
 
-\subsection*{Better fits are available}
+\subsection*{Quadratic fits are better}
 
 If we use a quadradic surface instead we get something way to slow to
 compute.  So lets try something restricted.  We will fit models in
@@ -74,7 +75,7 @@ compute.out.of.sample <- function(X)
         best.guess <- (leaveout$fitted.values[i.indexes] > .5)
         leave.out.fits[i.indexes] <- best.guess
         errors[i] <- mean(best.guess != sad.df$isSpeech[i.indexes])
-        cat("\tError for ", i , " was: ",errors[i],".\n",sep="")
+#        cat("\tError for ", i , " was: ",errors[i],".\n",sep="")
     }
     return(errors)
 }
@@ -85,9 +86,10 @@ errors <- compute.out.of.sample(sad.df[,3:p])
 
 @
 
-<<outVSin,fig=TRUE,include=FALSE>>=
+<<outVSin,fig=TRUE,include=FALSE,echo=FALSE>>=
 
 x <- summary(lm(all.errors ~ sad.df$domain - 1))$coef[,1]
+
 plot(x,errors,xlab="using all data",ylab="using other
 domains",col=c("red","blue")[1+ (x > errors)],pch=16)
 abline(0,1)
@@ -175,6 +177,7 @@ model.all.lm <- lm(sad.df$isSpeech ~ model)
 model.all.best.guess <- (model.all.lm$fitted.values > .5)
 model.all.errors <- (model.all.best.guess != sad.df$isSpeech)
 model.all.x <- summary(lm(model.all.errors ~ sad.df$domain - 1))$coef[,1]
+
 plot(model.all.x,model.errors,xlab="using all data on robust model",ylab="using other
 domains (and few variables)",col=c("red","blue")[1+ (model.all.x > model.errors)],pch=16)
 abline(0,1)
