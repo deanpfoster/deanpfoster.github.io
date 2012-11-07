@@ -10,9 +10,8 @@
 \section*{Admistrivia}
 
 \begin{itemize}
-\item HW 2 due Thursday and HW 3 next tuesday?
-\item HW 1 collected today
-\item HW 4 is posted.  Due in 2 weeks.
+\item Implement a streaming algorithm for HM 4.
+\item Please read chapter 13 and 14 for next time
 \end{itemize}
 
 \section*{Why parse?}
@@ -27,12 +26,16 @@ man'' is important.
 \item Hence must parse the entire sentence.
 \end{itemize}
 
-\section*{Naive methods}
+\section*{Top down recursion}
 
-Top down vs bottom up.  Do example.
+Recursive algorithm:
 
 
-\section*{Trick from Fubinichi}
+
+
+
+
+\section*{Speed hack:Trick from Fubinichi}
 
 \begin{displaymath}
 f(n) = f(n-1) + f(n-2)
@@ -86,13 +89,5 @@ possible terms
 \item But most sentence parsing is still $n^3$ with real systems.
 \end{itemize}
 
-\section*{Probabilistic models}
-
-\begin{itemize}
-\item Easy to add probabilities to divisions
-\item Called ``statistical parsing''
-\item Well discuss it Collins' version of it next time
-\item So please read 13 and 14 to prepare for next class
-\end{itemize}
 
 \end{document}
