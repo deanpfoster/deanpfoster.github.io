@@ -26,13 +26,25 @@ man'' is important.
 \item Hence must parse the entire sentence.
 \end{itemize}
 
-\section*{Top down recursion}
+\section*{Top down recursion: scalar case}
 
 Recursive algorithm:
 
+(see hand notes)
 
+\section*{Top down recursion: vector case}
 
+Recursive algorithm:
 
+(see hand notes)
+
+\section*{Interesting probabilities}
+
+\begin{itemize}
+\item Note really interested in "Probably of sentence."
+\item Want probably of parse given sentence
+\item LIke function estimation: estimate the point?  Or estimate the function?
+\end{itemize}
 
 
 \section*{Speed hack:Trick from Fubinichi}
