@@ -89,9 +89,7 @@ while(<HOME>)
 	    };
 	    if(!$done && ($r < .88))
 	    {   # patagonia
-		<iframe
-		    src="http://www.google.com/latitude/apps/badge/api?user=-1137818149277703619&type=iframe&maptype=roadmap"
-		    width="850" height="1400" frameborder="0"></iframe>
+		print '<iframe src="http://www.google.com/latitude/apps/badge/api?user=-1137818149277703619&type=iframe&maptype=roadmap" width="850" height="1400" frameborder="0"></iframe>'
 		$done = 1;
 	    };
 	    if(!$done && ($r < .92))
