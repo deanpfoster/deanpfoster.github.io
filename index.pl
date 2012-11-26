@@ -118,7 +118,7 @@ while(<HOME>)
 		print '<a href="http://www.dailykos.com/story/2008/12/2/102214/940/743/668445"><IMG SRC="SP_from_1825.jpg" Align="left" border=0 alt="SP from 1825"></a>';
 		$done = 1;
 	    };
-	    print $total;
+#	    print $total;
 	}
 	else
 	{ # default
