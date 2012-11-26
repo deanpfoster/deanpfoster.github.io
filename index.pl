@@ -54,19 +54,23 @@ while(<HOME>)
 	{
 	    my $r = rand();
 	    my $done = 0;
-            if($r < .28)
+	    my $total = 0;
+	    $total += .2
+            if(!$done && $r < $total)
 	    {   # lemmon hill
 		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-            if(!$done && ($r < .4))
+	    $total += .1
+            if(!$done && $r < $total)
 	    {   # evolution
 	      print '<a href="http://chrisblattman.com/files/2011/08/piro-evolution.jpg"> <img src="evolution.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
 
 ################################################################################################
-#            if(!$done && ($r < .4))
+#	    $total += .1
+#           if(!$done && $r < $total)
 #	    {   # obama
 #		print '<a href="http://www.intrade.com/aav2/trading/tradingHTML.jsp?selConID=743474">
 #		    <img src="http://data.intrade.com/graphing/closingChart.gif?contractId=743474&intradeChart=true&transBackground=true&transBackground=true" height="225" width="460"
@@ -76,38 +80,45 @@ while(<HOME>)
 #	    }
 ################################################################################################
 
-	    if(!$done && ($r < .6))
+	    $total += .1
+            if(!$done && $r < $total)
 	    {   # kayaking
 		print '<a href="photos/kayaking_NC/"> <img src="dean_ocoee_ender-800.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    if(!$done && ($r < .8))
+	    $total += .1
+            if(!$done && $r < $total)
 	    {   # patagonia
 		print '<a href="photos"> <img src="patagonia.jpg" border=0, Align="left", 
                        height=856, width=568></A>';
 		$done = 1;
 	    };
-	    if(!$done && ($r < .88))
+	    $total += .1
+            if(!$done && $r < $total)
 	    {   # where is Dean?
 		print '<iframe src="http://www.google.com/latitude/apps/badge/api?user=-1137818149277703619&type=iframe&maptype=roadmap" width="850" height="1400" frameborder="0"></iframe>';
 		$done = 1;
 	    };
-	    if(!$done && ($r < .92))
+	    $total += .1
+            if(!$done && $r < $total)
 	    {  # weather
 
 		print '<a href="http://forecast.weather.gov/MapClick.php?w0=t&w2=wc&w3=sfcwind&w4=sky&w5=pop&w6=rh&w8=rain&w9=snow&w10=fzg&w11=sleet&AheadHour=47&Submit=Submit&FcstType=graphical&textField1=39.95250&textField2=-75.16570&site=all"><img src="http://images.intellicast.com/WxImages/RadarLoop/shd_None_anim.gif" border=0 Align="left"> </a>';
 		$done = 1;
 	    };
-	    if(!$done && ($r < .93))
+	    $total += .1
+            if(!$done && $r < $total)
 	    {   # Flush!
 		print '<a href="http://www.patspapers.com/blog/item/what_if_everybody_flushed_at_once_Edmonton_water_gold_medal_hockey_game/"> <img src="flush_game.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    if(!$done)
+	    $total += .1
+            if(!$done && $r < $total)
 	    {      # SP over 200 years
 		print '<a href="http://www.dailykos.com/story/2008/12/2/102214/940/743/668445"><IMG SRC="SP_from_1825.jpg" Align="left" border=0 alt="SP from 1825"></a>';
 		$done = 1;
 	    };
+	    print $total
 	}
 	else
 	{ # default
