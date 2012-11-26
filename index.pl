@@ -112,7 +112,7 @@ while(<HOME>)
 		print '<a href="http://www.patspapers.com/blog/item/what_if_everybody_flushed_at_once_Edmonton_water_gold_medal_hockey_game/"> <img src="flush_game.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    $total += .2;
+	    $total += .02;
             if(!$done && $r < $total)
 	    {      # SP over 200 years
 		print '<a href="http://www.dailykos.com/story/2008/12/2/102214/940/743/668445"><IMG SRC="SP_from_1825.jpg" Align="left" border=0 alt="SP from 1825"></a>';
@@ -120,7 +120,7 @@ while(<HOME>)
 	    };
 	    if($total != 1.0)
 	    {
-		print "Total probability doesn't sum to one: ",$total;
+		print "Total probability doesn't sum to one: ",$total,".";
 	    }
 	}
 	else
