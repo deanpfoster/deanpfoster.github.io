@@ -61,7 +61,7 @@ while(<HOME>)
 		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    $total += .1;
+	    $total += .2;
             if(!$done && $r < $total)
 	    {   # evolution
 	      print '<a href="http://chrisblattman.com/files/2011/08/piro-evolution.jpg"> <img src="evolution.jpg" border=0, Align="left"></A>';
@@ -93,7 +93,7 @@ while(<HOME>)
                        height=856, width=568></A>';
 		$done = 1;
 	    };
-	    $total += .1;
+	    $total += .2;
             if(!$done && $r < $total)
 	    {   # where is Dean?
 		print '<iframe src="http://www.google.com/latitude/apps/badge/api?user=-1137818149277703619&type=iframe&maptype=roadmap" width="850" height="1400" frameborder="0"></iframe>';
