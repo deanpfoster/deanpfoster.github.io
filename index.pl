@@ -61,7 +61,7 @@ while(<HOME>)
 		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    $total += .2;
+	    $total += .1;
             if(!$done && $r < $total)
 	    {   # evolution
 	      print '<a href="http://chrisblattman.com/files/2011/08/piro-evolution.jpg"> <img src="evolution.jpg" border=0, Align="left"></A>';
