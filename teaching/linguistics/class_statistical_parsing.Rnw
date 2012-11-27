@@ -10,8 +10,6 @@
 \section*{Admistrivia}
 
 \begin{itemize}
-\item Chompsky is talking friday (2pm) at the eastern lingustics
-meetings (held locally)
 \item Todays material is from ``Parameter Estimation for Statistical
 Parsing Models: Theory and Practice of Distribution-Free Methods'' by
 Michael Collins. 

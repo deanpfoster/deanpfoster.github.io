@@ -27,12 +27,21 @@ all_R: $(SOURCES:.Rnw=.R)
 	touch $@
 	rm $@
 	cat class_header $^ class_footer | sed "s/section\*/section/" > $@
-	
+
 %.pdf: %.tex
 	pdflatex $^
-	
+
 
 install: all
+	git pull	
+	-git commit -a -m "updating to gosset."
+	git push
+	ssh go "cd public_html;git pull"
+#	scp -p class_*.pdf go:public_html/teaching/471/
+#	scp -p *.tex.html go:public_html/teaching/471/
+	ssh go "cd public_html/teaching/linguistics/;make"
+
+evil:
 	git pull	
 	-git commit -a -m "updating to gosset."
 	git push
