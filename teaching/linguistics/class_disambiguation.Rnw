@@ -9,10 +9,6 @@
 
 \section*{Admistrivia}
 
-\begin{itemize}
-\item collect homework 3
-\end{itemize}
-
 \section*{Bootstrapping from ``truth''}
 
 (Recall Bootstrap was a term before it was taken up by statistics. The
