@@ -1,0 +1,223 @@
+\documentclass[14pt]{extarticle}
+
+\SweaveOpts{prefix.string=.figures/dean}
+
+
+\begin{document}
+
+This is ``going for gold'' version of analysing the SAD data.  So
+no-exploration of the data--just trying to do the right thing.  
+<<readData,echo=FALSE>>=
+
+#load("data.rda")
+sad.df <- read.table("small.txt",header=TRUE)
+names(sad.df)[1:10]
+Y  <- sad.df$isSpeech
+Xs <- sad.df[,3:dim(sad.df)[2]]
+p  <- dim(Xs)[2]
+domains <- sad.df$domain
+@
+
+\section*{Leaving out a domain}
+
+Our general approach will be to fit on all but one of the domains and
+predict that last domain.  So first let's write something that will
+determine our accuracy on this left out domain.  Note, we all systems
+that look at unlabelled out-of-sample data.  I don't think any code
+I'll be writing soon uses this feature--but it seems right headed to
+allow it.
+
+<<leftOutDomains,echo=FALSE>>=
+
+compute_out_of_sample <- function(Y, Xs, domains, fitter)
+{
+    domain.list <- levels(domains)
+    errors <- list()
+    errors$in.sample  <- rep(NA,length(domain.list))
+    errors$out <- rep(NA,length(domain.list))
+    names(errors$in.sample) <- domain.list
+    names(errors$out) <- domain.list
+    leave.out.fits <- rep(NA,dim(Xs)[1])
+    data <- data.frame(Xs)
+
+    for(i in domain.list)
+    {
+        i.indexes <- (domains == i)
+        data$Y <- Y
+        data$Y[i.indexes] <- NA
+        fits <- fitter(data, domains, i)
+        best.guess <- (fits > .5)
+        errors$in.sample[i] <- mean(best.guess[i.indexes] != Y[i.indexes])
+        errors$out[i] <- mean(best.guess[-i.indexes] != Y[-i.indexes])
+    }
+    return(errors)
+}
+
+@
+
+\subsection*{Checking it works}
+
+Let's check that the leave one out actually works as advertised.  Here
+is a trivially fitter method:
+
+<<lmFitter>>=
+
+lm_fitter <- function(data, domains, left.out)
+{
+  model <- lm(Y ~ . , data=data)
+  fitted.values <- model$fitted.values
+  return(fitted.values)
+}
+
+@ 
+
+Checking the code works:
+
+<<lmFitterCheck>>=
+
+  errors <- compute_out_of_sample(Y, Xs, domains, lm_fitter)
+  mean(errors$out)
+
+@ 
+
+And as a plot, we can see the massive over fitting.
+
+<<outVSin,fig=TRUE,include=FALSE,echo=FALSE>>=
+
+plot(errors$in.sample,errors$out,
+     xlab="using all data",ylab="using other domains",
+     col=c("red","blue")[1+ (errors$in.sample > errors$out)],pch=16, log = "xy")
+abline(0,1) # 45 degree line
+
+@
+
+In the following graph, I have color coded the ones where the true
+forecasts are better in blue, and all the rest in red.  Basically the
+true forecasts are garbage compared to the insample forecasts.
+
+\includegraphics[width=6in]{.figures/dean-outVSin}
+
+\section*{Finding a robust model}
+
+Let's try to find a robust model which will perform well reguardless
+of which domains it actually is trained on.  To do that, we want to
+find variables which have about the same coefficient reguardless of
+which domains it is used on.  If we use a streaming feature selection
+method (with alpha spending rather than alpha investing) we get a
+really bad answer if we assume IID:
+
+<<StreamingIID>>=
+
+residuals <- sad.df$isSpeech - mean(sad.df$isSpeech)
+variables.to.try <- 3:(dim(sad.df)[2])
+model <- rep(1,length(residuals))
+
+for(i in variables.to.try[1:30])
+    {
+        number.tried <- length(variables.to.try)
+        orthogonal.variable <- lm(sad.df[,i] ~ model)$residuals
+        statistics <- summary(lm(residuals~orthogonal.variable))$coefficients[2,]
+        p.value <- number.tried * statistics[4]
+        if(p.value < .05)
+            {
+                model <- cbind(model, sad.df[,i])
+                residuals <- lm(sad.df$isSpeech ~ model)$residuals
+                cat("added ",names(sad.df)[i]," with a t-stat of ", statistics[2]," and p-value of ", p.value, " = ", number.tried, "*",statistics[4],"\n")
+            }
+    }
+
+
+@
+The model includes $\Sexpr{dim(model)[2]}$ variables out of only $30$
+that were tried.
+
+But if we don't assume IID, then we get far fewer variables:
+<<StreamingTukey>>=
+
+residuals <- sad.df$isSpeech - mean(sad.df$isSpeech)
+variables.to.try <- 3:(dim(sad.df)[2])
+model <- rep(1,length(residuals))
+for(i in variables.to.try)
+    {
+        number.tried <- length(variables.to.try)
+        orthogonal.variable <- lm(sad.df[,i] ~ model)$residuals
+        statistics <- summary(lm(residuals~orthogonal.variable:sad.df$domain-1))$coefficients[,1]
+        results <- t.test(statistics)
+        p.value <- number.tried * results$p.value
+        if(p.value < .5)
+            {
+                model <- cbind(model, sad.df[,i])
+                residuals <- lm(sad.df$isSpeech ~ model)$residuals
+                cat("added ",names(sad.df)[i]," with a t-stat of ", results$statistic," and p-value of ", p.value, "\n",sep="")
+            }
+        else
+            {
+                cat("\t\t\tgiving up on ",names(sad.df)[i]," which only had a t-stat of ", results$statistic,"\n",sep="")
+            }
+    }
+
+
+@
+Which now includes only $\Sexpr{dim(model)[2]-1}$ variables out of all
+of them (namely $\Sexpr{length(names(sad.df))}$).  Let's see how well
+it does on the out-of-sample game.
+
+Here is the picture that we want to compare to our previous results.
+It isn't spactiuarilly better.  But still it is somewhat better.
+
+<<domainAdaption,fig=TRUE,include=FALSE>>=
+
+model.all.lm <- lm(sad.df$isSpeech ~ model)
+model.all.best.guess <- (model.all.lm$fitted.values > .5)
+model.all.errors <- (model.all.best.guess != sad.df$isSpeech)
+model.all.x <- summary(lm(model.all.errors ~ sad.df$domain - 1))$coef[,1]
+
+plot(model.all.x,model.errors,xlab="using all data on robust model",ylab="using other
+domains (and few variables)",col=c("red","blue")[1+ (model.all.x > model.errors)],pch=16)
+abline(0,1)
+
+
+@
+
+\includegraphics[width=6in]{.figures/dean-domainAdaption}
+
+
+
+\section*{What we care about}
+
+To some extent, all we care about is prediction accuracy.  So here are
+out of sample predictions of our two methods ploted against each other.
+
+<<compare,fig=TRUE,include=FALSE>>=
+
+plot(model.errors,errors,xlab="robust model (out of sample)",ylab="all variables (out of sample)",col=c("red","blue")[1+ (model.errors > errors)],pch=16)
+abline(0,1)
+
+@
+
+\includegraphics[width=6in]{.figures/dean-compare}
+
+
+\newpage
+
+\section*{APPENDIX}
+
+If we plot our new model vs the kitchen sink model, it
+doesn't seem to look so good:
+
+<<accuracyTukey,fig=TRUE,include=FALSE>>=
+
+model.errors <- compute.out.of.sample(model)
+
+plot(x,model.errors,xlab="using all data (and all variables)",ylab="using other
+domains (and few variables)",col=c("red","blue")[1+ (x > model.errors)],pch=16)
+abline(0,1)
+
+@
+
+\includegraphics[width=6in]{.figures/dean-accuracyTukey}
+
+
+
+
+\end{document}
