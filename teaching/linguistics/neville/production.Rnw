@@ -128,7 +128,7 @@ for(i in variables.to.try[1:30])
 
 
 @
-The model includes $\Sexpr{dim(model)[2]}$ variables out of only $30$
+The model includes $ \Sexpr{dim(model)[2]} $ variables out of only $30$
 that were tried.
 
 But if we don't assume IID, then we get far fewer variables:
@@ -158,8 +158,8 @@ for(i in variables.to.try)
 
 
 @
-Which now includes only $\Sexpr{dim(model)[2]-1}$ variables out of all
-of them (namely $\Sexpr{length(names(sad.df))}$).  Let's see how well
+Which now includes only $ \Sexpr{dim(model)[2]-1} $ variables out of all
+of them (namely $ \Sexpr{length(names(sad.df))} $).  Let's see how well
 it does on the out-of-sample game.
 
 Here is the picture that we want to compare to our previous results.
@@ -172,8 +172,8 @@ model.all.best.guess <- (model.all.lm$fitted.values > .5)
 model.all.errors <- (model.all.best.guess != sad.df$isSpeech)
 model.all.x <- summary(lm(model.all.errors ~ sad.df$domain - 1))$coef[,1]
 
-plot(model.all.x,model.errors,xlab="using all data on robust model",ylab="using other
-domains (and few variables)",col=c("red","blue")[1+ (model.all.x > model.errors)],pch=16)
+plot(model.all.x,model.all.x,xlab="using all data on robust model",ylab="using other
+domains (and few variables)",col=c("red","blue")[1+ (model.all.x > model.all.x)],pch=16)
 abline(0,1)
 
 
@@ -181,41 +181,6 @@ abline(0,1)
 
 \includegraphics[width=6in]{.figures/dean-domainAdaption}
 
-
-
-\section*{What we care about}
-
-To some extent, all we care about is prediction accuracy.  So here are
-out of sample predictions of our two methods ploted against each other.
-
-<<compare,fig=TRUE,include=FALSE>>=
-
-plot(model.errors,errors,xlab="robust model (out of sample)",ylab="all variables (out of sample)",col=c("red","blue")[1+ (model.errors > errors)],pch=16)
-abline(0,1)
-
-@
-
-\includegraphics[width=6in]{.figures/dean-compare}
-
-
-\newpage
-
-\section*{APPENDIX}
-
-If we plot our new model vs the kitchen sink model, it
-doesn't seem to look so good:
-
-<<accuracyTukey,fig=TRUE,include=FALSE>>=
-
-model.errors <- compute.out.of.sample(model)
-
-plot(x,model.errors,xlab="using all data (and all variables)",ylab="using other
-domains (and few variables)",col=c("red","blue")[1+ (x > model.errors)],pch=16)
-abline(0,1)
-
-@
-
-\includegraphics[width=6in]{.figures/dean-accuracyTukey}
 
 
 
