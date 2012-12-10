@@ -6,7 +6,7 @@
 \begin{document}
 
 This is ``going for gold'' version of analysing the SAD data.  So
-no-exploration of the data--just trying to do the right thing.  
+no-exploration of the data--just trying to do the right thing.
 <<readData,echo=FALSE>>=
 
 #load("data.rda")
@@ -69,7 +69,7 @@ lm_fitter <- function(data, domains, left.out)
   return(fitted.values)
 }
 
-@ 
+@
 
 Checking the code works:
 
@@ -78,7 +78,7 @@ Checking the code works:
   errors <- compute_out_of_sample(Y, Xs, domains, lm_fitter)
   mean(errors$out)
 
-@ 
+@
 
 And as a plot, we can see the massive over fitting.
 
@@ -102,7 +102,7 @@ true forecasts are garbage compared to the insample forecasts.
 Let's try to find a robust model which will perform well reguardless
 of which domains it actually is trained on.  To do that, we want to
 find variables which have about the same coefficient reguardless of
-which domains it is used on. 
+which domains it is used on.
 
 <<StreamingTukey>>=
 
@@ -126,7 +126,7 @@ while((proc.time()[1] < stop.time) && (location <= length(variables.to.try)))
       next.variable <- variables.to.try[[location]]
       next.name <- names(variables.to.try)[location]
       orthogonal.variable <- lm(next.variable ~ model)$residuals
-      betas <- summary(lm(residuals ~ orthogonal.variable:sad.df$domain-1))$coefficients[,1]
+      betas <- summary(lm(residuals ~ orthogonal.variable:sad.df$domain + 0))$coefficients[,1]
       results <- t.test(betas)
       bid <- wealth / (number.tried + 1)
       wealth <- wealth - bid
@@ -134,10 +134,10 @@ while((proc.time()[1] < stop.time) && (location <= length(variables.to.try)))
       location <- location + 1
       if(results$p.value < bid)
         {
-          model <- cbind(model, i)
+          model <- cbind(model, next.variable)
           residuals <- lm(Y ~ model)$residuals
           cat("added ",next.names," with a t-stat of ", statistics[2]," and p-value of ", p.value, " < ", bid,".\n")
-          wealth = wealth + omega 
+          wealth = wealth + omega
           variables.found <- push(next.variable)
           for(j in variables.found)
             {
@@ -204,7 +204,7 @@ for(i in variables.to.try[1:30])
                 model <- cbind(model, i)
                 residuals <- lm(Y ~ model)$residuals
                 cat("added ",names(i)," with a t-stat of ", round(statistics[2],2)," and p-value of ", signif(p.value,2), " < ", signif(bid,2),".\n")
-                wealth = wealth + omega 
+                wealth = wealth + omega
             }
     }
 
