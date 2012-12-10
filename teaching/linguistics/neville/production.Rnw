@@ -102,58 +102,53 @@ true forecasts are garbage compared to the insample forecasts.
 Let's try to find a robust model which will perform well reguardless
 of which domains it actually is trained on.  To do that, we want to
 find variables which have about the same coefficient reguardless of
-which domains it is used on.  If we use a streaming feature selection
-method (with alpha spending rather than alpha investing) we get a
-really bad answer if we assume IID:
+which domains it is used on. 
 
-<<StreamingIID>>=
-
-residuals <- sad.df$isSpeech - mean(sad.df$isSpeech)
-variables.to.try <- 3:(dim(sad.df)[2])
-model <- rep(1,length(residuals))
-
-for(i in variables.to.try[1:30])
-    {
-        number.tried <- length(variables.to.try)
-        orthogonal.variable <- lm(sad.df[,i] ~ model)$residuals
-        statistics <- summary(lm(residuals~orthogonal.variable))$coefficients[2,]
-        p.value <- number.tried * statistics[4]
-        if(p.value < .05)
-            {
-                model <- cbind(model, sad.df[,i])
-                residuals <- lm(sad.df$isSpeech ~ model)$residuals
-                cat("added ",names(sad.df)[i]," with a t-stat of ", statistics[2]," and p-value of ", p.value, " = ", number.tried, "*",statistics[4],"\n")
-            }
-    }
-
-
-@
-The model includes $ \Sexpr{dim(model)[2]} $ variables out of only $30$
-that were tried.
-
-But if we don't assume IID, then we get far fewer variables:
 <<StreamingTukey>>=
 
-residuals <- sad.df$isSpeech - mean(sad.df$isSpeech)
-variables.to.try <- 3:(dim(sad.df)[2])
+start.time <- proc.time()[1]
+stop.time <- start.time + 10  # should be 10 seconds
+
+residuals <- Y - mean(Y)
+variables.to.try <- list()
+variables.found <- list()
+for(i in 1:length(Xs))
+  {
+    variables.to.try[[length(variables.to.try)+1]] = Xs[,i]
+    names(variables.to.try)[length(variables.to.try)] = colnames(Xs)[i]
+  }
 model <- rep(1,length(residuals))
-for(i in variables.to.try)
+omega <- .5
+wealth <- omega
+location <- 1 # same number tried since we have the constant in already
+while((proc.time()[1] < stop.time) && (location <= length(variables.to.try)))
     {
-        number.tried <- length(variables.to.try)
-        orthogonal.variable <- lm(sad.df[,i] ~ model)$residuals
-        statistics <- summary(lm(residuals~orthogonal.variable:sad.df$domain-1))$coefficients[,1]
-        results <- t.test(statistics)
-        p.value <- number.tried * results$p.value
-        if(p.value < .5)
+      next.variable <- variables.to.try[[location]]
+      next.name <- names(variables.to.try)[location]
+      orthogonal.variable <- lm(next.variable ~ model)$residuals
+      betas <- summary(lm(residuals ~ orthogonal.variable:sad.df$domain-1))$coefficients[,1]
+      results <- t.test(betas)
+      bid <- wealth / (number.tried + 1)
+      wealth <- wealth - bid
+      number.tried <- number.tried + 1
+      location <- location + 1
+      if(results$p.value < bid)
+        {
+          model <- cbind(model, i)
+          residuals <- lm(Y ~ model)$residuals
+          cat("added ",next.names," with a t-stat of ", statistics[2]," and p-value of ", p.value, " < ", bid,".\n")
+          wealth = wealth + omega 
+          variables.found <- push(next.variable)
+          for(j in variables.found)
             {
-                model <- cbind(model, sad.df[,i])
-                residuals <- lm(sad.df$isSpeech ~ model)$residuals
-                cat("added ",names(sad.df)[i]," with a t-stat of ", results$statistic," and p-value of ", p.value, "\n",sep="")
+              variables.to.try[[length(variables.to.try)+1]] <- j * next.variable
+              names(variables.to.try)[length(variables.to.try)] <- paste(names(j)," * ",next.name)
             }
-        else
-            {
-                cat("\t\t\tgiving up on ",names(sad.df)[i]," which only had a t-stat of ", results$statistic,"\n",sep="")
-            }
+        }
+      else
+        {
+          cat("giving up on ",next.name,". t-stat was ", results$statistic, ".\n")
+        }
     }
 
 
@@ -183,6 +178,40 @@ abline(0,1)
 
 
 
+
+\newpage
+\section*{assuming IID}
+The following assumes IID (which is evil and wrong):
+
+<<StreamingIID>>=
+
+residuals <- Y - mean(Y)
+variables.to.try <- Xs
+model <- rep(1,length(residuals))
+omega <- .5
+wealth <- omega
+number.tried <- 1 # for the constant term
+for(i in variables.to.try[1:30])
+    {
+        orthogonal.variable <- lm(i ~ model)$residuals
+        statistics <- summary(lm(residuals ~ orthogonal.variable))$coefficients[2,]
+        p.value <- statistics[4]
+        bid <- wealth / (number.tried + 1)
+        wealth <- wealth - bid
+        number.tried <- number.tried + 1
+        if(p.value < bid)
+            {
+                model <- cbind(model, i)
+                residuals <- lm(Y ~ model)$residuals
+                cat("added ",names(i)," with a t-stat of ", round(statistics[2],2)," and p-value of ", signif(p.value,2), " < ", signif(bid,2),".\n")
+                wealth = wealth + omega 
+            }
+    }
+
+
+@
+The model includes $ \Sexpr{dim(model)[2]} $ variables out of only $30$
+that were tried.
 
 
 \end{document}

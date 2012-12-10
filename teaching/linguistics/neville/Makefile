@@ -6,6 +6,7 @@
 #
 ################################################################################
 
+target: production.pdf
 
 SOURCES = $(wildcard *.Rnw)
 
@@ -27,10 +28,10 @@ all_R: $(SOURCES:.Rnw=.R)
 	touch $@
 	rm $@
 	cat class_header $^ class_footer | sed "s/section\*/section/" > $@
-	
+
 %.pdf: %.tex
 	pdflatex $^
-	
+	/bin/cp $@ Adobe\ Reader/
 
 install: all
 	git pull	
