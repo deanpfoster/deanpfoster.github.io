@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\begin{document}
+How many nearly orthoganal vectors can be cram into a $d$ dimensional
+space? 
+
+We will say that two vectors are nearly orthognal if the angle between
+them is close to $\pi/2$.  In particular, if $|x\top y| \le \epsilon$
+for $|x| = 1$ and $|y| = 1$.  We will use the probabilistic method for
+our proof.
+
+If $d$ is large enough, we can sample from the surface of the sphere
+with radius 1 by taking each direction being an independnent normal
+with mean zero and variance $1/d$.  We can then ask what is the
+probability that two random normals are nearly orthoganal?
+\begin{eqnarray*}
+P(\frac{|X\top Y|}{|X||Y|} > \epsilon) & \approx & P(|X\top Y|>\epsilon)\\
+& = & P(|X\top \delta_1| > \epsilon)\\
+& = & P(|X_1| > \epsilon)\\
+& = & P(|Z| > \sqrt{d}\epsilon)\\
+& \approx & e^{-d\epsilon^2/2}
+\end{eqnarray*}
+If we have a total of $N$ random vectors shoved onto the surface of
+our sphere, then we have a total of $N \choose 2$ angles we all want
+to be close to 90 degrees.  So by the union bound, this will be likely
+to happen if 
+\begin{eqnarray*}
+{N \choose 2} e^{-d\epsilon^2/2} & \approx & 1 \\
+N^2& \approx &  e^{d\epsilon^2/2} \\
+N& \approx &  e^{d\epsilon^2/4} \\
+N& \approx &  (e^{\epsilon^2/4})^d
+\end{eqnarray*}
+So we want to know what value of $\epsilon$ has the property that
+$e^{\epsilon^2/4} = 1.5$ to get the result I have claimed.  Clearly we
+could plug in other values instead of 1.5 and get smaller epsilons.
+Since the log of 1.5 is about .4, we have $\epsilon^2 \approx 1.6$ or
+$\epsilon \approx 1.3$.  Ooops!  THis is a useless bound since we know
+perfect correlation is 1.0. 
+
+So we want to know what value of $\epsilon$ has the property that
+ $e^{\epsilon^2/4} = 1.1$ which will still be exponential, but not as
+ extreme as previously claimed.  Since the log of 1.1 is about .1, we
+ have $\epsilon^2 \approx .4$ or $\epsilon \approx .6$.
+
+
+\end{document}
