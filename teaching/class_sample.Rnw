@@ -1,5 +1,6 @@
 \documentclass[14pt]{extarticle}
 \usepackage{simplemargins}
+\renewcommand{\baselinestretch}{1.3}
 \setbottommargin{.75in}
 \settopmargin{.5in}
 
@@ -26,7 +27,7 @@
 
 \begin{document}
 \SweaveOpts{prefix.string=.figures/capm}
-\title{Class: Introduction to Time series}
+\title{Class: }
 \author{Dean Foster}
 \maketitle
 
