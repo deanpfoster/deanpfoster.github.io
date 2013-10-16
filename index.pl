@@ -58,7 +58,7 @@ while(<HOME>)
 	    $total += .2;
             if(!$done && $r < $total)
 	    {   # lemmon hill
-		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
+		print '<a href="photos/dean/"> <img src="lemmon_hill.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
 	    $total += .1;
