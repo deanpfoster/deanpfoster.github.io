@@ -34,7 +34,7 @@
 \section*{Administrivia}
 
 \begin{itemize}
-\item Homework 
+\item Homework
 \item Read sections
 \end{itemize}
 
