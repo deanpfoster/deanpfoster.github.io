@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+
 use LWP::Simple;
 use CGI qw/:standard/;
 use strict;
@@ -58,7 +59,7 @@ while(<HOME>)
 	    $total += .2;
             if(!$done && $r < $total)
 	    {   # lemmon hill
-		print '<a href="photos/lemmon_hill"> <img src="photos/lemmon_hill/lemmon_hill_suffering_1.jpg" border=0, Align="left"></A>';
+		print '<a href="photos/dean/"> <img src="lemmon_hill.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
 	    $total += .1;
@@ -80,25 +81,25 @@ while(<HOME>)
 #	    }
 ################################################################################################
 
-	    $total += .2;
+	    $total += .3;
             if(!$done && $r < $total)
 	    {   # kayaking
 		print '<a href="photos/kayaking_NC/"> <img src="dean_ocoee_ender-800.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
-	    $total += .2;
+	    $total += .3;
             if(!$done && $r < $total)
 	    {   # patagonia
 		print '<a href="photos"> <img src="patagonia.jpg" border=0, Align="left", 
                        height=856, width=568></A>';
 		$done = 1;
 	    };
-	    $total += .2;
-            if(!$done && $r < $total)
-	    {   # where is Dean?
-		print '<iframe src="http://www.google.com/latitude/apps/badge/api?user=-1137818149277703619&type=iframe&maptype=roadmap" width="850" height="1400" frameborder="0"></iframe>';
-		$done = 1;
-	    };
+#	    $total += .2;
+#            if(!$done && $r < $total)
+#	    {   # where is Dean?
+##		print '<iframe src="http://www.google.com/latitude/apps/badge/api?user=-1137818149277703619&type=iframe&maptype=roadmap" width="850" height="1400" frameborder="0"></iframe>';
+#		$done = 1;
+#	    };
 	    $total += .05;
             if(!$done && $r < $total)
 	    {  # weather
@@ -118,7 +119,7 @@ while(<HOME>)
 		print '<a href="http://www.dailykos.com/story/2008/12/2/102214/940/743/668445"><IMG SRC="SP_from_1825.jpg" Align="left" border=0 alt="SP from 1825"></a>';
 		$done = 1;
 	    };
-	    if($total != 1.0)
+           if(($total < .9999) || ($total > 1.0001))
 	    {
 		print "Total probability doesn't sum to one: ",$total,".";
 	    }
