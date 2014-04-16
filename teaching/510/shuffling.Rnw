@@ -136,101 +136,127 @@ the size of the deck
 \item Same as other two methods
 \end{itemize}
 
-\section*{Longest rising sequence?}
 
-In a random deck, what is the longest rising sequences typically?
-(Really hard problem: But via computer we could find it by
-simulation.  Turns out to be about $\sqrt{n}$) for a reqular rising
-sequence.  But for a rising sequential sequence--about $\log(n)$ I
-think. 
-
-After one shuffle, it is bigger than n/2.  So not random!
+\section
 
 
 \section*{Second day continue with the following}
 
-\section*{Discuss betting}
+\section*{Discuss betting: fair game}
 
-motivate L-1 distance
-
-mention other distances
-
-\section*{What does the variational distance look like?}
-
+How far is a shuffled deck from fair:
 \begin{displaymath}
-||f_X - u|| \equiv \frac12 \sum_{\omega \in \Omega} |f_X(\omega) - u(\omega)|
+d(P,Q) = sup_{A: Q(A) = .5} 2 (P(A) - .5)
 \end{displaymath}
-for two discrete measures $f$ and $u$.  (Note: can be extended by
-previous defintion to all measures.)
+We can also write this as:
+\begin{displaymath}
+d(P,Q) = sup_{A: Q(A) = .5} |P(A) - Q(A)|  + |P(A^c) - Q(A^c)|
+\end{displaymath}
+How do we find the set $A$?  For discrete densities we have:
+\begin{displaymath}
+||f - g|| \equiv \frac12 \sum_{\omega \in \Omega} |f(\omega) - g(\omega)|
+\end{displaymath}
+We can do an integral version:
+\begin{displaymath}
+||f - g|| \equiv \frac12 \int |f(x) - g(x)| dx
+\end{displaymath}
+Or a probability version:
+\begin{displaymath}
+||P - Q|| \equiv \sup_{A \in \cal F} |P(A) - Q(A)| + |P(A^c) - Q(A^c)|
+\end{displaymath}
+A bit of probability says this is:
+\begin{displaymath}
+||P - Q|| \equiv \sup_{A \in \cal F} 2|P(A) - Q(A)|
+\end{displaymath}
 
-For card shuffling: distance $\approx 52/2^n$ for $n$ shuffles
+\section*{Rising sequence set}
+
+\begin{itemize}
+\item We can bound $||P - Q||$ if we can exhibit a set $A$ which has
+very different probabilites
+\item Let $A$ be the Rising wins before falling
+\begin{itemize}
+\item First player is looking for the sequence 1,2,3,..
+\item Second player is looking for 52,51,50,...
+\item Perfect shuffle, each is equally likely
+\item For 7 riffle shuffles, rising guy wins 80\% of the time.
+\item So $||P_7 - P_\infty|| > .6$
+\end{itemize}
+\end{itemize}
+
+
+\section*{Rate of convergence}
+
+For a ``nice'' Markov chain (i.e. finite number of states, one
+communication class, a periodic):
+\begin{displaymath}
+||P_n - P_\infty|| \le a e^{-bn}
+\end{displaymath}
+Proof: This definition plays well with the coupling argument.  Let $T$
+ be the time when a chain in equilibrium couples with our Markov
+ chain.  If $c_t = P(T > t)$ then 
+\begin{displaymath}
+||P_n - P_\infty|| \le c_t
+\end{displaymath}
+Since there is a small probability $\epsilon$ that lower bounds the
+chance of two processes starting to couple at any time, we see that
+$c_t \le (1 - \epsilon)^t$.
+
+\section*{Old fashioned card sorter}
+\begin{itemize}
+\item I've programmed with punch cards!
+\item What happens if you drop your deck of punched cards?  Yikes!
+\item You want a card sorter then.  (And hopeuflly you had them numbered)
+\item How do you build a physical device to sort punched cards?
+\item Input flows into one of two output bins
+\item Actually very fast!  To sort a million cards would only take 10
+passes through the card sorter.
+\end{itemize}
 
 \section*{discuss labeling cards as you shuffle}
-and how this allows unshuffling
-
-\section*{More than one way to unshuffle}
-
-you can use these labels to unshuffle a multihand shuffle
-
-\section*{52 card pickup shuffle}
-
-If you did a 64-shuffle and they all happened to be in different
-piles, you have 52 card pick up.  It is now random.
-
-
-\section*{multi-armed shuffling}
-
-Three piles.  shuffle together.  Easier with more hands.  
-
-Theorem: An $\alpha$-shuffle followed by a $\beta$-shuffle is the same
-as an $\alpha\beta$-shuffle.
-
-Proof by example and pictures:  2-shuffle deck but don't push it
-together.  Cut it.  2-shuffle the other side.  Now there are 4 piles
-that are sorted.  Bottom card is random from each of the 4 piles.
-Etc. 
-
-
-\section*{First coupling idea}
-
-Follow cut stage.  Let $T$ be the first time that every card is in a
-pile by itself.  After that it is random.  How big is $T$?  
 \begin{itemize}
-\item Clearly $T > 5$ always
-\item For $T > 7$, average size of pile is $52/2^T$.  Most are empty.
-About 50 have one card, and one pile might have two cards.  P(card in
-pile) $\approx 52/2^T$.  Probability of two cards is about $\approx
-51/2^T$.  But we have about $2^T$ piles to check.  So the probability
-of any one of them is about $2^T * (52/2^T) * (51/2^T) \approx 52*51/2^T$.
-\item Not useful.  Need someone sitting next to you and shouting:
-``Stop!''
-\item So need new method to describe how close we are
+\item Label cards as you shulffle them: top or bottom
+\item A card then is given a sequence: ttbttbtbbtbt...
+\item This gives the shuffling history
+\item It allows unshuffling
+\item If two cards have the same label, then we know the one with a
+smaller number is on top of the other card
+\item If two cards have different labels, either order of the two
+cards is equally likely
+\item Define $T$ to be the first time all cards are given unique
+labels 
 \end{itemize}
 
+\section*{After time $T$}
 
-
-
-\section*{Identify the new deck}
-
-Tell commandant, you can identify the sprite of groups.  You can solve the
-following problem:
 \begin{itemize}
-\item He plays poker with one deck of cards
-\item He opens a new deck and shuffles it
-\end{itemize}
-You will tell which deck played with by poker and which only had the
-carma of him on it.  How do you do it?
-\begin{itemize}
-\item He gives you decks
-\item You play ``find the rising sequences'' solitare game (called new
-age solitare in the book)
-\item It wins with the new deck (most of the time) and ties with the
-poker deck.  
+\item The labels are all equally likely
+\item So if someone told us the list of labels that occur at time $T$
+we would conditionally generate a completely random deck
 \end{itemize}
 
-\section*{so about that commandant?}
+\section*{What has to happen for $T$ to occur?}
+\begin{itemize}
+\item At time $t$ there are a total of $2^t$ possible labels (aka
+birthday).
+\item We want all 52 cards to have a unique label (aka unique
+birthay).
+\item Probability is about $52^2/2^t$ that there is a collision.
+\item So this is an upper bound on the L-1 distance between the two
+distributions. 
+\end{itemize}
 
-You are looking for the rising sequence hearts and clubs.  If he
-shuffled 7 or fewer times, it will show up in the new deck before the
-falling sequence.
+\section*{Lots of beautiful theory I'm skipping}
+
+\begin{itemize}
+\item The section I asked you to read has an exact calculation of the
+L-1 distance
+\item It introduces several cool ideas in combinotorics
+\item It also introduces the multi-arm shuffle
+\item You should be able to read and enjoy it now based on this
+introduction.
+\item This is one of the most famous and coolest results in modern
+probability theory--so it is nice that you now understand it
+\end{itemize}
+
 \end{document}
