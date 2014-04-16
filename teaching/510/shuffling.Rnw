@@ -9,6 +9,8 @@
 \section*{Administrivia}
 
 \begin{itemize}
+
+\item F92
 \item No homework due this week
 \item  Read the posted section.  Short, understandable but it will
 require thinking.
@@ -69,6 +71,14 @@ THen it is called information theory.
 \end{itemize}
 \end{itemize}
 
+\subsection*{More interesting: shuffling a cube}
+\begin{itemize}
+\item How long to generate a perfectly shuffled cube by randomly
+twistings sides?
+\item Easy: $\infty$!
+\item Why: it is impossible to flip an edge.
+\end{itemize}
+
 \subsection*{Riffle shuffle}
 
 \begin{itemize}
@@ -108,6 +118,22 @@ about 1/100 for a 800 card deck.
 \end{itemize}
 \end{itemize}
 
+\subsection*{Goal: want probability to match real probabilities}
+
+\begin{itemize}
+\item Tell story of random shuffling in bridge
+\item Introduce new-age solitare Hearts and Clubs VS Spades and diamonds
+\item In a new deck, Hearts and clubs wins on the first round
+\item Makes big difference up to 7 or so shuffles
+\end{itemize}
+
+\subsection*{Definition}
+
+\begin{itemize}
+\item Fair game: 50/50 winner
+\item Bad shuffle: one player wins
+\item Value of bad shuffle is how much they win by
+\end{itemize}
 
 
 \section*{What is a shuffle? (riffle shuffle)}
@@ -126,6 +152,14 @@ about 1/100 for a 800 card deck.
 \item Give them equal probability
 \item Anoyance: What about the identity?
 \end{itemize}
+\subsection*{Inverse shuffle}
+\begin{itemize}
+\item work backwards!
+\item Toss a coin for each outcome as t whether it should be from the
+top or the bottom.
+\end{itemize}
+
+
 \subsection*{3rd model: Physics}
 \begin{itemize}
 \item Cut as usual
