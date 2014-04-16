@@ -171,8 +171,6 @@ the size of the deck
 \end{itemize}
 
 
-\section
-
 
 \section*{Second day continue with the following}
 
