@@ -110,6 +110,7 @@ while(<HOME>)
 	    $total += .03;
             if(!$done && $r < $total)
 	    {   # Flush!
+#	      print '<a href="https://www.oddschecker.com/politics/us-politics/donald-trump-specials/trump-exit-date"
 		print '<a href="http://www.patspapers.com/blog/item/what_if_everybody_flushed_at_once_Edmonton_water_gold_medal_hockey_game/"> <img src="flush_game.jpg" border=0, Align="left"></A>';
 		$done = 1;
 	    };
