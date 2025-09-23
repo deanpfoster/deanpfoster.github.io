@@ -1,0 +1,35 @@
+Dean P. Foster studied AI at Rutgers and Statistics at the University
+of Maryland—before those fields merged into what we now call Machine
+Learning. He spent time as a professor at the University of Chicago
+and later at the University of Pennsylvania. In 2015, he made the leap
+from academia to industry, joining Amazon in New York City, where he’s
+been ever since. His current research focuses on machine learning,
+reinforcement learning, and large language models (LLMs).
+
+Dean helped pioneer two major areas in game theory: stochastic
+evolutionary game dynamics and calibrated learning. In both, he
+developed the theoretical tools needed to prove convergence to
+equilibrium. The calibrated learning strategies he introduced stemmed
+from his early work on individual sequences—work that has since become
+foundational in theoretical machine learning. His calibration and
+no-internal-regret algorithms were among the first learning methods
+proven to converge to a correlated equilibrium.
+
+In statistics, he’s best known for his work on large-scale regression
+problems. His early research on risk inflation was one of the first to
+seriously consider models with thousands—or even millions—of potential
+variables. More recently, his work on alpha-investing offers both a
+theoretical foundation for variable selection and a practical
+algorithm that’s fast enough to keep pace with streaming data.
+
+At Amazon, Dean founded a reinforcement learning team in New York
+City. The group is responsible for figuring out how much of each of
+Amazon’s 30 million products to purchase each year—a $300 billion
+decision-making problem. Once those purchases are made, the team’s
+work continues: routing inventory across hundreds of warehouses so
+that products can reach customers quickly. This entire pipeline is
+guided by a multi-agent reinforcement learning system.
+
+These days, Dean is especially interested in how LLMs can be used not
+just to write code, but to prove theorems about code—a step toward
+systems that can reason about software as well as generate it.
