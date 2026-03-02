@@ -15,7 +15,7 @@
 <header class="hero">
   <div class="container hero-inner">
     <a href="interlude.html">
-      <img class="hero-photo" src="./dean.jpg" alt="Dean P. Foster">
+      <img class="hero-photo" id="hero-photo" src="./dean.jpg" alt="Dean P. Foster">
     </a>
     <div>
       <h1>Dean P. Foster</h1>
@@ -142,6 +142,11 @@ University of Pennsylvania</p>
     <p>&copy; Dean P. Foster</p>
   </div>
 </footer>
+
+<!-- ======== Random Hero Photo ======== -->
+<script>
+if (Math.random() < 0.5) document.getElementById("hero-photo").src = "./dean_bike_fall.jpg";
+</script>
 
 <!-- ======== Random Featured Image (replaces index.pl logic) ======== -->
 <script>
