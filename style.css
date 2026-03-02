@@ -97,7 +97,7 @@ a:hover, a:focus {
   border-radius: 50%;
   border: 3px solid var(--color-border);
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center center;
   flex-shrink: 0;
 }
 

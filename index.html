@@ -145,7 +145,11 @@ University of Pennsylvania</p>
 
 <!-- ======== Random Hero Photo ======== -->
 <script>
-if (Math.random() < 0.5) document.getElementById("hero-photo").src = "./dean_bike_fall.jpg";
+if (Math.random() < 0.5) {
+  var p = document.getElementById("hero-photo");
+  p.src = "./dean_bike_fall.jpg";
+  p.style.objectPosition = "center 25%";
+}
 </script>
 
 <!-- ======== Random Featured Image (replaces index.pl logic) ======== -->
