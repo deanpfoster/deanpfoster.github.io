@@ -93,10 +93,11 @@ a:hover, a:focus {
 
 .hero-photo {
   width: 160px;
-  height: auto;
+  height: 160px;
   border-radius: 50%;
   border: 3px solid var(--color-border);
   object-fit: cover;
+  object-position: center 25%;
   flex-shrink: 0;
 }
 
@@ -130,6 +131,7 @@ a:hover, a:focus {
   }
   .hero-photo {
     width: 180px;
+    height: 180px;
   }
   .hero h1 {
     font-size: 2rem;
